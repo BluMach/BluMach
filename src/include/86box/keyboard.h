@@ -15,6 +15,8 @@
  *          Copyright 2008-2019 Sarah Walker.
  *          Copyright 2016-2025 Miran Grca.
  *          Copyright 2017-2019 Fred N. van Kempen.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #ifndef EMU_KEYBOARD_H
 #define EMU_KEYBOARD_H
@@ -199,6 +201,7 @@ extern const device_t kbc_tandy_device;
 extern const device_t kbc_xt_lxt3_device;
 extern const device_t kbc_xt_olivetti_device;
 extern const device_t kbc_xt_m15_device;
+extern const device_t kbc_xt_m15plus_device;
 extern const device_t kbc_xt_zenith_device;
 extern const device_t kbc_xt_hyundai_device;
 extern const device_t kbc_xt_fe2010_device;
@@ -232,6 +235,7 @@ extern void     keyboard_set_in_reset(uint8_t in_reset);
 extern uint8_t  keyboard_get_in_reset(void);
 extern void     keyboard_get_states(uint8_t *cl, uint8_t *nl, uint8_t *sl, uint8_t *kl);
 extern void     keyboard_set_states(uint8_t cl, uint8_t nl, uint8_t sl);
+extern int      keyboard_m15_input(int down, uint16_t *scan);
 extern void     keyboard_at_set_scancode_set_persistent(uint8_t persistent);
 extern int      keyboard_recv(uint16_t key);
 extern int      keyboard_recv_ui(uint16_t key);

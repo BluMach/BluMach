@@ -1,0 +1,160 @@
+{
+  "order": 16,
+  "machine": {
+    "id": "olivetti-m15-plus",
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m15",
+    "platform_id": "olivetti-m15-plus-platform",
+    "name": "Olivetti M15 Plus",
+    "summary_key": "product.olivetti-m15-plus.summary",
+    "history_key": "product.olivetti-m15-plus.history",
+    "warning_key": "product.olivetti-m15-plus.warning",
+    "status": "experimental",
+    "period": "1988",
+    "aliases": ["Olivetti M-15 Plus", "Olivetti M15 PLUS"],
+    "tags": ["80C88", "4.77 MHz", "XT-compatible", "backlit LCD", "portable", "720 KB", "dual floppy", "20 MB HDU", "SCSI"],
+    "facets": {
+      "form_factor": ["laptop"],
+      "mobility": ["portable"],
+      "cpu_generation": ["x86_8086"],
+      "video": ["cga"],
+      "display_technology": ["lcd"],
+      "display_color": ["monochrome"],
+      "storage_interface": ["floppy"]
+    },
+    "hardware": {
+      "cpu": "Intel 80C88 at 4.77 MHz",
+      "memory": "512 KB user RAM; 16 KB video RAM",
+      "video": "10.5-inch backlit super-twist monochrome LCD; eight observed shade codes, 40/80-column text and 320×200/640×200 BIOS graphics modes",
+      "floppy": "Pilot: two internal 3.5-inch, 720 KB drives",
+      "rtc": "Battery-backed clock/calendar; BIOS accesses an MSM6242-compatible register set at 0100h-010Fh",
+      "interfaces": "RS-232C, Centronics parallel and optional external 5.25-inch floppy; no documented external video connector",
+      "keyboard": "Detachable 78-key keyboard with latching EDIT/SHIFT, integrated numeric keypad and ten function keys",
+      "hard_disk": "Alternative commercial configuration: one 720 KB floppy and one 20 MB internal HDU. Olivetti labels the drive interface SCSI; the integrated host adapter is modelled through its BIOS-observed XT-compatible register contract"
+    },
+    "firmware": {
+      "known_sets": ["System BIOS 1.10 (1988-06-03; local custody only)"],
+      "required": true,
+      "identity_note": "The 32 KB BIOS maps at F8000h-FFFFFh. Provenance and redistribution rights remain pending."
+    },
+    "storage": {
+      "bus": "Two internal floppy drives, or one floppy plus an integrated 20 MB HDU/SCSI adapter with an XT-compatible host interface",
+      "official_drives": ["Two internal 3.5-inch 720 KB drives", "Alternative: one internal 720 KB drive plus 20 MB HDU", "Optional external 5.25-inch 360 KB drive"]
+    },
+    "relationships": {
+      "related_models": ["Olivetti M15"],
+      "distinct_from": ["Olivetti M15", "Olivetti M19"]
+    },
+    "creation": {
+      "status": "experimental",
+      "directory_prefix": "olivetti-m15-plus",
+      "facts": [
+        {"label_key": "creation.label.memory", "value_key": "product.olivetti-m15-plus.creation.memory"}
+      ],
+      "fields": [
+        {
+          "id": "commercial_model",
+          "label_key": "creation.label.commercial_model",
+          "default": "dual-floppy",
+          "choices": [
+            {
+              "id": "dual-floppy",
+              "label_key": "product.olivetti-m15-plus.creation.variant.dual_floppy",
+              "status": "experimental",
+              "set": []
+            },
+            {
+              "id": "hdu-20mb",
+              "label_key": "product.olivetti-m15-plus.creation.variant.hdu_20mb",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "none"
+                },
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "internal"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m15-plus-hdu-20mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 4, 615, 0, xta"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_xta_channel",
+                  "value": 0
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m15-plus-hdu-20mb.img",
+                  "size": 21411840
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": ["product.olivetti-m15-plus.creation.note", "product.olivetti-m15-plus.creation.hdu_note"],
+      "configuration": [
+        {"section": "General", "values": {"vid_renderer": "qt_software", "time_sync": "disabled"}},
+        {"section": "Machine", "values": {"cpu_family": "8088", "cpu_speed": 4772728, "cpu_multi": 1, "cpu_use_dynarec": 0, "mem_size": 512}},
+        {"section": "Video", "values": {"gfxcard": "internal"}},
+        {"section": "Input devices", "values": {"keyboard_type": "keyboard_pc_xt", "mouse_type": "none"}},
+        {"section": "Floppy and CD-ROM drives", "values": {"fdd_01_type": "35_2dd", "fdd_02_type": "35_2dd"}},
+        {"section": "Storage controllers", "values": {"hdc_1": "none"}}
+      ],
+      "generated_files": []
+    },
+    "implementation": {
+      "document": "olivetti-m15-plus-implementation.md",
+      "language": "en"
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {"label_key": "technical.label.cpu_bus", "value_key": "product.olivetti-m15-plus.technical.cpu_bus"},
+          {"label_key": "technical.label.video", "value_key": "product.olivetti-m15-plus.technical.video"},
+          {"label_key": "technical.label.jumpers", "value_key": "product.olivetti-m15-plus.technical.switches"},
+          {"label_key": "technical.label.firmware_evidence", "value_key": "product.olivetti-m15-plus.technical.firmware"}
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {"label_key": "technical.label.implementation_lineage", "value_key": "product.olivetti-m15-plus.technical.implementation"},
+          {"label_key": "technical.label.verified", "value_key": "product.olivetti-m15-plus.technical.status"},
+          {"label_key": "technical.label.limitations", "value_key": "product.olivetti-m15-plus.technical.limitations"}
+        ]
+      },
+      {
+        "title_key": "technical.section.sources",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {"label_key": "technical.label.manual", "value_key": "product.olivetti-m15-plus.source.manual", "url": "https://mail.minuszerodegrees.net/manuals/Olivetti/Olivetti%20-%20M15%20Plus%20-%20Installation%20and%20Operations%20Guide.pdf"},
+          {"label_key": "technical.label.brochure", "value_key": "product.olivetti-m15-plus.source.brochure", "url": "https://www.museotecnologicamente.it/wp-content/uploads/M15_Depliant_inglese.pdf"},
+          {"label_key": "technical.label.firmware_evidence", "value_key": "product.olivetti-m15-plus.source.firmware", "url": "https://minuszerodegrees.net/rom/rom.htm"},
+          {"label_key": "technical.label.software", "value_key": "product.olivetti-m15-plus.source.software", "url": "https://olivrea.de/software/"}
+        ]
+      }
+    ]
+  },
+  "platform_order": 16,
+  "platform": {
+    "id": "olivetti-m15-plus-platform",
+    "emulator_machine_id": "olivetti_m15plus",
+    "architecture": "80C88"
+  }
+}

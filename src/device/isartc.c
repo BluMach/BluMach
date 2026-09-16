@@ -60,6 +60,8 @@
  * THEORY OF  LIABILITY, WHETHER IN  CONTRACT, STRICT  LIABILITY, OR  TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING  IN ANY  WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #include <stdarg.h>
 #include <stdio.h>
@@ -1515,7 +1517,24 @@ m6242_tick(nvr_t *nvr)
         (nvr->regs[M6242_CONTROL_F] & M6242_STOP))
         return;
 
-    nvr_time_get(&clk);
+    m6242_time_get(nvr, &clk);
+    if (++clk.tm_sec >= 60) {
+        clk.tm_sec = 0;
+        if (++clk.tm_min >= 60) {
+            clk.tm_min = 0;
+            if (++clk.tm_hour >= 24) {
+                clk.tm_hour = 0;
+                clk.tm_wday = (clk.tm_wday + 1) % 7;
+                if (++clk.tm_mday > nvr_get_days(clk.tm_mon + 1, clk.tm_year + 1900)) {
+                    clk.tm_mday = 1;
+                    if (++clk.tm_mon >= 12) {
+                        clk.tm_mon = 0;
+                        clk.tm_year++;
+                    }
+                }
+            }
+        }
+    }
     m6242_time_set(nvr, &clk);
 }
 

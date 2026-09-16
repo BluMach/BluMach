@@ -17,6 +17,8 @@
  *          Copyright 2016-2025 Miran Grca.
  *          Copyright 2017-2025 Fred N. van Kempen.
  *          Copyright 2025      Jasmine Iwanek.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #include <stdio.h>
 #include <stdint.h>
@@ -50,10 +52,10 @@
 
 /* 8088 */
 static void
-machine_xt_common_init(const machine_t *model, int fixed_floppy)
+machine_xt_common_init_with_fdc(const machine_t *model, int fixed_floppy, const device_t *fixed_fdc)
 {
     if ((fdc_current[0] == FDC_INTERNAL) || fixed_floppy)
-        device_add(&fdc_xt_device);
+        device_add(fixed_fdc ? fixed_fdc : &fdc_xt_device);
 
     machine_common_init(model);
 
@@ -61,6 +63,12 @@ machine_xt_common_init(const machine_t *model, int fixed_floppy)
 
     nmi_init();
     standalone_gameport_type = &gameport_200_device;
+}
+
+static void
+machine_xt_common_init(const machine_t *model, int fixed_floppy)
+{
+    machine_xt_common_init_with_fdc(model, fixed_floppy, NULL);
 }
 
 static const device_config_t ibmpc_config[] = {
@@ -2227,7 +2235,7 @@ machine_xt_z184_init(const machine_t *model)
 #define M15_BIOS_FONT_SCANLINES 8
 
 static void
-m15_load_bios_font(void)
+m15_family_load_bios_font(void)
 {
     uint16_t glyph;
     uint8_t  scanline;
@@ -2239,26 +2247,17 @@ m15_load_bios_font(void)
     }
 }
 
-int
-machine_xt_olivetti_m15_init(const machine_t *model)
+static int
+machine_xt_olivetti_m15_family_init(const machine_t *model, const device_t *kbc)
 {
     lpt_t *lpt;
-    int    ret;
 
-    ret = bios_load_linear("roms/machines/olivetti_m15/OLIV_M15.BIN",
-                           0x000f0000, 65536, 0);
+    device_add(kbc);
+    machine_xt_common_init_with_fdc(model, 1, &fdc_xt_m15_device);
 
-    if (bios_only || !ret)
-        return ret;
-
-    device_add(&kbc_xt_m15_device);
-    machine_xt_common_init(model, 1);
-
-    /* The resident BIOS timer test shows that the 8253 is clocked at roughly
-       CPU/3 rather than the IBM PC/XT rate. With the available NMOS 8088 core,
-       a 97/128 XT-period ratio keeps all three BIOS counter measurements in
-       their documented acceptance windows; this remains a calibrated 80C88
-       timing approximation pending a dedicated CMOS core or hardware trace. */
+    /* Both firmware revisions exercise the timer through the same resident
+       diagnostic.  Retain the calibrated M15-family approximation until a
+       CMOS 80C88 core or a physical M15 Plus timing trace is available. */
     pit_set_clock_period_ratio(pit_devs[0].data, 97, 128);
 
     lpt = device_add_inst(&lpt_port_device, 1);
@@ -2269,18 +2268,46 @@ machine_xt_olivetti_m15_init(const machine_t *model)
     device_add(&ns8250_device);
     serial_set_next_inst(SERIAL_MAX - 1);
 
-    /* The mainboard's OKI MSM6242 is decoded directly at 0100h-010fh.
-       Its HOLD/BUSY handshake is required before the BIOS can leave its
-       post-floppy clock read and transfer control to the boot sector. */
+    /* BIOS 1.08 and 1.10 both access the MSM6242 directly at 0100h-010fh. */
     device_add(&oki_m6242_m15_device);
 
-    /* The internal LCD is fixed, but must follow the normal internal-video
-       selection path so that the catalogue profile and Configure dialog
-       initialise the same device. */
     if (gfxcard[0] == VID_INTERNAL) {
         device_add(machine_get_vid_device(machine));
-        m15_load_bios_font();
+        m15_family_load_bios_font();
     }
+
+    return 1;
+}
+
+int
+machine_xt_olivetti_m15_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/olivetti_m15/OLIV_M15.BIN",
+                           0x000f0000, 65536, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    return machine_xt_olivetti_m15_family_init(model, &kbc_xt_m15_device);
+}
+
+int
+machine_xt_olivetti_m15plus_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/olivetti_m15plus/Olivetti-M15-Plus-BIOS-1.10.bin",
+                           0x000f8000, 32768, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    ret = machine_xt_olivetti_m15_family_init(model, &kbc_xt_m15plus_device);
+
+    if (ret && (hdc_current[0] == HDC_INTERNAL))
+        device_add(&xta_olivetti_m15plus_device);
 
     return ret;
 }
