@@ -26,5 +26,12 @@
   "product.toshiba-t5200.technical.validation": "Toshiba MS-DOS 3.30 boots through both the internal 16-level orange plasma view and the external color VGA view, and from 720 KB and 1.44 MB media. TEST3 identifies the T5200 and passes memory at every selectable size. EMS selectors pass a direct guest probe. Cache control, Toshiba integration and the PDC-GA transfer curve are deliberately narrow approximations; this is functional validation, not cycle accuracy.",
   "product.toshiba-t5200.technical.manual": "Toshiba T5200 maintenance manual: system boards, diagnostics, connectors and custom-logic roles.",
   "product.toshiba-t5200.source.summary": "Toshiba product summary",
-  "product.toshiba-t5200.technical.summary": "T5200/T5200C model numbers, configurations, dimensions and principal hardware specifications."
+  "product.toshiba-t5200.technical.summary": "T5200/T5200C model numbers, configurations, dimensions and principal hardware specifications.",
+  "product.toshiba-t5200.creation.third_party_expansion": "Third-party expansion",
+  "product.toshiba-t5200.creation.expansion.none": "None — original Toshiba configuration",
+  "product.toshiba-t5200.creation.expansion.3inoneder_b": "Conventional Memories 3inONEder version B — third-party OPL3 and joystick",
+  "product.toshiba-t5200.creation.expansion.3inoneder_c": "Conventional Memories 3inONEder version C — third-party OPL3, joystick and Ethernet",
+  "product.toshiba-t5200.creation.third_party_note": "The 3inONEder is a later third-party accessory, not Toshiba equipment or an original commercial T5200 configuration. BluMach provides an independent interoperability implementation and is not affiliated with or endorsed by Conventional Memories. No manufacturer code, firmware, artwork or other product assets are included. CompactFlash firmware is disabled at creation; after supplying compatible firmware separately, select the matching XTIDE option in Configure. Version C requires AT320INT at 320h when XTIDE is enabled.",
+  "product.toshiba-t5200.technical.third_party_expansion.label": "Third-party expansion",
+  "product.toshiba-t5200.technical.third_party_expansion": "The documented Toshiba A-form-factor position may host Conventional Memories' later 3inONEder accessory, not a Toshiba product. Version B adds OPL3 and an IBM-compatible joystick; version C additionally offers an 8-bit, partially NE2000-compatible Ethernet function. These emulated accessory choices remain pending guest validation."
 }

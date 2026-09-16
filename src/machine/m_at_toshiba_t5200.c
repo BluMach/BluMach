@@ -23,6 +23,7 @@
 #include <86box/86box.h>
 #include "cpu.h"
 #include <86box/timer.h>
+#include <86box/conventional_3inoneder.h>
 #include <86box/toshiba_aform.h>
 #include <86box/io.h>
 #include <86box/device.h>
@@ -138,9 +139,80 @@ static const device_config_t t5200_config[] = {
         .spinner        = { 0 },
         .selection      = {
             { .description = "IBM PC/XT-compatible ISA-8 position", .value = 0 },
-            { .description = "Toshiba proprietary A form factor (reserved)", .value = 1 },
+            { .description = "Toshiba proprietary A form factor", .value = 1 },
             { .description = "" }
         },
+        .bios           = { { 0 } }
+    },
+    {
+        .name           = "aform_card",
+        .description    = "Toshiba A-form-factor card",
+        .type           = CONFIG_SELECTION,
+        .default_string = NULL,
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = {
+            { .description = "None", .value = 0 },
+            { .description = "Conventional Memories 3inONEder", .value = 1 },
+            { .description = "" }
+        },
+        .bios           = { { 0 } }
+    },
+    {
+        .name           = "aform_3inoneder_opl_io",
+        .description    = "3inONEder OPL3 I/O decoding",
+        .type           = CONFIG_SELECTION,
+        .default_string = NULL,
+        .default_int    = CONVENTIONAL_3INONEDER_OPL_388_AND_220,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = {
+            { .description = "388h",          .value = CONVENTIONAL_3INONEDER_OPL_388 },
+            { .description = "220h",          .value = CONVENTIONAL_3INONEDER_OPL_220 },
+            { .description = "240h",          .value = CONVENTIONAL_3INONEDER_OPL_240 },
+            { .description = "388h and 220h", .value = CONVENTIONAL_3INONEDER_OPL_388_AND_220 },
+            { .description = "Disabled (version A / CF only)", .value = CONVENTIONAL_3INONEDER_OPL_DISABLED },
+            { .description = "" }
+        },
+        .bios           = { { 0 } }
+    },
+    {
+        .name           = "aform_3inoneder_xtide",
+        .description    = "3inONEder CompactFlash/XTIDE firmware",
+        .type           = CONFIG_SELECTION,
+        .default_string = NULL,
+        .default_int    = CONVENTIONAL_3INONEDER_XTIDE_NONE,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = {
+            { .description = "Disabled (OPL3 section only)", .value = CONVENTIONAL_3INONEDER_XTIDE_NONE },
+    { .description = "AT-INT at 300h (requires user-supplied firmware)", .value = CONVENTIONAL_3INONEDER_XTIDE_AT_INT_300 },
+    { .description = "AT320INT at 320h (requires user-supplied firmware)", .value = CONVENTIONAL_3INONEDER_XTIDE_AT320INT_320 },
+            { .description = "" }
+        },
+        .bios           = { { 0 } }
+    },
+    {
+        .name           = "aform_3inoneder_joystick",
+        .description    = "3inONEder PC joystick port",
+        .type           = CONFIG_BINARY,
+        .default_string = NULL,
+        .default_int    = 1,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = { { 0 } }
+    },
+    {
+        .name           = "aform_3inoneder_ethernet",
+        .description    = "3inONEder Ethernet (8-bit NE2000-compatible)",
+        .type           = CONFIG_BINARY,
+        .default_string = NULL,
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
         .bios           = { { 0 } }
     },
     { .name = "", .description = "", .type = CONFIG_END }
@@ -596,6 +668,17 @@ machine_at_t5200_init(const machine_t *model)
             .signals = TOSHIBA_AFORM_T5200_SIGNALS
         };
         device_add_params(&toshiba_aform_slot_device, (void *) &aform_params);
+
+        if (device_get_config_int("aform_card") == 1) {
+            const conventional_3inoneder_params_t card_params = {
+                .machine = "t5200",
+                .opl_io = device_get_config_int("aform_3inoneder_opl_io"),
+                .xtide = device_get_config_int("aform_3inoneder_xtide"),
+                .joystick = device_get_config_int("aform_3inoneder_joystick"),
+                .ethernet = device_get_config_int("aform_3inoneder_ethernet")
+            };
+            device_add_params(&conventional_3inoneder_device, (void *) &card_params);
+        }
     }
 
     if (fdc_current[0] == FDC_INTERNAL)

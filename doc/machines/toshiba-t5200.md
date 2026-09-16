@@ -11,6 +11,11 @@ Toshiba gate arrays are represented by narrow behavioural models. See the
 [implementation narrative](toshiba-t5200-implementation.md) for the evidence,
 failed hypotheses and replacement criteria behind those compromises.
 
+The optional 3inONEder support is an independent interoperability
+implementation. BluMach and its contributors are not affiliated with or
+endorsed by Conventional Memories. No manufacturer source code, firmware,
+artwork, logos or other product assets are included.
+
 ## Supported configuration
 
 - Intel 80386DX at 20 MHz, with optional 80387 through the normal machine UI.
@@ -23,10 +28,20 @@ failed hypotheses and replacement criteria behind those compromises.
 - IDE initialization is present, but the documented Conner disks are omitted
   from catalogue creation until their geometries and firmware behavior are
   validated.
-- The half-length expansion position can be reserved for its documented
-  Toshiba-only **A form factor** instead of ISA-8. Its initial endpoint exposes
-  I/O, option-ROM/memory and IRQ5/IRQ9 services for a future documented card;
-  it does not emulate a card yet.
+- The half-length expansion position can be configured as its documented
+  Toshiba-only **A form factor** instead of ISA-8. With the documented
+  Conventional Memories 3inONEder selected, its YMF262-M/YAC512-M OPL3 sound
+  section is available at 388h, 220h, 240h or dual 388h/220h decoding. Its CF
+  bridge uses user-supplied firmware at C8000h and I/O 300h (AT-INT) or 320h
+  (AT320INT); each image remains a separate local input.
+- Dual 388h/220h decoding is the publicly documented default. Disabling
+  OPL3 while enabling an XTIDE image represents the CF-only version A.
+- The documented PC joystick port is available at 201h, using the IBM Game
+  Control Adapter-compatible four-axis/four-button behavior described in the
+  public product documentation. Ethernet is optional (version C): it is modeled as the stated
+  8-bit, partially NE2000-compatible controller at its documented factory
+  default of 300h/IRQ5, without a network boot ROM. Selecting it with XTIDE
+  requires the AT320INT image at 320h because 300h belongs to Ethernet.
 
 The firmware's Plasma/CRT-only selection controls whether the internal panel
 is active. When CRT-only has blanked the panel, **Ctrl+Home** performs the
@@ -44,6 +59,20 @@ BluMach.
 | `t5200-vga-1988.bin` | 32,768 bytes | `baeee31a5cbc4c3f8505c93e483ae87a0eb529a900f41d5fb1c0e2545f5ccf14` |
 
 The VGA device maps the declared 24 KB image through its 32 KB EPROM dump.
+
+To enable the 3inONEder CompactFlash/XTIDE setting, obtain the compatible
+firmware separately and copy it into the local ROM directory. BluMach does not
+provide or distribute it:
+
+| Local file | Required variant | I/O base |
+|---|---|---:|
+| `roms/machines/t5200/3inoneder/3inoneder-at-int.bin` | AT-INT | 300h |
+| `roms/machines/t5200/3inoneder/3inoneder-at320int.bin` | AT320INT | 320h |
+
+Use the normal hard-disk dialog to create or attach the CompactFlash image as
+an IDE disk on channel **1:0** (or **1:1** for a second device). Channels
+0:0/0:1 remain the T5200's internal IDE controller; the conventional IDE
+dialog is intentionally reused rather than presenting CF as a floppy.
 
 ## Validation
 
@@ -78,6 +107,10 @@ These checks establish a functional vertical slice, not cycle accuracy.
   positive connector evidence. It is mutually exclusive with the half-length
   ISA-8 position; PJ12's 16-bit extension, electrical timing/DMA behavior and
   arbitrary ISA-card compatibility remain unmodeled.
+- The 3inONEder Ethernet model uses a shared 8-bit NE2000-compatible core at
+  the publicly documented factory resources. Its exact controller, RSET8019
+  persistent configuration mechanism, MAC/NVRAM behavior, analogue network
+  front end and packet-driver interoperability remain to be validated.
 - External-floppy routing and documented Conner hard disks remain incomplete.
 - Ctrl+Home currently reaches the PDC model directly. The original 8749
   SCC/8042/BIOS notification transaction and CRT indicator are not reproduced.
@@ -87,6 +120,7 @@ These checks establish a functional vertical slice, not cycle accuracy.
 - [Toshiba T5200 Maintenance Manual](https://archive.org/details/toshiba-t-5200-maintenance-manual)
 - [Toshiba T5200 and T5200C summary](https://www.minuszerodegrees.net/manuals/Toshiba/Other/Toshiba%20T5200%20and%20T5200C%20-%20Summary.pdf)
 - [T5200 TECHaccess specification](https://conventionalmemories.com/Toshiba/TECHaccess/tech5580.htm)
+- [3inONEder developer reference](https://conventionalmemories.com/wiki_cm/3inONEder_for_Toshiba_portables)
 
 The canonical local preservation record is `library/toshiba/t5200`, stable ID
 `t5200`. Firmware, diagnostics, disks, manuals and validation captures remain

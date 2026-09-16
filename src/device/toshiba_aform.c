@@ -104,6 +104,21 @@ toshiba_aform_slot_set_io_handler(toshiba_aform_slot_t *slot,
 }
 
 int
+toshiba_aform_slot_remove_io_handler(toshiba_aform_slot_t *slot,
+                                     uint16_t base, uint16_t size,
+                                     uint8_t (*inb)(uint16_t, void *),
+                                     void (*outb)(uint16_t, uint8_t, void *),
+                                     void *priv)
+{
+    if (!toshiba_aform_slot_has_signals(slot, TOSHIBA_AFORM_SIGNAL_IO) ||
+        !size)
+        return 0;
+
+    io_removehandler(base, size, inb, NULL, NULL, outb, NULL, NULL, priv);
+    return 1;
+}
+
+int
 toshiba_aform_slot_add_mapping(toshiba_aform_slot_t *slot,
                                mem_mapping_t *mapping,
                                uint32_t base, uint32_t size,
@@ -120,6 +135,18 @@ toshiba_aform_slot_add_mapping(toshiba_aform_slot_t *slot,
 
     mem_mapping_add(mapping, base, size, read_b, NULL, NULL, write_b, NULL,
                     NULL, exec, flags | MEM_MAPPING_EXTERNAL, priv);
+    return 1;
+}
+
+int
+toshiba_aform_slot_remove_mapping(toshiba_aform_slot_t *slot,
+                                  mem_mapping_t *mapping)
+{
+    if (!mapping || !toshiba_aform_slot_has_signals(slot,
+                                                     TOSHIBA_AFORM_SIGNAL_MEMORY))
+        return 0;
+
+    mem_mapping_disable(mapping);
     return 1;
 }
 

@@ -26,5 +26,12 @@
   "product.toshiba-t5200.technical.validation": "Toshiba MS-DOS 3.30 démarre avec la vue plasma orange interne à 16 niveaux comme avec la vue VGA couleur externe, et depuis des supports de 720 Ko et 1,44 Mo. TEST3 identifie le T5200 et valide la mémoire pour toutes les tailles sélectionnables. Une sonde directe dans l’invité valide les sélecteurs EMS. Le contrôle du cache, l’intégration Toshiba et la courbe du PDC-GA sont des approximations volontairement limitées ; il s’agit d’une validation fonctionnelle, pas d’une précision au cycle près.",
   "product.toshiba-t5200.technical.manual": "Manuel de maintenance Toshiba T5200 : cartes, diagnostics, connecteurs et rôles de la logique propriétaire.",
   "product.toshiba-t5200.source.summary": "Résumé produit Toshiba",
-  "product.toshiba-t5200.technical.summary": "Références T5200/T5200C, configurations, dimensions et principales caractéristiques matérielles."
+  "product.toshiba-t5200.technical.summary": "Références T5200/T5200C, configurations, dimensions et principales caractéristiques matérielles.",
+  "product.toshiba-t5200.creation.third_party_expansion": "Extension tierce",
+  "product.toshiba-t5200.creation.expansion.none": "Aucune — configuration Toshiba d'origine",
+  "product.toshiba-t5200.creation.expansion.3inoneder_b": "Conventional Memories 3inONEder version B — OPL3 et joystick tiers",
+  "product.toshiba-t5200.creation.expansion.3inoneder_c": "Conventional Memories 3inONEder version C — OPL3, joystick et Ethernet tiers",
+  "product.toshiba-t5200.creation.third_party_note": "La 3inONEder est un accessoire tiers ultérieur, ni un équipement Toshiba ni une configuration commerciale T5200 d'origine. BluMach fournit une implémentation d'interopérabilité indépendante et n'est ni affilié à Conventional Memories ni approuvé par cette société. Aucun code, micrologiciel, élément graphique ou autre actif du fabricant n'est inclus. Le micrologiciel CompactFlash est désactivé à la création ; après avoir fourni séparément un micrologiciel compatible, sélectionnez l'option XTIDE correspondante dans Configurer. La version C exige AT320INT à 320h lorsque XTIDE est activé.",
+  "product.toshiba-t5200.technical.third_party_expansion.label": "Extension tierce",
+  "product.toshiba-t5200.technical.third_party_expansion": "La position A form factor documentée par Toshiba peut accueillir l'accessoire ultérieur 3inONEder de Conventional Memories, et non un produit Toshiba. La version B ajoute OPL3 et un joystick compatible IBM ; la version C ajoute une fonction Ethernet huit bits partiellement compatible NE2000. Ces choix d'accessoires émulés restent à valider dans l'invité."
 }

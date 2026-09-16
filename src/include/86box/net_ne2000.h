@@ -48,4 +48,10 @@ enum {
     /* Check nic_init() if adding items after this point. */
 };
 
+#ifdef EMU_DEVICE_H
+/* Fixed 3inONEder defaults documented by Conventional Memories: 300h, IRQ5,
+   8-bit datapath and no network boot ROM. */
+extern const device_t conventional_3inoneder_ne2000_8bit_device;
+#endif
+
 #endif /*NET_NE2000_H*/

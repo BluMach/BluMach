@@ -3444,6 +3444,25 @@ ide_xtide_close(void)
     ide_board_close(0);
 }
 
+void *
+ide_xtide_init_board(int board)
+{
+    if (board < 0 || board >= IDE_BUS_MAX || ide_boards[board] != NULL)
+        return NULL;
+
+    /* The expansion device supplies its own I/O decode; this board supplies
+       only the two IDE drive positions and PIO engine. */
+    ide_board_init(board, -1, 0, 0, 0, 0);
+    return ide_boards[board];
+}
+
+void
+ide_xtide_close_board(int board)
+{
+    if (board >= 0 && board < IDE_BUS_MAX)
+        ide_board_close(board);
+}
+
 void
 ide_xtide_set_is_jride(int is_jride)
 {

@@ -55,6 +55,11 @@ extern int toshiba_aform_slot_set_io_handler(toshiba_aform_slot_t *slot,
                                              uint8_t (*inb)(uint16_t, void *),
                                              void (*outb)(uint16_t, uint8_t, void *),
                                              void *priv);
+extern int toshiba_aform_slot_remove_io_handler(toshiba_aform_slot_t *slot,
+                                                uint16_t base, uint16_t size,
+                                                uint8_t (*inb)(uint16_t, void *),
+                                                void (*outb)(uint16_t, uint8_t, void *),
+                                                void *priv);
 extern int toshiba_aform_slot_add_mapping(toshiba_aform_slot_t *slot,
                                           mem_mapping_t *mapping,
                                           uint32_t base, uint32_t size,
@@ -62,6 +67,8 @@ extern int toshiba_aform_slot_add_mapping(toshiba_aform_slot_t *slot,
                                           void (*write_b)(uint32_t, uint8_t, void *),
                                           uint8_t *exec, uint32_t flags,
                                           void *priv);
+extern int toshiba_aform_slot_remove_mapping(toshiba_aform_slot_t *slot,
+                                             mem_mapping_t *mapping);
 extern int toshiba_aform_slot_set_irq(toshiba_aform_slot_t *slot, int irq,
                                       int asserted);
 

@@ -172,10 +172,36 @@
               "set": [{ "section": "Floppy and CD-ROM drives", "key": "fdd_01_type", "value": "35_2dd" }]
             }
           ]
+        },
+        {
+          "id": "third_party_expansion",
+          "label_key": "product.toshiba-t5200.creation.third_party_expansion",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.toshiba-t5200.creation.expansion.none",
+              "status": "documented",
+              "set": [{ "section": "Toshiba T5200", "key": "half_length_expansion", "value": 0 }, { "section": "Toshiba T5200", "key": "aform_card", "value": 0 }]
+            },
+            {
+              "id": "3inoneder-b",
+              "label_key": "product.toshiba-t5200.creation.expansion.3inoneder_b",
+              "status": "experimental",
+              "set": [{ "section": "Toshiba T5200", "key": "half_length_expansion", "value": 1 }, { "section": "Toshiba T5200", "key": "aform_card", "value": 1 }, { "section": "Toshiba T5200", "key": "aform_3inoneder_opl_io", "value": 3 }, { "section": "Toshiba T5200", "key": "aform_3inoneder_xtide", "value": 0 }, { "section": "Toshiba T5200", "key": "aform_3inoneder_joystick", "value": 1 }, { "section": "Toshiba T5200", "key": "aform_3inoneder_ethernet", "value": 0 }]
+            },
+            {
+              "id": "3inoneder-c",
+              "label_key": "product.toshiba-t5200.creation.expansion.3inoneder_c",
+              "status": "experimental",
+              "set": [{ "section": "Toshiba T5200", "key": "half_length_expansion", "value": 1 }, { "section": "Toshiba T5200", "key": "aform_card", "value": 1 }, { "section": "Toshiba T5200", "key": "aform_3inoneder_opl_io", "value": 3 }, { "section": "Toshiba T5200", "key": "aform_3inoneder_xtide", "value": 0 }, { "section": "Toshiba T5200", "key": "aform_3inoneder_joystick", "value": 1 }, { "section": "Toshiba T5200", "key": "aform_3inoneder_ethernet", "value": 1 }]
+            }
+          ]
         }
       ],
       "note_keys": [
-        "product.toshiba-t5200.creation.note"
+        "product.toshiba-t5200.creation.note",
+        "product.toshiba-t5200.creation.third_party_note"
       ],
       "generated_files": [],
       "configuration": [
@@ -201,7 +227,9 @@
           "section": "Toshiba T5200",
           "values": {
             "bios": "award_v130",
-            "display_output": 0
+            "display_output": 0,
+            "half_length_expansion": 0,
+            "aform_card": 0
           }
         },
         {
@@ -266,6 +294,10 @@
           {
             "label_key": "technical.label.storage",
             "value_key": "product.toshiba-t5200.technical.storage"
+          },
+          {
+            "label_key": "product.toshiba-t5200.technical.third_party_expansion.label",
+            "value_key": "product.toshiba-t5200.technical.third_party_expansion"
           }
         ]
       },
