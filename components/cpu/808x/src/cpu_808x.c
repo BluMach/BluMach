@@ -3807,8 +3807,11 @@ execute_one(bm_808x_state_t *state)
             uint8_t value = 0U;
             uint16_t offset = (uint16_t) (state->registers[REG_BX] +
                                           get_register_byte(state, 0U));
-            status = read_byte(state, state->segments[segment], offset,
-                               BM_BUS_READ, &value);
+            begin_operand_execution_timeline(state);
+            status = place_execution_clocks(state, 3U);
+            if (status == BM_STATUS_OK)
+                status = read_byte(state, state->segments[segment], offset,
+                                   BM_BUS_READ, &value);
             if (status == BM_STATUS_OK)
                 set_register_byte(state, 0U, value);
             return status;
@@ -3829,6 +3832,7 @@ execute_one(bm_808x_state_t *state)
             uint16_t offset;
             unsigned int segment = (segment_override >= 0) ?
                                    (unsigned int) segment_override : 3U;
+            begin_operand_execution_timeline(state);
             status = fetch_word(state, &offset);
             if (status != BM_STATUS_OK)
                 return status;
@@ -3843,6 +3847,9 @@ execute_one(bm_808x_state_t *state)
             if (opcode == 0xa1U)
                 return read_word(state, state->segments[segment], offset,
                                  &state->registers[REG_AX]);
+            status = place_execution_clocks(state, 1U);
+            if (status != BM_STATUS_OK)
+                return status;
             if (opcode == 0xa2U)
                 return write_byte(state, state->segments[segment], offset,
                                   (uint8_t) state->registers[REG_AX]);
