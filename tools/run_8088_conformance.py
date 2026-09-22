@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Run external SingleStepTests/V20 vectors against the portable V30 core.
+"""Run physical SingleStepTests/8088 V2 vectors against the portable core.
 
-The corpus is not downloaded or copied into BluMach. Pin it separately to the
-revision documented by the caller and pass its v1_native directory explicitly.
-Cycle and queue traces are intentionally ignored: V20 architectural results
-are useful for the shared native ISA, while its 8-bit bus is not V30 timing
-evidence.
+The hardware corpus remains outside BluMach.  Check out the exact revision
+documented below and pass its ``v2`` directory explicitly. This first gate
+checks architectural register and memory results with both empty and preloaded
+prefetch queues. Final queue state and cycle traces remain reported as
+deliberately unverified until the portable core exposes the corresponding
+per-T-state conformance boundary.
+
+Expected corpus:
+  repository: https://github.com/SingleStepTests/8088
+  commit:     aea84484abc79d09639d855b7b0ab32bc9e4dbeb
+  metadata:   version 2.0.0, syntax version 2, AMD D8088 8441DMA
 """
 
 from __future__ import annotations
@@ -22,6 +28,14 @@ REGISTER_ORDER = (
     "ax", "cx", "dx", "bx", "sp", "bp", "si", "di",
     "es", "cs", "ss", "ds", "ip", "flags",
 )
+EXPECTED_CORPUS = {
+    "url": "https://github.com/SingleStepTests/8088/",
+    "version": "2.0.0",
+    "syntax_version": 2,
+    "cpu": "8088",
+    "cpu_detail": "AMD D8088 8441DMA (C)1982",
+    "generator": "arduino8088",
+}
 
 
 def metadata_entry(metadata: dict, opcode: str) -> dict:
@@ -35,6 +49,17 @@ def metadata_entry(metadata: dict, opcode: str) -> dict:
     return entry
 
 
+def validate_metadata(metadata: dict, path: Path) -> None:
+    mismatches = []
+    for field, expected in EXPECTED_CORPUS.items():
+        actual = metadata.get(field)
+        if actual != expected:
+            mismatches.append(f"{field}={actual!r}, expected {expected!r}")
+    if mismatches:
+        raise ValueError(f"unsupported corpus metadata in {path}: " +
+                         "; ".join(mismatches))
+
+
 def expected_registers(test: dict) -> dict[str, int]:
     result = dict(test["initial"]["regs"])
     result.update(test["final"]["regs"])
@@ -44,12 +69,15 @@ def expected_registers(test: dict) -> dict[str, int]:
 def encode_case(test: dict) -> tuple[str, list[list[int]]]:
     registers = test["initial"]["regs"]
     initial_ram = test["initial"].get("ram", [])
+    initial_queue = test["initial"].get("queue", [])
     final_ram = test["final"].get("ram", [])
-    fields = ["C"]
+    fields = ["H"]
     fields.extend(f"{registers[name] & 0xffff:x}" for name in REGISTER_ORDER)
     fields.append(str(len(initial_ram)))
     for address, value in initial_ram:
         fields.extend((f"{address:x}", f"{value:x}"))
+    fields.append(str(len(initial_queue)))
+    fields.extend(f"{value:x}" for value in initial_queue)
     fields.append(str(len(final_ram)))
     fields.extend(f"{address:x}" for address, _ in final_ram)
     return " ".join(fields) + "\n", final_ram
@@ -91,7 +119,7 @@ def compare_case(test: dict, response: str, expected_ram: list[list[int]],
         ((final["ss"] << 4) + ((final["sp"] + 4) & 0xffff)) & 0xfffff
     )
     if ram_matches:
-        for (actual_value, (address, expected_value)) in zip(
+        for actual_value, (address, expected_value) in zip(
                 actual_ram, expected_ram, strict=True):
             byte_mask = 0xff
             if interrupt_stack and address == saved_flags_address:
@@ -109,13 +137,13 @@ def compare_case(test: dict, response: str, expected_ram: list[list[int]],
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", type=Path, required=True,
-                        help="Pinned SingleStepTests/v20 v1_native directory")
+                        help="Pinned SingleStepTests/8088 v2 directory")
     parser.add_argument("--runner", type=Path, required=True,
                         help="portable-engine-808x-vector-runner executable")
     parser.add_argument("--opcode", action="append", required=True,
-                        help="Corpus opcode stem such as D4, D5 or F6.0")
+                        help="Corpus opcode stem such as 04, 82.0 or F6.0")
     parser.add_argument("--limit", type=int, default=0,
-                        help="Maximum vectors per opcode; zero means all")
+                        help="Maximum eligible vectors per opcode; zero means all")
     parser.add_argument("--max-failures", type=int, default=20)
     args = parser.parse_args()
 
@@ -125,13 +153,19 @@ def main() -> int:
     if not args.runner.is_file():
         parser.error(f"missing {args.runner}")
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    try:
+        validate_metadata(metadata, metadata_path)
+    except ValueError as error:
+        parser.error(str(error))
+
     process = subprocess.Popen(
-        [str(args.runner), "--model", "nec-v30"],
+        [str(args.runner), "--model", "intel-8088"],
         stdin=subprocess.PIPE, stdout=subprocess.PIPE,
         text=True, bufsize=1,
     )
     assert process.stdin is not None and process.stdout is not None
     total = 0
+    prefetched = 0
     failures = 0
     try:
         for opcode in args.opcode:
@@ -144,6 +178,9 @@ def main() -> int:
                 vectors = json.load(stream)
             if args.limit > 0:
                 vectors = vectors[:args.limit]
+            prefetched += sum(
+                bool(test["initial"].get("queue", [])) for test in vectors
+            )
             opcode_failures = 0
             for test in vectors:
                 request, expected_ram = encode_case(test)
@@ -174,7 +211,11 @@ def main() -> int:
         process.stdin.close()
         process.stdout.close()
         return_code = process.wait()
-    print(f"SUMMARY vectors={total} failures={failures}")
+    print(
+        f"SUMMARY vectors={total} failures={failures} "
+        f"prefetched={prefetched} final_queues=not-yet-compared "
+        "cycle_traces=not-yet-compared"
+    )
     if return_code != 0:
         print(f"runner exit={return_code}", file=sys.stderr)
         return 2
