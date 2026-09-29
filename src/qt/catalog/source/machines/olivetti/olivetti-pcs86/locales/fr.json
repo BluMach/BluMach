@@ -40,5 +40,10 @@
   "product.olivetti-pcs86.creation.label.sound": "Son (ISA 8 bits)",
   "product.olivetti-pcs86.creation.sound.none": "Sans carte son",
   "product.olivetti-pcs86.creation.sound.adlib": "AdLib originale installée par l’utilisateur",
-  "product.olivetti-pcs86.creation.note": "Les trois configurations à 720 Ko sont des modèles commerciaux documentés. Les lecteurs de 1,44 Mo et l’AdLib sont des extensions compatibles et ne sont pas présentés comme des options commerciales Olivetti. La configuration avec disque dur occupe toujours l’emplacement du second lecteur. BluMach déduit automatiquement les cavaliers des lecteurs installés."
+  "product.olivetti-pcs86.creation.note": "Les trois configurations à 720 Ko sont des modèles commerciaux documentés. Les lecteurs de 1,44 Mo et l’AdLib sont des extensions compatibles et ne sont pas présentés comme des options commerciales Olivetti. La configuration avec disque dur occupe toujours l’emplacement du second lecteur. BluMach déduit automatiquement les cavaliers des lecteurs installés.",
+  "product.olivetti-pcs86.creation.sound.cms": "Creative CMS / Game Blaster (ISA 8 bits)",
+  "product.olivetti-pcs86.creation.sound.sb1": "Sound Blaster 1.0 (ISA 8 bits)",
+  "product.olivetti-pcs86.creation.sound.sb15": "Sound Blaster 1.5 (ISA 8 bits)",
+  "product.olivetti-pcs86.creation.sound.sb20": "Sound Blaster 2.0 (ISA 8 bits)",
+  "product.olivetti-pcs86.creation.sound_note": "Extensions utilisateur, pas des options commerciales Olivetti ; audio non testé. Utilisez des logiciels DOS compatibles XT/V30. Les suites plus récentes peuvent exiger un autre processeur ou système. Les Pro et les cartes ISA 16 bits sont exclues. Sélectionnez une carte son."
 }

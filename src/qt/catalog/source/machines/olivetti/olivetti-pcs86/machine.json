@@ -321,12 +321,61 @@
                   "value": "adlib"
                 }
               ]
+            },
+            {
+              "id": "cms",
+              "label_key": "product.olivetti-pcs86.creation.sound.cms",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "cms"
+                }
+              ]
+            },
+            {
+              "id": "sb1",
+              "label_key": "product.olivetti-pcs86.creation.sound.sb1",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "sb"
+                }
+              ]
+            },
+            {
+              "id": "sb15",
+              "label_key": "product.olivetti-pcs86.creation.sound.sb15",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "sb1.5"
+                }
+              ]
+            },
+            {
+              "id": "sb20",
+              "label_key": "product.olivetti-pcs86.creation.sound.sb20",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "sb2.0"
+                }
+              ]
             }
           ]
         }
       ],
       "note_keys": [
-        "product.olivetti-pcs86.creation.note"
+        "product.olivetti-pcs86.creation.note",
+        "product.olivetti-pcs86.creation.sound_note"
       ],
       "configuration": [
         {
