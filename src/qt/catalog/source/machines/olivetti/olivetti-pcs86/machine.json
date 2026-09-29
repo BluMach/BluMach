@@ -46,11 +46,12 @@
     },
     "hardware": {
       "cpu": "NEC V30 10 MHz, 0 wait states",
-      "memory": "640 KB; expansion to 2.5 MB, LIM 4.0/EMS",
+      "memory": "512 KB on-board; paired SIMMs provide 640 KB conventional plus 384 or 1920 KB EMS",
       "video": "Paradise VGA integrated",
       "floppy": "3.5 in, 720 KB",
       "rtc": "MM58167",
       "coprocessor": "Intel 8087 optional",
+      "sound": "Optional user-installed 8-bit ISA sound card",
       "expansion": "3 × 8-bit full-size slots",
       "interfaces": "RS-232C, bidirectional parallel, mouse, AT keyboard",
       "dimensions": "360 × 312 × 100 mm; 7.6 kg"
@@ -74,52 +75,249 @@
       "facts": [
         {
           "label_key": "creation.label.commercial_model",
-          "value_key": "product.olivetti-pcs86.creation.model"
-        },
-        {
-          "label_key": "creation.label.hard_disk",
-          "value_key": "creation.option.hard_disk.20mb"
+          "value_key": "product.olivetti-pcs86.creation.models"
         }
       ],
       "fields": [
         {
-          "id": "ems",
-          "label_key": "creation.label.ems",
-          "default": "1920",
+          "id": "commercial_configuration",
+          "label_key": "product.olivetti-pcs86.creation.label.storage",
+          "default": "one-720",
           "choices": [
             {
-              "id": "none",
-              "label_key": "creation.option.ems.none",
+              "id": "one-720",
+              "label_key": "product.olivetti-pcs86.creation.storage.one-720",
               "status": "documented",
               "set": [
                 {
-                  "section": "Machine",
-                  "key": "ems_size",
-                  "value": 0
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_01_type",
+                  "value": "35_2dd"
+                },
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "none"
                 }
               ]
             },
             {
-              "id": "384",
-              "label_key": "creation.option.ems.384kb",
+              "id": "two-720",
+              "label_key": "product.olivetti-pcs86.creation.storage.two-720",
               "status": "documented",
               "set": [
                 {
-                  "section": "Machine",
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_01_type",
+                  "value": "35_2dd"
+                },
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "35_2dd"
+                }
+              ]
+            },
+            {
+              "id": "one-720-hdd20",
+              "label_key": "product.olivetti-pcs86.creation.storage.one-720-hdd20",
+              "status": "documented",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_01_type",
+                  "value": "35_2dd"
+                },
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "none"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "conner-cp3026-20mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 4, 615, 0, xta"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_xta_channel",
+                  "value": 0
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "conner-cp3026-20mb.img",
+                  "size": 21411840
+                }
+              ]
+            },
+            {
+              "id": "one-144",
+              "label_key": "product.olivetti-pcs86.creation.storage.one-144",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_01_type",
+                  "value": "35_2hd"
+                },
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "id": "one-144-hdd20",
+              "label_key": "product.olivetti-pcs86.creation.storage.one-144-hdd20",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_01_type",
+                  "value": "35_2hd"
+                },
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "none"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "conner-cp3026-20mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 4, 615, 0, xta"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_xta_channel",
+                  "value": 0
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "conner-cp3026-20mb.img",
+                  "size": 21411840
+                }
+              ]
+            },
+            {
+              "id": "two-144",
+              "label_key": "product.olivetti-pcs86.creation.storage.two-144",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_01_type",
+                  "value": "35_2hd"
+                },
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "35_2hd"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "memory_expansion",
+          "label_key": "creation.label.memory",
+          "default": "two-256",
+          "choices": [
+            {
+              "id": "two-256",
+              "label_key": "product.olivetti-pcs86.creation.memory.two-256",
+              "status": "validated",
+              "set": [
+                {
+                  "section": "Olivetti PCS86",
                   "key": "ems_size",
                   "value": 384
                 }
               ]
             },
             {
-              "id": "1920",
-              "label_key": "creation.option.ems.1920kb",
+              "id": "two-1024",
+              "label_key": "product.olivetti-pcs86.creation.memory.two-1024",
+              "status": "validated",
+              "set": [
+                {
+                  "section": "Olivetti PCS86",
+                  "key": "ems_size",
+                  "value": 1920
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "coprocessor",
+          "label_key": "hardware.coprocessor",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-pcs86.creation.coprocessor.none",
               "status": "validated",
               "set": [
                 {
                   "section": "Machine",
-                  "key": "ems_size",
-                  "value": 1920
+                  "key": "fpu_type",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "id": "8087",
+              "label_key": "product.olivetti-pcs86.creation.coprocessor.8087",
+              "status": "documented",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "fpu_type",
+                  "value": "8087"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sound_card",
+          "label_key": "product.olivetti-pcs86.creation.label.sound",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-pcs86.creation.sound.none",
+              "status": "validated",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "id": "adlib",
+              "label_key": "product.olivetti-pcs86.creation.sound.adlib",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "adlib"
                 }
               ]
             }
@@ -144,8 +342,13 @@
             "cpu_speed": 9545456,
             "cpu_multi": 1,
             "cpu_use_dynarec": 0,
-            "mem_size": 640,
-            "ems_size": 1920,
+            "mem_size": 640
+          }
+        },
+        {
+          "section": "Olivetti PCS86",
+          "values": {
+            "ems_size": 384,
             "keylock_locked": 0,
             "fdd0_jumpers": -1,
             "fdd1_jumpers": -1,
@@ -168,7 +371,7 @@
         {
           "section": "Floppy and CD-ROM drives",
           "values": {
-            "fdd_01_type": "35_2hd",
+            "fdd_01_type": "35_2dd",
             "fdd_02_type": "none"
           }
         },
@@ -177,20 +380,6 @@
           "values": {
             "serial2_enabled": 0
           }
-        },
-        {
-          "section": "Hard disks",
-          "values": {
-            "hdd_01_fn": "conner-cp3026-20mb.img",
-            "hdd_01_parameters": "17, 4, 615, 0, xta",
-            "hdd_01_xta_channel": 0
-          }
-        }
-      ],
-      "generated_files": [
-        {
-          "path": "conner-cp3026-20mb.img",
-          "size": 21411840
         }
       ]
     },
