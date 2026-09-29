@@ -19,6 +19,7 @@
 
 #include "qt_preferences.hpp"
 #include "qt_blumach_skin.hpp"
+#include "qt_blumach_catalog.hpp"
 #include "qt_vmmanager_preferences.hpp"
 #include "qt_vmmanager_config.hpp"
 #include "ui_qt_vmmanager_preferences.h"
@@ -156,7 +157,7 @@ void
 VMManagerPreferences::clearCatalogSkinDirectory()
 {
     ui->catalogSkinDirectory->clear();
-    ui->catalogSkinManufacturerMarks->setChecked(false);
+    ui->catalogSkinManufacturerMarks->setChecked(true);
     updateCatalogSkinSummary();
 }
 
@@ -164,10 +165,16 @@ void
 VMManagerPreferences::updateCatalogSkinSummary()
 {
     const QString directory = ui->catalogSkinDirectory->text();
+    BluMachCatalog catalog;
+    catalog.load();
+    ui->catalogSkinDescription->setText(catalog.text(QStringLiteral("skin.description")));
+    ui->catalogSkinManufacturerMarks->setText(catalog.text(QStringLiteral("skin.show_marks")));
     ui->catalogSkinClearButton->setEnabled(!directory.isEmpty());
-    ui->catalogSkinManufacturerMarks->setEnabled(!directory.isEmpty());
+    ui->catalogSkinManufacturerMarks->setEnabled(true);
     if (directory.isEmpty()) {
-        ui->catalogSkinStatus->setText(tr("No visual package selected. BluMach uses its neutral appearance."));
+        const auto state = ui->catalogSkinManufacturerMarks->isChecked()
+                               ? tr("Manufacturer marks enabled") : tr("Manufacturer marks disabled");
+        ui->catalogSkinStatus->setText(catalog.text(QStringLiteral("skin.builtin")).arg(state));
         return;
     }
     QString name;

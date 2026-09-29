@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/blumach/brand-marks">
+    <file alias="olivetti-1971-2009.png">source/manufacturers/olivetti/assets/olivetti-logo-1971-2009-h224.png</file>
+    <file alias="NOTICE.md">source/manufacturers/olivetti/assets/NOTICE.md</file>
+  </qresource>
+</RCC>

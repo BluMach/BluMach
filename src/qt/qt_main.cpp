@@ -594,6 +594,7 @@ main(int argc, char *argv[])
     Q_INIT_RESOURCE(qt_resources);
     Q_INIT_RESOURCE(qt_translations);
     Q_INIT_RESOURCE(blumach_catalog);
+    Q_INIT_RESOURCE(blumach_marks);
 
 #ifdef __APPLE__
     CocoaEventFilter cocoafilter;

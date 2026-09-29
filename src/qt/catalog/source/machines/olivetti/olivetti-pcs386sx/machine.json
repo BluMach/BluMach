@@ -6,6 +6,7 @@
     "family_id": "olivetti-pcs",
     "platform_id": "olivetti-pcs386sx-platform",
     "name": "Olivetti PCS 386SX",
+    "visible": true,
     "summary_key": "product.olivetti-pcs386sx.summary",
     "history_key": "product.olivetti-pcs386sx.history",
     "status": "partial",

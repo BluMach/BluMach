@@ -3,6 +3,12 @@
   "manufacturer": {
     "id": "olivetti",
     "name": "Olivetti",
+    "visible": true,
+    "brand_mark": {
+      "resource": ":/blumach/brand-marks/olivetti-1971-2009.png",
+      "background": "#ffffff"
+    },
+    "trademark_notice_key": "manufacturer.olivetti.trademark_notice",
     "description_key": "manufacturer.olivetti.description",
     "history_key": "manufacturer.olivetti.history",
     "history_references": [
