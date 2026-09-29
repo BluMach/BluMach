@@ -40,5 +40,10 @@
   "product.olivetti-pcs86.creation.label.sound": "Sound (8-bit ISA)",
   "product.olivetti-pcs86.creation.sound.none": "No sound card",
   "product.olivetti-pcs86.creation.sound.adlib": "User-installed original AdLib",
-  "product.olivetti-pcs86.creation.note": "The three 720 KB configurations are documented sales models. The 1.44 MB drives and AdLib are compatible upgrades and are not presented as Olivetti commercial options. The hard-disk configuration always uses the second floppy bay. BluMach automatically derives the jumpers for the installed drives."
+  "product.olivetti-pcs86.creation.note": "The three 720 KB configurations are documented sales models. The 1.44 MB drives and AdLib are compatible upgrades and are not presented as Olivetti commercial options. The hard-disk configuration always uses the second floppy bay. BluMach automatically derives the jumpers for the installed drives.",
+  "product.olivetti-pcs86.creation.sound.cms": "Creative CMS / Game Blaster (ISA 8-bit)",
+  "product.olivetti-pcs86.creation.sound.sb1": "Sound Blaster 1.0 (ISA 8-bit)",
+  "product.olivetti-pcs86.creation.sound.sb15": "Sound Blaster 1.5 (ISA 8-bit)",
+  "product.olivetti-pcs86.creation.sound.sb20": "Sound Blaster 2.0 (ISA 8-bit)",
+  "product.olivetti-pcs86.creation.sound_note": "User upgrades, not Olivetti sales options; audio not yet tested. Use XT/V30-compatible DOS software. Later driver suites may require a newer CPU or OS. Pro and ISA 16-bit cards are excluded. Select one sound card."
 }
