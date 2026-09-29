@@ -20,7 +20,7 @@
   "product.olivetti-pcs86.technical.jumpers": "Active-low port 100h: bits 0–1 drive 0 type; bits 2–3 drive 1 type; bit 7 indicates an XTA disk. Per-drive codes are 00=360 KB, 10=1.2 MB, 01=720 KB, 11=1.44 MB. Bits 4–6 are not exposed as user options because the analyzed BIOS does not consume them.",
   "product.olivetti-pcs86.technical.key_lock": "The key/keyboard-lock state is reflected in bit 2 of port 66h.",
   "product.olivetti-pcs86.technical.gui_behavior": "Automatic mode derives jumpers from installed drives. Manual mode can reproduce an exact physical bank, including inconsistent settings, for research and preservation.",
-  "product.olivetti-pcs86.technical.verified": "BIOS and MS-DOS boot; CPU, ROM, DMA, PIC, timer, 640 KB base memory, clock/calendar, printer, keyboard and EMS diagnostics. FDISK has also been tested with a 20 MB XTA disk.",
+  "product.olivetti-pcs86.technical.verified": "BIOS and MS-DOS boot; CPU, ROM, DMA, PIC, timer, 640 KB base memory, clock/calendar, printer, keyboard and EMS diagnostics. FDISK and installation of the English edition of Windows 3.0 have also been tested on a 20 MB XTA disk.",
   "product.olivetti-pcs86.technical.limitations": "Electrical timing of the dual keyboard/mouse interface and some video-arbitration details remain functional approximations. Mapping the reported second communications channel still needs physical evidence.",
   "product.olivetti-pcs86.technical.source_seasip": "Olivetti PCS86 technical notes by John Elliott",
   "product.olivetti-pcs86.technical.source_firmware": "CSAB04/CSAB05 EPROMs, Resident Diagnostics 1.09, Customer Test and execution observations made during recovery.",
