@@ -1,9 +1,9 @@
 {
   "product.olivetti-pcs286.summary": "Twelve-megahertz 80286 model with integrated VGA and IDE storage.",
   "product.olivetti-pcs286.history": "The PCS 286 occupied the middle position in the PCS line. BIOS revisions 1.37 and 1.42 are preserved; BluMach has validated POST, Extended Setup, MS-DOS boot and Customer Test with a 40 MB IDE disk. The keyboard controller's original internal ROM and some board-logic registers remain functional approximations.",
-  "product.olivetti-pcs286.technical.cpu_bus": "Intel 80286 at 12 MHz; AT-class platform with optional 80287 coprocessor.",
-  "product.olivetti-pcs286.technical.memory": "Documented 1 to 4 MB configurations; BIOS tests base and extended memory during POST.",
-  "product.olivetti-pcs286.technical.storage": "Integrated IDE/ATA. Preserved configurations include the 20 MB Conner CP3022 and 40 MB CP346.",
+  "product.olivetti-pcs286.technical.cpu_bus": "Intel 80286 at 12 MHz with one wait state; AT-class platform with optional 80287 coprocessor.",
+  "product.olivetti-pcs286.technical.memory": "1 MB standard, expandable to 4 MB on the motherboard and 16 MB in the system. BIOS tests base and extended memory during POST.",
+  "product.olivetti-pcs286.technical.storage": "Integrated IDE/ATA. Documented configurations use two 1.44 MB floppy drives, or one floppy with a 20 MB Conner CP3022 or 40 MB CP346 hard disk.",
   "product.olivetti-pcs286.technical.chipset": "G2 GC101A + GC102 set, later incorporated into the Headland family. BluMach uses 86Box's GC101/102/103 device plus Olivetti-specific IOC02 logic.",
   "product.olivetti-pcs286.technical.chipset_functions": "GC101 combines peripheral control, timing, arbitration and memory control; GC102 supplies address/data buffers and parity. The design supports up to 4 MB, matching the PCS 286 commercial limit.",
   "product.olivetti-pcs286.technical.headland_ports": "The current model exposes 1ECh as EMS data, 1EDh as configuration index, 1EEh as EMS map index and 1EFh as configuration data. This is BluMach's functional interface and is not yet claimed as a complete physical decode of the motherboard.",
@@ -21,5 +21,11 @@
   "product.olivetti-pcs286.technical.limitations": "The complete physical I/O decode, exact effect of some GC101A registers and authentic internal M5L8042-243P ROM remain to be documented. A functional approximation is used where no dump or schematic is available.",
   "product.olivetti-pcs286.technical.firmware_evidence": "BIOS 1.37 and 1.42, Resident Diagnostics, Customer Test and POST traces. Original EPROMs, normalized images and CMOS states are kept separately.",
   "product.olivetti-pcs286.technical.programmable_logic": "PAL16L8 2P04 and 3P01 are preserved as JEDEC. The documented physical controller is a Mitsubishi M5L8042-243P; its authentic internal ROM has not been recovered. 62410C62.BIN is not that ROM and is not loaded into the 8042.",
-  "product.olivetti-pcs286.technical.brochure": "PCS 286, Olivetti Office Italia product sheet dated October 1989, 2 pages"
+  "product.olivetti-pcs286.technical.brochure": "PCS 286, Olivetti Office Italia product sheet dated October 1989, 2 pages",
+  "product.olivetti-pcs286.creation.models": "Two 1.44 MB floppy drives; one 1.44 MB floppy drive with a 20 MB hard disk; or one 1.44 MB floppy drive with a 40 MB hard disk",
+  "product.olivetti-pcs286.creation.label.storage": "Commercial storage configuration",
+  "product.olivetti-pcs286.creation.storage.two-144": "Commercial: two 3.5-inch 1.44 MB floppy drives",
+  "product.olivetti-pcs286.creation.storage.one-144-hdd20": "Commercial: one 1.44 MB floppy drive + 20 MB IDE hard disk",
+  "product.olivetti-pcs286.creation.storage.one-144-hdd40": "Commercial: one 1.44 MB floppy drive + 40 MB IDE hard disk",
+  "product.olivetti-pcs286.creation.note": "The three choices are documented sales configurations. A hard disk occupies the second drive bay, so hard-disk profiles cannot contain two floppy drives. The 40 MB profile is the currently validated default; the two-floppy and 20 MB profiles remain documented choices pending the same end-to-end validation."
 }
