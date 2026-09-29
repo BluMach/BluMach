@@ -266,6 +266,60 @@ def validate_media(product_id: str, product: dict[str, Any], errors: list[str]) 
         errors.append(f"{owner}.label_key is required")
 
 
+def validate_visibility(
+    manufacturers: dict[str, dict[str, Any]],
+    families: dict[str, dict[str, Any]],
+    products: dict[str, dict[str, Any]],
+    errors: list[str],
+) -> None:
+    def visible(collection: str, entity_id: str, entity: dict[str, Any]) -> bool:
+        value = entity.get("visible", False)
+        if not isinstance(value, bool):
+            errors.append(
+                f"catalog.json: {collection} {entity_id!r}.visible must be a boolean"
+            )
+            return False
+        return value
+
+    visible_manufacturers = {
+        entity_id
+        for entity_id, entity in manufacturers.items()
+        if visible("manufacturer", entity_id, entity)
+    }
+    visible_families = {
+        entity_id
+        for entity_id, entity in families.items()
+        if visible("family", entity_id, entity)
+    }
+    visible_products = {
+        entity_id
+        for entity_id, entity in products.items()
+        if visible("product", entity_id, entity)
+    }
+
+    for family_id in visible_families:
+        manufacturer_id = families[family_id].get("manufacturer_id")
+        if manufacturer_id not in visible_manufacturers:
+            errors.append(
+                f"catalog.json: visible family {family_id!r} requires visible "
+                f"manufacturer {manufacturer_id!r}"
+            )
+    for product_id in visible_products:
+        product = products[product_id]
+        manufacturer_id = product.get("manufacturer_id")
+        family_id = product.get("family_id")
+        if manufacturer_id not in visible_manufacturers:
+            errors.append(
+                f"catalog.json: visible product {product_id!r} requires visible "
+                f"manufacturer {manufacturer_id!r}"
+            )
+        if family_id not in visible_families:
+            errors.append(
+                f"catalog.json: visible product {product_id!r} requires visible "
+                f"family {family_id!r}"
+            )
+
+
 def validate_catalog(catalog: Any, errors: list[str]) -> set[str]:
     if not isinstance(catalog, dict):
         errors.append("catalog.json: root must be an object")
@@ -282,6 +336,8 @@ def validate_catalog(catalog: Any, errors: list[str]) -> set[str]:
     families = require_unique_ids(catalog.get("families"), "families", errors)
     platforms = require_unique_ids(catalog.get("platforms"), "platforms", errors)
     products = require_unique_ids(catalog.get("products"), "products", errors)
+
+    validate_visibility(manufacturers, families, products, errors)
 
     for family_id, family in families.items():
         manufacturer_id = family.get("manufacturer_id")

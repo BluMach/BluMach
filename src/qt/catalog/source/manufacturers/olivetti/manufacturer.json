@@ -3,6 +3,7 @@
   "manufacturer": {
     "id": "olivetti",
     "name": "Olivetti",
+    "visible": true,
     "description_key": "manufacturer.olivetti.description",
     "history_key": "manufacturer.olivetti.history",
     "history_references": [

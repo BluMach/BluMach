@@ -58,6 +58,33 @@ class CatalogBuilderTests(unittest.TestCase):
 
         self.assertIn("Q_INIT_RESOURCE(blumach_catalog);", qt_main)
 
+    def test_release_visibility_is_limited_to_initial_olivetti_pcs_line(self) -> None:
+        repository = Path(__file__).resolve().parents[2]
+        source = repository / "src" / "qt" / "catalog" / "source"
+        catalog, _ = catalog_builder.assemble(source)
+
+        visible_manufacturers = {
+            item["id"] for item in catalog["manufacturers"] if item.get("visible", False)
+        }
+        visible_families = {
+            item["id"] for item in catalog["families"] if item.get("visible", False)
+        }
+        visible_products = {
+            item["id"] for item in catalog["products"] if item.get("visible", False)
+        }
+
+        self.assertEqual({"olivetti"}, visible_manufacturers)
+        self.assertEqual({"olivetti-pcs"}, visible_families)
+        self.assertEqual(
+            {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx"},
+            visible_products,
+        )
+
+        loader = (repository / "src" / "qt" / "qt_blumach_catalog.cpp").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn('value(QStringLiteral("visible")).toBool(false)', loader)
+
 
 if __name__ == "__main__":
     unittest.main()

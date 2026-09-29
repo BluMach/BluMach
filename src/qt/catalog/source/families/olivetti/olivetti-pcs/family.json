@@ -5,6 +5,7 @@
     "manufacturer_id": "olivetti",
     "parent_family_id": "",
     "name": "PCS",
+    "visible": true,
     "description_key": "family.olivetti-pcs.description"
   }
 }

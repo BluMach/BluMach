@@ -108,6 +108,37 @@ class CatalogAuditTests(unittest.TestCase):
 
         self.assertEqual([], errors)
 
+    def test_visible_product_requires_visible_parents(self) -> None:
+        errors: list[str] = []
+
+        catalog_audit.validate_visibility(
+            {"maker": {"visible": True}},
+            {"family": {"manufacturer_id": "maker"}},
+            {"model": {
+                "manufacturer_id": "maker",
+                "family_id": "family",
+                "visible": True,
+            }},
+            errors,
+        )
+
+        self.assertIn(
+            "catalog.json: visible product 'model' requires visible family 'family'",
+            errors,
+        )
+
+    def test_visibility_must_be_boolean(self) -> None:
+        errors: list[str] = []
+
+        catalog_audit.validate_visibility(
+            {"maker": {"visible": "yes"}}, {}, {}, errors
+        )
+
+        self.assertEqual(
+            ["catalog.json: manufacturer 'maker'.visible must be a boolean"],
+            errors,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

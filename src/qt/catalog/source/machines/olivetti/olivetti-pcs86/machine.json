@@ -6,6 +6,7 @@
     "family_id": "olivetti-pcs",
     "platform_id": "olivetti-pcs86-platform",
     "name": "Olivetti PCS 86",
+    "visible": true,
     "summary_key": "product.olivetti-pcs86.summary",
     "history_key": "product.olivetti-pcs86.history",
     "status": "validated",
