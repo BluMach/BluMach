@@ -4365,7 +4365,7 @@ const machine_t machines[] = {
             .max_multi   = 0
         },
         .bus_flags = MACHINE_AT,
-        .flags     = MACHINE_FLAGS_NONE,
+        .flags     = MACHINE_VIDEO,
         .ram       = {
             .min  = 1024,
             .max  = 4096,
@@ -4386,7 +4386,7 @@ const machine_t machines[] = {
         .device                   = &olivetti_pcs286_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
-        .vid_device               = NULL,
+        .vid_device               = &paradise_pvga1a_pcs286_device,
         .snd_device               = NULL,
         .net_device               = NULL,
         .aliases                  = { "PCS286", "" }

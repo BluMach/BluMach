@@ -18,6 +18,23 @@ motherboard without additional evidence. See also the
 - fixed disk: configure an IDE drive only when testing a documented geometry;
 - optional math processor: 80287 support is expected but not yet certified.
 
+### Historical creation form (2026-09-29 correction)
+
+The common creation form offers 1, 2 and 4 MiB RAM (1 MiB default), the three
+commercial storage profiles, and no sound card, AdLib, Sound Blaster 1.5 or
+Sound Blaster 2.0. Sound cards are optional user-installed ISA upgrades, not
+documented Olivetti sales configurations; the 2.0 is a later upgrade. Their
+bus compatibility is inferred from the AT/XT expansion slots and the existing
+ISA device implementations. Audio and expanded-RAM diagnostics remain pending.
+
+New profiles select `gfxcard = internal`, using the motherboard BIOS and the
+onboard 256 KiB PVGA1A, without a separate VGA option ROM. The machine table
+also advertises this device so **Configure → Display → Internal** remains
+available. Earlier catalogue profiles incorrectly selected an external
+`pvga1a`; existing user profiles are not silently rewritten. Change their
+display selection to Internal with the corrected build. Native Configure
+continues to support the existing 1/2/3/4 MiB range.
+
 ## Firmware selection
 
 The machine settings expose two preserved firmware sets:
