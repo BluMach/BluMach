@@ -21,11 +21,26 @@ motherboard without additional evidence. See also the
 ### Historical creation form (2026-09-29 correction)
 
 The common creation form offers 1, 2 and 4 MiB RAM (1 MiB default), the three
-commercial storage profiles, and no sound card, AdLib, Sound Blaster 1.5 or
-Sound Blaster 2.0. Sound cards are optional user-installed ISA upgrades, not
-documented Olivetti sales configurations; the 2.0 is a later upgrade. Their
+commercial storage profiles, and no sound card, AdLib, Sound Blaster 1.5,
+Sound Blaster 2.0, Sound Blaster Pro or Pro 2. These are optional user-installed
+ISA upgrades, not documented Olivetti sales configurations; SB2.0 and the Pro
+models are later upgrades. Their
 bus compatibility is inferred from the AT/XT expansion slots and the existing
 ISA device implementations. Audio and expanded-RAM diagnostics remain pending.
+
+The creator deliberately uses a conservative 286 sound allowlist, not every
+device accepted by the ISA bus filter. Creative's [Sound Blaster Pro User
+Reference Manual, installation requirements](https://www.manualslib.com/manual/3586527/Creative-Sound-Blaster-Pro.html?page=11)
+and [Getting Started, system requirements](https://www.manualslib.com/manual/4347851/Creative-Sound-Blaster-Pro.html?page=4)
+include 286-class PCs and their supplied software (Windows applications require
+the stated Windows version). The Pro models provide 8-bit PCM audio; they are
+not Sound Blaster 16 variants. Use period-compatible DOS software; no driver
+package is bundled or newly certified here.
+
+SB16, AWE, GUS, ESS, PAS16, WSS and PnP options are not offered by this creator
+until a specific 286-compatible setup/driver package has been established.
+This is a software-evidence gate, not a claim that all those cards intrinsically
+require a 386. The general Configure selector is unchanged.
 
 New profiles select `gfxcard = internal`, using the motherboard BIOS and the
 onboard 256 KiB PVGA1A, without a separate VGA option ROM. The machine table

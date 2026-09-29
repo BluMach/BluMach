@@ -1,4 +1,7 @@
 {
+  "product.olivetti-pcs286.creation.sound.sbpro1": "Sound Blaster Pro (8-bit stereo PCM, later upgrade)",
+  "product.olivetti-pcs286.creation.sound.sbpro2": "Sound Blaster Pro 2 (8-bit stereo PCM, later upgrade)",
+  "product.olivetti-pcs286.creation.sound_286_note": "Only sound options with a 286-compatible software path are offered. Creative's Pro manuals include 286 systems; Windows applications require the stated Windows version. SB16 and other cards without a verified 286 setup/driver package are omitted. Audio on this PCS 286 remains to be tested.",
   "product.olivetti-pcs286.creation.label.memory": "Installed RAM",
   "product.olivetti-pcs286.creation.memory.1mb": "1 MB (standard)",
   "product.olivetti-pcs286.creation.memory.2mb": "2 MB (upgrade)",

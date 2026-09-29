@@ -1,4 +1,7 @@
 {
+  "product.olivetti-pcs286.creation.sound.sbpro1": "Sound Blaster Pro (PCM stéréo 8 bits, extension ultérieure)",
+  "product.olivetti-pcs286.creation.sound.sbpro2": "Sound Blaster Pro 2 (PCM stéréo 8 bits, extension ultérieure)",
+  "product.olivetti-pcs286.creation.sound_286_note": "Seules les options sonores disposant de logiciels compatibles 286 sont proposées. Les manuels Creative Pro incluent les systèmes 286 ; les applications Windows exigent la version de Windows indiquée. SB16 et les autres cartes sans logiciel de configuration et pilote confirmé pour 286 sont omises. Le son reste à tester sur ce PCS 286.",
   "product.olivetti-pcs286.creation.label.memory": "RAM installée",
   "product.olivetti-pcs286.creation.memory.1mb": "1 Mo (de série)",
   "product.olivetti-pcs286.creation.memory.2mb": "2 Mo (extension)",

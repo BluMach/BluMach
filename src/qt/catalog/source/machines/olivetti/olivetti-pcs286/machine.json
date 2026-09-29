@@ -139,6 +139,18 @@
               "label_key": "product.olivetti-pcs286.creation.sound.sb20",
               "status": "experimental",
               "set": [{"section": "Sound", "key": "sndcard", "value": "sb2.0"}]
+            },
+            {
+              "id": "sbpro1",
+              "label_key": "product.olivetti-pcs286.creation.sound.sbpro1",
+              "status": "experimental",
+              "set": [{"section": "Sound", "key": "sndcard", "value": "sbprov1"}]
+            },
+            {
+              "id": "sbpro2",
+              "label_key": "product.olivetti-pcs286.creation.sound.sbpro2",
+              "status": "experimental",
+              "set": [{"section": "Sound", "key": "sndcard", "value": "sbprov2"}]
             }
           ]
         },
@@ -193,7 +205,8 @@
       ],
       "note_keys": [
         "product.olivetti-pcs286.creation.note",
-        "product.olivetti-pcs286.creation.upgrades_note"
+        "product.olivetti-pcs286.creation.upgrades_note",
+        "product.olivetti-pcs286.creation.sound_286_note"
       ],
       "configuration": [
         {
