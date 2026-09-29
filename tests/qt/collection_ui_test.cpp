@@ -165,15 +165,20 @@ private slots:
         }
         tree->setCurrentItem(brand);
         QTest::qWait(5);
+        // Offscreen has no compositor paint; force the same layout pass even
+        // when optional screenshot export is disabled.
+        widget.grab();
         auto *overview = qobject_cast<QScrollArea *>(tabs->widget(0));
         QVERIFY(overview);
         for (auto *label : overview->widget()->findChildren<QLabel *>()) {
             if (label->wordWrap() && label->isVisible())
-                QVERIFY2(label->height() >= label->heightForWidth(label->width()), qPrintable(label->text().left(100)));
+                QTRY_VERIFY_WITH_TIMEOUT(label->height() >= label->heightForWidth(label->width()), 1000);
         }
         tree->setCurrentItem(family->child(0));
+        widget.grab();
         auto *scroll = qobject_cast<QScrollArea *>(tabs->widget(0));
         QVERIFY(scroll);
+        QCOMPARE(scroll->horizontalScrollBar()->maximum(), 0);
         scroll->verticalScrollBar()->setValue(scroll->verticalScrollBar()->maximum());
         tree->setCurrentItem(family->child(1));
         QCOMPARE(scroll->verticalScrollBar()->value(), 0);
