@@ -400,10 +400,7 @@ void
 VMManagerMainWindow::updateShellAppearance()
 {
     const auto shellPalette = QApplication::palette();
-    bool dark = shellPalette.color(QPalette::Window).lightnessF() < 0.5;
-#ifdef Q_OS_WINDOWS
-    dark = !util::isWindowsLightTheme();
-#endif
+    const bool dark = shellPalette.color(QPalette::Window).lightnessF() < 0.5;
     const QColor windowColor = shellPalette.color(QPalette::Window);
     const QColor textColor = shellPalette.color(QPalette::WindowText);
     const QColor highlightColor = shellPalette.color(QPalette::Highlight);
@@ -430,10 +427,12 @@ VMManagerMainWindow::updateShellAppearance()
     navigationHeader->setStyleSheet(QStringLiteral(
         "QFrame#blumachNavigationHeader { background: %1; border-bottom: 1px solid %2; }"
         "QLabel#blumachBrand { color: %3; background: transparent; font-size: 18px; font-weight: 600; padding-right: 8px; }"
-        "QPushButton#blumachCollectionNav, QPushButton#blumachMachinesNav { color: %3; background: transparent; border: 0; border-radius: 7px; padding: 7px 12px; }"
+        "QPushButton#blumachCollectionNav, QPushButton#blumachMachinesNav { color: %3; background: transparent; border: 1px solid transparent; border-radius: 7px; padding: 6px 11px; }"
+        "QPushButton#blumachCollectionNav:focus, QPushButton#blumachMachinesNav:focus { border-color: %3; }"
         "QPushButton#blumachCollectionNav:hover, QPushButton#blumachMachinesNav:hover { background: %4; }"
         "QPushButton#blumachCollectionNav:checked, QPushButton#blumachMachinesNav:checked { color: %3; background: %5; font-weight: 600; }"
-        "QPushButton#blumachPrimaryAction { color: %6; background: %7; border: 0; border-radius: 7px; padding: 8px 15px; font-weight: 600; }"
+        "QPushButton#blumachPrimaryAction { color: %6; background: %7; border: 1px solid transparent; border-radius: 7px; padding: 7px 14px; font-weight: 600; }"
+        "QPushButton#blumachPrimaryAction:focus { border-color: %3; }"
         "QPushButton#blumachPrimaryAction:disabled { color: %8; background: %4; }"
         "QPushButton#blumachPrimaryAction:hover:!disabled { background: %7; }")
         .arg(windowColor.name(), borderColor.name(), textColor.name(), hoverColor.name(),

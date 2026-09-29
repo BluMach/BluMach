@@ -9,7 +9,6 @@
 #include "qt_blumach_collection.hpp"
 #include "qt_blumach_formfactoricon.hpp"
 #include "qt_vmmanager_config.hpp"
-#include "qt_util.hpp"
 
 #include <QAbstractItemView>
 #include <QApplication>
@@ -30,6 +29,7 @@
 #include <QPixmap>
 #include <QResizeEvent>
 #include <QScrollArea>
+#include <QScrollBar>
 #include <QSignalBlocker>
 #include <QShortcut>
 #include <QSplitter>
@@ -150,7 +150,8 @@ protected:
         labelFont.setBold(true);
         labelFont.setPointSizeF(qMax(7.0, labelFont.pointSizeF() - 1.5));
         painter.setFont(labelFont);
-        const QString label = m_mediaLabel;
+        const QString label = painter.fontMetrics().elidedText(m_mediaLabel, Qt::ElideRight,
+                                                               qMax(0, width() - 38));
         const int labelWidth = painter.fontMetrics().horizontalAdvance(label) + 18;
         QRectF labelRect(10, 10, labelWidth, 24);
         painter.setPen(Qt::NoPen);
@@ -187,6 +188,21 @@ public:
         const int type = index.data(TypeRole).toInt();
         painter->save();
         painter->setRenderHint(QPainter::Antialiasing);
+        // Paint the same selection and keyboard focus for brands, families and
+        // products. A translucent fill keeps the normal text contrast intact.
+        const QRect row = opt.rect.adjusted(4, 1, -4, -1);
+        if (opt.state & (QStyle::State_Selected | QStyle::State_MouseOver)) {
+            const qreal amount = (opt.state & QStyle::State_Selected) ? 0.14 : 0.06;
+            painter->setPen(Qt::NoPen);
+            painter->setBrush(blendColor(opt.palette.color(QPalette::Base),
+                                         opt.palette.color(QPalette::Text), amount));
+            painter->drawRoundedRect(row, 6, 6);
+        }
+        if (opt.state & QStyle::State_HasFocus) {
+            painter->setPen(QPen(opt.palette.color(QPalette::Text), 1, Qt::DotLine));
+            painter->setBrush(Qt::NoBrush);
+            painter->drawRoundedRect(row.adjusted(1, 1, -1, -1), 5, 5);
+        }
         if (type != 3) {
             const int count = index.data(CountRole).toInt();
             const bool manufacturer = type == 1;
@@ -220,7 +236,8 @@ public:
                 painter->drawPixmap(markRect, scaled);
             } else {
                 painter->drawText(textRect,
-                                  Qt::AlignVCenter | Qt::AlignLeft, opt.text);
+                                  Qt::AlignVCenter | Qt::AlignLeft,
+                                  painter->fontMetrics().elidedText(opt.text, Qt::ElideRight, textRect.width()));
             }
             if (count > 0) {
                 const QString countText = QString::number(count);
@@ -240,16 +257,6 @@ public:
             return;
         }
 
-        QRect row = opt.rect.adjusted(4, 1, -4, -1);
-        if (opt.state & QStyle::State_Selected) {
-            QColor selected = opt.palette.color(QPalette::Highlight);
-            selected.setAlpha(44);
-            painter->setPen(Qt::NoPen);
-            painter->setBrush(selected);
-            const int selectionWidth = opt.widget ? opt.widget->width() - 8 : row.width();
-            const QRect selectionRow(4, row.top(), selectionWidth, row.height());
-            painter->drawRoundedRect(selectionRow, 7, 7);
-        }
         QRect device(row.left() + 8, row.top() + 10, 28, 28);
         QColor deviceColor = opt.palette.color(QPalette::Highlight);
         deviceColor.setAlpha(24);
@@ -306,6 +313,12 @@ QLabel *makeSectionHeading(const QString &text, QWidget *parent)
 {
     auto *label = new QLabel(text, parent);
     label->setObjectName(QStringLiteral("blumachSectionHeading"));
+    label->setWordWrap(true);
+    // QScrollArea must grow its content instead of compressing long histories
+    // and references below their height-for-width when a sheet is replaced.
+    auto policy = label->sizePolicy();
+    policy.setVerticalPolicy(QSizePolicy::Minimum);
+    label->setSizePolicy(policy);
     auto font = label->font();
     font.setBold(true);
     label->setFont(font);
@@ -336,7 +349,6 @@ BluMachCollectionWidget::BluMachCollectionWidget(QWidget *parent)
     m_filterLayout->setVerticalSpacing(7);
     m_search = new QLineEdit(this);
     m_search->setClearButtonEnabled(true);
-    m_search->setAccessibleName(tr("Search historical computers"));
     m_statusFilter = new QComboBox(this);
     m_statusFilter->setMinimumWidth(190);
     m_advancedFiltersButton = new QToolButton(this);
@@ -361,7 +373,6 @@ BluMachCollectionWidget::BluMachCollectionWidget(QWidget *parent)
     m_resultsLabel = new QLabel(this);
     m_resultsLabel->setObjectName(QStringLiteral("blumachResultsLabel"));
     m_resultsLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    m_resultsLabel->setAccessibleName(tr("Search results"));
     mainLayout->addLayout(m_filterLayout);
 
     m_splitter = new QSplitter(this);
@@ -374,7 +385,7 @@ BluMachCollectionWidget::BluMachCollectionWidget(QWidget *parent)
     m_tree->setIndentation(14);
     m_tree->setRootIsDecorated(true);
     m_tree->setSelectionMode(QAbstractItemView::SingleSelection);
-    m_tree->setAccessibleName(tr("Historical computer catalogue"));
+    m_tree->setMouseTracking(true);
     m_tree->setItemDelegate(new CollectionItemDelegate(m_tree));
 
     auto *detailPanel = new QWidget(m_splitter);
@@ -431,16 +442,17 @@ BluMachCollectionWidget::BluMachCollectionWidget(QWidget *parent)
     detailLayout->addWidget(m_warningFrame);
 
     m_infoTabs = new QTabWidget(detailPanel);
-    m_infoTabs->setAccessibleName(tr("Machine information"));
     m_infoTabs->setDocumentMode(true);
     m_infoTabs->setElideMode(Qt::ElideRight);
-    m_infoTabs->tabBar()->setUsesScrollButtons(false);
+    m_infoTabs->tabBar()->setUsesScrollButtons(true);
     const auto createPage = [this](QScrollArea **scroll, QVBoxLayout **layout) {
         *scroll = new QScrollArea(m_infoTabs);
         (*scroll)->setWidgetResizable(true);
         (*scroll)->setFrameShape(QFrame::NoFrame);
         auto *container = new QWidget(*scroll);
+        container->setObjectName(QStringLiteral("blumachPage"));
         *layout = new QVBoxLayout(container);
+        (*layout)->setSizeConstraint(QLayout::SetMinAndMaxSize);
         (*layout)->setContentsMargins(4, 14, 10, 10);
         (*layout)->setSpacing(12);
         (*scroll)->setWidget(container);
@@ -475,6 +487,12 @@ BluMachCollectionWidget::BluMachCollectionWidget(QWidget *parent)
     connect(m_tree, &QTreeWidget::currentItemChanged, this,
             [this](QTreeWidgetItem *current) { updateDetails(current); });
     connect(m_search, &QLineEdit::textChanged, this, [this] { applyFilter(); });
+    connect(m_search, &QLineEdit::returnPressed, this, [this] {
+        if (m_tree->currentItem()) {
+            m_tree->setFocus();
+            m_tree->scrollToItem(m_tree->currentItem());
+        }
+    });
     connect(m_statusFilter, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this] { applyFilter(); });
     connect(m_advancedFiltersButton, &QToolButton::toggled, m_advancedFiltersPanel,
             &QWidget::setVisible);
@@ -494,12 +512,14 @@ BluMachCollectionWidget::BluMachCollectionWidget(QWidget *parent)
         if (m_advancedFiltersButton->isChecked()) {
             m_advancedFiltersButton->setChecked(false);
             m_advancedFiltersButton->setFocus();
-        } else if (!m_search->text().isEmpty()) {
+        } else if (!m_clearFiltersButton->isHidden()) {
             clearFilters();
         }
     });
     QWidget::setTabOrder(m_search, m_advancedFiltersButton);
-    QWidget::setTabOrder(m_advancedFiltersButton, m_tree);
+    QWidget::setTabOrder(m_advancedFiltersButton, m_clearFiltersButton);
+    QWidget::setTabOrder(m_clearFiltersButton, m_statusFilter);
+    QWidget::setTabOrder(m_statusFilter, m_tree);
     QWidget::setTabOrder(m_tree, m_infoTabs);
     reloadLanguage();
     updateAppearance();
@@ -577,9 +597,13 @@ void BluMachCollectionWidget::reloadLanguage()
     m_catalog.reloadLocale();
     const QString selected = m_selectedProductId;
     const QString selectedStatus = m_statusFilter->currentData().toString();
-    m_heading->setText(tr("Historical computer collection"));
-    m_intro->setText(tr("Explore computers by manufacturer and family, review their preservation status, and create a historically accurate machine."));
-    m_search->setPlaceholderText(tr("Search models, aliases or hardware"));
+    m_heading->setText(m_catalog.text(QStringLiteral("collection.title")));
+    m_intro->setText(m_catalog.text(QStringLiteral("collection.intro")));
+    m_search->setPlaceholderText(m_catalog.text(QStringLiteral("collection.search")));
+    m_search->setAccessibleName(m_catalog.text(QStringLiteral("collection.search_accessible")));
+    m_resultsLabel->setAccessibleName(m_catalog.text(QStringLiteral("collection.results")));
+    m_tree->setAccessibleName(m_catalog.text(QStringLiteral("collection.catalogue")));
+    m_infoTabs->setAccessibleName(m_catalog.text(QStringLiteral("collection.information")));
     m_clearFiltersButton->setText(m_catalog.text(QStringLiteral("filter.clear_all")));
     m_clearFiltersButton->setToolTip(m_catalog.text(QStringLiteral("filter.clear_all")));
     m_clearFiltersButton->setAccessibleName(m_catalog.text(QStringLiteral("filter.clear_all")));
@@ -593,7 +617,7 @@ void BluMachCollectionWidget::reloadLanguage()
         availableStatuses.insert(product.status);
     const QSignalBlocker blocker(m_statusFilter);
     m_statusFilter->clear();
-    m_statusFilter->addItem(tr("All preservation states"), QString());
+    m_statusFilter->addItem(m_catalog.text(QStringLiteral("collection.all_states")), QString());
     for (const auto &status : { QStringLiteral("validated"), QStringLiteral("partial"), QStringLiteral("experimental"), QStringLiteral("research"), QStringLiteral("not_bootable") }) {
         if (availableStatuses.contains(status))
             m_statusFilter->addItem(m_catalog.statusText(status), status);
@@ -665,29 +689,36 @@ void BluMachCollectionWidget::rebuildFilterLayout()
         delete m_advancedFiltersLayout->takeAt(0);
 
     const int filterColumns = m_narrowLayout ? 2 : 3;
+    QWidget *previousFilter = m_statusFilter;
+    QWidget::setTabOrder(m_clearFiltersButton, previousFilter);
     m_advancedFiltersLayout->addWidget(m_statusFilter, 0, 0);
     int advancedRow = 0;
     int advancedColumn = 1;
     for (const auto &facet : m_catalog.filterFacets()) {
         if (!m_facetFilters.contains(facet.id))
             continue;
-        m_advancedFiltersLayout->addWidget(m_facetFilters.value(facet.id), advancedRow, advancedColumn++);
+        auto *filter = m_facetFilters.value(facet.id);
+        m_advancedFiltersLayout->addWidget(filter, advancedRow, advancedColumn++);
+        QWidget::setTabOrder(previousFilter, filter);
+        previousFilter = filter;
         if (advancedColumn == filterColumns) {
             advancedColumn = 0;
             ++advancedRow;
         }
     }
-    m_advancedFiltersLayout->addWidget(m_clearFiltersButton, advancedRow,
-                                       advancedColumn, 1,
-                                       qMax(1, filterColumns - advancedColumn));
-    for (int index = 0; index < filterColumns; ++index)
-        m_advancedFiltersLayout->setColumnStretch(index, 1);
+    QWidget::setTabOrder(previousFilter, m_tree);
+    QWidget::setTabOrder(m_tree, m_infoTabs);
+    for (int index = 0; index < 3; ++index)
+        m_advancedFiltersLayout->setColumnStretch(index, index < filterColumns ? 1 : 0);
+    for (int index = 0; index < 4; ++index)
+        m_filterLayout->setColumnStretch(index, 0);
 
     if (m_narrowLayout) {
-        m_filterLayout->addWidget(m_search, 0, 0, 1, 2);
+        m_filterLayout->addWidget(m_search, 0, 0, 1, 3);
         m_filterLayout->addWidget(m_advancedFiltersButton, 1, 0);
-        m_filterLayout->addWidget(m_resultsLabel, 1, 1);
-        m_filterLayout->addWidget(m_advancedFiltersPanel, 2, 0, 1, 2);
+        m_filterLayout->addWidget(m_clearFiltersButton, 1, 1);
+        m_filterLayout->addWidget(m_resultsLabel, 1, 2);
+        m_filterLayout->addWidget(m_advancedFiltersPanel, 2, 0, 1, 3);
         m_filterLayout->setColumnStretch(0, 1);
         m_filterLayout->setColumnStretch(1, 1);
         return;
@@ -695,8 +726,9 @@ void BluMachCollectionWidget::rebuildFilterLayout()
 
     m_filterLayout->addWidget(m_search, 0, 0);
     m_filterLayout->addWidget(m_advancedFiltersButton, 0, 1);
-    m_filterLayout->addWidget(m_resultsLabel, 0, 2);
-    m_filterLayout->addWidget(m_advancedFiltersPanel, 1, 0, 1, 3);
+    m_filterLayout->addWidget(m_clearFiltersButton, 0, 2);
+    m_filterLayout->addWidget(m_resultsLabel, 0, 3);
+    m_filterLayout->addWidget(m_advancedFiltersPanel, 1, 0, 1, 4);
     m_filterLayout->setColumnStretch(0, 1);
 }
 
@@ -819,7 +851,7 @@ void BluMachCollectionWidget::rebuildTree()
                 if (const auto *platform = m_catalog.platform(product.platformId))
                     productItem->setData(0, ArchitectureRole, platform->architecture);
                 else
-                    productItem->setData(0, ArchitectureRole, tr("Unpreserved firmware"));
+                    productItem->setData(0, ArchitectureRole, m_catalog.text(QStringLiteral("collection.unpreserved")));
                 productItem->setToolTip(0, QStringLiteral("%1\n%2")
                                                .arg(product.name, m_catalog.text(product.summaryKey)));
                 ++familyCount;
@@ -902,6 +934,10 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
     clearLayout(m_researchLayout);
     clearLayout(m_sourcesLayout);
     m_engineeringView->clear();
+    // A new sheet must start at the top, not at the previous model's scroll
+    // position (particularly confusing when comparing technical details).
+    for (auto *scroll : { m_overviewScroll, m_researchScroll, m_sourcesScroll })
+        scroll->verticalScrollBar()->setValue(0);
     if (!item) {
         m_title->setText(m_catalog.text(QStringLiteral("filter.no_results")));
         m_subtitle->setText(m_catalog.text(QStringLiteral("filter.no_results_hint")));
@@ -916,10 +952,10 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
     if (type == ManufacturerItem) {
         if (const auto *manufacturer = m_catalog.manufacturer(id)) {
             m_title->setText(manufacturer->name);
-            m_subtitle->setText(tr("Manufacturer"));
+            m_subtitle->setText(m_catalog.text(QStringLiteral("collection.manufacturer")));
             m_summary->setText(m_catalog.text(manufacturer->descriptionKey));
             if (!manufacturer->historyKey.isEmpty()) {
-                m_overviewLayout->addWidget(makeSectionHeading(tr("History"), m_overviewScroll));
+                m_overviewLayout->addWidget(makeSectionHeading(m_catalog.text(QStringLiteral("collection.history")), m_overviewScroll));
                 m_overviewLayout->addWidget(makeWrappedLabel(m_catalog.text(manufacturer->historyKey), m_overviewScroll));
             }
             if (!manufacturer->historyReferences.isEmpty()) {
@@ -952,7 +988,7 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
     if (type == FamilyItem) {
         if (const auto *family = m_catalog.family(id)) {
             m_title->setText(family->name);
-            m_subtitle->setText(tr("Computer family"));
+            m_subtitle->setText(m_catalog.text(QStringLiteral("collection.family")));
             m_summary->setText(m_catalog.text(family->descriptionKey));
         }
         m_overviewLayout->addStretch(1);
@@ -1015,9 +1051,9 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
 void BluMachCollectionWidget::populateOverview(const BluMachProduct &product)
 {
     clearLayout(m_overviewLayout);
-    m_overviewLayout->addWidget(makeSectionHeading(tr("History"), m_overviewScroll));
+    m_overviewLayout->addWidget(makeSectionHeading(m_catalog.text(QStringLiteral("collection.history")), m_overviewScroll));
     m_overviewLayout->addWidget(makeWrappedLabel(m_catalog.text(product.historyKey), m_overviewScroll));
-    m_overviewLayout->addWidget(makeSectionHeading(tr("Hardware"), m_overviewScroll));
+    m_overviewLayout->addWidget(makeSectionHeading(m_catalog.text(QStringLiteral("collection.hardware")), m_overviewScroll));
     auto *hardwareFrame = new QFrame(m_overviewScroll);
     hardwareFrame->setObjectName(QStringLiteral("blumachDetailSection"));
     auto *hardwareGrid = new QGridLayout(hardwareFrame);
@@ -1079,7 +1115,7 @@ void BluMachCollectionWidget::populateTechnicalPage(const BluMachProduct &produc
         sectionLayout->addWidget(makeSectionHeading(m_catalog.text(section.value(QStringLiteral("title_key")).toString()), sectionFrame));
         const QString evidenceKey = section.value(QStringLiteral("evidence_key")).toString();
         if (!evidenceKey.isEmpty()) {
-            auto *evidence = makeWrappedLabel(tr("Evidence: %1").arg(m_catalog.text(evidenceKey)), sectionFrame);
+            auto *evidence = makeWrappedLabel(m_catalog.text(QStringLiteral("collection.evidence")).arg(m_catalog.text(evidenceKey)), sectionFrame);
             evidence->setObjectName(QStringLiteral("blumachEvidence"));
             sectionLayout->addWidget(evidence);
         }
@@ -1099,16 +1135,17 @@ void BluMachCollectionWidget::populateTechnicalPage(const BluMachProduct &produc
             const QString url = entry.value(QStringLiteral("url")).toString();
             const QString document = entry.value(QStringLiteral("document")).toString();
             if (!url.isEmpty() || !document.isEmpty()) {
-                auto *link = new QToolButton(sectionFrame);
-                link->setText(value);
-                link->setToolButtonStyle(Qt::ToolButtonTextOnly);
-                link->setAutoRaise(true);
+                auto *link = makeWrappedLabel({}, sectionFrame);
+                link->setTextFormat(Qt::RichText);
+                link->setTextInteractionFlags(Qt::TextBrowserInteraction);
                 link->setCursor(Qt::PointingHandCursor);
                 const QUrl target = document.isEmpty()
                                       ? QUrl(url)
                                       : QUrl(QStringLiteral("blumach-doc:%1").arg(QString::fromLatin1(QUrl::toPercentEncoding(document))));
-                connect(link, &QToolButton::clicked, this, [this, target] { openTechnicalLink(target); });
-                entries->addWidget(link, row, 1, Qt::AlignLeft | Qt::AlignTop);
+                link->setText(QStringLiteral("<a href=\"%1\">%2</a>")
+                                  .arg(target.toString().toHtmlEscaped(), value.toHtmlEscaped()));
+                connect(link, &QLabel::linkActivated, this, [this, target] { openTechnicalLink(target); });
+                entries->addWidget(link, row, 1);
             } else {
                 entries->addWidget(makeWrappedLabel(value, sectionFrame), row, 1);
             }
@@ -1205,11 +1242,11 @@ void BluMachCollectionWidget::applyFilter()
     int visibleProducts = 0;
     for (int mi = 0; mi < m_tree->topLevelItemCount(); ++mi) {
         auto *manufacturerItem = m_tree->topLevelItem(mi);
-        bool manufacturerVisible = false;
+        int manufacturerMatches = 0;
         const auto *manufacturer = m_catalog.manufacturer(manufacturerItem->data(0, IdRole).toString());
         for (int fi = 0; fi < manufacturerItem->childCount(); ++fi) {
             auto *familyItem = manufacturerItem->child(fi);
-            bool familyVisible = false;
+            int familyMatches = 0;
             const auto *family = m_catalog.family(familyItem->data(0, IdRole).toString());
             for (int pi = 0; pi < familyItem->childCount(); ++pi) {
                 auto *productItem = familyItem->child(pi);
@@ -1227,23 +1264,25 @@ void BluMachCollectionWidget::applyFilter()
                     && matchesFacetFilters(*product)
                     && (needle.isEmpty() || haystack.contains(needle, Qt::CaseInsensitive));
                 productItem->setHidden(!visible);
-                familyVisible |= visible;
+                familyMatches += visible ? 1 : 0;
                 visibleProducts += visible ? 1 : 0;
             }
-            familyItem->setHidden(!familyVisible);
-            if (revealMatches && familyVisible)
+            familyItem->setData(0, CountRole, familyMatches);
+            familyItem->setHidden(familyMatches == 0);
+            if (revealMatches && familyMatches > 0)
                 familyItem->setExpanded(true);
-            manufacturerVisible |= familyVisible;
+            manufacturerMatches += familyMatches;
         }
-        manufacturerItem->setHidden(!manufacturerVisible);
-        if (revealMatches && manufacturerVisible)
+        manufacturerItem->setData(0, CountRole, manufacturerMatches);
+        manufacturerItem->setHidden(manufacturerMatches == 0);
+        if (revealMatches && manufacturerMatches > 0)
             manufacturerItem->setExpanded(true);
     }
     m_resultsLabel->setText(visibleProducts == 0 && revealMatches
                                 ? m_catalog.text(QStringLiteral("filter.no_results"))
                                 : (visibleProducts == 1
-                                       ? tr("%1 computer").arg(visibleProducts)
-                                       : tr("%1 computers").arg(visibleProducts)));
+                                       ? m_catalog.text(QStringLiteral("collection.count_one")).arg(visibleProducts)
+                                       : m_catalog.text(QStringLiteral("collection.count_many")).arg(visibleProducts)));
     const auto itemIsVisible = [](QTreeWidgetItem *item) {
         for (auto *current = item; current; current = current->parent()) {
             if (current->isHidden())
@@ -1270,17 +1309,14 @@ void BluMachCollectionWidget::applyFilter()
 void BluMachCollectionWidget::updateAppearance()
 {
     const auto pal = QApplication::palette();
-    bool dark = pal.color(QPalette::Window).lightnessF() < 0.5;
-#ifdef Q_OS_WINDOWS
-    dark = !util::isWindowsLightTheme();
-#endif
+    const bool dark = pal.color(QPalette::Window).lightnessF() < 0.5;
     const QColor windowColor = pal.color(QPalette::Window);
     const QColor baseColor = pal.color(QPalette::Base);
     const QColor textColor = pal.color(QPalette::Text);
     const QColor accentColor = pal.color(QPalette::Highlight);
     const QColor linkColor = pal.color(QPalette::Link);
     const QColor surfaceColor = blendColor(baseColor, textColor, dark ? 0.055 : 0.018);
-    const QColor mutedColor = blendColor(baseColor, textColor, dark ? 0.68 : 0.58);
+    const QColor mutedColor = blendColor(baseColor, textColor, dark ? 0.74 : 0.68);
     const QColor borderColor = blendColor(baseColor, textColor, dark ? 0.28 : 0.16);
     const QColor badgeColor = blendColor(baseColor, accentColor, dark ? 0.26 : 0.11);
     const QColor badgeBorder = blendColor(baseColor, accentColor, dark ? 0.58 : 0.42);
@@ -1291,36 +1327,47 @@ void BluMachCollectionWidget::updateAppearance()
     contentPalette.setColor(QPalette::Text, textColor);
     contentPalette.setColor(QPalette::WindowText, textColor);
     contentPalette.setColor(QPalette::PlaceholderText, mutedColor);
-    m_tree->setPalette(contentPalette);
     setStyleSheet(QStringLiteral(
         "QWidget#blumachCollection { background: %1; color: %4; }"
         "QLabel#blumachCollectionHeading, QLabel#blumachProductTitle, QLabel#blumachBodyText { color: %4; background: transparent; }"
         "QLabel#blumachCollectionIntro, QLabel#blumachResultsLabel, QLabel#blumachProductSubtitle, QLabel#blumachEvidence { color: %5; background: transparent; }"
         "QLabel#blumachProductSummary, QLabel#blumachWarningText { color: %4; background: transparent; }"
         "QLineEdit, QComboBox { color: %4; background: %2; border: 1px solid %6; border-radius: 6px; padding: 6px 8px; }"
+        "QLineEdit:focus, QComboBox:focus { border-color: %4; }"
+        "QComboBox QAbstractItemView { color: %4; background: %2; selection-background-color: %7; selection-color: %4; }"
         "QFrame#blumachAdvancedFilters { background: %3; border: 1px solid %6; border-radius: 7px; }"
-        "QToolButton#blumachAdvancedFiltersButton { color: %4; background: %3; border: 1px solid %6; border-radius: 6px; padding: 6px 10px; }"
+        "QToolButton#blumachAdvancedFiltersButton, QToolButton#blumachClearFiltersButton { color: %4; background: %3; border: 1px solid %6; border-radius: 6px; padding: 6px 10px; }"
+        "QToolButton:hover { background: %7; }"
+        "QToolButton:focus { border: 1px solid %4; }"
         "QToolButton#blumachAdvancedFiltersButton:checked { background: %7; border-color: %8; }"
         "QLabel#blumachBadge { color: %4; background: %7; border: 1px solid %8; border-radius: 9px; padding: 3px 9px; }"
         "QWidget#blumachCollection[compact=\"true\"] QLabel#blumachBadge { padding: 2px 6px; }"
         "QFrame#blumachWarning { color: %4; background: %9; border: 0; border-left: 3px solid %8; border-radius: 6px; }"
         "QFrame#blumachDetailSection { background: %3; border: 1px solid %6; border-radius: 7px; }"
-        "QLabel#blumachSectionHeading { color: %4; font-weight: 600; }"
-        "QLabel#blumachFieldName { color: %5; font-weight: 600; }"
+        "QLabel#blumachSectionHeading { color: %4; background: transparent; font-weight: 600; }"
+        "QLabel#blumachFieldName { color: %5; background: transparent; font-weight: 600; }"
         "QScrollArea { background: transparent; border: 0; }"
+        "QWidget#blumachPage { background: %2; }"
+        "QSplitter::handle { background: %1; }"
+        "QSplitter::handle:hover { background: %6; }"
         "QTextBrowser#blumachEngineering { color: %4; background: %2; border: 0; padding: 2px 8px; }"
         "QTabWidget::pane { background: %2; border: 0; border-top: 1px solid %6; }"
         "QTabBar { background: %2; }"
         "QTabBar::tab { background: transparent; color: %5; border: 0; padding: 9px 8px; }"
         "QTabBar::tab:selected { color: %4; border-bottom: 2px solid %8; font-weight: 600; }"
+        "QTabBar::tab:hover { color: %4; background: %3; }"
+        "QTabBar::tab:focus { color: %4; border-bottom: 2px solid %4; }"
         "QTreeWidget { background: %2; border: 1px solid %6; border-radius: 7px; outline: 0; show-decoration-selected: 0; }"
         "QTreeWidget::item:selected, QTreeWidget::item:focus { background: transparent; border: 0; }"
-        "QToolButton { color: %8; text-decoration: none; }")
+        "QToolButton { color: %4; text-decoration: none; }")
         .arg(windowColor.name(), baseColor.name(), surfaceColor.name(), textColor.name(),
              mutedColor.name(), borderColor.name(), badgeColor.name(), badgeBorder.name(),
              warningColor.name()));
     setProperty("compact", m_compactLayout);
     style()->unpolish(this);
     style()->polish(this);
+    // Repolishing restores the stylesheet's cached palette. Apply the custom
+    // delegate roles afterwards so switching themes cannot retain old text.
+    m_tree->setPalette(contentPalette);
     update();
 }
