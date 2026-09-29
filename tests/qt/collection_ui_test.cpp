@@ -4,6 +4,8 @@
 #include "qt_vmmanager_config.hpp"
 #include <QApplication>
 #include <QComboBox>
+#include <QCryptographicHash>
+#include <QImage>
 #include <QDir>
 #include <QFile>
 #include <QLabel>
@@ -46,6 +48,28 @@ static double contrast(QColor a, QColor b)
 class CollectionUiTest : public QObject {
     Q_OBJECT
 private slots:
+    void bundledMarks()
+    {
+        testSettings.clear();
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        QVERIFY(tree);
+        const auto resource = tree->topLevelItem(0)->data(0, Qt::UserRole + 8).toString();
+        QCOMPARE(resource, QString(":/blumach/brand-marks/olivetti-1971-2009.png"));
+        QVERIFY(!QImage(resource).isNull());
+        QFile image(resource);
+        QVERIFY(image.open(QIODevice::ReadOnly));
+        QCOMPARE(QCryptographicHash::hash(image.readAll(), QCryptographicHash::Sha256).toHex(),
+                 QByteArray("35a29fa5d7f6ed29796448005294127da1944b3749ec1fec19cffcba0d8898b8"));
+        testSettings["blumach_catalog_skin_manufacturer_marks"] = "0";
+        widget.reloadSkin();
+        QVERIFY(tree->topLevelItem(0)->data(0, Qt::UserRole + 8).toString().isEmpty());
+        testSettings["blumach_catalog_skin_manufacturer_marks"] = "1";
+        testSettings["blumach_catalog_skin_directory"] = "/missing-blumach-test-package";
+        widget.reloadSkin();
+        QCOMPARE(tree->topLevelItem(0)->data(0, Qt::UserRole + 8).toString(), resource);
+        testSettings.clear();
+    }
     void catalogue_data()
     {
         QTest::addColumn<bool>("dark");
@@ -165,6 +189,10 @@ private slots:
         }
         tree->setCurrentItem(brand);
         QTest::qWait(5);
+        auto *notice = widget.findChild<QLabel *>("blumachBrandNotice");
+        QVERIFY(notice);
+        QVERIFY(notice->text().contains("Olivetti"));
+        QVERIFY(!notice->text().contains("manufacturer.olivetti.trademark_notice"));
         // Offscreen has no compositor paint; force the same layout pass even
         // when optional screenshot export is disabled.
         widget.grab();

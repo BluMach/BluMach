@@ -75,6 +75,10 @@ BluMachCatalog::load(QString *errorMessage)
                                  object.value(QStringLiteral("description_key")).toString(),
                                  object.value(QStringLiteral("history_key")).toString(),
                                  object.value(QStringLiteral("history_source_url")).toString() });
+        const auto brandMark = object.value(QStringLiteral("brand_mark")).toObject();
+        m_manufacturers.last().brandMarkResource = brandMark.value(QStringLiteral("resource")).toString();
+        m_manufacturers.last().brandMarkBackground = brandMark.value(QStringLiteral("background")).toString();
+        m_manufacturers.last().trademarkNoticeKey = object.value(QStringLiteral("trademark_notice_key")).toString();
         for (const auto &entry : object.value(QStringLiteral("history_references")).toArray()) {
             const auto reference = entry.toObject();
             m_manufacturers.last().historyReferences.append({

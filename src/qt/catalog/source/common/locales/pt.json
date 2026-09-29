@@ -1,4 +1,7 @@
 {
+  "skin.description": "O BluMach inclui os logótipos históricos dos fabricantes. Um pacote visual local pode substituí-los opcionalmente.",
+  "skin.show_marks": "Mostrar logótipos dos fabricantes",
+  "skin.builtin": "Logótipos incluídos · %1",
   "collection.title": "Coleção de computadores históricos",
   "collection.intro": "Explore computadores por fabricante e família, consulte o seu estado de preservação e crie uma máquina fiel ao modelo histórico.",
   "collection.search": "Pesquisar modelos, nomes alternativos ou hardware",

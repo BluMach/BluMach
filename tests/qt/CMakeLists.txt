@@ -22,6 +22,7 @@ add_executable(collection-ui collection_ui_test.cpp
     "${QT_SOURCE}/qt_blumach_formfactoricon.cpp"
     "${QT_SOURCE}/qt_vmmanager_config.hpp"
     "${QT_SOURCE}/qdarkstyle/dark/darkstyle.qrc"
+    "${QT_SOURCE}/catalog/blumach_marks.qrc"
     "${CMAKE_CURRENT_BINARY_DIR}/catalog/blumach_catalog.qrc")
 target_include_directories(collection-ui PRIVATE "${QT_SOURCE}")
 target_link_libraries(collection-ui PRIVATE Qt6::Widgets Qt6::Test)

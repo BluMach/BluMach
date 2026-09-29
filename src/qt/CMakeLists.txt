@@ -316,6 +316,7 @@ add_library(ui STATIC
     ../qt_resources.qrc
     ${BLUMACH_CATALOG_QRC}
     ./qdarkstyle/dark/darkstyle.qrc
+    ./catalog/blumach_marks.qrc
 
     qt_openglshadermanagerdialog.hpp
     qt_openglshadermanagerdialog.cpp

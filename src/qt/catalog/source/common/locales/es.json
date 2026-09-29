@@ -1,4 +1,7 @@
 {
+  "skin.description": "BluMach incluye los logotipos históricos de fabricantes. Un paquete visual local puede sustituirlos de forma opcional.",
+  "skin.show_marks": "Mostrar logotipos de fabricantes",
+  "skin.builtin": "Logotipos incluidos · %1",
   "collection.title": "Colección histórica de ordenadores",
   "collection.intro": "Explora equipos por fabricante y familia, revisa su estado de conservación y crea una máquina históricamente precisa.",
   "collection.search": "Buscar modelos, alias o hardware",

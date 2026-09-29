@@ -1,4 +1,7 @@
 {
+  "skin.description": "Historical manufacturer marks are included with BluMach. A local visual package can optionally replace them.",
+  "skin.show_marks": "Show manufacturer marks",
+  "skin.builtin": "Built-in manufacturer marks · %1",
   "collection.title": "Historical computer collection",
   "collection.intro": "Explore computers by manufacturer and family, review their preservation status, and create a historically accurate machine.",
   "collection.search": "Search models, aliases or hardware",

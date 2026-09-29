@@ -29,6 +29,9 @@ struct BluMachManufacturer {
     QString historyKey;
     QString historySourceUrl;
     QVector<BluMachHistoryReference> historyReferences;
+    QString brandMarkResource;
+    QString brandMarkBackground;
+    QString trademarkNoticeKey;
 };
 
 struct BluMachFamily {

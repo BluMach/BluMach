@@ -1,4 +1,7 @@
 {
+  "skin.description": "BluMach include i loghi storici dei produttori. Un pacchetto grafico locale può sostituirli facoltativamente.",
+  "skin.show_marks": "Mostra i loghi dei produttori",
+  "skin.builtin": "Loghi integrati · %1",
   "collection.title": "Collezione di computer storici",
   "collection.intro": "Esplora i computer per produttore e famiglia, consulta il loro stato di conservazione e crea una macchina fedele al modello storico.",
   "collection.search": "Cerca modelli, alias o hardware",

@@ -822,7 +822,9 @@ void BluMachCollectionWidget::rebuildTree()
         auto *manufacturerItem = new QTreeWidgetItem(m_tree, { manufacturer.name });
         manufacturerItem->setData(0, IdRole, manufacturer.id);
         manufacturerItem->setData(0, TypeRole, ManufacturerItem);
-        const auto mark = m_skin.manufacturerMark(manufacturer.id);
+        auto mark = m_skin.manufacturerMark(manufacturer.id);
+        if (BluMachCatalogSkin::manufacturerMarksEnabled() && mark.imagePath.isEmpty())
+            mark = { manufacturer.brandMarkResource, manufacturer.brandMarkBackground };
         manufacturerItem->setData(0, BrandMarkRole, mark.imagePath);
         manufacturerItem->setData(0, BrandMarkBackgroundRole, mark.background);
         manufacturerItem->setExpanded(manufacturerIndex == 0);
@@ -954,6 +956,11 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
             m_title->setText(manufacturer->name);
             m_subtitle->setText(m_catalog.text(QStringLiteral("collection.manufacturer")));
             m_summary->setText(m_catalog.text(manufacturer->descriptionKey));
+            if (!manufacturer->trademarkNoticeKey.isEmpty()) {
+                auto *notice = makeWrappedLabel(m_catalog.text(manufacturer->trademarkNoticeKey), m_overviewScroll);
+                notice->setObjectName(QStringLiteral("blumachBrandNotice"));
+                m_overviewLayout->addWidget(notice);
+            }
             if (!manufacturer->historyKey.isEmpty()) {
                 m_overviewLayout->addWidget(makeSectionHeading(m_catalog.text(QStringLiteral("collection.history")), m_overviewScroll));
                 m_overviewLayout->addWidget(makeWrappedLabel(m_catalog.text(manufacturer->historyKey), m_overviewScroll));
@@ -1331,7 +1338,7 @@ void BluMachCollectionWidget::updateAppearance()
         "QWidget#blumachCollection { background: %1; color: %4; }"
         "QLabel#blumachCollectionHeading, QLabel#blumachProductTitle, QLabel#blumachBodyText { color: %4; background: transparent; }"
         "QLabel#blumachCollectionIntro, QLabel#blumachResultsLabel, QLabel#blumachProductSubtitle, QLabel#blumachEvidence { color: %5; background: transparent; }"
-        "QLabel#blumachProductSummary, QLabel#blumachWarningText { color: %4; background: transparent; }"
+        "QLabel#blumachProductSummary, QLabel#blumachWarningText, QLabel#blumachBrandNotice { color: %4; background: transparent; }"
         "QLineEdit, QComboBox { color: %4; background: %2; border: 1px solid %6; border-radius: 6px; padding: 6px 8px; }"
         "QLineEdit:focus, QComboBox:focus { border-color: %4; }"
         "QComboBox QAbstractItemView { color: %4; background: %2; selection-background-color: %7; selection-color: %4; }"
