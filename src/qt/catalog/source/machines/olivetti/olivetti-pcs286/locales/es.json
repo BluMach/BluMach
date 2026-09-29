@@ -1,9 +1,9 @@
 {
   "product.olivetti-pcs286.summary": "Modelo 80286 a 12 MHz con VGA integrada y almacenamiento IDE.",
   "product.olivetti-pcs286.history": "El PCS 286 ocupó la posición intermedia de la línea PCS. Se conservan las BIOS 1.37 y 1.42; BluMach ha validado el POST, el Extended Setup, el arranque de MS-DOS y el Customer Test con un disco IDE de 40 MB. La ROM interna original del controlador de teclado y algunos registros de la lógica de placa siguen siendo aproximaciones.",
-  "product.olivetti-pcs286.technical.cpu_bus": "Intel 80286 a 12 MHz; plataforma AT con coprocesador 80287 opcional.",
-  "product.olivetti-pcs286.technical.memory": "Configuraciones documentadas de 1 a 4 MB; la BIOS realiza comprobación de memoria base y extendida durante el POST.",
-  "product.olivetti-pcs286.technical.storage": "IDE/ATA integrado. Se conservan configuraciones para Conner CP3022 de 20 MB y CP346 de 40 MB.",
+  "product.olivetti-pcs286.technical.cpu_bus": "Intel 80286 a 12 MHz con un estado de espera; plataforma AT con coprocesador 80287 opcional.",
+  "product.olivetti-pcs286.technical.memory": "1 MB de serie, ampliable a 4 MB en la placa y 16 MB en el sistema. La BIOS comprueba la memoria base y extendida durante el POST.",
+  "product.olivetti-pcs286.technical.storage": "IDE/ATA integrado. Las configuraciones documentadas montan dos disqueteras de 1,44 MB, o una disquetera con disco Conner CP3022 de 20 MB o CP346 de 40 MB.",
   "product.olivetti-pcs286.technical.chipset": "Conjunto G2 GC101A + GC102, incorporado posteriormente a la familia Headland. BluMach utiliza el dispositivo GC101/102/103 de 86Box y la lógica específica IOC02 de Olivetti.",
   "product.olivetti-pcs286.technical.chipset_functions": "El GC101 reúne control periférico, temporización, arbitraje y control de memoria; el GC102 aporta buffers de dirección/datos y paridad. El diseño admite hasta 4 MB, que coincide con el límite comercial del PCS 286.",
   "product.olivetti-pcs286.technical.headland_ports": "El modelo actual expone 1ECh como datos EMS, 1EDh como índice de configuración, 1EEh como índice de mapa EMS y 1EFh como datos de configuración. Esta es la interfaz funcional de BluMach y no se presenta todavía como decodificación física completa de la placa.",
@@ -21,5 +21,11 @@
   "product.olivetti-pcs286.technical.limitations": "Faltan documentar la decodificación física completa de E/S, el efecto exacto de algunos registros GC101A y la ROM interna auténtica del M5L8042-243P. El modelo usa una aproximación funcional allí donde todavía no existe volcado o esquema.",
   "product.olivetti-pcs286.technical.firmware_evidence": "BIOS 1.37 y 1.42, Resident Diagnostics, Customer Test y trazas de POST. Se conservan por separado EPROM originales, imágenes normalizadas y estados CMOS.",
   "product.olivetti-pcs286.technical.programmable_logic": "PAL16L8 2P04 y 3P01 preservados en JEDEC. El controlador físico documentado es un Mitsubishi M5L8042-243P; su ROM interna auténtica aún no ha sido recuperada. El archivo 62410C62.BIN no es esa ROM y no se carga en el 8042.",
-  "product.olivetti-pcs286.technical.brochure": "PCS 286, ficha comercial Olivetti Office Italia de octubre de 1989, 2 páginas"
+  "product.olivetti-pcs286.technical.brochure": "PCS 286, ficha comercial Olivetti Office Italia de octubre de 1989, 2 páginas",
+  "product.olivetti-pcs286.creation.models": "Dos disqueteras de 1,44 MB; una disquetera de 1,44 MB con disco duro de 20 MB; o una disquetera de 1,44 MB con disco duro de 40 MB",
+  "product.olivetti-pcs286.creation.label.storage": "Configuración comercial de almacenamiento",
+  "product.olivetti-pcs286.creation.storage.two-144": "Comercial: 2 disqueteras de 3,5 pulgadas y 1,44 MB",
+  "product.olivetti-pcs286.creation.storage.one-144-hdd20": "Comercial: 1 disquetera de 1,44 MB + disco IDE de 20 MB",
+  "product.olivetti-pcs286.creation.storage.one-144-hdd40": "Comercial: 1 disquetera de 1,44 MB + disco IDE de 40 MB",
+  "product.olivetti-pcs286.creation.note": "Las tres opciones son configuraciones de venta documentadas. El disco duro ocupa la segunda bahía, por lo que los perfiles con disco no pueden llevar dos disqueteras. El perfil de 40 MB es el predeterminado y validado actualmente; las variantes de dos disqueteras y 20 MB quedan documentadas a la espera de la misma validación completa."
 }

@@ -78,6 +78,65 @@
     "creation": {
       "status": "validated",
       "directory_prefix": "olivetti-pcs286",
+      "facts": [
+        {
+          "label_key": "creation.label.commercial_model",
+          "value_key": "product.olivetti-pcs286.creation.models"
+        }
+      ],
+      "fields": [
+        {
+          "id": "commercial_configuration",
+          "label_key": "product.olivetti-pcs286.creation.label.storage",
+          "default": "one-144-hdd40",
+          "choices": [
+            {
+              "id": "two-144",
+              "label_key": "product.olivetti-pcs286.creation.storage.two-144",
+              "status": "documented",
+              "set": [
+                {"section": "Floppy and CD-ROM drives", "key": "fdd_01_type", "value": "35_2hd"},
+                {"section": "Floppy and CD-ROM drives", "key": "fdd_02_type", "value": "35_2hd"}
+              ]
+            },
+            {
+              "id": "one-144-hdd20",
+              "label_key": "product.olivetti-pcs286.creation.storage.one-144-hdd20",
+              "status": "documented",
+              "set": [
+                {"section": "Floppy and CD-ROM drives", "key": "fdd_01_type", "value": "35_2hd"},
+                {"section": "Floppy and CD-ROM drives", "key": "fdd_02_type", "value": "none"},
+                {"section": "Hard disks", "key": "hdd_01_fn", "value": "conner-cp3022-20mb.img"},
+                {"section": "Hard disks", "key": "hdd_01_parameters", "value": "17, 4, 615, 0, ide"},
+                {"section": "Hard disks", "key": "hdd_01_ide_channel", "value": "0:0"},
+                {"section": "Hard disks", "key": "hdd_01_speed", "value": "1989_3500rpm"}
+              ],
+              "generated_files": [
+                {"path": "conner-cp3022-20mb.img", "size": 21411840}
+              ]
+            },
+            {
+              "id": "one-144-hdd40",
+              "label_key": "product.olivetti-pcs286.creation.storage.one-144-hdd40",
+              "status": "validated",
+              "set": [
+                {"section": "Floppy and CD-ROM drives", "key": "fdd_01_type", "value": "35_2hd"},
+                {"section": "Floppy and CD-ROM drives", "key": "fdd_02_type", "value": "none"},
+                {"section": "Hard disks", "key": "hdd_01_fn", "value": "conner-cp346-40mb.img"},
+                {"section": "Hard disks", "key": "hdd_01_parameters", "value": "26, 4, 805, 0, ide"},
+                {"section": "Hard disks", "key": "hdd_01_ide_channel", "value": "0:0"},
+                {"section": "Hard disks", "key": "hdd_01_speed", "value": "1989_3500rpm"}
+              ],
+              "generated_files": [
+                {"path": "conner-cp346-40mb.img", "size": 42864640}
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-pcs286.creation.note"
+      ],
       "configuration": [
         {
           "section": "General",
@@ -127,21 +186,6 @@
           "values": {
             "hdc_1": "ide_isa"
           }
-        },
-        {
-          "section": "Hard disks",
-          "values": {
-            "hdd_01_fn": "conner-cp346-40mb.img",
-            "hdd_01_parameters": "26, 4, 805, 0, ide",
-            "hdd_01_ide_channel": "0:0",
-            "hdd_01_speed": "1989_3500rpm"
-          }
-        }
-      ],
-      "generated_files": [
-        {
-          "path": "conner-cp346-40mb.img",
-          "size": 42864640
         }
       ]
     },
