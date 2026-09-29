@@ -41,5 +41,20 @@
   "product.olivetti-pcs386sx.technical.brochure": "PCS 386 SX, Olivetti fiche produit en date de septembre 1990, 2 pages",
   "product.olivetti-pcs386sx.technical.physical_board_evidence": "Carte PCS 386SX photographiée, identifiant HT101SX, HT113, GC102-PC, M5L8042, TL16C451FN et WD37C65CJM",
   "product.olivetti-pcs386sx.technical.tl16c451_datasheet": "Fiche technique officielle Texas Instruments TL16C451/TL16C452 (SLLS053C)",
-  "product.olivetti-pcs386sx.technical.ht101sx_peer_bios": "Conservation indépendante de l'Emerson Elite SX386/16 : carte HT101SX/HT113/GC102 photographiée et BIOS utilisant la même interface 1ECh–1EFh"
+  "product.olivetti-pcs386sx.technical.ht101sx_peer_bios": "Conservation indépendante de l'Emerson Elite SX386/16 : carte HT101SX/HT113/GC102 photographiée et BIOS utilisant la même interface 1ECh–1EFh",
+  "product.olivetti-pcs386sx.creation.sound.adlib": "AdLib (ISA 8 bits)",
+  "product.olivetti-pcs386sx.creation.sound.cms": "Creative CMS / Game Blaster (ISA 8 bits)",
+  "product.olivetti-pcs386sx.creation.sound.sb1": "Sound Blaster 1.0 (ISA 8 bits)",
+  "product.olivetti-pcs386sx.creation.sound.sb15": "Sound Blaster 1.5 (ISA 8 bits)",
+  "product.olivetti-pcs386sx.creation.sound.sb20": "Sound Blaster 2.0 (ISA 8 bits)",
+  "product.olivetti-pcs386sx.creation.sound.sbpro1": "Sound Blaster Pro 1.0 (ISA 8 bits)",
+  "product.olivetti-pcs386sx.creation.sound.sbpro2": "Sound Blaster Pro 2.0 (ISA 8 bits)",
+  "product.olivetti-pcs386sx.creation.sound.sb16": "Sound Blaster 16 (ISA 16 bits, sans PnP)",
+  "product.olivetti-pcs386sx.creation.sound.gus": "Gravis UltraSound (ISA 16 bits)",
+  "product.olivetti-pcs386sx.creation.sound.gusace": "Gravis UltraSound ACE (ISA 16 bits)",
+  "product.olivetti-pcs386sx.creation.sound.wss": "Microsoft Windows Sound System (ISA 16 bits)",
+  "product.olivetti-pcs386sx.creation.label.sound": "Son (ISA 8/16 bits)",
+  "product.olivetti-pcs386sx.creation.sound.none": "Sans carte son",
+  "product.olivetti-pcs386sx.creation.sound.awe32": "AWE32 (ISA 16 bits) — ROM d'échantillons/logiciels à valider",
+  "product.olivetti-pcs386sx.creation.sound_note": "Extensions utilisateur ; audio non testé à 16 MHz. Sélectionnez une carte (deux slots ISA 16 bits + un ISA 8 bits). Utilisez des logiciels DOS d'époque ou le support natif du jeu. Les suites peuvent exiger plus de RAM (multimédia SB16 : 4 Mo) ou une autre carte graphique ; la RAM ne change pas automatiquement. GUS ACE ne remplace pas SB matériellement. WSS peut nécessiter une fréquence d'enregistrement réduite. PnP, AWE64 et les cartes non étudiées sont omises. AWE32 désigne des voix, pas le bus ; indisponible en attendant sa ROM d'échantillons et la validation de logiciels pour 386."
 }

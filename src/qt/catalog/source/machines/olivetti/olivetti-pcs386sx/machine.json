@@ -284,10 +284,167 @@
               ]
             }
           ]
+        },
+        {
+          "id": "sound_card",
+          "label_key": "product.olivetti-pcs386sx.creation.label.sound",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.none",
+              "status": "validated",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "id": "adlib",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.adlib",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "adlib"
+                }
+              ]
+            },
+            {
+              "id": "cms",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.cms",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "cms"
+                }
+              ]
+            },
+            {
+              "id": "sb1",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.sb1",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "sb"
+                }
+              ]
+            },
+            {
+              "id": "sb15",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.sb15",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "sb1.5"
+                }
+              ]
+            },
+            {
+              "id": "sb20",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.sb20",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "sb2.0"
+                }
+              ]
+            },
+            {
+              "id": "sbpro1",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.sbpro1",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "sbprov1"
+                }
+              ]
+            },
+            {
+              "id": "sbpro2",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.sbpro2",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "sbprov2"
+                }
+              ]
+            },
+            {
+              "id": "sb16",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.sb16",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "sb16"
+                }
+              ]
+            },
+            {
+              "id": "gus",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.gus",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "gus"
+                }
+              ]
+            },
+            {
+              "id": "gusace",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.gusace",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "gusace"
+                }
+              ]
+            },
+            {
+              "id": "wss",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.wss",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Sound",
+                  "key": "sndcard",
+                  "value": "wss"
+                }
+              ]
+            },
+            {
+              "id": "awe32",
+              "label_key": "product.olivetti-pcs386sx.creation.sound.awe32",
+              "status": "unavailable"
+            }
+          ]
         }
       ],
       "note_keys": [
-        "product.olivetti-pcs386sx.creation.note"
+        "product.olivetti-pcs386sx.creation.note",
+        "product.olivetti-pcs386sx.creation.sound_note"
       ],
       "configuration": [
         {
