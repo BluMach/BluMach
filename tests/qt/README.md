@@ -19,6 +19,14 @@ application's dark stylesheet), five locales, and 680/860/1280-pixel widths.
 
 Checks include filter visibility and counts, zero-result creation safety,
 keyboard navigation, layout bounds, scroll reset and secondary-text contrast.
+Release-selection checks also verify that the three visible PCS models are
+selectable, pending BluMach models (including models without sheets) are not,
+and inherited emulator machines remain selectable independently of catalogue
+visibility. The machine registry marks BluMach-owned entries with
+`blumach_release_managed`; a newly released model becomes selectable through
+its catalogue `visible` flag. A loaded VM retains its current machine in the
+configuration combo, disabled as a selectable choice, even when that model is
+not part of this release.
 Set `BLUMACH_UI_SCREENSHOTS` to an absolute output directory to also save actual
 widget renders for visual review, including brand and product selection.
 These renders do not validate the native Windows title bar or the full VM

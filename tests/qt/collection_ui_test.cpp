@@ -48,6 +48,28 @@ static double contrast(QColor a, QColor b)
 class CollectionUiTest : public QObject {
     Q_OBJECT
 private slots:
+    void machineReleaseSelection()
+    {
+        BluMachCatalog catalog;
+        QString error;
+        QVERIFY2(catalog.load(&error), qPrintable(error));
+        for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx" })
+            QVERIFY(catalog.isMachineSelectable(QString::fromLatin1(id), true));
+        for (const auto &id : { "olivetti_m15", "olivetti_m250", "olivetti_pcs286s",
+                                "t3200", "t5100", "t5200", "sx386m", "pc5286",
+                                "ta_dario286", "ta_dario386sx", "olivetti_ba2142",
+                                "olivetti_m240", "olivetti_m211v", "olivetti_m290sp" })
+            QVERIFY(!catalog.isMachineSelectable(QString::fromLatin1(id), true));
+        // An inherited model is selectable even without a visible catalogue sheet.
+        QVERIFY(catalog.isMachineSelectable(QStringLiteral("pc1512"), false));
+        QVERIFY(catalog.isMachineSelectable(QStringLiteral("ibmxt"), false));
+        QVERIFY(catalog.isMachineSelectable(QStringLiteral("m24"), false));
+        // Missing catalogue data fails closed for BluMach-owned models only.
+        BluMachCatalog unloaded;
+        QVERIFY(!unloaded.isMachineSelectable(QStringLiteral("olivetti_pcs86"), true));
+        QVERIFY(unloaded.isMachineSelectable(QStringLiteral("ibmxt"), false));
+    }
+
     void bundledMarks()
     {
         testSettings.clear();

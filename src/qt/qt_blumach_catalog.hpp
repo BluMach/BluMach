@@ -105,6 +105,7 @@ public:
     const BluMachFamily       *family(const QString &id) const;
     const BluMachPlatform     *platform(const QString &id) const;
     const BluMachProduct      *product(const QString &id) const;
+    bool isMachineSelectable(const QString &emulatorMachineId, bool releaseManaged) const;
 
 private:
     bool loadLocale(const QString &locale, QHash<QString, QString> *target) const;

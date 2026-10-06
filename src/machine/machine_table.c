@@ -2439,6 +2439,7 @@ const machine_t machines[] = {
     {
         .name              = "[8088] Olivetti M15 (experimental)",
         .internal_name     = "olivetti_m15",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_8088,
         .chipset           = MACHINE_CHIPSET_DISCRETE,
         .init              = machine_xt_olivetti_m15_init,
@@ -2724,6 +2725,7 @@ const machine_t machines[] = {
     {
         .name              = "[8086] Olivetti PCS86",
         .internal_name     = "olivetti_pcs86",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_8086,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_xt_olivetti_pcs86_init,
@@ -2773,6 +2775,7 @@ const machine_t machines[] = {
     {
         .name              = "[NEC V40] Olivetti Prodest PC 1 (experimental)",
         .internal_name     = "olivetti_prodest_pc1",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_8086,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_xt_olivetti_prodest_pc1_init,
@@ -2822,6 +2825,7 @@ const machine_t machines[] = {
     {
         .name              = "[NEC V40] Olivetti Prodest PC 1 HD (experimental)",
         .internal_name     = "olivetti_prodest_pc1hd",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_8086,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_xt_olivetti_prodest_pc1hd_init,
@@ -4347,6 +4351,7 @@ const machine_t machines[] = {
     {
         .name              = "[GC101/102] Olivetti PCS 286",
         .internal_name     = "olivetti_pcs286",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_GC103,
         .init              = machine_at_olivetti_pcs286_init,
@@ -4395,6 +4400,7 @@ const machine_t machines[] = {
     {
         .name              = "[GC101/102] Triumph-Adler Dario 286",
         .internal_name     = "ta_dario286",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_GC103,
         .init              = machine_at_olivetti_pcs286_init,
@@ -4445,6 +4451,7 @@ const machine_t machines[] = {
     {
         .name              = "[TI TACT82300/OLIMCU16] Olivetti PCS 286/S (12 MHz)",
         .internal_name     = "olivetti_pcs286s",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_at_olivetti_pcs286s_ti_init,
@@ -4831,6 +4838,7 @@ const machine_t machines[] = {
     {
         .name              = "[ISA] Toshiba T3200 (experimental)",
         .internal_name     = "t3200",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_at_t3200_init,
@@ -5605,6 +5613,7 @@ const machine_t machines[] = {
     {
         .name              = "[SCAT] Amstrad PC5286",
         .internal_name     = "pc5286",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_SCAT,
         .init              = machine_at_pc5286_init,
@@ -6671,6 +6680,7 @@ const machine_t machines[] = {
     {
         .name              = "[HT101SX] Olivetti PCS 386SX",
         .internal_name     = "olivetti_pcs386sx",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_HT101SX,
         .init              = machine_at_olivetti_pcs386sx_init,
@@ -6724,6 +6734,7 @@ const machine_t machines[] = {
     {
         .name              = "[HT101SX] TriGem SX386M",
         .internal_name     = "sx386m",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_HT101SX,
         .init              = machine_at_trigem_sx386m_init,
@@ -6776,6 +6787,7 @@ const machine_t machines[] = {
     {
         .name              = "[Intel 82335] Olivetti M300 (IF378)",
         .internal_name     = "olivetti_m300_if378",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_INTEL_82335,
         .init              = machine_at_olivetti_m300_if378_init,
@@ -6820,6 +6832,7 @@ const machine_t machines[] = {
     {
         .name              = "[VLSI TOPCAT] Olivetti M300-02 (BA013/16)",
         .internal_name     = "olivetti_m30002",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_VLSI_TOPCAT,
         .init              = machine_at_olivetti_m30002_init,
@@ -6864,6 +6877,7 @@ const machine_t machines[] = {
     {
         .name              = "[VLSI TOPCAT] Olivetti M300-02F (BA013/25)",
         .internal_name     = "olivetti_m30002f",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_VLSI_TOPCAT,
         .init              = machine_at_olivetti_m30002f_init,
@@ -6908,6 +6922,7 @@ const machine_t machines[] = {
     {
         .name              = "[VLSI TOPCAT] Olivetti PCS 11 (BA013/16)",
         .internal_name     = "olivetti_pcs11",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_VLSI_TOPCAT,
         .init              = machine_at_olivetti_pcs11_init,
@@ -6952,6 +6967,7 @@ const machine_t machines[] = {
     {
         .name              = "[VLSI TOPCAT] Olivetti PCS 33 (BA013/25)",
         .internal_name     = "olivetti_pcs33",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_VLSI_TOPCAT,
         .init              = machine_at_olivetti_pcs33_init,
@@ -6996,6 +7012,7 @@ const machine_t machines[] = {
     {
         .name              = "[OPTi 283] Olivetti M300-08",
         .internal_name     = "olivetti_m30008",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_OPTI_283,
         .init              = machine_at_olivetti_m30008_init,
@@ -7040,6 +7057,7 @@ const machine_t machines[] = {
     {
         .name              = "[OPTi 283] Olivetti M300-15",
         .internal_name     = "olivetti_m30015",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_OPTI_283,
         .init              = machine_at_olivetti_m30015_init,
@@ -7084,6 +7102,7 @@ const machine_t machines[] = {
     {
         .name              = "[HT101SX] Triumph-Adler Dario 386SX",
         .internal_name     = "ta_dario386sx",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386SX,
         .chipset           = MACHINE_CHIPSET_HT101SX,
         .init              = machine_at_olivetti_pcs386sx_init,
@@ -8313,6 +8332,7 @@ const machine_t machines[] = {
     {
         .name              = "[ISA] Toshiba T5100 (experimental)",
         .internal_name     = "t5100",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386DX,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_at_t5100_init,
@@ -8458,6 +8478,7 @@ const machine_t machines[] = {
     {
         .name              = "[ISA] Toshiba T5200 (experimental)",
         .internal_name     = "t5200",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386DX,
         .chipset           = MACHINE_CHIPSET_DISCRETE,
         .init              = machine_at_t5200_init,
@@ -10453,6 +10474,7 @@ const machine_t machines[] = {
     {
         .name              = "[ETEQ ET6000] Olivetti PCS 46/C",
         .internal_name     = "pcs46c",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_SOCKET1,
         .chipset           = MACHINE_CHIPSET_ETEQ_ET6000,
         .init              = machine_at_pcs46c_init,
@@ -10499,6 +10521,7 @@ const machine_t machines[] = {
     {
         .name              = "[VLSI 82C486] Olivetti M300-30",
         .internal_name     = "olivetti_m30030",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_SOCKET1,
         .chipset           = MACHINE_CHIPSET_VLSI_VL82C486,
         .init              = machine_at_olivetti_m30030_init,
@@ -10543,6 +10566,7 @@ const machine_t machines[] = {
     {
         .name              = "[VLSI 82C486] Olivetti M300-30P",
         .internal_name     = "olivetti_m30030p",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_SOCKET1,
         .chipset           = MACHINE_CHIPSET_VLSI_VL82C486,
         .init              = machine_at_olivetti_m30030_init,
@@ -25761,6 +25785,7 @@ const machine_t machines[] = {
     {
         .name              = "[OMEGA 4] Olivetti M240",
         .internal_name     = "olivetti_m240",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_8086,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_xt_olivetti_m240_init,
@@ -25825,6 +25850,7 @@ const machine_t machines[] = {
     {
         .name              = "[80C206] Olivetti M250",
         .internal_name     = "olivetti_m250",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_at_olivetti_m250_init,
@@ -25886,6 +25912,7 @@ const machine_t machines[] = {
     {
         .name              = "[82C206] Olivetti M250 E",
         .internal_name     = "olivetti_m250e",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_at_olivetti_m250e_init,
@@ -25942,6 +25969,7 @@ const machine_t machines[] = {
     {
         .name              = "[Olivetti FE2000] Olivetti M28",
         .internal_name     = "olivetti_m28",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_at_olivetti_m28_init,
@@ -25991,6 +26019,7 @@ const machine_t machines[] = {
     {
         .name              = "[Olivetti FE2000] Olivetti M280",
         .internal_name     = "olivetti_m280",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_at_olivetti_m280_init,
@@ -26041,6 +26070,7 @@ const machine_t machines[] = {
     {
         .name              = "[VLSI TOPCAT] Olivetti M290 SP",
         .internal_name     = "olivetti_m290sp",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_VLSI_TOPCAT,
         .init              = machine_at_olivetti_m290sp_init,
@@ -26091,6 +26121,7 @@ const machine_t machines[] = {
     {
         .name              = "[CS8223 LeAPset] Olivetti M211V (experimental)",
         .internal_name     = "olivetti_m211v",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
         .chipset           = MACHINE_CHIPSET_NEAT,
         .init              = machine_at_olivetti_m211v_init,
@@ -26141,6 +26172,7 @@ const machine_t machines[] = {
     {
         .name              = "[Olivetti] Olivetti M380 / M380 C",
         .internal_name     = "olivetti_m380",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_386DX,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
         .init              = machine_at_olivetti_m380_init,
@@ -26191,6 +26223,7 @@ const machine_t machines[] = {
     {
         .name              = "[UMC 82C491] Olivetti BA2142 (Experimental)",
         .internal_name     = "olivetti_ba2142",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_SOCKET1,
         .chipset           = MACHINE_CHIPSET_UMC_UM82C491,
         .init              = machine_at_olivetti_ba2142_init,

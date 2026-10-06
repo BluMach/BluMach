@@ -185,6 +185,19 @@ const QVector<BluMachPlatform> &BluMachCatalog::platforms() const { return m_pla
 const QVector<BluMachProduct> &BluMachCatalog::products() const { return m_products; }
 const QVector<BluMachFilterFacet> &BluMachCatalog::filterFacets() const { return m_filterFacets; }
 
+bool
+BluMachCatalog::isMachineSelectable(const QString &emulatorMachineId, bool releaseManaged) const
+{
+    if (!releaseManaged)
+        return true;
+    for (const auto &product : m_products) {
+        const auto *machinePlatform = platform(product.platformId);
+        if (machinePlatform && machinePlatform->emulatorMachineId == emulatorMachineId)
+            return true;
+    }
+    return false;
+}
+
 QString
 BluMachCatalog::text(const QString &key) const
 {
