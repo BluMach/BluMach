@@ -9,7 +9,7 @@
   "product.olivetti-pcs86.technical.bios_identity": "Para compatibilidad, INT 15h/C0h se identifica como IBM PS/2 Model 30, submodelo 109. Esto es una elección del firmware, no la identidad comercial del equipo.",
   "product.olivetti-pcs86.technical.diagnostics": "Comprueba CPU, ROM, DMA, PIC, temporizador, memoria base y expandida, reloj/calendario, impresora, comunicaciones, unidades y teclado. La pantalla observada corresponde a Rev. 1.09.",
   "product.olivetti-pcs86.technical.io_intro": "Las direcciones siguientes describen la lógica específica del PCS86 además de los bloques compatibles habituales.",
-  "product.olivetti-pcs86.technical.board_control": "60h–6Fh: teclado, altavoz/PIT y lógica propia. Puerto 65h: bit 0 XTA, bit 1 LPT, bit 2 VGA, bit 4 COM1 y bit 7 pestillo de arranque/prueba según el código de BIOS analizado.",
+  "product.olivetti-pcs86.technical.board_control": "60h–6Fh: teclado, altavoz/PIT y lógica propia. Puerto 65h: bit 0 XTA, bit 1 LPT, bit 2 VGA, bit 4 COM1 y bit 7 latch de arranque/prueba según el código de BIOS analizado.",
   "product.olivetti-pcs86.technical.keyboard_mouse": "60h recibe códigos del teclado e IRQ1. 66h–6Ah implementan la interfaz doble de periféricos tipo PS/2 propia de la placa; se han observado las identificaciones AB83h para teclado y 00h para ratón.",
   "product.olivetti-pcs86.technical.rtc": "E0h–EFh: MM58167 y NVRAM asociada. Los comandos B0h–B7h gestionan lectura/escritura y estado; la BIOS conserva fecha, hora y suma de comprobación en su formato propio.",
   "product.olivetti-pcs86.technical.floppy": "Controlador compatible en 3F0h–3F7h. El banco físico selecciona por unidad 360 KB, 720 KB, 1,2 MB o 1,44 MB mediante combinaciones activas a nivel bajo.",

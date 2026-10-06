@@ -5,7 +5,7 @@
   "product.olivetti-pcs86.technical.memory_map": "La scheda madre integra 512 KB. Due SIMM da 256 KB portano la memoria convenzionale a 640 KB e lasciano 384 KB come EMS; due SIMM da 1 MB portano ugualmente la memoria convenzionale a 640 KB e lasciano 1.920 KB come EMS. Quattro finestre da 16 KB occupano 80000h–8FFFFh.",
   "product.olivetti-pcs86.technical.video": "VGA Paradise integrata. Il BIOS di sistema contiene anche il relativo codice di inizializzazione, quindi non è necessaria una ROM opzionale VGA separata a C0000h.",
   "product.olivetti-pcs86.technical.rom_layout": "Due EPROM interlacciate, CSAB05 (byte pari) e CSAB04 (byte dispari), formano 64 KB a F0000h–FFFFFh. Il set contiene BIOS di sistema, VGA, XTA e diagnostica.",
-  "product.olivetti-pcs86.technical.bios_revision": "Resident Diagnostics rev. 1.09. Il set conservato supera il controllo della somma e raggiunge il vettore di reset a FFFF0h.",
+  "product.olivetti-pcs86.technical.bios_revision": "Resident Diagnostics rev. 1.09. Il set conservato supera la verifica del checksum e raggiunge il vettore di reset a FFFF0h.",
   "product.olivetti-pcs86.technical.bios_identity": "Per compatibilità, INT 15h/C0h identifica il sistema come IBM PS/2 Model 30, sottomodello 109. È una scelta del firmware, non l’identità commerciale del computer.",
   "product.olivetti-pcs86.technical.diagnostics": "Verifica CPU, ROM, DMA, PIC, timer, memoria di base ed espansa, orologio/calendario, stampante, comunicazioni, unità e tastiera. La schermata osservata corrisponde alla revisione 1.09.",
   "product.olivetti-pcs86.technical.io_intro": "Gli indirizzi seguenti riguardano la logica specifica del PCS 86, oltre ai consueti blocchi compatibili.",
@@ -45,5 +45,5 @@
   "product.olivetti-pcs86.creation.sound.sb1": "Sound Blaster 1.0 (ISA a 8 bit)",
   "product.olivetti-pcs86.creation.sound.sb15": "Sound Blaster 1.5 (ISA a 8 bit)",
   "product.olivetti-pcs86.creation.sound.sb20": "Sound Blaster 2.0 (ISA a 8 bit)",
-  "product.olivetti-pcs86.creation.sound_note": "Espansioni dell'utente, non opzioni commerciali Olivetti; audio non ancora provato. Usare software DOS compatibile XT/V30. Le suite successive possono richiedere un'altra CPU o un altro sistema. Sono escluse le Pro e le schede ISA a 16 bit. Selezionare una scheda audio."
+  "product.olivetti-pcs86.creation.sound_note": "Espansioni dell’utente, non opzioni commerciali Olivetti; audio non ancora provato. Usare software DOS compatibile XT/V30. Le suite successive possono richiedere un’altra CPU o un altro sistema. Sono escluse le Pro e le schede ISA a 16 bit. Selezionare una scheda audio."
 }
