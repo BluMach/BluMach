@@ -22,7 +22,8 @@ BluMach is an independent project and is not an official 86Box build. Existing
 > The project is under active development and is provided as-is, without warranty,
 > under the terms of the GPL-2.0-or-later license. Official binary releases are
 > planned once the emulator and its user experience are sufficiently mature; no
-> release date has been announced.
+> release date has been announced. The first preview is being prepared as
+> **0.1.0-alpha.1**; see the [alpha setup and validation guide](doc/releases/0.1.0-alpha.1.md).
 >
 > BluMach does not distribute ROMs, operating systems or other proprietary
 > machine software.

@@ -19,9 +19,11 @@
 #include "qt_deviceconfig.hpp"
 #include "ui_qt_deviceconfig.h"
 #include "qt_settings.hpp"
+#include "qt_blumach_catalog.hpp"
 
 #include <QDebug>
 #include <QComboBox>
+#include <QMessageBox>
 #include <QPushButton>
 #include <QFormLayout>
 #include <QSpinBox>
@@ -274,7 +276,7 @@ DeviceConfig::ProcessConfig(void *dc, const void *c, const bool is_dep)
                 }
             case CONFIG_BIOS:
                 {
-                    auto *cbox   = new QComboBox();
+                    auto *cbox   = new QComboBox(this);
                     cbox->setObjectName(config->name);
                     cbox->setMaxVisibleItems(30);
                     auto *model        = cbox->model();
@@ -309,12 +311,20 @@ DeviceConfig::ProcessConfig(void *dc, const void *c, const bool is_dep)
                         q++;
                     }
 
+                    const bool unavailable = currentIndex < 0;
+                    if (unavailable) {
+                        BluMachCatalog catalog;
+                        catalog.load();
+                        currentIndex = Models::AddEntry(model, catalog.text(QStringLiteral("firmware.invalid_bios_choice")).arg(selected), -1);
+                        cbox->setItemData(currentIndex, 0, Qt::UserRole - 1);
+                        ++rows;
+                    }
                     bios_rows = rows;
-                    if (rows > 1)
+                    if (rows > 1 || unavailable)
                         this->ui->formLayout->addRow(tr(config->description).append(colon), cbox);
 
-                    bios = currentIndex;
                     cbox->setCurrentIndex(currentIndex);
+                    bios = cbox->currentData().toInt();
 
                     cbox_bios = cbox;
                     cfg_bios  = config;
@@ -427,10 +437,24 @@ DeviceConfig::ProcessConfig(void *dc, const void *c, const bool is_dep)
         ++config;
     }
 
-    if ((cfg_memory != nullptr) && (cfg_bios != nullptr) && (bios != -1))
-        connect(cbox_bios, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DeviceConfig::on_comboIndexChanged);
+    if ((cfg_memory != nullptr) && (cfg_bios != nullptr))
+        connect(cbox_bios, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this] {
+            on_comboIndexChanged(cbox_bios->currentData().toInt());
+        });
 
     on_comboIndexChanged(bios);
+}
+
+void
+DeviceConfig::accept()
+{
+    if (cfg_bios && cbox_bios && cbox_bios->currentData().toInt() < 0) {
+        BluMachCatalog catalog;
+        catalog.load();
+        QMessageBox::warning(this, catalog.text(QStringLiteral("firmware.unavailable")), catalog.text(QStringLiteral("firmware.choose_available_bios")));
+        return;
+    }
+    QDialog::accept();
 }
 
 int
@@ -663,6 +687,8 @@ DeviceConfig::DeviceName(const _device_ *device, const char *internalName, const
 void
 DeviceConfig::on_comboIndexChanged(int index)
 {
+    if (index < 0)
+        return;
     if ((cbox_memory != nullptr) && (cbox_bios != nullptr) &&
         (cfg_memory != nullptr)  && (cfg_bios != nullptr)) {
         int      idx        = index; /* cbox_bios->currentData().toInt(); */

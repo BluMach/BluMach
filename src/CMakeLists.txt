@@ -47,6 +47,7 @@ add_executable(86Box
     mca.c
     usb.c
     device.c
+    device_bios.c
     nvr.c
     nvr_at.c
     nvr_ps2.c
@@ -215,6 +216,12 @@ endif()
 if(WIN32 OR (APPLE AND CMAKE_MACOSX_BUNDLE))
     # Copy the binary to the root of the install prefix on Windows and macOS
     install(TARGETS 86Box DESTINATION ".")
+    if(WIN32)
+        install(FILES "${PROJECT_SOURCE_DIR}/COPYING" "${PROJECT_SOURCE_DIR}/FORK-NOTICE.md"
+            DESTINATION ".")
+        install(FILES "${PROJECT_SOURCE_DIR}/doc/releases/0.1.0-alpha.1.md"
+            DESTINATION "." RENAME FIRST-RUN.md)
+    endif()
 else()
     # On Linux we want to copy the binary to the `bin` folder.
     install(TARGETS 86Box)

@@ -8,6 +8,13 @@ redistribute the file.
 
 ## Providing local firmware
 
+The Qt collection can be explored without firmware. Select the root ROM folder
+in Tools → Preferences, then confirm to save it. Open folder and Check again
+help verify the layout. Explicit `--rompath` has priority at startup.
+Missing firmware prevents emulation but does not replace the saved machine or
+video card. See the [first-alpha setup guide](releases/0.1.0-alpha.1.md) for the
+three initial PCS firmware layouts.
+
 Use firmware obtained from hardware you own or from another source whose terms
 allow you to use it. BluMach searches a directory named `roms` beside the
 application and the platform-specific data directories inherited for

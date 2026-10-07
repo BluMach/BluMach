@@ -350,7 +350,10 @@ main(int argc, char **argv)
         SDL_Quit();
         return 6;
     }
-    pc_init_modules();
+    if (!pc_init_modules()) {
+        SDL_Quit();
+        return 6;
+    }
 
     for (uint8_t i = 1; i < GFXCARD_MAX; i++)
         gfxcard[i]  = 0;

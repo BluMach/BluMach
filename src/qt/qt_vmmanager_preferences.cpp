@@ -15,11 +15,20 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QStyle>
+#include <QDesktopServices>
+#include <QGroupBox>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QLineEdit>
+#include <QLabel>
+#include <QPushButton>
+#include <QUrl>
 #include <cstring>
 
 #include "qt_preferences.hpp"
 #include "qt_blumach_skin.hpp"
 #include "qt_blumach_catalog.hpp"
+#include "qt_firmware.hpp"
 #include "qt_vmmanager_preferences.hpp"
 #include "qt_vmmanager_config.hpp"
 #include "ui_qt_vmmanager_preferences.h"
@@ -41,6 +50,41 @@ VMManagerPreferences::
     : ui(new Ui::VMManagerPreferences)
 {
     ui->setupUi(this);
+    BluMachCatalog firmwareCatalog;
+    firmwareCatalog.load();
+    auto *firmwareGroup = new QGroupBox(firmwareCatalog.text(QStringLiteral("firmware.folder")), this);
+    auto *firmwareLayout = new QVBoxLayout(firmwareGroup);
+    firmwareDirectory = new QLineEdit(QDir::toNativeSeparators(BluMachFirmware::directory()), firmwareGroup);
+    firmwareDirectory->setObjectName(QStringLiteral("blumachFirmwareDirectory"));
+    firmwareLayout->addWidget(firmwareDirectory);
+    auto *buttons = new QHBoxLayout;
+    auto *choose = new QPushButton(firmwareCatalog.text(QStringLiteral("firmware.choose")), firmwareGroup);
+    auto *open = new QPushButton(firmwareCatalog.text(QStringLiteral("firmware.open")), firmwareGroup);
+    firmwareRescan = new QPushButton(firmwareCatalog.text(QStringLiteral("firmware.rescan")), firmwareGroup);
+    buttons->addWidget(choose);
+    buttons->addWidget(open);
+    buttons->addWidget(firmwareRescan);
+    firmwareLayout->addLayout(buttons);
+    firmwareStatus = new QLabel(firmwareCatalog.text(QStringLiteral("firmware.folder_help")), firmwareGroup);
+    firmwareStatus->setWordWrap(true);
+    firmwareLayout->addWidget(firmwareStatus);
+    ui->verticalLayout->insertWidget(2, firmwareGroup);
+    connect(choose, &QPushButton::clicked, this, [this, firmwareCatalog] {
+        const auto selected = QFileDialog::getExistingDirectory(this, firmwareCatalog.text(QStringLiteral("firmware.choose")), firmwareDirectory->text());
+        if (!selected.isEmpty())
+            firmwareDirectory->setText(QDir::toNativeSeparators(selected));
+    });
+    connect(open, &QPushButton::clicked, this, [this] {
+        QDesktopServices::openUrl(QUrl::fromLocalFile(firmwareDirectory->text()));
+    });
+    connect(firmwareDirectory, &QLineEdit::textChanged, this, [this, firmwareCatalog] {
+        const bool pending = QDir::cleanPath(firmwareDirectory->text()) != QDir::cleanPath(QDir::toNativeSeparators(BluMachFirmware::directory()));
+        firmwareRescan->setEnabled(!pending);
+        firmwareStatus->setText(firmwareCatalog.text(pending ? QStringLiteral("firmware.pending") : QStringLiteral("firmware.folder_help")));
+    });
+    connect(firmwareRescan, &QPushButton::clicked, this, [this, firmwareCatalog] {
+        firmwareStatus->setText(firmwareCatalog.text(QStringLiteral("firmware.scan_result")).arg(BluMachFirmware::rescan()));
+    });
     ui->dirSelectButton->setIcon(QApplication::style()->standardIcon(QStyle::SP_DirIcon));
     connect(ui->dirSelectButton, &QPushButton::clicked, this, &VMManagerPreferences::chooseDirectoryLocation);
     ui->catalogSkinBrowseButton->setIcon(QApplication::style()->standardIcon(QStyle::SP_DirIcon));
@@ -195,6 +239,16 @@ VMManagerPreferences::updateCatalogSkinSummary()
 void
 VMManagerPreferences::accept()
 {
+    if (QDir::cleanPath(firmwareDirectory->text()) != QDir::cleanPath(QDir::toNativeSeparators(BluMachFirmware::directory()))) {
+        QString error;
+        if (!BluMachFirmware::applyDirectory(firmwareDirectory->text(), &error)) {
+            BluMachCatalog catalog;
+            catalog.load();
+            QMessageBox::warning(this, catalog.text(QStringLiteral("firmware.unavailable")), error);
+            return;
+        }
+        BluMachFirmware::rescan();
+    }
     const auto config = new VMManagerConfig(VMManagerConfig::ConfigType::General);
 
     strncpy(vmm_path_cfg, QDir::cleanPath(ui->systemDirectory->text()).toUtf8().constData(), sizeof(vmm_path_cfg) - 1);

@@ -35,3 +35,11 @@ foreach(locale es-ES fr-FR it-IT pt-PT)
 endforeach()
 add_test(NAME collection-ui COMMAND collection-ui -o -,txt -o collection-ui-results.txt,txt)
 set_tests_properties(collection-ui PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen" TIMEOUT 60)
+add_executable(firmware-ui firmware_ui_test.cpp
+    "${QT_SOURCE}/qt_firmware.cpp" "${QT_SOURCE}/qt_blumach_catalog.cpp"
+    "${QT_SOURCE}/qt_vmmanager_config.hpp"
+    "${CMAKE_CURRENT_BINARY_DIR}/catalog/blumach_catalog.qrc")
+target_include_directories(firmware-ui PRIVATE "${QT_SOURCE}" "${BLUMACH_ROOT}/src/include" "${BLUMACH_ROOT}/src/cpu")
+target_link_libraries(firmware-ui PRIVATE Qt6::Widgets Qt6::Test)
+add_test(NAME firmware-ui COMMAND firmware-ui)
+set_tests_properties(firmware-ui PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen" TIMEOUT 30)

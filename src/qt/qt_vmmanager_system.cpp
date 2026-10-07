@@ -572,7 +572,7 @@ VMManagerSystem::setupVars()
     int  ram_granularity = 0;
     int  ci              = machine_get_machine_from_internal_name(machine_config["machine"].toUtf8());
     // Machine
-    if (ci != -1 && machine_available(ci)) {
+    if (ci != -1) {
         machine_name    = machines[ci].name;
         ram_granularity = machines[ci].ram.step;
     }

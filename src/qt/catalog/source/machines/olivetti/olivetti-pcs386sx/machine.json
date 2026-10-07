@@ -59,6 +59,7 @@
       "dimensions": "360 × 312 × 100 mm; 7.6 kg"
     },
     "firmware": {
+      "required_files": ["machines/olivetti_pcs386sx/olivetti_pcs386sx_v114_lo.bin", "machines/olivetti_pcs386sx/olivetti_pcs386sx_v114_hi.bin"],
       "known_sets": [
         "1.14 with embedded OVC 1.06"
       ],

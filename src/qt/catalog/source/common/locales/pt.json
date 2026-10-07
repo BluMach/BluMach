@@ -179,5 +179,20 @@
   "creation.option.ems.none": "Sem expansão EMS",
   "creation.option.ems.384kb": "384 KB EMS",
   "creation.option.ems.1920kb": "1.920 KB EMS",
-  "creation.status.partial": "Perfil parcialmente validado"
+  "creation.status.partial": "Perfil parcialmente validado",
+  "firmware.folder": "Pasta do firmware",
+  "firmware.choose": "Escolher pasta…",
+  "firmware.open": "Abrir pasta",
+  "firmware.rescan": "Verificar novamente",
+  "firmware.folder_help": "Escolhe a pasta raiz roms, que contém machines/ e as pastas das ROM de vídeo ou dispositivos. As máquinas em execução mantêm o firmware carregado.",
+  "firmware.pending": "A pasta será aplicada ao aceitar, para os próximos arranques.",
+  "firmware.scan_result": "Conjuntos de ROM disponíveis: %1",
+  "firmware.invalid_directory": "Escolhe uma pasta existente cujo caminho não seja demasiado longo.",
+  "firmware.unavailable": "Configuração indisponível",
+  "firmware.missing_body": "%1 não pode arrancar.\n\nPasta do firmware: %2\nFicheiros ou seleção em falta:\n%3\n\nVerifica esta pasta ou escolhe outra nas Preferências. A configuração guardada não foi alterada.",
+  "firmware.invalid_ram": "A RAM selecionada não é suportada. Abre as definições e escolhe um valor válido. A configuração não foi alterada.",
+  "firmware.unknown_bios": "A variante de BIOS selecionada é desconhecida.",
+  "firmware.invalid_memory_choice": "%1 MB — não suportados; escolhe um valor válido",
+  "firmware.invalid_bios_choice": "%1 — indisponível; escolhe um BIOS",
+  "firmware.choose_available_bios": "Escolhe um BIOS disponível antes de guardar. A configuração não foi alterada."
 }

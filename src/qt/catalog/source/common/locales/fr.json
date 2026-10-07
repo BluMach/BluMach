@@ -179,5 +179,20 @@
   "creation.option.ems.none": "Sans extension EMS",
   "creation.option.ems.384kb": "384 Ko EMS",
   "creation.option.ems.1920kb": "1 920 Ko EMS",
-  "creation.status.partial": "Profil partiellement validé"
+  "creation.status.partial": "Profil partiellement validé",
+  "firmware.folder": "Dossier du micrologiciel",
+  "firmware.choose": "Choisir un dossier…",
+  "firmware.open": "Ouvrir le dossier",
+  "firmware.rescan": "Vérifier à nouveau",
+  "firmware.folder_help": "Choisissez le dossier racine roms, contenant machines/ et les dossiers des ROM vidéo ou de périphériques. Les machines en cours conservent leur micrologiciel chargé.",
+  "firmware.pending": "Ce dossier s’appliquera après validation, aux prochains démarrages.",
+  "firmware.scan_result": "Jeux de ROM disponibles : %1",
+  "firmware.invalid_directory": "Choisissez un dossier existant dont le chemin n’est pas trop long.",
+  "firmware.unavailable": "Configuration indisponible",
+  "firmware.missing_body": "%1 ne peut pas démarrer.\n\nDossier du micrologiciel : %2\nFichiers ou sélection manquants :\n%3\n\nVérifiez ce dossier ou choisissez-en un autre dans les Préférences. La configuration enregistrée n’a pas été modifiée.",
+  "firmware.invalid_ram": "La RAM sélectionnée n’est pas prise en charge. Ouvrez les paramètres et choisissez une valeur valide. La configuration n’a pas été modifiée.",
+  "firmware.unknown_bios": "La variante de BIOS sélectionnée est inconnue.",
+  "firmware.invalid_memory_choice": "%1 Mo — non pris en charge ; choisissez une valeur valide",
+  "firmware.invalid_bios_choice": "%1 — indisponible ; choisissez un BIOS",
+  "firmware.choose_available_bios": "Choisissez un BIOS disponible avant d’enregistrer. La configuration n’a pas été modifiée."
 }

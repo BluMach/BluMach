@@ -176,6 +176,8 @@ add_library(ui STATIC
     qt_preferenceskeybindings.ui
 
     qt_blumach_catalog.cpp
+    qt_firmware.cpp
+    qt_firmware.hpp
     qt_blumach_catalog.hpp
     qt_blumach_collection.cpp
     qt_blumach_collection.hpp
