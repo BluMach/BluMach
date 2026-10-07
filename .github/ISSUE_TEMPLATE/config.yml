@@ -1,1 +1,8 @@
 blank_issues_enabled: true
+contact_links:
+  - name: Preguntas y comentarios / Questions and comments
+    url: https://palimbit.com/acerca/
+    about: Si no es un fallo, ahí están los datos de contacto. / If it is not a bug, the contact details are there.
+  - name: Cómo probar la versión / How to try the release
+    url: https://github.com/BluMach/BluMach/releases/tag/v0.1.0-alpha.1
+    about: Descarga, instrucciones y limitaciones de BluMach 0.1.0-alpha.1. / Download, setup instructions and limitations for BluMach 0.1.0-alpha.1.

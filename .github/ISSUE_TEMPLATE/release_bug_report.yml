@@ -1,0 +1,77 @@
+name: Report a problem with the downloadable release / Informar de un fallo en la versión descargable
+description: A problem creating or running a machine in the BluMach release / Un problema al crear o ejecutar una máquina en la versión descargable
+title: "[Release bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Gracias por probar BluMach / Thanks for testing BluMach
+        Es una versión alpha: me interesa tanto lo que funciona como lo que no. / This is an alpha: what works matters as much as what does not.
+
+        **No adjuntes ROM, BIOS, sistemas operativos ni imágenes de disco con derechos de autor. / Do not attach ROMs, BIOS, operating systems or copyrighted disk images.**
+  - type: checkboxes
+    attributes:
+      label: Antes de enviar / Before submitting
+      options:
+        - label: He buscado en las [incidencias abiertas y cerradas](https://github.com/BluMach/BluMach/issues?q=is%3Aissue) y no he encontrado el mismo problema. / I searched the open and closed issues and found no matching report.
+          required: true
+        - label: No adjunto ROM, BIOS, sistemas operativos ni imágenes de disco con derechos de autor. / I will not attach ROMs, BIOS, operating systems or copyrighted disk images.
+          required: true
+  - type: dropdown
+    id: machine
+    attributes:
+      label: Máquina / Machine
+      options:
+        - Olivetti PCS 86
+        - Olivetti PCS 286
+        - Olivetti PCS 386SX
+        - Otra o no aplica / Other or not applicable
+    validations:
+      required: true
+  - type: input
+    id: configuration
+    attributes:
+      label: Configuración elegida / Chosen configuration
+      description: La configuración con la que creaste la máquina (disco, memoria...). / The configuration you created the machine with (disk, memory...).
+      placeholder: "p. ej. / e.g. PCS 286, IDE 40 MB"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Qué hiciste / What you did
+      description: Los pasos, en orden, hasta que apareció el problema. / The steps, in order, until the problem appeared.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Qué esperabas y qué pasó / What you expected and what happened
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión de BluMach / BluMach version
+      placeholder: "p. ej. / e.g. 0.1.0-alpha.1"
+    validations:
+      required: true
+  - type: input
+    id: host-os
+    attributes:
+      label: Sistema operativo de tu equipo / Your operating system
+      placeholder: "p. ej. / e.g. Windows 11 24H2"
+    validations:
+      required: true
+  - type: input
+    id: guest
+    attributes:
+      label: Sistema o programa dentro de la máquina / System or program inside the machine
+      description: Si lo hay, con su versión. / If any, with its version.
+      placeholder: "p. ej. / e.g. MS-DOS 3.30a"
+  - type: textarea
+    id: extra
+    attributes:
+      label: Capturas y otros datos / Screenshots and other details
+      description: Arrastra aquí una captura si puedes. / Drag a screenshot here if you can.

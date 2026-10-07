@@ -1,0 +1,40 @@
+name: Contribute information about a real machine / Aportar datos de una máquina real
+description: Photos, manuals or memories of an Olivetti PCS or another machine / Fotos, manuales o recuerdos de un Olivetti PCS u otra máquina
+title: "[Machine info] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Gracias por ayudar a documentar estas máquinas / Thanks for helping document these machines
+        Si tuviste o conservas una, cualquier dato de la máquina real vale mucho: fotos de la placa, manuales, anotaciones, recuerdos. / If you had or still have one, any detail from the real machine is valuable: board photos, manuals, notes, memories.
+
+        **No adjuntes aquí ROM, BIOS ni software con derechos de autor. Si conservas ese material, descríbelo y lo hablamos. / Do not attach ROMs, BIOS or copyrighted software here. If you keep such material, describe it and we will talk.**
+  - type: dropdown
+    id: machine
+    attributes:
+      label: Máquina / Machine
+      options:
+        - Olivetti PCS 86
+        - Olivetti PCS 286
+        - Olivetti PCS 386SX
+        - Otra / Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: Qué tienes o recuerdas / What you have or remember
+      description: Modelo exacto, configuración, estado, año, cómo la usabas... / Exact model, configuration, condition, year, how you used it...
+    validations:
+      required: true
+  - type: textarea
+    id: material
+    attributes:
+      label: Fotos, manuales o enlaces / Photos, manuals or links
+      description: Arrastra aquí las imágenes o pega los enlaces. / Drag images here or paste links.
+  - type: input
+    id: credit
+    attributes:
+      label: Cómo prefieres que te mencione / How you would like to be credited
+      description: Opcional. Si no dices nada, no se te nombrará. / Optional. If you say nothing, you will not be named.
