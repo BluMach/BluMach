@@ -26,12 +26,20 @@ class ReleasePathTests(unittest.TestCase):
         self.assertIn('QStandardPaths::AppConfigLocation', platform)
         self.assertIn('QStandardPaths::AppDataLocation', platform)
 
-    def test_compatibility_filenames_are_not_a_migration(self):
+    def test_product_filenames_and_explicit_read_only_legacy_input(self):
         header = (ROOT / "src/include/86box/86box.h").read_text(encoding="utf-8")
-        self.assertRegex(header, r'#define\s+CONFIG_FILE\s+"86box.cfg"')
+        self.assertRegex(header, r'#define\s+CONFIG_FILE\s+"blumach.cfg"')
+        self.assertRegex(header, r'#define\s+GLOBAL_CONFIG_FILE\s+"blumach_global.cfg"')
+        scanner = (ROOT / "src/qt/qt_vmmanager_system.cpp").read_text(encoding="utf-8")
+        writer = (ROOT / "src/qt/qt_vmmanager_main.cpp").read_text(encoding="utf-8")
+        importer = (ROOT / "src/qt/qt_vmmanager_addmachine.cpp").read_text(encoding="utf-8")
+        self.assertIn('QString(CONFIG_FILE)', scanner)
+        self.assertIn('newSystemDirectory.path() + "/" + CONFIG_FILE', writer)
+        self.assertIn('QIODevice::ReadOnly | QIODevice::Text', importer)
+        self.assertIn('configuration.file_filter', importer)
         guide = (ROOT / "doc/releases/0.1.0-alpha.1.md").read_text(encoding="utf-8")
         self.assertIn('not moved, deleted, renamed or copied', guide)
-        self.assertIn('use complete private copies', guide)
+        self.assertIn('absolute media paths', guide)
 
 
 if __name__ == '__main__':

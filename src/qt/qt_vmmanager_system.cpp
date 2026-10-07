@@ -227,7 +227,7 @@ VMManagerSystem::getScreenshots()
 void
 VMManagerSystem::loadSettings()
 {
-    // First, load the information from the 86box.cfg
+    // First, load the information from the selected BluMach configuration.
     QSettings settings(config_file.filePath(), QSettings::IniFormat);
     if (settings.status() != QSettings::NoError)
         qWarning() << "Error loading" << config_file.path() << " status:" << settings.status();

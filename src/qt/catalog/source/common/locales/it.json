@@ -194,5 +194,6 @@
   "firmware.unknown_bios": "La variante di BIOS selezionata è sconosciuta.",
   "firmware.invalid_memory_choice": "%1 MB — non supportati; scegli un valore valido",
   "firmware.invalid_bios_choice": "%1 — non disponibile; scegli un BIOS",
-  "firmware.choose_available_bios": "Scegli un BIOS disponibile prima di salvare. La configurazione non è stata modificata."
+  "firmware.choose_available_bios": "Scegli un BIOS disponibile prima di salvare. La configurazione non è stata modificata.",
+  "configuration.file_filter": "Configurazione BluMach (blumach.cfg);;Configurazione precedente (86box.cfg);;File di configurazione (*.cfg)"
 }
