@@ -87,6 +87,74 @@
       ],
       "fields": [
         {
+          "id": "memory",
+          "label_key": "product.olivetti-pcs286.creation.label.memory",
+          "default": "1mb",
+          "choices": [
+            {
+              "id": "1mb",
+              "label_key": "product.olivetti-pcs286.creation.memory.1mb",
+              "status": "documented",
+              "set": [{"section": "Machine", "key": "mem_size", "value": 1024}]
+            },
+            {
+              "id": "2mb",
+              "label_key": "product.olivetti-pcs286.creation.memory.2mb",
+              "status": "documented",
+              "set": [{"section": "Machine", "key": "mem_size", "value": 2048}]
+            },
+            {
+              "id": "4mb",
+              "label_key": "product.olivetti-pcs286.creation.memory.4mb",
+              "status": "documented",
+              "set": [{"section": "Machine", "key": "mem_size", "value": 4096}]
+            }
+          ]
+        },
+        {
+          "id": "sound_card",
+          "label_key": "product.olivetti-pcs286.creation.label.sound",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-pcs286.creation.sound.none",
+              "status": "documented",
+              "set": [{"section": "Sound", "key": "sndcard", "value": "none"}]
+            },
+            {
+              "id": "adlib",
+              "label_key": "product.olivetti-pcs286.creation.sound.adlib",
+              "status": "experimental",
+              "set": [{"section": "Sound", "key": "sndcard", "value": "adlib"}]
+            },
+            {
+              "id": "sb15",
+              "label_key": "product.olivetti-pcs286.creation.sound.sb15",
+              "status": "experimental",
+              "set": [{"section": "Sound", "key": "sndcard", "value": "sb1.5"}]
+            },
+            {
+              "id": "sb20",
+              "label_key": "product.olivetti-pcs286.creation.sound.sb20",
+              "status": "experimental",
+              "set": [{"section": "Sound", "key": "sndcard", "value": "sb2.0"}]
+            },
+            {
+              "id": "sbpro1",
+              "label_key": "product.olivetti-pcs286.creation.sound.sbpro1",
+              "status": "experimental",
+              "set": [{"section": "Sound", "key": "sndcard", "value": "sbprov1"}]
+            },
+            {
+              "id": "sbpro2",
+              "label_key": "product.olivetti-pcs286.creation.sound.sbpro2",
+              "status": "experimental",
+              "set": [{"section": "Sound", "key": "sndcard", "value": "sbprov2"}]
+            }
+          ]
+        },
+        {
           "id": "commercial_configuration",
           "label_key": "product.olivetti-pcs286.creation.label.storage",
           "default": "one-144-hdd40",
@@ -136,7 +204,9 @@
         }
       ],
       "note_keys": [
-        "product.olivetti-pcs286.creation.note"
+        "product.olivetti-pcs286.creation.note",
+        "product.olivetti-pcs286.creation.upgrades_note",
+        "product.olivetti-pcs286.creation.sound_286_note"
       ],
       "configuration": [
         {
@@ -165,7 +235,7 @@
         {
           "section": "Video",
           "values": {
-            "gfxcard": "pvga1a"
+            "gfxcard": "internal"
           }
         },
         {

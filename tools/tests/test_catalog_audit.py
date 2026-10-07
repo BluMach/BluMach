@@ -10,6 +10,28 @@ import catalog_audit  # noqa: E402
 
 
 class CatalogAuditTests(unittest.TestCase):
+    def test_family_comparison_requires_one_cell_per_column(self):
+        table = {"title_key": "family.test.table", "columns": [
+            {"id": "model", "label_key": "family.test.model"},
+            {"id": "notes", "label_key": "family.test.notes"}],
+            "rows": [{"id": "test", "cells": [{"value": "Test"}]}]}
+        errors = []
+        catalog_audit.validate_family_comparison("test", {"comparison_table": table}, errors)
+        self.assertTrue(any("one cell per column" in error for error in errors))
+
+    def test_family_comparison_accepts_literals_and_localized_cells(self):
+        table = {"title_key": "family.test.table", "columns": [
+            {"id": "model", "label_key": "family.test.model"},
+            {"id": "notes", "label_key": "family.test.notes"}],
+            "rows": [{"id": "test", "cells": [
+                {"value": "Test"}, {"value_key": "family.test.content"}]}]}
+        errors = []
+        catalog_audit.validate_family_comparison("test", {"comparison_table": table}, errors)
+        self.assertEqual([], errors)
+        table["rows"][0]["cells"][0]["value_key"] = "family.test.content"
+        catalog_audit.validate_family_comparison("test", {"comparison_table": table}, errors)
+        self.assertTrue(any("exactly one" in error for error in errors))
+
     def test_duplicate_json_key_is_rejected(self) -> None:
         with self.assertRaisesRegex(catalog_audit.DuplicateKeyError, "duplicate JSON key 'same'"):
             catalog_audit._unique_object([("same", "first"), ("same", "second")])

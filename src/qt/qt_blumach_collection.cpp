@@ -20,6 +20,7 @@
 #include <QFrame>
 #include <QGridLayout>
 #include <QHBoxLayout>
+#include <QHeaderView>
 #include <QIcon>
 #include <QJsonArray>
 #include <QLabel>
@@ -37,6 +38,7 @@
 #include <QStyledItemDelegate>
 #include <QTabBar>
 #include <QTabWidget>
+#include <QTableWidget>
 #include <QTextBrowser>
 #include <QTextCursor>
 #include <QTextDocument>
@@ -308,6 +310,68 @@ QLabel *makeWrappedLabel(const QString &text, QWidget *parent)
     label->setTextInteractionFlags(Qt::TextSelectableByMouse);
     return label;
 }
+
+class FamilyComparisonTable final : public QTableWidget {
+public:
+    FamilyComparisonTable(const QJsonObject &definition, const BluMachCatalog &catalog, QWidget *parent)
+        : QTableWidget(parent)
+    {
+        setObjectName(QStringLiteral("blumachFamilyComparison"));
+        setEditTriggers(QAbstractItemView::NoEditTriggers);
+        setSelectionMode(QAbstractItemView::NoSelection);
+        setWordWrap(true);
+        setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
+        verticalHeader()->hide();
+        horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+        horizontalHeader()->setTextElideMode(Qt::ElideNone);
+        const auto columns = definition.value(QStringLiteral("columns")).toArray();
+        const auto rows = definition.value(QStringLiteral("rows")).toArray();
+        setColumnCount(columns.size());
+        setRowCount(rows.size());
+        for (int column = 0; column < columns.size(); ++column) {
+            const auto spec = columns[column].toObject();
+            minimumWidths.append(spec.value(QStringLiteral("minimum_width")).toInt(100));
+            setHorizontalHeaderItem(column, new QTableWidgetItem(catalog.text(spec.value(QStringLiteral("label_key")).toString())));
+        }
+        for (int row = 0; row < rows.size(); ++row) {
+            const auto cells = rows[row].toObject().value(QStringLiteral("cells")).toArray();
+            for (int column = 0; column < columns.size(); ++column) {
+                const auto cell = cells[column].toObject();
+                const auto key = cell.value(QStringLiteral("value_key")).toString();
+                auto *item = new QTableWidgetItem(key.isEmpty() ? cell.value(QStringLiteral("value")).toString() : catalog.text(key));
+                item->setTextAlignment(Qt::AlignLeft | Qt::AlignTop);
+                setItem(row, column, item);
+            }
+        }
+        fitContents();
+    }
+
+protected:
+    void resizeEvent(QResizeEvent *event) override
+    {
+        QTableWidget::resizeEvent(event);
+        fitContents();
+    }
+
+private:
+    void fitContents()
+    {
+        int minimumWidth = 0;
+        for (const int width : minimumWidths)
+            minimumWidth += width;
+        const int extra = columnCount() ? qMax(0, viewport()->width() - minimumWidth) / columnCount() : 0;
+        for (int column = 0; column < columnCount(); ++column)
+            setColumnWidth(column, minimumWidths[column] + extra);
+        resizeRowsToContents();
+        int height = horizontalHeader()->height() + 2 * frameWidth() + horizontalScrollBar()->sizeHint().height();
+        for (int row = 0; row < rowCount(); ++row)
+            height += rowHeight(row);
+        if (height != this->height())
+            setFixedHeight(height);
+    }
+    QVector<int> minimumWidths;
+};
 
 QLabel *makeSectionHeading(const QString &text, QWidget *parent)
 {
@@ -997,6 +1061,33 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
             m_title->setText(family->name);
             m_subtitle->setText(m_catalog.text(QStringLiteral("collection.family")));
             m_summary->setText(m_catalog.text(family->descriptionKey));
+            if (!family->comparisonTable.isEmpty()) {
+                const auto &table = family->comparisonTable;
+                m_overviewLayout->addWidget(makeSectionHeading(m_catalog.text(table.value(QStringLiteral("title_key")).toString()), m_overviewScroll));
+                m_overviewLayout->addWidget(new FamilyComparisonTable(table, m_catalog, m_overviewScroll));
+                m_overviewLayout->addWidget(makeWrappedLabel(m_catalog.text(table.value(QStringLiteral("note_key")).toString()), m_overviewScroll));
+            }
+            if (!family->historyKey.isEmpty()) {
+                m_overviewLayout->addWidget(makeSectionHeading(m_catalog.text(QStringLiteral("collection.history")), m_overviewScroll));
+                auto *history = makeWrappedLabel(m_catalog.text(family->historyKey), m_overviewScroll);
+                history->setObjectName(QStringLiteral("blumachFamilyHistory"));
+                m_overviewLayout->addWidget(history);
+            }
+            if (!family->historyReferences.isEmpty()) {
+                m_overviewLayout->addWidget(makeSectionHeading(m_catalog.text(QStringLiteral("manufacturer.history.references")), m_overviewScroll));
+                for (const auto &reference : family->historyReferences) {
+                    auto *label = makeWrappedLabel({}, m_overviewScroll);
+                    label->setObjectName(QStringLiteral("blumachFamilyReference"));
+                    label->setTextFormat(Qt::RichText);
+                    label->setTextInteractionFlags(Qt::TextBrowserInteraction);
+                    label->setText(QStringLiteral("%1 — <a href=\"%2\">%3</a>")
+                                       .arg(reference.publisher.toHtmlEscaped(), reference.url.toHtmlEscaped(), reference.title.toHtmlEscaped()));
+                    connect(label, &QLabel::linkActivated, this, [this](const QString &url) {
+                        openTechnicalLink(QUrl(url));
+                    });
+                    m_overviewLayout->addWidget(label);
+                }
+            }
         }
         m_overviewLayout->addStretch(1);
         emit selectionContextChanged({}, {}, false);

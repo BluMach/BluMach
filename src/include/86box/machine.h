@@ -421,6 +421,9 @@ typedef struct _machine_ {
     void                  *net_device;
 #endif
     const char            *aliases[16];
+    /* BluMach-owned models follow catalogue release visibility in selectors.
+       Zero preserves inherited machine selection independently of the catalogue. */
+    uint8_t                blumach_release_managed;
 } machine_t;
 
 /* Global variables. */

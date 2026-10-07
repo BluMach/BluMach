@@ -6,6 +6,117 @@
     "parent_family_id": "",
     "name": "PCS",
     "visible": true,
-    "description_key": "family.olivetti-pcs.description"
+    "description_key": "family.olivetti-pcs.description",
+    "history_key": "family.olivetti-pcs.history",
+    "history_references": [
+      {
+        "title": "Personal Computer PCS 86 (09/1990)",
+        "publisher": "Olivetti Office Italia · Olivrea",
+        "url": "https://olivrea.de/prospekte-personal-computer/"
+      },
+      {
+        "title": "Personal Computer PCS 286 (10/1989)",
+        "publisher": "Olivetti Office Italia · Olivrea",
+        "url": "https://olivrea.de/prospekte-personal-computer/"
+      },
+      {
+        "title": "Personal Computer PCS 386SX (09/1990)",
+        "publisher": "Olivetti · Olivrea",
+        "url": "https://olivrea.de/olivetti-pcs-386sx/"
+      }
+    ],
+    "comparison_table": {
+      "title_key": "family.olivetti-pcs.table.title",
+      "note_key": "family.olivetti-pcs.table.note",
+      "columns": [
+        {
+          "id": "model",
+          "label_key": "family.olivetti-pcs.table.model",
+          "minimum_width": 90
+        },
+        {
+          "id": "processor",
+          "label_key": "family.olivetti-pcs.table.processor",
+          "minimum_width": 120
+        },
+        {
+          "id": "memory",
+          "label_key": "family.olivetti-pcs.table.memory",
+          "minimum_width": 155
+        },
+        {
+          "id": "storage",
+          "label_key": "family.olivetti-pcs.table.storage",
+          "minimum_width": 190
+        },
+        {
+          "id": "notes",
+          "label_key": "family.olivetti-pcs.table.notes",
+          "minimum_width": 180
+        }
+      ],
+      "rows": [
+        {
+          "id": "pcs86",
+          "cells": [
+            {
+              "value": "PCS 86"
+            },
+            {
+              "value": "NEC V30 · 8/10 MHz"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs86.memory"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs86.storage"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs86.notes"
+            }
+          ]
+        },
+        {
+          "id": "pcs286",
+          "cells": [
+            {
+              "value": "PCS 286"
+            },
+            {
+              "value": "80286 · 12 MHz"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs286.memory"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs286.storage"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs286.notes"
+            }
+          ]
+        },
+        {
+          "id": "pcs386sx",
+          "cells": [
+            {
+              "value": "PCS 386SX"
+            },
+            {
+              "value": "80386SX · 16 MHz"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs386sx.memory"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs386sx.storage"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs386sx.notes"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

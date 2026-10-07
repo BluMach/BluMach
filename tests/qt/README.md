@@ -19,6 +19,22 @@ application's dark stylesheet), five locales, and 680/860/1280-pixel widths.
 
 Checks include filter visibility and counts, zero-result creation safety,
 keyboard navigation, layout bounds, scroll reset and secondary-text contrast.
+Family history checks cover the optional long narrative and references in all
+five locales, including wrapping and the absence of horizontal scrolling.
+The optional declarative family comparison has localized column/cell keys,
+literal model/processor cells and one cell per column. Five-column tables use
+horizontal scrolling inside the table on narrow sheets and fit without it on
+wide sheets; the page itself does not gain a horizontal scrollbar. Rows wrap
+and the table expands vertically to show all rows without an inner vertical
+scrollbar. The table is read-only and uses the current Qt palette.
+Release-selection checks also verify that the three visible PCS models are
+selectable, pending BluMach models (including models without sheets) are not,
+and inherited emulator machines remain selectable independently of catalogue
+visibility. The machine registry marks BluMach-owned entries with
+`blumach_release_managed`; a newly released model becomes selectable through
+its catalogue `visible` flag. A loaded VM retains its current machine in the
+configuration combo, disabled as a selectable choice, even when that model is
+not part of this release.
 Set `BLUMACH_UI_SCREENSHOTS` to an absolute output directory to also save actual
 widget renders for visual review, including brand and product selection.
 These renders do not validate the native Windows title bar or the full VM

@@ -5,7 +5,7 @@
   "product.olivetti-pcs86.technical.memory_map": "A placa-mãe inclui 512 KB. Dois SIMM de 256 KB elevam a memória convencional a 640 KB e deixam 384 KB como EMS; dois SIMM de 1 MB elevam igualmente a memória convencional a 640 KB e deixam 1.920 KB como EMS. Quatro janelas de 16 KB ocupam 80000h–8FFFFh.",
   "product.olivetti-pcs86.technical.video": "VGA Paradise integrada. O BIOS do sistema também contém o respetivo código de inicialização, pelo que não é necessária uma ROM opcional VGA separada em C0000h.",
   "product.olivetti-pcs86.technical.rom_layout": "Duas EPROM intercaladas, CSAB05 (bytes pares) e CSAB04 (bytes ímpares), formam 64 KB em F0000h–FFFFFh. O conjunto contém o BIOS do sistema, VGA, XTA e diagnósticos.",
-  "product.olivetti-pcs86.technical.bios_revision": "Resident Diagnostics rev. 1.09. O conjunto preservado passa a verificação da soma e alcança o vetor de reinicialização em FFFF0h.",
+  "product.olivetti-pcs86.technical.bios_revision": "Resident Diagnostics rev. 1.09. O conjunto preservado valida a sua soma de verificação e alcança o vetor de reinicialização em FFFF0h.",
   "product.olivetti-pcs86.technical.bios_identity": "Por motivos de compatibilidade, INT 15h/C0h identifica o sistema como IBM PS/2 Model 30, submodelo 109. Trata-se de uma escolha do firmware, não da identidade comercial do computador.",
   "product.olivetti-pcs86.technical.diagnostics": "Testa CPU, ROM, DMA, PIC, temporizador, memória de base e expandida, relógio/calendário, impressora, comunicações, unidades e teclado. O ecrã observado corresponde à revisão 1.09.",
   "product.olivetti-pcs86.technical.io_intro": "Os endereços seguintes abrangem a lógica específica do PCS 86, além dos blocos compatíveis habituais.",
@@ -40,5 +40,10 @@
   "product.olivetti-pcs86.creation.label.sound": "Som (ISA de 8 bits)",
   "product.olivetti-pcs86.creation.sound.none": "Sem placa de som",
   "product.olivetti-pcs86.creation.sound.adlib": "AdLib original instalada pelo utilizador",
-  "product.olivetti-pcs86.creation.note": "As três configurações de 720 KB são modelos comerciais documentados. As unidades de 1,44 MB e a AdLib são expansões compatíveis e não são apresentadas como opções comerciais da Olivetti. A configuração com disco rígido ocupa sempre o espaço da segunda unidade de disquetes. O BluMach deduz automaticamente os jumpers a partir das unidades instaladas."
+  "product.olivetti-pcs86.creation.note": "As três configurações de 720 KB são modelos comerciais documentados. As unidades de 1,44 MB e a AdLib são expansões compatíveis e não são apresentadas como opções comerciais da Olivetti. A configuração com disco rígido ocupa sempre o espaço da segunda unidade de disquetes. O BluMach deduz automaticamente os jumpers a partir das unidades instaladas.",
+  "product.olivetti-pcs86.creation.sound.cms": "Creative CMS / Game Blaster (ISA de 8 bits)",
+  "product.olivetti-pcs86.creation.sound.sb1": "Sound Blaster 1.0 (ISA de 8 bits)",
+  "product.olivetti-pcs86.creation.sound.sb15": "Sound Blaster 1.5 (ISA de 8 bits)",
+  "product.olivetti-pcs86.creation.sound.sb20": "Sound Blaster 2.0 (ISA de 8 bits)",
+  "product.olivetti-pcs86.creation.sound_note": "Expansões do utilizador, não opções comerciais da Olivetti; áudio ainda não testado. Usar software DOS compatível com XT/V30. As suites posteriores podem exigir outra CPU ou sistema. Excluem-se as Pro e as placas ISA de 16 bits. Selecionar uma placa de som."
 }

@@ -96,6 +96,15 @@ BluMachCatalog::load(QString *errorMessage)
                             object.value(QStringLiteral("parent_family_id")).toString(),
                             object.value(QStringLiteral("name")).toString(),
                             object.value(QStringLiteral("description_key")).toString() });
+        m_families.last().historyKey = object.value(QStringLiteral("history_key")).toString();
+        m_families.last().comparisonTable = object.value(QStringLiteral("comparison_table")).toObject();
+        for (const auto &entry : object.value(QStringLiteral("history_references")).toArray()) {
+            const auto reference = entry.toObject();
+            m_families.last().historyReferences.append({
+                reference.value(QStringLiteral("title")).toString(),
+                reference.value(QStringLiteral("publisher")).toString(),
+                reference.value(QStringLiteral("url")).toString() });
+        }
     }
     for (const auto &value : root.value(QStringLiteral("platforms")).toArray()) {
         const auto object = value.toObject();
@@ -184,6 +193,19 @@ const QVector<BluMachFamily> &BluMachCatalog::families() const { return m_famili
 const QVector<BluMachPlatform> &BluMachCatalog::platforms() const { return m_platforms; }
 const QVector<BluMachProduct> &BluMachCatalog::products() const { return m_products; }
 const QVector<BluMachFilterFacet> &BluMachCatalog::filterFacets() const { return m_filterFacets; }
+
+bool
+BluMachCatalog::isMachineSelectable(const QString &emulatorMachineId, bool releaseManaged) const
+{
+    if (!releaseManaged)
+        return true;
+    for (const auto &product : m_products) {
+        const auto *machinePlatform = platform(product.platformId);
+        if (machinePlatform && machinePlatform->emulatorMachineId == emulatorMachineId)
+            return true;
+    }
+    return false;
+}
 
 QString
 BluMachCatalog::text(const QString &key) const

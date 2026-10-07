@@ -51,6 +51,8 @@ SettingsMachine::SettingsMachine(QWidget *parent)
     , ui(new Ui::SettingsMachine)
 {
     ui->setupUi(this);
+    initialMachine = machine;
+    releaseCatalog.load();
 
     machine_cfg_changed             = 0;
 
@@ -76,9 +78,9 @@ SettingsMachine::SettingsMachine(QWidget *parent)
             cur_j = 0;
         }
 
-        if (machine_available(j)) {
-            sc->addMachine(i, j);
-
+        if (miname != nullptr && (isMachineSelectable(j) || j == initialMachine) && machine_available(j)) {
+            if (isMachineSelectable(j))
+                sc->addMachine(i, j);
             cur_j++;
         }
 
@@ -255,9 +257,16 @@ SettingsMachine::on_comboBoxMachineType_currentIndexChanged(int index)
 
         int selectedMachineRow = 0;
         for (int i = 0; i < machine_count(); ++i) {
-            if ((machine_get_type(i) == ui->comboBoxMachineType->currentData().toInt()) && machine_available(i)) {
+            if ((machine_get_type(i) == ui->comboBoxMachineType->currentData().toInt()) &&
+                (isMachineSelectable(i) || i == initialMachine) && machine_available(i)) {
                 int row = Models::AddEntry(model, machines[i].name, i);
-                if (i == machine)
+                if (!isMachineSelectable(i)) {
+                    // Retain a loaded VM's machine without offering it as a new choice.
+                    auto *items = qobject_cast<QStandardItemModel *>(model);
+                    if (items && items->item(row))
+                        items->item(row)->setEnabled(false);
+                }
+                if (i == initialMachine)
                     selectedMachineRow = row - removeRows;
             }
         }
@@ -266,6 +275,14 @@ SettingsMachine::on_comboBoxMachineType_currentIndexChanged(int index)
         ui->comboBoxMachine->setCurrentIndex(-1);
         ui->comboBoxMachine->setCurrentIndex(selectedMachineRow);
     }
+}
+
+bool
+SettingsMachine::isMachineSelectable(int machineId) const
+{
+    return releaseCatalog.isMachineSelectable(
+        QString::fromUtf8(machines[machineId].internal_name),
+        machines[machineId].blumach_release_managed != 0);
 }
 
 void

@@ -15,6 +15,7 @@
 #include <QSignalSpy>
 #include <QStyleFactory>
 #include <QTabWidget>
+#include <QTableWidget>
 #include <QTest>
 #include <QToolButton>
 #include <QTreeWidget>
@@ -48,6 +49,83 @@ static double contrast(QColor a, QColor b)
 class CollectionUiTest : public QObject {
     Q_OBJECT
 private slots:
+    void familyHistory()
+    {
+        for (int locale = 0; locale < locales.size(); ++locale) {
+            testSettings.clear();
+            lang_id = locale;
+            BluMachCatalog catalog;
+            QVERIFY(catalog.load());
+            const auto *family = catalog.family(QStringLiteral("olivetti-pcs"));
+            QVERIFY(family);
+            QVERIFY(!family->historyKey.isEmpty());
+            QCOMPARE(family->historyReferences.size(), 3);
+
+            BluMachCollectionWidget widget;
+            widget.resize(680, 800);
+            widget.show();
+            // Finish the constructor's queued sheet refresh before retaining
+            // pointers to labels that a refresh destroys and recreates.
+            QCoreApplication::processEvents();
+            auto *tree = widget.findChild<QTreeWidget *>();
+            QVERIFY(tree && tree->topLevelItemCount());
+            tree->setCurrentItem(tree->topLevelItem(0)->child(0));
+            auto *comparison = widget.findChild<QTableWidget *>("blumachFamilyComparison");
+            QVERIFY(comparison);
+            QCOMPARE(comparison->columnCount(), 5);
+            QCOMPARE(comparison->rowCount(), 3);
+            QCOMPARE(comparison->editTriggers(), QAbstractItemView::NoEditTriggers);
+            const auto columns = family->comparisonTable.value(QStringLiteral("columns")).toArray();
+            for (int column = 0; column < columns.size(); ++column)
+                QCOMPARE(comparison->horizontalHeaderItem(column)->text(), catalog.text(columns[column].toObject().value(QStringLiteral("label_key")).toString()));
+            QCOMPARE(comparison->item(0, 0)->text(), QStringLiteral("PCS 86"));
+            QCOMPARE(comparison->item(1, 1)->text(), QStringLiteral("Intel 80286 · 12 MHz"));
+            QVERIFY(!comparison->item(2, 4)->text().startsWith(QStringLiteral("family.")));
+            auto *history = widget.findChild<QLabel *>("blumachFamilyHistory");
+            QVERIFY(history);
+            QCOMPARE(history->text(), catalog.text(family->historyKey));
+            QVERIFY(history->wordWrap());
+            QCOMPARE(widget.findChildren<QLabel *>("blumachFamilyReference").size(), 3);
+            widget.grab();
+            auto *tabs = widget.findChild<QTabWidget *>();
+            auto *scroll = qobject_cast<QScrollArea *>(tabs->widget(0));
+            QVERIFY(scroll && scroll->isVisible());
+            QCOMPARE(scroll->horizontalScrollBar()->maximum(), 0);
+            // Narrow sheets pan inside the five-column table, not the whole page.
+            QTRY_VERIFY_WITH_TIMEOUT(comparison->horizontalScrollBar()->maximum() > 0, 1000);
+            QCOMPARE(comparison->verticalScrollBar()->maximum(), 0);
+            QTRY_VERIFY_WITH_TIMEOUT(history->height() >= history->heightForWidth(history->width()), 1000);
+            widget.resize(1800, 800);
+            widget.grab();
+            QTRY_COMPARE_WITH_TIMEOUT(comparison->horizontalScrollBar()->maximum(), 0, 1000);
+            QCOMPARE(scroll->horizontalScrollBar()->maximum(), 0);
+        }
+        lang_id = 0;
+        testSettings.clear();
+    }
+
+    void machineReleaseSelection()
+    {
+        BluMachCatalog catalog;
+        QString error;
+        QVERIFY2(catalog.load(&error), qPrintable(error));
+        for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx" })
+            QVERIFY(catalog.isMachineSelectable(QString::fromLatin1(id), true));
+        for (const auto &id : { "olivetti_m15", "olivetti_m250", "olivetti_pcs286s",
+                                "t3200", "t5100", "t5200", "sx386m", "pc5286",
+                                "ta_dario286", "ta_dario386sx", "olivetti_ba2142",
+                                "olivetti_m240", "olivetti_m211v", "olivetti_m290sp" })
+            QVERIFY(!catalog.isMachineSelectable(QString::fromLatin1(id), true));
+        // An inherited model is selectable even without a visible catalogue sheet.
+        QVERIFY(catalog.isMachineSelectable(QStringLiteral("pc1512"), false));
+        QVERIFY(catalog.isMachineSelectable(QStringLiteral("ibmxt"), false));
+        QVERIFY(catalog.isMachineSelectable(QStringLiteral("m24"), false));
+        // Missing catalogue data fails closed for BluMach-owned models only.
+        BluMachCatalog unloaded;
+        QVERIFY(!unloaded.isMachineSelectable(QStringLiteral("olivetti_pcs86"), true));
+        QVERIFY(unloaded.isMachineSelectable(QStringLiteral("ibmxt"), false));
+    }
+
     void bundledMarks()
     {
         testSettings.clear();

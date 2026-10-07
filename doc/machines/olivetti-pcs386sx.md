@@ -172,6 +172,45 @@ data and are working derivatives only.
   discrete HT101SX + HT113 + GC102-PC, TL16C451FN and WD37C65CJM model;
 - `7dd52b481`: validate HT113 state retention across the 8042 warm-reset path.
 
+## Optional sound upgrades (2026-09-29)
+
+The creator offers one experimental user-installed card, defaulting to none:
+AdLib, CMS/Game Blaster, Sound Blaster 1.0/1.5/2.0, Pro 1.0/2.0,
+the original non-PnP SB16, Gravis UltraSound, UltraSound ACE and Microsoft
+Windows Sound System. These are later compatible upgrades, not claims about
+Olivetti's 1990 sales configurations. There are two ISA 16-bit slots and one
+ISA 8-bit slot; selecting one card is not simultaneous multi-card validation.
+
+Use period DOS/native game support. Card bus compatibility does not certify a
+driver suite, bundled game, or acceptable performance on a 16 MHz 386SX.
+The [SB16 user guide](https://datassette.s3.us-west-004.backblazeb2.com/manuais/sound_blaster_16_users_guide.pdf),
+printed page iv, specifies 386SX and 4 MB for its multimedia package, plus
+graphics/display requirements beyond some stock configurations. The creator
+does not silently change RAM or video; its 1 MB default is retained.
+
+The [Gravis ACE installation guide](https://manuals.plus/gravis/ultrasound-ace-audio-card-enhancer-manual)
+specifies 386+, ISA 16-bit and 7 MB disk for the base installation, and refers
+to the common UltraSound software/manual. ACE is a wavetable/playback choice,
+not hardware SB compatibility or a recording/game-port replacement.
+Classic GUS compatibility is inferred from that shared GF1 software family;
+both still require machine-specific guest tests.
+Microsoft's [WSS 2.0 README, section 1.4](https://jeffpar.github.io/kbarchive/kb/107/Q107181/)
+warns of recording limits on 386 CPUs at 25 MHz or below: reduce sample rate.
+
+AWE32 is displayed as unavailable, with no configuration write: the model needs
+`sound/creative/awe32.raw` and an established 386-compatible software path.
+Its name denotes synthesis voices, not an ISA 32-bit connector.
+[All Sound Tracker's developer documentation](https://files.scene.org/view/resources/music/trackers/ast.zip)
+demonstrates a native 386/2 MB path, but no audio test was performed here.
+The preserved later AWE32 PnP manual requires a 486 and must not be used as the
+386 software baseline. PnP/AWE64, ESS, PAS and other unreviewed families are
+not declared incompatible; they are omitted pending exact driver evidence.
+
+No extra ROM is needed for the enabled choices. Configuration matrix tests
+verify device IDs, bus flags, RAM preservation and drive-bay rules, not audio
+output, driver installation, timing, or resource conflicts.
+
+
 ## Principal references
 
 - machine archive: <https://olivrea.de/olivetti-pcs-386sx/>

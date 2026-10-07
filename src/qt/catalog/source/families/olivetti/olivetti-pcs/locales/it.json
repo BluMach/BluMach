@@ -1,3 +1,20 @@
 {
-  "family.olivetti-pcs.description": "La famiglia Olivetti PCS comprende personal computer compatti della fine degli anni Ottanta e dei primi anni Novanta, basati sulle generazioni V30, 80286 e 80386SX. BluMach mantiene unita la famiglia commerciale senza confondere l'hardware specifico di ogni modello."
+  "family.olivetti-pcs.description": "PCS era la gamma di personal computer da tavolo compatti di Olivetti, pensata per il lavoro a casa e in ufficio. PCS 86, PCS 286 e PCS 386SX condividevano un’identità commerciale, ma offrivano generazioni diverse di processori, memoria ed espansioni.",
+  "family.olivetti-pcs.history": "La gamma PCS riunisce tre personal computer da tavolo compatti di Olivetti: PCS 86, PCS 286 e PCS 386SX. I dépliant italiani conservati sono quelli del PCS 286 (ottobre 1989) e dei PCS 86 e PCS 386SX (settembre 1990). Descrivono un’offerta commerciale, quindi le loro date non bastano a stabilire quando ciascun modello fu lanciato.\n\nL’unità centrale era bassa, di 360 × 312 × 100 mm, con monitor e tastiera separati. Poteva stare sotto il monitor e occupava poco spazio sulla scrivania. Olivetti vendeva monitor VGA monocromatici o a colori, e avere il VGA non obbligava a comprare quello a colori.\n\nGran parte dell’integrazione era sulla scheda madre: nelle unità documentate, controller floppy, controller IDE e VGA (Paradise/Western Digital) senza schede separate. Gli slot ISA erano raggiunti tramite una riser card che teneva le schede di espansione in orizzontale, mantenendo basso il contenitore.\n\nOgni modello ha la propria scheda madre, con processore, memoria, bus e firmware diversi, ed è per questo che ciascuno ha la propria scheda nel catalogo. I dépliant danno il PCS 86 a 10 MHz; altre fonti indicano 8 MHz e potrebbe trattarsi di una velocità selezionabile via software (da confermare).\n\nTutti e tre i dépliant includevano MS-DOS 3.3, GW-BASIC e un tutorial. Quelli dei modelli 286 e 386SX elencavano anche altri sistemi operativi, tra cui OS/2 e XENIX. È l’offerta dell’epoca e non garantisce che funzionino nell’emulazione attuale.",
+  "family.olivetti-pcs.table.title": "Confronto tra i modelli",
+  "family.olivetti-pcs.table.note": "Memoria di serie ed espansioni sulla scheda madre; archiviazione secondo le configurazioni dei dépliant italiani del 1989–1990. Queste opzioni non indicano quali configurazioni siano state vendute più spesso.",
+  "family.olivetti-pcs.table.model": "Modello",
+  "family.olivetti-pcs.table.processor": "Processore",
+  "family.olivetti-pcs.table.memory": "Memoria RAM",
+  "family.olivetti-pcs.table.storage": "Archiviazione",
+  "family.olivetti-pcs.table.notes": "Note",
+  "family.olivetti-pcs.table.pcs86.memory": "640 KB convenzionali; fino a 2,5 MB totali sulla scheda madre, con EMS.",
+  "family.olivetti-pcs.table.pcs86.storage": "Una o due unità floppy da 720 KB, oppure una unità + disco rigido da 20 MB.",
+  "family.olivetti-pcs.table.pcs86.notes": "Tre slot ISA a 8 bit. Coprocessore 8087 opzionale. Velocità di 8 o 10 MHz selezionabile via software (da confermare).",
+  "family.olivetti-pcs.table.pcs286.memory": "1 MB di serie; fino a 4 MB sulla scheda madre.",
+  "family.olivetti-pcs.table.pcs286.storage": "Due unità floppy da 1,44 MB, oppure una unità + disco rigido da 20 o 40 MB.",
+  "family.olivetti-pcs.table.pcs286.notes": "Due slot ISA a 16 bit e uno a 8 bit. 80287 opzionale.",
+  "family.olivetti-pcs.table.pcs386sx.memory": "1 MB di serie; fino a 8 MB sulla scheda madre.",
+  "family.olivetti-pcs.table.pcs386sx.storage": "Due unità floppy da 1,44 MB, oppure una unità + disco rigido da 20, 40 o 100 MB.",
+  "family.olivetti-pcs.table.pcs386sx.notes": "Due slot ISA a 16 bit e uno a 8 bit. 80387SX opzionale."
 }
