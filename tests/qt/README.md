@@ -19,6 +19,14 @@ application's dark stylesheet), five locales, and 680/860/1280-pixel widths.
 
 Checks include filter visibility and counts, zero-result creation safety,
 keyboard navigation, layout bounds, scroll reset and secondary-text contrast.
+Family history checks cover the optional long narrative and references in all
+five locales, including wrapping and the absence of horizontal scrolling.
+The optional declarative family comparison has localized column/cell keys,
+literal model/processor cells and one cell per column. Five-column tables use
+horizontal scrolling inside the table on narrow sheets and fit without it on
+wide sheets; the page itself does not gain a horizontal scrollbar. Rows wrap
+and the table expands vertically to show all rows without an inner vertical
+scrollbar. The table is read-only and uses the current Qt palette.
 Release-selection checks also verify that the three visible PCS models are
 selectable, pending BluMach models (including models without sheets) are not,
 and inherited emulator machines remain selectable independently of catalogue

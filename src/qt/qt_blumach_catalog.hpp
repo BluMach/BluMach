@@ -40,6 +40,9 @@ struct BluMachFamily {
     QString parentFamilyId;
     QString name;
     QString descriptionKey;
+    QString historyKey;
+    QVector<BluMachHistoryReference> historyReferences;
+    QJsonObject comparisonTable;
 };
 
 struct BluMachPlatform {

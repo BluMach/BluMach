@@ -1,3 +1,20 @@
 {
-  "family.olivetti-pcs.description": "La famille Olivetti PCS regroupe des ordinateurs personnels compacts de la fin des années 1980 et du début des années 1990, fondés sur les générations V30, 80286 et 80386SX. BluMach conserve l'unité de la famille commerciale tout en distinguant le matériel propre à chaque modèle."
+  "family.olivetti-pcs.description": "PCS était la gamme de PC de bureau compacts d’Olivetti, destinée au travail à domicile et au bureau. Les PCS 86, PCS 286 et PCS 386SX partageaient une identité commerciale, mais différaient par leurs processeurs, leur mémoire et leurs possibilités d’extension.",
+  "family.olivetti-pcs.history": "La gamme PCS réunit trois ordinateurs de bureau compacts d’Olivetti : les PCS 86, PCS 286 et PCS 386SX. Les brochures italiennes conservées sont celles du PCS 286 (octobre 1989) et des PCS 86 et PCS 386SX (septembre 1990). Elles décrivent une offre commerciale ; leurs dates ne suffisent donc pas à établir le lancement de chaque modèle.\n\nL’unité centrale était basse, de 360 × 312 × 100 mm, avec écran et clavier séparés. Elle pouvait se placer sous l’écran et occupait peu de place sur le bureau. Olivetti vendait des écrans VGA monochromes ou couleur, et disposer du VGA n’obligeait pas à acheter l’écran couleur.\n\nUne bonne partie de l’intégration se trouvait sur la carte mère : dans les unités documentées, contrôleur de disquettes, contrôleur IDE et VGA (Paradise/Western Digital) sans cartes séparées. Les emplacements ISA étaient accessibles par une carte d’extension verticale (riser) qui recevait les cartes à l’horizontale, ce qui gardait le boîtier bas.\n\nChaque modèle a sa propre carte mère, avec un processeur, une mémoire, des bus et un micrologiciel différents ; c’est pourquoi chacun a sa fiche. Les brochures donnent le PCS 86 à 10 MHz ; d’autres sources citent 8 MHz, et il pourrait s’agir d’une vitesse sélectionnable par logiciel (à confirmer).\n\nLes trois brochures incluaient MS-DOS 3.3, GW-BASIC et un tutoriel. Celles des modèles 286 et 386SX citaient en outre d’autres systèmes, dont OS/2 et XENIX. C’est l’offre de l’époque, qui ne garantit pas leur fonctionnement dans l’émulation actuelle.",
+  "family.olivetti-pcs.table.title": "Comparaison des modèles",
+  "family.olivetti-pcs.table.note": "Mémoire de série et extensions sur la carte mère ; stockage selon les configurations des brochures italiennes de 1989–1990. Ces options n’indiquent pas les configurations les plus vendues.",
+  "family.olivetti-pcs.table.model": "Modèle",
+  "family.olivetti-pcs.table.processor": "Processeur",
+  "family.olivetti-pcs.table.memory": "Mémoire vive",
+  "family.olivetti-pcs.table.storage": "Stockage",
+  "family.olivetti-pcs.table.notes": "Remarques",
+  "family.olivetti-pcs.table.pcs86.memory": "640 Ko conventionnels ; jusqu’à 2,5 Mo au total sur la carte mère, avec EMS.",
+  "family.olivetti-pcs.table.pcs86.storage": "Un ou deux lecteurs de disquettes de 720 Ko, ou un lecteur + un disque dur de 20 Mo.",
+  "family.olivetti-pcs.table.pcs86.notes": "Trois emplacements ISA 8 bits. Coprocesseur 8087 en option. Vitesse de 8 ou 10 MHz sélectionnable par logiciel (à confirmer).",
+  "family.olivetti-pcs.table.pcs286.memory": "1 Mo de série ; jusqu’à 4 Mo sur la carte mère.",
+  "family.olivetti-pcs.table.pcs286.storage": "Deux lecteurs de disquettes de 1,44 Mo, ou un lecteur + un disque dur de 20 ou 40 Mo.",
+  "family.olivetti-pcs.table.pcs286.notes": "Deux emplacements ISA 16 bits et un emplacement 8 bits. 80287 en option.",
+  "family.olivetti-pcs.table.pcs386sx.memory": "1 Mo de série ; jusqu’à 8 Mo sur la carte mère.",
+  "family.olivetti-pcs.table.pcs386sx.storage": "Deux lecteurs de disquettes de 1,44 Mo, ou un lecteur + un disque dur de 20, 40 ou 100 Mo.",
+  "family.olivetti-pcs.table.pcs386sx.notes": "Deux emplacements ISA 16 bits et un emplacement 8 bits. 80387SX en option."
 }

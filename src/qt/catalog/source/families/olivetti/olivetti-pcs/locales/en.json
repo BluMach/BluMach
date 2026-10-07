@@ -1,3 +1,20 @@
 {
-  "family.olivetti-pcs.description": "The PCS family comprised compact late-1980s and early-1990s computers ranging from the V30 to the 80386SX. BluMach presents them as one commercial family while keeping boards and revisions with different hardware separate."
+  "family.olivetti-pcs.description": "PCS was Olivetti’s compact desktop range for work at home and in the office. The PCS 86, PCS 286 and PCS 386SX shared a commercial identity but offered different generations of processors, memory and expansion.",
+  "family.olivetti-pcs.history": "The PCS range brings together three compact desktop computers from Olivetti: the PCS 86, PCS 286 and PCS 386SX. The Italian brochures that survive are for the PCS 286 (October 1989) and for the PCS 86 and PCS 386SX (September 1990). They describe a commercial offering, so their dates are not enough to tell when each model was launched.\n\nThe system unit was low, at 360 × 312 × 100 mm, with a separate monitor and keyboard. It could sit under the monitor and took up little desk space. Olivetti sold monochrome and colour VGA monitors, and having VGA did not mean having to buy the colour one.\n\nMuch of the integration was on the motherboard: in the documented units, floppy controller, IDE controller and VGA (Paradise/Western Digital) without separate cards. The ISA slots were reached through a riser card that held the expansion cards horizontally, which kept the case low.\n\nEach model has its own motherboard, with a different processor, memory, buses and firmware, which is why each has its own sheet. The PCS 86 is listed at 10 MHz in the brochures; other sources quote 8 MHz, and it may be a software-selectable speed (to be confirmed).\n\nAll three brochures included MS-DOS 3.3, GW-BASIC and a tutorial. The 286 and 386SX brochures also listed other operating systems, including OS/2 and XENIX. That is the offering of the time and does not guarantee that they work in the current emulator.",
+  "family.olivetti-pcs.table.title": "Model comparison",
+  "family.olivetti-pcs.table.note": "Standard RAM and motherboard upgrades; storage follows the configurations listed in the 1989–1990 Italian brochures. These options do not indicate which configurations sold most frequently.",
+  "family.olivetti-pcs.table.model": "Model",
+  "family.olivetti-pcs.table.processor": "Processor",
+  "family.olivetti-pcs.table.memory": "RAM",
+  "family.olivetti-pcs.table.storage": "Storage",
+  "family.olivetti-pcs.table.notes": "Notes",
+  "family.olivetti-pcs.table.pcs86.memory": "640 KB conventional; up to 2.5 MB total on the motherboard, with EMS.",
+  "family.olivetti-pcs.table.pcs86.storage": "One or two 720 KB floppy drives, or one floppy drive + a 20 MB HDD.",
+  "family.olivetti-pcs.table.pcs86.notes": "Three 8-bit ISA slots. Optional 8087 coprocessor. Speed selectable by software, 8 or 10 MHz (to be confirmed).",
+  "family.olivetti-pcs.table.pcs286.memory": "1 MB standard; up to 4 MB on the motherboard.",
+  "family.olivetti-pcs.table.pcs286.storage": "Two 1.44 MB floppy drives, or one + a 20 or 40 MB HDD.",
+  "family.olivetti-pcs.table.pcs286.notes": "Two 16-bit ISA slots and one 8-bit slot. Optional 80287.",
+  "family.olivetti-pcs.table.pcs386sx.memory": "1 MB standard; up to 8 MB on the motherboard.",
+  "family.olivetti-pcs.table.pcs386sx.storage": "Two 1.44 MB floppy drives, or one + a 20, 40 or 100 MB HDD.",
+  "family.olivetti-pcs.table.pcs386sx.notes": "Two 16-bit ISA slots and one 8-bit slot. Optional 80387SX."
 }

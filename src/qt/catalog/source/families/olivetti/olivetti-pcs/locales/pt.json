@@ -1,3 +1,20 @@
 {
-  "family.olivetti-pcs.description": "A família Olivetti PCS reúne computadores pessoais compactos do final dos anos 1980 e início dos anos 1990, baseados nas gerações V30, 80286 e 80386SX. O BluMach mantém a família comercial unida sem confundir o hardware específico de cada modelo."
+  "family.olivetti-pcs.description": "PCS era a gama de computadores de secretária compactos da Olivetti para trabalhar em casa e no escritório. Os PCS 86, PCS 286 e PCS 386SX partilhavam uma identidade comercial, mas ofereciam diferentes gerações de processadores, memória e expansão.",
+  "family.olivetti-pcs.history": "A gama PCS reúne três computadores de secretária compactos da Olivetti: PCS 86, PCS 286 e PCS 386SX. Os folhetos italianos preservados são os do PCS 286 (outubro de 1989) e dos PCS 86 e PCS 386SX (setembro de 1990). Descrevem uma oferta comercial, pelo que as suas datas não bastam para saber quando cada modelo foi lançado.\n\nA unidade central era baixa, com 360 × 312 × 100 mm, e monitor e teclado separados. Podia ficar sob o monitor e ocupava pouco espaço na secretária. A Olivetti vendia monitores VGA monocromáticos ou a cores, e ter VGA não obrigava a comprar o monitor a cores.\n\nBoa parte da integração estava na placa principal: nas unidades documentadas, controlador de disquetes, controlador IDE e VGA (Paradise/Western Digital) sem placas separadas. As ranhuras ISA eram acedidas através de uma placa elevadora (riser) que mantinha as placas de expansão na horizontal, o que deixava a caixa baixa.\n\nCada modelo tem a sua própria placa principal, com processador, memória, barramentos e firmware diferentes, e por isso cada um tem a sua ficha. Os folhetos indicam o PCS 86 a 10 MHz; outras fontes referem 8 MHz, e poderá tratar-se de uma velocidade selecionável por software (por confirmar).\n\nOs três folhetos incluíam MS-DOS 3.3, GW-BASIC e um tutorial. Os dos modelos 286 e 386SX enumeravam ainda outros sistemas operativos, entre eles OS/2 e XENIX. É a oferta da época e não garante que funcionem na emulação atual.",
+  "family.olivetti-pcs.table.title": "Comparação dos modelos",
+  "family.olivetti-pcs.table.note": "Memória de série e expansões na placa principal; armazenamento segundo as configurações dos folhetos italianos de 1989–1990. Estas opções não indicam quais as configurações mais vendidas.",
+  "family.olivetti-pcs.table.model": "Modelo",
+  "family.olivetti-pcs.table.processor": "Processador",
+  "family.olivetti-pcs.table.memory": "Memória RAM",
+  "family.olivetti-pcs.table.storage": "Armazenamento",
+  "family.olivetti-pcs.table.notes": "Notas",
+  "family.olivetti-pcs.table.pcs86.memory": "640 KB convencionais; até 2,5 MB no total na placa principal, com EMS.",
+  "family.olivetti-pcs.table.pcs86.storage": "Uma ou duas unidades de disquetes de 720 KB, ou uma unidade + disco rígido de 20 MB.",
+  "family.olivetti-pcs.table.pcs86.notes": "Três ranhuras ISA de 8 bits. Coprocessador 8087 opcional. Velocidade de 8 ou 10 MHz selecionável por software (por confirmar).",
+  "family.olivetti-pcs.table.pcs286.memory": "1 MB de série; até 4 MB na placa principal.",
+  "family.olivetti-pcs.table.pcs286.storage": "Duas unidades de disquetes de 1,44 MB, ou uma unidade + disco rígido de 20 ou 40 MB.",
+  "family.olivetti-pcs.table.pcs286.notes": "Duas ranhuras ISA de 16 bits e uma de 8 bits. 80287 opcional.",
+  "family.olivetti-pcs.table.pcs386sx.memory": "1 MB de série; até 8 MB na placa principal.",
+  "family.olivetti-pcs.table.pcs386sx.storage": "Duas unidades de disquetes de 1,44 MB, ou uma unidade + disco rígido de 20, 40 ou 100 MB.",
+  "family.olivetti-pcs.table.pcs386sx.notes": "Duas ranhuras ISA de 16 bits e uma de 8 bits. 80387SX opcional."
 }
