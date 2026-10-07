@@ -179,5 +179,21 @@
   "creation.option.ems.none": "Nessuna espansione EMS",
   "creation.option.ems.384kb": "384 KB EMS",
   "creation.option.ems.1920kb": "1.920 KB EMS",
-  "creation.status.partial": "Profilo parzialmente validato"
+  "creation.status.partial": "Profilo parzialmente validato",
+  "firmware.folder": "Cartella del firmware",
+  "firmware.choose": "Scegli cartella…",
+  "firmware.open": "Apri cartella",
+  "firmware.rescan": "Verifica di nuovo",
+  "firmware.folder_help": "Scegli la cartella radice roms, contenente machines/ e le cartelle delle ROM video o dei dispositivi. Le macchine in esecuzione mantengono il firmware già caricato.",
+  "firmware.pending": "La cartella verrà applicata alla conferma, per i successivi avvii.",
+  "firmware.scan_result": "Set di ROM disponibili: %1",
+  "firmware.invalid_directory": "Scegli una cartella esistente con un percorso non troppo lungo.",
+  "firmware.unavailable": "Configurazione non disponibile",
+  "firmware.missing_body": "%1 non può avviarsi.\n\nCartella del firmware: %2\nFile o selezione mancanti:\n%3\n\nControlla questa cartella o scegline un’altra nelle Preferenze. La configurazione salvata non è stata modificata.",
+  "firmware.invalid_ram": "La RAM selezionata non è supportata. Apri le impostazioni e scegli un valore valido. La configurazione non è stata modificata.",
+  "firmware.unknown_bios": "La variante di BIOS selezionata è sconosciuta.",
+  "firmware.invalid_memory_choice": "%1 MB — non supportati; scegli un valore valido",
+  "firmware.invalid_bios_choice": "%1 — non disponibile; scegli un BIOS",
+  "firmware.choose_available_bios": "Scegli un BIOS disponibile prima di salvare. La configurazione non è stata modificata.",
+  "configuration.file_filter": "Configurazione BluMach (blumach.cfg);;Configurazione precedente (86box.cfg);;File di configurazione (*.cfg)"
 }

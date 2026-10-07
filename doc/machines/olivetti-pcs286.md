@@ -12,7 +12,7 @@ motherboard without additional evidence. See also the
 
 - machine: `[GC103] Olivetti PCS 286` (`olivetti_pcs286`);
 - CPU: Intel 80286 at 12 MHz;
-- memory: 1, 2, 3 or 4 MiB;
+- memory: 1, 2 or 4 MiB. Existing 3 MiB profiles require an explicit supported choice before starting or saving; opening Settings does not rewrite them;
 - video: `Internal` Paradise PVGA1A, 256 KiB;
 - floppy: one internal 3.5-inch 1.44 MB drive;
 - fixed disk: configure an IDE drive only when testing a documented geometry;

@@ -18,6 +18,7 @@ public:
     ~SettingsMachine();
 
     int  changed();
+    bool validMemorySelection() const;
 
     void restore();
     void save(int soft);

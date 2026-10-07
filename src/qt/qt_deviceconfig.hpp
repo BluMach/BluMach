@@ -35,6 +35,8 @@ private:
 
 private slots:
     void on_comboIndexChanged(int index);
+protected:
+    void accept() override;
 };
 
 #endif // QT_DEVICECONFIG_HPP

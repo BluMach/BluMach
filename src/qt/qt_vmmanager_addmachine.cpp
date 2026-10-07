@@ -21,6 +21,7 @@
 #include <QVBoxLayout>
 
 #include "qt_vmmanager_addmachine.hpp"
+#include "qt_blumach_catalog.hpp"
 
 extern "C" {
 #include <86box/86box.h>
@@ -134,9 +135,11 @@ void
 WithExistingConfigPage::chooseExistingConfigFile()
 {
     const auto startDirectory     = QString(vmm_path);
+    BluMachCatalog catalog;
+    catalog.load();
     const auto selectedConfigFile = QFileDialog::getOpenFileName(this, tr("Choose configuration file"),
                                                                  startDirectory,
-                                                                 tr("BluMach-compatible configuration files (86box.cfg)"));
+                                                                 catalog.text(QStringLiteral("configuration.file_filter")));
     // Empty value means the dialog was canceled
     if (!selectedConfigFile.isEmpty()) {
         QFile configFile(selectedConfigFile);

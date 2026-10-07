@@ -159,7 +159,8 @@ load_global_emulator(void)
 
     chd_precache_level = ini_section_get_int(cat, "chd_precache_level", 0);
 
-    p = ini_section_get_string(cat, "vmm_path", NULL);
+    /* Do not inherit a library root that may belong to another emulator. */
+    p = ini_section_get_string(cat, VMM_CONFIG_KEY, NULL);
     if (p != NULL) {
         /* Convert relative paths to absolute in portable mode */
         if (portable_mode && !path_abs(p)) {
@@ -249,7 +250,7 @@ load_global_legacy(void)
 
     vmm_disabled = ini_section_get_int(cat, "vmm_disabled", 0);
 
-    p = ini_section_get_string(cat, "vmm_path", NULL);
+    p = ini_section_get_string(cat, VMM_CONFIG_KEY, NULL);
     if (p != NULL) {
         /* Convert relative paths to absolute in portable mode */
         if (portable_mode && !path_abs(p)) {
@@ -2892,12 +2893,12 @@ save_global_emulator(void)
     if (vmm_path_cfg[0] != 0) {
         /* Save path as relative to the EXE path in portable mode */
         if (portable_mode && path_abs(vmm_path_cfg) && !strnicmp(vmm_path_cfg, exe_path, strlen(exe_path))) {
-            ini_section_set_string(cat, "vmm_path", &vmm_path_cfg[strlen(exe_path)]);
+            ini_section_set_string(cat, VMM_CONFIG_KEY, &vmm_path_cfg[strlen(exe_path)]);
         } else {
-            ini_section_set_string(cat, "vmm_path", vmm_path_cfg);
+            ini_section_set_string(cat, VMM_CONFIG_KEY, vmm_path_cfg);
         }
     } else {
-        ini_section_delete_var(cat, "vmm_path");
+        ini_section_delete_var(cat, VMM_CONFIG_KEY);
     }
 
     ini_delete_section_if_empty(global, cat);

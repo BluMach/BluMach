@@ -392,6 +392,17 @@ pcs86_glue_read(uint16_t port, void *priv)
 static const device_config_t olivetti_pcs86_config[] = {
     // clang-format off
     {
+        .name = "bios", .description = "BIOS Version", .type = CONFIG_BIOS,
+        .default_string = "v109",
+        .bios = {
+            { .name = "BIOS 1.09", .internal_name = "v109", .bios_type = BIOS_INTERLEAVED,
+              .files_no = 2, .size = 65536,
+              .files = { "roms/machines/olivetti_pcs86/CSAB05_02-17.BIN",
+                         "roms/machines/olivetti_pcs86/CSAB04_02-25.BIN" } },
+            { 0 }
+        }
+    },
+    {
         .name           = "ems_size",
         .description    = "Onboard EMS expansion",
         .type           = CONFIG_SELECTION,

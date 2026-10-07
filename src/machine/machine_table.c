@@ -49,6 +49,7 @@
 static const uint32_t amstrad_pc5286_ram[] = { 512, 1024, 2048, 4096, 0 };
 static const uint32_t olivetti_prodest_pc1_ram[] = { 256, 512, 640, 0 };
 static const uint32_t olivetti_m250_ram[] = { 1024, 2048, 0 };
+static const uint32_t olivetti_pcs286_ram[] = { 1024, 2048, 4096, 0 };
 static const uint32_t olivetti_m250e_ram[] = { 1024, 2048, 4096, 0 };
 static const uint32_t olivetti_m211v_ram[] = { 1024, 5120, 0 };
 static const uint32_t olivetti_m280_ram[] = { 1024, 2048, 3072, 0 };
@@ -4374,7 +4375,8 @@ const machine_t machines[] = {
         .ram       = {
             .min  = 1024,
             .max  = 4096,
-            .step = 1024
+            .step = 1024,
+            .valid = olivetti_pcs286_ram
         },
         .nvrmask                  = 127,
         .jumpered_ecp_dma         = 0,

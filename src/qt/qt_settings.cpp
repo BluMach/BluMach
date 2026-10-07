@@ -48,6 +48,7 @@ extern "C" {
 #include "qt_harddiskdialog.hpp"
 
 #include "qt_settingsmachine.hpp"
+#include "qt_blumach_catalog.hpp"
 #include "qt_settingsdisplay.hpp"
 #include "qt_settingsinput.hpp"
 #include "qt_settingssound.hpp"
@@ -267,6 +268,12 @@ Settings::save(int soft)
 void
 Settings::accept()
 {
+    if (!machine->validMemorySelection()) {
+        BluMachCatalog catalog;
+        catalog.load();
+        QMessageBox::warning(this, catalog.text(QStringLiteral("firmware.unavailable")), catalog.text(QStringLiteral("firmware.invalid_ram")));
+        return;
+    }
     int changed = 0;
 
     changed |= machine->changed();

@@ -76,6 +76,8 @@ extern "C" {
 #include "qt_mainwindow.hpp"
 #include "qt_preferences.hpp"
 #include "qt_settings.hpp"
+#include "qt_firmware.hpp"
+#include "qt_blumach_catalog.hpp"
 #include "cocoa_mouse.hpp"
 #include "qt_styleoverride.hpp"
 #include "qt_unixmanagerfilter.hpp"
@@ -646,17 +648,8 @@ main(int argc, char *argv[])
 #    endif
 #endif
 
-    if (!pc_init_roms()) {
-        QMessageBox fatalbox(QMessageBox::Icon::Critical, QObject::tr("No ROMs found"),
-                             QObject::tr("%1 could not find any usable ROM images.\n\n"
-                                         "Provide a local ROM directory containing firmware you are legally entitled to use. "
-                                         "Place it in the \"roms\" directory next to the application, or start %1 with --rompath path.")
-                                 .arg(EMU_NAME),
-                             QMessageBox::Ok);
-        fatalbox.setTextFormat(Qt::TextFormat::PlainText);
-        fatalbox.exec();
-        return 6;
-    }
+    BluMachFirmware::restoreDirectory();
+    pc_init_roms(); // Empty firmware collections do not prevent browsing or repair.
 
     if (start_vmm) {
         // VMManagerMain vmm;
@@ -687,7 +680,17 @@ main(int argc, char *argv[])
         return 0;
     }
 
-    pc_init_modules();
+    if (!settings_only) {
+        const auto error = BluMachFirmware::startupError();
+        if (!error.isEmpty()) {
+            BluMachCatalog catalog;
+            catalog.load();
+            QMessageBox::warning(nullptr, catalog.text(QStringLiteral("firmware.unavailable")), error);
+            return 6;
+        }
+        if (!pc_init_modules())
+            return 6;
+    }
 
     // UUID / copy / move detection
     if (!util::compareUuid()) {

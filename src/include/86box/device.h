@@ -223,6 +223,9 @@ extern void  device_speed_changed(void);
 extern void  device_force_redraw(void);
 extern const char *device_get_bus_name(const device_t *dev);
 extern void  device_get_name(const device_t *dev, int bus, char *name);
+extern const device_config_bios_t *device_configured_bios(const device_t *dev);
+/* 0: no BIOS selection; 1: selected set present; -1: missing/unknown selection. */
+extern int device_configured_bios_available(const device_t *dev);
 extern int   device_has_config(const device_t *dev);
 
 extern const char *device_get_bios_name(const device_t *dev, const char *internal_name);

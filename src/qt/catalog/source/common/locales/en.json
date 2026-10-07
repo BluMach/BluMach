@@ -179,5 +179,21 @@
   "creation.option.ems.none": "No EMS expansion",
   "creation.option.ems.384kb": "384 KB EMS",
   "creation.option.ems.1920kb": "1,920 KB EMS",
-  "creation.status.partial": "Partially validated profile"
+  "creation.status.partial": "Partially validated profile",
+  "firmware.folder": "Firmware folder",
+  "firmware.choose": "Choose folder…",
+  "firmware.open": "Open folder",
+  "firmware.rescan": "Check again",
+  "firmware.folder_help": "Choose the roms root folder, containing machines/ and any video/device ROM folders. Existing VMs keep their loaded firmware.",
+  "firmware.pending": "This folder will apply when you accept, for subsequent machine starts.",
+  "firmware.scan_result": "Available ROM sets: %1",
+  "firmware.invalid_directory": "Choose an existing folder with a path that is not too long.",
+  "firmware.unavailable": "Configuration unavailable",
+  "firmware.missing_body": "%1 cannot start.\n\nFirmware folder: %2\nMissing files or selection:\n%3\n\nCheck this folder or select another in Preferences. The saved configuration has not been changed.",
+  "firmware.invalid_ram": "The selected RAM value is unsupported. Open Settings and choose a supported value. The configuration has not been changed.",
+  "firmware.unknown_bios": "The selected BIOS variant is unknown.",
+  "firmware.invalid_memory_choice": "%1 MB — unsupported; choose a supported value",
+  "firmware.invalid_bios_choice": "%1 — unavailable; choose a BIOS",
+  "firmware.choose_available_bios": "Choose an available BIOS before saving. The configuration has not been changed.",
+  "configuration.file_filter": "BluMach configuration (blumach.cfg);;Previous configuration (86box.cfg);;Configuration files (*.cfg)"
 }

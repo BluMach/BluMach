@@ -227,7 +227,7 @@ VMManagerSystem::getScreenshots()
 void
 VMManagerSystem::loadSettings()
 {
-    // First, load the information from the 86box.cfg
+    // First, load the information from the selected BluMach configuration.
     QSettings settings(config_file.filePath(), QSettings::IniFormat);
     if (settings.status() != QSettings::NoError)
         qWarning() << "Error loading" << config_file.path() << " status:" << settings.status();
@@ -572,7 +572,7 @@ VMManagerSystem::setupVars()
     int  ram_granularity = 0;
     int  ci              = machine_get_machine_from_internal_name(machine_config["machine"].toUtf8());
     // Machine
-    if (ci != -1 && machine_available(ci)) {
+    if (ci != -1) {
         machine_name    = machines[ci].name;
         ram_granularity = machines[ci].ram.step;
     }

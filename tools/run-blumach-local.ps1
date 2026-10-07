@@ -2,7 +2,8 @@ param(
     [string]$Executable = "build/artifacts/BluMach.exe",
     [string]$VmPath,
     [string]$LogPath,
-    [string]$RomPath = "roms"
+    [string]$RomPath = "roms",
+    [switch]$Standalone
 )
 
 $ErrorActionPreference = "Stop"
@@ -31,11 +32,15 @@ if ($LogPath) {
     $arguments += @("-L", (Resolve-WorkspacePath $LogPath))
 }
 
-$ucrtBin = "C:\msys64\ucrt64\bin"
-if (-not (Test-Path -LiteralPath $ucrtBin)) {
-    throw "The MSYS2 UCRT64 runtime was not found at $ucrtBin"
+if ($Standalone) {
+    $env:PATH = "$env:SystemRoot\System32;$env:SystemRoot"
+} else {
+    $ucrtBin = "C:\msys64\ucrt64\bin"
+    if (-not (Test-Path -LiteralPath $ucrtBin)) {
+        throw "The MSYS2 UCRT64 runtime was not found at $ucrtBin"
+    }
+    $env:PATH = "$ucrtBin;$env:PATH"
 }
-$env:PATH = "$ucrtBin;$env:PATH"
 
 & $executablePath @arguments
 exit $LASTEXITCODE

@@ -47,6 +47,7 @@ extern rom_path_t asset_paths;
 extern void asset_add_path(const char *path);
 
 extern void rom_add_path(const char *path);
+extern int  rom_set_user_path(const char *path);
 
 extern uint8_t  rom_read(uint32_t addr, void *priv);
 extern uint16_t rom_readw(uint32_t addr, void *priv);

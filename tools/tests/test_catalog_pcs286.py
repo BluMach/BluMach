@@ -23,6 +23,8 @@ class Pcs286CatalogTests(unittest.TestCase):
         record = table.split('.internal_name     = "olivetti_pcs286",', 1)[1].split('.aliases', 1)[0]
         self.assertRegex(record, r"\.flags\s*=\s*MACHINE_VIDEO\s*,")
         self.assertRegex(record, r"\.vid_device\s*=\s*&paradise_pvga1a_pcs286_device\s*,")
+        self.assertRegex(record, r"\.valid\s*=\s*olivetti_pcs286_ram")
+        self.assertRegex(table, r"olivetti_pcs286_ram\[\]\s*=\s*\{\s*1024,\s*2048,\s*4096,\s*0\s*\}")
         for key, value in (("min", 1024), ("max", 4096), ("step", 1024)):
             self.assertRegex(record, rf"\.{key}\s*=\s*{value}\b")
 

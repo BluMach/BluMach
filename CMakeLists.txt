@@ -47,7 +47,7 @@ project(BluMach
 
 # CMake requires a numeric project version. Keep the optional SemVer
 # prerelease identifier separate and expose one canonical display/package value.
-set(BLUMACH_VERSION_PRERELEASE "rc.1")
+set(BLUMACH_VERSION_PRERELEASE "alpha.1")
 if(BLUMACH_VERSION_PRERELEASE)
     set(BLUMACH_VERSION_FULL "${CMAKE_PROJECT_VERSION}-${BLUMACH_VERSION_PRERELEASE}")
 else()

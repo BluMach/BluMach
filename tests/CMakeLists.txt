@@ -46,6 +46,7 @@ function(blumach_enable_dead_code_elimination target)
 endfunction()
 
 blumach_add_host_contract(machine-runtime-controls machine_runtime_controls_test.c)
+blumach_add_host_contract(selected-firmware selected_firmware_test.c "${PROJECT_SOURCE_DIR}/src/device_bios.c")
 blumach_add_host_contract(toshiba-aform-slot toshiba_aform_slot_test.c)
 blumach_add_host_contract(t5100-platform t5100_platform_test.c)
 blumach_enable_dead_code_elimination(t5100-platform)

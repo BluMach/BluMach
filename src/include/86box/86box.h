@@ -38,11 +38,12 @@
 #define SCREEN_RES_Y 480
 
 /* Filename and pathname info. */
-#define CONFIG_FILE        "86box.cfg"
-#define GLOBAL_CONFIG_FILE "86box_global.cfg"
+#define CONFIG_FILE        "blumach.cfg"
+#define GLOBAL_CONFIG_FILE "blumach_global.cfg"
+#define VMM_CONFIG_KEY     "blumach_vmm_path"
 #define NVR_PATH           "nvr"
 #define SCREENSHOT_PATH    "screenshots"
-#define VMM_PATH		   "Virtual Machines"
+#define VMM_PATH            "BluMach VMs"
 #define VMM_PATH_WINDOWS   "BluMach VMs"
 
 /* Recently used images */

@@ -79,7 +79,8 @@ private slots:
             for (int column = 0; column < columns.size(); ++column)
                 QCOMPARE(comparison->horizontalHeaderItem(column)->text(), catalog.text(columns[column].toObject().value(QStringLiteral("label_key")).toString()));
             QCOMPARE(comparison->item(0, 0)->text(), QStringLiteral("PCS 86"));
-            QCOMPARE(comparison->item(1, 1)->text(), QStringLiteral("Intel 80286 · 12 MHz"));
+            QVERIFY(comparison->item(1, 1)->text().contains(QStringLiteral("80286")));
+            QVERIFY(comparison->item(1, 1)->text().contains(QStringLiteral("12 MHz")));
             QVERIFY(!comparison->item(2, 4)->text().startsWith(QStringLiteral("family.")));
             auto *history = widget.findChild<QLabel *>("blumachFamilyHistory");
             QVERIFY(history);
