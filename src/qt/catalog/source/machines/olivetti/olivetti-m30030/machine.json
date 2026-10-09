@@ -3,7 +3,7 @@
   "machine": {
     "id": "olivetti-m30030",
     "manufacturer_id": "olivetti",
-    "family_id": "olivetti-m300",
+    "family_id": "olivetti-m",
     "platform_id": "olivetti-m30030-platform",
     "name": "Olivetti M300-30",
     "summary_key": "product.olivetti-m30030.summary",
