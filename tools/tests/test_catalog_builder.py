@@ -58,7 +58,7 @@ class CatalogBuilderTests(unittest.TestCase):
 
         self.assertIn("Q_INIT_RESOURCE(blumach_catalog);", qt_main)
 
-    def test_release_visibility_is_limited_to_initial_olivetti_pcs_line(self) -> None:
+    def test_release_visibility_is_limited_to_selected_pcs_and_m15_models(self) -> None:
         repository = Path(__file__).resolve().parents[2]
         source = repository / "src" / "qt" / "catalog" / "source"
         catalog, _ = catalog_builder.assemble(source)
@@ -74,9 +74,9 @@ class CatalogBuilderTests(unittest.TestCase):
         }
 
         self.assertEqual({"olivetti"}, visible_manufacturers)
-        self.assertEqual({"olivetti-pcs"}, visible_families)
+        self.assertEqual({"olivetti-pcs", "olivetti-m"}, visible_families)
         self.assertEqual(
-            {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx"},
+            {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx", "olivetti-m15", "olivetti-m15-plus"},
             visible_products,
         )
 

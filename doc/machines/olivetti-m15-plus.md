@@ -1,11 +1,30 @@
 # Olivetti M15 Plus
 
+Development review, 2026-10-09: enabled for local experimental testing alongside
+M15 in the M range. Earlier Resident Diagnostics/Customer Test results are
+historical evidence; interactive regression, full keyboard, disk format and
+persistence still require this updated build. No add-on sound cards or
+standalone MPU-401 are supported; the internal speaker is retained. A stored
+unsupported audio selection is preserved and reported until corrected explicitly.
+
 Status as of 2026-09-13: experimental but bootable pilot. BluMach passes every
 displayed Resident Diagnostics item, reports the documented 512 KB and boots
 the original 720 KB System Test disk into MS-DOS 3.20. The original customer
 test also exercises both documented graphics modes and the LCD shade table.
-The alternative 20 MB HDU configuration now has an experimental host-interface
-model and still requires validation with the original HDU diagnostics.
+The alternative 20 MB HDU host interface passed several original diagnostics
+in the earlier pilot; format/error-injection and READ/WRITE LONG coverage remain
+incomplete, and its checks must be repeated on this build.
+
+## Options versus sales configurations
+
+RAM remains the documented fixed 512 KB. Choose the two-internal-floppy
+configuration or one internal floppy plus the 20 MB HDU; the HDD occupies the
+other bay. The manual documents an optional self-powered external 5.25-inch
+drive and serial/parallel peripherals. It also lists battery, supply, shoulder
+strap and bag as accessories. These do not establish ISA slots or compatibility
+with an AdLib/Sound Blaster. External floppy routing and broader peripherals
+remain outside the offered profiles. The manual gives 360 KB in its overview
+and 320 KB formatted in appendix A; this review does not invent a resolution.
 
 For the evidence-to-model account and replacement criteria, see the
 [M15 Plus engineering notes](olivetti-m15-plus-implementation.md).
@@ -19,8 +38,10 @@ super-twist monochrome LCD.
 
 Olivetti documented two commercial storage configurations: two internal
 3.5-inch 720 KB floppy drives, or one such drive plus a 20 MB internal HDU.
-Both could use an optional external 5.25-inch 360 KB drive. The catalogue
-offers both internal configurations; the external unit is not represented.
+Both could use an optional external 5.25-inch drive. The guide's overview
+specifies 360 KB, while appendix A specifies 320 KB formatted; that discrepancy
+remains unresolved. The catalogue offers both internal configurations; the
+external unit is not represented.
 
 Olivetti calls the internal hard-disk link SCSI. The service guide names Epson
 HMD755 and Fujitsu FK308S-39R mechanisms, while BIOS 1.10 exposes a six-byte
@@ -91,13 +112,13 @@ software-selected display modes.
   raw disk images cannot retain controller ECC bytes, so READ LONG supplies a
   stable four-byte diagnostic field and WRITE LONG discards it.
 - Characters `80h`–`FFh` retain the generic high-character fallback.
-- Cold POST, soft and hard reset, 40/80-column startup, the original System
-  Test boot, the LCD character/shade screens and 320×200/640×200 graphics are
-  validated. The customer test's Memory module passes. Its System Board and
-  Display LCD modules still return `FAILED`, and its configuration report sees
-  one 360 KB drive rather than the configured pair of 720 KB drives; these are
-  explicit evidence of missing board/equipment-flag behavior. The special
-  78-key `EDIT/SHIFT` path also remains pending.
+- The earlier pilot passed cold POST, soft and hard reset, 40/80-column
+  startup, original System Test boot, Memory, System Board and Display LCD.
+  Corrected RTC progression, CRTC aliases and FDC output-register reads resolved
+  the former diagnostic failures; the original utility identified both 720 KB
+  drives. Those historical results must be repeated on this updated build.
+  The special 78-key `EDIT/SHIFT` path is implemented but its complete diagnostic
+  acceptance remains pending, as do destructive floppy/HDU and persistence tests.
 
 ## Principal references
 

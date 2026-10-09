@@ -6,6 +6,7 @@
     "family_id": "olivetti-m",
     "platform_id": "olivetti-m15-plus-platform",
     "name": "Olivetti M15 Plus",
+    "visible": true,
     "summary_key": "product.olivetti-m15-plus.summary",
     "history_key": "product.olivetti-m15-plus.history",
     "warning_key": "product.olivetti-m15-plus.warning",
@@ -112,7 +113,8 @@
         {"section": "Video", "values": {"gfxcard": "internal"}},
         {"section": "Input devices", "values": {"keyboard_type": "keyboard_pc_xt", "mouse_type": "none"}},
         {"section": "Floppy and CD-ROM drives", "values": {"fdd_01_type": "35_2dd", "fdd_02_type": "35_2dd"}},
-        {"section": "Storage controllers", "values": {"hdc_1": "none"}}
+        {"section": "Storage controllers", "values": {"hdc_1": "none"}},
+        {"section": "Sound", "values": {"sndcard": "none", "sndcard2": "none", "sndcard3": "none", "sndcard4": "none", "mpu401_standalone": 0}}
       ],
       "generated_files": []
     },
@@ -126,6 +128,7 @@
         "evidence_key": "technical.evidence.documented",
         "entries": [
           {"label_key": "technical.label.cpu_bus", "value_key": "product.olivetti-m15-plus.technical.cpu_bus"},
+          {"label_key": "technical.label.expansion_options", "value_key": "product.olivetti-m15-plus.technical.expansion_options"},
           {"label_key": "technical.label.video", "value_key": "product.olivetti-m15-plus.technical.video"},
           {"label_key": "technical.label.jumpers", "value_key": "product.olivetti-m15-plus.technical.switches"},
           {"label_key": "technical.label.firmware_evidence", "value_key": "product.olivetti-m15-plus.technical.firmware"}

@@ -1,5 +1,12 @@
 # Olivetti M15
 
+Development review, 2026-10-09: this model is enabled for local experimental
+testing in the M range. The results below describe the previous pilot, not a
+fresh acceptance run of this updated build. All add-on sound cards and the
+standalone MPU-401 are excluded by machine-owned policy; the internal PC
+speaker remains. Existing incompatible audio selections are rejected without
+silently rewriting the VM and can be corrected explicitly in Configure.
+
 Status as of 2026-09-05: experimental but functional. BluMach passes the
 resident diagnostics, boots 720 KB media at both supported memory sizes and
 runs the graphical tutorial supplied with the M15 Starter Kit. Board-level
@@ -25,7 +32,9 @@ internal drives.
 
 The M15 uses a fixed, non-backlit green monochrome LCD driven by a Yamaha
 V6355D-F. It supports 40×25 and 80×25 text, 320×200 and 640×200 graphics, and
-four green levels. The M15 has no external video output, so an external colour
+four emulated green levels. The preserved manufacturer specification instead
+mentions six grey shades; the relationship to the current rendering is
+unresolved. The M15 has no external video output, so an external colour
 CRT is neither documented nor offered by the machine profile.
 
 BIOS 1.08 directly programs the CGA-compatible and V6355D extended registers.
@@ -36,6 +45,13 @@ from the 8×8 glyph table in the mapped system BIOS; characters `80h`–`FFh`
 currently retain a generic CP437 fallback.
 
 ## Recommended BluMach configuration
+
+The documented additional storage option is the self-powered external
+5.25-inch floppy unit; it is not yet offered by this model. RS-232C and
+Centronics permit external peripherals, but a connector does not certify every
+device or driver. Battery, AC supply and carrying case are accessories, not ISA
+slots. The documented 512 KB factory profile is the default; 256 KB is retained
+as an observed configuration. No internal HDD or add-on sound card is offered.
 
 - machine: `[8088] Olivetti M15 (experimental)` (`olivetti_m15`);
 - CPU: Intel 80C88-compatible core at 4.77 MHz;

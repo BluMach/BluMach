@@ -5,7 +5,7 @@
     "manufacturer_id": "olivetti",
     "parent_family_id": "",
     "name": "M",
-    "visible": false,
+    "visible": true,
     "description_key": "family.olivetti-m.description"
   }
 }

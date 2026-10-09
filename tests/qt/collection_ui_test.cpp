@@ -19,6 +19,7 @@
 #include <QTest>
 #include <QToolButton>
 #include <QTreeWidget>
+#include <QTreeWidgetItemIterator>
 #include <cmath>
 
 // Bounded host adapters: use the production widget and catalogue, but keep
@@ -46,9 +47,47 @@ static double contrast(QColor a, QColor b)
     return (qMax(x, y) + .05) / (qMin(x, y) + .05);
 }
 
+static QTreeWidgetItem *catalogueItem(QTreeWidget *tree, const QString &id)
+{
+    for (QTreeWidgetItemIterator item(tree); *item; ++item)
+        if ((*item)->data(0, Qt::UserRole).toString() == id)
+            return *item;
+    return nullptr;
+}
+
 class CollectionUiTest : public QObject {
     Q_OBJECT
 private slots:
+    void m15ProfilesShareRangeWithoutCollapsingModels()
+    {
+        for (int locale = 0; locale < locales.size(); ++locale) {
+            testSettings.clear();
+            lang_id = locale;
+            BluMachCollectionWidget widget;
+            widget.resize(960, 800);
+            widget.show();
+            QCoreApplication::processEvents();
+            auto *tree = widget.findChild<QTreeWidget *>();
+            QVERIFY(tree);
+            auto *range = catalogueItem(tree, QStringLiteral("olivetti-m"));
+            QVERIFY(range);
+            QCOMPARE(range->childCount(), 2);
+            const QStringList models = { "olivetti-m15", "olivetti-m15-plus" };
+            const QStringList native = { "olivetti_m15", "olivetti_m15plus" };
+            QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
+            for (int i = 0; i < models.size(); ++i) {
+                auto *model = catalogueItem(tree, models[i]);
+                QVERIFY(model && model->parent() == range);
+                tree->setCurrentItem(model);
+                QCoreApplication::processEvents();
+                creation.clear();
+                widget.createSelectedMachine();
+                QCOMPARE(creation.count(), 1);
+                QCOMPARE(creation.at(0).at(0).toString(), models[i]);
+                QCOMPARE(creation.at(0).at(1).toString(), native[i]);
+            }
+        }
+    }
     void familyHistory()
     {
         for (int locale = 0; locale < locales.size(); ++locale) {
@@ -69,7 +108,9 @@ private slots:
             QCoreApplication::processEvents();
             auto *tree = widget.findChild<QTreeWidget *>();
             QVERIFY(tree && tree->topLevelItemCount());
-            tree->setCurrentItem(tree->topLevelItem(0)->child(0));
+            auto *pcs = catalogueItem(tree, QStringLiteral("olivetti-pcs"));
+            QVERIFY(pcs);
+            tree->setCurrentItem(pcs);
             auto *comparison = widget.findChild<QTableWidget *>("blumachFamilyComparison");
             QVERIFY(comparison);
             QCOMPARE(comparison->columnCount(), 5);
@@ -110,9 +151,10 @@ private slots:
         BluMachCatalog catalog;
         QString error;
         QVERIFY2(catalog.load(&error), qPrintable(error));
-        for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx" })
+        for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx",
+                                "olivetti_m15", "olivetti_m15plus" })
             QVERIFY(catalog.isMachineSelectable(QString::fromLatin1(id), true));
-        for (const auto &id : { "olivetti_m15", "olivetti_m250", "olivetti_pcs286s",
+        for (const auto &id : { "olivetti_m250", "olivetti_pcs286s",
                                 "t3200", "t5100", "t5200", "sx386m", "pc5286",
                                 "ta_dario286", "ta_dario386sx", "olivetti_ba2142",
                                 "olivetti_m240", "olivetti_m211v", "olivetti_m290sp" })
@@ -205,7 +247,8 @@ private slots:
         QCOMPARE(widget.width(), width);
         QCOMPARE(tree->topLevelItemCount(), 1);
         auto *brand = tree->topLevelItem(0);
-        auto *family = brand->child(0);
+        auto *family = catalogueItem(tree, QStringLiteral("olivetti-pcs"));
+        QVERIFY(family && family->parent() == brand);
         QCOMPARE(family->childCount(), 3);
         QVERIFY(contrast(tree->palette().color(QPalette::PlaceholderText), pal.color(QPalette::Base)) >= 4.5);
         QVERIFY(!clear->isVisible());
