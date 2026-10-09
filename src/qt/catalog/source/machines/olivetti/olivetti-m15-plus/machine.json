@@ -3,7 +3,7 @@
   "machine": {
     "id": "olivetti-m15-plus",
     "manufacturer_id": "olivetti",
-    "family_id": "olivetti-m15",
+    "family_id": "olivetti-m",
     "platform_id": "olivetti-m15-plus-platform",
     "name": "Olivetti M15 Plus",
     "summary_key": "product.olivetti-m15-plus.summary",
