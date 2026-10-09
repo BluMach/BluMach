@@ -1,0 +1,21 @@
+{
+  "product.olivetti-m15-plus.summary": "1988 80C88 portable with 512 KB, a detachable keyboard, a backlit monochrome LCD and dual-floppy or 20 MB HDU configurations.",
+  "product.olivetti-m15-plus.history": "The M15 Plus is a distinct successor within Olivetti's M15 portable family. It combined an 80C88 at 4.77 MHz, 512 KB, a detachable keyboard and a 10.5-inch backlit LCD. Olivetti sold either two internal 720 KB floppy drives or one floppy with a 20 MB HDU; both configurations are represented experimentally.",
+  "product.olivetti-m15-plus.warning": "EXPERIMENTAL: POST, resets, 512 KB, original media boot and documented display modes are validated. The new 20 MB HDU uses the BIOS-observed host contract and still requires complete original-diagnostic validation; exact LCD response and remaining board logic are approximate.",
+  "product.olivetti-m15-plus.creation.variant.dual_floppy": "Two internal 3.5-inch 720 KB floppy drives",
+  "product.olivetti-m15-plus.creation.variant.hdu_20mb": "One internal 720 KB floppy drive and 20 MB HDU",
+  "product.olivetti-m15-plus.creation.memory": "512 KB — documented fixed configuration",
+  "product.olivetti-m15-plus.creation.note": "Olivetti sold both configurations and both can be created experimentally. The optional external 360 KB drive is not represented.",
+  "product.olivetti-m15-plus.creation.hdu_note": "The 20 MB HDU profile creates one 720 KB floppy and one 615/4/17 disk behind the integrated adapter at ports 320h-323h, IRQ 5 and DMA 3. Olivetti labels the physical drive interface SCSI; BluMach reuses an XTA-compatible host state machine because that is the contract observed by BIOS 1.10.",
+  "product.olivetti-m15-plus.technical.cpu_bus": "Intel 80C88 at 4.77 MHz with 512 KB user RAM. The available emulator core and calibrated timer remain timing approximations.",
+  "product.olivetti-m15-plus.technical.video": "Backlit super-twist monochrome LCD. The original utility names black, six grey levels and white; the Plus renderer preserves those eight levels with an approximate luminance curve. The guide documents 40/80-column text and 320×200/640×200 graphics; a brochure's conflicting 640×320 claim is not exposed as an emulated mode.",
+  "product.olivetti-m15-plus.technical.switches": "BIOS 1.10 decodes the same multiplexed memory and 40/80-column startup bits as M15. Memory is fixed at the documented 512 KB; Configure exposes only the firmware-backed startup text choice.",
+  "product.olivetti-m15-plus.technical.firmware": "Local BIOS 1.10: 32 KB mapped at F8000h-FFFFFh, reset date 06/03/88. It remains local-only pending provenance and rights verification.",
+  "product.olivetti-m15-plus.technical.implementation": "The model reuses the evidence-backed M15-family board-switch, MSM6242 RTC and V6355D paths while preserving a separate identity and 32 KB firmware map. Its dedicated HDU/SCSI device reuses the XTA host state machine for the BIOS-observed 320h-323h, IRQ 5 and DMA 3 contract, including buffer and long-sector diagnostic commands.",
+  "product.olivetti-m15-plus.technical.status": "Cold boot and both reset paths pass Resident Diagnostics and report 512/512 KB. Original media boots under MS-DOS 3.20; its configuration report identifies both internal 720 KB drives. The customer Memory, System Board and Display LCD tests pass, validating the character set, attributes, eight ordered shades and 320×200/640×200 graphics.",
+  "product.olivetti-m15-plus.technical.limitations": "The HDU host contract is implemented, but the unidentified physical SCSI bridge, drive firmware and stored ECC bytes are approximated; raw disk images synthesize the four diagnostic ECC bytes. Exact LCD response, timer calibration and remaining custom board logic also remain approximate.",
+  "product.olivetti-m15-plus.source.manual": "Olivetti M15 Plus Installation and Operations Guide, first edition (March 1988)",
+  "product.olivetti-m15-plus.source.brochure": "Olivetti M15 Plus brochure 01200090 G (March 1988)",
+  "product.olivetti-m15-plus.source.firmware": "M15 Plus BIOS 1.10 index and ROM metadata (Minus Zero Degrees)",
+  "product.olivetti-m15-plus.source.software": "M15 Plus System Test and Keyboard Drivers & Utilities catalogue (Olivrea)"
+}

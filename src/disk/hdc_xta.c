@@ -107,6 +107,8 @@
 #include "cpu.h"
 
 #define HDC_TIME           (250 * TIMER_USEC)
+#define SECTOR_SIZE        512
+#define LONG_SECTOR_SIZE   (SECTOR_SIZE + 4)
 
 #define WD_REV_1_BIOS_FILE "roms/hdd/xta/idexywd2.bin"
 #define WD_REV_2_BIOS_FILE "roms/hdd/xta/infowdbios.rom"
@@ -273,8 +275,8 @@ typedef struct hdc_t {
 
     drive_t drives[XTA_NUM]; /* the attached drive(s) */
 
-    uint8_t data[512];       /* data buffer */
-    uint8_t sector_buf[512]; /* sector buffer */
+    uint8_t data[LONG_SECTOR_SIZE];       /* host transfer buffer */
+    uint8_t sector_buf[LONG_SECTOR_SIZE]; /* sector data plus diagnostic ECC */
 } hdc_t;
 
 typedef struct hdc_dual_t {
@@ -524,7 +526,7 @@ hdc_callback(void *priv)
                     dev->count = (int) dcb->count;
                     if (dev->count == 0)
                         dev->count = 256;
-                    dev->buf_len = 512;
+                    dev->buf_len = SECTOR_SIZE;
 
                     dev->state = STATE_SEND;
                     fallthrough;
@@ -636,7 +638,7 @@ read_error:
                     dev->count = (int) dev->dcb.count;
                     if (dev->count == 0)
                         dev->count = 256;
-                    dev->buf_len = 512;
+                    dev->buf_len = SECTOR_SIZE;
 
                     dev->state = STATE_RECV;
                     fallthrough;
@@ -787,11 +789,54 @@ write_error:
             }
             break;
 
+        case CMD_READ_SECTOR_BUFFER:
+            switch (dev->state) {
+                case STATE_IDLE:
+                    dev->buf_idx = 0;
+                    dev->buf_len = SECTOR_SIZE;
+                    dev->state   = STATE_SDATA;
+                    if (dev->intr & DMA_ENA) {
+                        dev->buf_ptr = dev->sector_buf;
+                        timer_advance_u64(&dev->timer, HDC_TIME);
+                    } else {
+                        memcpy(dev->data, dev->sector_buf, dev->buf_len);
+                        dev->buf_ptr = dev->data;
+                        dev->status |= (STAT_IO | STAT_REQ);
+                    }
+                    break;
+
+                case STATE_SDATA:
+                    if (dev->intr & DMA_ENA) {
+                        while (dev->buf_idx < dev->buf_len) {
+                            val = dma_channel_write(dev->dma, *dev->buf_ptr);
+                            if (val == DMA_NODATA) {
+                                xta_log("%s: CMD_READ_BUFFER out of DMA space!\n", dev->name);
+                                dev->status |= (STAT_CD | STAT_IO | STAT_REQ);
+                                timer_advance_u64(&dev->timer, HDC_TIME);
+                                return;
+                            }
+                            dev->buf_ptr++;
+                            dev->buf_idx++;
+                        }
+                    }
+                    dev->state = STATE_SDONE;
+                    timer_advance_u64(&dev->timer, HDC_TIME);
+                    break;
+
+                case STATE_SDONE:
+                    set_intr(dev);
+                    break;
+
+                default:
+                    break;
+            }
+            break;
+
         case CMD_WRITE_SECTOR_BUFFER:
             switch (dev->state) {
                 case STATE_IDLE:
                     dev->buf_idx = 0;
-                    dev->buf_len = 512;
+                    dev->buf_len = SECTOR_SIZE;
                     dev->state   = STATE_RDATA;
                     if (dev->intr & DMA_ENA) {
                         dev->buf_ptr = dev->sector_buf;
@@ -826,6 +871,140 @@ write_error:
                     if (!(dev->intr & DMA_ENA))
                         memcpy(dev->sector_buf,
                                dev->data, dev->buf_len);
+                    set_intr(dev);
+                    break;
+
+                default:
+                    break;
+            }
+            break;
+
+        case CMD_READ_LONG:
+            if (!drive->present) {
+                dev->comp |= COMP_ERR;
+                dev->sense = ERR_NOTRDY;
+                set_intr(dev);
+                break;
+            }
+
+            switch (dev->state) {
+                case STATE_IDLE:
+                    do_seek(dev, drive,
+                            (dcb->cyl_low | (dcb->cyl_high << 8)));
+                    dev->head   = dcb->head;
+                    dev->sector = dcb->sector;
+                    if (get_sector(dev, drive, &addr)) {
+                        dev->comp |= COMP_ERR;
+                        set_intr(dev);
+                        break;
+                    }
+                    if (hdd_image_read(drive->hdd_num, addr, 1,
+                                       (uint8_t *) dev->sector_buf) < 0) {
+                        dev->comp |= COMP_ERR;
+                        dev->sense = ERR_BADTRK;
+                        set_intr(dev);
+                        break;
+                    }
+
+                    /* Raw images do not retain the controller-generated ECC
+                       field.  Supply a stable four-byte diagnostic field; the
+                       M15 Plus uses READ/WRITE LONG only as a controller test. */
+                    memset(&dev->sector_buf[SECTOR_SIZE], 0x00, 4);
+                    dev->buf_idx = 0;
+                    dev->buf_len = LONG_SECTOR_SIZE;
+                    dev->state   = STATE_SDATA;
+                    ui_sb_update_icon(SB_HDD | HDD_BUS_XTA, 1);
+                    if (dev->intr & DMA_ENA) {
+                        dev->buf_ptr = dev->sector_buf;
+                        timer_advance_u64(&dev->timer, HDC_TIME);
+                    } else {
+                        memcpy(dev->data, dev->sector_buf, dev->buf_len);
+                        dev->buf_ptr = dev->data;
+                        dev->status |= (STAT_IO | STAT_REQ);
+                    }
+                    break;
+
+                case STATE_SDATA:
+                    if (dev->intr & DMA_ENA) {
+                        while (dev->buf_idx < dev->buf_len) {
+                            val = dma_channel_write(dev->dma, *dev->buf_ptr);
+                            if (val == DMA_NODATA) {
+                                dev->status |= (STAT_CD | STAT_IO | STAT_REQ);
+                                timer_advance_u64(&dev->timer, HDC_TIME);
+                                return;
+                            }
+                            dev->buf_ptr++;
+                            dev->buf_idx++;
+                        }
+                    }
+                    dev->state = STATE_SDONE;
+                    timer_advance_u64(&dev->timer, HDC_TIME);
+                    break;
+
+                case STATE_SDONE:
+                    ui_sb_update_icon(SB_HDD | HDD_BUS_XTA, 0);
+                    set_intr(dev);
+                    break;
+
+                default:
+                    break;
+            }
+            break;
+
+        case CMD_WRITE_LONG:
+            if (!drive->present) {
+                dev->comp |= COMP_ERR;
+                dev->sense = ERR_NOTRDY;
+                set_intr(dev);
+                break;
+            }
+
+            switch (dev->state) {
+                case STATE_IDLE:
+                    do_seek(dev, drive,
+                            (dcb->cyl_low | (dcb->cyl_high << 8)));
+                    dev->head   = dcb->head;
+                    dev->sector = dcb->sector;
+                    dev->buf_idx = 0;
+                    dev->buf_len = LONG_SECTOR_SIZE;
+                    dev->state   = STATE_RDATA;
+                    ui_sb_update_icon_write(SB_HDD | HDD_BUS_XTA, 1);
+                    if (dev->intr & DMA_ENA) {
+                        dev->buf_ptr = dev->sector_buf;
+                        timer_advance_u64(&dev->timer, HDC_TIME);
+                    } else {
+                        dev->buf_ptr = dev->data;
+                        dev->status |= STAT_REQ;
+                    }
+                    break;
+
+                case STATE_RDATA:
+                    if (dev->intr & DMA_ENA) {
+                        while (dev->buf_idx < dev->buf_len) {
+                            val = dma_channel_read(dev->dma);
+                            if (val == DMA_NODATA) {
+                                dev->status |= (STAT_CD | STAT_IO | STAT_REQ);
+                                timer_advance_u64(&dev->timer, HDC_TIME);
+                                return;
+                            }
+                            dev->buf_ptr[dev->buf_idx++] = (val & 0xff);
+                        }
+                        dev->state = STATE_RDONE;
+                        timer_advance_u64(&dev->timer, HDC_TIME);
+                    }
+                    break;
+
+                case STATE_RDONE:
+                    if (!(dev->intr & DMA_ENA))
+                        memcpy(dev->sector_buf, dev->data, dev->buf_len);
+                    if (get_sector(dev, drive, &addr)) {
+                        dev->comp |= COMP_ERR;
+                    } else if (hdd_image_write(drive->hdd_num, addr, 1,
+                                               (uint8_t *) dev->sector_buf) < 0) {
+                        dev->comp |= COMP_ERR;
+                        dev->sense = ERR_BADTRK;
+                    }
+                    ui_sb_update_icon_write(SB_HDD | HDD_BUS_XTA, 0);
                     set_intr(dev);
                     break;
 
@@ -1003,6 +1182,17 @@ hdc_write(uint16_t port, uint8_t val, void *priv)
             xta_log("%s: WriteMASK(%02X)\n", dev->name, val);
 #endif
             dev->intr = val;
+            if (dev->type == 8) {
+                /* The M15 Plus HDU host gate enables and masks its dedicated
+                   DMA channel through this register.  Its BIOS deliberately
+                   leaves 8237 channel 3 masked while programming address,
+                   count and mode, then starts the transfer here. */
+                dma_e |= 1 << dev->dma;
+                if (val & DMA_ENA)
+                    dma_m &= ~(1 << dev->dma);
+                else
+                    dma_m |= 1 << dev->dma;
+            }
             break;
 
         default:
@@ -1092,6 +1282,13 @@ xta_init_common(const device_t *info, int type)
             dev->irq      = 5;
             dev->dma      = 3;
             dev->sw       = 0x01;
+            max           = 1;
+            break;
+        case 8: /* Olivetti M15 Plus onboard HDU/SCSI host interface */
+            dev->name     = "Olivetti M15 Plus HDU/SCSI";
+            dev->base     = 0x0320;
+            dev->irq      = 5;
+            dev->dma      = 3;
             max           = 1;
             break;
         case 3: /* Seagate ST-05X Standalone */
@@ -1551,6 +1748,20 @@ const device_t xta_prodest_pc1hd_device = {
     .internal_name = "xta_prodest_pc1hd",
     .flags         = DEVICE_ISA,
     .local         = 7,
+    .init          = xta_init,
+    .close         = xta_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
+
+const device_t xta_olivetti_m15plus_device = {
+    .name          = "Olivetti M15 Plus onboard HDU/SCSI",
+    .internal_name = "xta_olivetti_m15plus",
+    .flags         = DEVICE_ISA,
+    .local         = 8,
     .init          = xta_init,
     .close         = xta_close,
     .reset         = NULL,

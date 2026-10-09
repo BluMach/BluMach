@@ -62,6 +62,7 @@ typedef struct v6355_t {
     int           double_type;
     int           prodest_pc1;
     int           lcd_panel;
+    int           lcd_levels;
 
     uint32_t      v6355pal[16];
 

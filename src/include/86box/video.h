@@ -646,6 +646,7 @@ extern const device_t chips452_pc5286_device;
 extern const device_t v6355d_device;
 extern const device_t v6355d_prodest_pc1_device;
 extern const device_t v6355d_lcd_device;
+extern const device_t v6355d_m15plus_lcd_device;
 
 /* Tandy */
 extern const device_t tandy_1000_video_device;

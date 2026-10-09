@@ -18,6 +18,8 @@
  *          Copyright 2016-2020 Miran Grca.
  *          Copyright 2018-2020 Fred N. van Kempen.
  *          Copyright 2025 Toni Riikonen.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #ifndef EMU_FDC_H
 #define EMU_FDC_H
@@ -62,6 +64,7 @@
 #define FDC_FLAG_5550           0x200000 /* IBM Multistation 5550 */
 #define FDC_FLAG_NO_TDR         0x400000 /* Has no tape drive register */
 #define FDC_FLAG_PC1512         0x800000 /* Amstrad PC1512 external drive-select latch */
+#define FDC_FLAG_DOR_READ      0x1000000 /* DOR is readable */
 
 typedef struct sector_id_fields_t {
     uint8_t c;
@@ -272,6 +275,7 @@ extern void    fdc_diskchange_interrupt(fdc_t *fdc, int drive);
 
 #ifdef EMU_DEVICE_H
 extern const device_t fdc_xt_device;
+extern const device_t fdc_xt_m15_device;
 extern const device_t fdc_xt_pc1512_device;
 extern const device_t fdc_xt_sec_device;
 extern const device_t fdc_xt_ter_device;

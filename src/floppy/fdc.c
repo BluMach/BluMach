@@ -16,6 +16,8 @@
  *          Copyright 2008-2020 Sarah Walker.
  *          Copyright 2016-2020 Miran Grca.
  *          Copyright 2025 Toni Riikonen.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #include <stdio.h>
 #include <stdint.h>
@@ -2565,7 +2567,9 @@ fdc_set_base(fdc_t *fdc, int base)
             else {
                 if (fdc->flags & FDC_FLAG_UMC)
                     io_sethandler(base + 0x0001, 0x0001, fdc_read, NULL, NULL, NULL, NULL, NULL, fdc);
-                io_sethandler(base + 0x0002, 0x0001, NULL, NULL, NULL, fdc_write, NULL, NULL, fdc);
+                io_sethandler(base + 0x0002, 0x0001,
+                              (fdc->flags & FDC_FLAG_DOR_READ) ? fdc_read : NULL,
+                              NULL, NULL, fdc_write, NULL, NULL, fdc);
                 io_sethandler(base + 0x0004, 0x0001, fdc_read, NULL, NULL, NULL, NULL, NULL, fdc);
                 io_sethandler(base + 0x0005, 0x0001, fdc_read, NULL, NULL, fdc_write, NULL, NULL, fdc);
                 if ((fdc->flags & FDC_FLAG_TOSHIBA) || (fdc->flags & FDC_FLAG_UMC))
@@ -2607,7 +2611,9 @@ fdc_remove(fdc_t *fdc)
             else {
                 if (fdc->flags & FDC_FLAG_UMC)
                     io_removehandler(fdc->base_address + 0x0001, 0x0001, fdc_read, NULL, NULL, NULL, NULL, NULL, fdc);
-                io_removehandler(fdc->base_address + 0x0002, 0x0001, NULL, NULL, NULL, fdc_write, NULL, NULL, fdc);
+                io_removehandler(fdc->base_address + 0x0002, 0x0001,
+                                 (fdc->flags & FDC_FLAG_DOR_READ) ? fdc_read : NULL,
+                                 NULL, NULL, fdc_write, NULL, NULL, fdc);
                 io_removehandler(fdc->base_address + 0x0004, 0x0001, fdc_read, NULL, NULL, NULL, NULL, NULL, fdc);
                 io_removehandler(fdc->base_address + 0x0005, 0x0001, fdc_read, NULL, NULL, fdc_write, NULL, NULL, fdc);
                 if ((fdc->flags & FDC_FLAG_TOSHIBA) || (fdc->flags & FDC_FLAG_UMC))
@@ -2803,6 +2809,22 @@ const device_t fdc_xt_device = {
     .internal_name = "fdc_xt",
     .flags         = DEVICE_ISA,
     .local         = 0,
+    .init          = fdc_init,
+    .close         = fdc_close,
+    .reset         = fdc_reset,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
+
+/* The M15-family BIOS reads the output latch at 03F2h both during video
+   initialization and when reporting the installed floppy configuration. */
+const device_t fdc_xt_m15_device = {
+    .name          = "Olivetti M15 FDC",
+    .internal_name = "fdc_xt_m15",
+    .flags         = DEVICE_ISA,
+    .local         = FDC_FLAG_DOR_READ,
     .init          = fdc_init,
     .close         = fdc_close,
     .reset         = fdc_reset,

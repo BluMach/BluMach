@@ -237,10 +237,17 @@ v6355_in(uint16_t addr, void *priv)
     uint8_t  ret   = 0xff;
 
     switch (addr) {
+        /* The M15 diagnostics exercise all four decoded CRTC aliases. */
+        case 0x3d0:
+        case 0x3d2:
         case 0x3d4:
+        case 0x3d6:
             ret = v6355->crtcreg;
             break;
+        case 0x3d1:
+        case 0x3d3:
         case 0x3d5:
+        case 0x3d7:
             ret = v6355->crtc[v6355->crtcreg];
             break;
         case 0x3da:
@@ -654,22 +661,37 @@ v6355_render_blank(v6355_t *v6355, int line)
  * has this fixed internal panel from reset, however, and its BIOS emits
  * ordinary CGA POST output before programming that register. The electrical
  * panel driver and its response curve are not documented, so this is
- * deliberately a presentation approximation: RGBI luminance is quantised to
- * four green levels rather than treated as a colour CRT palette.
+ * deliberately a presentation approximation.  The contemporary M15 Plus
+ * System Test explicitly checks BLACK, GREY1 through GREY6, and WHITE, so
+ * RGBI luminance is quantised to those eight green levels rather than treated
+ * as a colour CRT palette.
  */
 static uint32_t
-v6355_lcd_colour(uint8_t index)
+v6355_lcd_colour(const v6355_t *v6355, uint8_t index)
 {
-    static const uint8_t green[4] = { 0x00, 0x19, 0x43, 0x78 };
-    int                  luminance;
+    static const uint8_t green4[4] = { 0x00, 0x19, 0x43, 0x78 };
+    static const uint8_t green8[8] = {
+        0x00, 0x18, 0x30, 0x48, 0x60, 0x78, 0x98, 0xb8
+    };
+    /* Codes 7,3,1,F,B,9,8,0 are the BLACK-to-WHITE sequence written by
+       the original M15 Plus LCD diagnostic.  Values for the other eight
+       RGBI codes retain an inverted-luminance approximation. */
+    static const uint8_t m15plus_level[16] = {
+        7, 2, 4, 1, 5, 4, 2, 0, 6, 5, 2, 4, 3, 2, 0, 3
+    };
+    int luminance;
 
     index &= 0x0f;
+
+    if (v6355->lcd_levels == 8)
+        return makecol(0x00, green8[m15plus_level[index]], 0x00);
+
     luminance = ((index & 0x04) ? 3 : 0) +
                 ((index & 0x02) ? 6 : 0) +
                 ((index & 0x01) ? 1 : 0) +
                 ((index & 0x08) ? 3 : 0);
 
-    return makecol(0x00, green[(luminance * 3 + 6) / 13], 0x00);
+    return makecol(0x00, green4[(luminance * 3 + 6) / 13], 0x00);
 }
 
 static void
@@ -684,7 +706,7 @@ v6355_render_process(v6355_t *v6355, int line)
     if (v6355->lcd_panel) {
         for (c = 0; c < x; c++)
             ((uint32_t *) buffer32->line[line])[c] =
-                v6355_lcd_colour(((uint32_t *) buffer32->line[line])[c]);
+                v6355_lcd_colour(v6355, ((uint32_t *) buffer32->line[line])[c]);
         return;
     }
 
@@ -954,7 +976,9 @@ v6355_standalone_init(const device_t *info) {
     video_inform(VIDEO_FLAG_TYPE_CGA, &timing_v6355);
 
     v6355->display_type = device_get_config_int("display_type");
-    v6355->lcd_panel = (info == &v6355d_lcd_device);
+    v6355->lcd_panel = (info == &v6355d_lcd_device) ||
+                       (info == &v6355d_m15plus_lcd_device);
+    v6355->lcd_levels = (info == &v6355d_m15plus_lcd_device) ? 8 : 4;
 
     overscan_x = overscan_y = 16;
 
@@ -1227,4 +1251,22 @@ const device_t v6355d_lcd_device = {
     .force_redraw  = NULL,
     .config        = NULL,
     .alias         = "V6355D LCD"
+};
+
+/* The M15 Plus diagnostic disk explicitly distinguishes black, six grey
+   levels, and white.  Keep a separate device identity so that evidence does
+   not silently change the four-level M15 presentation. */
+const device_t v6355d_m15plus_lcd_device = {
+    .name          = "Yamaha V6355D (M15 Plus green LCD)",
+    .internal_name = "v6355d_m15plus_lcd",
+    .flags         = DEVICE_ISA,
+    .local         = 0,
+    .init          = v6355_standalone_init,
+    .close         = v6355_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = v6355_speed_changed,
+    .force_redraw  = NULL,
+    .config        = NULL,
+    .alias         = "V6355D M15 Plus LCD"
 };
