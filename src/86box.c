@@ -92,6 +92,7 @@
 #include <86box/network.h>
 #include <86box/sound.h>
 #include <86box/midi.h>
+#include <86box/snd_mpu401.h>
 #include <86box/video.h>
 #include <86box/ui.h>
 #include <86box/path.h>
