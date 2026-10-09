@@ -15,6 +15,7 @@ public:
     ~SettingsSound();
 
     int  changed();
+    bool validSoundSelection() const;
 
     void restore();
     void save(int soft);

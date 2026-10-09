@@ -268,6 +268,13 @@ Settings::save(int soft)
 void
 Settings::accept()
 {
+    if (!sound->validSoundSelection()) {
+        BluMachCatalog catalog;
+        catalog.load();
+        QMessageBox::warning(this, catalog.text(QStringLiteral("configuration.sound_unavailable")),
+                             catalog.text(QStringLiteral("configuration.unsupported_sound")));
+        return;
+    }
     if (!machine->validMemorySelection()) {
         BluMachCatalog catalog;
         catalog.load();

@@ -1,4 +1,8 @@
 {
+  "technical.label.expansion_options": "Opzioni e periferiche",
+  "configuration.sound_unavailable": "Espansione audio non supportata",
+  "configuration.unsupported_sound": "Questo profilo non supporta schede audio aggiuntive n\u00e9 un MPU-401 autonomo. Scegli l\u2019opzione senza scheda e disattiva il MPU-401 nelle impostazioni. L\u2019altoparlante interno resta disponibile; la configurazione salvata non \u00e8 stata modificata.",
+  "configuration.sound_choice_unavailable": "%1 - non supportato; scegli l\u2019opzione senza scheda",
   "skin.description": "BluMach include i loghi storici dei produttori. Un pacchetto grafico locale può sostituirli facoltativamente.",
   "skin.show_marks": "Mostra i loghi dei produttori",
   "skin.builtin": "Loghi integrati · %1",

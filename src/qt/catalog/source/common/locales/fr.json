@@ -1,4 +1,8 @@
 {
+  "technical.label.expansion_options": "Options et p\u00e9riph\u00e9riques",
+  "configuration.sound_unavailable": "Extension audio non prise en charge",
+  "configuration.unsupported_sound": "Ce profil ne prend pas en charge les cartes audio suppl\u00e9mentaires ni un MPU-401 autonome. Choisissez l\u2019option sans carte et d\u00e9sactivez le MPU-401 dans les param\u00e8tres. Le haut-parleur interne reste disponible ; la configuration enregistr\u00e9e n\u2019a pas \u00e9t\u00e9 modifi\u00e9e.",
+  "configuration.sound_choice_unavailable": "%1 - non pris en charge ; choisissez l\u2019option sans carte",
   "skin.description": "BluMach inclut les logos historiques des fabricants. Un pack visuel local peut les remplacer en option.",
   "skin.show_marks": "Afficher les logos des fabricants",
   "skin.builtin": "Logos intégrés · %1",

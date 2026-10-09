@@ -1,4 +1,8 @@
 {
+  "technical.label.expansion_options": "Options and peripherals",
+  "configuration.sound_unavailable": "Unsupported sound expansion",
+  "configuration.unsupported_sound": "This profile does not support add-on sound cards or a standalone MPU-401. Select None and disable the MPU-401 in Settings. The internal speaker remains available; the saved configuration has not been changed.",
+  "configuration.sound_choice_unavailable": "%1 - unsupported; select None",
   "skin.description": "Historical manufacturer marks are included with BluMach. A local visual package can optionally replace them.",
   "skin.show_marks": "Show manufacturer marks",
   "skin.builtin": "Built-in manufacturer marks · %1",
