@@ -12,6 +12,12 @@ extern "C" {
 #include <86box/device.h>
 #include <86box/machine.h>
 #include <86box/video.h>
+#include <86box/sound.h>
+int sound_card_current[SOUND_CARD_MAX] = {};
+int mpu401_standalone_enable = 0;
+static bool no_sound_expansion = false;
+int machine_has_sound_expansion(int) { return !no_sound_expansion; }
+int machine_allows_sound_card(int, int card, int) { return !no_sound_expansion || card == 0; }
 char rom_path[1024] = {};
 int machine = 0;
 uint32_t mem_size = 1024;
@@ -45,6 +51,20 @@ void VMManagerConfig::sync() const {}
 class FirmwareUiTest : public QObject {
     Q_OBJECT
 private slots:
+    void unsupportedAudioPreservesConfiguration() {
+        no_sound_expansion = true;
+        sound_card_current[0] = 7;
+        const QString error = BluMachFirmware::startupError();
+        QVERIFY(!error.isEmpty());
+        QCOMPARE(sound_card_current[0], 7);
+        sound_card_current[0] = 0;
+        mpu401_standalone_enable = 1;
+        QVERIFY(!BluMachFirmware::startupError().isEmpty());
+        QCOMPARE(mpu401_standalone_enable, 1);
+        mpu401_standalone_enable = 0;
+        QVERIFY(BluMachFirmware::startupError().isEmpty());
+        no_sound_expansion = false;
+    }
     void folderPersistenceAndPriority() {
         QTemporaryDir root;
         QVERIFY(root.isValid());

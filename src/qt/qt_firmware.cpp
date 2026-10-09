@@ -15,6 +15,8 @@ extern "C" {
 #include <86box/device.h>
 #include <86box/machine.h>
 #include <86box/video.h>
+#include <86box/sound.h>
+extern int mpu401_standalone_enable;
 extern int rom_present(const char *);
 extern int rom_set_user_path(const char *);
 }
@@ -67,6 +69,11 @@ QString startupError()
     catalog.load();
     if (machine_get_valid_ram(machine, static_cast<int>(mem_size)) != static_cast<int>(mem_size))
         return catalog.text(QStringLiteral("firmware.invalid_ram"));
+    for (int i = 0; i < SOUND_CARD_MAX; ++i)
+        if (!machine_allows_sound_card(machine, sound_card_current[i], i))
+            return catalog.text(QStringLiteral("configuration.unsupported_sound"));
+    if (!machine_has_sound_expansion(machine) && mpu401_standalone_enable)
+        return catalog.text(QStringLiteral("configuration.unsupported_sound"));
     QStringList missing;
     const auto *device = machine_get_device(machine);
     if (device_configured_bios_available(device) < 0) {
