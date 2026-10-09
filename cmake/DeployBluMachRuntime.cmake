@@ -1,6 +1,10 @@
 # Deploy non-system DLL dependencies that windeployqt does not copy when Qt
 # comes from an MSYS2/MinGW environment.
 
+if(POLICY CMP0207)
+    cmake_policy(SET CMP0207 NEW)
+endif()
+
 if(NOT DEFINED BLUMACH_EXECUTABLE OR NOT EXISTS "${BLUMACH_EXECUTABLE}")
     message(FATAL_ERROR "BLUMACH_EXECUTABLE does not name a built executable")
 endif()
@@ -31,6 +35,11 @@ file(GET_RUNTIME_DEPENDENCIES
         "PdmUtilities\\.dll"
         "wpaxholder\\.dll")
 
+# GET_RUNTIME_DEPENDENCIES can still report optional Windows security modules
+# as unresolved because POST_EXCLUDE_REGEXES only applies to resolved paths.
+list(FILTER BLUMACH_UNRESOLVED_DEPENDENCIES EXCLUDE REGEX
+     "^(api-ms-|ext-ms-|AzureAttestManager\\.dll$|AzureAttestNormal\\.dll$|HvsiFileTrust\\.dll$|PdmUtilities\\.dll$|wpaxholder\\.dll$)")
+
 foreach(BLUMACH_DEPENDENCY IN LISTS BLUMACH_RESOLVED_DEPENDENCIES)
     cmake_path(IS_PREFIX BLUMACH_RUNTIME_SEARCH_DIR
                "${BLUMACH_DEPENDENCY}" NORMALIZE BLUMACH_FROM_TOOLCHAIN)
@@ -41,5 +50,5 @@ endforeach()
 
 if(BLUMACH_UNRESOLVED_DEPENDENCIES)
     list(JOIN BLUMACH_UNRESOLVED_DEPENDENCIES ", " BLUMACH_UNRESOLVED_TEXT)
-    message(WARNING "Unresolved BluMach runtime dependencies: ${BLUMACH_UNRESOLVED_TEXT}")
+    message(FATAL_ERROR "Unresolved BluMach runtime dependencies: ${BLUMACH_UNRESOLVED_TEXT}")
 endif()

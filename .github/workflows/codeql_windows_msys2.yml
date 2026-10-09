@@ -2,32 +2,16 @@ name: CodeQL Analysis (Windows)
 
 on:
 
-  push:
-    branches: [ "master" ]
-    paths:
-      - src/**
-      - cmake/**
-      - "**/CMakeLists.txt"
-      - "CMakePresets.json"
-      - "!.github/workflows/**"
-      - .github/workflows/codeql_windows_msys2.yml
-      - vcpkg.json
-      - "!**/Makefile*"
+  workflow_dispatch:
 
-  pull_request:
-    branches: [ "master" ]
-    paths:
-      - src/**
-      - cmake/**
-      - "**/CMakeLists.txt"
-      - "CMakePresets.json"
-      - "!.github/workflows/**"
-      - .github/workflows/codeql_windows_msys2.yml
-      - vcpkg.json
-      - "!**/Makefile*"
-
+  # Full platform scans are deliberately kept outside the pull-request and
+  # mainline-push critical paths. They remain available on demand.
   schedule:
-    - cron: '22 11 * * 0'
+    - cron: '02 12 * * 0'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
 
@@ -36,9 +20,7 @@ jobs:
     name: "${{ matrix.ui.name }}, ${{ matrix.build.name }}, ${{ matrix.dynarec.name }}, ${{ matrix.environment.msystem }}"
 
     runs-on: ${{ matrix.environment.runner }}
-
-    env:
-      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper output will be placed
+    timeout-minutes: 60
 
     permissions:
       actions: read
@@ -52,60 +34,21 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        language: [ 'cpp' ]
-        build:
-#          - name: Regular
-#            preset: regular
-          - name: Debug
-            preset: dev_debug
-            slug: -Debug
-#          - name: Dev
-#            preset: development
-#            slug: -Dev
-        dynarec:
-          - name: ODR
-            new: off
-            slug: -ODR
-          - name: NDR
-            new: on
-            slug: -NDR
-        ui:
-          - name: Qt 5 GUI
-            qt: on
-            slug: -Qt5
-            static: off
-            packages: >-
-              qt5-base:p
-              qt5-tools:p
-              vulkan-headers:p
-#              qt5-static:p
-        environment:
-#          - msystem: MSYS
-#            slug: "-MSYS64"
-#          - msystem: MINGW64
-#            prefix: mingw-w64-x86_64
-#            slug: "MINGW64"
-#            runner: windows-2022
-#          - msystem: CLANG64
-#            prefix: mingw-w64-clang-x86_64
-#            slug: "CLANG64"
-#            runner: windows-2022
-          - msystem: UCRT64
-            prefix: mingw-w64-ucrt-x86_64
-            slug: "-64"
-            runner: windows-2022
-#          - msystem: CLANGARM64
-#            slug: -arm64
-#            runner: windows-11-arm
-        exclude:
-          - dynarec:
-              new: off
-            environment:
-              msystem: CLANGARM64
+        include:
+          - language: cpp
+            build: { name: Debug, preset: dev_debug, slug: -Debug }
+            dynarec: { name: NDR, new: on, slug: -NDR }
+            ui:
+              name: Qt 6 GUI
+              qt: on
+              slug: -Qt6
+              static: off
+              packages: qt6-base:p qt6-tools:p vulkan-headers:p
+            environment: { msystem: UCRT64, prefix: mingw-w64-ucrt-x86_64, slug: -64, runner: windows-2022 }
 
     steps:
       - name: Prepare MSYS2 environment
-        uses: msys2/setup-msys2@v2
+        uses: msys2/setup-msys2@66cd2cce69caa17b53920067426061ca1de3a884 # v2.32.0
         with:
           release: true
           update: true
@@ -129,15 +72,12 @@ jobs:
             zstd:p
 
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-#      - name: Install Build Wrapper
-#        uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v5
-
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4.38.0
         with:
           languages: ${{ matrix.language }}
           config-file: ./.github/codeql/codeql-config.yml
@@ -148,28 +88,12 @@ jobs:
           -D NEW_DYNAREC=${{ matrix.dynarec.new }}
           -D QT=${{ matrix.ui.qt }}
           -D STATIC_BUILD=${{ matrix.ui.static }}
-
-      # - name: Build
-      #   run: |
-      #     .sonar/build-wrapper-win-x86/build-wrapper-win-x86-64.exe --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} cmake --build build
+          -D BUILD_TESTING=OFF
 
       - name: Build
         run: cmake --build build
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4.38.0
         with:
-          category: "/language:${{matrix.language}}"
-
-      - name: SonarQube Scan
-#        if: matrix.build.preset == 'dev_debug' && matrix.dynarec.new == 'on' && matrix.ui.qt == 'on' && env.SONAR_TOKEN != ''
-        if: 0
-        uses: SonarSource/sonarqube-scan-action@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#          SONAR_ROOT_CERT: ${{ secrets.SONAR_ROOT_CERT }}
-        with:
-           # Consult https://docs.sonarsource.com/sonarqube-server/latest/analyzing-source-code/scanners/sonarscanner/ for more information and options
-           args: >
-             --define sonar.cfamily.compile-commands=build/compile_commands.json
+          category: "/language:${{ matrix.language }}/platform:windows"

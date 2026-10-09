@@ -22,7 +22,8 @@ BluMach is an independent project and is not an official 86Box build. Existing
 > The project is under active development and is provided as-is, without warranty,
 > under the terms of the GPL-2.0-or-later license. Official binary releases are
 > planned once the emulator and its user experience are sufficiently mature; no
-> release date has been announced.
+> release date has been announced. The first preview is being prepared as
+> **0.1.0-alpha.1**; see the [alpha setup and validation guide](doc/releases/0.1.0-alpha.1.md).
 >
 > BluMach does not distribute ROMs, operating systems or other proprietary
 > machine software.
@@ -46,8 +47,8 @@ documentary photographs. Their purpose and provenance are recorded in the
 
 ## Historical collection
 
-The current catalogue contains 30 product entries across 14 families from
-seven manufacturers. Selected public machine notes:
+The catalogue is organized by manufacturer and family. Selected public
+machine notes:
 
 | Manufacturer | Families | Public machine notes |
 | --- | --- | --- |
@@ -88,13 +89,24 @@ used for [Windows/MSYS2](.github/workflows/cmake_windows_msys2.yml),
 [Linux](.github/workflows/cmake_linux.yml) and
 [macOS](.github/workflows/cmake_macos.yml).
 
-The [upstream 86Box build guide](https://86box.readthedocs.io/en/latest/dev/buildguide.html)
-is a useful dependency reference, but its release paths, branding and support
-channels do not describe BluMach.
+Host-side contract tests are built by default and require neither firmware nor
+guest media. After building, run them with
+`ctest --test-dir <build-directory> --output-on-failure`. Set
+`BUILD_TESTING=OFF` only when a build intentionally does not need the test
+executables, such as static-analysis extraction.
+
+Each regular CI build also installs and audits its distributable package. The
+audit checks the platform layout, starts the packaged executable with
+`--version` without requiring ROMs, and rejects unexpected size growth. It can
+be run locally with `python tools/package_audit.py --help`.
+
+See the [BluMach build guide](doc/building.md) for supported toolchains,
+dependencies and validation commands.
 
 To run an emulated machine, provide a local ROM directory containing firmware
-you are legally entitled to use. Firmware availability in a preservation record
-does not imply permission to redistribute it.
+you are legally entitled to use. See the [firmware policy and setup guide](doc/firmware.md).
+Firmware availability in a preservation record does not imply permission to
+redistribute it.
 
 ## Contributing
 
@@ -110,10 +122,9 @@ paths may continue to use `86Box` where changing them would break compatibility.
 This is an implementation detail and does not imply endorsement by the upstream
 project.
 
-Where a problem is reproducible in an unmodified 86Box build, consult the
-[upstream project](https://github.com/86Box/86Box). BluMach-specific changes
-should be discussed in a BluMach pull request until a dedicated public support
-channel is established.
+Report BluMach problems to this repository first. If a problem is reproducible
+in an unmodified [86Box](https://github.com/86Box/86Box) build, the BluMach
+maintainers can determine whether to coordinate a fix with the upstream project.
 
 ## License and provenance
 

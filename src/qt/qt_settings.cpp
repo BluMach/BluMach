@@ -48,6 +48,7 @@ extern "C" {
 #include "qt_harddiskdialog.hpp"
 
 #include "qt_settingsmachine.hpp"
+#include "qt_blumach_catalog.hpp"
 #include "qt_settingsdisplay.hpp"
 #include "qt_settingsinput.hpp"
 #include "qt_settingssound.hpp"
@@ -79,11 +80,7 @@ public:
     SettingsModel(QObject *parent)
         : QAbstractListModel(parent)
     {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         fontHeight = QFontMetrics(qApp->font()).height();
-#else
-        fontHeight = QApplication::fontMetrics().height();
-#endif
     }
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -271,6 +268,12 @@ Settings::save(int soft)
 void
 Settings::accept()
 {
+    if (!machine->validMemorySelection()) {
+        BluMachCatalog catalog;
+        catalog.load();
+        QMessageBox::warning(this, catalog.text(QStringLiteral("firmware.unavailable")), catalog.text(QStringLiteral("firmware.invalid_ram")));
+        return;
+    }
     int changed = 0;
 
     changed |= machine->changed();
@@ -286,7 +289,7 @@ Settings::accept()
     changed |= otherPeripherals->changed();
 
     if ((changed & SETTINGS_REQUIRE_HARD_RESET) && confirm_save && !settings_only) {
-        QMessageBox questionbox(QMessageBox::Icon::Question, "86Box",
+        QMessageBox questionbox(QMessageBox::Icon::Question, EMU_NAME,
                                 tr("Do you want to save the settings?"),
                                 QMessageBox::Save | QMessageBox::Cancel, this);
         QCheckBox  *chkbox = new QCheckBox(tr("Don't show this message again"));

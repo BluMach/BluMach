@@ -79,6 +79,26 @@ the particular capture came from the three-disk PCS 86 retail package.
 - Installation and repeated boot from an XTA disk require a clean current test.
 - Machine-private state should be released when switching models in one session.
 
+## Optional sound upgrades (2026-09-29)
+
+The creator offers AdLib, Creative CMS/Game Blaster and Sound Blaster
+1.0, 1.5 and 2.0 as **experimental user upgrades**, never factory options.
+It selects one card and leaves the default at no sound card. All five reuse
+existing ISA 8-bit models without additional firmware. XT/V30-compatible DOS
+applications are required; a newer driver package is not automatically suitable.
+
+Creative's [SB1/2 specifications](https://www.vogonsdrivers.com/getfile.php?fileid=383&menustate=0)
+identify CT1320/CT1350 and PC/XT ISA compatibility. The CMS path is a compatible
+inference from its existing ISA model and contemporary PC software, not a PCS
+hardware test. SB Pro is excluded because its
+[Getting Started guide](https://www.manualslib.com/manual/4347851/Creative-Sound-Blaster-Pro.html?page=4)
+specifies a 286 or later. ISA 16-bit cards are not offered.
+
+Bus/device/configuration contracts are tested, not guest audio. DMA, IRQ,
+FM/PCM playback and the exact driver/application versions still need validation.
+Other obscure ISA 8-bit cards remain outside this reviewed allowlist.
+
+
 ## Principal references
 
 - John Elliott's PCS 86 hardware analysis:

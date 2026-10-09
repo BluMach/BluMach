@@ -54,8 +54,13 @@ paint(QPainter *painter, const QRect &bounds, const QString &formFactor,
     // "Archivo vivo": the catalogue's technical blue makes the machine
     // silhouette a first-class part of its preservation record, while still
     // adapting to the active Qt palette.
-    const QColor outline = blendColor(palette.color(QPalette::Base),
-                                      palette.color(QPalette::Highlight), 0.68);
+    const QColor base = palette.color(QPalette::Base);
+    const QColor accent = palette.color(QPalette::Highlight);
+    // Neutral dark themes use a grey Highlight close to Base. Do not blend
+    // that already faint colour further into the background.
+    const QColor foreground = qAbs(qGray(base.rgb()) - qGray(accent.rgb())) < 100
+                                  ? palette.color(QPalette::Text) : accent;
+    const QColor outline = blendColor(base, foreground, 0.85);
     QPen pen(outline, qMax<qreal>(1.1, bounds.width() * 0.055));
     pen.setCapStyle(Qt::RoundCap);
     pen.setJoinStyle(Qt::RoundJoin);

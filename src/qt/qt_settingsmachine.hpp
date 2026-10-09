@@ -2,6 +2,7 @@
 #define QT_SETTINGSMACHINE_HPP
 
 #include <QWidget>
+#include "qt_blumach_catalog.hpp"
 
 namespace Ui {
 class SettingsMachine;
@@ -17,6 +18,7 @@ public:
     ~SettingsMachine();
 
     int  changed();
+    bool validMemorySelection() const;
 
     void restore();
     void save(int soft);
@@ -39,6 +41,9 @@ private slots:
     void on_radioButtonLargerFrames_clicked();
 
 private:
+    bool isMachineSelectable(int machineId) const;
+    BluMachCatalog releaseCatalog;
+    int initialMachine;
     Ui::SettingsMachine *ui;
 
     int                  machine_cfg_changed;

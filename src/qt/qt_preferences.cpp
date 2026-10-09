@@ -71,11 +71,7 @@ public:
     PreferencesModel(QObject *parent)
         : QAbstractListModel(parent)
     {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         fontHeight = QFontMetrics(qApp->font()).height();
-#else
-        fontHeight = QApplication::fontMetrics().height();
-#endif
     }
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -322,7 +318,7 @@ Preferences::getSysLang(QObject *parent)
     QString localetofilename = "";
     for (int i = 0; i < QLocale::system().uiLanguages().size(); i++) {
         localetofilename = QLocale::system().uiLanguages()[i];
-        if (translator->load(QLatin1String("86box_") + localetofilename, QLatin1String(":/"))) {
+        if (translator->load(QLatin1String("blumach_") + localetofilename, QLatin1String(":/"))) {
             qDebug() << "Translations loaded.";
             QCoreApplication::installTranslator(translator);
             /* First try qtbase */
@@ -356,7 +352,7 @@ Preferences::loadTranslators(QObject *parent)
     if (lang_id == 0 || lang_id >= languages.length()) {
         for (int i = 0; i < QLocale::system().uiLanguages().size(); i++) {
             localetofilename = QLocale::system().uiLanguages()[i];
-            if (translator->load(QLatin1String("86box_") + localetofilename, QLatin1String(":/"))) {
+            if (translator->load(QLatin1String("blumach_") + localetofilename, QLatin1String(":/"))) {
                 qDebug() << "Translations loaded.";
                 QCoreApplication::installTranslator(translator);
                 /* First try qtbase */
@@ -370,7 +366,7 @@ Preferences::loadTranslators(QObject *parent)
             }
         }
     } else {
-        if (translator->load(QLatin1String("86box_") + languages[lang_id].first, QLatin1String(":/")))
+        if (translator->load(QLatin1String("blumach_") + languages[lang_id].first, QLatin1String(":/")))
             qDebug() << "Translations loaded.";
         QCoreApplication::installTranslator(translator);
         /* First try qtbase */
@@ -390,17 +386,9 @@ Preferences::loadQtTranslations(const QString name)
 {
     QString name_lang_only = name.left(name.indexOf('_'));
     /* System-wide translations */
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     if (qtTranslator->load(name, QLibraryInfo::path(QLibraryInfo::TranslationsPath)))
-#else
-    if (qtTranslator->load(name, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
-#endif
         return true;
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     else if (qtTranslator->load(name_lang_only, QLibraryInfo::path(QLibraryInfo::TranslationsPath)))
-#else
-    else if (qtTranslator->load(name_lang_only, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
-#endif
         return true;
     /* Bundled translations (embedded) */
     else if (qtTranslator->load(name, QLatin1String(":/")))

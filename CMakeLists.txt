@@ -14,7 +14,7 @@
 #          Copyright 2021-2026 Jasmine Iwanek.
 #
 
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.21)
 
 cmake_policy(SET CMP0091 NEW)
 cmake_policy(SET CMP0079 NEW)
@@ -40,10 +40,19 @@ if(MUNT_EXTERNAL)
 endif()
 
 project(BluMach
-    VERSION 7.0
+    VERSION 0.1.0
     DESCRIPTION "Preservation-focused emulator of x86-based systems, derived from 86Box"
-    HOMEPAGE_URL "https://github.com/BluMachOrg/86Box"
+    HOMEPAGE_URL "https://github.com/BluMach/BluMach"
     LANGUAGES C CXX)
+
+# CMake requires a numeric project version. Keep the optional SemVer
+# prerelease identifier separate and expose one canonical display/package value.
+set(BLUMACH_VERSION_PRERELEASE "alpha.1")
+if(BLUMACH_VERSION_PRERELEASE)
+    set(BLUMACH_VERSION_FULL "${CMAKE_PROJECT_VERSION}-${BLUMACH_VERSION_PRERELEASE}")
+else()
+    set(BLUMACH_VERSION_FULL "${CMAKE_PROJECT_VERSION}")
+endif()
 
 if (NOT (CMAKE_SIZEOF_VOID_P STREQUAL "8"))
     message(FATAL_ERROR "Only 64-bit builds are supported.")
@@ -55,6 +64,7 @@ endif()
 
 include(CPack)
 include(CMakeDependentOption)
+include(CTest)
 include(FetchContent)
 
 # Basic build options
@@ -76,8 +86,6 @@ if(VCPKG_TOOLCHAIN)
         set(STATIC_BUILD OFF)
     endif()
 
-    # `vcpkg.json` defaults to Qt6
-    set(USE_QT6 ON)
 endif()
 
 if(WIN32)
@@ -104,10 +112,6 @@ if(NOT NO_STATIC_OPTION)
     endif()
 endif()
 
-if(NOT (WIN32 OR APPLE OR CMAKE_SYSTEM_NAME STREQUAL "Linux"))
-    set(DISCORD OFF)
-endif()
-
 if(HAIKU)
     set(OPENAL ON)
 endif()
@@ -130,7 +134,6 @@ option(VNC          "VNC renderer"                                              
 option(MINITRACE    "Enable Chrome tracing using the modified minitrace library" OFF)
 option(GDBSTUB      "Enable GDB stub server for debugging"                       OFF)
 option(DEV_BRANCH   "Development branch"                                         OFF)
-option(DISCORD      "Discord Rich Presence support"                              ON)
 option(DEBUGREGS486 "Enable debug register opeartion on 486+ CPUs"               OFF)
 option(LIBASAN      "Enable compilation with the addresss sanitizer"             OFF)
 option(QT           "Use the Qt-based user interface"                            ON)
@@ -200,7 +203,6 @@ cmake_dependent_option(SOFTMODEM      "AC'97 Softmodem"                         
 
 # Ditto but for Qt
 if(QT)
-    option(USE_QT6 "Use Qt6 instead of Qt5" OFF)
     if(APPLE)
         option(MOLTENVK "Use MoltenVK libraries for Vulkan support on macOS. Requires a Vulkan-enabled QT." OFF)
     endif()
@@ -269,3 +271,7 @@ endif()
 set(CMAKE_TOP_LEVEL_PROCESSED TRUE)
 
 add_subdirectory(src)
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()

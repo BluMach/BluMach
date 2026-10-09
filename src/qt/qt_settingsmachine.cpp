@@ -51,6 +51,8 @@ SettingsMachine::SettingsMachine(QWidget *parent)
     , ui(new Ui::SettingsMachine)
 {
     ui->setupUi(this);
+    initialMachine = machine;
+    releaseCatalog.load();
 
     machine_cfg_changed             = 0;
 
@@ -76,9 +78,9 @@ SettingsMachine::SettingsMachine(QWidget *parent)
             cur_j = 0;
         }
 
-        if (machine_available(j)) {
-            sc->addMachine(i, j);
-
+        if (miname != nullptr && (j == initialMachine || (isMachineSelectable(j) && machine_available(j)))) {
+            if (isMachineSelectable(j) && machine_available(j))
+                sc->addMachine(i, j);
             cur_j++;
         }
 
@@ -170,7 +172,7 @@ SettingsMachine::changed()
     has_changed |= (force_10ms                 != (ui->radioButtonLargerFrames->isChecked() ? 1 : 0));
 
     int64_t temp_mem_size;
-    if (ui->comboBoxRAM->isVisible())
+    if (!ui->comboBoxRAM->isHidden())
         temp_mem_size = ui->comboBoxRAM->currentData().toInt();
     else if (machine_get_ram_granularity(machine) < 1024)
         temp_mem_size = ui->spinBoxRAM->value();
@@ -222,7 +224,7 @@ SettingsMachine::save(int soft)
     force_10ms               = ui->radioButtonLargerFrames->isChecked() ? 1 : 0;
 
     int64_t temp_mem_size;
-    if (ui->comboBoxRAM->isVisible())
+    if (!ui->comboBoxRAM->isHidden())
         temp_mem_size = ui->comboBoxRAM->currentData().toInt();
     else if (machine_get_ram_granularity(machine) < 1024)
         temp_mem_size = ui->spinBoxRAM->value();
@@ -255,9 +257,16 @@ SettingsMachine::on_comboBoxMachineType_currentIndexChanged(int index)
 
         int selectedMachineRow = 0;
         for (int i = 0; i < machine_count(); ++i) {
-            if ((machine_get_type(i) == ui->comboBoxMachineType->currentData().toInt()) && machine_available(i)) {
+            if ((machine_get_type(i) == ui->comboBoxMachineType->currentData().toInt()) &&
+                (i == initialMachine || (isMachineSelectable(i) && machine_available(i)))) {
                 int row = Models::AddEntry(model, machines[i].name, i);
-                if (i == machine)
+                if (!isMachineSelectable(i)) {
+                    // Retain a loaded VM's machine without offering it as a new choice.
+                    auto *items = qobject_cast<QStandardItemModel *>(model);
+                    if (items && items->item(row))
+                        items->item(row)->setEnabled(false);
+                }
+                if (i == initialMachine)
                     selectedMachineRow = row - removeRows;
             }
         }
@@ -266,6 +275,23 @@ SettingsMachine::on_comboBoxMachineType_currentIndexChanged(int index)
         ui->comboBoxMachine->setCurrentIndex(-1);
         ui->comboBoxMachine->setCurrentIndex(selectedMachineRow);
     }
+}
+
+bool
+SettingsMachine::validMemorySelection() const
+{
+    const int id = ui->comboBoxMachine->currentData().toInt();
+    const int ram = !ui->comboBoxRAM->isHidden() ? ui->comboBoxRAM->currentData().toInt() :
+        ui->spinBoxRAM->value() * (machine_get_ram_granularity(id) < 1024 ? 1 : 1024);
+    return ram > 0 && machine_get_valid_ram(id, ram) == ram;
+}
+
+bool
+SettingsMachine::isMachineSelectable(int machineId) const
+{
+    return releaseCatalog.isMachineSelectable(
+        QString::fromUtf8(machines[machineId].internal_name),
+        machines[machineId].blumach_release_managed != 0);
 }
 
 void
@@ -311,12 +337,17 @@ SettingsMachine::on_comboBoxMachine_currentIndexChanged(int index)
         ui->spinBoxRAM->setVisible(validRam == nullptr);
 
         if (validRam) {
-            int selectedRow = 0;
+            int selectedRow = -1;
             for (int row = 0; validRam[row] != 0; ++row) {
                 const int value = static_cast<int>(validRam[row]);
                 ui->comboBoxRAM->addItem(QString("%1 %2").arg(value / divisor).arg(divisor == 1 ? tr("KB") : tr("MB")), value);
                 if (value == static_cast<int>(mem_size))
                     selectedRow = row;
+            }
+            if (selectedRow < 0) {
+                selectedRow = ui->comboBoxRAM->count();
+                ui->comboBoxRAM->addItem(releaseCatalog.text(QStringLiteral("firmware.invalid_memory_choice")).arg(mem_size / 1024), static_cast<int>(mem_size));
+                ui->comboBoxRAM->setItemData(selectedRow, 0, Qt::UserRole - 1);
             }
             ui->comboBoxRAM->setCurrentIndex(selectedRow);
             ui->comboBoxRAM->setEnabled(ui->comboBoxRAM->count() > 1);

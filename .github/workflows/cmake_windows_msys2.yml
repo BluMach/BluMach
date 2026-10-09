@@ -2,27 +2,41 @@ name: CMake (Windows)
 
 on:
 
+  workflow_dispatch:
+
   push:
+    branches: [ "master" ]
     paths:
       - src/**
+      - tests/**
       - cmake/**
       - "**/CMakeLists.txt"
       - "CMakePresets.json"
       - "!.github/workflows/**"
       - .github/workflows/cmake_windows_msys2.yml
       - vcpkg.json
+      - tools/package_audit.py
       - "!**/Makefile*"
 
   pull_request:
     paths:
       - src/**
+      - tests/**
       - cmake/**
       - "**/CMakeLists.txt"
       - "CMakePresets.json"
       - "!.github/workflows/**"
       - .github/workflows/cmake_windows_msys2.yml
       - vcpkg.json
+      - tools/package_audit.py
       - "!**/Makefile*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
 
@@ -31,6 +45,11 @@ jobs:
     name: "${{ matrix.ui.name }}, ${{ matrix.build.name }}, ${{ matrix.dynarec.name }}, ${{ matrix.environment.msystem }}"
 
     runs-on: ${{ matrix.environment.runner }}
+    timeout-minutes: 40
+
+    env:
+      CCACHE_DIR: ${{ github.workspace }}\.ccache
+      CCACHE_MAXSIZE: 400M
 
     defaults:
       run:
@@ -39,59 +58,32 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        build:
-#          - name: Regular
-#            preset: regular
-          - name: Debug
-            preset: dev_debug
-            slug: -Debug
-          - name: Dev
-            preset: development
-            slug: -Dev
-        dynarec:
-          - name: ODR
-            new: off
-            slug: -ODR
-          - name: NDR
-            new: on
-            slug: -NDR
-        ui:
-          - name: Qt 5 GUI
-            qt: on
-            slug: -Qt5
-            static: on
-            packages: >-
-              qt5-static:p
-              vulkan-headers:p
-#              qt5-base:p
-#              qt5-tools:p
-        environment:
-#          - msystem: MSYS
-#            slug: "-MSYS64"
-#          - msystem: MINGW64
-#            prefix: mingw-w64-x86_64
-#            slug: "MINGW64"
-#            runner: windows-2022
-#          - msystem: CLANG64
-#            prefix: mingw-w64-clang-x86_64
-#            slug: "CLANG64"
-#            runner: windows-2022
-          - msystem: UCRT64
-            prefix: mingw-w64-ucrt-x86_64
-            slug: "-64"
-            runner: windows-2022
-          - msystem: CLANGARM64
-            slug: -arm64
-            runner: windows-11-arm
-        exclude:
-          - dynarec:
-              new: off
-            environment:
-              msystem: CLANGARM64
+        include:
+          - build: { name: Debug, preset: dev_debug, slug: -Debug }
+            dynarec: { name: ODR, new: off, slug: -ODR }
+            ui: &qt6_ui
+              name: Qt 6 GUI
+              qt: on
+              slug: -Qt6
+              static: off
+              packages: qt6-base:p qt6-tools:p vulkan-headers:p
+            environment: &ucrt64
+              msystem: UCRT64
+              prefix: mingw-w64-ucrt-x86_64
+              slug: -64
+              runner: windows-2022
+          - build: { name: Dev, preset: development, slug: -Dev }
+            dynarec: { name: NDR, new: on, slug: -NDR }
+            ui: *qt6_ui
+            environment: *ucrt64
+          - build: { name: Debug, preset: dev_debug, slug: -Debug }
+            dynarec: { name: NDR, new: on, slug: -NDR }
+            ui: *qt6_ui
+            environment: { msystem: CLANGARM64, slug: -arm64, runner: windows-11-arm }
 
     steps:
       - name: Prepare MSYS2 environment
-        uses: msys2/setup-msys2@v2
+        uses: msys2/setup-msys2@66cd2cce69caa17b53920067426061ca1de3a884 # v2.32.0
         with:
           release: true
           update: true
@@ -99,6 +91,7 @@ jobs:
           pacboy: >-
             ninja:p
             cmake:p
+            ccache:p
             gcc:p
             pkgconf:p
             freetype:p
@@ -115,24 +108,50 @@ jobs:
             zstd:p
 
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Restore compiler cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          path: .ccache
+          key: ccache-${{ runner.os }}-${{ runner.arch }}-${{ matrix.environment.msystem }}${{ matrix.dynarec.slug }}${{ matrix.build.slug }}-${{ hashFiles('CMakeLists.txt', 'CMakePresets.json', 'cmake/**', 'src/**/CMakeLists.txt', 'vcpkg.json') }}
+          restore-keys: |
+            ccache-${{ runner.os }}-${{ runner.arch }}-${{ matrix.environment.msystem }}${{ matrix.dynarec.slug }}${{ matrix.build.slug }}-
 
       - name: Configure CMake
         run: >-
           cmake -S . -B build --preset ${{ matrix.build.preset }}
           -D NEW_DYNAREC=${{ matrix.dynarec.new }}
           -D QT=${{ matrix.ui.qt }}
+          -D STATIC_BUILD=${{ matrix.ui.static }}
+          -D CMAKE_C_COMPILER_LAUNCHER=ccache
+          -D CMAKE_CXX_COMPILER_LAUNCHER=ccache
 
       - name: Build
         run: cmake --build build
 
+      - name: Run host contract tests
+        run: ctest --test-dir build --output-on-failure
+
+      - name: Show compiler cache statistics
+        if: always()
+        run: ccache --show-stats
+
       - name: Generate package
         run: cmake --install build
 
+      - name: Validate package
+        run: >-
+          python tools/package_audit.py
+          --root build/artifacts
+          --platform windows
+          --qt ${{ matrix.ui.qt }}
+          --max-size-mib 260
+
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: '86Box${{ matrix.dynarec.slug }}${{ matrix.build.slug }}-Windows${{ matrix.environment.slug }}-gha${{ github.run_number }}'
+          name: 'BluMach${{ matrix.dynarec.slug }}${{ matrix.build.slug }}-Windows${{ matrix.environment.slug }}-gha${{ github.run_number }}'
           path: build/artifacts/**
+          retention-days: 7

@@ -29,6 +29,9 @@ struct BluMachManufacturer {
     QString historyKey;
     QString historySourceUrl;
     QVector<BluMachHistoryReference> historyReferences;
+    QString brandMarkResource;
+    QString brandMarkBackground;
+    QString trademarkNoticeKey;
 };
 
 struct BluMachFamily {
@@ -37,6 +40,9 @@ struct BluMachFamily {
     QString parentFamilyId;
     QString name;
     QString descriptionKey;
+    QString historyKey;
+    QVector<BluMachHistoryReference> historyReferences;
+    QJsonObject comparisonTable;
 };
 
 struct BluMachPlatform {
@@ -102,6 +108,7 @@ public:
     const BluMachFamily       *family(const QString &id) const;
     const BluMachPlatform     *platform(const QString &id) const;
     const BluMachProduct      *product(const QString &id) const;
+    bool isMachineSelectable(const QString &emulatorMachineId, bool releaseManaged) const;
 
 private:
     bool loadLocale(const QString &locale, QHash<QString, QString> *target) const;

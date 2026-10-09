@@ -338,6 +338,9 @@ main(int argc, char **argv)
     SDL_Event event;
     int       ret = 0;
 
+    if (pc_print_version_if_requested(argc, argv))
+        return 0;
+
     SDL_Init(0);
     ret = pc_init(argc, argv);
     if (ret == 0)
@@ -347,7 +350,10 @@ main(int argc, char **argv)
         SDL_Quit();
         return 6;
     }
-    pc_init_modules();
+    if (!pc_init_modules()) {
+        SDL_Quit();
+        return 6;
+    }
 
     for (uint8_t i = 1; i < GFXCARD_MAX; i++)
         gfxcard[i]  = 0;

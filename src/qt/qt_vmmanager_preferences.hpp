@@ -16,6 +16,9 @@
 #define VMMANAGER_PREFERENCES_H
 
 #include <QDialog>
+class QLineEdit;
+class QLabel;
+class QPushButton;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -32,6 +35,9 @@ public:
 private:
     Ui::VMManagerPreferences *ui;
     QString                   settingsFile;
+    QLineEdit *firmwareDirectory;
+    QLabel *firmwareStatus;
+    QPushButton *firmwareRescan;
 private slots:
     void chooseDirectoryLocation();
     void chooseCatalogSkinDirectory();

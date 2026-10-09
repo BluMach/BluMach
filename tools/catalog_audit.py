@@ -266,6 +266,102 @@ def validate_media(product_id: str, product: dict[str, Any], errors: list[str]) 
         errors.append(f"{owner}.label_key is required")
 
 
+def validate_visibility(
+    manufacturers: dict[str, dict[str, Any]],
+    families: dict[str, dict[str, Any]],
+    products: dict[str, dict[str, Any]],
+    errors: list[str],
+) -> None:
+    def visible(collection: str, entity_id: str, entity: dict[str, Any]) -> bool:
+        value = entity.get("visible", False)
+        if not isinstance(value, bool):
+            errors.append(
+                f"catalog.json: {collection} {entity_id!r}.visible must be a boolean"
+            )
+            return False
+        return value
+
+    visible_manufacturers = {
+        entity_id
+        for entity_id, entity in manufacturers.items()
+        if visible("manufacturer", entity_id, entity)
+    }
+    visible_families = {
+        entity_id
+        for entity_id, entity in families.items()
+        if visible("family", entity_id, entity)
+    }
+    visible_products = {
+        entity_id
+        for entity_id, entity in products.items()
+        if visible("product", entity_id, entity)
+    }
+
+    for family_id in visible_families:
+        manufacturer_id = families[family_id].get("manufacturer_id")
+        if manufacturer_id not in visible_manufacturers:
+            errors.append(
+                f"catalog.json: visible family {family_id!r} requires visible "
+                f"manufacturer {manufacturer_id!r}"
+            )
+    for product_id in visible_products:
+        product = products[product_id]
+        manufacturer_id = product.get("manufacturer_id")
+        family_id = product.get("family_id")
+        if manufacturer_id not in visible_manufacturers:
+            errors.append(
+                f"catalog.json: visible product {product_id!r} requires visible "
+                f"manufacturer {manufacturer_id!r}"
+            )
+        if family_id not in visible_families:
+            errors.append(
+                f"catalog.json: visible product {product_id!r} requires visible "
+                f"family {family_id!r}"
+            )
+
+
+def validate_family_comparison(family_id: str, family: dict[str, Any], errors: list[str]) -> None:
+    table = family.get("comparison_table")
+    if table is None:
+        return
+    owner = f"family {family_id!r}.comparison_table"
+    if not isinstance(table, dict):
+        errors.append(f"{owner} must be an object")
+        return
+    if not isinstance(table.get("title_key"), str) or not TRANSLATION_KEY.fullmatch(table["title_key"]):
+        errors.append(f"{owner}.title_key must be a translation key")
+    columns = table.get("columns")
+    rows = table.get("rows")
+    if not isinstance(columns, list) or not columns:
+        errors.append(f"{owner}.columns must be a non-empty array")
+        return
+    if not isinstance(rows, list) or not rows:
+        errors.append(f"{owner}.rows must be a non-empty array")
+        return
+    for column in require_unique_ids(columns, f"{owner}.columns", errors).values():
+        key = column.get("label_key")
+        if not isinstance(key, str) or not TRANSLATION_KEY.fullmatch(key):
+            errors.append(f"{owner}: each column requires a label_key")
+        width = column.get("minimum_width", 100)
+        if type(width) is not int or width <= 0:
+            errors.append(f"{owner}: minimum_width must be a positive integer")
+    for row in require_unique_ids(rows, f"{owner}.rows", errors).values():
+        cells = row.get("cells")
+        if not isinstance(cells, list) or len(cells) != len(columns):
+            errors.append(f"{owner}: row {row['id']!r} must have one cell per column")
+            continue
+        for cell in cells:
+            if not isinstance(cell, dict) or ("value" in cell) == ("value_key" in cell):
+                errors.append(f"{owner}: each cell requires exactly one value or value_key")
+                continue
+            if "value_key" in cell:
+                key = cell["value_key"]
+                if not isinstance(key, str) or not TRANSLATION_KEY.fullmatch(key):
+                    errors.append(f"{owner}: invalid cell value_key")
+            elif not isinstance(cell["value"], str) or not cell["value"]:
+                errors.append(f"{owner}: literal cell values must be non-empty strings")
+
+
 def validate_catalog(catalog: Any, errors: list[str]) -> set[str]:
     if not isinstance(catalog, dict):
         errors.append("catalog.json: root must be an object")
@@ -283,7 +379,10 @@ def validate_catalog(catalog: Any, errors: list[str]) -> set[str]:
     platforms = require_unique_ids(catalog.get("platforms"), "platforms", errors)
     products = require_unique_ids(catalog.get("products"), "products", errors)
 
+    validate_visibility(manufacturers, families, products, errors)
+
     for family_id, family in families.items():
+        validate_family_comparison(family_id, family, errors)
         manufacturer_id = family.get("manufacturer_id")
         if manufacturer_id not in manufacturers:
             errors.append(

@@ -3,19 +3,19 @@
 		"default-registry": {
 			"kind": "git",
 			"repository": "https://github.com/Microsoft/vcpkg",
-			"baseline": "9b965a116838c6cdcd36bca60d1b81b030c8ab8d",
-			"reference": "9b965a116838c6cdcd36bca60d1b81b030c8ab8d"
+			"baseline": "9e593bb18ea69cc5095e012465dcd675a822ed0d",
+			"reference": "9e593bb18ea69cc5095e012465dcd675a822ed0d"
 		}
 	},
-    "name": "86box",
-    "version-string": "7.0",
-    "homepage": "https://86box.net/",
-    "documentation": "https://86box.readthedocs.io/",
+    "name": "blumach",
+    "version-string": "0.1.0-alpha.1",
+    "homepage": "https://github.com/BluMach/BluMach",
+    "documentation": "https://github.com/BluMach/BluMach#readme",
     "license": "GPL-2.0-or-later",
     "dependencies": [
         "freetype",
         "libpng",
-        "sdl2",
+        "sdl3",
         "rtmidi",
         "libslirp",
         "fluidsynth",

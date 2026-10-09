@@ -1,10 +1,10 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: 86box
-Source: https://86box.net/
+Upstream-Name: BluMach
+Source: https://github.com/BluMach/BluMach
 
 Files: *
-Copyright: <years> <put author's name and email here>
-           <years> <likewise for another author>
+Copyright: 2016-2026 The 86Box contributors
+           2026 The BluMach contributors
 License: GPL-2.0+
 
 Files: debian/*

@@ -99,6 +99,35 @@ rom_add_path(const char *path)
     add_path(&rom_paths, path);
 }
 
+/* Replace only the user-selected search root; keep platform/VM defaults. */
+int
+rom_set_user_path(const char *path)
+{
+    static int has_user_path = 0;
+    char absolute[1024];
+    if (!path || strlen(path) >= sizeof(absolute) - 1)
+        return 0;
+    if (path_abs((char *) path))
+        strcpy(absolute, path);
+    else {
+        plat_getcwd(absolute, sizeof(absolute));
+        if (strlen(absolute) + strlen(path) + 2 >= sizeof(absolute))
+            return 0;
+        path_append_filename(absolute, absolute, path);
+    }
+    path_slash(absolute);
+    if (!has_user_path && rom_paths.path[0]) {
+        rom_path_t *defaults = malloc(sizeof(*defaults));
+        if (!defaults)
+            return 0;
+        memcpy(defaults, &rom_paths, sizeof(*defaults));
+        rom_paths.next = defaults;
+    }
+    strcpy(rom_paths.path, absolute);
+    has_user_path = 1;
+    return 1;
+}
+
 void
 asset_add_path(const char *path)
 {

@@ -227,16 +227,13 @@ VMManagerSystem::getScreenshots()
 void
 VMManagerSystem::loadSettings()
 {
-    // First, load the information from the 86box.cfg
+    // First, load the information from the selected BluMach configuration.
     QSettings settings(config_file.filePath(), QSettings::IniFormat);
     if (settings.status() != QSettings::NoError)
         qWarning() << "Error loading" << config_file.path() << " status:" << settings.status();
 
     // qInfo() << "Loaded "<< config_file.filePath() << "status:" << settings.status();
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    settings.setIniCodec("UTF-8");
-#endif
     // Clear out the config hash in case the config is reloaded
     for (const auto &outer_key : config_hash.keys()) {
         config_hash[outer_key].clear();
@@ -253,11 +250,7 @@ VMManagerSystem::loadSettings()
             QString setting_value;
             // QSettings will interpret lines with commas as QStringList.
             // Check for it and join them back to a string.
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
             if (settings.value(key_name).typeId() == QMetaType::QStringList)
-#else
-            if (settings.value(key_name).type() == QVariant::StringList)
-#endif
                 setting_value = settings.value(key_name).toStringList().join(", ");
             else
                 setting_value = settings.value(key_name).toString();
@@ -579,7 +572,7 @@ VMManagerSystem::setupVars()
     int  ram_granularity = 0;
     int  ci              = machine_get_machine_from_internal_name(machine_config["machine"].toUtf8());
     // Machine
-    if (ci != -1 && machine_available(ci)) {
+    if (ci != -1) {
         machine_name    = machines[ci].name;
         ram_granularity = machines[ci].ram.step;
     }

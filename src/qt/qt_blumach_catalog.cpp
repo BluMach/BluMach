@@ -44,6 +44,12 @@ stringArray(const QJsonValue &value)
         result.append(item.toString());
     return result;
 }
+
+bool
+isVisible(const QJsonObject &object)
+{
+    return object.value(QStringLiteral("visible")).toBool(false);
+}
 } // namespace
 
 bool
@@ -62,11 +68,17 @@ BluMachCatalog::load(QString *errorMessage)
     const auto root = document.object();
     for (const auto &value : root.value(QStringLiteral("manufacturers")).toArray()) {
         const auto object = value.toObject();
+        if (!isVisible(object))
+            continue;
         m_manufacturers.append({ object.value(QStringLiteral("id")).toString(),
                                  object.value(QStringLiteral("name")).toString(),
                                  object.value(QStringLiteral("description_key")).toString(),
                                  object.value(QStringLiteral("history_key")).toString(),
                                  object.value(QStringLiteral("history_source_url")).toString() });
+        const auto brandMark = object.value(QStringLiteral("brand_mark")).toObject();
+        m_manufacturers.last().brandMarkResource = brandMark.value(QStringLiteral("resource")).toString();
+        m_manufacturers.last().brandMarkBackground = brandMark.value(QStringLiteral("background")).toString();
+        m_manufacturers.last().trademarkNoticeKey = object.value(QStringLiteral("trademark_notice_key")).toString();
         for (const auto &entry : object.value(QStringLiteral("history_references")).toArray()) {
             const auto reference = entry.toObject();
             m_manufacturers.last().historyReferences.append({
@@ -77,11 +89,22 @@ BluMachCatalog::load(QString *errorMessage)
     }
     for (const auto &value : root.value(QStringLiteral("families")).toArray()) {
         const auto object = value.toObject();
+        if (!isVisible(object))
+            continue;
         m_families.append({ object.value(QStringLiteral("id")).toString(),
                             object.value(QStringLiteral("manufacturer_id")).toString(),
                             object.value(QStringLiteral("parent_family_id")).toString(),
                             object.value(QStringLiteral("name")).toString(),
                             object.value(QStringLiteral("description_key")).toString() });
+        m_families.last().historyKey = object.value(QStringLiteral("history_key")).toString();
+        m_families.last().comparisonTable = object.value(QStringLiteral("comparison_table")).toObject();
+        for (const auto &entry : object.value(QStringLiteral("history_references")).toArray()) {
+            const auto reference = entry.toObject();
+            m_families.last().historyReferences.append({
+                reference.value(QStringLiteral("title")).toString(),
+                reference.value(QStringLiteral("publisher")).toString(),
+                reference.value(QStringLiteral("url")).toString() });
+        }
     }
     for (const auto &value : root.value(QStringLiteral("platforms")).toArray()) {
         const auto object = value.toObject();
@@ -103,6 +126,8 @@ BluMachCatalog::load(QString *errorMessage)
     }
     for (const auto &value : root.value(QStringLiteral("products")).toArray()) {
         const auto object = value.toObject();
+        if (!isVisible(object))
+            continue;
         BluMachProduct product;
         product.id                 = object.value(QStringLiteral("id")).toString();
         product.manufacturerId     = object.value(QStringLiteral("manufacturer_id")).toString();
@@ -168,6 +193,19 @@ const QVector<BluMachFamily> &BluMachCatalog::families() const { return m_famili
 const QVector<BluMachPlatform> &BluMachCatalog::platforms() const { return m_platforms; }
 const QVector<BluMachProduct> &BluMachCatalog::products() const { return m_products; }
 const QVector<BluMachFilterFacet> &BluMachCatalog::filterFacets() const { return m_filterFacets; }
+
+bool
+BluMachCatalog::isMachineSelectable(const QString &emulatorMachineId, bool releaseManaged) const
+{
+    if (!releaseManaged)
+        return true;
+    for (const auto &product : m_products) {
+        const auto *machinePlatform = platform(product.platformId);
+        if (machinePlatform && machinePlatform->emulatorMachineId == emulatorMachineId)
+            return true;
+    }
+    return false;
+}
 
 QString
 BluMachCatalog::text(const QString &key) const

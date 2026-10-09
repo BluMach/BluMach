@@ -38,12 +38,13 @@
 #define SCREEN_RES_Y 480
 
 /* Filename and pathname info. */
-#define CONFIG_FILE        "86box.cfg"
-#define GLOBAL_CONFIG_FILE "86box_global.cfg"
+#define CONFIG_FILE        "blumach.cfg"
+#define GLOBAL_CONFIG_FILE "blumach_global.cfg"
+#define VMM_CONFIG_KEY     "blumach_vmm_path"
 #define NVR_PATH           "nvr"
 #define SCREENSHOT_PATH    "screenshots"
-#define VMM_PATH		   "Virtual Machines"
-#define VMM_PATH_WINDOWS   "86Box VMs"
+#define VMM_PATH            "BluMach VMs"
+#define VMM_PATH_WINDOWS   "BluMach VMs"
 
 /* Recently used images */
 #define MAX_PREV_IMAGES    10
@@ -221,7 +222,6 @@ extern int      confirm_reset;              /* (G) enable reset confirmation */
 extern int      confirm_exit;               /* (G) enable exit confirmation */
 extern int      confirm_save;               /* (G) enable save confirmation */
 extern int      chd_precache_level;         /* (G) CHD precache level */
-extern int      enable_discord;             /* (C) enable Discord integration */
 extern int      force_10ms;                 /* (C) force 10ms CPU frame interval */
 extern int      jumpered_internal_ecp_dma;  /* (C) Jumpered internal EPC DMA */
 extern int      other_ide_present;          /* IDE controllers from non-IDE cards are present */
@@ -295,6 +295,7 @@ extern void set_screen_size_natural(void);
 extern int  pc_init_roms(void);
 extern int  pc_init_modules(void);
 extern int  pc_init(int argc, char *argv[]);
+extern int  pc_print_version_if_requested(int argc, char *argv[]);
 extern void pc_close(void *threadid);
 extern void pc_reset_hard_close(void);
 extern void pc_reset_hard_init(void);

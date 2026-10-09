@@ -2,19 +2,11 @@ name: CodeQL Analysis (Linux)
 
 on:
 
-  push:
-    branches: [ "master" ]
-    paths:
-      - src/**
-      - cmake/**
-      - "**/CMakeLists.txt"
-      - "CMakePresets.json"
-      - "!.github/workflows/**"
-      - .github/workflows/codeql_linux.yml
-      - vcpkg.json
-      - "!**/Makefile*"
+  workflow_dispatch:
 
-  pull_request:
+  # Linux covers every mainline source change. Pull requests use the faster
+  # cross-platform build and contract-test gate.
+  push:
     branches: [ "master" ]
     paths:
       - src/**
@@ -29,6 +21,10 @@ on:
   schedule:
     - cron: '22 11 * * 0'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
 
   analyze-linux:
@@ -36,9 +32,7 @@ jobs:
     name: "${{ matrix.ui.name }}, ${{ matrix.build.name }}, ${{ matrix.dynarec.name }}, ${{ matrix.environment.arch }}"
 
     runs-on: ubuntu-26.04
-
-    env:
-      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper output will be placed
+    timeout-minutes: 45
 
     permissions:
       actions: read
@@ -48,54 +42,31 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        language: [ 'cpp' ]
-        build:
-#          - name: Regular
-#            preset: regular
-          - name: Debug
-            preset: dev_debug
-            slug: -Debug
-#          - name: Dev
-#            preset: development
-#            slug: -Dev
-        dynarec:
-          - name: ODR
-            new: off
-            slug: -ODR
-          - name: NDR
-            new: on
-            slug: -NDR
-        ui:
-          - name: SDL GUI
-            qt: off
-            qt6: off
-            sdl_shader: on
-            slug: -SDL
-            static: on
-          - name: Qt 5 GUI
-            qt: on
-            qt6: off
-            sdl_shader: off
-            slug: -Qt5
-            packages: >-
-              qtbase5-dev
-              qtbase5-private-dev
-              qttools5-dev
-              qttranslations5-l10n
-              libevdev-dev
-              libxkbcommon-x11-dev
-        environment:
-          - arch: x86_64
-            slug: "-x86_64"
-            runner: ubuntu-22.04
-#          - arch: arm64
-#            slug: -arm64
-#            runner: ubuntu-22.04-arm
-#        exclude:
-#          - dynarec:
-#              new: off
-#            environment:
-#              arch: arm64
+        include:
+          - language: cpp
+            build: { name: Debug, preset: dev_debug, slug: -Debug }
+            dynarec: { name: ODR, new: off, slug: -ODR }
+            ui: { name: SDL GUI, qt: off, sdl_shader: on, slug: -SDL }
+            environment: { arch: x86_64, slug: -x86_64, runner: ubuntu-22.04 }
+          - language: cpp
+            build: { name: Debug, preset: dev_debug, slug: -Debug }
+            dynarec: { name: NDR, new: on, slug: -NDR }
+            ui:
+              name: Qt 6 GUI
+              qt: on
+              sdl_shader: off
+              slug: -Qt6
+              packages: >-
+                qt6-base-dev
+                qt6-base-private-dev
+                qt6-tools-dev
+                qt6-tools-dev-tools
+                qt6-l10n-tools
+                qt6-translations-l10n
+                libevdev-dev
+                libxkbcommon-x11-dev
+                libvulkan-dev
+            environment: { arch: x86_64, slug: -x86_64, runner: ubuntu-22.04 }
 
     steps:
       - name: Install dependencies
@@ -118,15 +89,12 @@ jobs:
           ${{ matrix.ui.packages }}
 
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-      - name: Install Build Wrapper
-        uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v6
-
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4.38.0
         with:
           languages: ${{ matrix.language }}
           config-file: ./.github/codeql/codeql-config.yml
@@ -136,27 +104,13 @@ jobs:
           cmake -S . -B build --preset ${{ matrix.build.preset }}
           -D NEW_DYNAREC=${{ matrix.dynarec.new }}
           -D QT=${{ matrix.ui.qt }}
-          -D USE_QT6=${{ matrix.ui.qt6 }}
           -D USE_SDL_SHADER=${{ matrix.ui.sdl_shader }}
+          -D BUILD_TESTING=OFF
 
       - name: Build
-        run: |
-          build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} cmake --build build
+        run: cmake --build build
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4.38.0
         with:
-          category: "/language:${{matrix.language}}"
-
-      - name: SonarQube Scan
-        if: matrix.build.preset == 'dev_debug' && matrix.dynarec.new == 'on' && matrix.ui.qt == 'on' && env.SONAR_TOKEN != ''
-#        if: 0
-        uses: SonarSource/sonarqube-scan-action@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#          SONAR_ROOT_CERT: ${{ secrets.SONAR_ROOT_CERT }}
-        with:
-           # Consult https://docs.sonarsource.com/sonarqube-server/latest/analyzing-source-code/scanners/sonarscanner/ for more information and options
-           args: >
-             --define sonar.cfamily.compile-commands=build/compile_commands.json
+          category: "/language:${{ matrix.language }}/ui:${{ matrix.ui.slug }}/dynarec:${{ matrix.dynarec.slug }}/platform:linux"

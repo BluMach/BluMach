@@ -192,7 +192,6 @@ int      confirm_reset                          = 1;              /* (G) enable 
 int      confirm_exit                           = 1;              /* (G) enable exit confirmation */
 int      confirm_save                           = 1;              /* (G) enable save confirmation */
 int      chd_precache_level                     = 0;              /* (G) CHD precache level */
-int      enable_discord                         = 0;              /* (C) enable Discord integration */
 int      pit_mode                               = -1;             /* (C) force setting PIT mode */
 int      fm_driver                              = 0;              /* (C) select FM sound driver */
 int      open_dir_usr_path                      = 0;              /* (G) default file open dialog directory
@@ -745,9 +744,10 @@ pc_show_usage(void)
     char p[8192] = { 0 };
 
     sprintf(p,
-            "\nUsage: 86box [options] [cfg-file]\n\n"
+            "\nUsage: " EMU_NAME " [options] [cfg-file]\n\n"
             "Valid options are:\n\n"
             "-? or --help\t\t\t- show this information\n"
+            "--version\t\t\t- show the version and exit\n"
             "-A or --assetpath path\t\t- set 'path' to be asset path\n"
 #ifdef SHOW_EXTRA_PARAMS
             "-C or --config path\t\t- set 'path' to be config file\n"
@@ -801,6 +801,51 @@ pc_show_usage(void)
 #else
     always_log("%s", p);
 #endif
+}
+
+int
+pc_print_version_if_requested(int argc, char *argv[])
+{
+    for (int c = 1; c < argc; c++) {
+        if (!strcasecmp(argv[c], "--version")) {
+            printf(EMU_NAME " " EMU_VERSION_FULL "\n");
+            fflush(stdout);
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+static int
+copy_string_checked(char *dest, size_t dest_size, const char *src)
+{
+    const size_t src_len = strlen(src);
+
+    if (src_len >= dest_size)
+        return 0;
+
+    memcpy(dest, src, src_len + 1);
+    return 1;
+}
+
+static int
+append_string_checked(char *dest, size_t dest_size, const char *src)
+{
+    size_t dest_len = 0;
+
+    while ((dest_len < dest_size) && (dest[dest_len] != '\0'))
+        dest_len++;
+
+    if (dest_len == dest_size)
+        return 0;
+
+    const size_t src_len = strlen(src);
+    if (src_len >= (dest_size - dest_len))
+        return 0;
+
+    memcpy(dest + dest_len, src, src_len + 1);
+    return 1;
 }
 
 /*
@@ -907,10 +952,10 @@ usage:
                Temporary solution!*/
             if ((c+1) == argc) goto usage;
             char *vp = argv[++c];
-            if ((strlen(vp) + 1) >= sizeof(vmm_path))
-                memcpy(vmm_path, vp, sizeof(vmm_path));
-            else
-                memcpy(vmm_path, vp, strlen(vp) + 1);
+            if (!copy_string_checked(vmm_path, sizeof(vmm_path), vp)) {
+                fprintf(stderr, "The VM manager path is too long.\n");
+                goto usage;
+            }
 #endif
         } else if (!strcasecmp(argv[c], "--fullscreen") || !strcasecmp(argv[c], "-F")) {
             start_in_fullscreen = 1;
@@ -918,7 +963,10 @@ usage:
             if ((c + 1) == argc)
                 goto usage;
 
-            strcpy(log_path, argv[++c]);
+            if (!copy_string_checked(log_path, sizeof(log_path), argv[++c])) {
+                fprintf(stderr, "The log file path is too long.\n");
+                goto usage;
+            }
         } else if (!strcasecmp(argv[c], "--vmpath") || !strcasecmp(argv[c], "-P")) {
             if ((c + 1) == argc)
                 goto usage;
@@ -930,7 +978,8 @@ usage:
                 goto usage;
 
             rpath = argv[++c];
-            rom_add_path(rpath);
+            if (!rom_set_user_path(rpath))
+                goto usage;
         } else if (!strcasecmp(argv[c], "--assetpath") || !strcasecmp(argv[c], "-A")) {
             if ((c + 1) == argc)
                 goto usage;
@@ -968,7 +1017,12 @@ usage:
             if (drive >= FDD_NUM)
                 drive = FDD_NUM - 1;
             fn[(int) drive] = (char *) calloc(2048, 1);
-            strcpy(fn[(int) drive], temp2);
+            if (!copy_string_checked(fn[(int) drive], 2048, temp2)) {
+                fprintf(stderr, "The floppy image path is too long.\n");
+                free(temp2);
+                temp2 = NULL;
+                goto usage;
+            }
             pclog("Drive %c: %s\n", drive + 0x41, fn[(int) drive]);
             free(temp2);
             temp2 = NULL;
@@ -976,7 +1030,10 @@ usage:
             if ((c + 1) == argc)
                 goto usage;
 
-            strcpy(vm_name, argv[++c]);
+            if (!copy_string_checked(vm_name, sizeof(vm_name), argv[++c])) {
+                fprintf(stderr, "The VM name is too long.\n");
+                goto usage;
+            }
 #ifndef USE_SDL_UI
         } else if (!strcasecmp(argv[c], "--settings") || !strcasecmp(argv[c], "-S")) {
             settings_only = 1;
@@ -1076,13 +1133,19 @@ usage:
              * Add it to the current working directory
              * to convert it (back) to an absolute path.
              */
-            strcat(usr_path, ppath);
+            if (!append_string_checked(usr_path, sizeof(usr_path), ppath)) {
+                fprintf(stderr, "The VM path is too long.\n");
+                goto usage;
+            }
         } else {
             /*
              * The user-provided path seems like an
              * absolute path, so just use that.
              */
-            strcpy(usr_path, ppath);
+            if (!copy_string_checked(usr_path, sizeof(usr_path), ppath)) {
+                fprintf(stderr, "The VM path is too long.\n");
+                goto usage;
+            }
         }
 
         /* If the specified path does not yet exist,
@@ -1142,13 +1205,19 @@ usage:
              * Add it to the current working directory
              * to convert it (back) to an absolute path.
              */
-            strcat(rom_path, rpath);
+            if (!append_string_checked(rom_path, sizeof(rom_path), rpath)) {
+                fprintf(stderr, "The ROM path is too long.\n");
+                goto usage;
+            }
         } else {
             /*
              * The user-provided path seems like an
              * absolute path, so just use that.
              */
-            strcpy(rom_path, rpath);
+            if (!copy_string_checked(rom_path, sizeof(rom_path), rpath)) {
+                fprintf(stderr, "The ROM path is too long.\n");
+                goto usage;
+            }
         }
 
         /* If the specified path does not yet exist,
@@ -1172,13 +1241,19 @@ usage:
              * Add it to the current working directory
              * to convert it (back) to an absolute path.
              */
-            strcat(asset_path, apath);
+            if (!append_string_checked(asset_path, sizeof(asset_path), apath)) {
+                fprintf(stderr, "The asset path is too long.\n");
+                goto usage;
+            }
         } else {
             /*
              * The user-provided path seems like an
              * absolute path, so just use that.
              */
-            strcpy(asset_path, apath);
+            if (!copy_string_checked(asset_path, sizeof(asset_path), apath)) {
+                fprintf(stderr, "The asset path is too long.\n");
+                goto usage;
+            }
         }
 
         /* If the specified path does not yet exist,
@@ -1215,10 +1290,15 @@ usage:
          * Otherwise, assume the pathname given is
          * relative to whatever the usr_path is.
          */
-        if (path_abs(cfg))
-            strcpy(usr_path, cfg);
-        else
-            strcat(usr_path, cfg);
+        if (path_abs(cfg)) {
+            if (!copy_string_checked(usr_path, sizeof(usr_path), cfg)) {
+                fprintf(stderr, "The configuration path is too long.\n");
+                goto usage;
+            }
+        } else if (!append_string_checked(usr_path, sizeof(usr_path), cfg)) {
+            fprintf(stderr, "The configuration path is too long.\n");
+            goto usage;
+        }
     }
 
     /* Make sure we have a trailing backslash. */
@@ -1469,56 +1549,24 @@ pc_init_modules(void)
     char temp[512];
     char tempc[512];
 
-    /* Load the ROMs for the selected machine. */
-    if (!machine_available(machine)) {
-        snprintf(temp, sizeof(temp), plat_get_string(STRING_HW_NOT_AVAILABLE_MACHINE), machine_getname(machine));
-        c       = 0;
-        machine = -1;
-        while (machine_get_internal_name_ex(c) != NULL) {
-            if (machine_available(c)) {
-                ui_msgbox_header(MBX_WARNING, plat_get_string(STRING_HW_NOT_AVAILABLE_TITLE), temp);
-                machine = c;
-                config_save();
-                break;
-            }
-            c++;
-        }
-        if (machine == -1) {
-            fatal("No available machines\n");
-            exit(-1);
-        }
+    /* Refuse an invalid configuration without changing or saving the VM. */
+    if (machine_get_valid_ram(machine, (int) mem_size) != (int) mem_size) {
+        ui_msgbox_header(MBX_WARNING, "Configuration unavailable",
+                         "Unsupported RAM configuration. Open Settings and choose a supported value. No configuration has been changed.");
+        return 0;
     }
-
-    /* Make sure we have a usable video card. */
-    if (!video_card_available(gfxcard[0])) {
-        memset(tempc, 0, sizeof(tempc));
-        device_get_name(video_card_getdevice(gfxcard[0]), 0, tempc);
-        snprintf(temp, sizeof(temp), plat_get_string(STRING_HW_NOT_AVAILABLE_VIDEO), tempc);
-        c = 0;
-        while (video_get_internal_name(c) != NULL) {
-            gfxcard[0] = -1;
-            if (video_card_available(c)) {
-                ui_msgbox_header(MBX_WARNING, plat_get_string(STRING_HW_NOT_AVAILABLE_TITLE), temp);
-                gfxcard[0] = c;
-                config_save();
-                break;
-            }
-            c++;
-        }
-        if (gfxcard[0] == -1) {
-            fatal("No available video cards\n");
-            exit(-1);
-        }
+    if (device_configured_bios_available(machine_get_device(machine)) < 0 || !machine_available(machine)) {
+        snprintf(temp, sizeof(temp), "Firmware for %s is missing or the selected BIOS is unknown. Check your local ROM folder. No configuration has been changed.", machine_getname(machine));
+        ui_msgbox_header(MBX_WARNING, "Firmware unavailable", temp);
+        return 0;
     }
-
-    // TODO
-    for (uint8_t i = 1; i < GFXCARD_MAX; i ++) {
+    for (uint8_t i = 0; i < GFXCARD_MAX; ++i) {
         if (!video_card_available(gfxcard[i])) {
             memset(tempc, 0, sizeof(tempc));
             device_get_name(video_card_getdevice(gfxcard[i]), 0, tempc);
-            snprintf(temp, sizeof_w(temp), plat_get_string(STRING_HW_NOT_AVAILABLE_DEVICE), tempc);
-            ui_msgbox_header(MBX_WARNING, plat_get_string(STRING_HW_NOT_AVAILABLE_TITLE), temp);
-            gfxcard[i] = 0;
+            snprintf(temp, sizeof(temp), "Firmware for video device %s is missing. No configuration has been changed.", tempc);
+            ui_msgbox_header(MBX_WARNING, "Firmware unavailable", temp);
+            return 0;
         }
     }
 
