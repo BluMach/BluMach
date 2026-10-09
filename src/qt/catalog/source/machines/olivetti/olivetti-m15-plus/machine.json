@@ -33,6 +33,7 @@
       "hard_disk": "Alternative commercial configuration: one 720 KB floppy and one 20 MB internal HDU. Olivetti labels the drive interface SCSI; the integrated host adapter is modelled through its BIOS-observed XT-compatible register contract"
     },
     "firmware": {
+      "required_files": ["machines/olivetti_m15plus/Olivetti-M15-Plus-BIOS-1.10.bin"],
       "known_sets": ["System BIOS 1.10 (1988-06-03; local custody only)"],
       "required": true,
       "identity_note": "The 32 KB BIOS maps at F8000h-FFFFFh. Provenance and redistribution rights remain pending."

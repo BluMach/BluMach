@@ -2488,6 +2488,7 @@ const machine_t machines[] = {
     {
         .name              = "[8088] Olivetti M15 Plus (experimental)",
         .internal_name     = "olivetti_m15plus",
+        .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_8088,
         .chipset           = MACHINE_CHIPSET_DISCRETE,
         .init              = machine_xt_olivetti_m15plus_init,
