@@ -299,6 +299,7 @@ MainWindow::MainWindow(QWidget *parent)
         /* A modeless tool leaves the emulator running but must not inject the
            slider's arrow keys into the guest or retain its captured keys. */
         releaseKeyboard();
+        keyboard_all_up();
         if (mouse_capture) emit setMouseCapture(false);
         panel->show();
         panel->raise();
