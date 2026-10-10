@@ -163,7 +163,7 @@ t3200_plasma_color(unsigned code)
 static void
 t3200_plasma_palette(t3200_t *dev)
 {
-    dev->panel_settings = video_panel_settings(0);
+    dev->panel_settings = video_panel_render_settings(0);
     for (unsigned c = 0; c < 256; c++) {
         dev->plasma16[c] = dev->plasma64[c] = video_panel_adjust(
             t3200_plasma_color(c), dev->panel_settings, VIDEO_PANEL_PLASMA);
@@ -430,7 +430,7 @@ static void t3200_panel_poll(void *priv)
     ega_t *ega = priv;
     t3200_t *dev = ega->priv_parent;
     if (!dev->external_display && dev->panel_fitted &&
-        dev->panel_settings != video_panel_settings(0)) {
+        dev->panel_settings != video_panel_render_settings(0)) {
         t3200_plasma_palette(dev);
         ega->fullchange = changeframecount;
     }

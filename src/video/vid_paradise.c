@@ -202,7 +202,7 @@ paradise_t5200_update_palette(paradise_t *paradise)
                     paradise->t5200_panel_override : !crt_only;
     const int panel_monitor = paradise->t5200_secondary_monitor ? 1 : 0;
     video_panel_set_active(panel_monitor, panel_enabled);
-    paradise->panel_settings = video_panel_settings(panel_monitor);
+    paradise->panel_settings = video_panel_render_settings(panel_monitor);
 
     for (int index = 0; index < 256; index++) {
         /* TEST3 stores Plasma=0 and CRT-only=1 in CMOS 38h bit 2. */
@@ -298,7 +298,7 @@ paradise_t5200_dual_vsync(svga_t *svga)
     if (!paradise->t5200_secondary_monitor || plasma->target_buffer == NULL)
         return;
 
-    if (paradise->panel_settings != video_panel_settings(1))
+    if (paradise->panel_settings != video_panel_render_settings(1))
         paradise_t5200_update_palette(paradise);
 
     video_wait_for_buffer_monitor(1);

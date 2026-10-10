@@ -406,7 +406,7 @@ t5100_plasma_color(unsigned code)
 static void
 t5100_plasma_palette(t5100_t *dev)
 {
-    dev->panel_settings = video_panel_settings(0);
+    dev->panel_settings = video_panel_render_settings(0);
     for (unsigned color = 0; color < 256; color++)
         dev->plasma16[color] = dev->plasma64[color] =
             video_panel_adjust(t5100_plasma_color(color), dev->panel_settings, VIDEO_PANEL_PLASMA);
@@ -573,7 +573,7 @@ static void t5100_panel_poll(void *priv)
 {
     ega_t *ega = priv;
     t5100_t *dev = ega->priv_parent;
-    if (!dev->external_display && dev->panel_settings != video_panel_settings(0)) {
+    if (!dev->external_display && dev->panel_settings != video_panel_render_settings(0)) {
         t5100_plasma_palette(dev);
         ega->fullchange = changeframecount;
     }
