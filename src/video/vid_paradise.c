@@ -87,6 +87,7 @@ typedef struct paradise_t {
     uint32_t t5200_external_palette[256];
     uint32_t t5200_plasma_palette[256];
     uint32_t panel_settings;
+    int panel_visible;
 
     struct {
         uint8_t reg_block_ptr;
@@ -201,6 +202,7 @@ paradise_t5200_update_palette(paradise_t *paradise)
     panel_enabled = (paradise->t5200_panel_override >= 0) ?
                     paradise->t5200_panel_override : !crt_only;
     const int panel_monitor = paradise->t5200_secondary_monitor ? 1 : 0;
+    paradise->panel_visible = panel_enabled;
     video_panel_set_active(panel_monitor, panel_enabled);
     paradise->panel_settings = video_panel_render_settings(panel_monitor);
 
@@ -262,6 +264,10 @@ static uint32_t
 paradise_t5200_plasma_pixel(const paradise_t *paradise, uint32_t pixel,
                            int *palette_index)
 {
+    if (!paradise->panel_visible) {
+        *palette_index = 0;
+        return makecol32(0, 0, 0);
+    }
     for (int index = 0; index < 256; index++) {
         if (pixel == paradise->t5200_external_palette[index]) {
             *palette_index = index;
