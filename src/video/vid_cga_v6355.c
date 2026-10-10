@@ -35,6 +35,7 @@
 #include <86box/rom.h>
 #include <86box/device.h>
 #include <86box/video.h>
+#include <86box/video_panel.h>
 #include <86box/vid_v6355.h>
 #include <86box/vid_cga.h>
 #include <86box/vid_cga_comp.h>
@@ -670,7 +671,7 @@ v6355_render_blank(v6355_t *v6355, int line)
 static uint32_t
 v6355_lcd_colour(const v6355_t *v6355, uint8_t index)
 {
-    return v6355_m15_lcd_palette_colour(v6355->lcd_levels, index);
+    return v6355->lcd_colours[index & 15];
 }
 
 static void
@@ -683,6 +684,14 @@ v6355_render_process(v6355_t *v6355, int line)
 
     /* Now render the 640 pixels to the display buffer */
     if (v6355->lcd_panel) {
+        uint32_t settings = video_panel_settings(v6355->panel_monitor);
+        if (v6355->lcd_levels != 8) settings |= (1U << 16); /* Reflective: no backlight. */
+        if (settings != v6355->panel_settings) {
+            for (unsigned i = 0; i < 16; ++i)
+                v6355->lcd_colours[i] = video_panel_adjust(
+                    v6355_m15_lcd_palette_colour(v6355->lcd_levels, i), settings, VIDEO_PANEL_LCD);
+            v6355->panel_settings = settings;
+        }
         for (c = 0; c < x; c++)
             ((uint32_t *) buffer32->line[line])[c] =
                 v6355_lcd_colour(v6355, ((uint32_t *) buffer32->line[line])[c]);
@@ -958,6 +967,11 @@ v6355_standalone_init(const device_t *info) {
     v6355->lcd_panel = (info == &v6355d_lcd_device) ||
                        (info == &v6355d_m15plus_lcd_device);
     v6355->lcd_levels = (info == &v6355d_m15plus_lcd_device) ? 8 : 4;
+    v6355->panel_monitor = monitor_index_global;
+    v6355->panel_settings = UINT32_MAX;
+    if (v6355->lcd_panel)
+        video_panel_register(v6355->panel_monitor, VIDEO_PANEL_LCD,
+            VIDEO_PANEL_CONTRAST | (v6355->lcd_levels == 8 ? VIDEO_PANEL_BACKLIGHT : 0));
 
     overscan_x = overscan_y = 16;
 
@@ -1077,6 +1091,8 @@ static void
 v6355_close(void *priv) {
     v6355_t *v6355 = (v6355_t *) priv;
 
+    /* LCD presentation registration is owned by this device only. */
+    if (v6355->lcd_panel) video_panel_unregister(v6355->panel_monitor);
     if (v6355->prodest_pc1)
         io_removehandler(0x00dd, 0x0002,
                          v6355_prodest_alias_in, NULL, NULL,

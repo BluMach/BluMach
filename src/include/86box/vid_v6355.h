@@ -63,6 +63,9 @@ typedef struct v6355_t {
     int           prodest_pc1;
     int           lcd_panel;
     int           lcd_levels;
+    int           panel_monitor;
+    uint32_t      panel_settings;
+    uint32_t      lcd_colours[16];
 
     uint32_t      v6355pal[16];
 

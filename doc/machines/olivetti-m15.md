@@ -70,6 +70,18 @@ The historical catalogue creates this configuration through one declarative
 form. Both memory choices, floppy insertion and soft and hard reset have been
 validated from the graphical interface.
 
+## Physical screen controls
+
+The original operations guide (pp. 6/E, 29/E, 31/E) documents 256 and 512 KB
+versions and upgrading 256 to 512 KB with a memory expansion board. Both RAM
+choices are therefore documented, not merely an observed emulator option.
+
+View > Screen controls provides live LCD contrast and Restore defaults.
+This reflective panel has no backlight. Its physical speaker volume and
+ON/OFF switch are documented but are not implemented by this screen tool.
+The optical curve is approximate; no guest registers or timing change.
+Settings are saved per VM/monitor. This is not a generic CRT contrast filter.
+
 ## Firmware
 
 The locally tested image identifies as system BIOS 1.08 and is dated

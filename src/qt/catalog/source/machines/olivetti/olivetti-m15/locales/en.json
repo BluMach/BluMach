@@ -1,9 +1,10 @@
 {
-  "product.olivetti-m15.technical.expansion_options": "Documented options include a self-powered external 5.25-inch floppy unit and RS-232C/Centronics peripherals. Battery, AC supply and carrying case are accessories. Current profiles offer 256/512 KB, two internal drives and the speaker; no ISA sound cards. External floppy routing and wider peripheral support remain pending. The common-bus connector does not establish compatibility with a particular card.",
+  "product.olivetti-m15.technical.screen_controls": "Original controls: contrast, speaker volume and speaker ON/OFF. View \u2192 Screen controls simulates LCD contrast live; there is no backlight on this reflective panel. Colours are approximate, not calibrated. The dedicated speaker controls are not reproduced by the screen tool.",
+  "product.olivetti-m15.technical.expansion_options": "Documented options include a self-powered external 5.25-inch floppy unit and RS-232C/Centronics peripherals. Battery, AC supply and carrying case are accessories. Current profiles offer 256/512 KB, two internal drives and the speaker; no ISA sound cards. External floppy routing and wider peripheral support remain pending. The common-bus connector does not establish compatibility with a particular card. The guide documents upgrading 256 to 512 KB with a memory board.",
   "product.olivetti-m15.summary": "1987 80C88 portable with a detachable keyboard, two 720 KB drives and a fixed green LCD. A functional experimental model is available.",
   "product.olivetti-m15.history": "The M15 is a distinct Olivetti portable, not an M19 or an M15 Plus. Its documented base configuration has 512 KB, two internal 3.5-inch drives and no hard disk. The fixed LCD is the machine's only display: the M15 has no external video output. BluMach runs BIOS 1.08, Resident Diagnostics and the official Starter Kit tutorial while keeping uncertain board-level behavior explicit.",
   "product.olivetti-m15.warning": "EXPERIMENTAL: the documented tests belong to the earlier pilot. This updated build still needs interactive regression testing. No add-on sound cards are supported; the internal speaker remains. Hardware approximations and unverified peripherals are described below.",
-  "product.olivetti-m15.creation.memory.256": "256 KB — observed and validated",
+  "product.olivetti-m15.creation.memory.256": "256 KB \u2014 documented configuration",
   "product.olivetti-m15.creation.memory.512": "512 KB — documented and validated commercial baseline",
   "product.olivetti-m15.creation.model": "M15 portable (1987), fixed green LCD and two internal 720 KB drives",
   "product.olivetti-m15.creation.note": "The documented external 5.25-inch floppy unit is outside this pilot; only the two internal drives are created. Audio uses the internal speaker; no ISA sound cards are offered.",
@@ -14,7 +15,7 @@
   "product.olivetti-m15.technical.implementation": "A public engineering note records how firmware disassembly, diagnostics and rejected hypotheses produced this experimental compatibility model; it distinguishes modeled behavior from the original board.",
   "product.olivetti-m15.technical.status": "The pilot passes POST and Resident Diagnostics, boots a 720 KB M15 disk at 256 and 512 KB, supports both resets, and runs the official Starter Kit graphical tutorial. Text and both documented graphics resolutions were visually validated.",
   "product.olivetti-m15.technical.limitations": "Four green levels approximate RGBI luminance rather than the panel's physical response. BIOS supplies glyphs 00h–7Fh; 80h–FFh retain a generic CP437 fallback. Keyboard, UART, FDC and LPT use compatible devices, the RTC is a functional MSM6242 model, and Hitachi custom logic remains unmapped.",
-  "product.olivetti-m15.source.manual": "M15 Installation and Operations Guide index (Olivrea)",
+  "product.olivetti-m15.source.manual": "Olivetti M15 Installation and Operations Guide (English scan)",
   "product.olivetti-m15.source.internals": "M15 internal photographs and identified modules (Old Crap Vintage Computing, 2024)",
   "product.olivetti-m15.source.mame": "MAME olivm15 compatibility approximation and ROM metadata",
   "product.olivetti-m15.source.specification": "Olivetti M15 Technical Specifications (1987)"

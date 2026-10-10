@@ -94,6 +94,7 @@
         "title_key": "technical.section.emulation",
         "evidence_key": "technical.evidence.implementation",
         "entries": [
+          {"label_key": "technical.label.screen_controls", "value_key": "product.olivetti-m15.technical.screen_controls"},
           {"label_key": "technical.label.implementation_lineage", "value_key": "product.olivetti-m15.technical.implementation"},
           {"label_key": "technical.label.verified", "value_key": "product.olivetti-m15.technical.status"},
           {"label_key": "technical.label.limitations", "value_key": "product.olivetti-m15.technical.limitations"}
@@ -103,7 +104,7 @@
         "title_key": "technical.section.sources",
         "evidence_key": "technical.evidence.traceable",
         "entries": [
-          {"label_key": "technical.label.manual", "value_key": "product.olivetti-m15.source.manual", "url": "https://olivrea.de/handbuecher/"},
+          {"label_key": "technical.label.manual", "value_key": "product.olivetti-m15.source.manual", "url": "https://electrickery.hosting.philpem.me.uk/comp/m15/doc/M15_InstallationAndOperationsGuide.pdf"},
           {"label_key": "technical.label.video", "value_key": "product.olivetti-m15.source.internals", "url": "https://oldcrap.org/2024/04/18/olivetti-m15/"},
           {"label_key": "technical.label.firmware_evidence", "value_key": "product.olivetti-m15.source.mame", "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/pc.cpp"},
           {"label_key": "technical.label.brochure", "value_key": "product.olivetti-m15.source.specification", "url": "https://www.valoroso.it/file-share/documenti-manuali/Olivetti-M15-technical-specifications.pdf"}

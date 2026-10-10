@@ -47,6 +47,7 @@ endfunction()
 
 blumach_add_host_contract(machine-runtime-controls machine_runtime_controls_test.c)
 blumach_add_host_contract(m15-lcd-palette m15_lcd_palette_test.c)
+target_sources(m15-lcd-palette PRIVATE "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")
 blumach_add_host_contract(machine-sound-policy machine_sound_policy_test.c "${PROJECT_SOURCE_DIR}/src/machine/machine_sound_policy.c")
 blumach_add_host_contract(video-panel video_panel_test.c "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")
 blumach_add_host_contract(selected-firmware selected_firmware_test.c "${PROJECT_SOURCE_DIR}/src/device_bios.c")

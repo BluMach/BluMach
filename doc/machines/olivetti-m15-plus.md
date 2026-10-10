@@ -86,6 +86,16 @@ The historical catalogue creates either sales configuration in the common
 declarative modal. The HDU choice generates a blank 20 MB image and records the
 host-state-machine approximation visibly.
 
+## Physical screen controls
+
+The guide (pp. 2-6, 3-4) documents contrast, speaker volume and backlight ON/OFF.
+View > Screen controls offers live contrast and backlight with Restore defaults.
+OFF lowers illumination without turning off the panel; no separate physical
+brightness dial is invented. The eight-level palette and firmware stay intact.
+The visual curve is uncalibrated, and the speaker knob is outside this tool.
+Settings are saved per VM/monitor. The documented RAM remains 512 KB; no higher
+population is offered without evidence of an actual memory option.
+
 ## Firmware
 
 The locally researched image identifies as system BIOS 1.10 and carries the
