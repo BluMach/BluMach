@@ -27,6 +27,7 @@
 #include <86box/fdc_ext.h>
 #include <86box/hdc.h>
 #include <86box/video.h>
+#include <86box/video_panel.h>
 #include <86box/vid_ega.h>
 #include <86box/machine.h>
 
@@ -57,6 +58,7 @@ typedef struct t5100_t {
     uint64_t      unlocked_sequence;
     uint32_t      plasma16[256];
     uint32_t      plasma64[256];
+    uint32_t      panel_settings;
     uint8_t       kbc2_data;
     uint8_t       kbc2_status;
     int           external_display;
@@ -404,9 +406,10 @@ t5100_plasma_color(unsigned code)
 static void
 t5100_plasma_palette(t5100_t *dev)
 {
+    dev->panel_settings = video_panel_settings(0);
     for (unsigned color = 0; color < 256; color++)
         dev->plasma16[color] = dev->plasma64[color] =
-            t5100_plasma_color(color);
+            video_panel_adjust(t5100_plasma_color(color), dev->panel_settings, VIDEO_PANEL_PLASMA);
     dev->ega.output_palette16 = dev->plasma16;
     dev->ega.output_palette64 = dev->plasma64;
     dev->ega.pallook = dev->ega.vres ? dev->plasma16 : dev->plasma64;
@@ -445,10 +448,12 @@ t5100_apply_display(t5100_t *dev)
     extern uint32_t pallook16[256], pallook64[256];
 
     if (dev->external_display) {
+        video_panel_set_active(0, 0);
         dev->ega.output_palette16 = NULL;
         dev->ega.output_palette64 = NULL;
         dev->ega.pallook = dev->ega.vres ? pallook16 : pallook64;
     } else {
+        video_panel_set_active(0, 1);
         t5100_plasma_palette(dev);
     }
     ega_recalctimings(&dev->ega);
@@ -564,6 +569,17 @@ t5100_sample(void *priv)
               ram[0x449], ram[0x413] | (ram[0x414] << 8), dev->post_code);
 }
 
+static void t5100_panel_poll(void *priv)
+{
+    ega_t *ega = priv;
+    t5100_t *dev = ega->priv_parent;
+    if (!dev->external_display && dev->panel_settings != video_panel_settings(0)) {
+        t5100_plasma_palette(dev);
+        ega->fullchange = changeframecount;
+    }
+    ega_poll(priv);
+}
+
 static void *
 t5100_init(const device_t *info)
 {
@@ -602,6 +618,8 @@ t5100_init(const device_t *info)
         free(dev);
         return NULL;
     }
+    video_panel_register(0, VIDEO_PANEL_PLASMA, VIDEO_PANEL_CONTRAST | VIDEO_PANEL_BRIGHTNESS);
+    timer_set_callback(&dev->ega.timer, t5100_panel_poll);
     mem_mapping_add(&dev->ega.mapping, 0xa0000, 0x20000,
                     t5100_video_read, NULL, NULL,
                     t5100_video_write, NULL, NULL,
@@ -654,6 +672,7 @@ t5100_close(void *priv)
 {
     t5100_t *dev = priv;
     machine_runtime_controls_clear(t5100_runtime_controls);
+    video_panel_unregister(0);
     atomic_store(&t5100_display_active, -1);
     atomic_store(&t5100_fn_notification, 0);
     if (dev->trace)
