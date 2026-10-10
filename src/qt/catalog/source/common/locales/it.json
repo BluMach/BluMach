@@ -205,5 +205,6 @@
   "panel.plasma": "Pannello al plasma arancione",
   "panel.inactive": "Il pannello interno \u00e8 attualmente disattivato.",
   "panel.unavailable": "Nessun pannello interno regolabile disponibile.",
-  "panel.approximation": "Approssimazione visiva dei comandi originali, non una simulazione fisica calibrata. Le impostazioni sono salvate con questa macchina."
+  "panel.approximation": "Approssimazione visiva dei comandi originali, non una simulazione fisica calibrata. Le impostazioni sono salvate con questa macchina.",
+  "technical.label.screen_controls": "Comandi dello schermo"
 }
