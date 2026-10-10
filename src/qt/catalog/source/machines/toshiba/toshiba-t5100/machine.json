@@ -10,6 +10,7 @@
     "history_key": "product.toshiba-t5100.history",
     "warning_key": "product.toshiba-t5100.warning",
     "status": "experimental",
+    "visible": true,
     "period": "1987–1988",
     "aliases": [],
     "tags": [
@@ -56,6 +57,11 @@
         "Original 32 KB AGS ROM (not preserved)"
       ],
       "required": true,
+      "required_files": [
+        "machines/t5100/Toshiba T5100 - BIOS ROM - V2.30 - EVEN - 042F - 27C256.bin",
+        "machines/t5100/Toshiba T5100 - BIOS ROM - V2.30 - ODD - 043F - 27C256.bin",
+        "video/ega/ibm_6277356_ega_card_u44_27128.bin"
+      ],
       "identity_note": "Local Toshiba V2.30 system ROMs and the identified IBM EGA compatibility ROM are required. The compatibility ROM is adapted in memory and is not Toshiba firmware."
     },
     "storage": {
@@ -149,6 +155,13 @@
           "section": "Video",
           "values": {
             "gfxcard": "internal"
+          }
+        },
+        {
+          "section": "Sound",
+          "values": {
+            "sndcard": "none",
+            "mpu401_standalone": 0
           }
         },
         {
