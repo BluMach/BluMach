@@ -31,6 +31,16 @@ uint32_t video_panel_settings(int m)
     unsigned value = valid(m) ? atomic_load(&settings[m]) : 0;
     return value & (1U << 24) ? value & 0x1ffffU : DEFAULT_SETTINGS;
 }
+uint32_t video_panel_render_settings(int m)
+{
+    unsigned value = video_panel_settings(m), d = video_panel_description(m);
+    /* Keep stored settings when a VM changes device, but never apply an
+       unsupported knob to its new panel. Inactive panels retain the values. */
+    if (!(d & VIDEO_PANEL_CONTRAST)) value = (value & ~127U) | 50U;
+    if (!(d & VIDEO_PANEL_BRIGHTNESS)) value = (value & ~(127U << 8)) | (50U << 8);
+    if (!(d & VIDEO_PANEL_BACKLIGHT)) value |= 1U << 16;
+    return value;
+}
 void video_panel_load(int m, int contrast, int brightness, int backlight)
 {
     if (valid(m)) atomic_store(&settings[m], (1U << 24) |

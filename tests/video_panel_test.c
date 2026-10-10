@@ -37,6 +37,10 @@ int main(void)
     assert(video_panel_adjust(0xffe06018U, video_panel_settings(1), VIDEO_PANEL_PLASMA) == 0xff70300cU);
     assert(video_panel_adjust(0xff000000U, video_panel_settings(1), VIDEO_PANEL_PLASMA) == 0xff000000U);
     assert(video_panel_adjust(0xff123456U, video_panel_settings(1), VIDEO_PANEL_NONE) == 0xff123456U);
+    video_panel_register(1, VIDEO_PANEL_PLASMA, VIDEO_PANEL_CONTRAST);
+    video_panel_load(1, 50, 100, 0);
+    assert(video_panel_get(1, VIDEO_PANEL_BRIGHTNESS) == 100); /* Stored, not erased. */
+    assert(video_panel_adjust(0xffe06018U, video_panel_render_settings(1), VIDEO_PANEL_PLASMA) == 0xffe06018U);
     video_panel_load(1, -100, 500, 0);
     assert(video_panel_get(1, VIDEO_PANEL_CONTRAST) == 50 && video_panel_get(1, VIDEO_PANEL_BRIGHTNESS) == 50);
     return 0;

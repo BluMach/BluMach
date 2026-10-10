@@ -17,6 +17,7 @@ void video_panel_unregister(int monitor);
 void video_panel_set_active(int monitor, int active);
 unsigned video_panel_description(int monitor);
 uint32_t video_panel_settings(int monitor);
+uint32_t video_panel_render_settings(int monitor);
 void video_panel_load(int monitor, int contrast, int brightness, int backlight);
 int video_panel_set(int monitor, unsigned control, int value);
 int video_panel_get(int monitor, unsigned control);
