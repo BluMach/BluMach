@@ -96,9 +96,14 @@ uint32_t video_panel_adjust(uint32_t colour, uint32_t state, int kind)
             else if (c > 50) channels[i] = mix(channels[i], dark[i], (c - 50U) * 2U);
             if (!(state & (1U << 16))) channels[i] = channels[i] * 55U / 100U;
         } else {
-            /* Plasma is emissive, not backlit. Contrast and brightness retain
-               the orange hue and keep black black. Neutral is bit-identical. */
-            unsigned value = channels[i] * c * b / 2500U;
+            /* Distinct controls: contrast changes separation around an
+               orange midpoint; brightness scales emission afterwards. Both
+               neutral values are bit-identical to the original palette. */
+            const int midpoint[3] = { 128, 64, 24 };
+            int contrasted = ((int)channels[i] - midpoint[i]) * (int)c / 50 + midpoint[i];
+            if (contrasted < 0) contrasted = 0;
+            if (contrasted > 255) contrasted = 255;
+            unsigned value = (unsigned)contrasted * b / 50U;
             channels[i] = value > 255 ? 255 : value;
         }
     }
