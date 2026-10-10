@@ -486,6 +486,11 @@ WindowsRawInputFilter::handle_input(HRAWINPUT input)
 void
 WindowsRawInputFilter::keyboard_handle(PRAWINPUT raw)
 {
+    /* Tool windows can share activation with their owner on Windows. The
+       physical screen controls must never inject their arrows into a guest. */
+    if (auto *active = QApplication::activeWindow()) {
+        if (active->property("blumachPanelControls").toBool()) return;
+    }
     RAWKEYBOARD rawKB = raw->data.keyboard;
 
     if (!qt_osd_is_visible())
