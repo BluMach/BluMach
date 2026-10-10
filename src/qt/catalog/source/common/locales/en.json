@@ -199,5 +199,15 @@
   "firmware.invalid_memory_choice": "%1 MB — unsupported; choose a supported value",
   "firmware.invalid_bios_choice": "%1 — unavailable; choose a BIOS",
   "firmware.choose_available_bios": "Choose an available BIOS before saving. The configuration has not been changed.",
-  "configuration.file_filter": "BluMach configuration (blumach.cfg);;Previous configuration (86box.cfg);;Configuration files (*.cfg)"
+  "configuration.file_filter": "BluMach configuration (blumach.cfg);;Previous configuration (86box.cfg);;Configuration files (*.cfg)",
+  "panel.menu": "Screen controls\u2026",
+  "panel.contrast": "Contrast",
+  "panel.brightness": "Brightness",
+  "panel.backlight": "Backlight",
+  "panel.restore": "Restore defaults",
+  "panel.lcd": "LCD panel",
+  "panel.plasma": "Orange plasma panel",
+  "panel.inactive": "The internal panel is currently inactive.",
+  "panel.unavailable": "No adjustable internal panel is available.",
+  "panel.approximation": "Visual approximation of the original controls; not a calibrated physical simulation. Changes are saved with this machine."
 }
