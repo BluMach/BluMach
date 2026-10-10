@@ -76,7 +76,7 @@ class CatalogBuilderTests(unittest.TestCase):
         self.assertEqual({"olivetti", "toshiba"}, visible_manufacturers)
         self.assertEqual({"olivetti-pcs", "toshiba-t-series"}, visible_families)
         self.assertEqual(
-            {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx", "toshiba-t3200", "toshiba-t5200"},
+            {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx", "toshiba-t3200", "toshiba-t5100", "toshiba-t5200"},
             visible_products,
         )
 

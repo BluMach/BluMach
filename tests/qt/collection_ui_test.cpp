@@ -110,10 +110,10 @@ private slots:
         BluMachCatalog catalog;
         QString error;
         QVERIFY2(catalog.load(&error), qPrintable(error));
-        for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx", "t3200", "t5200" })
+        for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx", "t3200", "t5100", "t5200" })
             QVERIFY(catalog.isMachineSelectable(QString::fromLatin1(id), true));
         for (const auto &id : { "olivetti_m15", "olivetti_m250", "olivetti_pcs286s",
-                                "t5100", "sx386m", "pc5286",
+                                "sx386m", "pc5286",
                                 "ta_dario286", "ta_dario386sx", "olivetti_ba2142",
                                 "olivetti_m240", "olivetti_m211v", "olivetti_m290sp" })
             QVERIFY(!catalog.isMachineSelectable(QString::fromLatin1(id), true));
