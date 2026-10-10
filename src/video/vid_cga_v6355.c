@@ -684,7 +684,7 @@ v6355_render_process(v6355_t *v6355, int line)
 
     /* Now render the 640 pixels to the display buffer */
     if (v6355->lcd_panel) {
-        uint32_t settings = video_panel_settings(v6355->panel_monitor);
+        uint32_t settings = video_panel_render_settings(v6355->panel_monitor);
         if (v6355->lcd_levels != 8) settings |= (1U << 16); /* Reflective: no backlight. */
         if (settings != v6355->panel_settings) {
             for (unsigned i = 0; i < 16; ++i)
