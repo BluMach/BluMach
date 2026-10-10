@@ -26,6 +26,7 @@
 #include <86box/fdc_ext.h>
 #include <86box/hdc.h>
 #include <86box/video.h>
+#include <86box/video_panel.h>
 #include <86box/vid_ega.h>
 #include <86box/machine.h>
 
@@ -64,6 +65,8 @@ typedef struct t3200_t {
     int last_display_request;
     uint32_t plasma16[256];
     uint32_t plasma64[256];
+    uint32_t panel_settings;
+    int panel_fitted;
     pc_timer_t sample_timer;
 } t3200_t;
 
@@ -160,8 +163,10 @@ t3200_plasma_color(unsigned code)
 static void
 t3200_plasma_palette(t3200_t *dev)
 {
+    dev->panel_settings = video_panel_settings(0);
     for (unsigned c = 0; c < 256; c++) {
-        dev->plasma16[c] = dev->plasma64[c] = t3200_plasma_color(c);
+        dev->plasma16[c] = dev->plasma64[c] = video_panel_adjust(
+            t3200_plasma_color(c), dev->panel_settings, VIDEO_PANEL_PLASMA);
     }
     dev->ega.output_palette16 = dev->plasma16;
     dev->ega.output_palette64 = dev->plasma64;
@@ -420,12 +425,24 @@ t3200_video_out(uint16_t port, uint8_t val, void *priv)
 #ifndef T3200_CALLBACK_TEST
 /* Platform construction is excluded only from the isolated callback test;
    the production build and firmware run exercise it normally. */
+static void t3200_panel_poll(void *priv)
+{
+    ega_t *ega = priv;
+    t3200_t *dev = ega->priv_parent;
+    if (!dev->external_display && dev->panel_fitted &&
+        dev->panel_settings != video_panel_settings(0)) {
+        t3200_plasma_palette(dev);
+        ega->fullchange = changeframecount;
+    }
+    ega_poll(priv);
+}
 void t3200_display_commit(int external)
 {
     t3200_t *dev = t3200_platform;
     if (!dev) return;
     extern uint32_t pallook16[256], pallook64[256];
     dev->external_display = !!external;
+    video_panel_set_active(0, !external && machine_get_config_int("provisional_plasma"));
     atomic_store(&t3200_display_active, !!external);
     if (!external && machine_get_config_int("provisional_plasma"))
         t3200_plasma_palette(dev);
@@ -529,12 +546,17 @@ t3200_init(const device_t *info)
     dev->trace = machine_get_config_int("trace");
     dev->provisional_50 = machine_get_config_int("provisional_50");
     dev->provisional_display = machine_get_config_int("provisional_display");
+    dev->panel_fitted = machine_get_config_int("provisional_plasma");
     memset(dev->sram, 0xff, sizeof(dev->sram));
     video_inform(VIDEO_FLAG_TYPE_SPECIAL, &t3200_video_timing);
     ega_set_type(&dev->ega, EGA_TOSHIBA);
     dev->ega.priv_parent = dev;
     dev->ega.timing_override = t3200_recalctimings;
     ega_init(&dev->ega, 9, 0);
+    /* The manual describes one combined contrast/brightness dial. */
+    if (dev->panel_fitted)
+        video_panel_register(0, VIDEO_PANEL_PLASMA, VIDEO_PANEL_BRIGHTNESS);
+    timer_set_callback(&dev->ega.timer, t3200_panel_poll);
     t3200_platform = dev;
     atomic_store(&t3200_display_target, 0);
     atomic_store(&t3200_extension_target, 0);
@@ -590,6 +612,7 @@ t3200_close(void *priv)
 {
     t3200_t *dev = priv;
     machine_runtime_controls_clear(t3200_runtime_controls);
+    video_panel_unregister(0);
     atomic_store(&t3200_display_active, -1);
     monitors[0].mon_pixel_height_ratio = 0.0;
     t3200_platform = NULL;

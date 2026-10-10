@@ -53,6 +53,7 @@ blumach_add_host_contract(video-panel video_panel_test.c "${PROJECT_SOURCE_DIR}/
 blumach_add_host_contract(selected-firmware selected_firmware_test.c "${PROJECT_SOURCE_DIR}/src/device_bios.c")
 blumach_add_host_contract(toshiba-aform-slot toshiba_aform_slot_test.c)
 blumach_add_host_contract(t5100-platform t5100_platform_test.c)
+target_sources(t5100-platform PRIVATE "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")
 blumach_enable_dead_code_elimination(t5100-platform)
 
 blumach_add_host_contract(t5200-display-hotkey t5200_display_hotkey_test.c)
@@ -71,3 +72,4 @@ blumach_add_host_contract(t3200-ags
     "${PROJECT_SOURCE_DIR}/src/io.c"
 )
 blumach_enable_dead_code_elimination(t3200-ags)
+target_sources(t3200-ags PRIVATE "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")

@@ -1,4 +1,5 @@
 {
+  "product.toshiba-t5100.technical.screen_controls": "O manual documenta contraste e brilho do plasma laranja de quatro n\u00edveis. Ver \u2192 Ecr\u00e3 oferece ambos no painel interno, com restaura\u00e7\u00e3o dos valores. O RGB externo n\u00e3o muda. Plasma emissivo, sem retroilumina\u00e7\u00e3o LCD; curvas aproximadas, n\u00e3o calibradas.",
   "product.toshiba-t5100.creation.fact0": "Intel 80386DX / 16 MHz",
   "product.toshiba-t5100.creation.fact1": "2 MB validados; configuração opcional de 4 MB ainda não modelada",
   "product.toshiba-t5100.creation.fact2": "Disco IDE vazio de 40 MB com perfil CP-3044, 980/5/17, tipo 7 do Setup",

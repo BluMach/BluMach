@@ -233,6 +233,7 @@
         "title_key": "technical.section.emulation",
         "evidence_key": "technical.evidence.implementation",
         "entries": [
+          {"label_key": "technical.label.screen_controls", "value_key": "product.toshiba-t5100.technical.screen_controls"},
           {
             "label_key": "technical.label.verified",
             "value_key": "product.toshiba-t5100.technical.verified"

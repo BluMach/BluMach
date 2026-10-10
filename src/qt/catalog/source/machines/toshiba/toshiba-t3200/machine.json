@@ -279,6 +279,7 @@
       {
         "title_key": "technical.section.emulation",
         "entries": [
+          {"label_key": "technical.label.screen_controls", "value_key": "product.toshiba-t3200.technical.screen_controls"},
           {
             "label_key": "technical.label.limitations",
             "value_key": "product.toshiba-t3200.technical.validation"
