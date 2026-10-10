@@ -2,6 +2,7 @@
   "order": 130,
   "family": {
     "id": "toshiba-t-series",
+    "visible": true,
     "manufacturer_id": "toshiba",
     "parent_family_id": "",
     "name": "T-series",

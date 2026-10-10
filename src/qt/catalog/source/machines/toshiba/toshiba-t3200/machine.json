@@ -2,6 +2,7 @@
   "order": 290,
   "machine": {
     "id": "toshiba-t3200",
+    "visible": true,
     "manufacturer_id": "toshiba",
     "family_id": "toshiba-t-series",
     "platform_id": "toshiba-t3200-platform",
@@ -51,6 +52,7 @@
       "interfaces": "AT-compatible serial/parallel; Toshiba keyboard behavior incomplete"
     },
     "firmware": {
+      "required_files": ["machines/t3200/IC22_033E.BIN", "machines/t3200/IC24_034E.BIN", "machines/t3200/AGS_IC8_035C.BIN"],
       "known_sets": [
         "System BIOS 4.61 (pilot)",
         "System BIOS 4.20B (preserved)",
@@ -173,6 +175,7 @@
       ],
       "generated_files": [],
       "configuration": [
+      {"section": "Sound", "values": {"sndcard": "none", "sndcard2": "none", "sndcard3": "none", "sndcard4": "none", "mpu401_standalone": 0}},
         {
           "section": "General",
           "values": {
