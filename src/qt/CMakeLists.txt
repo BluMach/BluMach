@@ -341,6 +341,8 @@ add_library(ui STATIC
     qt_iconindicators.hpp
     qt_iconindicators.cpp
     qt_cgasettingsdialog.hpp
+    qt_panelcontrols.hpp
+    qt_panelcontrols.cpp
     qt_cgasettingsdialog.cpp
     qt_cgasettingsdialog.ui
 )

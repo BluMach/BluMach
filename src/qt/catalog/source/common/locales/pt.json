@@ -195,5 +195,15 @@
   "firmware.invalid_memory_choice": "%1 MB — não suportados; escolhe um valor válido",
   "firmware.invalid_bios_choice": "%1 — indisponível; escolhe um BIOS",
   "firmware.choose_available_bios": "Escolhe um BIOS disponível antes de guardar. A configuração não foi alterada.",
-  "configuration.file_filter": "Configuração BluMach (blumach.cfg);;Configuração anterior (86box.cfg);;Ficheiros de configuração (*.cfg)"
+  "configuration.file_filter": "Configuração BluMach (blumach.cfg);;Configuração anterior (86box.cfg);;Ficheiros de configuração (*.cfg)",
+  "panel.menu": "Ecr\u00e3\u2026",
+  "panel.contrast": "Contraste",
+  "panel.brightness": "Brilho",
+  "panel.backlight": "Retroilumina\u00e7\u00e3o",
+  "panel.restore": "Restaurar valores",
+  "panel.lcd": "Painel LCD",
+  "panel.plasma": "Painel de plasma laranja",
+  "panel.inactive": "O painel interno est\u00e1 atualmente desativado.",
+  "panel.unavailable": "N\u00e3o existe um painel interno ajust\u00e1vel dispon\u00edvel.",
+  "panel.approximation": "Aproxima\u00e7\u00e3o visual dos controlos originais, n\u00e3o uma simula\u00e7\u00e3o f\u00edsica calibrada. Os ajustes s\u00e3o guardados com esta m\u00e1quina."
 }

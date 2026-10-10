@@ -86,6 +86,7 @@
 #include <86box/midi.h>
 #include <86box/snd_mpu401.h>
 #include <86box/video.h>
+#include <86box/video_panel.h>
 #include <86box/path.h>
 #include <86box/plat.h>
 #include <86box/plat_dir.h>
@@ -413,6 +414,10 @@ load_monitor(int monitor_index)
     sprintf(temp, "%i, %i, %i, %i", cx, cy, cw, ch);
 
     cat = ini_find_section(config, name);
+
+    video_panel_load(monitor_index, ini_section_get_int(cat, "panel_contrast", 50),
+                     ini_section_get_int(cat, "panel_brightness", 50),
+                     ini_section_get_int(cat, "panel_backlight", 1));
 
     p = ini_section_get_string(cat, "window_coordinates", temp);
 
@@ -3168,6 +3173,15 @@ save_monitor(int monitor_index)
 
     snprintf(name, sizeof(name), "Monitor #%i", monitor_index + 1);
     cat = ini_find_or_create_section(config, name);
+
+    const char *panel_keys[] = { "panel_contrast", "panel_brightness", "panel_backlight" };
+    const unsigned panel_controls[] = { VIDEO_PANEL_CONTRAST, VIDEO_PANEL_BRIGHTNESS, VIDEO_PANEL_BACKLIGHT };
+    const int panel_defaults[] = { 50, 50, 1 };
+    for (unsigned i = 0; i < 3; ++i) {
+        const int value = video_panel_get(monitor_index, panel_controls[i]);
+        if (value == panel_defaults[i]) ini_section_delete_var(cat, panel_keys[i]);
+        else ini_section_set_int(cat, panel_keys[i], value);
+    }
 
     if (window_remember) {
         sprintf(temp, "%i, %i, %i, %i", ms->mon_window_x, ms->mon_window_y,
