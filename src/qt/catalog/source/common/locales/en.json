@@ -209,5 +209,6 @@
   "panel.plasma": "Orange plasma panel",
   "panel.inactive": "The internal panel is currently inactive.",
   "panel.unavailable": "No adjustable internal panel is available.",
-  "panel.approximation": "Visual approximation of the original controls; not a calibrated physical simulation. Changes are saved with this machine."
+  "panel.approximation": "Visual approximation of the original controls; not a calibrated physical simulation. Changes are saved with this machine.",
+  "technical.label.screen_controls": "Screen controls"
 }

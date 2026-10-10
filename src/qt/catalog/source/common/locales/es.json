@@ -209,5 +209,6 @@
   "panel.plasma": "Panel de plasma naranja",
   "panel.inactive": "El panel interno est\u00e1 desactivado en este momento.",
   "panel.unavailable": "No hay un panel interno ajustable disponible.",
-  "panel.approximation": "Aproximaci\u00f3n visual de los mandos originales; no es una simulaci\u00f3n f\u00edsica calibrada. Los ajustes se guardan con esta m\u00e1quina."
+  "panel.approximation": "Aproximaci\u00f3n visual de los mandos originales; no es una simulaci\u00f3n f\u00edsica calibrada. Los ajustes se guardan con esta m\u00e1quina.",
+  "technical.label.screen_controls": "Mandos de pantalla"
 }

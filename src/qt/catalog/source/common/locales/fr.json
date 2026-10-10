@@ -209,5 +209,6 @@
   "panel.plasma": "\u00c9cran plasma orange",
   "panel.inactive": "L\u2019\u00e9cran interne est actuellement d\u00e9sactiv\u00e9.",
   "panel.unavailable": "Aucun \u00e9cran interne r\u00e9glable n\u2019est disponible.",
-  "panel.approximation": "Approximation visuelle des commandes d\u2019origine, sans simulation physique \u00e9talonn\u00e9e. Les r\u00e9glages sont enregistr\u00e9s avec cette machine."
+  "panel.approximation": "Approximation visuelle des commandes d\u2019origine, sans simulation physique \u00e9talonn\u00e9e. Les r\u00e9glages sont enregistr\u00e9s avec cette machine.",
+  "technical.label.screen_controls": "Commandes de l\u2019\u00e9cran"
 }
