@@ -269,7 +269,11 @@ private slots:
             "Collection d’ordinateurs historiques", "Collezione di computer storici", "Coleção de computadores históricos" };
         QCOMPARE(widget.findChild<QLabel *>("blumachCollectionHeading")->text(), headings[locale]);
         QCOMPARE(widget.width(), width);
-        QCOMPARE(tree->topLevelItemCount(), 1);
+        QCOMPARE(tree->topLevelItemCount(), 2);
+        QSet<QString> visibleBrands;
+        for (int i = 0; i < tree->topLevelItemCount(); ++i)
+            visibleBrands.insert(tree->topLevelItem(i)->data(0, Qt::UserRole).toString());
+        QCOMPARE(visibleBrands, (QSet<QString>{ QStringLiteral("olivetti"), QStringLiteral("toshiba") }));
         auto *brand = tree->topLevelItem(0);
         auto *family = catalogueItem(tree, QStringLiteral("olivetti-pcs"));
         QVERIFY(family && family->parent() == brand);
