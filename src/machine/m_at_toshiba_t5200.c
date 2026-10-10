@@ -105,10 +105,11 @@ static const device_config_t t5200_config[] = {
                 .name          = "Award V1.30 (1988)",
                 .internal_name = "award_v130",
                 .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
+                .files_no      = 2,
                 .local         = 0,
                 .size          = 131072,
-                .files         = { "roms/machines/t5200/t5200-award-v130.bin", "" }
+                .files         = { "roms/machines/t5200/t5200-award-v130.bin",
+                                   "roms/machines/t5200/t5200-vga-1988.bin" }
             },
             { .files_no = 0 }
         }

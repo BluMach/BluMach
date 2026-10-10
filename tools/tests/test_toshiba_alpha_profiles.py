@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 import sys
+import re
 import unittest
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
@@ -33,6 +34,8 @@ class ToshibaAlphaProfiles(unittest.TestCase):
     def test_firmware_sets_are_identified_without_bytes(self):
         self.assertEqual(['machines/t3200/IC22_033E.BIN','machines/t3200/IC24_034E.BIN','machines/t3200/AGS_IC8_035C.BIN'],self.products['toshiba-t3200']['firmware']['required_files'])
         self.assertEqual(['machines/t5200/t5200-award-v130.bin','machines/t5200/t5200-vga-1988.bin'],self.products['toshiba-t5200']['firmware']['required_files'])
+        source=(ROOT/'src/machine/m_at_toshiba_t5200.c').read_text(encoding='utf-8')
+        self.assertRegex(source, r'\.files_no\s*=\s*2,\s*\.local\s*=\s*0,\s*\.size\s*=\s*131072,\s*\.files\s*=\s*\{\s*"roms/machines/t5200/t5200-award-v130.bin",\s*"roms/machines/t5200/t5200-vga-1988.bin"')
     def test_disk_images_are_not_created_implicitly(self):
         for model in ['toshiba-t3200','toshiba-t5200']:
             self.assertEqual([],self.products[model]['creation']['generated_files'])
