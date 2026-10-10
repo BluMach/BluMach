@@ -2,6 +2,7 @@
   "order": 50,
   "manufacturer": {
     "id": "toshiba",
+    "visible": true,
     "name": "Toshiba",
     "description_key": "manufacturer.toshiba.description",
     "history_key": "manufacturer.toshiba.history",

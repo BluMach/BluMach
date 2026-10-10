@@ -152,10 +152,10 @@ private slots:
         QString error;
         QVERIFY2(catalog.load(&error), qPrintable(error));
         for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx",
-                                "olivetti_m15", "olivetti_m15plus" })
+                                "olivetti_m15", "olivetti_m15plus", "t3200", "t5200" })
             QVERIFY(catalog.isMachineSelectable(QString::fromLatin1(id), true));
         for (const auto &id : { "olivetti_m250", "olivetti_pcs286s",
-                                "t3200", "t5100", "t5200", "sx386m", "pc5286",
+                                "t5100", "sx386m", "pc5286",
                                 "ta_dario286", "ta_dario386sx", "olivetti_ba2142",
                                 "olivetti_m240", "olivetti_m211v", "olivetti_m290sp" })
             QVERIFY(!catalog.isMachineSelectable(QString::fromLatin1(id), true));
@@ -167,6 +167,30 @@ private slots:
         BluMachCatalog unloaded;
         QVERIFY(!unloaded.isMachineSelectable(QStringLiteral("olivetti_pcs86"), true));
         QVERIFY(unloaded.isMachineSelectable(QStringLiteral("ibmxt"), false));
+    }
+
+    void toshibaCandidatesCreateFromTheirOwnSheets()
+    {
+        const char *products[] = { "toshiba-t3200", "toshiba-t5200" };
+        const char *native[] = { "t3200", "t5200" };
+        for (int locale = 0; locale < locales.size(); ++locale) {
+            lang_id = locale;
+            BluMachCollectionWidget widget;
+            auto *tree = widget.findChild<QTreeWidget *>();
+            QVERIFY(tree);
+            QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
+            for (int i = 0; i < 2; ++i) {
+                auto *item = catalogueItem(tree, QString::fromLatin1(products[i]));
+                QVERIFY(item);
+                tree->setCurrentItem(item);
+                creation.clear();
+                widget.createSelectedMachine();
+                QCOMPARE(creation.count(), 1);
+                QCOMPARE(creation.at(0).at(0).toString(), QString::fromLatin1(products[i]));
+                QCOMPARE(creation.at(0).at(1).toString(), QString::fromLatin1(native[i]));
+            }
+        }
+        lang_id = 0;
     }
 
     void bundledMarks()
