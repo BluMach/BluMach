@@ -40,7 +40,13 @@ CRT is neither documented nor offered by the machine profile.
 BIOS 1.08 directly programs the CGA-compatible and V6355D extended registers.
 BluMach maps the internal controller through the firmware's colour and
 monochrome compatibility paths, mirrors its 16 KB video RAM where required,
-and converts RGBI luminance to four green levels. Characters `00h`–`7Fh` come
+and converts RGBI luminance to four green levels.
+
+The LCD presentation now reuses the approved CoreMach olive background and
+cool blue-grey/green active pixels, without pure black. This is a visual
+approximation, not a measurement of panel contrast or electrical response.
+
+Characters `00h`–`7Fh` come
 from the 8×8 glyph table in the mapped system BIOS; characters `80h`–`FFh`
 currently retain a generic CP437 fallback.
 

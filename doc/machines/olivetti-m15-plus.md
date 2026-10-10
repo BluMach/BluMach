@@ -66,6 +66,12 @@ that observed eight-level, positive-LCD ordering; the analogue response of the
 real panel remains approximate. No external video connector is documented or
 exposed.
 
+The presentation uses eight precomputed olive/blue-grey tones derived from
+the approved CoreMach M15 palette. The diagnostic's dark-to-light code order
+is unchanged; no level uses pure black or phosphor green. The extra tones and
+shared colour family approximate appearance only, not the Plus backlight or
+its measured brightness curve. M15 and M15 Plus retain distinct level mappings.
+
 ## Recommended BluMach configuration
 
 - machine: `[8088] Olivetti M15 Plus (experimental)` (`olivetti_m15plus`);

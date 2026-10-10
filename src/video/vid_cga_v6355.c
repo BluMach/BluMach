@@ -39,6 +39,7 @@
 #include <86box/vid_cga.h>
 #include <86box/vid_cga_comp.h>
 #include <86box/plat_unused.h>
+#include "vid_m15_lcd_palette.h"
 
 /* Emulation of the Yamaha V6355 chipset. This is a CGA clone that was 
  * probably designed primarily for laptops, where the primary display was
@@ -661,37 +662,15 @@ v6355_render_blank(v6355_t *v6355, int line)
  * has this fixed internal panel from reset, however, and its BIOS emits
  * ordinary CGA POST output before programming that register. The electrical
  * panel driver and its response curve are not documented, so this is
- * deliberately a presentation approximation.  The contemporary M15 Plus
- * System Test explicitly checks BLACK, GREY1 through GREY6, and WHITE, so
- * RGBI luminance is quantised to those eight green levels rather than treated
- * as a colour CRT palette.
+ * deliberately a presentation approximation. The M15 uses its approved
+ * portable-engine olive/blue-grey palette. The M15 Plus retains the eight
+ * ordered levels checked by its diagnostic, with an approximate colour curve.
+ * This conversion is exclusive to the fixed LCD variants, never colour CRTs.
  */
 static uint32_t
 v6355_lcd_colour(const v6355_t *v6355, uint8_t index)
 {
-    static const uint8_t green4[4] = { 0x00, 0x19, 0x43, 0x78 };
-    static const uint8_t green8[8] = {
-        0x00, 0x18, 0x30, 0x48, 0x60, 0x78, 0x98, 0xb8
-    };
-    /* Codes 7,3,1,F,B,9,8,0 are the BLACK-to-WHITE sequence written by
-       the original M15 Plus LCD diagnostic.  Values for the other eight
-       RGBI codes retain an inverted-luminance approximation. */
-    static const uint8_t m15plus_level[16] = {
-        7, 2, 4, 1, 5, 4, 2, 0, 6, 5, 2, 4, 3, 2, 0, 3
-    };
-    int luminance;
-
-    index &= 0x0f;
-
-    if (v6355->lcd_levels == 8)
-        return makecol(0x00, green8[m15plus_level[index]], 0x00);
-
-    luminance = ((index & 0x04) ? 3 : 0) +
-                ((index & 0x02) ? 6 : 0) +
-                ((index & 0x01) ? 1 : 0) +
-                ((index & 0x08) ? 3 : 0);
-
-    return makecol(0x00, green4[(luminance * 3 + 6) / 13], 0x00);
+    return v6355_m15_lcd_palette_colour(v6355->lcd_levels, index);
 }
 
 static void
@@ -1234,7 +1213,7 @@ const device_t v6355d_prodest_pc1_device = {
 };
 
 /*
- * Fixed green-phosphor LCD variant for systems whose V6355D drives an
+ * Fixed reflective green LCD variant for systems whose V6355D drives an
  * internal monochrome panel. The V6355D register interface remains identical;
  * this only selects the host-side presentation of its RGBI output.
  */
