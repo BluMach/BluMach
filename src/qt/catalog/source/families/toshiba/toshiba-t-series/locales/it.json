@@ -1,3 +1,24 @@
 {
-  "family.toshiba-t-series.description": "Portatili Toshiba; il T3200 originale utilizza un 286 e uno schermo al plasma. I modelli con hardware diverso mantengono schede distinte."
+  "family.toshiba-t-series.description": "Portatili LCD e trasportabili al plasma Toshiba T, con piattaforme e varianti regionali distinte.",
+  "family.toshiba-t-series.history": "La serie T Toshiba mostra due modi di portare il personal computing fuori dalla scrivania: portatili LCD destinati alla mobilità e trasportabili che avvicinano le prestazioni desktop a una custodia con schermo integrato. I numeri non definiscono un’architettura comune né una successione lineare; varianti regionali e suffissi conservano la propria identità.\n\nL’T1100 fu commercializzato in Europa nell’aprile 1985. Compatibilità PC/XT, LCD e batteria permettevano di spostare le applicazioni d’ufficio senza implicare che i successori condividessero scheda o progetto. Il T3100 del 1986 seguì un’altra strada: 80286, disco rigido integrato e plasma, più prestazioni in un insieme assai più pesante.\n\nT3200 e T5100 proseguirono questa impostazione trasportabile. Il T3200 originale combina 286 e grafica EGA/AGS; il T5100 passa al 386 nel 1987. Il plasma arancione non è un LCD retroilluminato: emette luce propria. Comandi e conversione dei colori in intensità caratterizzano l’esperienza di ogni modello. Il T5200 aggiunge VGA e sedici livelli; T3200SX e T5200C hanno hardware differente e non sono semplici profili degli originali.\n\nLa documentazione giapponese collega T5100 e J-3100SGT senza dimostrare identità di ROM, tastiere o supporti. Manuali di servizio, date BIOS o suffissi non bastano a datare un lancio. La tabella conserva date note, periodi di riferimento e date non stabilite.\n\nIn questa alpha T3200, T5100 e T5200 hanno schede e creazione sperimentale. Ognuna espone i limiti; il T5100 usa firmware grafico di compatibilità perché manca la ROM AGS originale. Gli altri nomi forniscono contesto storico, non una promessa di emulazione disponibile.",
+  "family.toshiba-t-series.table.year": "Anno / periodo",
+  "family.toshiba-t-series.table.model": "Modello",
+  "family.toshiba-t-series.table.cpu": "CPU / generazione",
+  "family.toshiba-t-series.table.format": "Formato / schermo",
+  "family.toshiba-t-series.table.status": "Catalogo BluMach",
+  "family.toshiba-t-series.status.alpha": "Scheda e creazione sperimentale in questa alpha",
+  "family.toshiba-t-series.status.catalogue": "Scheda documentata; non proposta in questa alpha",
+  "family.toshiba-t-series.status.reference": "Riferimento storico; nessuna scheda pubblica",
+  "family.toshiba-t-series.format.desktop": "Desktop",
+  "family.toshiba-t-series.format.lcd": "Portatile · LCD",
+  "family.toshiba-t-series.format.backlit": "Portatile · LCD retroilluminato",
+  "family.toshiba-t-series.format.crt": "Trasportabile · CRT",
+  "family.toshiba-t-series.format.plasma": "Trasportabile · plasma",
+  "family.toshiba-t-series.format.compact": "Desktop compatto",
+  "family.toshiba-t-series.format.portable": "Portatile",
+  "family.toshiba-t-series.period.late80": "Fine degli anni 1980",
+  "family.toshiba-t-series.period.unknown": "Data non stabilita",
+  "family.toshiba-t-series.table.title": "Selezione di modelli in ordine cronologico",
+  "family.toshiba-t-series.table.note": "Si distinguono lanci noti e periodi di riferimento del catalogo: gli intervalli sono indicativi, non anni esatti di lancio. I modelli non datati sono in fondo. Non è un inventario completo della gamma. Un riferimento storico non implica assenza di emulazione ereditata; una riga non abilita mai la creazione della macchina.",
+  "family.toshiba-t-series.cpu.t1100": "Compatibile PC/XT"
 }
