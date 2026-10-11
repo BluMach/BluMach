@@ -58,6 +58,60 @@ static QTreeWidgetItem *catalogueItem(QTreeWidget *tree, const QString &id)
 class CollectionUiTest : public QObject {
     Q_OBJECT
 private slots:
+    void mAndTFamilyHistories()
+    {
+        for (int locale = 0; locale < locales.size(); ++locale) {
+            testSettings.clear();
+            lang_id = locale;
+            BluMachCatalog catalog;
+            QVERIFY(catalog.load());
+            for (const auto &id : { "olivetti-m", "toshiba-t-series" }) {
+                const auto *family = catalog.family(QString::fromLatin1(id));
+                QVERIFY(family);
+                BluMachCollectionWidget widget;
+                widget.resize(680, 800);
+                widget.show();
+                QCoreApplication::processEvents();
+                auto *tree = widget.findChild<QTreeWidget *>();
+                QVERIFY(tree);
+                auto *item = catalogueItem(tree, QString::fromLatin1(id));
+                QVERIFY(item);
+                tree->setCurrentItem(item);
+                auto *table = widget.findChild<QTableWidget *>("blumachFamilyComparison");
+                QVERIFY(table);
+                QCOMPARE(table->columnCount(), 5);
+                const auto rows = family->comparisonTable.value("rows").toArray();
+                QCOMPARE(table->rowCount(), rows.size());
+                QCOMPARE(table->rowCount(), QString::fromLatin1(id) == "olivetti-m" ? 24 : 9);
+                for (int row = 0; row < rows.size(); ++row) {
+                    const auto cells = rows[row].toObject().value("cells").toArray();
+                    for (int column = 0; column < 5; ++column) {
+                        const auto cell = cells[column].toObject();
+                        const auto expected = cell.contains("value_key") ? catalog.text(cell.value("value_key").toString()) : cell.value("value").toString();
+                        QCOMPARE(table->item(row, column)->text(), expected);
+                    }
+                }
+                auto *history = widget.findChild<QLabel *>("blumachFamilyHistory");
+                QVERIFY(history && history->wordWrap());
+                QCOMPARE(history->text(), catalog.text(family->historyKey));
+                QCOMPARE(widget.findChildren<QLabel *>("blumachFamilyReference").size(), family->historyReferences.size());
+                QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
+                widget.createSelectedMachine();
+                QCOMPARE(creation.count(), 0);
+                widget.grab();
+                auto *tabs = widget.findChild<QTabWidget *>();
+                auto *scroll = qobject_cast<QScrollArea *>(tabs->widget(0));
+                QVERIFY(scroll);
+                QCOMPARE(scroll->horizontalScrollBar()->maximum(), 0);
+                QTRY_VERIFY_WITH_TIMEOUT(table->horizontalScrollBar()->maximum() > 0, 1000);
+                QCOMPARE(table->verticalScrollBar()->maximum(), 0);
+                QTRY_VERIFY_WITH_TIMEOUT(history->height() >= history->heightForWidth(history->width()), 1000);
+            }
+        }
+        lang_id = 0;
+        testSettings.clear();
+    }
+
     void m15ProfilesShareRangeWithoutCollapsingModels()
     {
         for (int locale = 0; locale < locales.size(); ++locale) {

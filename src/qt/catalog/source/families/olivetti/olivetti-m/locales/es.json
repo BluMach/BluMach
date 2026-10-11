@@ -1,3 +1,27 @@
 {
-  "family.olivetti-m.description": "Modelos de Olivetti con la denominación M, agrupados en este catálogo. Reúnen ordenadores de sobremesa y portátiles de distintas épocas. Cada modelo conserva su hardware, firmware y configuraciones de venta; la agrupación no implica una única placa ni una sucesión directa entre todos los números de modelo."
+  "family.olivetti-m.description": "Sobremesas, transportables y portátiles Olivetti con denominación M: distintas arquitecturas reunidas por su nombre comercial.",
+  "family.olivetti-m.history": "La denominación M recorre varias etapas de la informática personal de Olivetti. En este catálogo agrupa equipos profesionales de sobremesa, transportables y portátiles, pero no una arquitectura única: compartir la letra no significa compartir placa, firmware ni periféricos. Tampoco el número de modelo basta para ordenar todas las máquinas como una sucesión directa.\n\nEl M20, presentado en 1982, apostó por el Zilog Z8001 y un entorno propio, PCOS. El M24, presentado en Hannover en marzo de 1984, tomó otra dirección: compatibilidad con el IBM PC, un Intel 8086 y acceso al software MS-DOS. La distribución como AT&T PC 6300 muestra cómo una plataforma Olivetti podía llegar a otros mercados con otro nombre, sin convertirse por ello en un diseño de AT&T.\n\nLa movilidad coexistió con los sobremesas. El M10 de 1983 proponía una pequeña herramienta con pantalla LCD; el M21 de 1984 llevaba un monitor integrado y teclado que cerraba sobre él, una solución transportable. El M15 de 1987 y el M15 Plus de 1988 pertenecen a otra etapa: compatibilidad PC y LCD, con un panel reflectante en el M15 y retroiluminación en el Plus. Sus configuraciones y ampliaciones no son intercambiables.\n\nLos M28, M250 y M280 ilustran la expansión de los compatibles 286, mientras el M380 y las variantes M300 representan nuevas generaciones de PC. Los sufijos y revisiones importan: el mismo nombre general puede abarcar placas y procesadores diferentes. La tabla distingue hitos históricos de los modelos investigados por BluMach. Es una selección ampliable, no el catálogo completo de Olivetti. En esta alpha las fichas M15 y M15 Plus ofrecen creación experimental; mencionar otros modelos aquí no los habilita ni certifica su emulación.",
+  "family.olivetti-m.table.year": "Año / periodo",
+  "family.olivetti-m.table.model": "Modelo",
+  "family.olivetti-m.table.cpu": "CPU / generación",
+  "family.olivetti-m.table.format": "Formato / pantalla",
+  "family.olivetti-m.table.status": "Catálogo BluMach",
+  "family.olivetti-m.status.alpha": "Ficha y creación experimental en esta alpha",
+  "family.olivetti-m.status.catalogue": "Ficha documentada; no ofrecida en esta alpha",
+  "family.olivetti-m.status.reference": "Referencia histórica; sin ficha pública",
+  "family.olivetti-m.format.desktop": "Sobremesa",
+  "family.olivetti-m.format.lcd": "Portátil · LCD",
+  "family.olivetti-m.format.backlit": "Portátil · LCD retroiluminado",
+  "family.olivetti-m.format.crt": "Transportable · CRT",
+  "family.olivetti-m.format.plasma": "Transportable · plasma",
+  "family.olivetti-m.format.compact": "Sobremesa compacto",
+  "family.olivetti-m.format.portable": "Portátil",
+  "family.olivetti-m.period.late80": "Finales de los años 1980",
+  "family.olivetti-m.period.unknown": "Fecha no establecida",
+  "family.olivetti-m.table.title": "Selección de modelos por orden cronológico",
+  "family.olivetti-m.table.note": "Se distinguen lanzamientos conocidos de periodos de referencia del catálogo: los intervalos son aproximados, no años exactos de lanzamiento. Los modelos sin fecha figuran al final. No es un inventario exhaustivo de la gama. Una referencia histórica no significa que no exista emulación heredada, y aparecer en la tabla nunca habilita crear la máquina.",
+  "family.olivetti-m.cpu.m10": "8 bits",
+  "family.olivetti-m.cpu.m21": "Compatible PC",
+  "family.olivetti-m.cpu.m30030": "x86 · 32 bits",
+  "family.olivetti-m.cpu.m30030p": "x86 · 32 bits"
 }

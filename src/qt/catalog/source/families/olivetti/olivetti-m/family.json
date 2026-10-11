@@ -6,6 +6,537 @@
     "parent_family_id": "",
     "name": "M",
     "visible": true,
-    "description_key": "family.olivetti-m.description"
+    "description_key": "family.olivetti-m.description",
+    "history_key": "family.olivetti-m.history",
+    "history_references": [
+      {
+        "title": "Un computer su ogni scrivania: la Olivetti e i primi PC",
+        "publisher": "Associazione Archivio Storico Olivetti",
+        "url": "https://www.storiaolivetti.it/articolo/65-un-computer-su-ogni-scrivania-la-olivetti-e-i-p/"
+      },
+      {
+        "title": "Lavorare dovunque: i computer portatili Olivetti",
+        "publisher": "Associazione Archivio Storico Olivetti",
+        "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
+      },
+      {
+        "title": "Prospekte Personal Computer",
+        "publisher": "Olivetti · Olivrea preservation collection",
+        "url": "https://olivrea.de/prospekte-personal-computer/"
+      }
+    ],
+    "comparison_table": {
+      "title_key": "family.olivetti-m.table.title",
+      "note_key": "family.olivetti-m.table.note",
+      "columns": [
+        {
+          "id": "year",
+          "label_key": "family.olivetti-m.table.year",
+          "minimum_width": 95
+        },
+        {
+          "id": "model",
+          "label_key": "family.olivetti-m.table.model",
+          "minimum_width": 125
+        },
+        {
+          "id": "cpu",
+          "label_key": "family.olivetti-m.table.cpu",
+          "minimum_width": 135
+        },
+        {
+          "id": "format",
+          "label_key": "family.olivetti-m.table.format",
+          "minimum_width": 155
+        },
+        {
+          "id": "status",
+          "label_key": "family.olivetti-m.table.status",
+          "minimum_width": 215
+        }
+      ],
+      "rows": [
+        {
+          "id": "m20",
+          "cells": [
+            {
+              "value": "1982"
+            },
+            {
+              "value": "M20"
+            },
+            {
+              "value": "Zilog Z8001"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m10",
+          "cells": [
+            {
+              "value": "1983"
+            },
+            {
+              "value": "M10"
+            },
+            {
+              "value_key": "family.olivetti-m.cpu.m10"
+            },
+            {
+              "value_key": "family.olivetti-m.format.lcd"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m24",
+          "cells": [
+            {
+              "value": "1984"
+            },
+            {
+              "value": "M24"
+            },
+            {
+              "value": "Intel 8086"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m21",
+          "cells": [
+            {
+              "value": "1984"
+            },
+            {
+              "value": "M21"
+            },
+            {
+              "value_key": "family.olivetti-m.cpu.m21"
+            },
+            {
+              "value_key": "family.olivetti-m.format.crt"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m28",
+          "cells": [
+            {
+              "value": "1986–1987"
+            },
+            {
+              "value": "M28"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m15",
+          "cells": [
+            {
+              "value": "1987"
+            },
+            {
+              "value": "M15"
+            },
+            {
+              "value": "Intel 80C88"
+            },
+            {
+              "value_key": "family.olivetti-m.format.lcd"
+            },
+            {
+              "value_key": "family.olivetti-m.status.alpha"
+            }
+          ]
+        },
+        {
+          "id": "m15-plus",
+          "cells": [
+            {
+              "value": "1988"
+            },
+            {
+              "value": "M15 Plus"
+            },
+            {
+              "value": "Intel 80C88"
+            },
+            {
+              "value_key": "family.olivetti-m.format.backlit"
+            },
+            {
+              "value_key": "family.olivetti-m.status.alpha"
+            }
+          ]
+        },
+        {
+          "id": "m200",
+          "cells": [
+            {
+              "value": "1988"
+            },
+            {
+              "value": "M200"
+            },
+            {
+              "value": "NEC V40"
+            },
+            {
+              "value_key": "family.olivetti-m.format.compact"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m380",
+          "cells": [
+            {
+              "value": "1988–1989"
+            },
+            {
+              "value": "M380 / M380 C"
+            },
+            {
+              "value": "Intel 80386DX"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m250",
+          "cells": [
+            {
+              "value": "1989"
+            },
+            {
+              "value": "M250"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m211",
+          "cells": [
+            {
+              "value": "1989"
+            },
+            {
+              "value": "M211"
+            },
+            {
+              "value": "Intel 80C286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.portable"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m250e",
+          "cells": [
+            {
+              "value_key": "family.olivetti-m.period.late80"
+            },
+            {
+              "value": "M250 E"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m280",
+          "cells": [
+            {
+              "value_key": "family.olivetti-m.period.late80"
+            },
+            {
+              "value": "M280"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m300-if378",
+          "cells": [
+            {
+              "value": "1990"
+            },
+            {
+              "value": "M300 · IF378"
+            },
+            {
+              "value": "Intel 80386SX"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m30002",
+          "cells": [
+            {
+              "value": "1992"
+            },
+            {
+              "value": "M300-02"
+            },
+            {
+              "value": "Intel 80386SX"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m30002f",
+          "cells": [
+            {
+              "value": "1992"
+            },
+            {
+              "value": "M300-02F"
+            },
+            {
+              "value": "Intel 80386SX"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m30008",
+          "cells": [
+            {
+              "value": "1992"
+            },
+            {
+              "value": "M300-08"
+            },
+            {
+              "value": "Intel 80386SX"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m30015",
+          "cells": [
+            {
+              "value": "1992"
+            },
+            {
+              "value": "M300-15"
+            },
+            {
+              "value": "Intel 80386SX"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m30030",
+          "cells": [
+            {
+              "value": "1992–1993"
+            },
+            {
+              "value": "M300-30"
+            },
+            {
+              "value_key": "family.olivetti-m.cpu.m30030"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m30030p",
+          "cells": [
+            {
+              "value": "1992–1993"
+            },
+            {
+              "value": "M300-30P"
+            },
+            {
+              "value_key": "family.olivetti-m.cpu.m30030p"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.catalogue"
+            }
+          ]
+        },
+        {
+          "id": "m211v",
+          "cells": [
+            {
+              "value_key": "family.olivetti-m.period.unknown"
+            },
+            {
+              "value": "M211V"
+            },
+            {
+              "value": "Intel 80C286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.portable"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m290",
+          "cells": [
+            {
+              "value_key": "family.olivetti-m.period.unknown"
+            },
+            {
+              "value": "M290"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m290s",
+          "cells": [
+            {
+              "value_key": "family.olivetti-m.period.unknown"
+            },
+            {
+              "value": "M290S"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m290-sp",
+          "cells": [
+            {
+              "value_key": "family.olivetti-m.period.unknown"
+            },
+            {
+              "value": "M290 SP"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
