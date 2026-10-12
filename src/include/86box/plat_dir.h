@@ -17,6 +17,10 @@
 #ifndef PLAT_DIR_H
 #define PLAT_DIR_H
 
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+
 /* Windows (non-MinGW) and Termux need the POSIX re-implementations */
 #if (defined(_WIN32) && !defined(__MINGW32__)) || defined(__TERMUX__)
 #    ifdef _MAX_FNAME
