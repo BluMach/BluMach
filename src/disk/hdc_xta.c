@@ -562,6 +562,9 @@ read_error:
                         if (dev->intr & DMA_ENA) {
                             /* DMA enabled. */
                             dev->buf_ptr = dev->sector_buf;
+                            /* M15 Plus BIOS waits for DMA-ready status before IRQ5. */
+                            if (dev->type == 8)
+                                dev->status |= STAT_DRQ;
                             timer_advance_u64(&dev->timer, HDC_TIME);
                         } else {
                             /* Copy from sector to data. */
@@ -653,6 +656,8 @@ do_recv:
                     if (dev->intr & DMA_ENA) {
                         /* DMA enabled. */
                         dev->buf_ptr = dev->sector_buf;
+                        if (dev->type == 8)
+                            dev->status |= STAT_DRQ;
                         timer_advance_u64(&dev->timer, HDC_TIME);
                     } else {
                         /* No DMA, do PIO. */
@@ -1166,6 +1171,24 @@ hdc_write(uint16_t port, uint8_t val, void *priv)
         case 1: /* RESET register */
             dev->sense = 0x00;
             dev->state = STATE_IDLE;
+            if (dev->type == 8) {
+                /* The M15 Plus BIOS can reset the adapter during a warm boot.
+                   Abandon the previous transfer and interrupt before it
+                   probes the HDU again.  Keep the attached image and head
+                   position, which are not controller command state. */
+                timer_disable(&dev->timer);
+                picintc(1 << dev->irq);
+                dma_m |= 1 << dev->dma;
+                dev->status = 0;
+                dev->intr = 0;
+                dev->comp = 0;
+                dev->buf_idx = 0;
+                dev->buf_len = 0;
+                dev->buf_ptr = NULL;
+                dev->count = 0;
+                ui_sb_update_icon(SB_HDD | HDD_BUS_XTA, 0);
+                ui_sb_update_icon_write(SB_HDD | HDD_BUS_XTA, 0);
+            }
             break;
 
         case 2: /* "controller-select" */

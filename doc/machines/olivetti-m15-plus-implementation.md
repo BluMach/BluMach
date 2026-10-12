@@ -110,11 +110,27 @@ output-register, CRTC-alias and autonomous RTC corrections. The dedicated
 numeric keypad are implemented from the manual and `KBD.CUS` disassembly, but
 their final original-utility run remains pending.
 
-The HDU path is a new validation rung: compilation and catalogue creation prove
-the configuration can be assembled, while the original HDU test must still
-establish command timing, DMA completion and error reporting. No original media
-is mounted writable, and proprietary firmware, manuals and disks remain outside
-Git.
+The original HDU customer-test module has passed its buffer, read, write,
+verify, seek and controller checks using a private 615/4/17 image. That result
+did not cover DOS partitioning or every BIOS wait sequence.
+
+On 2026-10-12, MS-DOS 3.20 FDISK appeared to hang after accepting the full-size
+primary partition. The controller trace showed successful sector writes but
+several seconds of BIOS waiting per sector. A live CPU sample and BIOS 1.10
+disassembly located the wait at F000:AC63: firmware polls bit 10h (DMA request)
+of port 321h before polling the completion interrupt. The reused state machine
+did not expose that bit. The M15 Plus device now asserts it when a read/write
+DMA transfer is ready; other XTA variants retain their existing status behavior.
+Controller reset cancels the pending timer, interrupt and transfer state and
+masks its DMA channel before the BIOS probes the HDU again.
+
+The owner repeated FDISK with this correction and confirmed that accepting
+the partition now continues. `tests/m15plus_hdu_test.c` exercises the actual
+controller callbacks and ports with synthetic data, including DMA/IRQ status,
+first-cylinder writes, partition-sector readback and reset recovery. Guest
+FORMAT, cold boot from an installed system, repeated warm resets and injected
+errors remain follow-up checks. Proprietary firmware and media remain local;
+destructive tests use private writable copies.
 
 ## Rejected shortcuts and replacement criteria
 

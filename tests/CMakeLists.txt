@@ -67,6 +67,14 @@ if(NOT MSVC)
     target_compile_options(t3200-mfm PRIVATE -Wno-empty-body)
 endif()
 
+blumach_add_host_contract(m15plus-hdu m15plus_hdu_test.c)
+blumach_enable_dead_code_elimination(m15plus-hdu)
+if(NOT MSVC)
+    # Including the existing XTA implementation also parses its unused legacy
+    # constructors and logging macros; keep their warning policy unchanged.
+    target_compile_options(m15plus-hdu PRIVATE -Wno-empty-body -Wno-implicit-fallthrough)
+endif()
+
 blumach_add_host_contract(t3200-ags
     t3200_ags_test.c
     "${PROJECT_SOURCE_DIR}/src/io.c"
