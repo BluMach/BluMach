@@ -2,6 +2,7 @@
   "order": 310,
   "machine": {
     "id": "toshiba-t5200",
+    "visible": true,
     "manufacturer_id": "toshiba",
     "family_id": "toshiba-t-series",
     "platform_id": "toshiba-t5200-platform",
@@ -53,6 +54,7 @@
       "interfaces": "Two serial ports, parallel/external-floppy connector and proprietary expansion"
     },
     "firmware": {
+      "required_files": ["machines/t5200/t5200-award-v130.bin", "machines/t5200/t5200-vga-1988.bin"],
       "known_sets": [
         "Award V1.30 system BIOS (1988)",
         "Toshiba VGA BIOS (1988, 24 KB)"
@@ -179,6 +181,7 @@
       ],
       "generated_files": [],
       "configuration": [
+      {"section": "Sound", "values": {"sndcard": "none", "sndcard2": "none", "sndcard3": "none", "sndcard4": "none", "mpu401_standalone": 0}},
         {
           "section": "General",
           "values": {
@@ -281,6 +284,7 @@
       {
         "title_key": "technical.section.emulation",
         "entries": [
+          {"label_key": "technical.label.screen_controls", "value_key": "product.toshiba-t5200.technical.screen_controls"},
           {
             "label_key": "technical.label.limitations",
             "value_key": "product.toshiba-t5200.technical.validation"

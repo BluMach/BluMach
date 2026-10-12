@@ -68,6 +68,15 @@ uses the documented 0.30 mm horizontal and 0.36 mm vertical pixel pitch for
 presentation. Exact unused-panel placement, phosphor calibration, fonts and
 some line-replication details remain approximate.
 
+## Physical panel adjustment
+
+The owner's manual (p. 4-7) describes one combined plasma contrast/brightness
+dial. View > Screen controls represents it with a single Brightness slider,
+only when the approximate internal plasma path is enabled. Restore defaults
+returns its neutral palette. External EGA remains unchanged and its saved
+setting survives switching displays. No LCD backlight or second dial is added.
+The optical response is approximate, not a measured dial-voltage curve.
+
 ## Required firmware
 
 Place these files in `machines/t3200/` below the local ROM directory. Firmware

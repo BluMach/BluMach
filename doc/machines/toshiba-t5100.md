@@ -120,6 +120,14 @@ scan any generated boot medium before execution. The probes print counts in
 hexadecimal; they report observations rather than serving as CI exit-code
 assertions.
 
+## Physical panel adjustment
+
+The maintenance manual (pp. 1-3, 1-11) documents contrast and brightness
+controls on the four-level neon-orange plasma. View > Screen controls offers
+both with Restore defaults. Changes rebuild only the internal plasma palette;
+external RGB is unchanged, and inactive-panel controls are disabled. Plasma is
+emissive, so there is no LCD backlight switch. The host curve is uncalibrated.
+
 ## Firmware
 
 Atlas TESTCE3 4.30 reaches the service subtest menus. MEMORY TEST 04

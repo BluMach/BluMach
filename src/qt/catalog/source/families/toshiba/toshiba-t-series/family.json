@@ -2,9 +2,251 @@
   "order": 130,
   "family": {
     "id": "toshiba-t-series",
+    "visible": true,
     "manufacturer_id": "toshiba",
     "parent_family_id": "",
     "name": "T-series",
-    "description_key": "family.toshiba-t-series.description"
+    "description_key": "family.toshiba-t-series.description",
+    "history_key": "family.toshiba-t-series.history",
+    "history_references": [
+      {
+        "title": "T1100 (1985; European launch)",
+        "publisher": "IPSJ Computer Museum · Toshiba heritage record",
+        "url": "https://museum.ipsj.or.jp/en/heritage/T1100.html"
+      },
+      {
+        "title": "T-3100",
+        "publisher": "IPSJ Computer Museum",
+        "url": "https://museum.ipsj.or.jp/en/computer/personal/0018.html"
+      },
+      {
+        "title": "T-5100",
+        "publisher": "IPSJ Computer Museum",
+        "url": "https://museum.ipsj.or.jp/en/computer/personal/0024.html"
+      },
+      {
+        "title": "T3200 — TECHaccess",
+        "publisher": "Toshiba · Conventional Memories archive",
+        "url": "https://conventionalmemories.com/Toshiba/TECHaccess/tech3wog.htm"
+      },
+      {
+        "title": "T5200 Series — TECHaccess",
+        "publisher": "Toshiba · Conventional Memories archive",
+        "url": "https://conventionalmemories.com/Toshiba/TECHaccess/tech5580.htm"
+      }
+    ],
+    "comparison_table": {
+      "title_key": "family.toshiba-t-series.table.title",
+      "note_key": "family.toshiba-t-series.table.note",
+      "columns": [
+        {
+          "id": "year",
+          "label_key": "family.toshiba-t-series.table.year",
+          "minimum_width": 95
+        },
+        {
+          "id": "model",
+          "label_key": "family.toshiba-t-series.table.model",
+          "minimum_width": 125
+        },
+        {
+          "id": "cpu",
+          "label_key": "family.toshiba-t-series.table.cpu",
+          "minimum_width": 135
+        },
+        {
+          "id": "format",
+          "label_key": "family.toshiba-t-series.table.format",
+          "minimum_width": 155
+        },
+        {
+          "id": "status",
+          "label_key": "family.toshiba-t-series.table.status",
+          "minimum_width": 215
+        }
+      ],
+      "rows": [
+        {
+          "id": "t1100",
+          "cells": [
+            {
+              "value": "1985"
+            },
+            {
+              "value": "T1100"
+            },
+            {
+              "value_key": "family.toshiba-t-series.cpu.t1100"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.lcd"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "t3100",
+          "cells": [
+            {
+              "value": "1986"
+            },
+            {
+              "value": "T3100"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.plasma"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "t5100",
+          "cells": [
+            {
+              "value": "1987"
+            },
+            {
+              "value": "T5100"
+            },
+            {
+              "value": "Intel 80386DX"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.plasma"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.alpha"
+            }
+          ]
+        },
+        {
+          "id": "t1000",
+          "cells": [
+            {
+              "value_key": "family.toshiba-t-series.period.unknown"
+            },
+            {
+              "value": "T1000"
+            },
+            {
+              "value": "Intel 80C88"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.lcd"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "t1600",
+          "cells": [
+            {
+              "value_key": "family.toshiba-t-series.period.unknown"
+            },
+            {
+              "value": "T1600"
+            },
+            {
+              "value": "Intel 80C286"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.backlit"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "t3200",
+          "cells": [
+            {
+              "value_key": "family.toshiba-t-series.period.unknown"
+            },
+            {
+              "value": "T3200"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.plasma"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.alpha"
+            }
+          ]
+        },
+        {
+          "id": "t3200sx",
+          "cells": [
+            {
+              "value_key": "family.toshiba-t-series.period.unknown"
+            },
+            {
+              "value": "T3200SX"
+            },
+            {
+              "value": "Intel 80386SX"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.plasma"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "t5200",
+          "cells": [
+            {
+              "value_key": "family.toshiba-t-series.period.unknown"
+            },
+            {
+              "value": "T5200"
+            },
+            {
+              "value": "Intel 80386DX"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.plasma"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.alpha"
+            }
+          ]
+        },
+        {
+          "id": "t5200c",
+          "cells": [
+            {
+              "value_key": "family.toshiba-t-series.period.unknown"
+            },
+            {
+              "value": "T5200C"
+            },
+            {
+              "value": "Intel 80386DX"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.lcd"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.reference"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

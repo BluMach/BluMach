@@ -1,4 +1,8 @@
 {
+  "technical.label.expansion_options": "Opzioni e periferiche",
+  "configuration.sound_unavailable": "Espansione audio non supportata",
+  "configuration.unsupported_sound": "Questo profilo non supporta schede audio aggiuntive n\u00e9 un MPU-401 autonomo. Scegli l\u2019opzione senza scheda e disattiva il MPU-401 nelle impostazioni. L\u2019altoparlante interno resta disponibile; la configurazione salvata non \u00e8 stata modificata.",
+  "configuration.sound_choice_unavailable": "%1 - non supportato; scegli l\u2019opzione senza scheda",
   "skin.description": "BluMach include i loghi storici dei produttori. Un pacchetto grafico locale può sostituirli facoltativamente.",
   "skin.show_marks": "Mostra i loghi dei produttori",
   "skin.builtin": "Loghi integrati · %1",
@@ -195,5 +199,16 @@
   "firmware.invalid_memory_choice": "%1 MB — non supportati; scegli un valore valido",
   "firmware.invalid_bios_choice": "%1 — non disponibile; scegli un BIOS",
   "firmware.choose_available_bios": "Scegli un BIOS disponibile prima di salvare. La configurazione non è stata modificata.",
-  "configuration.file_filter": "Configurazione BluMach (blumach.cfg);;Configurazione precedente (86box.cfg);;File di configurazione (*.cfg)"
+  "configuration.file_filter": "Configurazione BluMach (blumach.cfg);;Configurazione precedente (86box.cfg);;File di configurazione (*.cfg)",
+  "panel.menu": "Schermo\u2026",
+  "panel.contrast": "Contrasto",
+  "panel.brightness": "Luminosit\u00e0",
+  "panel.backlight": "Retroilluminazione",
+  "panel.restore": "Ripristina valori",
+  "panel.lcd": "Pannello LCD",
+  "panel.plasma": "Pannello al plasma arancione",
+  "panel.inactive": "Il pannello interno \u00e8 attualmente disattivato.",
+  "panel.unavailable": "Nessun pannello interno regolabile disponibile.",
+  "panel.approximation": "Approssimazione visiva dei comandi originali, non una simulazione fisica calibrata. Le impostazioni sono salvate con questa macchina.",
+  "technical.label.screen_controls": "Comandi dello schermo"
 }

@@ -3,9 +3,10 @@
   "machine": {
     "id": "olivetti-m15",
     "manufacturer_id": "olivetti",
-    "family_id": "olivetti-m15",
+    "family_id": "olivetti-m",
     "platform_id": "olivetti-m15-platform",
     "name": "Olivetti M15",
+    "visible": true,
     "summary_key": "product.olivetti-m15.summary",
     "history_key": "product.olivetti-m15.history",
     "warning_key": "product.olivetti-m15.warning",
@@ -25,13 +26,14 @@
     "hardware": {
       "cpu": "Intel 80C88 at 4.77 MHz",
       "memory": "256 or 512 KB system RAM; 16 KB video RAM",
-      "video": "Fixed green monochrome LCD driven by Yamaha V6355D-F; four green levels and no external video output",
+      "video": "Fixed green monochrome LCD driven by Yamaha V6355D-F, with no external video output. Current rendering uses four levels; the preserved specification describes six grey shades, an unresolved fidelity difference",
       "floppy": "Two 3.5-inch, 720 KB internal drives; Matsushita JU-363 observed in a photographed example",
       "rtc": "Battery-backed OKI MSM6242 clock/calendar decoded at 0100h-010Fh",
       "interfaces": "RS-232C, Centronics parallel, external 5.25-inch floppy and common bus; no external video connector",
       "keyboard": "Detachable 78-key keyboard with a separate controller board observed"
     },
     "firmware": {
+      "required_files": ["machines/olivetti_m15/OLIV_M15.BIN"],
       "known_sets": ["System BIOS 1.08 (1987-05-09; local custody only)"],
       "required": true,
       "identity_note": "A 64 KB local image contains 16 KB of effective BIOS at FC000h-FFFFFh. Provenance and redistribution rights remain pending."
@@ -66,7 +68,9 @@
         {"section": "Machine", "values": {"cpu_family": "8088", "cpu_speed": 4772728, "cpu_multi": 1, "cpu_use_dynarec": 0, "mem_size": 512}},
         {"section": "Video", "values": {"gfxcard": "internal"}},
         {"section": "Input devices", "values": {"keyboard_type": "keyboard_pc_xt", "mouse_type": "none"}},
-        {"section": "Floppy and CD-ROM drives", "values": {"fdd_01_type": "35_2dd", "fdd_02_type": "35_2dd"}}
+        {"section": "Floppy and CD-ROM drives", "values": {"fdd_01_type": "35_2dd", "fdd_02_type": "35_2dd"}},
+        {"section": "Storage controllers", "values": {"hdc_1": "none"}},
+        {"section": "Sound", "values": {"sndcard": "none", "sndcard2": "none", "sndcard3": "none", "sndcard4": "none", "mpu401_standalone": 0}}
       ],
       "generated_files": []
     },
@@ -80,6 +84,7 @@
         "evidence_key": "technical.evidence.documented",
         "entries": [
           {"label_key": "technical.label.cpu_bus", "value_key": "product.olivetti-m15.technical.cpu_bus"},
+          {"label_key": "technical.label.expansion_options", "value_key": "product.olivetti-m15.technical.expansion_options"},
           {"label_key": "technical.label.video", "value_key": "product.olivetti-m15.technical.video"},
           {"label_key": "technical.label.jumpers", "value_key": "product.olivetti-m15.technical.switches"},
           {"label_key": "technical.label.firmware_evidence", "value_key": "product.olivetti-m15.technical.firmware"}
@@ -89,6 +94,7 @@
         "title_key": "technical.section.emulation",
         "evidence_key": "technical.evidence.implementation",
         "entries": [
+          {"label_key": "technical.label.screen_controls", "value_key": "product.olivetti-m15.technical.screen_controls"},
           {"label_key": "technical.label.implementation_lineage", "value_key": "product.olivetti-m15.technical.implementation"},
           {"label_key": "technical.label.verified", "value_key": "product.olivetti-m15.technical.status"},
           {"label_key": "technical.label.limitations", "value_key": "product.olivetti-m15.technical.limitations"}
@@ -98,7 +104,7 @@
         "title_key": "technical.section.sources",
         "evidence_key": "technical.evidence.traceable",
         "entries": [
-          {"label_key": "technical.label.manual", "value_key": "product.olivetti-m15.source.manual", "url": "https://olivrea.de/handbuecher/"},
+          {"label_key": "technical.label.manual", "value_key": "product.olivetti-m15.source.manual", "url": "https://electrickery.hosting.philpem.me.uk/comp/m15/doc/M15_InstallationAndOperationsGuide.pdf"},
           {"label_key": "technical.label.video", "value_key": "product.olivetti-m15.source.internals", "url": "https://oldcrap.org/2024/04/18/olivetti-m15/"},
           {"label_key": "technical.label.firmware_evidence", "value_key": "product.olivetti-m15.source.mame", "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/pc.cpp"},
           {"label_key": "technical.label.brochure", "value_key": "product.olivetti-m15.source.specification", "url": "https://www.valoroso.it/file-share/documenti-manuali/Olivetti-M15-technical-specifications.pdf"}

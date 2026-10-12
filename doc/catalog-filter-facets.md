@@ -1,5 +1,25 @@
 # BluMach catalogue filter facets
 
+## Commercial groups, models and sales configurations
+
+The catalogue tree groups models by manufacturer-owned commercial ranges.
+For example, Olivetti M15, M15 Plus, M28 and M250 belong directly to the M
+group; model numbers are not extra tree levels. This is a catalogue grouping,
+not a claim that every model has the same motherboard or succeeds the previous
+number. A later model remains an independent product/platform when its hardware
+or firmware identity differs. Do not invent successor relationships from names.
+
+Family IDs are scoped to their manufacturer: `olivetti-m` does not classify
+another brand's similarly named model. Different brands may use the same tree
+pattern without sharing identities. RAM/storage sales choices remain in the
+product's declarative `creation` data. Form factor, mobility, period and technical
+properties remain filters or product metadata, not replacement families.
+
+Reclassification must not change machine IDs, firmware, configurations, emulator
+devices or release visibility. Enabling a model for a release is a separate
+acceptance decision. The M15 Plus follows this grouping when its focused branch
+is integrated; it is not added by the grouping change itself.
+
 The collection browser derives its advanced filters from `filter_facets` in
 `src/qt/catalog/source/common/catalog.json`. Each definition supplies a stable
 facet ID, a localized label key and the controlled values that may be assigned

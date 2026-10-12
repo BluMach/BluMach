@@ -1,5 +1,12 @@
 # Olivetti M15
 
+Development review, 2026-10-09: this model is enabled for local experimental
+testing in the M range. The results below describe the previous pilot, not a
+fresh acceptance run of this updated build. All add-on sound cards and the
+standalone MPU-401 are excluded by machine-owned policy; the internal PC
+speaker remains. Existing incompatible audio selections are rejected without
+silently rewriting the VM and can be corrected explicitly in Configure.
+
 Status as of 2026-09-05: experimental but functional. BluMach passes the
 resident diagnostics, boots 720 KB media at both supported memory sizes and
 runs the graphical tutorial supplied with the M15 Starter Kit. Board-level
@@ -25,17 +32,32 @@ internal drives.
 
 The M15 uses a fixed, non-backlit green monochrome LCD driven by a Yamaha
 V6355D-F. It supports 40×25 and 80×25 text, 320×200 and 640×200 graphics, and
-four green levels. The M15 has no external video output, so an external colour
+four emulated green levels. The preserved manufacturer specification instead
+mentions six grey shades; the relationship to the current rendering is
+unresolved. The M15 has no external video output, so an external colour
 CRT is neither documented nor offered by the machine profile.
 
 BIOS 1.08 directly programs the CGA-compatible and V6355D extended registers.
 BluMach maps the internal controller through the firmware's colour and
 monochrome compatibility paths, mirrors its 16 KB video RAM where required,
-and converts RGBI luminance to four green levels. Characters `00h`–`7Fh` come
+and converts RGBI luminance to four green levels.
+
+The LCD presentation now reuses the approved CoreMach olive background and
+cool blue-grey/green active pixels, without pure black. This is a visual
+approximation, not a measurement of panel contrast or electrical response.
+
+Characters `00h`–`7Fh` come
 from the 8×8 glyph table in the mapped system BIOS; characters `80h`–`FFh`
 currently retain a generic CP437 fallback.
 
 ## Recommended BluMach configuration
+
+The documented additional storage option is the self-powered external
+5.25-inch floppy unit; it is not yet offered by this model. RS-232C and
+Centronics permit external peripherals, but a connector does not certify every
+device or driver. Battery, AC supply and carrying case are accessories, not ISA
+slots. The documented 512 KB factory profile is the default; 256 KB is retained
+as an observed configuration. No internal HDD or add-on sound card is offered.
 
 - machine: `[8088] Olivetti M15 (experimental)` (`olivetti_m15`);
 - CPU: Intel 80C88-compatible core at 4.77 MHz;
@@ -47,6 +69,18 @@ currently retain a generic CP437 fallback.
 The historical catalogue creates this configuration through one declarative
 form. Both memory choices, floppy insertion and soft and hard reset have been
 validated from the graphical interface.
+
+## Physical screen controls
+
+The original operations guide (pp. 6/E, 29/E, 31/E) documents 256 and 512 KB
+versions and upgrading 256 to 512 KB with a memory expansion board. Both RAM
+choices are therefore documented, not merely an observed emulator option.
+
+View > Screen controls provides live LCD contrast and Restore defaults.
+This reflective panel has no backlight. Its physical speaker volume and
+ON/OFF switch are documented but are not implemented by this screen tool.
+The optical curve is approximate; no guest registers or timing change.
+Settings are saved per VM/monitor. This is not a generic CRT contrast filter.
 
 ## Firmware
 

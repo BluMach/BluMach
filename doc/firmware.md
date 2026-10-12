@@ -14,11 +14,15 @@ help verify the layout. Explicit `--rompath` has priority at startup.
 Missing firmware prevents emulation but does not replace the saved machine or
 video card. See the [first-alpha setup guide](releases/0.1.0-alpha.1.md) for the
 three initial PCS firmware layouts.
+The [second-alpha guide](releases/0.1.0-alpha.2.md) describes the additional
+portable candidates and their firmware limitations.
 
 Use firmware obtained from hardware you own or from another source whose terms
 allow you to use it. BluMach searches a directory named `roms` beside the
-application and the platform-specific data directories inherited for
-compatibility. To use an explicit location, start BluMach with:
+application and BluMach's platform-specific data directories. On Windows the
+shared per-user location is `%LOCALAPPDATA%/BluMach/roms`. The folder selected
+in Preferences is used by machines started from the manager. To use an
+explicit location, start BluMach with:
 
 ```text
 BluMach --rompath path

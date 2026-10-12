@@ -20,6 +20,7 @@
 add_library(mch OBJECT
     machine.c
     machine_controls.c
+    machine_sound_policy.c
     machine_table.c
     m_xt.c
     m_xt_t1000.c

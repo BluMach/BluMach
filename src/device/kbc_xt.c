@@ -17,6 +17,8 @@
  *          Copyright 2016-2019 Miran Grca.
  *          Copyright 2017-2019 Fred N. van kempen.
  *          Copyright 2020 EngiNerd.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #include <stdio.h>
 #include <stdint.h>
@@ -118,6 +120,9 @@ typedef struct xtkbd_t {
     uint8_t ignore;
     uint8_t m15_status;
     uint8_t m15_response;
+    uint8_t m15_edit_shift;
+    uint8_t m15_edit_host_down;
+    uint16_t m15_mapped_scan[512];
 
     pc_timer_t send_delay_timer;
 } xtkbd_t;
@@ -128,8 +133,111 @@ static int     key_queue_end   = 0;
 static int     is_tandy = 0;
 static int     is_t1x00 = 0;
 static int     is_amstrad = 0;
+static xtkbd_t *m15_kbd = NULL;
 
 #define kbd_adddata kbd_adddata_xt_common
+
+/* The M15's EDIT/SHIFT key is a mechanically latching keyboard key, not a PC
+   modifier sent to the host.  The manual documents the cursor and embedded
+   keypad transformations; KBD.CUS additionally observes 70h-79h for the
+   alternate F1-F10 bank.  Left Windows occupies the corresponding position on
+   a modern keyboard and has no XT meaning, so use it as the host latch.  F11
+   is also accepted as an accessible fallback on keyboards without that key. */
+int
+keyboard_m15_input(int down, uint16_t *scan)
+{
+    uint16_t source;
+    uint16_t mapped;
+    uint8_t  num_lock = 0;
+
+    if ((m15_kbd == NULL) || (m15_kbd->type != KBD_TYPE_M15) || (scan == NULL))
+        return 0;
+
+    source = *scan & 0x01ff;
+    if ((source == 0x015b) || (source == 0x0057)) {
+        /* Host Left Windows (physical match), or F11 as a fallback. */
+        if (down && !m15_kbd->m15_edit_host_down)
+            m15_kbd->m15_edit_shift ^= 1;
+        m15_kbd->m15_edit_host_down = !!down;
+        return 1;
+    }
+
+    if (!down && m15_kbd->m15_mapped_scan[source]) {
+        mapped = m15_kbd->m15_mapped_scan[source] - 1;
+        m15_kbd->m15_mapped_scan[source] = 0;
+        if ((mapped >= 0x0170) && (mapped <= 0x0179)) {
+            kbd_adddata((mapped - 0x0100) | 0x80);
+            return 1;
+        }
+        *scan = mapped;
+        return 0;
+    }
+
+    if (!down || !m15_kbd->m15_edit_shift)
+        return 0;
+
+    mapped = source;
+    keyboard_get_states(NULL, &num_lock, NULL, NULL);
+    switch (source) {
+        /* The four arrow keys become the editing keys printed on their faces. */
+        case 0x014b: mapped = 0x0047; break; /* Left  -> Home */
+        case 0x0148: mapped = 0x0049; break; /* Up    -> PgUp */
+        case 0x0150: mapped = 0x0051; break; /* Down  -> PgDn */
+        case 0x014d: mapped = 0x004f; break; /* Right -> End */
+
+        /* KBD.CUS asks for Ctrl+J (pass) or Ctrl+N (fail) after latching
+           EDIT/SHIFT.  These are the front-labelled End and Ins keys and do
+           not require Num Lock for the diagnostic exit chord. */
+        case 0x0024:
+            if (keyboard_recv(0x001d) || keyboard_recv(0x011d))
+                mapped = 0x004f; /* Ctrl+J -> Ctrl+End */
+            else if (num_lock)
+                mapped = 0x004f; /* J -> keypad 1 */
+            break;
+        case 0x0031:
+            if (keyboard_recv(0x001d) || keyboard_recv(0x011d))
+                mapped = 0x0052; /* Ctrl+N -> Ctrl+Ins */
+            else if (num_lock)
+                mapped = 0x0052; /* N -> keypad 0 */
+            break;
+
+        /* The dedicated + key carries INS as its EDIT/SHIFT legend. */
+        case 0x004e: mapped = 0x0052; break;
+
+        /* The diagnostic identifies EDIT/SHIFT+F1-F10 as 70h-79h. */
+        case 0x003b ... 0x0044:
+            mapped = 0x0170 + source - 0x003b;
+            break;
+
+        default:
+            if (num_lock) {
+                switch (source) {
+                    case 0x0008: mapped = 0x0047; break; /* 7 */
+                    case 0x0009: mapped = 0x0048; break; /* 8 */
+                    case 0x000a: mapped = 0x0049; break; /* 9 */
+                    case 0x0016: mapped = 0x004b; break; /* U -> 4 */
+                    case 0x0017: mapped = 0x004c; break; /* I -> 5 */
+                    case 0x0018: mapped = 0x004d; break; /* O -> 6 */
+                    case 0x0019: mapped = 0x004e; break; /* P -> + */
+                    case 0x0025: mapped = 0x0050; break; /* K -> 2 */
+                    case 0x0026: mapped = 0x0051; break; /* L -> 3 */
+                    case 0x0032: mapped = 0x0053; break; /* M -> decimal */
+                    default: break;
+                }
+            }
+            break;
+    }
+
+    if (mapped != source) {
+        m15_kbd->m15_mapped_scan[source] = mapped + 1;
+        if ((mapped >= 0x0170) && (mapped <= 0x0179)) {
+            kbd_adddata(mapped - 0x0100);
+            return 1;
+        }
+        *scan = mapped;
+    }
+    return 0;
+}
 
 #ifdef ENABLE_KEYBOARD_XT_LOG
 int keyboard_xt_do_log = ENABLE_KEYBOARD_XT_LOG;
@@ -680,6 +788,9 @@ kbd_reset(void *priv)
     kbd->pb            = 0x00;
     kbd->m15_status    = 0x00;
     kbd->m15_response  = 0x00;
+    kbd->m15_edit_shift = 0;
+    kbd->m15_edit_host_down = 0;
+    memset(kbd->m15_mapped_scan, 0, sizeof(kbd->m15_mapped_scan));
     kbd->pravetz_flags = 0x00;
 
     keyboard_scan   = 1;
@@ -705,9 +816,11 @@ kbd_init(const device_t *info)
                   kbd_read, NULL, NULL, kbd_write, NULL, NULL, kbd);
     keyboard_send = kbd_adddata_ex;
     kbd->type = info->local;
-    if (kbd->type == KBD_TYPE_M15)
+    if (kbd->type == KBD_TYPE_M15) {
+        m15_kbd = kbd;
         io_sethandler(0x0064, 1,
                       kbd_read, NULL, NULL, kbd_write, NULL, NULL, kbd);
+    }
     if (kbd->type == KBD_TYPE_VTECH)
         kbd->cpu_speed = (!!cpu) << 2;
     kbd_reset(kbd);
@@ -906,6 +1019,9 @@ kbd_close(void *priv)
 
     keyboard_send = NULL;
 
+    if (m15_kbd == kbd)
+        m15_kbd = NULL;
+
     io_removehandler(0x0060, 4,
                      kbd_read, NULL, NULL, kbd_write, NULL, NULL, kbd);
 
@@ -1070,6 +1186,24 @@ static const device_config_t kbc_xt_m15_config[] = {
 const device_t kbc_xt_m15_device = {
     .name          = "Olivetti M15 Keyboard",
     .internal_name = "kbc_xt_m15",
+    .flags         = DEVICE_ISA,
+    .local         = KBD_TYPE_M15,
+    .init          = kbd_init,
+    .close         = kbd_close,
+    .reset         = kbd_reset,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = kbc_xt_m15_config
+};
+
+/* The M15 Plus BIOS retains the M15 family's port 60h-64h keyboard and
+   multiplexed board-switch contract.  Keep a distinct device identity so the
+   Configure dialog describes the selected machine without duplicating the
+   shared behavioural implementation. */
+const device_t kbc_xt_m15plus_device = {
+    .name          = "Olivetti M15 Plus Keyboard",
+    .internal_name = "kbc_xt_m15plus",
     .flags         = DEVICE_ISA,
     .local         = KBD_TYPE_M15,
     .init          = kbd_init,

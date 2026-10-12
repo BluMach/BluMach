@@ -3,7 +3,7 @@
   "machine": {
     "id": "olivetti-m380",
     "manufacturer_id": "olivetti",
-    "family_id": "olivetti-m380",
+    "family_id": "olivetti-m",
     "platform_id": "olivetti-m380-platform",
     "name": "Olivetti M380 / M380 C",
     "summary_key": "product.olivetti-m380.summary",

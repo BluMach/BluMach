@@ -377,6 +377,7 @@ typedef struct _machine_ {
     const machine_cpu_t    cpu;
     uintptr_t              bus_flags;
     uintptr_t              flags;
+    uint8_t                no_sound_expansion; /* default 0 preserves existing models; not the PC speaker */
     const machine_memory_t ram;
     int                    ram_granularity;
     uint8_t                max_fdd;
@@ -459,6 +460,8 @@ extern const char *    machine_get_internal_name_ex(int m);
 extern const char *    machine_get_nvr_name_ex(int m);
 extern int             machine_get_nvrmask(int m);
 extern int             machine_has_flags(int m, uintptr_t flags);
+extern int             machine_has_sound_expansion(int m);
+extern int             machine_allows_sound_card(int m, int card, int slot);
 extern void            machine_set_ps2(void);
 extern void            machine_force_ps2(int is_ps2);
 extern int             machine_has_flags_ex(uintptr_t flags);
@@ -1775,6 +1778,7 @@ extern int             machine_xt_z151_init(const machine_t *);
 extern int             machine_xt_z159_init(const machine_t *);
 extern int             machine_xt_z184_init(const machine_t *);
 extern int             machine_xt_olivetti_m15_init(const machine_t *);
+extern int             machine_xt_olivetti_m15plus_init(const machine_t *);
 
 /* GC100A */
 extern int             machine_xt_p3120_init(const machine_t *);

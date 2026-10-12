@@ -1,4 +1,8 @@
 {
+  "technical.label.expansion_options": "Opciones y perif\u00e9ricos",
+  "configuration.sound_unavailable": "Ampliaci\u00f3n de sonido no admitida",
+  "configuration.unsupported_sound": "Este perfil no admite tarjetas de sonido adicionales ni un MPU-401 independiente. Elige la opci\u00f3n sin tarjeta y desactiva el MPU-401 en Configurar. El altavoz interno sigue disponible; la configuraci\u00f3n guardada no se ha modificado.",
+  "configuration.sound_choice_unavailable": "%1 - no admitido; elige la opci\u00f3n sin tarjeta",
   "skin.description": "BluMach incluye los logotipos históricos de fabricantes. Un paquete visual local puede sustituirlos de forma opcional.",
   "skin.show_marks": "Mostrar logotipos de fabricantes",
   "skin.builtin": "Logotipos incluidos · %1",
@@ -195,5 +199,16 @@
   "firmware.invalid_memory_choice": "%1 MB — no admitidos; elige un valor válido",
   "firmware.invalid_bios_choice": "%1 — no disponible; elige una BIOS",
   "firmware.choose_available_bios": "Elige una BIOS disponible antes de guardar. La configuración no se ha modificado.",
-  "configuration.file_filter": "Configuración de BluMach (blumach.cfg);;Configuración anterior (86box.cfg);;Archivos de configuración (*.cfg)"
+  "configuration.file_filter": "Configuración de BluMach (blumach.cfg);;Configuración anterior (86box.cfg);;Archivos de configuración (*.cfg)",
+  "panel.menu": "Pantalla\u2026",
+  "panel.contrast": "Contraste",
+  "panel.brightness": "Brillo",
+  "panel.backlight": "Retroiluminaci\u00f3n",
+  "panel.restore": "Restaurar valores",
+  "panel.lcd": "Panel LCD",
+  "panel.plasma": "Panel de plasma naranja",
+  "panel.inactive": "El panel interno est\u00e1 desactivado en este momento.",
+  "panel.unavailable": "No hay un panel interno ajustable disponible.",
+  "panel.approximation": "Aproximaci\u00f3n visual de los mandos originales; no es una simulaci\u00f3n f\u00edsica calibrada. Los ajustes se guardan con esta m\u00e1quina.",
+  "technical.label.screen_controls": "Mandos de pantalla"
 }

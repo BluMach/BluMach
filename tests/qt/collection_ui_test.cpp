@@ -19,6 +19,7 @@
 #include <QTest>
 #include <QToolButton>
 #include <QTreeWidget>
+#include <QTreeWidgetItemIterator>
 #include <cmath>
 
 // Bounded host adapters: use the production widget and catalogue, but keep
@@ -46,9 +47,101 @@ static double contrast(QColor a, QColor b)
     return (qMax(x, y) + .05) / (qMin(x, y) + .05);
 }
 
+static QTreeWidgetItem *catalogueItem(QTreeWidget *tree, const QString &id)
+{
+    for (QTreeWidgetItemIterator item(tree); *item; ++item)
+        if ((*item)->data(0, Qt::UserRole).toString() == id)
+            return *item;
+    return nullptr;
+}
+
 class CollectionUiTest : public QObject {
     Q_OBJECT
 private slots:
+    void mAndTFamilyHistories()
+    {
+        for (int locale = 0; locale < locales.size(); ++locale) {
+            testSettings.clear();
+            lang_id = locale;
+            BluMachCatalog catalog;
+            QVERIFY(catalog.load());
+            for (const auto &id : { "olivetti-m", "toshiba-t-series" }) {
+                const auto *family = catalog.family(QString::fromLatin1(id));
+                QVERIFY(family);
+                BluMachCollectionWidget widget;
+                widget.resize(680, 800);
+                widget.show();
+                QCoreApplication::processEvents();
+                auto *tree = widget.findChild<QTreeWidget *>();
+                QVERIFY(tree);
+                auto *item = catalogueItem(tree, QString::fromLatin1(id));
+                QVERIFY(item);
+                tree->setCurrentItem(item);
+                auto *table = widget.findChild<QTableWidget *>("blumachFamilyComparison");
+                QVERIFY(table);
+                QCOMPARE(table->columnCount(), 5);
+                const auto rows = family->comparisonTable.value("rows").toArray();
+                QCOMPARE(table->rowCount(), rows.size());
+                QCOMPARE(table->rowCount(), QString::fromLatin1(id) == "olivetti-m" ? 24 : 9);
+                for (int row = 0; row < rows.size(); ++row) {
+                    const auto cells = rows[row].toObject().value("cells").toArray();
+                    for (int column = 0; column < 5; ++column) {
+                        const auto cell = cells[column].toObject();
+                        const auto expected = cell.contains("value_key") ? catalog.text(cell.value("value_key").toString()) : cell.value("value").toString();
+                        QCOMPARE(table->item(row, column)->text(), expected);
+                    }
+                }
+                auto *history = widget.findChild<QLabel *>("blumachFamilyHistory");
+                QVERIFY(history && history->wordWrap());
+                QCOMPARE(history->text(), catalog.text(family->historyKey));
+                QCOMPARE(widget.findChildren<QLabel *>("blumachFamilyReference").size(), family->historyReferences.size());
+                QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
+                widget.createSelectedMachine();
+                QCOMPARE(creation.count(), 0);
+                widget.grab();
+                auto *tabs = widget.findChild<QTabWidget *>();
+                auto *scroll = qobject_cast<QScrollArea *>(tabs->widget(0));
+                QVERIFY(scroll);
+                QCOMPARE(scroll->horizontalScrollBar()->maximum(), 0);
+                QTRY_VERIFY_WITH_TIMEOUT(table->horizontalScrollBar()->maximum() > 0, 1000);
+                QCOMPARE(table->verticalScrollBar()->maximum(), 0);
+                QTRY_VERIFY_WITH_TIMEOUT(history->height() >= history->heightForWidth(history->width()), 1000);
+            }
+        }
+        lang_id = 0;
+        testSettings.clear();
+    }
+
+    void m15ProfilesShareRangeWithoutCollapsingModels()
+    {
+        for (int locale = 0; locale < locales.size(); ++locale) {
+            testSettings.clear();
+            lang_id = locale;
+            BluMachCollectionWidget widget;
+            widget.resize(960, 800);
+            widget.show();
+            QCoreApplication::processEvents();
+            auto *tree = widget.findChild<QTreeWidget *>();
+            QVERIFY(tree);
+            auto *range = catalogueItem(tree, QStringLiteral("olivetti-m"));
+            QVERIFY(range);
+            QCOMPARE(range->childCount(), 2);
+            const QStringList models = { "olivetti-m15", "olivetti-m15-plus" };
+            const QStringList native = { "olivetti_m15", "olivetti_m15plus" };
+            QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
+            for (int i = 0; i < models.size(); ++i) {
+                auto *model = catalogueItem(tree, models[i]);
+                QVERIFY(model && model->parent() == range);
+                tree->setCurrentItem(model);
+                QCoreApplication::processEvents();
+                creation.clear();
+                widget.createSelectedMachine();
+                QCOMPARE(creation.count(), 1);
+                QCOMPARE(creation.at(0).at(0).toString(), models[i]);
+                QCOMPARE(creation.at(0).at(1).toString(), native[i]);
+            }
+        }
+    }
     void familyHistory()
     {
         for (int locale = 0; locale < locales.size(); ++locale) {
@@ -69,7 +162,9 @@ private slots:
             QCoreApplication::processEvents();
             auto *tree = widget.findChild<QTreeWidget *>();
             QVERIFY(tree && tree->topLevelItemCount());
-            tree->setCurrentItem(tree->topLevelItem(0)->child(0));
+            auto *pcs = catalogueItem(tree, QStringLiteral("olivetti-pcs"));
+            QVERIFY(pcs);
+            tree->setCurrentItem(pcs);
             auto *comparison = widget.findChild<QTableWidget *>("blumachFamilyComparison");
             QVERIFY(comparison);
             QCOMPARE(comparison->columnCount(), 5);
@@ -110,10 +205,11 @@ private slots:
         BluMachCatalog catalog;
         QString error;
         QVERIFY2(catalog.load(&error), qPrintable(error));
-        for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx" })
+        for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx",
+                                "olivetti_m15", "olivetti_m15plus", "t3200", "t5100", "t5200" })
             QVERIFY(catalog.isMachineSelectable(QString::fromLatin1(id), true));
-        for (const auto &id : { "olivetti_m15", "olivetti_m250", "olivetti_pcs286s",
-                                "t3200", "t5100", "t5200", "sx386m", "pc5286",
+        for (const auto &id : { "olivetti_m250", "olivetti_pcs286s",
+                                "sx386m", "pc5286",
                                 "ta_dario286", "ta_dario386sx", "olivetti_ba2142",
                                 "olivetti_m240", "olivetti_m211v", "olivetti_m290sp" })
             QVERIFY(!catalog.isMachineSelectable(QString::fromLatin1(id), true));
@@ -125,6 +221,30 @@ private slots:
         BluMachCatalog unloaded;
         QVERIFY(!unloaded.isMachineSelectable(QStringLiteral("olivetti_pcs86"), true));
         QVERIFY(unloaded.isMachineSelectable(QStringLiteral("ibmxt"), false));
+    }
+
+    void toshibaCandidatesCreateFromTheirOwnSheets()
+    {
+        const char *products[] = { "toshiba-t3200", "toshiba-t5100", "toshiba-t5200" };
+        const char *native[] = { "t3200", "t5100", "t5200" };
+        for (int locale = 0; locale < locales.size(); ++locale) {
+            lang_id = locale;
+            BluMachCollectionWidget widget;
+            auto *tree = widget.findChild<QTreeWidget *>();
+            QVERIFY(tree);
+            QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
+            for (int i = 0; i < 3; ++i) {
+                auto *item = catalogueItem(tree, QString::fromLatin1(products[i]));
+                QVERIFY(item);
+                tree->setCurrentItem(item);
+                creation.clear();
+                widget.createSelectedMachine();
+                QCOMPARE(creation.count(), 1);
+                QCOMPARE(creation.at(0).at(0).toString(), QString::fromLatin1(products[i]));
+                QCOMPARE(creation.at(0).at(1).toString(), QString::fromLatin1(native[i]));
+            }
+        }
+        lang_id = 0;
     }
 
     void bundledMarks()
@@ -203,9 +323,14 @@ private slots:
             "Collection d’ordinateurs historiques", "Collezione di computer storici", "Coleção de computadores históricos" };
         QCOMPARE(widget.findChild<QLabel *>("blumachCollectionHeading")->text(), headings[locale]);
         QCOMPARE(widget.width(), width);
-        QCOMPARE(tree->topLevelItemCount(), 1);
+        QCOMPARE(tree->topLevelItemCount(), 2);
+        QSet<QString> visibleBrands;
+        for (int i = 0; i < tree->topLevelItemCount(); ++i)
+            visibleBrands.insert(tree->topLevelItem(i)->data(0, Qt::UserRole).toString());
+        QCOMPARE(visibleBrands, (QSet<QString>{ QStringLiteral("olivetti"), QStringLiteral("toshiba") }));
         auto *brand = tree->topLevelItem(0);
-        auto *family = brand->child(0);
+        auto *family = catalogueItem(tree, QStringLiteral("olivetti-pcs"));
+        QVERIFY(family && family->parent() == brand);
         QCOMPARE(family->childCount(), 3);
         QVERIFY(contrast(tree->palette().color(QPalette::PlaceholderText), pal.color(QPalette::Base)) >= 4.5);
         QVERIFY(!clear->isVisible());

@@ -1,4 +1,8 @@
 {
+  "technical.label.expansion_options": "Options and peripherals",
+  "configuration.sound_unavailable": "Unsupported sound expansion",
+  "configuration.unsupported_sound": "This profile does not support add-on sound cards or a standalone MPU-401. Select None and disable the MPU-401 in Settings. The internal speaker remains available; the saved configuration has not been changed.",
+  "configuration.sound_choice_unavailable": "%1 - unsupported; select None",
   "skin.description": "Historical manufacturer marks are included with BluMach. A local visual package can optionally replace them.",
   "skin.show_marks": "Show manufacturer marks",
   "skin.builtin": "Built-in manufacturer marks · %1",
@@ -195,5 +199,16 @@
   "firmware.invalid_memory_choice": "%1 MB — unsupported; choose a supported value",
   "firmware.invalid_bios_choice": "%1 — unavailable; choose a BIOS",
   "firmware.choose_available_bios": "Choose an available BIOS before saving. The configuration has not been changed.",
-  "configuration.file_filter": "BluMach configuration (blumach.cfg);;Previous configuration (86box.cfg);;Configuration files (*.cfg)"
+  "configuration.file_filter": "BluMach configuration (blumach.cfg);;Previous configuration (86box.cfg);;Configuration files (*.cfg)",
+  "panel.menu": "Screen controls\u2026",
+  "panel.contrast": "Contrast",
+  "panel.brightness": "Brightness",
+  "panel.backlight": "Backlight",
+  "panel.restore": "Restore defaults",
+  "panel.lcd": "LCD panel",
+  "panel.plasma": "Orange plasma panel",
+  "panel.inactive": "The internal panel is currently inactive.",
+  "panel.unavailable": "No adjustable internal panel is available.",
+  "panel.approximation": "Visual approximation of the original controls; not a calibrated physical simulation. Changes are saved with this machine.",
+  "technical.label.screen_controls": "Screen controls"
 }

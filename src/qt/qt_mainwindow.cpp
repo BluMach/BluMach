@@ -33,6 +33,9 @@
 #include "qt_renderercommon.hpp"
 
 #include "qt_cgasettingsdialog.hpp"
+#include "qt_panelcontrols.hpp"
+#include "qt_blumach_catalog.hpp"
+#include <86box/video_panel.h>
 
 #include "qt_defs.hpp"
 
@@ -280,6 +283,37 @@ MainWindow::MainWindow(QWidget *parent)
     });
     machineControlsMenu->menuAction()->setVisible(false);
     machineControlsTimer->start(200);
+    auto *panelAction = ui->menuView->addAction(QString());
+    {
+        BluMachCatalog catalog;
+        catalog.load();
+        panelAction->setText(catalog.text(QStringLiteral("panel.menu")));
+    }
+    connect(panelAction, &QAction::triggered, this, [this] {
+        auto *panel = findChild<PanelControls *>("blumachPanelControls");
+        if (!panel) {
+            panel = new PanelControls(this);
+            panel->setAttribute(Qt::WA_DeleteOnClose);
+            connect(panel, &PanelControls::settingsCommitted, this, [] { config_save(); });
+        }
+        /* A modeless tool leaves the emulator running but must not inject the
+           slider's arrow keys into the guest or retain its captured keys. */
+        releaseKeyboard();
+        keyboard_all_up();
+        if (mouse_capture) emit setMouseCapture(false);
+        panel->show();
+        panel->raise();
+        panel->activateWindow();
+    });
+    auto *panelTimer = new QTimer(this);
+    connect(panelTimer, &QTimer::timeout, this, [panelAction] {
+        bool available = false;
+        for (int m = 0; m < VIDEO_PANEL_COUNT; ++m)
+            available |= (video_panel_description(m) >> VIDEO_PANEL_KIND_SHIFT) != 0;
+        panelAction->setVisible(available);
+    });
+    panelAction->setVisible(false);
+    panelTimer->start(500);
     status->setSoundMenu(ui->menuSound);
     ui->actionMute_Unmute->setText(sound_muted ? tr("&Unmute") : tr("&Mute"));
     ui->stackedWidget->setMouseTracking(true);
@@ -1750,6 +1784,10 @@ MainWindow::FindAcceleratorSeq(const char *name)
 bool
 MainWindow::eventFilter(QObject *receiver, QEvent *event)
 {
+    if (auto *widget = qobject_cast<QWidget *>(receiver)) {
+        if (widget->window()->property("blumachPanelControls").toBool())
+            return QMainWindow::eventFilter(receiver, event);
+    }
     if (event->type() == QEvent::KeyPress || event->type() == QEvent::KeyRelease) {
         auto      *ke   = static_cast<QKeyEvent *>(event);
         const bool down = event->type() == QEvent::KeyPress;

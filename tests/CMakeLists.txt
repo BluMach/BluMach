@@ -46,9 +46,14 @@ function(blumach_enable_dead_code_elimination target)
 endfunction()
 
 blumach_add_host_contract(machine-runtime-controls machine_runtime_controls_test.c)
+blumach_add_host_contract(m15-lcd-palette m15_lcd_palette_test.c)
+target_sources(m15-lcd-palette PRIVATE "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")
+blumach_add_host_contract(machine-sound-policy machine_sound_policy_test.c "${PROJECT_SOURCE_DIR}/src/machine/machine_sound_policy.c")
+blumach_add_host_contract(video-panel video_panel_test.c "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")
 blumach_add_host_contract(selected-firmware selected_firmware_test.c "${PROJECT_SOURCE_DIR}/src/device_bios.c")
 blumach_add_host_contract(toshiba-aform-slot toshiba_aform_slot_test.c)
 blumach_add_host_contract(t5100-platform t5100_platform_test.c)
+target_sources(t5100-platform PRIVATE "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")
 blumach_enable_dead_code_elimination(t5100-platform)
 
 blumach_add_host_contract(t5200-display-hotkey t5200_display_hotkey_test.c)
@@ -62,8 +67,17 @@ if(NOT MSVC)
     target_compile_options(t3200-mfm PRIVATE -Wno-empty-body)
 endif()
 
+blumach_add_host_contract(m15plus-hdu m15plus_hdu_test.c)
+blumach_enable_dead_code_elimination(m15plus-hdu)
+if(NOT MSVC)
+    # Including the existing XTA implementation also parses its unused legacy
+    # constructors and logging macros; keep their warning policy unchanged.
+    target_compile_options(m15plus-hdu PRIVATE -Wno-empty-body -Wno-implicit-fallthrough)
+endif()
+
 blumach_add_host_contract(t3200-ags
     t3200_ags_test.c
     "${PROJECT_SOURCE_DIR}/src/io.c"
 )
 blumach_enable_dead_code_elimination(t3200-ags)
+target_sources(t3200-ags PRIVATE "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")

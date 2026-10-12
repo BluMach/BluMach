@@ -1,6 +1,6 @@
 # Standalone catalogue UI regression tests; no emulator, ROMs or user settings.
 cmake_minimum_required(VERSION 3.24)
-project(BluMachCollectionTests LANGUAGES CXX)
+project(BluMachCollectionTests LANGUAGES C CXX)
 enable_testing()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
@@ -43,3 +43,12 @@ target_include_directories(firmware-ui PRIVATE "${QT_SOURCE}" "${BLUMACH_ROOT}/s
 target_link_libraries(firmware-ui PRIVATE Qt6::Widgets Qt6::Test)
 add_test(NAME firmware-ui COMMAND firmware-ui)
 set_tests_properties(firmware-ui PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen" TIMEOUT 30)
+add_executable(panel-ui panel_controls_test.cpp
+    "${QT_SOURCE}/qt_panelcontrols.cpp" "${QT_SOURCE}/qt_panelcontrols.hpp"
+    "${QT_SOURCE}/qt_blumach_catalog.cpp"
+    "${BLUMACH_ROOT}/src/video/video_panel.c"
+    "${CMAKE_CURRENT_BINARY_DIR}/catalog/blumach_catalog.qrc")
+target_include_directories(panel-ui PRIVATE "${QT_SOURCE}" "${BLUMACH_ROOT}/src/include")
+target_link_libraries(panel-ui PRIVATE Qt6::Widgets Qt6::Test)
+add_test(NAME panel-ui COMMAND panel-ui)
+set_tests_properties(panel-ui PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen" TIMEOUT 30)

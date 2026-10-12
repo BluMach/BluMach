@@ -14,8 +14,8 @@
 
 Name:		blumach
 Version:	0.1.0
-Release:	0.alpha1%{?dist}
-%global upstream_version 0.1.0-alpha.1
+Release:	0.alpha2%{?dist}
+%global upstream_version 0.1.0-alpha.2
 Summary:	Classic PC emulator
 License:	GPLv2+
 URL:		https://github.com/BluMach/BluMach
@@ -92,5 +92,8 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/io.github.BluM
 %{_datadir}/icons/hicolor/*/apps/io.github.BluMach.BluMach.png
 
 %changelog
+* Mon Oct 12 2026 BluMach project maintainers <blumach@users.noreply.github.com> 0.1.0-0.alpha2
+- Prepare the second classic preview with Olivetti and Toshiba portables
+
 * Wed Oct 07 2026 BluMach project maintainers <blumach@users.noreply.github.com> 0.1.0-0.alpha1
 - Bump release

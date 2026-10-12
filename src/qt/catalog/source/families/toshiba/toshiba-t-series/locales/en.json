@@ -1,3 +1,24 @@
 {
-  "family.toshiba-t-series.description": "Toshiba portable PCs; the original T3200 uses a 286 and plasma display. Models with different hardware retain distinct entries."
+  "family.toshiba-t-series.description": "Toshiba’s T-series LCD laptops and plasma transportables, with distinct platforms and regional variants.",
+  "family.toshiba-t-series.history": "Toshiba’s T-series shows two ways of taking personal computing away from the desk: LCD laptops intended for mobility, and transportables bringing desktop performance to a case with an integrated screen. The numbering defines neither a shared architecture nor a linear succession; regional variants and suffixes retain their identities.\n\nThe T1100 went on sale in Europe in April 1985. PC/XT compatibility, an LCD and battery power let office applications travel. That does not mean later laptops inherited its board or design. The 1986 T3100 took another direction: an 80286, built-in hard disk and plasma display, with greater performance in a much heavier package.\n\nThe T3200 and T5100 continued that transportable approach. The original T3200 combines a 286 with EGA/AGS graphics; the T5100 brought the line to the 386 in 1987. Orange plasma is not an LCD with a backlight: it emits its own light. That is why each model has its own display controls and its own conversion of colours to intensity levels. The T5200 added VGA and a sixteen-level panel; T3200SX and T5200C are hardware-different variants, not merely profiles of the originals.\n\nJapanese documentation relates T5100 to J-3100SGT, but does not establish identical ROMs, keyboards or media. Service manuals, a BIOS date or a suffix alone cannot date a variant’s launch. The table retains known dates, reference periods and unresolved dates.\n\nIn this alpha, T3200, T5100 and T5200 have sheets and experimental creation. Each lists its limitations; T5100 uses compatibility video firmware because its original AGS ROM is still missing. Other names provide historical context, not a promise of available emulation.",
+  "family.toshiba-t-series.table.year": "Year / period",
+  "family.toshiba-t-series.table.model": "Model",
+  "family.toshiba-t-series.table.cpu": "CPU / generation",
+  "family.toshiba-t-series.table.format": "Format / display",
+  "family.toshiba-t-series.table.status": "BluMach catalogue",
+  "family.toshiba-t-series.status.alpha": "Experimental sheet and creation in this alpha",
+  "family.toshiba-t-series.status.catalogue": "Documented sheet; not offered in this alpha",
+  "family.toshiba-t-series.status.reference": "Historical reference; no public sheet",
+  "family.toshiba-t-series.format.desktop": "Desktop",
+  "family.toshiba-t-series.format.lcd": "Portable · LCD",
+  "family.toshiba-t-series.format.backlit": "Portable · backlit LCD",
+  "family.toshiba-t-series.format.crt": "Transportable · CRT",
+  "family.toshiba-t-series.format.plasma": "Transportable · plasma",
+  "family.toshiba-t-series.format.compact": "Compact desktop",
+  "family.toshiba-t-series.format.portable": "Portable",
+  "family.toshiba-t-series.period.late80": "Late 1980s",
+  "family.toshiba-t-series.period.unknown": "Date not established",
+  "family.toshiba-t-series.table.title": "Selected models in chronological order",
+  "family.toshiba-t-series.table.note": "Known launch dates and catalogue reference periods are told apart: ranges are approximate, not exact launch years. Undated models are listed last. This is not a full inventory of the range. A historical reference does not rule out inherited emulation, and a row in this table never enables creating the machine.",
+  "family.toshiba-t-series.cpu.t1100": "PC/XT-compatible"
 }

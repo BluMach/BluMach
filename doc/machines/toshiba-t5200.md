@@ -33,6 +33,15 @@ is active. When CRT-only has blanked the panel, **Ctrl+Home** performs the
 documented runtime recovery while leaving external VGA active. The reverse
 shortcut and physical CRT indicator are not known well enough to emulate.
 
+## Physical panel adjustment
+
+The maintenance manual (pp. 1-3, 1-13) documents a contrast control for the
+16-level neon-orange plasma. View > Screen controls adjusts that panel only,
+with Restore defaults; simultaneous VGA and guest BIOS/PDC brightness tables
+remain unchanged. No backlight or extra physical brightness knob is invented.
+The host curve is approximate. In CRT-only mode no internal controls are
+registered; a firmware-disabled panel retains its setting but disables editing.
+
 ## Required firmware
 
 Place these files below `roms/machines/t5200/`. They are not distributed with

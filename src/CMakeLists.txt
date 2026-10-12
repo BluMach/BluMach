@@ -221,6 +221,9 @@ if(WIN32 OR (APPLE AND CMAKE_MACOSX_BUNDLE))
             DESTINATION ".")
         install(FILES "${PROJECT_SOURCE_DIR}/doc/releases/0.1.0-alpha.1.md"
             DESTINATION "." RENAME FIRST-RUN.md)
+        install(FILES "${PROJECT_SOURCE_DIR}/doc/releases/0.1.0-alpha.1.md"
+            "${PROJECT_SOURCE_DIR}/doc/releases/0.1.0-alpha.2.md"
+            DESTINATION "doc/releases")
     endif()
 else()
     # On Linux we want to copy the binary to the `bin` folder.

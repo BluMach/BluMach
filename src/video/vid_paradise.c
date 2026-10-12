@@ -32,6 +32,7 @@
 #include <86box/nvr.h>
 #include <86box/machine.h>
 #include <86box/video.h>
+#include <86box/video_panel.h>
 #include <86box/vid_cga.h>
 #include <86box/vid_xga.h>
 #include <86box/vid_svga.h>
@@ -85,6 +86,8 @@ typedef struct paradise_t {
     uint8_t t5200_vga_mode;
     uint32_t t5200_external_palette[256];
     uint32_t t5200_plasma_palette[256];
+    uint32_t panel_settings;
+    int panel_visible;
 
     struct {
         uint8_t reg_block_ptr;
@@ -198,6 +201,10 @@ paradise_t5200_update_palette(paradise_t *paradise)
     }
     panel_enabled = (paradise->t5200_panel_override >= 0) ?
                     paradise->t5200_panel_override : !crt_only;
+    const int panel_monitor = paradise->t5200_secondary_monitor ? 1 : 0;
+    paradise->panel_visible = panel_enabled;
+    video_panel_set_active(panel_monitor, panel_enabled);
+    paradise->panel_settings = video_panel_render_settings(panel_monitor);
 
     for (int index = 0; index < 256; index++) {
         /* TEST3 stores Plasma=0 and CRT-only=1 in CMOS 38h bit 2. */
@@ -242,9 +249,9 @@ paradise_t5200_update_palette(paradise_t *paradise)
 
         paradise->t5200_external_palette[index] = svga->pallook[index];
         paradise->t5200_plasma_palette[index] =
-            makecol32((255 * level + 7) / 15,
+            video_panel_adjust(makecol32((255 * level + 7) / 15,
                       (128 * level + 7) / 15,
-                      (48 * level + 7) / 15);
+                      (48 * level + 7) / 15), paradise->panel_settings, VIDEO_PANEL_PLASMA);
 
         if (!paradise->t5200_dual_output)
             svga->pallook[index] = paradise->t5200_plasma_palette[index];
@@ -257,6 +264,10 @@ static uint32_t
 paradise_t5200_plasma_pixel(const paradise_t *paradise, uint32_t pixel,
                            int *palette_index)
 {
+    if (!paradise->panel_visible) {
+        *palette_index = 0;
+        return makecol32(0, 0, 0);
+    }
     for (int index = 0; index < 256; index++) {
         if (pixel == paradise->t5200_external_palette[index]) {
             *palette_index = index;
@@ -270,9 +281,9 @@ paradise_t5200_plasma_pixel(const paradise_t *paradise, uint32_t pixel,
     const int level = ((15 * luminance) + 127) / 255;
 
     *palette_index = 0;
-    return makecol32((255 * level + 7) / 15,
+    return video_panel_adjust(makecol32((255 * level + 7) / 15,
                      (128 * level + 7) / 15,
-                     (48 * level + 7) / 15);
+                     (48 * level + 7) / 15), paradise->panel_settings, VIDEO_PANEL_PLASMA);
 }
 
 static void
@@ -292,6 +303,9 @@ paradise_t5200_dual_vsync(svga_t *svga)
 
     if (!paradise->t5200_secondary_monitor || plasma->target_buffer == NULL)
         return;
+
+    if (paradise->panel_settings != video_panel_render_settings(1))
+        paradise_t5200_update_palette(paradise);
 
     video_wait_for_buffer_monitor(1);
 
@@ -1417,6 +1431,9 @@ paradise_pvga1a_t5200_init(const device_t *info)
             paradise->t5200_secondary_monitor = 1;
             paradise->svga.vsync_callback = paradise_t5200_dual_vsync;
         }
+        if (paradise->t5200_internal_plasma)
+            video_panel_register(paradise->t5200_secondary_monitor ? 1 : 0,
+                                 VIDEO_PANEL_PLASMA, VIDEO_PANEL_CONTRAST);
         paradise_t5200_update_palette(paradise);
 
         /* Award V1.xx is documented to require the original 24 KiB VGA ROM. */
@@ -1627,6 +1644,8 @@ paradise_close(void *priv)
     paradise_t *paradise = (paradise_t *) priv;
 
     svga_close(&paradise->svga);
+    if (paradise->t5200_internal_plasma)
+        video_panel_unregister(paradise->t5200_secondary_monitor ? 1 : 0);
 
     if (paradise->t5200_secondary_monitor && monitors[1].target_buffer != NULL)
         video_monitor_close(1);

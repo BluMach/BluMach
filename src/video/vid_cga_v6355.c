@@ -35,10 +35,12 @@
 #include <86box/rom.h>
 #include <86box/device.h>
 #include <86box/video.h>
+#include <86box/video_panel.h>
 #include <86box/vid_v6355.h>
 #include <86box/vid_cga.h>
 #include <86box/vid_cga_comp.h>
 #include <86box/plat_unused.h>
+#include "vid_m15_lcd_palette.h"
 
 /* Emulation of the Yamaha V6355 chipset. This is a CGA clone that was 
  * probably designed primarily for laptops, where the primary display was
@@ -237,10 +239,17 @@ v6355_in(uint16_t addr, void *priv)
     uint8_t  ret   = 0xff;
 
     switch (addr) {
+        /* The M15 diagnostics exercise all four decoded CRTC aliases. */
+        case 0x3d0:
+        case 0x3d2:
         case 0x3d4:
+        case 0x3d6:
             ret = v6355->crtcreg;
             break;
+        case 0x3d1:
+        case 0x3d3:
         case 0x3d5:
+        case 0x3d7:
             ret = v6355->crtc[v6355->crtcreg];
             break;
         case 0x3da:
@@ -654,22 +663,15 @@ v6355_render_blank(v6355_t *v6355, int line)
  * has this fixed internal panel from reset, however, and its BIOS emits
  * ordinary CGA POST output before programming that register. The electrical
  * panel driver and its response curve are not documented, so this is
- * deliberately a presentation approximation: RGBI luminance is quantised to
- * four green levels rather than treated as a colour CRT palette.
+ * deliberately a presentation approximation. The M15 uses its approved
+ * portable-engine olive/blue-grey palette. The M15 Plus retains the eight
+ * ordered levels checked by its diagnostic, with an approximate colour curve.
+ * This conversion is exclusive to the fixed LCD variants, never colour CRTs.
  */
 static uint32_t
-v6355_lcd_colour(uint8_t index)
+v6355_lcd_colour(const v6355_t *v6355, uint8_t index)
 {
-    static const uint8_t green[4] = { 0x00, 0x19, 0x43, 0x78 };
-    int                  luminance;
-
-    index &= 0x0f;
-    luminance = ((index & 0x04) ? 3 : 0) +
-                ((index & 0x02) ? 6 : 0) +
-                ((index & 0x01) ? 1 : 0) +
-                ((index & 0x08) ? 3 : 0);
-
-    return makecol(0x00, green[(luminance * 3 + 6) / 13], 0x00);
+    return v6355->lcd_colours[index & 15];
 }
 
 static void
@@ -682,9 +684,17 @@ v6355_render_process(v6355_t *v6355, int line)
 
     /* Now render the 640 pixels to the display buffer */
     if (v6355->lcd_panel) {
+        uint32_t settings = video_panel_render_settings(v6355->panel_monitor);
+        if (v6355->lcd_levels != 8) settings |= (1U << 16); /* Reflective: no backlight. */
+        if (settings != v6355->panel_settings) {
+            for (unsigned i = 0; i < 16; ++i)
+                v6355->lcd_colours[i] = video_panel_adjust(
+                    v6355_m15_lcd_palette_colour(v6355->lcd_levels, i), settings, VIDEO_PANEL_LCD);
+            v6355->panel_settings = settings;
+        }
         for (c = 0; c < x; c++)
             ((uint32_t *) buffer32->line[line])[c] =
-                v6355_lcd_colour(((uint32_t *) buffer32->line[line])[c]);
+                v6355_lcd_colour(v6355, ((uint32_t *) buffer32->line[line])[c]);
         return;
     }
 
@@ -954,7 +964,14 @@ v6355_standalone_init(const device_t *info) {
     video_inform(VIDEO_FLAG_TYPE_CGA, &timing_v6355);
 
     v6355->display_type = device_get_config_int("display_type");
-    v6355->lcd_panel = (info == &v6355d_lcd_device);
+    v6355->lcd_panel = (info == &v6355d_lcd_device) ||
+                       (info == &v6355d_m15plus_lcd_device);
+    v6355->lcd_levels = (info == &v6355d_m15plus_lcd_device) ? 8 : 4;
+    v6355->panel_monitor = monitor_index_global;
+    v6355->panel_settings = UINT32_MAX;
+    if (v6355->lcd_panel)
+        video_panel_register(v6355->panel_monitor, VIDEO_PANEL_LCD,
+            VIDEO_PANEL_CONTRAST | (v6355->lcd_levels == 8 ? VIDEO_PANEL_BACKLIGHT : 0));
 
     overscan_x = overscan_y = 16;
 
@@ -1074,6 +1091,8 @@ static void
 v6355_close(void *priv) {
     v6355_t *v6355 = (v6355_t *) priv;
 
+    /* LCD presentation registration is owned by this device only. */
+    if (v6355->lcd_panel) video_panel_unregister(v6355->panel_monitor);
     if (v6355->prodest_pc1)
         io_removehandler(0x00dd, 0x0002,
                          v6355_prodest_alias_in, NULL, NULL,
@@ -1210,7 +1229,7 @@ const device_t v6355d_prodest_pc1_device = {
 };
 
 /*
- * Fixed green-phosphor LCD variant for systems whose V6355D drives an
+ * Fixed reflective green LCD variant for systems whose V6355D drives an
  * internal monochrome panel. The V6355D register interface remains identical;
  * this only selects the host-side presentation of its RGBI output.
  */
@@ -1227,4 +1246,22 @@ const device_t v6355d_lcd_device = {
     .force_redraw  = NULL,
     .config        = NULL,
     .alias         = "V6355D LCD"
+};
+
+/* The M15 Plus diagnostic disk explicitly distinguishes black, six grey
+   levels, and white.  Keep a separate device identity so that evidence does
+   not silently change the four-level M15 presentation. */
+const device_t v6355d_m15plus_lcd_device = {
+    .name          = "Yamaha V6355D (M15 Plus green LCD)",
+    .internal_name = "v6355d_m15plus_lcd",
+    .flags         = DEVICE_ISA,
+    .local         = 0,
+    .init          = v6355_standalone_init,
+    .close         = v6355_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = v6355_speed_changed,
+    .force_redraw  = NULL,
+    .config        = NULL,
+    .alias         = "V6355D M15 Plus LCD"
 };

@@ -92,6 +92,7 @@
 #include <86box/network.h>
 #include <86box/sound.h>
 #include <86box/midi.h>
+#include <86box/snd_mpu401.h>
 #include <86box/video.h>
 #include <86box/ui.h>
 #include <86box/path.h>
@@ -1550,6 +1551,18 @@ pc_init_modules(void)
     char tempc[512];
 
     /* Refuse an invalid configuration without changing or saving the VM. */
+    for (int i = 0; i < SOUND_CARD_MAX; ++i) {
+        if (!machine_allows_sound_card(machine, sound_card_current[i], i)) {
+            ui_msgbox_header(MBX_WARNING, "Unsupported sound expansion",
+                             "This machine profile does not support add-on sound cards. Choose None in Settings. The internal speaker is unaffected; the saved configuration has not been changed.");
+            return 0;
+        }
+    }
+    if (!machine_has_sound_expansion(machine) && mpu401_standalone_enable) {
+        ui_msgbox_header(MBX_WARNING, "Unsupported sound expansion",
+                         "This machine profile does not support a standalone MPU-401. Disable it in Settings; the saved configuration has not been changed.");
+        return 0;
+    }
     if (machine_get_valid_ram(machine, (int) mem_size) != (int) mem_size) {
         ui_msgbox_header(MBX_WARNING, "Configuration unavailable",
                          "Unsupported RAM configuration. Open Settings and choose a supported value. No configuration has been changed.");

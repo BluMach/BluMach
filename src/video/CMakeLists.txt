@@ -20,6 +20,7 @@ add_library(vid OBJECT
     # Video Core
     agpgart.c
     video.c
+    video_panel.c
     vid_table.c
 
     # RAMDAC (Should this be its own library?)

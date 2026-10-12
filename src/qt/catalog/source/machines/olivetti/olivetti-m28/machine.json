@@ -3,7 +3,7 @@
   "machine": {
     "id": "olivetti-m28",
     "manufacturer_id": "olivetti",
-    "family_id": "olivetti-m28",
+    "family_id": "olivetti-m",
     "platform_id": "olivetti-m28-fe2000-platform",
     "name": "Olivetti M28",
     "summary_key": "product.olivetti-m28.summary",
