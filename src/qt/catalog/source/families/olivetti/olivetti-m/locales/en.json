@@ -19,7 +19,7 @@
   "family.olivetti-m.period.late80": "Late 1980s",
   "family.olivetti-m.period.unknown": "Date not established",
   "family.olivetti-m.table.title": "Selected models in chronological order",
-  "family.olivetti-m.table.note": "Known launch dates and catalogue reference periods are distinguished: ranges are approximate, not exact launch dates. Undated models are listed last. This is not an exhaustive range inventory. A historical reference does not mean no inherited emulator exists, and a table row never enables creation.",
+  "family.olivetti-m.table.note": "Known launch dates and catalogue reference periods are told apart: ranges are approximate, not exact launch years. Undated models are listed last. This is not a full inventory of the range. A historical reference does not rule out inherited emulation, and a row in this table never enables creating the machine.",
   "family.olivetti-m.cpu.m10": "8-bit",
   "family.olivetti-m.cpu.m21": "PC-compatible",
   "family.olivetti-m.cpu.m30030": "x86 · 32-bit",
