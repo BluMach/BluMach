@@ -13,6 +13,7 @@ hard_disk_t hdd[HDD_NUM];
 static uint8_t disk[68 * SECTOR_SIZE];
 static uint8_t host_buffer[SECTOR_SIZE];
 static unsigned dma_position, writes, irq_requests, irq_lines;
+static unsigned unexpected_config_reads;
 
 void timer_enable(pc_timer_t *t) { t->flags |= TIMER_ENABLED; }
 void timer_disable(pc_timer_t *t) { t->flags &= ~TIMER_ENABLED; }
@@ -42,11 +43,13 @@ void ui_sb_update_icon(int type, int value) { (void)type; (void)value; }
 void ui_sb_update_icon_write(int type, int value) { (void)type; (void)value; }
 int hdd_image_load(int id) { assert(id == 0); return 1; }
 void hdd_image_close(uint8_t id) { assert(id == 0); }
-int device_get_config_int(const char *name) { (void)name; assert(0); return 0; }
-int device_get_config_hex20(const char *name) { (void)name; assert(0); return 0; }
-const char *device_get_config_bios(const char *name) { (void)name; assert(0); return "unused"; }
+/* Report unexpected configuration lookups at the test boundary. Do not make
+   these stubs noreturn: GCC also compiles the unused legacy constructors. */
+int device_get_config_int(const char *name) { (void)name; unexpected_config_reads++; return 5; }
+int device_get_config_hex20(const char *name) { (void)name; unexpected_config_reads++; return 0xc8000; }
+const char *device_get_config_bios(const char *name) { (void)name; unexpected_config_reads++; return "rev_1"; }
 const char *device_get_bios_file(const device_t *info, const char *name, unsigned file)
-{ (void)info; (void)name; (void)file; assert(0); return "unused"; }
+{ (void)info; (void)name; (void)file; unexpected_config_reads++; return "unused"; }
 int rom_present(const char *path) { (void)path; return 0; }
 int rom_init(rom_t *rom, const char *path, uint32_t address, int size, int mask, int offset, uint32_t flags)
 { (void)rom; (void)path; (void)address; (void)size; (void)mask; (void)offset; (void)flags; assert(0); return 0; }
@@ -127,6 +130,7 @@ int main(void)
     hdc_t *created = xta_olivetti_m15plus_device.init(&xta_olivetti_m15plus_device);
     assert(created->type == 8 && created->base == 0x320 && created->dma == 3 && created->irq == 5);
     assert(created->drives[0].present && !created->bios_rom.rom);
+    assert(unexpected_config_reads == 0);
     hdc_t d = *created;
     free(created);
     /* Channel 3 starts masked, as in the M15 Plus BIOS setup. The HDU gate
