@@ -39,6 +39,8 @@
 #include <86box/serial.h>
 #include <86box/snd_speaker.h>
 #include <86box/video.h>
+#include "cpu.h"
+#include "vx0_clock.h"
 
 typedef struct pcs86_t {
     uint8_t control;
@@ -346,6 +348,17 @@ pcs86_board_write(uint16_t port, uint8_t val, void *priv)
         dev->glue[port & 0x0f] = (port == 0x006b) ? (val & 0xfe) : val;
         if ((port == 0x006b) && (val & 0x01) && (dev->memory_blocks < 10))
             dev->memory_blocks++;
+        /* Original GOFAST/GOSLOW open the control transaction with DAh at
+         * 6Ch and set/clear the pair 6Fh[7:6]. Mixed combinations are not
+         * documented; retain the current clock instead of inventing modes.
+         * The nominal slow rate is inferred from physical Check-It 3.0,
+         * Landmark and TOPBENCH measurements, not an electrical clock trace. */
+        if ((port == 0x006f) && (dev->glue[0x0c] == 0xda)) {
+            if ((val & 0xc0) == 0x00)
+                vx0_clock_set(7159092);
+            else if ((val & 0xc0) == 0xc0)
+                vx0_clock_set(cpu_f->cpus[cpu].rspeed);
+        }
     } else if ((port == 0x037a) && (dev->lpt != NULL)) {
         /* The PCS86 SPP ignores the bidirectional-direction bit. */
         dev->lpt->ctrl &= ~0x20;
@@ -528,6 +541,7 @@ machine_xt_olivetti_pcs86_init(const machine_t *model)
     dev = (pcs86_t *) calloc(1, sizeof(pcs86_t));
     pcs86_active = dev;
     dev->control = 0x80;
+    dev->glue[0x0f] = 0xc0; /* Power-on fast mode; other latch bits remain zero. */
     if (fdd0_jumpers < 0)
         fdd0_jumpers = pcs86_floppy_jumper_bits(0);
     if (fdd1_jumpers < 0)

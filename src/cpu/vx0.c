@@ -14,6 +14,8 @@
  *
  *          Copyright 2015-2020 Andrew Jenner.
  *          Copyright 2016-2020 Miran Grca.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #include <math.h>
 #include <stdarg.h>
@@ -40,6 +42,7 @@
 #include <86box/plat_fallthrough.h>
 #include <86box/plat_unused.h>
 #include "vx0_biu.h"
+#include "vx0_nmi.h"
 
 #define do_cycle()           wait_vx0(1, 0)
 #define do_cycle_no_modrm()  if (!nx)       \
@@ -600,11 +603,11 @@ geteal(void)
 static uint64_t
 geteaq(void)
 {
-    uint32_t ret;
+    uint64_t ret;
 
     if (cpu_mod == 3) {
         fatal("Vx0 register geteaq()\n");
-        ret = 0xffffffff;
+        ret = UINT64_MAX;
     } else
         ret = readmemq(easeg, cpu_state.eaaddr);
 
@@ -1481,6 +1484,9 @@ check_interrupts(void)
                 custom_nmi();
             } else
                 int2();
+            /* Consume the delivered request, as in the 808x/286 cores.
+             * IRET may re-enable NMI; it must not redeliver this request. */
+            vx0_nmi_acknowledge();
             return;
         }
         if ((in_hlt || (cpu_state.flags & I_FLAG)) && pic.int_pending && !noint) {

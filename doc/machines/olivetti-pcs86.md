@@ -9,7 +9,7 @@ See also the [Olivetti PCS family overview](olivetti-pcs-family.md).
 ## Recommended BluMach configuration
 
 - machine: `[8086] Olivetti PCS86` (`olivetti_pcs86`);
-- CPU: NEC V30 at 8 MHz;
+- CPU: NEC V30 at 10 MHz;
 - conventional memory: 640 KiB;
 - video: onboard Paradise-compatible implementation;
 - floppy: one internal 3.5-inch 1.44 MB drive;
@@ -22,7 +22,8 @@ presented through four 16 KiB page frames.
 
 ## Documented hardware
 
-The PCS 86 is an XT-class design built around an NEC V30 at 8 MHz, but includes
+The PCS 86 is an XT-class design built around an NEC V30, nominally at 10 MHz
+in the Olivetti brochure, but includes
 features unusual for a conventional XT: onboard VGA-class video, a 1.44 MB
 floppy controller, an integrated XTA fixed-disk interface, two interchangeable
 PS/2-style ports and an MM58167 real-time clock.
@@ -31,6 +32,67 @@ The current implementation exposes the documented board-control registers,
 PS/2 ports at `66h-6Ah`, RTC at `E0h-EFh`, control registers at `B0h-B7h`, XTA
 enable control and the onboard EMS windows. Several undocumented latch bits are
 still conservative placeholders.
+
+## Software-selected speed (2026-10-13)
+
+Physical owner measurements with German Check-It 3.0 estimate 10.02 MHz in
+fast mode and 7.18 MHz in slow mode. Landmark 2.00 and TOPBENCH independently
+support the relative performance change. BluMach therefore models nominal
+10 MHz and 7.159092 MHz modes; the latter is inferred, not an electrical
+measurement or proof of the original oscillator/divider circuit. Earlier
+8/10 MHz descriptions are superseded by these measurements.
+
+The original GOFAST/GOSLOW utilities open a transaction by writing DAh to
+port 6Ch, preserve the low six bits of 6Fh and set/clear its high pair, then
+close with zero at 6Ch. BluMach applies the CPU rate to these register writes,
+without identifying a particular utility, BIOS or benchmark. Mixed high-bit
+values retain the last known mode because their independent meaning is unknown.
+
+CPU cycle duration uses a fractional accumulator in the existing fixed timer
+domain. Switching does not rebase pending PIT, RTC, video, storage or audio
+deadlines, nor reset CPU/FPU state. Cold initialization selects fast mode;
+a software CPU reset preserves the board latch. GOFAST restores the configured
+CPU rate, so existing 9.54 MHz VMs are not silently rewritten. Select V30
+10 MHz manually for those VMs; newly created catalogue machines use 10 MHz.
+
+Host contracts exercise both original port transactions, preserved latch bits,
+unsupported mixed pairs, phase retention, equal timer-domain seconds at both
+rates and legacy integral dividers. Guest measurements remain distinct from
+host contracts and do not certify electrical clocks or exhaustive CPU timing.
+
+## Check-It CPU/8087 validation (2026-10-13)
+
+Check-It 3.0 German completes CPU/NPU in both modes after three generic fixes:
+acknowledge a delivered NMI request, preserve all 64 bits of qword operands,
+and use an int counter for BIU waits exceeding 255 cycles. Previously a double
+divisor 2.0 was truncated to zero; its NMI could then be redelivered, exhaust
+the stack and transfer execution into data. After those fixes FPTAN still
+blocked because its 285-cycle wait overflowed the 8-bit counter. No test-name
+special cases, disabled 8087 or reduced FPU latencies are used.
+
+The owner supplied real-machine measurements using the same utility. The
+emulated run uses BIOS 1.09, V30 nominal 10 MHz interpreter, 8087 double-based
+core, 640 KiB conventional RAM plus 384 KiB EMS, internal VGA and Olivetti
+MS-DOS 3.30a. GOFAST/GOSLOW are executed in the same VM, without a debugger.
+From program startup: Enter, Enter, Right, Right, Enter, waiting for each
+screen transition. Both CPU and NPU completion marks are observed.
+
+| Mode | Metric | Physical PCS 86 | BluMach | Difference |
+|---|---|---:|---:|---:|
+| GOFAST | CPU Dhrystones | 1280 | 1280 | 0% |
+| GOSLOW | CPU Dhrystones | 896 | 921 | +2.8% |
+| GOFAST | 8087 Whetstones | 329.5K | 286.5K | -13.1% |
+| GOSLOW | 8087 Whetstones | 236.7K | 215.9K | -8.8% |
+| GOFAST | Estimated MHz | 10.02 | 9.73 | -2.9% |
+| GOSLOW | Estimated MHz | 7.18 | 6.97 | -2.9% |
+
+The slow/fast estimated-clock ratios are 71.66% on hardware and 71.63% in
+BluMach. This supports the modeled rate pair, but the clocks are software
+estimates. One observed run per mode is not a statistical accuracy assessment.
+CPU performance is close; 8087 timing/concurrency remains approximate. Repeat
+both modes and profile FPU operations, bus costs and WAIT before adjusting
+timings; do not raise the CPU clock to compensate for a Whetstone score.
+Landmark and TOPBENCH comparisons inside the emulator remain untested.
 
 ## Firmware
 
@@ -70,6 +132,9 @@ the particular capture came from the three-disk PCS 86 retail package.
 
 ## Known limitations and next tests
 
+- Check-It CPU/NPU completes in both modes with the above fixes. Arithmetic
+  exception coverage and 8087 timing beyond this benchmark remain incomplete;
+  the released alpha.2 still contains the pre-fix failures.
 - A host capture may remain black even when VGA text memory contains the full
   diagnostic or DOS screen; visible framebuffer presentation needs retesting.
 - PS/2 electrical timing, mouse behaviour and the full keyboard command set are
