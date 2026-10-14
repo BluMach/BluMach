@@ -2,6 +2,7 @@
   "order": 280,
   "machine": {
     "id": "amstrad-pc5286",
+    "visible": true,
     "manufacturer_id": "amstrad",
     "family_id": "amstrad-series-5",
     "platform_id": "amstrad-pc5286-platform",

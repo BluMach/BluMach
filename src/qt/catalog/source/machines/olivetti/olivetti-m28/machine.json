@@ -2,6 +2,7 @@
   "order": 230,
   "machine": {
     "id": "olivetti-m28",
+    "visible": true,
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-m",
     "platform_id": "olivetti-m28-fe2000-platform",
@@ -168,7 +169,7 @@
         {
           "section": "Floppy and CD-ROM drives",
           "values": {
-            "fdd_01_type": "35_2hd",
+            "fdd_01_type": "525_2hd",
             "fdd_02_type": "none"
           }
         },

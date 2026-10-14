@@ -2,6 +2,7 @@
   "order": 30,
   "machine": {
     "id": "olivetti-prodest-pc1hd",
+    "visible": true,
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-prodest",
     "platform_id": "olivetti-prodest-pc1hd-platform",

@@ -39,7 +39,7 @@ class FamilyHistoriesTests(unittest.TestCase):
                 self.assertGreater(len(values[family['history_key']].split()), 170)
 
     def test_alpha_rows_match_visible_products_not_historical_references(self):
-        for family_id, expected in [('olivetti-m', {'m15', 'm15-plus'}), ('toshiba-t-series', {'t3200', 't5100', 't5200'})]:
+        for family_id, expected in [('olivetti-m', {'m15', 'm15-plus', 'm28'}), ('toshiba-t-series', {'t3200', 't5100', 't5200'})]:
             rows = self.families[family_id]['comparison_table']['rows']
             enabled = {r['id'] for r in rows if r['cells'][4].get('value_key', '').endswith('.status.alpha')}
             self.assertEqual(enabled, expected)

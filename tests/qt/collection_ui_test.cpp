@@ -125,7 +125,7 @@ private slots:
             QVERIFY(tree);
             auto *range = catalogueItem(tree, QStringLiteral("olivetti-m"));
             QVERIFY(range);
-            QCOMPARE(range->childCount(), 2);
+            QCOMPARE(range->childCount(), 3);
             const QStringList models = { "olivetti-m15", "olivetti-m15-plus" };
             const QStringList native = { "olivetti_m15", "olivetti_m15plus" };
             QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
@@ -206,10 +206,12 @@ private slots:
         QString error;
         QVERIFY2(catalog.load(&error), qPrintable(error));
         for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx",
-                                "olivetti_m15", "olivetti_m15plus", "t3200", "t5100", "t5200" })
+                                "olivetti_m15", "olivetti_m15plus", "t3200", "t5100", "t5200",
+                                "olivetti_pcs286s", "olivetti_prodest_pc1",
+                                "olivetti_prodest_pc1hd", "olivetti_m28", "pc5286" })
             QVERIFY(catalog.isMachineSelectable(QString::fromLatin1(id), true));
-        for (const auto &id : { "olivetti_m250", "olivetti_pcs286s",
-                                "sx386m", "pc5286",
+        for (const auto &id : { "olivetti_m250", "olivetti_m280", "olivetti_m380",
+                                "sx386m",
                                 "ta_dario286", "ta_dario386sx", "olivetti_ba2142",
                                 "olivetti_m240", "olivetti_m211v", "olivetti_m290sp" })
             QVERIFY(!catalog.isMachineSelectable(QString::fromLatin1(id), true));
@@ -234,6 +236,34 @@ private slots:
             QVERIFY(tree);
             QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
             for (int i = 0; i < 3; ++i) {
+                auto *item = catalogueItem(tree, QString::fromLatin1(products[i]));
+                QVERIFY(item);
+                tree->setCurrentItem(item);
+                creation.clear();
+                widget.createSelectedMachine();
+                QCOMPARE(creation.count(), 1);
+                QCOMPARE(creation.at(0).at(0).toString(), QString::fromLatin1(products[i]));
+                QCOMPARE(creation.at(0).at(1).toString(), QString::fromLatin1(native[i]));
+            }
+        }
+        lang_id = 0;
+    }
+
+    void nextAlphaCandidatesCreateFromTheirOwnSheets()
+    {
+        const char *products[] = { "olivetti-pcs286s", "olivetti-prodest-pc1",
+                                   "olivetti-prodest-pc1hd", "olivetti-m28",
+                                   "amstrad-pc5286" };
+        const char *native[] = { "olivetti_pcs286s", "olivetti_prodest_pc1",
+                                 "olivetti_prodest_pc1hd", "olivetti_m28", "pc5286" };
+        for (int locale = 0; locale < locales.size(); ++locale) {
+            lang_id = locale;
+            BluMachCollectionWidget widget;
+            auto *tree = widget.findChild<QTreeWidget *>();
+            QVERIFY(tree);
+            QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
+            QVERIFY(!catalogueItem(tree, QStringLiteral("amstrad-pc1512")));
+            for (int i = 0; i < 5; ++i) {
                 auto *item = catalogueItem(tree, QString::fromLatin1(products[i]));
                 QVERIFY(item);
                 tree->setCurrentItem(item);
@@ -323,15 +353,15 @@ private slots:
             "Collection d’ordinateurs historiques", "Collezione di computer storici", "Coleção de computadores históricos" };
         QCOMPARE(widget.findChild<QLabel *>("blumachCollectionHeading")->text(), headings[locale]);
         QCOMPARE(widget.width(), width);
-        QCOMPARE(tree->topLevelItemCount(), 2);
+        QCOMPARE(tree->topLevelItemCount(), 3);
         QSet<QString> visibleBrands;
         for (int i = 0; i < tree->topLevelItemCount(); ++i)
             visibleBrands.insert(tree->topLevelItem(i)->data(0, Qt::UserRole).toString());
-        QCOMPARE(visibleBrands, (QSet<QString>{ QStringLiteral("olivetti"), QStringLiteral("toshiba") }));
+        QCOMPARE(visibleBrands, (QSet<QString>{ QStringLiteral("olivetti"), QStringLiteral("toshiba"), QStringLiteral("amstrad") }));
         auto *brand = tree->topLevelItem(0);
         auto *family = catalogueItem(tree, QStringLiteral("olivetti-pcs"));
         QVERIFY(family && family->parent() == brand);
-        QCOMPARE(family->childCount(), 3);
+        QCOMPARE(family->childCount(), 4);
         QVERIFY(contrast(tree->palette().color(QPalette::PlaceholderText), pal.color(QPalette::Base)) >= 4.5);
         QVERIFY(!clear->isVisible());
         search->setText("386");
@@ -356,7 +386,7 @@ private slots:
         QCOMPARE(creation.count(), 0);
         clear->click();
         QVERIFY(search->text().isEmpty());
-        QCOMPARE(family->data(0, Qt::UserRole + 7).toInt(), 3);
+        QCOMPARE(family->data(0, Qt::UserRole + 7).toInt(), 4);
         QVERIFY(search->hasFocus());
         QVERIFY(!clear->isVisible());
         // Reflow repeatedly: grid column stretch must not accumulate.

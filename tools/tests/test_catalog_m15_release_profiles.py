@@ -14,12 +14,12 @@ class M15ReleaseProfileTests(unittest.TestCase):
         self.catalog, self.locales = catalog_builder.assemble(ROOT / 'src/qt/catalog/source')
         self.products = {p['id']: p for p in self.catalog['products']}
 
-    def test_only_the_two_m15_models_are_enabled_in_m_range(self):
+    def test_m_range_keeps_selected_release_models_only(self):
         family = next(f for f in self.catalog['families'] if f['id'] == 'olivetti-m')
         self.assertTrue(family['visible'])
         visible = {p['id'] for p in self.catalog['products'] if p['family_id']=='olivetti-m' and p.get('visible')}
-        self.assertEqual({'olivetti-m15', 'olivetti-m15-plus'}, visible)
-        for model in visible:
+        self.assertEqual({'olivetti-m15', 'olivetti-m15-plus', 'olivetti-m28'}, visible)
+        for model in ('olivetti-m15', 'olivetti-m15-plus'):
             self.assertEqual('experimental', self.products[model]['status'])
 
     def test_profiles_have_no_sound_cards_or_standalone_mpu(self):

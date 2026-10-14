@@ -2,6 +2,7 @@
   "order": 120,
   "family": {
     "id": "amstrad-series-5",
+    "visible": true,
     "manufacturer_id": "amstrad",
     "parent_family_id": "",
     "name": "Series 5",

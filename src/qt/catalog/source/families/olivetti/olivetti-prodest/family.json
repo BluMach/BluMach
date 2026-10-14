@@ -2,6 +2,7 @@
   "order": 80,
   "family": {
     "id": "olivetti-prodest",
+    "visible": true,
     "manufacturer_id": "olivetti",
     "parent_family_id": "",
     "name": "Prodest",
