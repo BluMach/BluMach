@@ -31,6 +31,7 @@
 #define HAVE_STDARG_H
 #include <86box/86box.h>
 #include "cpu.h"
+#include "vx0_clock.h"
 #include "x86.h"
 #include "x87_sf.h"
 #include <86box/device.h>
@@ -537,6 +538,8 @@ SF_FPU_reset(void)
 void
 cpu_set(void)
 {
+    /* A new configured CPU/machine must not inherit a guest-selected NEC rate. */
+    vx0_clock_reset();
     if (cpu_f == NULL)
         return;
 

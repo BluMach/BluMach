@@ -12,6 +12,8 @@
  * Authors: Miran Grca, <mgrca8@gmail.com>
  *
  *          Copyright 2019 Miran Grca.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #include <inttypes.h>
 #include <math.h>
@@ -25,6 +27,7 @@
 #define HAVE_STDARG_H
 #include <86box/86box.h>
 #include "cpu.h"
+#include "vx0_clock.h"
 #include <86box/device.h>
 #include <86box/timer.h>
 #include <86box/cassette.h>
@@ -1930,6 +1933,7 @@ pit_set_clock(uint32_t clock)
             ISACONST = (1ULL << 32ULL);
     }
     xt_cpu_multi <<= 32ULL;
+    vx0_clock_rebase(cpuclock);
 
     /* Delay for empty I/O ports. */
     io_delay = (int) round(((double) cpu_s->rspeed) / 3000000.0);

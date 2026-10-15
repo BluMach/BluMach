@@ -22,6 +22,13 @@ class Pcs86CatalogTests(unittest.TestCase):
             for setting in choice.get("set", [])
         }
 
+    def test_new_machine_uses_nominal_fast_clock(self) -> None:
+        sections = {entry["section"]: entry["values"]
+                    for entry in self.machine["creation"]["configuration"]}
+        self.assertEqual("necv30", sections["Machine"]["cpu_family"])
+        self.assertEqual(10000000, sections["Machine"]["cpu_speed"])
+        self.assertEqual(1, sections["Machine"]["cpu_multi"])
+
     def test_commercial_storage_profiles_match_the_brochure(self) -> None:
         choices = {
             choice["id"]: choice

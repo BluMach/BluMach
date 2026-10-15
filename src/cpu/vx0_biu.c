@@ -13,6 +13,8 @@
  *
  *          Copyright 2015-2020 Andrew Jenner.
  *          Copyright 2016-2020 Miran Grca.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #include <math.h>
 #include <stdarg.h>
@@ -37,6 +39,7 @@
 #include <86box/plat_fallthrough.h>
 #include <86box/plat_unused.h>
 #include "vx0_biu.h"
+#include "vx0_clock.h"
 
 #define do_cycle()           wait_vx0(1, 0)
 #define do_cycle_i()         do_cycle()
@@ -279,8 +282,7 @@ static void
 process_timers(void)
 {
     /* On 808x systems, clock speed is usually crystal frequency divided by an integer. */
-    tsc += ((uint64_t) xt_cpu_multi >> 32ULL);    /* Shift xt_cpu_multi by 32 bits to
-                                                     the right and then multiply. */
+    tsc += vx0_clock_tick();
     if (TIMER_VAL_LESS_THAN_VAL(timer_target, (uint64_t) tsc))
         timer_process();
 }
@@ -762,7 +764,7 @@ wait_vx0(int c, UNUSED(int bus))
 {
     vx0_biu_log("[%04X:%04X] %02X %i cycles\n", CS, cpu_state.pc, opcode, c);
 
-    for (uint8_t i = 0; i < c; i++)
+    for (int i = 0; i < c; i++)
         biu_cycle();
 }
 

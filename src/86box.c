@@ -20,6 +20,8 @@
  *          Copyright 2021      dob205
  *          Copyright 2021      Andreas J. Reichel.
  *          Copyright 2021-2025 Jasmine Iwanek.
+ *
+ * BluMach modifications: rtzor, Project BluMach, 2026.
  */
 #include <inttypes.h>
 #include <stdarg.h>
@@ -48,6 +50,7 @@
 #include <86box/config.h>
 #include <86box/mem.h>
 #include "cpu.h"
+#include "vx0_clock.h"
 #ifdef USE_DYNAREC
 #    include "codegen_public.h"
 #endif
@@ -2075,7 +2078,8 @@ pc_run(void)
 
     /* Run a block of code. */
     startblit();
-    cpu_exec((int32_t) cpu_s->rspeed / (force_10ms ? 100 : 1000));
+    const uint32_t run_hz = is_nec ? vx0_clock_get(cpu_s->rspeed) : cpu_s->rspeed;
+    cpu_exec((int32_t) run_hz / (force_10ms ? 100 : 1000));
     ack_pause();
 #ifdef USE_GDBSTUB /* avoid a KBC FIFO overflow when CPU emulation is stalled */
     if (gdbstub_step == GDBSTUB_EXEC) {
