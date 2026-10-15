@@ -41,7 +41,7 @@ class FamilyHistoriesTests(unittest.TestCase):
     def test_alpha_rows_match_visible_products_not_historical_references(self):
         for family_id, expected in [('olivetti-m', {'m15', 'm15-plus', 'm28'}), ('toshiba-t-series', {'t3200', 't5100', 't5200'})]:
             rows = self.families[family_id]['comparison_table']['rows']
-            enabled = {r['id'] for r in rows if r['cells'][4].get('value_key', '').endswith('.status.alpha')}
+            enabled = {r['id'] for r in rows if r['cells'][4].get('value_key', '').endswith(('.status.alpha', '.status.partial'))}
             self.assertEqual(enabled, expected)
             visible = {p['id'] for p in self.catalog['products'] if p.get('visible') and p['family_id'] == family_id}
             prefix = 'olivetti-' if family_id == 'olivetti-m' else 'toshiba-'
