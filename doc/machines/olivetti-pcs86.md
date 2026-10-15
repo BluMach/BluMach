@@ -37,10 +37,17 @@ still conservative placeholders.
 
 Physical owner measurements with German Check-It 3.0 estimate 10.02 MHz in
 fast mode and 7.18 MHz in slow mode. Landmark 2.00 and TOPBENCH independently
-support the relative performance change. BluMach therefore models nominal
-10 MHz and 7.159092 MHz modes; the latter is inferred, not an electrical
-measurement or proof of the original oscillator/divider circuit. Earlier
-8/10 MHz descriptions are superseded by these measurements.
+support the relative performance change. The nominal physical slow clock near
+7.16 MHz is inferred, not an electrical measurement or proof of the original
+oscillator/divider circuit. Earlier 8/10 MHz descriptions are superseded by
+these measurements.
+
+At the owner's request, BluMach now targets 10 MHz fast and 7.20 MHz slow:
+a compatibility choice favouring a small speed surplus over underspeed, not
+a newly established hardware specification. The slow target is 0.57% above the
+previous 7.159092 MHz emulation setting. Fast mode is unchanged. This does not
+correct separate memory, video or 8087 timing differences, and clock-sensitive
+software can still differ from the physical machine.
 
 The original GOFAST/GOSLOW utilities open a transaction by writing DAh to
 port 6Ch, preserve the low six bits of 6Fh and set/clear its high pair, then
@@ -70,7 +77,9 @@ the stack and transfer execution into data. After those fixes FPTAN still
 blocked because its 285-cycle wait overflowed the 8-bit counter. No test-name
 special cases, disabled 8087 or reduced FPU latencies are used.
 
-The owner supplied real-machine measurements using the same utility. The
+The following table records the pre-adjustment 10/7.159092 MHz baseline, not
+results at the new 7.20 MHz target. The owner supplied real-machine measurements
+using the same utility. The
 emulated run uses BIOS 1.09, V30 nominal 10 MHz interpreter, 8087 double-based
 core, 640 KiB conventional RAM plus 384 KiB EMS, internal VGA and Olivetti
 MS-DOS 3.30a. GOFAST/GOSLOW are executed in the same VM, without a debugger.
@@ -92,7 +101,33 @@ estimates. One observed run per mode is not a statistical accuracy assessment.
 CPU performance is close; 8087 timing/concurrency remains approximate. Repeat
 both modes and profile FPU operations, bus costs and WAIT before adjusting
 timings; do not raise the CPU clock to compensate for a Whetstone score.
-Landmark and TOPBENCH comparisons inside the emulator remain untested.
+Landmark inside the emulator remains untested.
+
+## Compatibility-clock rerun (2026-10-13)
+
+The local 10/7.20 MHz build passes 16 host contracts and 68 catalogue/tool
+tests. A fresh private VM, with the same hardware configuration listed above,
+boots and runs TOPBENCH `/i` in both modes without a debugger. Fast values are
+unchanged; slow kernel times decrease by about 0.6% from the previous CLI run.
+
+| Kernel | Real fast µs | Emulated fast µs | Time difference | Real slow µs | Emulated slow µs | Time difference |
+|---|---:|---:|---:|---:|---:|---:|
+| MemTest | 950 | 1164 | +22.5% | 1351 | 1616 | +19.6% |
+| MemEA | 613 | 670 | +9.3% | 875 | 931 | +6.4% |
+| Opcodes | 476 | 476 | 0% | 675 | 661 | -2.1% |
+| VidMem | 869 | 820 | -5.6% | 1051 | 1139 | +8.4% |
+| 3DGames | 453 | 383 | -15.5% | 646 | 532 | -17.6% |
+
+Positive percentages mean **longer execution time**, hence slower, not greater
+throughput. Scores remain 14 fast and 10 slow. The physical reference is the
+owner's photographed continuous comparison; this rerun is the CLI profile,
+so the comparison is preliminary. The earlier continuous emulated fast value
+of 475 µs for Opcodes is preserved separately, not replaced by this CLI 476.
+This small clock adjustment cannot remove the nonuniform memory/video costs
+or the previously observed 8087 deficit. Check-It reruns at 7.20 MHz are
+prepared but awaiting physical keyboard navigation; no new CPU/NPU score is
+claimed yet. The preceding Check-It table and editorial package remain the
+pre-adjustment baseline.
 
 ## Firmware
 

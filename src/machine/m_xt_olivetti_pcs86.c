@@ -355,7 +355,9 @@ pcs86_board_write(uint16_t port, uint8_t val, void *priv)
          * Landmark and TOPBENCH measurements, not an electrical clock trace. */
         if ((port == 0x006f) && (dev->glue[0x0c] == 0xda)) {
             if ((val & 0xc0) == 0x00)
-                vx0_clock_set(7159092);
+                /* Slightly faster compatibility target; the physical slow
+                 * clock is inferred near 7.16 MHz, not electrically verified. */
+                vx0_clock_set(7200000);
             else if ((val & 0xc0) == 0xc0)
                 vx0_clock_set(cpu_f->cpus[cpu].rspeed);
         }

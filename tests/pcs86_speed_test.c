@@ -64,11 +64,11 @@ int main(void)
     pcs86_board_write(0x6f, 0x2b, &d);
     assert(vx0_clock_get(10000000) == 10000000);
     utility(&d, 0);
-    assert(vx0_clock_get(10000000) == 7159092);
+    assert(vx0_clock_get(10000000) == 7200000);
     assert(d.glue[15] == 0x2b && d.glue[12] == 0);
     /* Same fixed 30 MHz timer domain: one slow CPU second is still one
      * PIT/RTC/video second. Fractional ticks must accumulate, not truncate. */
-    uint64_t elapsed = ticks(7159092);
+    uint64_t elapsed = ticks(7200000);
     assert(elapsed >= 29999999 && elapsed <= 30000000);
     const uint32_t phase = vx0_clock_phase;
     utility(&d, 1);
