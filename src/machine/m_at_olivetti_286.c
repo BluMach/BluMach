@@ -332,6 +332,48 @@ olivetti_pcs286s_olimcu_update_all(olivetti_pcs286s_olimcu_t *dev)
         olivetti_pcs286s_olimcu_update(&dev->window[slot]);
 }
 
+/* Extended Setup F7 "frequency (RAM/IO)" (12/12, 12/6, 6/6 MHz).  The BIOS
+   keeps it in CMOS 1Bh (bits 3-4 RAM, bits 5-6 I/O; 1 = 12 MHz, 3 = 6 MHz) and
+   programs chipset register 08h as: bits 0-1 RAM code, bits 2-3 I/O code
+   (2 = 12 MHz, 3 = 6 MHz), bit 4 set when they differ.  Observed in BluMach on
+   2026-10-14: 12/12 -> 4Ah, 12/6 -> 7Eh, 6/6 -> 6Fh.
+   The I/O clock maps directly to the AT bus speed.  The exact TACT82300 wait
+   states are undocumented: a 6 MHz RAM clock is approximated by doubling the
+   CPU table's memory cycles.  This is a behavioural approximation, not a
+   cycle-accurate model of the chipset. */
+static void
+olivetti_286_apply_timing(int ram_slow, int io_slow)
+{
+    cpu_set_isa_speed(io_slow ? 6000000 : 12000000);
+    cpu_waitstates = (ram_slow && (cpu_s != NULL)) ? ((2 * cpu_s->mem_read_cycles) - 1) : 0;
+    cpu_update_waitstates();
+}
+
+static void
+olivetti_pcs286s_apply_timing(uint8_t reg08)
+{
+    olivetti_286_apply_timing((reg08 & 0x03) == 0x03, ((reg08 >> 2) & 0x03) == 0x03);
+}
+
+/* PCS 286 / Dario 286 (Headland, BIOS 1.42): the same Setup item
+   "Select frequency (RAM/IO)" is kept in CMOS 13h bits 4-5 (0 = 12/12,
+   1 = 12/6, 2 = 6/6; Setup F000:1EBF/1F15).  The chipset is not involved:
+   POST (F000:43A7) reads the keyboard controller with Olivetti command 80h,
+   replaces bits 0-1 with that code and writes it back with command 84h, after
+   first forcing the code to 0 (F000:4326).  If the CMOS is invalid the code
+   stays 0.  kbc_at.c calls this hook on every 84h write.  Same behavioural
+   approximation as the PCS 286/S above. */
+void
+machine_at_olivetti_pcs286_set_timing(uint8_t kbc_p2)
+{
+    const uint8_t code = kbc_p2 & 0x03;
+
+#ifdef ENABLE_OLIVETTI_PCS286S_LOG
+    pclog("Olivetti PCS 286 KBC 84h frequency code %u\n", code);
+#endif
+    olivetti_286_apply_timing(code >= 2, code >= 1);
+}
+
 /* BIOS 2.06 accesses the TACT/OLIMCU configuration through three bytes at
    the very top of the system-ROM window.  FFFECh selects a register and
    FFFEAh transfers its data; FFFEEh is the configuration lock/status latch.
@@ -416,6 +458,13 @@ olivetti_pcs286s_olimcu_reg_write(uint32_t addr, uint8_t val, void *priv)
             OLIMCU_LOG("[OLIMCU-REG] W data index=%02X bank=%u value=%02X\n",
                        dev->reg_index, dev->bank & 3, val);
             dev->regs[dev->reg_index] = val;
+#ifdef ENABLE_OLIVETTI_PCS286S_LOG
+            /* Extended Setup "frequency (RAM/IO)": see olivetti_pcs286s_apply_timing(). */
+            if ((dev->reg_index == 0x08) || (dev->reg_index == 0x09) || (dev->reg_index == 0x1a))
+                pclog("Olivetti PCS 286/S timing register %02Xh = %02X\n", dev->reg_index, val);
+#endif
+            if (dev->reg_index == 0x08)
+                olivetti_pcs286s_apply_timing(val);
             if (dev->reg_index == 0x10) {
                 dev->bank = val & 3;
                 olivetti_pcs286s_olimcu_update_all(dev);
@@ -662,6 +711,13 @@ machine_at_olivetti_pcs286_init(const machine_t *model)
     extern uint8_t *ram;
     if (ram != NULL) {
         ram[0x0410] = 0x20;  /* equip: 80x25 color, 1 FDD, no FPU, no IPL */
+        /* BIOS 1.42 Setup F4 (F000:1A51) offers drive B only when BDA
+           0x410 bits 6-7 report a second drive, which on the real machine
+           came from the POST drive count (no second internal bay when the
+           hard disk is fitted; an external drive still counts).  Report the
+           drives actually configured instead of always one. */
+        if ((fdd_get_type(0) != 0) && (fdd_get_type(1) != 0))
+            ram[0x0410] |= 0x40;
         ram[0x0411] = 0x00;
     }
 
@@ -673,6 +729,12 @@ machine_at_olivetti_pcs286_init(const machine_t *model)
      * pass and skip the SET-UP on subsequent boots. */
     /* Olivetti IOC02 glue chip. My v0.2 fix forces bit 2 of reg 0x6A
        to 1 (I/O subsystem ready) so the Phoenix POST test 2 passes. */
+    /* Olivetti 286 machines run the AT bus at 12 MHz by default (Setup
+       12/12); POST then applies the saved frequency through KBC command
+       84h, see machine_at_olivetti_pcs286_set_timing(). */
+    cpu_waitstates = 0;
+    cpu_set_isa_speed(12000000);
+
     device_add(&olivetti_ioc02_device);
 
     /* Olivetti-specific port 0x61/0x62/0x63 handler (A20 gate). The
@@ -716,6 +778,19 @@ machine_at_olivetti_pcs286_init(const machine_t *model)
     return ret;
 }
 
+/* BIOS 2.06 reports POST progress by writing codes to the LPT1 data port
+   (378h).  The PC87310 parallel port still receives every write; this
+   observer only records the codes when ENABLE_OLIVETTI_PCS286S_LOG is set. */
+static void
+olivetti_pcs286s_post_write(UNUSED(uint16_t port), uint8_t val, UNUSED(void *priv))
+{
+#ifdef ENABLE_OLIVETTI_PCS286S_LOG
+    pclog("Olivetti PCS 286/S POST code: %02X\n", val);
+#else
+    (void) val;
+#endif
+}
+
 /* TI-board PCS 286S.  The preserved 2.06 firmware and the physical board
    identify a TACT82300-family three-chip set, the Olivetti OLIMCU16 ASIC,
    PC87310 Super I/O and onboard Paradise VGA.  TACT/OLIMCU16 memory control
@@ -746,8 +821,13 @@ machine_at_olivetti_pcs286s_ti_init(const machine_t *model)
        port 03F3h, which is also visible in the 2.06 reset path. */
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
     device_add(&pc87310_device);
+    io_sethandler(0x0378, 1, NULL, NULL, NULL,
+                  olivetti_pcs286s_post_write, NULL, NULL, NULL);
 
     memset(&olivetti_pcs286s_olimcu, 0, sizeof(olivetti_pcs286s_olimcu));
+    /* Until the BIOS programs register 08h, use the emulator defaults. */
+    cpu_waitstates = 0;
+    cpu_set_isa_speed(12000000);
     olivetti_pcs286s_olimcu_banks_init(&olivetti_pcs286s_olimcu);
     static const uint16_t olimcu_bases[] = {
         0x0208, 0x0218, 0x0258, 0x0268, 0x02a8, 0x02b8, 0x02e8

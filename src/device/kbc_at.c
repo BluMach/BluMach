@@ -117,6 +117,8 @@ typedef struct atkbc_t {
     uint8_t award_revision;
     uint8_t chips_revision;
     uint8_t olivetti_pcs386sx_enable_reply;
+    /* PCS 386SX: Olivetti configuration byte read with 80h, written with 84h. */
+    uint8_t olivetti_pcs386sx_cfg;
 
     uint8_t mem[0x100];
 
@@ -2094,8 +2096,18 @@ write_cmd_olivetti(void *priv, uint8_t val)
                The M250 E uses the same path but reports its mandatory ISA
                bus adapter on bit 7. Other Olivetti machines retain their
                machine-specific status reply. */
-            if ((machines[machine].init == machine_at_olivetti_pcs286_init) ||
-                (machines[machine].init == machine_at_olivetti_m250_init))
+            if (machines[machine].init == machine_at_olivetti_pcs286_init)
+                /* PCS 286 / Dario 286 BIOS 1.42 (F000:42F0): with bit 5 low,
+                   POST rewrites CMOS 13h = 84h, 1Bh = 00h and 37h-3Fh = 00h on
+                   every boot, discarding the password and the Setup frequency
+                   (RAM/IO) and language.  The Dario 286 technical manual
+                   (BA025, 1990) documents a board jumper A11 "PASSWORT"
+                   (1-2 enable, 2-3 disable); bit 5 is presumably its input,
+                   so report the password-enabled position.  The exact P2
+                   read-back used by the Phoenix P2 test is preserved because
+                   the BIOS writes back the bit it has read. */
+                kbc_delay_to_ob(dev, dev->p2 | 0x20, 0, 0x00);
+            else if (machines[machine].init == machine_at_olivetti_m250_init)
                 kbc_delay_to_ob(dev, dev->p2, 0, 0x00);
             else if (machines[machine].init == machine_at_olivetti_m250e_init)
                 kbc_delay_to_ob(dev, dev->p2 | 0x80, 0, 0x00);
@@ -2105,6 +2117,8 @@ write_cmd_olivetti(void *priv, uint8_t val)
                    state (jumper absent); low deliberately enters the factory
                    POST loop. */
                 kbc_delay_to_ob(dev, dev->p2 | 0x20, 0, 0x00);
+            else if (machines[machine].init == machine_at_olivetti_pcs386sx_init)
+                kbc_delay_to_ob(dev, dev->olivetti_pcs386sx_cfg, 0, 0x00);
             else if ((machines[machine].init == machine_at_olivetti_pcs11_init) ||
                      (machines[machine].init == machine_at_olivetti_pcs33_init))
                 /* PCS 11/33 use bit 7 as the front-panel key switch:
@@ -2121,6 +2135,7 @@ write_cmd_olivetti(void *priv, uint8_t val)
         case 0x84: /* Olivetti: write output port P2 */
             if ((machines[machine].init == machine_at_olivetti_pcs286_init) ||
                 (machines[machine].init == machine_at_olivetti_pcs286s_ti_init) ||
+                (machines[machine].init == machine_at_olivetti_pcs386sx_init) ||
                 (machines[machine].init == machine_at_olivetti_m250_init) ||
                 (machines[machine].init == machine_at_olivetti_m250e_init)) {
                 dev->wantdata = 1;
@@ -2138,6 +2153,7 @@ write_cmd_olivetti(void *priv, uint8_t val)
         case 0xcf: /* Phoenix POST separator/no-op */
             if ((machines[machine].init == machine_at_olivetti_pcs286_init) ||
                 (machines[machine].init == machine_at_olivetti_pcs286s_ti_init) ||
+                (machines[machine].init == machine_at_olivetti_pcs386sx_init) ||
                 (machines[machine].init == machine_at_olivetti_m250_init) ||
                 (machines[machine].init == machine_at_olivetti_m250e_init))
                 ret = 0;
@@ -2160,6 +2176,15 @@ write_cmd_data_olivetti(void *priv, uint8_t val)
     atkbc_t *dev = (atkbc_t *) priv;
     uint8_t  ret = 1;
 
+    if ((machines[machine].init == machine_at_olivetti_pcs386sx_init) && (dev->command == 0x84)) {
+        /* BIOS 1.14 keeps its configuration byte here, separate from the
+           standard P2 (A20/reset), and verifies it by reading back with 80h. */
+        kbc_at_log("ATkbc: Olivetti PCS 386SX configuration: %02X\n", val);
+        dev->olivetti_pcs386sx_cfg = val;
+        machine_at_olivetti_pcs386sx_set_timing(val);
+        return 0;
+    }
+
     if (((machines[machine].init == machine_at_olivetti_pcs286_init) ||
          (machines[machine].init == machine_at_olivetti_pcs286s_ti_init) ||
          (machines[machine].init == machine_at_olivetti_m250_init) ||
@@ -2170,6 +2195,10 @@ write_cmd_data_olivetti(void *priv, uint8_t val)
            through command 80h. */
         kbc_at_log("ATkbc: Olivetti write P2: %02X\n", val);
         dev->p2 = val;
+        /* PCS 286 / Dario 286 BIOS 1.42: bits 0-1 carry the Setup
+           "frequency (RAM/IO)" code. */
+        if (machines[machine].init == machine_at_olivetti_pcs286_init)
+            machine_at_olivetti_pcs286_set_timing(val);
         ret     = 0;
     }
 
@@ -3011,6 +3040,11 @@ kbc_at_reset(void *priv)
     dev->command_phase = 0;
     dev->olivetti_pcs386sx_enable_reply =
         (machines[machine].init == machine_at_olivetti_pcs386sx_init);
+    /* PCS 386SX BIOS 1.14: bit 7 low = keyboard fuse intact (F000:21A6),
+       bit 5 high = password enabled (F000:1297; same check as BIOS 1.42,
+       where the Dario 286 manual documents jumper A11), bits 2-3
+       as the former fixed 0Ch reply, bits 0-1 = 0 (full speed). */
+    dev->olivetti_pcs386sx_cfg = 0x2c;
 
     /* Video Type is now handled in the machine P1 handler. */
     dev->p1 = 0xff;

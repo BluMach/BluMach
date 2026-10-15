@@ -565,10 +565,12 @@ extern const device_t  ta_dario286_device;
 extern const device_t  olivetti_pcs286s_ti_device;
 #endif
 extern int             machine_at_olivetti_pcs286_init(const machine_t *);
+extern void            machine_at_olivetti_pcs286_set_timing(uint8_t kbc_p2);
 extern int             machine_at_olivetti_pcs286s_ti_init(const machine_t *);
 
 /* m_at_olivetti_386sx.c */
 extern int             machine_at_olivetti_pcs386sx_init(const machine_t *);
+extern void            machine_at_olivetti_pcs386sx_set_timing(uint8_t kbc_cfg);
 
 /* m_at_toshiba_t5200.c */
 extern int             machine_at_t5200_init(const machine_t *);

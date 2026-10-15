@@ -40,6 +40,23 @@
 #include <86box/video.h>
 #include <86box/machine.h>
 
+/* Setup item "RAM/IO/CO" of BIOS 1.14 (F000:6711).  CMOS 13h bits 4-5 hold
+   one of three combinations, shown in MHz as RAM/IO/coprocessor:
+   0 = 16/8/16 (default), 1 = 16/16/16, 2 = 8/8/8.  POST (F000:11DC) sends
+   only bit 5 to the keyboard controller with Olivetti command 84h, as bit 1
+   ("slow").  No POST code was found that applies bit 4 (I/O 16 MHz), so the
+   AT bus keeps its default.  The 8 MHz RAM/coprocessor clock is approximated
+   by doubling the CPU table's memory cycles; this is a behavioural
+   approximation, not a cycle-accurate model. */
+void
+machine_at_olivetti_pcs386sx_set_timing(uint8_t kbc_cfg)
+{
+    const int slow = !!(kbc_cfg & 0x02);
+
+    cpu_waitstates = (slow && (cpu_s != NULL)) ? ((2 * cpu_s->mem_read_cycles) - 1) : 0;
+    cpu_update_waitstates();
+}
+
 int
 machine_at_olivetti_pcs386sx_init(const machine_t *model)
 {
@@ -120,6 +137,7 @@ machine_at_olivetti_pcs386sx_init(const machine_t *model)
        TL16C451 as one TL16C450-compatible UART plus a Centronics interface,
        hence one 16450-compatible UART and one standard bidirectional LPT are
        a direct functional decomposition rather than a borrowed Super I/O. */
+    cpu_waitstates = 0;
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
     if (fdc_current[0] == FDC_INTERNAL)
         device_add(&fdc_at_wd37c65_device);
