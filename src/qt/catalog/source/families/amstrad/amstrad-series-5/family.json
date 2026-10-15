@@ -6,6 +6,127 @@
     "manufacturer_id": "amstrad",
     "parent_family_id": "",
     "name": "Series 5",
-    "description_key": "family.amstrad-series-5.description"
+    "description_key": "family.amstrad-series-5.description",
+    "history_key": "family.amstrad-series-5.history",
+    "history_references": [
+      {
+        "title": "Amstrad to launch Series 5 PC's",
+        "publisher": "Tech Monitor (Computer Business Review), 1991",
+        "url": "https://www.techmonitor.ai/technology/amstrad_to_launch_series_5_pcs"
+      }
+    ],
+    "comparison_table": {
+      "title_key": "family.amstrad-series-5.table.title",
+      "note_key": "family.amstrad-series-5.table.note",
+      "columns": [
+        {
+          "id": "year",
+          "label_key": "family.amstrad-series-5.table.year",
+          "minimum_width": 95
+        },
+        {
+          "id": "model",
+          "label_key": "family.amstrad-series-5.table.model",
+          "minimum_width": 140
+        },
+        {
+          "id": "cpu",
+          "label_key": "family.amstrad-series-5.table.cpu",
+          "minimum_width": 150
+        },
+        {
+          "id": "config",
+          "label_key": "family.amstrad-series-5.table.config",
+          "minimum_width": 230
+        },
+        {
+          "id": "status",
+          "label_key": "family.amstrad-series-5.table.status",
+          "minimum_width": 215
+        }
+      ],
+      "rows": [
+        {
+          "id": "pc5086",
+          "cells": [
+            {
+              "value": "1991"
+            },
+            {
+              "value": "PC5086"
+            },
+            {
+              "value": "Intel 8086 · 8 MHz"
+            },
+            {
+              "value_key": "family.amstrad-series-5.config.pc5086"
+            },
+            {
+              "value_key": "family.amstrad-series-5.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "pc5286",
+          "cells": [
+            {
+              "value": "1991"
+            },
+            {
+              "value": "PC5286"
+            },
+            {
+              "value": "Intel 80286 · 16 MHz"
+            },
+            {
+              "value_key": "family.amstrad-series-5.config.pc5286"
+            },
+            {
+              "value_key": "family.amstrad-series-5.status.experimental"
+            }
+          ]
+        },
+        {
+          "id": "pc5286-games-pack",
+          "cells": [
+            {
+              "value": "1991"
+            },
+            {
+              "value": "PC5286 Games Pack"
+            },
+            {
+              "value": "Intel 80286 · 16 MHz"
+            },
+            {
+              "value_key": "family.amstrad-series-5.config.gamespack"
+            },
+            {
+              "value_key": "family.amstrad-series-5.status.profile"
+            }
+          ]
+        },
+        {
+          "id": "pc5386sx",
+          "cells": [
+            {
+              "value_key": "family.amstrad-series-5.period.unknown"
+            },
+            {
+              "value": "PC5386SX"
+            },
+            {
+              "value_key": "family.amstrad-series-5.cpu.pc5386sx"
+            },
+            {
+              "value_key": "family.amstrad-series-5.config.pc5386sx"
+            },
+            {
+              "value_key": "family.amstrad-series-5.status.unconfirmed"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

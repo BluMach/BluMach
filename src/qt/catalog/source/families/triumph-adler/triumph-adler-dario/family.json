@@ -6,6 +6,132 @@
     "parent_family_id": "",
     "name": "Dario",
     "visible": true,
-    "description_key": "family.triumph-adler-dario.description"
+    "description_key": "family.triumph-adler-dario.description",
+    "history_key": "family.triumph-adler-dario.history",
+    "history_references": [
+      {
+        "title": "Triumph-Adler",
+        "publisher": "Wikipedia (de)",
+        "url": "https://de.wikipedia.org/wiki/Triumph-Adler"
+      },
+      {
+        "title": "Triumph-Adler",
+        "publisher": "Wikipedia (en)",
+        "url": "https://en.wikipedia.org/wiki/Triumph-Adler"
+      }
+    ],
+    "comparison_table": {
+      "title_key": "family.triumph-adler-dario.table.title",
+      "note_key": "family.triumph-adler-dario.table.note",
+      "columns": [
+        {
+          "id": "year",
+          "label_key": "family.triumph-adler-dario.table.year",
+          "minimum_width": 95
+        },
+        {
+          "id": "model",
+          "label_key": "family.triumph-adler-dario.table.model",
+          "minimum_width": 150
+        },
+        {
+          "id": "cpu",
+          "label_key": "family.triumph-adler-dario.table.cpu",
+          "minimum_width": 150
+        },
+        {
+          "id": "equivalent",
+          "label_key": "family.triumph-adler-dario.table.equivalent",
+          "minimum_width": 210
+        },
+        {
+          "id": "status",
+          "label_key": "family.triumph-adler-dario.table.status",
+          "minimum_width": 215
+        }
+      ],
+      "rows": [
+        {
+          "id": "dario286",
+          "cells": [
+            {
+              "value": "1989"
+            },
+            {
+              "value": "Dario 286 (P35)"
+            },
+            {
+              "value": "Intel 80286 · 12 MHz"
+            },
+            {
+              "value": "Olivetti PCS 286"
+            },
+            {
+              "value_key": "family.triumph-adler-dario.status.experimental"
+            }
+          ]
+        },
+        {
+          "id": "dario386sx",
+          "cells": [
+            {
+              "value_key": "family.triumph-adler-dario.period.unknown"
+            },
+            {
+              "value": "Dario 386SX (P45)"
+            },
+            {
+              "value": "Intel 80386SX · 16 MHz"
+            },
+            {
+              "value": "Olivetti PCS 386SX"
+            },
+            {
+              "value_key": "family.triumph-adler-dario.status.experimental"
+            }
+          ]
+        },
+        {
+          "id": "p92",
+          "cells": [
+            {
+              "value_key": "family.triumph-adler-dario.period.unknown"
+            },
+            {
+              "value": "P92"
+            },
+            {
+              "value": "Intel 80386 · 25 MHz"
+            },
+            {
+              "value_key": "family.triumph-adler-dario.equivalent.p92"
+            },
+            {
+              "value_key": "family.triumph-adler-dario.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "p100",
+          "cells": [
+            {
+              "value_key": "family.triumph-adler-dario.period.unknown"
+            },
+            {
+              "value": "P100"
+            },
+            {
+              "value": "Intel 80386 · 33 MHz"
+            },
+            {
+              "value_key": "family.triumph-adler-dario.equivalent.p100"
+            },
+            {
+              "value_key": "family.triumph-adler-dario.status.reference"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
