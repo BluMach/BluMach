@@ -1,8 +1,8 @@
 # Next classic alpha: selected machine candidates
 
 Preparation branch, 2026-10-14. This is not a published release or a claim that
-all release acceptance checks have passed. No version bump or release asset is
-created by enabling these candidates.
+all release acceptance checks have passed. The build identifies itself as
+0.1.0-alpha.3; no release asset is created by enabling these candidates.
 
 The next preview adds catalogue visibility and new configuration selection for:
 
@@ -25,7 +25,9 @@ The M28 profile's old 3.5-inch drive declaration is corrected to the documented
 PC1512 is excluded from the selected historical collection. Its inherited
 emulator selector entry remains available under the existing policy; this work
 does not remove inherited machines. M250/M250 E, M280 and M380 remain deferred.
-The distinct 16 MHz PCS 286S variant remains unavailable.
+The 1991 PCS 286S is folded into the PCS 286/S sheet: its creation dialog offers
+12 MHz (default) and an experimental 16 MHz choice with BIOS 2.06, because the
+unit's own "PCS286S REL. 1.06" EPROMs are not dumped.
 
 Known approximations remain explicit: PC1 uses a V20-based V40 instruction path
 and generic PIC/PIT/DMA; PC1 HD translates its XTA DMA; M28 uses compatible
