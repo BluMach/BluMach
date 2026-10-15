@@ -94,6 +94,12 @@ class CatalogBuilderTests(unittest.TestCase):
         )
         self.assertIn('value(QStringLiteral("visible")).toBool(false)', loader)
 
+    def test_manufacturers_are_listed_alphabetically(self) -> None:
+        source = Path(__file__).resolve().parents[2] / "src" / "qt" / "catalog" / "source"
+        catalog, _ = catalog_builder.assemble(source)
+        names = [item["name"] for item in catalog["manufacturers"]]
+        self.assertEqual(names, sorted(names, key=str.casefold))
+
 
 if __name__ == "__main__":
     unittest.main()
