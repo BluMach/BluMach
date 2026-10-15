@@ -389,7 +389,7 @@
           "section": "Machine",
           "values": {
             "cpu_family": "necv30",
-            "cpu_speed": 9545456,
+            "cpu_speed": 10000000,
             "cpu_multi": 1,
             "cpu_use_dynarec": 0,
             "mem_size": 640

@@ -46,6 +46,60 @@ function(blumach_enable_dead_code_elimination target)
 endfunction()
 
 blumach_add_host_contract(machine-runtime-controls machine_runtime_controls_test.c)
+blumach_add_host_contract(vx0-nmi vx0_nmi_test.c)
+blumach_add_host_contract(vx0-nmi-legacy vx0_nmi_test.c)
+target_compile_definitions(vx0-nmi-legacy PRIVATE OLD_NMI_BEHAVIOR)
+
+# Isolate the real legacy operand reader without duplicating its implementation
+# or linking the complete emulator. Fail configuration if its boundary changes.
+set(vx0_source "${PROJECT_SOURCE_DIR}/src/cpu/vx0.c")
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${vx0_source}")
+file(READ "${vx0_source}" vx0_text)
+string(REPLACE "\r\n" "\n" vx0_text "${vx0_text}")
+string(FIND "${vx0_text}" "static uint64_t\ngeteaq(void)\n" vx0_qword_start)
+string(FIND "${vx0_text}" "\nstatic void\nread_ea(" vx0_qword_end)
+if(vx0_qword_start LESS 0 OR vx0_qword_end LESS vx0_qword_start)
+    message(FATAL_ERROR "Cannot isolate V30 qword reader for its regression test")
+endif()
+math(EXPR vx0_qword_length "${vx0_qword_end} - ${vx0_qword_start}")
+string(SUBSTRING "${vx0_text}" ${vx0_qword_start} ${vx0_qword_length} vx0_qword_reader)
+file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/vx0_geteaq.inc" "${vx0_qword_reader}")
+blumach_add_host_contract(vx0-fpu-memory vx0_fpu_memory_test.c)
+target_include_directories(vx0-fpu-memory PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
+
+set(vx0_biu_source "${PROJECT_SOURCE_DIR}/src/cpu/vx0_biu.c")
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${vx0_biu_source}")
+file(READ "${vx0_biu_source}" vx0_biu_text)
+string(REPLACE "\r\n" "\n" vx0_biu_text "${vx0_biu_text}")
+string(FIND "${vx0_biu_text}" "void\nwait_vx0(" vx0_wait_start)
+string(FIND "${vx0_biu_text}" "\n/* This is for external subtraction of cycles" vx0_wait_end)
+if(vx0_wait_start LESS 0 OR vx0_wait_end LESS vx0_wait_start)
+    message(FATAL_ERROR "Cannot isolate V30 BIU wait for its regression test")
+endif()
+math(EXPR vx0_wait_length "${vx0_wait_end} - ${vx0_wait_start}")
+string(SUBSTRING "${vx0_biu_text}" ${vx0_wait_start} ${vx0_wait_length} vx0_wait_reader)
+file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/vx0_wait.inc" "${vx0_wait_reader}")
+blumach_add_host_contract(vx0-wait vx0_wait_test.c)
+target_include_directories(vx0-wait PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
+blumach_add_host_contract(pcs86-speed pcs86_speed_test.c
+    "${PROJECT_SOURCE_DIR}/src/cpu/vx0_clock.c")
+blumach_enable_dead_code_elimination(pcs86-speed)
+# Compile only the board register handlers: the machine entry points are
+# excluded, because COFF linkers (Clang ARM64) resolve them before --gc-sections.
+target_compile_definitions(pcs86-speed PRIVATE BLUMACH_PCS86_BOARD_CONTRACT)
+if(NOT MSVC)
+    # The included legacy board header has an unrelated qualified int return;
+    # helpers used only by the excluded entry points are not referenced.
+    target_compile_options(pcs86-speed PRIVATE -Wno-ignored-qualifiers
+        -Wno-unused-function -Wno-unused-variable)
+endif()
+if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    # MinGW retains public entry points from an included board implementation.
+    # Internalize this harness only, so unrelated constructors are eliminated;
+    # the real register handlers below remain exercised by main().
+    set_source_files_properties(pcs86_speed_test.c PROPERTIES
+        COMPILE_OPTIONS "-fwhole-program")
+endif()
 blumach_add_host_contract(m15-lcd-palette m15_lcd_palette_test.c)
 target_sources(m15-lcd-palette PRIVATE "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")
 blumach_add_host_contract(machine-sound-policy machine_sound_policy_test.c "${PROJECT_SOURCE_DIR}/src/machine/machine_sound_policy.c")
