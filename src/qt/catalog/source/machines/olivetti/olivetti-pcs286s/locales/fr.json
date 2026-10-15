@@ -20,5 +20,22 @@
   "product.olivetti-pcs286s.creation.label.cpu": "Vitesse du processeur",
   "product.olivetti-pcs286s.creation.cpu.12mhz": "12 MHz (vitesse validée dans BluMach)",
   "product.olivetti-pcs286s.creation.cpu.16mhz": "16 MHz (comme le PCS 286S commercial)",
-  "product.olivetti-pcs286s.creation.note": "Le BIOS 2.06 ne fixe pas la vitesse du processeur, qui dépend du quartz sur la carte réelle. 12 MHz est la configuration vérifiée ; 16 MHz correspond au PCS 286S commercial de 1991 et reste expérimental."
+  "product.olivetti-pcs286s.creation.note": "Le BIOS 2.06 ne fixe pas la vitesse du processeur, qui dépend du quartz sur la carte réelle. 12 MHz est la configuration vérifiée ; 16 MHz correspond au PCS 286S commercial de 1991 et reste expérimental.",
+  "product.olivetti-pcs286s.creation.label.memory": "RAM installée",
+  "product.olivetti-pcs286s.creation.memory.1mb": "1 Mo (de série)",
+  "product.olivetti-pcs286s.creation.memory.2mb": "2 Mo (extension)",
+  "product.olivetti-pcs286s.creation.memory.4mb": "4 Mo (extension)",
+  "product.olivetti-pcs286s.creation.label.storage": "Configuration de stockage commerciale",
+  "product.olivetti-pcs286s.creation.storage.hdd40": "Commerciale : 1 lecteur de 1,44 Mo + disque IDE de 40 Mo (Conner CP346)",
+  "product.olivetti-pcs286s.creation.storage.hdd80": "Commerciale : 1 lecteur de 1,44 Mo + disque IDE de 80 Mo (profil générique)",
+  "product.olivetti-pcs286s.creation.storage.hdd120": "Commerciale : 1 lecteur de 1,44 Mo + disque IDE de 120 Mo (profil générique)",
+  "product.olivetti-pcs286s.creation.storage_note": "La brochure de 1991 propose un lecteur de 1,44 Mo avec un disque de 40, 80 ou 120 Mo. Le disque de 40 Mo (CP346) est vérifié avec le BIOS 2.06 ; la brochure ne précise pas les modèles de 80 et 120 Mo, BluMach utilise donc des profils génériques par capacité, pas encore vérifiés.",
+  "product.olivetti-pcs286s.creation.sound.sbpro1": "Sound Blaster Pro (PCM stéréo 8 bits, extension ultérieure)",
+  "product.olivetti-pcs286s.creation.sound.sbpro2": "Sound Blaster Pro 2 (PCM stéréo 8 bits, extension ultérieure)",
+  "product.olivetti-pcs286s.creation.label.sound": "Carte son ISA (extension facultative)",
+  "product.olivetti-pcs286s.creation.sound.none": "Aucune (haut-parleur du PC uniquement)",
+  "product.olivetti-pcs286s.creation.sound.adlib": "AdLib (ISA 8 bits)",
+  "product.olivetti-pcs286s.creation.sound.sb15": "Sound Blaster 1.5 (ISA 8 bits)",
+  "product.olivetti-pcs286s.creation.sound.sb20": "Sound Blaster 2.0 (ISA 8 bits, extension ultérieure)",
+  "product.olivetti-pcs286s.creation.sound_286_note": "Seules les options sonores disposant de logiciels compatibles 286 sont proposées. Les manuels Creative Pro incluent les systèmes 286 ; les applications Windows exigent la version de Windows indiquée. SB16 et les autres cartes sans logiciel de configuration et pilote confirmé pour 286 sont omises. Le son reste à tester sur ce PCS 286/S."
 }

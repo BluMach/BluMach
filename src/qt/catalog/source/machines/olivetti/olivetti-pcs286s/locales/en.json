@@ -20,5 +20,22 @@
   "product.olivetti-pcs286s.creation.label.cpu": "Processor speed",
   "product.olivetti-pcs286s.creation.cpu.12mhz": "12 MHz (speed validated in BluMach)",
   "product.olivetti-pcs286s.creation.cpu.16mhz": "16 MHz (as in the commercial PCS 286S)",
-  "product.olivetti-pcs286s.creation.note": "BIOS 2.06 does not set the processor speed, which on the real board depends on the crystal. 12 MHz is the checked configuration; 16 MHz matches the 1991 commercial PCS 286S and is still experimental."
+  "product.olivetti-pcs286s.creation.note": "BIOS 2.06 does not set the processor speed, which on the real board depends on the crystal. 12 MHz is the checked configuration; 16 MHz matches the 1991 commercial PCS 286S and is still experimental.",
+  "product.olivetti-pcs286s.creation.label.memory": "Installed RAM",
+  "product.olivetti-pcs286s.creation.memory.1mb": "1 MB (standard)",
+  "product.olivetti-pcs286s.creation.memory.2mb": "2 MB (upgrade)",
+  "product.olivetti-pcs286s.creation.memory.4mb": "4 MB (upgrade)",
+  "product.olivetti-pcs286s.creation.label.storage": "Commercial storage configuration",
+  "product.olivetti-pcs286s.creation.storage.hdd40": "Commercial: one 1.44 MB floppy drive + 40 MB IDE disk (Conner CP346)",
+  "product.olivetti-pcs286s.creation.storage.hdd80": "Commercial: one 1.44 MB floppy drive + 80 MB IDE disk (generic profile)",
+  "product.olivetti-pcs286s.creation.storage.hdd120": "Commercial: one 1.44 MB floppy drive + 120 MB IDE disk (generic profile)",
+  "product.olivetti-pcs286s.creation.storage_note": "The 1991 brochure offers one 1.44 MB floppy drive with a 40, 80 or 120 MB disk. The 40 MB disk (CP346) is checked with BIOS 2.06; the brochure does not name the 80 and 120 MB drives, so BluMach uses generic capacity profiles, not yet checked.",
+  "product.olivetti-pcs286s.creation.sound.sbpro1": "Sound Blaster Pro (8-bit stereo PCM, later upgrade)",
+  "product.olivetti-pcs286s.creation.sound.sbpro2": "Sound Blaster Pro 2 (8-bit stereo PCM, later upgrade)",
+  "product.olivetti-pcs286s.creation.label.sound": "ISA sound card (optional upgrade)",
+  "product.olivetti-pcs286s.creation.sound.none": "None (PC speaker only)",
+  "product.olivetti-pcs286s.creation.sound.adlib": "AdLib (8-bit ISA)",
+  "product.olivetti-pcs286s.creation.sound.sb15": "Sound Blaster 1.5 (8-bit ISA)",
+  "product.olivetti-pcs286s.creation.sound.sb20": "Sound Blaster 2.0 (8-bit ISA, later upgrade)",
+  "product.olivetti-pcs286s.creation.sound_286_note": "Only sound options with a 286-compatible software path are offered. Creative's Pro manuals include 286 systems; Windows applications require the stated Windows version. SB16 and other cards without a verified 286 setup/driver package are omitted. Audio on this PCS 286/S remains to be tested."
 }
