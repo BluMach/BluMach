@@ -1329,16 +1329,34 @@ nvr_at_init(const device_t *info)
         const uint8_t video =
             (nvr->regs[0x1c] & ~0x30) |
             ((gfxcard[0] == VID_INTERNAL) ? 0x20 : 0x00);
-        if ((nvr->regs[0x10] != 0x40) ||
+        /* Setup choices that must survive this check (BIOS 1.14):
+         *   10h low nibble: FDU B (F4); the high nibble is the integrated
+         *       1.44 MB drive A and stays 4.
+         *   2Dh bits 0-1: shadow RAM none/BIOS/VGA/BIOS+VGA (F6, F:7852).
+         *   30h/31h (= 17h/18h) extended KiB and 33h/34h KiB kept out of
+         *       extended memory for shadow/EMS (F6, F:7722); their sum is
+         *       the RAM above 640 KiB.  The factory split is all of it as
+         *       extended except 384 KiB for BIOS+VGA shadow.
+         * Only an inconsistent image is reset to the factory layout. */
+        const uint16_t above_640_kb = (mem_size > 640) ? (uint16_t) (mem_size - 640) : 0;
+        const uint16_t cmos_ext_kb  = nvr->regs[0x30] | (nvr->regs[0x31] << 8);
+        const uint16_t cmos_rsv_kb  = nvr->regs[0x33] | (nvr->regs[0x34] << 8);
+        const int      floppy_ok    = ((nvr->regs[0x10] >> 4) == 4) && ((nvr->regs[0x10] & 0x0f) <= 4);
+        const int      memory_ok    = (nvr->regs[0x17] == nvr->regs[0x30]) && (nvr->regs[0x18] == nvr->regs[0x31]) &&
+                                      ((nvr->regs[0x2d] & 0xfc) == 0x00) &&
+                                      ((uint32_t) cmos_ext_kb + cmos_rsv_kb == above_640_kb);
+        int            refresh_checksum = 0;
+        if (!floppy_ok || !memory_ok ||
             (nvr->regs[0x14] != equipment) || (nvr->regs[0x1c] != video) ||
-            (nvr->regs[0x17] != extended_lo) || (nvr->regs[0x18] != extended_hi) ||
-            (nvr->regs[0x2c] != 0xa5) || (nvr->regs[0x2d] != 0x03) ||
-            (nvr->regs[0x30] != extended_lo) || (nvr->regs[0x31] != extended_hi) ||
-            (nvr->regs[0x33] != 0x80) || (nvr->regs[0x34] != 0x01)) {
+            (nvr->regs[0x2c] != 0xa5)) {
             nvr->regs[0x0e] = 0x00;
-            nvr->regs[0x10] = 0x40;
+            if (!floppy_ok)
+                nvr->regs[0x10] = 0x40;
             nvr->regs[0x14] = equipment;
             nvr->regs[0x1c] = video;
+            refresh_checksum = 1;
+        }
+        if (!memory_ok || (nvr->regs[0x2c] != 0xa5)) {
             nvr->regs[0x17] = extended_lo;
             nvr->regs[0x18] = extended_hi;
             nvr->regs[0x2c] = 0xa5;
@@ -1347,6 +1365,48 @@ nvr_at_init(const device_t *info)
             nvr->regs[0x31] = extended_hi;
             nvr->regs[0x33] = 0x80;
             nvr->regs[0x34] = 0x01;
+        }
+        if (refresh_checksum) {
+            uint16_t sum = 0;
+            for (int i = 0x10; i <= 0x2d; i++)
+                sum += nvr->regs[i];
+            nvr->regs[0x2e] = (sum >> 8) & 0xff;
+            nvr->regs[0x2f] = sum & 0xff;
+        }
+    }
+
+    /* PCS 286 / Dario 286 (BIOS 1.42, F000:42F0) and PCS 386SX (BIOS 1.14,
+     * F000:1297) write Olivetti factory values 13h = 84h, 1Bh = 00h and
+     * 37h-3Fh = 00h when the password jumper input (KBC command 80h,
+     * bit 5) reads as disabled.  BluMach used to report it that way, so CMOS
+     * images created then never held Setup values in those bytes; the
+     * keyboard controller now reports the enabled position.  Seed the same factory
+     * values once in an image that has never been configured (13h bits 4-5
+     * = 3 is not a valid frequency choice, FFh is unwritten), so existing
+     * virtual machines do not stop in SET-UP with a configuration error. */
+    if ((machines[machine].init == machine_at_olivetti_pcs286_init) ||
+        (machines[machine].init == machine_at_olivetti_pcs386sx_init)) {
+        int unconfigured = ((nvr->regs[0x13] & 0x30) == 0x30) || (nvr->regs[0x1b] == 0xff);
+        for (int i = 0x37; i <= 0x3f; i++)
+            if (nvr->regs[i] == 0xff)
+                unconfigured = 1;
+        /* 12h = FFh selects user-defined types 255/255 (F000:328B), which
+           POST reports as a hard-disk controller error.  Seed the factory
+           drive type instead: none, or the Olivetti Conner drive above. */
+        const int fix_hdu = (nvr->regs[0x12] == 0xff);
+        if (unconfigured || fix_hdu) {
+            nvr->regs[0x0e] = 0x00;
+            if (fix_hdu)
+                nvr->regs[0x12] = (hdd[0].bus_type != HDD_BUS_IDE) ? 0x00 :
+                                  ((machines[machine].init == machine_at_olivetti_pcs386sx_init) ? 0x40 : 0x20);
+        }
+        if (unconfigured) {
+            nvr->regs[0x13] = 0x84;
+            nvr->regs[0x1b] = 0x00;
+            for (int i = 0x37; i <= 0x3f; i++)
+                nvr->regs[i] = 0x00;
+        }
+        if (unconfigured || fix_hdu) {
             uint16_t sum = 0;
             for (int i = 0x10; i <= 0x2d; i++)
                 sum += nvr->regs[i];

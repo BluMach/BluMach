@@ -73,10 +73,19 @@ class CatalogBuilderTests(unittest.TestCase):
             item["id"] for item in catalog["products"] if item.get("visible", False)
         }
 
-        self.assertEqual({"olivetti", "toshiba"}, visible_manufacturers)
-        self.assertEqual({"olivetti-pcs", "olivetti-m", "toshiba-t-series"}, visible_families)
+        self.assertEqual({"olivetti", "toshiba", "amstrad", "triumph-adler"},
+                         visible_manufacturers)
         self.assertEqual(
-            {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx", "olivetti-m15", "olivetti-m15-plus", "toshiba-t3200", "toshiba-t5100", "toshiba-t5200"},
+            {"olivetti-pcs", "olivetti-m", "olivetti-prodest",
+             "toshiba-t-series", "amstrad-series-5",
+             "triumph-adler-dario"}, visible_families)
+        self.assertEqual(
+            {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx",
+             "olivetti-m15", "olivetti-m15-plus", "toshiba-t3200",
+             "toshiba-t5100", "toshiba-t5200", "olivetti-pcs286s",
+             "olivetti-prodest-pc1", "olivetti-prodest-pc1hd",
+             "olivetti-m28", "amstrad-pc5286",
+             "ta-dario286", "ta-dario386sx"},
             visible_products,
         )
 
@@ -84,6 +93,12 @@ class CatalogBuilderTests(unittest.TestCase):
             encoding="utf-8"
         )
         self.assertIn('value(QStringLiteral("visible")).toBool(false)', loader)
+
+    def test_manufacturers_are_listed_alphabetically(self) -> None:
+        source = Path(__file__).resolve().parents[2] / "src" / "qt" / "catalog" / "source"
+        catalog, _ = catalog_builder.assemble(source)
+        names = [item["name"] for item in catalog["manufacturers"]]
+        self.assertEqual(names, sorted(names, key=str.casefold))
 
 
 if __name__ == "__main__":

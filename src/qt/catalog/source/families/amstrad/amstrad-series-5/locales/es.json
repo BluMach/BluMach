@@ -1,3 +1,21 @@
 {
-  "family.amstrad-series-5.description": "La familia de sobremesa Series 5 de 1991 comprendía equipos 8086, 80286 y 80386. El PC5286 era el modelo 286 a 16 MHz y también se vendió como Games Pack."
+  "family.amstrad-series-5.description": "Sobremesas compactos de oficina presentados por Amstrad en 1991, con 8086 o 80286, VGA y la interfaz gráfica Counterpoint.",
+  "family.amstrad-series-5.history": "Amstrad presentó la Series 5 en septiembre de 1991, en la feria Business Computing '91 de Earl's Court, en Londres. Era una gama de PC de sobremesa para oficina con una caja pequeña, pensada para ocupar poco sitio en la mesa; el folleto de agosto la definía como «una serie de PC profesionales de tamaño reducido».\n\nLa serie empezó con dos modelos. El PC5086 llevaba un 8086 a 8 MHz y 640 KB de memoria, con una o dos disqueteras de 3,5 pulgadas o un disco duro de 40 MB. El PC5286 subía a un 80286 a 16 MHz con 1 MB, ampliable a 2 o 4 MB, y se vendía con una disquetera sola o con un disco IDE de 40 MB. Los dos compartían gráficos VGA, teclado y ratón de tipo PS/2, MS-DOS 3.3 y Counterpoint, una interfaz gráfica de Oberwerk para lanzar programas y manejar archivos con el ratón sin pasar por la línea de órdenes. El precio de entrada anunciado era de 400 libras.\n\nEse mismo mes Amstrad ofreció el PC5286 como Games Pack: el ordenador con una tarjeta de sonido compatible AdLib, joystick, altavoces y varios juegos, entre ellos Links, F-15 Strike Eagle II y Prince of Persia. Era el mismo equipo de oficina, preparado para usarlo en casa.\n\nAlgunas fuentes secundarias citan también un PC5386SX con un 80386SX a 20 MHz, pero no se ha localizado documentación de Amstrad que lo sitúe en la misma gama. Según el folleto, los equipos se diseñaban en el Reino Unido y se fabricaban en Taiwán, Corea o el Reino Unido; no se nombra al fabricante de las placas.",
+  "family.amstrad-series-5.table.title": "Modelos de la gama",
+  "family.amstrad-series-5.table.note": "El PC5086 y el PC5286 aparecen en la presentación de septiembre de 1991. El Games Pack es una configuración comercial del PC5286, no un modelo distinto. El PC5386SX solo consta en fuentes secundarias y su pertenencia a la Series 5 no está confirmada.",
+  "family.amstrad-series-5.table.year": "Año",
+  "family.amstrad-series-5.table.model": "Modelo",
+  "family.amstrad-series-5.table.cpu": "CPU",
+  "family.amstrad-series-5.table.config": "Memoria y almacenamiento",
+  "family.amstrad-series-5.table.status": "Catálogo BluMach",
+  "family.amstrad-series-5.status.experimental": "Ficha y creación experimental",
+  "family.amstrad-series-5.status.profile": "Configuración de creación del PC5286 (experimental)",
+  "family.amstrad-series-5.status.reference": "Referencia histórica; sin ficha",
+  "family.amstrad-series-5.status.unconfirmed": "Referencia sin confirmar; sin ficha",
+  "family.amstrad-series-5.config.pc5086": "640 KB · una o dos disqueteras de 1,44 MB o disco de 40 MB",
+  "family.amstrad-series-5.config.pc5286": "1 MB (hasta 4 MB) · disquetera de 1,44 MB o disco IDE de 40 MB",
+  "family.amstrad-series-5.config.gamespack": "Como el PC5286, con sonido AdLib, joystick y altavoces",
+  "family.amstrad-series-5.config.pc5386sx": "2 MB según fuentes secundarias",
+  "family.amstrad-series-5.cpu.pc5386sx": "Intel 80386SX · 20 MHz",
+  "family.amstrad-series-5.period.unknown": "Fecha no establecida"
 }

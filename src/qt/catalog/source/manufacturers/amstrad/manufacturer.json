@@ -1,7 +1,8 @@
 {
-  "order": 40,
+  "order": 10,
   "manufacturer": {
     "id": "amstrad",
+    "visible": true,
     "name": "Amstrad",
     "description_key": "manufacturer.amstrad.description",
     "history_key": "manufacturer.amstrad.history",

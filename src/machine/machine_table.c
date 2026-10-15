@@ -4498,10 +4498,13 @@ const machine_t machines[] = {
         .aliases                  = { "TA Dario 286", "TA P35", "" }
     },
     /* PCS 286/S, TI board revision: TACT82300 family + OLIMCU16.
-       BIOS 2.06 exposes 12/12, 12/6 and 6/6 MHz modes.  Keep this
-       separate from the documented commercial PCS 286S at 16 MHz. */
+       BIOS 2.06 Extended Setup offers 12/12, 12/6 and 6/6 MHz as RAM/IO
+       frequencies (CMOS 1Bh -> TI registers 08h/09h); it never selects the
+       CPU clock, which comes from the board crystal.  A surviving PCS 286S
+       uses the same TI family, so allow 12 MHz (validated) and 16 MHz
+       (commercial PCS 286S, experimental). */
     {
-        .name              = "[TI TACT82300/OLIMCU16] Olivetti PCS 286/S (12 MHz)",
+        .name              = "[TI TACT82300/OLIMCU16] Olivetti PCS 286/S (12/16 MHz)",
         .internal_name     = "olivetti_pcs286s",
         .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_286,
@@ -4515,7 +4518,7 @@ const machine_t machines[] = {
             .package     = CPU_PKG_286,
             .block       = CPU_BLOCK_NONE,
             .min_bus     = 12000000,
-            .max_bus     = 12000000,
+            .max_bus     = 16000000,
             .min_voltage = 0,
             .max_voltage = 0,
             .min_multi   = 0,

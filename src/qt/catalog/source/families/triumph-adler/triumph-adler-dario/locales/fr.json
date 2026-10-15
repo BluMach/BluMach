@@ -1,3 +1,16 @@
 {
-  "family.triumph-adler-dario.description": "La famille Dario rassemble les versions Triumph-Adler des plates-formes compactes 80286 et 80386SX de l'époque Olivetti. BluMach leur donne des identités machine distinctes tout en partageant le comportement de carte validé avec les PCS."
+  "family.triumph-adler-dario.description": "Ordinateurs de bureau compacts de Triumph-Adler de l’époque Olivetti. Le Dario 286 et le Dario 386SX partagent leur carte mère avec les Olivetti PCS 286 et PCS 386SX.",
+  "family.triumph-adler-dario.history": "Dario était le nom des PC de bureau de Triumph-Adler à la fin des années 1980 et au début des années 1990, lorsque l’entreprise allemande appartenait déjà à Olivetti, qui avait acheté en 1986 la majorité de ses actions à Volkswagen.\n\nLe modèle le mieux documenté est le TA Dario 286, également désigné P35. Son manuel d’installation et d’utilisation, daté d’octobre 1989, décrit un ordinateur de bureau compact de 360 × 99 × 312 mm, avec lecteurs de disquettes intégrés, disque dur optionnel, trois emplacements d’extension et clavier de 102 touches. Sa carte mère est celle de l’Olivetti PCS 286 : la documentation technique de Triumph-Adler de juin 1990 lui correspond pour le chipset, la mémoire, les cavaliers et le Setup. Le Dario 386SX, ou P45, a repris la même idée avec un 80386SX à 16 MHz ; le code de son BIOS 1.14 est identique à celui de l’Olivetti PCS 386SX.\n\nOn ne sait pas qui a conçu ces cartes. Il peut s’agir d’une conception de Triumph-Adler adoptée par Olivetti, d’une commande d’Olivetti ou d’un même produit vendu sous deux marques. Une source secondaire présente le Dario 286 comme une machine propre à Triumph-Adler, mais sans en apporter la preuve.\n\nTriumph-Adler a aussi utilisé ces ordinateurs comme base de ses systèmes d’écriture BSS 300 et BSS 300SX, qui fonctionnaient sous MS-DOS avec un traitement de texte propriétaire. Selon la même source secondaire, d’autres ordinateurs de bureau de la marque, comme le P92 et le P100, étaient des Olivetti M386-25 et M380 XP9 réétiquetés. En 1994, Olivetti a vendu Triumph-Adler à un consortium d’actionnaires.",
+  "family.triumph-adler-dario.table.title": "Modèles de la gamme",
+  "family.triumph-adler-dario.table.note": "L’année du Dario 286 est celle de son manuel d’utilisation. Les équivalences du P92 et du P100 proviennent d’une seule source secondaire. Ce n’est pas un inventaire complet des PC Triumph-Adler.",
+  "family.triumph-adler-dario.table.year": "Année",
+  "family.triumph-adler-dario.table.model": "Modèle",
+  "family.triumph-adler-dario.table.cpu": "Processeur",
+  "family.triumph-adler-dario.table.equivalent": "Équivalent Olivetti",
+  "family.triumph-adler-dario.table.status": "Catalogue BluMach",
+  "family.triumph-adler-dario.status.experimental": "Fiche et création expérimentale",
+  "family.triumph-adler-dario.status.reference": "Référence historique ; sans fiche",
+  "family.triumph-adler-dario.equivalent.p92": "Olivetti M386-25 (source secondaire)",
+  "family.triumph-adler-dario.equivalent.p100": "Olivetti M380 XP9 (source secondaire)",
+  "family.triumph-adler-dario.period.unknown": "Date non établie"
 }
