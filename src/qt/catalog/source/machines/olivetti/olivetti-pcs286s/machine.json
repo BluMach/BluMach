@@ -6,7 +6,7 @@
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-pcs",
     "platform_id": "olivetti-pcs286s-ti-platform",
-    "name": "Olivetti PCS 286/S (TI/OLIMCU16, 12 MHz)",
+    "name": "Olivetti PCS 286/S (TI/OLIMCU16, 12/16 MHz)",
     "summary_key": "product.olivetti-pcs286s.summary",
     "history_key": "product.olivetti-pcs286s.history",
     "warning_key": "product.olivetti-pcs286s.warning",
@@ -15,11 +15,15 @@
     "aliases": [
       "PCS 286/S",
       "PCS286/S",
-      "PCS 286 TI"
+      "PCS 286 TI",
+      "PCS 286S",
+      "PCS286S",
+      "PCS 286 S"
     ],
     "tags": [
       "80286",
       "12 MHz",
+      "16 MHz",
       "AT",
       "VGA",
       "IDE",
@@ -52,7 +56,7 @@
       "label_key": "media.kind.board_recreation"
     },
     "hardware": {
-      "cpu": "Intel 80286 at 12 MHz; TI BIOS modes 6/6, 12/6 and 12/12 MHz",
+      "cpu": "Intel 80286 at 12 MHz (validated) or 16 MHz (experimental, as in the commercial PCS 286S); BIOS RAM/IO frequencies 12/12, 12/6 and 6/6 MHz",
       "memory": "1, 2 and 4 MB validated on the TI/OLIMCU16 board. Experimental generic ISA/AT expansion profiles also boot with 8 and 16 MB total; they prove a workable emulation path, not the existence of a specific Olivetti expansion card",
       "video": "Integrated VGA",
       "floppy": "3.5 in, 1.44 MB",
@@ -91,6 +95,42 @@
     "creation": {
       "status": "validated",
       "directory_prefix": "olivetti-pcs286s-ti",
+      "fields": [
+        {
+          "id": "cpu_speed",
+          "label_key": "product.olivetti-pcs286s.creation.label.cpu",
+          "default": "12mhz",
+          "choices": [
+            {
+              "id": "12mhz",
+              "label_key": "product.olivetti-pcs286s.creation.cpu.12mhz",
+              "status": "validated",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "cpu_speed",
+                  "value": 12000000
+                }
+              ]
+            },
+            {
+              "id": "16mhz",
+              "label_key": "product.olivetti-pcs286s.creation.cpu.16mhz",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "cpu_speed",
+                  "value": 16000000
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-pcs286s.creation.note"
+      ],
       "configuration": [
         {
           "section": "General",
@@ -219,6 +259,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-pcs286s.technical.board_evidence",
             "url": "https://groups.google.com/g/it.comp.retrocomputing/c/FqQJY7JQb8c"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs286s.technical.olivrea_unit",
+            "url": "https://olivrea.de/olivetti-pcs286-s/"
           },
           {
             "label_key": "technical.label.source_notes",

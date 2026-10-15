@@ -6,6 +6,7 @@
     "family_id": "triumph-adler-dario",
     "platform_id": "ta-dario386sx-platform",
     "name": "Triumph-Adler Dario 386SX",
+    "visible": true,
     "summary_key": "product.ta-dario386sx.summary",
     "history_key": "product.ta-dario386sx.history",
     "status": "partial",

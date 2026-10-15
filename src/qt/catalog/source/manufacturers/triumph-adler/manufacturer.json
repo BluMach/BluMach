@@ -3,6 +3,7 @@
   "manufacturer": {
     "id": "triumph-adler",
     "name": "Triumph-Adler",
+    "visible": true,
     "description_key": "manufacturer.triumph-adler.description",
     "history_key": "manufacturer.triumph-adler.history",
     "history_references": [

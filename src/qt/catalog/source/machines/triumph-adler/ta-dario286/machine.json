@@ -6,6 +6,7 @@
     "family_id": "triumph-adler-dario",
     "platform_id": "ta-dario286-platform",
     "name": "Triumph-Adler Dario 286",
+    "visible": true,
     "summary_key": "product.ta-dario286.summary",
     "history_key": "product.ta-dario286.history",
     "status": "partial",

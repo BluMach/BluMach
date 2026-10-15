@@ -57,10 +57,21 @@ class Alpha3CandidateTests(unittest.TestCase):
             self.assertTrue(choices[choice]["generated_files"])
             self.assertEqual("experimental", choices[choice]["status"])
 
-    def test_pcs286s_ti_does_not_select_16mhz_board(self):
+    def test_pcs286s_ti_defaults_to_validated_12mhz(self):
         config = self.values(self.products["olivetti-pcs286s"])
         self.assertEqual(12000000, config["Machine"]["cpu_speed"])
         self.assertEqual("v206", config["Olivetti PCS 286S (TI)"]["bios"])
+
+    def test_pcs286s_ti_offers_experimental_16mhz(self):
+        product = self.products["olivetti-pcs286s"]
+        field = next(f for f in product["creation"]["fields"]
+                     if f["id"] == "cpu_speed")
+        self.assertEqual("12mhz", field["default"])
+        choices = {c["id"]: c for c in field["choices"]}
+        self.assertEqual("validated", choices["12mhz"]["status"])
+        self.assertEqual("experimental", choices["16mhz"]["status"])
+        speeds = {cid: c["set"][0]["value"] for cid, c in choices.items()}
+        self.assertEqual({"12mhz": 12000000, "16mhz": 16000000}, speeds)
 
 
 if __name__ == "__main__":

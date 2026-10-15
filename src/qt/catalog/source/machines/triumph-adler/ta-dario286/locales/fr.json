@@ -1,6 +1,6 @@
 {
   "product.ta-dario286.summary": "Ordinateur 80286 documenté à 12 MHz, équivalent à l'Olivetti PCS 286",
-  "product.ta-dario286.history": "Triumph-Adler commercialisait cette plate-forme construite par TA sous les noms Dario 286 et P35, tandis que la même carte était vendue comme Olivetti PCS 286. Le manuel technique de juin 1990 décrit cartes, circuits, horloges, mémoire, cavaliers, CMOS et diagnostics.",
+  "product.ta-dario286.history": "Triumph-Adler, propriété d'Olivetti depuis 1986, commercialisait cette plate-forme sous les noms Dario 286 et P35, tandis que la même carte était vendue comme Olivetti PCS 286. On ignore s'il s'agissait d'une conception de Triumph-Adler reprise par Olivetti, d'une commande d'Olivetti ou d'un même produit vendu sous deux marques. Le manuel technique de juin 1990 décrit cartes, circuits, horloges, mémoire, cavaliers, CMOS et diagnostics.",
   "product.ta-dario286.technical.cpu_bus": "Intel 80286 à 12 MHz avec un état d'attente; Extended Setup F7 commute mémoire et E/S entre 12 et 6 MHz. Intel 80287 en option.",
   "product.ta-dario286.technical.chipset": "Le manuel identifie le couple G2 GC101A/GC102 et l'IOC propriétaire. BluMach emploie le cœur GC10x et le comportement IOC02 validé du PCS 286.",
   "product.ta-dario286.technical.memory": "Les cartes CSAA03/06/09 et leurs SIMM offrent 512 Ko, 640 Ko, 1 Mo, 2 Mo ou 4 Mo. La configuration standard de 1 Mo combine 512 Ko soudés et deux SIMM de 256 Ko.",
@@ -10,7 +10,7 @@
   "product.ta-dario286.technical.diagnostics": "Resident Diagnostics s'exécute au démarrage. Customer Test se trouve sur CSFA12, se lance par CUSTOMER et son test de disquette écrit sur le disque 1.",
   "product.ta-dario286.technical.identity": "Dario et PCS 286 sont la même plate-forme construite par TA. Faute de dump marqué Dario, BluMach utilise volontairement les BIOS PCS 286 1.37/1.42.",
   "product.ta-dario286.technical.verified": "Même implémentation démarrée que le PCS 286: BIOS 1.42, Setup, diagnostics, MS-DOS, test GC101/102 et IDE 20/40 Mo.",
-  "product.ta-dario286.technical.limitations": "Le firmware original du contrôleur clavier n'est pas conservé et est remplacé par le comportement KBC compatible Olivetti. Un dump BIOS marqué Dario reste souhaitable pour l'archive.",
+  "product.ta-dario286.technical.limitations": "Le firmware original du contrôleur clavier n'est pas conservé et est remplacé par le comportement KBC compatible Olivetti. Un dump BIOS marqué Dario reste souhaitable pour l'archive. Comme sur le PCS 286, la fréquence RAM/E-S du Setup est appliquée de façon approchée ; le verrouillage du clavier par mot de passe n'est pas émulé et la vitesse de répétition du clavier suit celle de l'ordinateur hôte.",
   "product.ta-dario286.document.technical": "Manuel de formation technique TA Dario 286 DK000.00000.BA025, juin 1990, 46 pages",
   "product.ta-dario286.document.user": "Manuel allemand d'installation et d'utilisation du TA Dario 286",
   "product.ta-dario286.document.illustrations": "Supplément illustré du manuel d'installation et d'utilisation du TA Dario 286",

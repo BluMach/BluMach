@@ -68,6 +68,19 @@
       "distinct_from": [
         "olivetti-pcs286s"
       ]
-    }
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.sources",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs286s16.technical.olivrea_unit",
+            "url": "https://olivrea.de/olivetti-pcs286-s/"
+          }
+        ]
+      }
+    ]
   }
 }

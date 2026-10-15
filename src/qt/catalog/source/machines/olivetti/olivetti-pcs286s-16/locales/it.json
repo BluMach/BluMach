@@ -1,5 +1,6 @@
 {
   "product.olivetti-pcs286s16.summary": "PCS 286S commerciale a 16 MHz documentato, non ancora emulabile perché manca il BIOS corretto.",
-  "product.olivetti-pcs286s16.history": "La brochure Olivetti del 1991 conferma un 80286 a 16 MHz senza stati di attesa, 1 MB standard, fino a 8 MB sulla scheda, 16 MB nel sistema e dischi da 40, 80 e 120 MB. È catalogato separatamente dalla scheda TI/OLIMCU16 a 12 MHz.",
-  "product.olivetti-pcs286s16.warning": "EMULAZIONE NON DISPONIBILE: non è conservato un BIOS verificato del PCS 286S commerciale a 16 MHz. Il BIOS TI/OLIMCU16 2.06 non viene riutilizzato perché i suoi modi corrispondono a 12 MHz."
+  "product.olivetti-pcs286s16.history": "La brochure Olivetti del 1991 indica un 80286 a 16 MHz senza stati di attesa, 1 MB standard, fino a 8 MB sulla scheda, 16 MB nel sistema e dischi da 40, 80 e 120 MB. Forse usava la stessa scheda TI/OLIMCU16 che BluMach già emula: un'unità conservata mostra la stessa famiglia TI TACT82300 con EPROM etichettate «PCS286S REL. 1.06». Quel BIOS non è stato letto, quindi non si sa se coincida con il 2.06 noto o sia un'altra versione. La scheda del PCS 286/S permette di creare questa scheda a 16 MHz in modo sperimentale.",
+  "product.olivetti-pcs286s16.warning": "NON AVVIABILE: non è disponibile un BIOS verificato del PCS 286S commerciale a 16 MHz. Il BIOS 1.42 appartiene al PCS 286 normale e il 2.06 alla scheda TI/OLIMCU16, che forse usava anche questo modello; finché il suo BIOS non sarà letto, nessuno dei due va presentato come firmware confermato.",
+  "product.olivetti-pcs286s16.technical.olivrea_unit": "Scheda di collezione con fotografie di un PCS 286S: scheda TI TACT82300, video Paradise PVGA1A ed EPROM etichettate «PCS286S REL. 1.06»."
 }
