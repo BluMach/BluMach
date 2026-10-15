@@ -84,9 +84,14 @@ target_include_directories(vx0-wait PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
 blumach_add_host_contract(pcs86-speed pcs86_speed_test.c
     "${PROJECT_SOURCE_DIR}/src/cpu/vx0_clock.c")
 blumach_enable_dead_code_elimination(pcs86-speed)
+# Compile only the board register handlers: the machine entry points are
+# excluded, because COFF linkers (Clang ARM64) resolve them before --gc-sections.
+target_compile_definitions(pcs86-speed PRIVATE BLUMACH_PCS86_BOARD_CONTRACT)
 if(NOT MSVC)
-    # The included legacy board header has an unrelated qualified int return.
-    target_compile_options(pcs86-speed PRIVATE -Wno-ignored-qualifiers)
+    # The included legacy board header has an unrelated qualified int return;
+    # helpers used only by the excluded entry points are not referenced.
+    target_compile_options(pcs86-speed PRIVATE -Wno-ignored-qualifiers
+        -Wno-unused-function -Wno-unused-variable)
 endif()
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
     # MinGW retains public entry points from an included board implementation.

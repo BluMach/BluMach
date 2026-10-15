@@ -402,6 +402,10 @@ pcs86_glue_read(uint16_t port, void *priv)
     return dev->glue[port & 0x0f];
 }
 
+#ifndef BLUMACH_PCS86_BOARD_CONTRACT
+/* Host contracts include this file for the board register handlers only;
+ * the machine entry points below need the complete emulator to link. */
+
 static const device_config_t olivetti_pcs86_config[] = {
     // clang-format off
     {
@@ -632,3 +636,4 @@ machine_xt_olivetti_pcs86_init(const machine_t *model)
 
     return ret;
 }
+#endif /* BLUMACH_PCS86_BOARD_CONTRACT */
