@@ -1,6 +1,6 @@
 {
-  "product.olivetti-m250e.summary": "Placa 80286 de 12 MHz de la familia M250, distinta, con lógica 82C206 e identidad de firmware propia.",
-  "product.olivetti-m250e.history": "El M250 E se documenta junto al M250 en material de servicio Olivetti, pero posee temporización propia a 12 MHz, CHIPS 82C206, lógica GA80/GA99 y firmware PDSF/PDSD. Su Setup documenta tipos Conner de 20, 40 y 100 MB; aún faltan una configuración comercial autónoma y fecha de salida.",
+  "product.olivetti-m250e.summary": "Placa 80286 a 12 MHz de la familia M250, distinta de la del M250, con lógica 82C206 y firmware propio.",
+  "product.olivetti-m250e.history": "El M250 E aparece junto al M250 en el material de servicio de Olivetti, pero tiene su propia temporización a 12 MHz, un CHIPS 82C206, lógica GA80/GA99 y firmware PDSF/PDSD. Su Setup documenta discos Conner de 20, 40 y 100 MB; aún no se han encontrado una configuración de venta propia ni su fecha de salida.",
   "product.olivetti-m250e.warning": "EXPERIMENTAL: el M250 E tiene BIOS y placa propios, pero faltan por ver POST, Setup y System Test. La interfaz de disco de la placa es IDE y se emula con la IDE genérica; los jumpers P6 y P10 no se modelan.",
   "product.olivetti-m250e.creation.model": "Identidad técnica documentada: placa M250 E 80286 a 12 MHz con 82C206 y firmware PDSF/PDSD separado",
   "product.olivetti-m250e.creation.memory.1024": "1 MB (perfil de inicio aislado actual)",
