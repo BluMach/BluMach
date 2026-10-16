@@ -50,6 +50,10 @@ typedef struct
     uint8_t reg_067;          /* Memory page register. */
     uint8_t reg_069;          /* Memory map register (bit 3 = shadow E0000-FFFFF). */
     uint8_t reg_06b;          /* Memory banks starting address (M250 E only). */
+    uint8_t model_banks;      /* 1: model the 1 MiB / 256 Kbit-DRAM layout
+                                 (bank enables, hole remap, wrap). */
+    mem_mapping_t bank_mapping; /* 40000h-9FFFFh while a bank is disabled. */
+    mem_mapping_t ext_mapping;  /* 100000h-1FFFFFh hole remap window. */
     uint8_t e_variant;        /* 1 on the M250 E (port 0x6B enabled),
                                  0 on the stock M250 (port 0x6B absent). */
 } olivetti_m250_gate_t;
@@ -80,6 +84,116 @@ olivetti_m250_gate_log(const char *fmt, ...)
 #else
 #define olivetti_m250_gate_log(fmt, ...)
 #endif
+
+/* 1 MiB boards with 256 Kbit DRAM (PERB 1.03 / PDSF 1.06 disassembly):
+   - port 69h bits 1 and 2 enable 40000h-7FFFFh and 80000h-9FFFFh; POST
+     sizing (F000:02E6) sets them one at a time until RAM answers and
+     expects 07h on a 1 MiB board.  Bank 0 (00000h-3FFFFh) is always on.
+   - bit 4 maps the 384 KiB behind the A0000h hole at 100000h; above that
+     the DRAM address wraps to 0, which F000:68FC checks by finding the
+     3FFF0h test string at 19FFF0h.
+   - bit 7 maps the hole at 100000h without the wrap: 256 KiB
+     (A0000h-DFFFFh) while bit 3 shadows E0000h-FFFFFh, else 384 KiB
+     (PDSF 1.06 F000:6158 uses it both ways).
+   Other layouts (2 MiB) keep the plain linear model. */
+static int
+m250_bank_visible(const olivetti_m250_gate_t *dev, uint32_t addr)
+{
+    if (addr < 0x80000)
+        return !!(dev->reg_069 & 0x02);
+    return !!(dev->reg_069 & 0x04);
+}
+
+static uint8_t
+m250_bank_read8(uint32_t addr, void *priv)
+{
+    const olivetti_m250_gate_t *dev = (const olivetti_m250_gate_t *) priv;
+    return m250_bank_visible(dev, addr) ? ram[addr] : 0xff;
+}
+
+static uint16_t
+m250_bank_read16(uint32_t addr, void *priv)
+{
+    return m250_bank_read8(addr, priv) | (m250_bank_read8(addr + 1, priv) << 8);
+}
+
+static void
+m250_bank_write8(uint32_t addr, uint8_t val, void *priv)
+{
+    const olivetti_m250_gate_t *dev = (const olivetti_m250_gate_t *) priv;
+    if (m250_bank_visible(dev, addr))
+        ram[addr] = val;
+}
+
+static void
+m250_bank_write16(uint32_t addr, uint16_t val, void *priv)
+{
+    m250_bank_write8(addr, val & 0xff, priv);
+    m250_bank_write8(addr + 1, val >> 8, priv);
+}
+
+static int
+m250_ext_phys(const olivetti_m250_gate_t *dev, uint32_t addr, uint32_t *phys)
+{
+    uint32_t off = addr - 0x100000;
+
+    if (dev->reg_069 & 0x10) {
+        *phys = (0xa0000 + off) & 0xfffff;
+        return 1;
+    }
+    if ((dev->reg_069 & 0x80) && (off < ((dev->reg_069 & 0x08) ? 0x40000 : 0x60000))) {
+        *phys = 0xa0000 + off;
+        return 1;
+    }
+    return 0;
+}
+
+static uint8_t
+m250_ext_read8(uint32_t addr, void *priv)
+{
+    uint32_t phys;
+    return m250_ext_phys((const olivetti_m250_gate_t *) priv, addr, &phys) ? ram[phys] : 0xff;
+}
+
+static uint16_t
+m250_ext_read16(uint32_t addr, void *priv)
+{
+    return m250_ext_read8(addr, priv) | (m250_ext_read8(addr + 1, priv) << 8);
+}
+
+static void
+m250_ext_write8(uint32_t addr, uint8_t val, void *priv)
+{
+    uint32_t phys;
+    if (m250_ext_phys((const olivetti_m250_gate_t *) priv, addr, &phys))
+        ram[phys] = val;
+}
+
+static void
+m250_ext_write16(uint32_t addr, uint16_t val, void *priv)
+{
+    m250_ext_write8(addr, val & 0xff, priv);
+    m250_ext_write8(addr + 1, val >> 8, priv);
+}
+
+static void
+olivetti_m250_gate_update_banks(olivetti_m250_gate_t *dev)
+{
+    if (!dev->model_banks)
+        return;
+
+    if ((dev->reg_069 & 0x06) == 0x06)
+        mem_mapping_disable(&dev->bank_mapping);
+    else
+        mem_mapping_enable(&dev->bank_mapping);
+
+    if (dev->reg_069 & 0x90)
+        mem_mapping_enable(&dev->ext_mapping);
+    else
+        mem_mapping_disable(&dev->ext_mapping);
+
+    flushmmucache();
+}
 
 static void
 olivetti_m250_gate_update_shadow(olivetti_m250_gate_t *dev)
@@ -143,6 +257,7 @@ olivetti_m250_gate_write(uint16_t addr, uint8_t val, void *priv)
                E0000-FFFFF. Other bits are reserved / config. */
             dev->reg_069 = val;
             olivetti_m250_gate_update_shadow(dev);
+            olivetti_m250_gate_update_banks(dev);
             break;
         case 0x06b:
             /* Memory banks starting address register. ONLY present on
@@ -215,6 +330,7 @@ olivetti_m250_gate_reset(void *priv)
        silicon in both flavours, only the silicon revision
        (GA98 vs GA80) differs. */
     olivetti_m250_gate_update_shadow(dev);
+    olivetti_m250_gate_update_banks(dev);
 }
 
 void
@@ -268,6 +384,19 @@ static void *
 olivetti_m250_gate_init(const device_t *info)
 {
     olivetti_m250_gate_t *dev = (olivetti_m250_gate_t *) calloc(1, sizeof(olivetti_m250_gate_t));
+
+    dev->model_banks = (mem_size == 1024);
+    if (dev->model_banks) {
+        mem_mapping_add(&dev->bank_mapping, 0x40000, 0x60000,
+                        m250_bank_read8, m250_bank_read16, NULL,
+                        m250_bank_write8, m250_bank_write16, NULL,
+                        NULL, 0, dev);
+        mem_mapping_add(&dev->ext_mapping, 0x100000, 0x100000,
+                        m250_ext_read8, m250_ext_read16, NULL,
+                        m250_ext_write8, m250_ext_write16, NULL,
+                        NULL, 0, dev);
+        mem_mapping_disable(&dev->ext_mapping);
+    }
 
     olivetti_m250_gate_reset(dev);
 

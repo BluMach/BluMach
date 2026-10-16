@@ -12,7 +12,7 @@
   "product.olivetti-m250e.technical.cpu": "Intel 80286 a 12 MHz, documentado aparte del diseño M250 a 8 MHz.",
   "product.olivetti-m250e.technical.memory": "El material de servicio documenta 2 MB con dos SIMM de 512 KB y 4 MB con dos de 512 KB más dos de 1 MB. El valor 1 MB es un perfil actual de emulación, no una configuración comercial afirmada.",
   "product.olivetti-m250e.technical.chipset": "Controlador periférico CHIPS 82C206 con lógica GA80/GA99 y puerto 6Bh exclusivo del M250 E. BluMach usa hoy la ruta AT común cuando no se documenta un comportamiento específico del 82C206.",
-  "product.olivetti-m250e.technical.storage": "Interfaz de disco AT en la placa, en 1F0h-1F7h e IRQ 14, que Olivetti llama adaptador AT/RLL; es la misma interfaz IDE del M250. Tipos del Setup: 4, CP3022 de 20 MB (615/4/17); 1, CP346 de 40 MB (805/4/26); 3, CP3142 de 40 MB (635/4/33); 2, CP3106 de 100 MB (766/8/33). La BIOS 1.07 añade el tipo 7 para el CP3044 (635/4/33). P6 elige el interleave 1:1 o 1:3 y P10 indica si hay disco.",
+  "product.olivetti-m250e.technical.storage": "Interfaz de disco AT en la placa, en 1F0h-1F7h e IRQ 14, que Olivetti llama adaptador AT/RLL; es la misma interfaz IDE del M250. Tipos del Setup en la BIOS 1.06: 1, CP346 de 40 MB (805/4/26); 2, CP3106 de 100 MB (776/8/33); 3, CP3142 de 40 MB (635/4/33); 4, CP3022 de 20 MB (615/4/17); 5, 745/4/28, y 6, 965/5/17, sin disco identificado. La guía de servicio da 766 cilindros para el tipo 2, pero la BIOS tiene 776. La BIOS 1.07 añade el tipo 7 para el CP3044. P6 elige el interleave 1:1 o 1:3 y P10 indica si hay disco; la BIOS toma el disco de la CMOS.",
   "product.olivetti-m250e.technical.jumpers": "P1/P2 eligen 1, 2 o 4 MB de RAM. P6 elige el interleave del disco, P8 la batería, P9 el modo de la disquetera (16 MHz o 1,2 MB), P10 si hay disco, P11 el puerto serie, P12 el VGA y P15/P20 la histéresis y la precompensación. BluMach no los modela.",
   "product.olivetti-m250e.technical.firmware": "Los conjuntos locales observados son BIOS de sistema PDSF 1.06 y BIOS de vídeo PVGA1A PDSD 1.06. Son distintos de los M250 y permanecen locales.",
   "product.olivetti-m250e.technical.verified": "La inicialización local aislada a 12 MHz/1 MB creó NVR sin error de carga de ROM. No es evidencia visual de POST ni de diagnóstico.",
@@ -23,5 +23,5 @@
   "product.olivetti-m250e.creation.storage.cp3022": "Conner CP3022, 20 MB, tipo 4: 615/4/17",
   "product.olivetti-m250e.creation.storage.cp346": "Conner CP346, 40 MB, tipo 1: 805/4/26",
   "product.olivetti-m250e.creation.storage.cp3142": "Conner CP3142, 40 MB, tipo 3: 635/4/33",
-  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 MB, tipo 2: 766/8/33"
+  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 MB, tipo 2: 776/8/33"
 }

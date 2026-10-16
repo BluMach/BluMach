@@ -17,11 +17,11 @@
   "product.olivetti-m250e.technical.limitations": "Restent à vérifier POST, Setup et System Test à l’écran, le redémarrage logiciel, le RTC, le système d’exploitation, le disque dur et les tailles de mémoire documentées. Le 82C206 et les cavaliers P6, P9 et P10 sont des différences matérielles documentées que l’émulation ne reproduit pas encore de façon vérifiée.",
   "product.olivetti-m250e.technical.service_manual": "Olivetti Pocket Service Guide, sections carte, mémoire et contrôleur M250 E",
   "product.olivetti-m250e.technical.brochure": "Brochure M250 1989 conservée seulement comme contexte familial ; elle ne prouve pas un lot commercial M250 E",
-  "product.olivetti-m250e.technical.storage": "Interface disque AT sur la carte, en 1F0h-1F7h et IRQ 14, qu’Olivetti appelle adaptateur AT/RLL ; c’est la même interface IDE que sur le M250. Types du Setup : 4, CP3022 de 20 Mo (615/4/17) ; 1, CP346 de 40 Mo (805/4/26) ; 3, CP3142 de 40 Mo (635/4/33) ; 2, CP3106 de 100 Mo (766/8/33). Le BIOS 1.07 ajoute le type 7 pour le CP3044 (635/4/33). P6 choisit l’entrelacement 1:1 ou 1:3 et P10 indique la présence d’un disque.",
+  "product.olivetti-m250e.technical.storage": "Interface disque AT sur la carte, en 1F0h-1F7h et IRQ 14, qu’Olivetti appelle adaptateur AT/RLL ; c’est la même interface IDE que sur le M250. Types du Setup du BIOS 1.06 : 1, CP346 de 40 Mo (805/4/26) ; 2, CP3106 de 100 Mo (776/8/33) ; 3, CP3142 de 40 Mo (635/4/33) ; 4, CP3022 de 20 Mo (615/4/17) ; 5, 745/4/28, et 6, 965/5/17, sans disque identifié. Le guide de service donne 766 cylindres pour le type 2, mais le BIOS en a 776. Le BIOS 1.07 ajoute le type 7 pour le CP3044. P6 choisit l’entrelacement 1:1 ou 1:3 et P10 indique la présence d’un disque ; le BIOS prend le disque dans la CMOS.",
   "product.olivetti-m250e.technical.jumpers": "P1/P2 sélectionnent 1, 2 ou 4 Mo de RAM. P6 choisit l’entrelacement du disque, P8 la batterie, P9 le mode du lecteur de disquettes (16 MHz ou 1,2 Mo), P10 la présence du disque, P11 le port série, P12 le VGA et P15/P20 l’hystérésis et la précompensation. BluMach ne les modélise pas.",
   "product.olivetti-m250e.creation.storage.none": "Sans disque dur : un lecteur de disquettes 1,44 Mo",
   "product.olivetti-m250e.creation.storage.cp3022": "Conner CP3022, 20 Mo, type 4 : 615/4/17",
   "product.olivetti-m250e.creation.storage.cp346": "Conner CP346, 40 Mo, type 1 : 805/4/26",
   "product.olivetti-m250e.creation.storage.cp3142": "Conner CP3142, 40 Mo, type 3 : 635/4/33",
-  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 Mo, type 2 : 766/8/33"
+  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 Mo, type 2 : 776/8/33"
 }

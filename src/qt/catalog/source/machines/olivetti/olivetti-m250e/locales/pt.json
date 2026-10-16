@@ -17,11 +17,11 @@
   "product.olivetti-m250e.technical.limitations": "Faltam POST, Setup e System Test vistos no ecrã, a reinicialização por software, o RTC, o sistema operativo, o disco rígido e as memórias documentadas. O 82C206 e os jumpers P6, P9 e P10 são diferenças de hardware documentadas que a emulação ainda não reproduz de forma verificada.",
   "product.olivetti-m250e.technical.service_manual": "Olivetti Pocket Service Guide, secções placa, memória e controlador M250 E",
   "product.olivetti-m250e.technical.brochure": "Folheto M250 1989 preservado somente como contexto familiar; não prova pacote comercial M250 E",
-  "product.olivetti-m250e.technical.storage": "Interface de disco AT na placa, em 1F0h-1F7h e IRQ 14, a que a Olivetti chama adaptador AT/RLL; é a mesma interface IDE do M250. Tipos do Setup: 4, CP3022 de 20 MB (615/4/17); 1, CP346 de 40 MB (805/4/26); 3, CP3142 de 40 MB (635/4/33); 2, CP3106 de 100 MB (766/8/33). O BIOS 1.07 acrescenta o tipo 7 para o CP3044 (635/4/33). O P6 escolhe o interleave 1:1 ou 1:3 e o P10 indica se há disco.",
+  "product.olivetti-m250e.technical.storage": "Interface de disco AT na placa, em 1F0h-1F7h e IRQ 14, a que a Olivetti chama adaptador AT/RLL; é a mesma interface IDE do M250. Tipos do Setup no BIOS 1.06: 1, CP346 de 40 MB (805/4/26); 2, CP3106 de 100 MB (776/8/33); 3, CP3142 de 40 MB (635/4/33); 4, CP3022 de 20 MB (615/4/17); 5, 745/4/28, e 6, 965/5/17, sem disco identificado. O guia de serviço indica 766 cilindros para o tipo 2, mas o BIOS tem 776. O BIOS 1.07 acrescenta o tipo 7 para o CP3044. O P6 escolhe o interleave 1:1 ou 1:3 e o P10 indica se há disco; o BIOS obtém o disco da CMOS.",
   "product.olivetti-m250e.technical.jumpers": "P1/P2 escolhem 1, 2 ou 4 MB de RAM. P6 escolhe o interleave do disco, P8 a bateria, P9 o modo da unidade de disquetes (16 MHz ou 1,2 MB), P10 a presença de disco, P11 a porta série, P12 o VGA e P15/P20 a histerese e a pré-compensação. O BluMach não os modela.",
   "product.olivetti-m250e.creation.storage.none": "Sem disco rígido: uma unidade de disquetes de 1,44 MB",
   "product.olivetti-m250e.creation.storage.cp3022": "Conner CP3022, 20 MB, tipo 4: 615/4/17",
   "product.olivetti-m250e.creation.storage.cp346": "Conner CP346, 40 MB, tipo 1: 805/4/26",
   "product.olivetti-m250e.creation.storage.cp3142": "Conner CP3142, 40 MB, tipo 3: 635/4/33",
-  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 MB, tipo 2: 766/8/33"
+  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 MB, tipo 2: 776/8/33"
 }

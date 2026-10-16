@@ -7,12 +7,12 @@
   "product.olivetti-m250.creation.memory.2048": "2 MB (máximo documentado)",
   "product.olivetti-m250.creation.note": "El disco duro opcional es uno de los Conner de la tabla de Olivetti, en la interfaz IDE de la placa; elige el mismo tipo en el Setup. El jumper P6 (20 o 40 MB) no se modela.",
   "product.olivetti-m250.technical.market": "Segmento profesional básico, 1989. El folleto del fabricante cita compatibilidad con MS-DOS y MS OS/2.",
-  "product.olivetti-m250.technical.commercial_configurations": "El folleto documenta 8 MHz, 1 MB, disquetera de 3,5 pulgadas, gráficos compatibles VGA y bus AT de 16 bits. La guía de servicio da los discos Conner de la tabla del Setup: CP3022 de 20 MB y CP346 o CP3142 de 40 MB.",
+  "product.olivetti-m250.technical.commercial_configurations": "El folleto documenta 8 MHz, 1 MB, disquetera de 3,5 pulgadas, gráficos compatibles VGA y bus AT de 16 bits. La guía de servicio y la BIOS dan los discos Conner del Setup: CP3022 de 20 MB, CP346 y CP3142 de 40 MB y CP3106 de 100 MB.",
   "product.olivetti-m250.technical.physical": "Folleto del fabricante: unidad base 412 × 109 × 393 mm, 9 kg; teclado 2 kg. También enumera monitor monocromo 340 × 315 × 300 mm / 6 kg y color 370 × 360 × 380 mm / 16 kg.",
   "product.olivetti-m250.technical.cpu": "Intel 80286 a 8 MHz y sin estados de espera, según el folleto comercial de 1989.",
   "product.olivetti-m250.technical.memory": "El folleto parte de 1 MB y el material de servicio documenta 2 MB como límite del M250. El catálogo ofrece ambos; solo el perfil de 1 MB tiene la observación aislada de arranque/reinicio.",
   "product.olivetti-m250.technical.video": "Paradise PVGA1A/OVC integrado, anunciado como gráficos compatibles VGA. El conjunto local usa una imagen de vídeo PERC 1.06 separada.",
-  "product.olivetti-m250.technical.storage": "La placa lleva una interfaz de disco AT en 1F0h-1F7h e IRQ 14. Olivetti la llama adaptador AT/RLL y el manual de la placa la identifica como interfaz IDE. Tipos del Setup: 4, CP3022 de 20 MB (615/4/17); 1, CP346 de 40 MB (805/4/26); 3, CP3142 de 40 MB (635/4/33). P6 va en 1-2 para los discos de 40 MB y en 2-3 para el CP3022 o sin disco; también cita un CP3024 que no figura en la tabla. La creación ofrece los tres tipos.",
+  "product.olivetti-m250.technical.storage": "La placa lleva una interfaz de disco AT en 1F0h-1F7h e IRQ 14. Olivetti la llama adaptador AT/RLL y el manual de la placa la identifica como interfaz IDE. Tipos del Setup en la BIOS 1.03: 1, CP346 de 40 MB (805/4/26); 2, CP3106 de 100 MB (776/8/33); 3, CP3142 de 40 MB (635/4/33); 4, CP3022 de 20 MB (615/4/17). La guía de servicio da 766 cilindros para el tipo 2, pero la tabla de la BIOS tiene 776. P6 va en 1-2 para los discos de 40 MB y en 2-3 para el CP3022 o sin disco; la BIOS no lo lee para detectar el disco, que toma de la CMOS. La creación ofrece los cuatro tipos.",
   "product.olivetti-m250.technical.jumpers": "P1/P2 eligen 512 KB, 1 MB o 2 MB de DRAM en placa; P6, la capacidad e interleave del disco, y P8 conecta la batería. BluMach no los modela: la memoria se elige al crear la máquina y P6 no cambia nada en la interfaz IDE emulada.",
   "product.olivetti-m250.technical.firmware": "Los conjuntos locales observados son BIOS de sistema PERB 1.03 y BIOS de vídeo PVGA1A PERC 1.06. Sus bytes son locales y no se incluyen en BluMach.",
   "product.olivetti-m250.technical.verified": "Inicialización local aislada en frío a 8 MHz/1 MB; el usuario observó un reinicio software sin Keyboard Error 6 el 2026-09-03 con NVR nueva. El historial también registra POST, Setup y arranque de System Test del M250.",
@@ -23,5 +23,6 @@
   "product.olivetti-m250.creation.storage.none": "Sin disco duro: una disquetera de 1,44 MB",
   "product.olivetti-m250.creation.storage.cp3022": "Conner CP3022, 20 MB, tipo 4: 615/4/17",
   "product.olivetti-m250.creation.storage.cp346": "Conner CP346, 40 MB, tipo 1: 805/4/26",
-  "product.olivetti-m250.creation.storage.cp3142": "Conner CP3142, 40 MB, tipo 3: 635/4/33"
+  "product.olivetti-m250.creation.storage.cp3142": "Conner CP3142, 40 MB, tipo 3: 635/4/33",
+  "product.olivetti-m250.creation.storage.cp3106": "Conner CP3106, 100 MB, tipo 2: 776/8/33"
 }

@@ -7,7 +7,7 @@
   "product.olivetti-m250.creation.memory.2048": "2 Mo (maximum documenté)",
   "product.olivetti-m250.creation.note": "Le disque dur optionnel est l’un des Conner de la table Olivetti, sur l’interface IDE de la carte ; choisissez le même type dans le Setup. Le cavalier P6 (20 ou 40 Mo) n’est pas modélisé.",
   "product.olivetti-m250.technical.market": "Segment professionnel d’entrée de gamme, 1989 ; la brochure cite MS-DOS et MS OS/2.",
-  "product.olivetti-m250.technical.commercial_configurations": "La brochure documente 8 MHz, 1 Mo, un lecteur 3,5 pouces, un affichage compatible VGA et un bus AT 16 bits. Le guide de service donne les disques Conner de la table du Setup : CP3022 de 20 Mo et CP346 ou CP3142 de 40 Mo.",
+  "product.olivetti-m250.technical.commercial_configurations": "La brochure documente 8 MHz, 1 Mo, un lecteur 3,5 pouces, un affichage compatible VGA et un bus AT 16 bits. Le guide de service et le BIOS donnent les disques Conner du Setup : CP3022 de 20 Mo, CP346 et CP3142 de 40 Mo et CP3106 de 100 Mo.",
   "product.olivetti-m250.technical.physical": "Brochure constructeur : unité de base 412 × 109 × 393 mm, 9 kg ; clavier 2 kg. Moniteur monochrome 340 × 315 × 300 mm / 6 kg et couleur 370 × 360 × 380 mm / 16 kg.",
   "product.olivetti-m250.technical.cpu": "Intel 80286 à 8 MHz sans état d’attente, selon la brochure de 1989.",
   "product.olivetti-m250.technical.memory": "La brochure fixe 1 Mo de base et le guide de service documente 2 Mo comme limite M250. Seul le profil 1 Mo a l’observation isolée de démarrage/redémarrage.",
@@ -18,10 +18,11 @@
   "product.olivetti-m250.technical.brochure": "Brochure commerciale Olivetti M250, 1989 (notice de préservation à accès restreint)",
   "product.olivetti-m250.technical.service_manual": "Olivetti Pocket Service Guide, sections M250/M250 E",
   "product.olivetti-m250.technical.collection": "Inventaire de préservation ISER d’une unité M250 XP1530 (source secondaire)",
-  "product.olivetti-m250.technical.storage": "La carte porte une interface disque AT en 1F0h-1F7h et IRQ 14. Olivetti l’appelle adaptateur AT/RLL et le manuel de la carte l’identifie comme interface IDE. Types du Setup : 4, CP3022 de 20 Mo (615/4/17) ; 1, CP346 de 40 Mo (805/4/26) ; 3, CP3142 de 40 Mo (635/4/33). P6 se place en 1-2 pour les disques de 40 Mo et en 2-3 pour le CP3022 ou sans disque ; il cite aussi un CP3024 absent de la table. La création propose les trois types.",
+  "product.olivetti-m250.technical.storage": "La carte porte une interface disque AT en 1F0h-1F7h et IRQ 14. Olivetti l’appelle adaptateur AT/RLL et le manuel de la carte l’identifie comme interface IDE. Types du Setup du BIOS 1.03 : 1, CP346 de 40 Mo (805/4/26) ; 2, CP3106 de 100 Mo (776/8/33) ; 3, CP3142 de 40 Mo (635/4/33) ; 4, CP3022 de 20 Mo (615/4/17). Le guide de service donne 766 cylindres pour le type 2, mais la table du BIOS en a 776. P6 se place en 1-2 pour les disques de 40 Mo et en 2-3 pour le CP3022 ou sans disque ; le BIOS ne le lit pas pour détecter le disque, qu’il prend dans la CMOS. La création propose les quatre types.",
   "product.olivetti-m250.technical.jumpers": "P1/P2 sélectionnent 512 Ko, 1 Mo ou 2 Mo de DRAM sur la carte ; P6 la capacité et l’entrelacement du disque, et P8 connecte la batterie. BluMach ne les modélise pas : la mémoire se choisit à la création et P6 ne change rien sur l’interface IDE émulée.",
   "product.olivetti-m250.creation.storage.none": "Sans disque dur : un lecteur de disquettes 1,44 Mo",
   "product.olivetti-m250.creation.storage.cp3022": "Conner CP3022, 20 Mo, type 4 : 615/4/17",
   "product.olivetti-m250.creation.storage.cp346": "Conner CP346, 40 Mo, type 1 : 805/4/26",
-  "product.olivetti-m250.creation.storage.cp3142": "Conner CP3142, 40 Mo, type 3 : 635/4/33"
+  "product.olivetti-m250.creation.storage.cp3142": "Conner CP3142, 40 Mo, type 3 : 635/4/33",
+  "product.olivetti-m250.creation.storage.cp3106": "Conner CP3106, 100 Mo, type 2 : 776/8/33"
 }
