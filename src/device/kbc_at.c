@@ -2093,7 +2093,8 @@ write_cmd_phoenix(void *priv, uint8_t val)
  *   83h w         read NVRAM word w (two bytes: 2w then 2w+1)
  *   84h           unidentified; answers 00h
  * The BIOS keeps a checksum in NVRAM byte 1Eh (sum of 00h-1Dh plus one).
- * Register effects are machine specific and not modelled yet.
+ * Register effects are machine specific (M380: register 2 bit 6, see
+ * m_at_olivetti_m380.c).
  */
 static void
 kbc_at_olivetti_ext_nvram_file(char *fn, size_t len)
@@ -2183,6 +2184,8 @@ kbc_at_olivetti_ext_data(atkbc_t *dev, uint8_t val)
         case 0x80:
             dev->olivetti_ext_reg[dev->olivetti_ext_args[0] & 7] = dev->olivetti_ext_args[1];
             kbc_at_log("ATkbc: Olivetti register %02X = %02X\n", dev->olivetti_ext_args[0], dev->olivetti_ext_args[1]);
+            if (machines[machine].init == machine_at_olivetti_m380_init)
+                machine_at_olivetti_m380_kbc_reg_write(dev->olivetti_ext_args[0] & 7, dev->olivetti_ext_args[1]);
             break;
         case 0x81:
             kbc_delay_to_ob(dev, dev->olivetti_ext_reg[dev->olivetti_ext_args[0] & 7], 0, 0x00);
