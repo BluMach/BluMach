@@ -135,6 +135,151 @@
               ]
             }
           ]
+        },
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-m280.creation.storage.none",
+              "status": "experimental",
+              "set": []
+            },
+            {
+              "id": "go723-type23",
+              "label_key": "product.olivetti-m280.creation.storage.go723-type23",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "olivetti_go723"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m280-go723-type23.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "26, 8, 615, 0, mfm"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_mfm_channel",
+                  "value": 0
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m280-go723-type23.img",
+                  "size": 65495040
+                }
+              ]
+            },
+            {
+              "id": "go723-type30",
+              "label_key": "product.olivetti-m280.creation.storage.go723-type30",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "olivetti_go723"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m280-go723-type30.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "26, 5, 981, 0, mfm"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_mfm_channel",
+                  "value": 0
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m280-go723-type30.img",
+                  "size": 65295360
+                }
+              ]
+            },
+            {
+              "id": "go717-type6",
+              "label_key": "product.olivetti-m280.creation.storage.go717-type6",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "olivetti_go717"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m280-go717-type6.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 6, 820, 0, mfm"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_mfm_channel",
+                  "value": 0
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m280-go717-type6.img",
+                  "size": 42823680
+                }
+              ]
+            },
+            {
+              "id": "go717-type7",
+              "label_key": "product.olivetti-m280.creation.storage.go717-type7",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "olivetti_go717"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m280-go717-type7.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 8, 615, 0, mfm"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_mfm_channel",
+                  "value": 0
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m280-go717-type7.img",
+                  "size": 42823680
+                }
+              ]
+            }
+          ]
         }
       ],
       "note_keys": [

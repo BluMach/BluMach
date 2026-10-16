@@ -85,7 +85,8 @@ class CatalogBuilderTests(unittest.TestCase):
              "toshiba-t5100", "toshiba-t5200", "olivetti-pcs286s",
              "olivetti-prodest-pc1", "olivetti-prodest-pc1hd",
              "olivetti-m28", "amstrad-pc5286",
-             "ta-dario286", "ta-dario386sx", "trigem-sx386m"},
+             "ta-dario286", "ta-dario386sx", "trigem-sx386m",
+             "olivetti-m380"},
             visible_products,
         )
 

@@ -822,3 +822,54 @@ const device_t st506_at_wd1003_device = {
     .force_redraw  = NULL,
     .config        = NULL
 };
+
+/* Olivetti GO-series boards built on Western Digital WD1003 controllers.
+   Olivetti's controller appendix and its controller-board list identify the
+   GO714 as a WD1003-WA2 ST506/MFM hard/floppy combo (M28 with BIOS 2.07 and
+   later, M280), the GO717 as a WD1003-WAH ST506/MFM hard-disk controller
+   (M280, M380) and the GO723 as a WD1003-RA2 ST506/RLL hard/floppy combo
+   (M280, M380 C).  They share the WD1003 register set at 1F0h-1F7h/IRQ 14,
+   so they reuse this controller.  The floppy half of the combo boards is
+   provided by the machine's AT floppy path at 3F0h, and jumper options such
+   as the GO717 secondary address (170h) or twin-drive mode are not modelled. */
+const device_t olivetti_go714_device = {
+    .name          = "Olivetti GO714 (WD1003-WA2, MFM)",
+    .internal_name = "olivetti_go714",
+    .flags         = DEVICE_ISA16,
+    .local         = 0,
+    .init          = mfm_init,
+    .close         = mfm_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
+
+const device_t olivetti_go717_device = {
+    .name          = "Olivetti GO717 (WD1003-WAH, MFM)",
+    .internal_name = "olivetti_go717",
+    .flags         = DEVICE_ISA16,
+    .local         = 0,
+    .init          = mfm_init,
+    .close         = mfm_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
+
+const device_t olivetti_go723_device = {
+    .name          = "Olivetti GO723 (WD1003-RA2, RLL)",
+    .internal_name = "olivetti_go723",
+    .flags         = DEVICE_ISA16,
+    .local         = 0,
+    .init          = mfm_init,
+    .close         = mfm_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
