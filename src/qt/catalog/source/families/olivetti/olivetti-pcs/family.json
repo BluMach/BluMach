@@ -23,6 +23,11 @@
         "title": "Personal Computer PCS 386SX (09/1990)",
         "publisher": "Olivetti · Olivrea",
         "url": "https://olivrea.de/olivetti-pcs-386sx/"
+      },
+      {
+        "title": "Olivetti adds low-end easy to run models to PCS line (15/11/1992)",
+        "publisher": "Computer Business Review · Tech Monitor",
+        "url": "https://www.techmonitor.ai/technology/olivetti_adds_low_end_easy_to_run_models_to_pcs_line/"
       }
     ],
     "comparison_table": {
@@ -113,6 +118,46 @@
             },
             {
               "value_key": "family.olivetti-pcs.table.pcs386sx.notes"
+            }
+          ]
+        },
+        {
+          "id": "pcs11",
+          "cells": [
+            {
+              "value": "PCS 11"
+            },
+            {
+              "value": "80386SX · 16 MHz"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs11.memory"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs11.storage"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs11.notes"
+            }
+          ]
+        },
+        {
+          "id": "pcs33",
+          "cells": [
+            {
+              "value": "PCS 33"
+            },
+            {
+              "value": "80386SX · 25 MHz"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs33.memory"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs33.storage"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs33.notes"
             }
           ]
         }

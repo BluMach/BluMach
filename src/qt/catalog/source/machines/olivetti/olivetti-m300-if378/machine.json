@@ -2,6 +2,7 @@
   "order": 100,
   "machine": {
     "id": "olivetti-m300-if378",
+    "visible": true,
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-m",
     "platform_id": "olivetti-m300-if378-platform",

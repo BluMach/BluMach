@@ -76,7 +76,7 @@ class CatalogBuilderTests(unittest.TestCase):
         self.assertEqual({"olivetti", "toshiba", "amstrad", "triumph-adler", "trigem"},
                          visible_manufacturers)
         self.assertEqual(
-            {"olivetti-pcs", "olivetti-m", "olivetti-prodest",
+            {"olivetti-pcs", "olivetti-pcs-4xc", "olivetti-m", "olivetti-prodest",
              "toshiba-t-series", "amstrad-series-5",
              "triumph-adler-dario", "trigem-sx386"}, visible_families)
         self.assertEqual(
@@ -87,7 +87,10 @@ class CatalogBuilderTests(unittest.TestCase):
              "olivetti-m28", "amstrad-pc5286",
              "ta-dario286", "ta-dario386sx", "trigem-sx386m",
              "olivetti-m380", "olivetti-m250", "olivetti-m250e",
-             "olivetti-m280"},
+             "olivetti-m280", "olivetti-m300-if378", "olivetti-m30002",
+             "olivetti-m30002f", "olivetti-m30008", "olivetti-m30015",
+             "olivetti-m30030", "olivetti-m30030p", "olivetti-pcs11",
+             "olivetti-pcs33", "olivetti-pcs46c"},
             visible_products,
         )
 

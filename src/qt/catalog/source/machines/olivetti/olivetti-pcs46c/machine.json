@@ -2,6 +2,7 @@
   "order": 190,
   "machine": {
     "id": "olivetti-pcs46c",
+    "visible": true,
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-pcs-4xc",
     "platform_id": "olivetti-pcs46c-platform",

@@ -1,6 +1,6 @@
 {
-  "product.olivetti-pcs11.summary": "Sistema compatto formato A4 con processore 386SX a 16 MHz.",
-  "product.olivetti-pcs11.history": "PCS 11 è un prodotto domestico e piccola impresa fisicamente distinto da M300-02F. Usa la piattaforma BA013 con BIOS dedicati R2.04 e R2.07.",
-  "product.olivetti-pcs11.technical.verified": "I dump PCS 11/16 R2.04 e R2.07 da 128 KB sono collegati a una macchina dedicata a 16 MHz con selettore BIOS.",
-  "product.olivetti-pcs11.technical.limitations": "Implementata ma non ancora convalidata all'avvio; le differenze del contenitore non sono modellate."
+  "product.olivetti-pcs11.summary": "Computer da tavolo compatto del 1992 con 386SX a 16 MHz, pensato per la casa e la piccola impresa.",
+  "product.olivetti-pcs11.history": "Olivetti presentò il PCS 11 nel novembre 1992, insieme al PCS 33 e al PCS 44, in una serie compatta pensata per essere facile da usare. Era il più economico dei tre e sulla scrivania non occupava più di un foglio A4. Si rivolgeva alla casa e alla piccola impresa: 386SX a 16 MHz, 2 MB di memoria, disco da 40 MB e unità floppy da 1,44 MB, con MS-DOS 5.0 e Windows 3.0 preinstallati. All’interno usa la scheda BA013/16, la stessa base tecnica dell’M300-02, ma con BIOS proprie (R2.04 e R2.07).",
+  "product.olivetti-pcs11.technical.verified": "I BIOS R2.04 e R2.07 (128 KB) sono identificati e si possono scegliere nella configurazione della macchina.",
+  "product.olivetti-pcs11.technical.limitations": "Emulazione parziale; l’avvio non è ancora stato confermato. Il suo BIOS differisce da quello del PCS 33 solo per i tempi di memoria e di bus che programma nel chipset TOPCAT, che l’emulatore non usa; dovrebbe quindi avviarsi allo stesso modo, ma va ancora confermato. Il case non è modellato."
 }
