@@ -374,7 +374,8 @@
           }
         ]
       }
-    ]
+    ],
+    "visible": true
   },
   "platform_order": 90,
   "platform": {

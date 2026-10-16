@@ -86,7 +86,8 @@ class CatalogBuilderTests(unittest.TestCase):
              "olivetti-prodest-pc1", "olivetti-prodest-pc1hd",
              "olivetti-m28", "amstrad-pc5286",
              "ta-dario286", "ta-dario386sx", "trigem-sx386m",
-             "olivetti-m380"},
+             "olivetti-m380", "olivetti-m250", "olivetti-m250e",
+             "olivetti-m280"},
             visible_products,
         )
 

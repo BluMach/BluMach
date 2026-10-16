@@ -410,7 +410,8 @@
           }
         ]
       }
-    ]
+    ],
+    "visible": true
   },
   "platform_order": 80,
   "platform": {

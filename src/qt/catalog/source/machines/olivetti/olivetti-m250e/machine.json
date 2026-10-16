@@ -421,7 +421,8 @@
           }
         ]
       }
-    ]
+    ],
+    "visible": true
   },
   "platform_order": 100,
   "platform": {

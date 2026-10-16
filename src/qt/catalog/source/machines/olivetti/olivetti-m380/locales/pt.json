@@ -10,7 +10,7 @@
   "product.olivetti-m380.creation.memory.4096": "4 MB (placa ME912/ME927 documentada; aproximação de RAM linear)",
   "product.olivetti-m380.creation.memory.16384": "16 MB (placa ME923 documentada; aproximação de RAM linear)",
   "product.olivetti-m380.creation.memory.49152": "48 MB (máximo documentado; não verificado)",
-  "product.olivetti-m380.creation.note": "O M380 e o M380 C partilham a plataforma selecionável. O disco rígido opcional usa a GO717 com um disco da sua tabela; escolha o mesmo tipo no Setup. O M380 C NEW continua desativado porque falta o vídeo GO470/481.",
+  "product.olivetti-m380.creation.note": "O M380 e o M380 C partilham a plataforma selecionável. O disco rígido opcional usa a GO717 com um disco da sua tabela. Este BIOS não tem Setup em ROM: o tipo de disco define-se com o programa SETUP do disco de utilizador da Olivetti, que não foi recuperado para o M380. O M380 C NEW continua desativado porque falta o vídeo GO470/481.",
   "product.olivetti-m380.technical.commercial_configurations": "M380 é o desktop BA806 e M380 C o compacto BA818. M380 C NEW documenta GO723 e VGA GO470/481. É uma matriz de opções do guia de serviço, não uma lista de preços recuperada.",
   "product.olivetti-m380.technical.cpu": "Intel 80386DX a 16 MHz com lógica PAL proprietária BA806/BA818; não é a plataforma Headland PCS 386SX.",
   "product.olivetti-m380.technical.memory": "A memória está inteiramente em placas de expansão: ME908/ME916/ME919 têm 1 MB, ME912/ME927 4 MB e ME923 16 MB. Resident Diagnostics mostra 640 KB base mais 3072 KB estendidos com 4 MB: a conta é esperada, mas BluMach ainda usa RAM linear.",
