@@ -12,15 +12,31 @@
         "url": "https://en.tgnco.kr/history/"
       },
       {
-        "title": "Company History",
-        "publisher": "TG Sambo",
-        "url": "https://www.trigem.co.kr/company/company_history.jsp"
+        "title": "회사연혁 1980–1989",
+        "publisher": "TG삼보",
+        "url": "https://www.trigem.co.kr/company/company_history_1989.html"
       },
       {
-        "title": "TriGem 20XT / HPM-8000, Korea's first exported PC",
-        "publisher": "Ministry of Trade, Industry and Energy, Republic of Korea",
-        "url": "https://www.motir.go.kr/kor/search?kwd=TriGem%2020XT"
+        "title": "TriGem",
+        "publisher": "Wikipedia (en)",
+        "url": "https://en.wikipedia.org/wiki/TriGem"
+      },
+      {
+        "title": "삼보컴퓨터",
+        "publisher": "Wikipedia (ko)",
+        "url": "https://ko.wikipedia.org/wiki/%EC%82%BC%EB%B3%B4%EC%BB%B4%ED%93%A8%ED%84%B0"
+      },
+      {
+        "title": "eMachines",
+        "publisher": "Wikipedia (en)",
+        "url": "https://en.wikipedia.org/wiki/EMachines"
+      },
+      {
+        "title": "CMS Enhancements",
+        "publisher": "Wikipedia (en)",
+        "url": "https://en.wikipedia.org/wiki/CMS_Enhancements"
       }
-    ]
+    ],
+    "visible": true
   }
 }

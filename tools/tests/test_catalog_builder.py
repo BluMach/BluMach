@@ -73,19 +73,19 @@ class CatalogBuilderTests(unittest.TestCase):
             item["id"] for item in catalog["products"] if item.get("visible", False)
         }
 
-        self.assertEqual({"olivetti", "toshiba", "amstrad", "triumph-adler"},
+        self.assertEqual({"olivetti", "toshiba", "amstrad", "triumph-adler", "trigem"},
                          visible_manufacturers)
         self.assertEqual(
             {"olivetti-pcs", "olivetti-m", "olivetti-prodest",
              "toshiba-t-series", "amstrad-series-5",
-             "triumph-adler-dario"}, visible_families)
+             "triumph-adler-dario", "trigem-sx386"}, visible_families)
         self.assertEqual(
             {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx",
              "olivetti-m15", "olivetti-m15-plus", "toshiba-t3200",
              "toshiba-t5100", "toshiba-t5200", "olivetti-pcs286s",
              "olivetti-prodest-pc1", "olivetti-prodest-pc1hd",
              "olivetti-m28", "amstrad-pc5286",
-             "ta-dario286", "ta-dario386sx"},
+             "ta-dario286", "ta-dario386sx", "trigem-sx386m"},
             visible_products,
         )
 
