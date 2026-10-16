@@ -40,6 +40,7 @@
 #include <86box/fdc.h>
 #include <86box/pci.h>
 #include <86box/keyboard.h>
+#include <86box/nvr.h>
 
 #define STAT_PARITY        0x80
 #define STAT_RTIMEOUT      0x40
@@ -119,6 +120,16 @@ typedef struct atkbc_t {
     uint8_t olivetti_pcs386sx_enable_reply;
     /* PCS 386SX: Olivetti configuration byte read with 80h, written with 84h. */
     uint8_t olivetti_pcs386sx_cfg;
+    /* Olivetti 8742 extended protocol (A8h-prefixed 80h-84h): hardware
+       registers and a word-organised NVRAM behind the controller. */
+    uint8_t olivetti_ext;
+    uint8_t olivetti_ext_prefix;
+    uint8_t olivetti_ext_cmd;
+    uint8_t olivetti_ext_argc;
+    uint8_t olivetti_ext_argn;
+    uint8_t olivetti_ext_args[3];
+    uint8_t olivetti_ext_reg[8];
+    uint8_t olivetti_ext_nvram[64];
 
     uint8_t mem[0x100];
 
@@ -2073,11 +2084,133 @@ write_cmd_phoenix(void *priv, uint8_t val)
     return ret;
 }
 
+/*
+ * Olivetti 8742 extended protocol, reconstructed from the M380 BIOS 1.09
+ * (F000:719E, F000:71E8, F000:750C, F000:7526); the M280, M250 and PCS 286
+ * BIOSes carry the same routines.  Every command is preceded by A8h:
+ *   80h reg val   write hardware register      81h reg      read register
+ *   82h w hi lo   write NVRAM word w (bytes 2w, 2w+1)
+ *   83h w         read NVRAM word w (two bytes: 2w then 2w+1)
+ *   84h           unidentified; answers 00h
+ * The BIOS keeps a checksum in NVRAM byte 1Eh (sum of 00h-1Dh plus one).
+ * Register effects are machine specific and not modelled yet.
+ */
+static void
+kbc_at_olivetti_ext_nvram_file(char *fn, size_t len)
+{
+    snprintf(fn, len, "%s_kbc_nvram.bin", machines[machine].internal_name);
+}
+
+static void
+kbc_at_olivetti_ext_load(atkbc_t *dev)
+{
+    char  fn[256];
+    FILE *fp;
+
+    memset(dev->olivetti_ext_nvram, 0xff, sizeof(dev->olivetti_ext_nvram));
+    kbc_at_olivetti_ext_nvram_file(fn, sizeof(fn));
+    fp = nvr_fopen(fn, "rb");
+    if (fp != NULL) {
+        if (fread(dev->olivetti_ext_nvram, 1, sizeof(dev->olivetti_ext_nvram), fp) != sizeof(dev->olivetti_ext_nvram))
+            kbc_at_log("ATkbc: Olivetti NVRAM file is short\n");
+        fclose(fp);
+    }
+}
+
+static void
+kbc_at_olivetti_ext_save(const atkbc_t *dev)
+{
+    char  fn[256];
+    FILE *fp;
+
+    kbc_at_olivetti_ext_nvram_file(fn, sizeof(fn));
+    fp = nvr_fopen(fn, "wb");
+    if (fp != NULL) {
+        fwrite(dev->olivetti_ext_nvram, 1, sizeof(dev->olivetti_ext_nvram), fp);
+        fclose(fp);
+    }
+}
+
+static int
+kbc_at_olivetti_ext_cmd(atkbc_t *dev, uint8_t val)
+{
+    if (!dev->olivetti_ext)
+        return 0;
+
+    if (val == 0xa8) {
+        dev->olivetti_ext_prefix = 1;
+        return 1;
+    }
+    if (!dev->olivetti_ext_prefix)
+        return 0;
+
+    dev->olivetti_ext_prefix = 0;
+    switch (val) {
+        case 0x80: dev->olivetti_ext_argc = 2; break;
+        case 0x81: dev->olivetti_ext_argc = 1; break;
+        case 0x82: dev->olivetti_ext_argc = 3; break;
+        case 0x83: dev->olivetti_ext_argc = 1; break;
+        case 0x84:
+            kbc_delay_to_ob(dev, 0x00, 0, 0x00);
+            return 1;
+        default:
+            return 0;
+    }
+    dev->olivetti_ext_cmd  = val;
+    dev->olivetti_ext_argn = 0;
+    dev->wantdata          = 1;
+    dev->state             = STATE_KBC_PARAM;
+    return 1;
+}
+
+static int
+kbc_at_olivetti_ext_data(atkbc_t *dev, uint8_t val)
+{
+    uint8_t w;
+
+    if (!dev->olivetti_ext_cmd)
+        return 0;
+
+    dev->olivetti_ext_args[dev->olivetti_ext_argn++] = val;
+    if (dev->olivetti_ext_argn < dev->olivetti_ext_argc) {
+        dev->wantdata = 1;
+        dev->state    = STATE_KBC_PARAM;
+        return 1;
+    }
+
+    w = dev->olivetti_ext_args[0] & 0x1f;
+    switch (dev->olivetti_ext_cmd) {
+        case 0x80:
+            dev->olivetti_ext_reg[dev->olivetti_ext_args[0] & 7] = dev->olivetti_ext_args[1];
+            kbc_at_log("ATkbc: Olivetti register %02X = %02X\n", dev->olivetti_ext_args[0], dev->olivetti_ext_args[1]);
+            break;
+        case 0x81:
+            kbc_delay_to_ob(dev, dev->olivetti_ext_reg[dev->olivetti_ext_args[0] & 7], 0, 0x00);
+            break;
+        case 0x82:
+            dev->olivetti_ext_nvram[w << 1]       = dev->olivetti_ext_args[1];
+            dev->olivetti_ext_nvram[(w << 1) + 1] = dev->olivetti_ext_args[2];
+            kbc_at_olivetti_ext_save(dev);
+            break;
+        case 0x83:
+            kbc_at_queue_add(dev, dev->olivetti_ext_nvram[w << 1]);
+            kbc_at_queue_add(dev, dev->olivetti_ext_nvram[(w << 1) + 1]);
+            break;
+        default:
+            break;
+    }
+    dev->olivetti_ext_cmd = 0;
+    return 1;
+}
+
 static uint8_t
 write_cmd_olivetti(void *priv, uint8_t val)
 {
     atkbc_t *dev = (atkbc_t *) priv;
     uint8_t  ret = 1;
+
+    if (kbc_at_olivetti_ext_cmd(dev, val))
+        return 0;
 
     switch (val) {
         default:
@@ -2175,6 +2308,9 @@ write_cmd_data_olivetti(void *priv, uint8_t val)
 {
     atkbc_t *dev = (atkbc_t *) priv;
     uint8_t  ret = 1;
+
+    if (kbc_at_olivetti_ext_data(dev, val))
+        return 0;
 
     if ((machines[machine].init == machine_at_olivetti_pcs386sx_init) && (dev->command == 0x84)) {
         /* BIOS 1.14 keeps its configuration byte here, separate from the
@@ -3216,6 +3352,11 @@ kbc_at_init(const device_t *info)
         case KBC_VEN_OLIVETTI:
             dev->write_cmd_data_ven = write_cmd_data_olivetti;
             dev->write_cmd_ven      = write_cmd_olivetti;
+            /* Extended protocol enabled machine by machine as it is validated. */
+            if (machines[machine].init == machine_at_olivetti_m380_init) {
+                dev->olivetti_ext = 1;
+                kbc_at_olivetti_ext_load(dev);
+            }
             break;
 
         case KBC_VEN_ALI:
