@@ -1415,6 +1415,20 @@ paradise_pvga1a_pcs386sx_init(const device_t *info)
 }
 
 static void *
+paradise_pvga1a_m250_init(const device_t *info)
+{
+    paradise_t *paradise = paradise_init(info, 256);
+
+    /* The M250 and M250 E carry the OVC 1.06 video BIOS in its own
+       27C256 (U13, PERC/PDSD 1.06), separate from the system BIOS. */
+    if (paradise)
+        rom_init(&paradise->bios_rom, "roms/machines/olivetti_m250/olivetti_m250_perc_106.BIN",
+                 0xc0000, 0x8000, 0x7fff, 0, MEM_MAPPING_EXTERNAL);
+
+    return paradise;
+}
+
+static void *
 paradise_pvga1a_t5200_init(const device_t *info)
 {
     paradise_t *paradise = paradise_init(info, 256);
@@ -1741,6 +1755,21 @@ const device_t paradise_pvga1a_pcs386sx_device = {
     .speed_changed = paradise_speed_changed,
     .force_redraw  = paradise_force_redraw,
     .machine       = "Olivetti PCS 386SX",
+    .config        = NULL
+};
+
+const device_t paradise_pvga1a_m250_device = {
+    .name          = "Paradise PVGA1A On-Board (Olivetti M250)",
+    .internal_name = "pvga1a_m250",
+    .flags         = 0,
+    .local         = PVGA1A,
+    .init          = paradise_pvga1a_m250_init,
+    .close         = paradise_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = paradise_speed_changed,
+    .force_redraw  = paradise_force_redraw,
+    .machine       = "Olivetti M250",
     .config        = NULL
 };
 

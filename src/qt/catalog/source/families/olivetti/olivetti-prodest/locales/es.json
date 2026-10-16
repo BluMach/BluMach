@@ -1,3 +1,18 @@
 {
-  "family.olivetti-prodest.description": "Prodest fue una línea de Olivetti orientada a una informática personal accesible. El PC 1 y el PC 1 HD combinaban un formato compacto con el NEC V40, un procesador que integraba buena parte de la lógica del sistema."
+  "family.olivetti-prodest.description": "Prodest fue una línea de Olivetti orientada a una informática personal accesible. El PC 1 y el PC 1 HD combinaban un formato compacto con el NEC V40, un procesador que integraba buena parte de la lógica del sistema.",
+  "family.olivetti-prodest.history": "Prodest fue la marca con la que Olivetti vendió ordenadores para casa y para la escuela en la segunda mitad de los años ochenta. Los dos primeros modelos no eran diseños propios. El PC 128, de 1986, era el Thomson MO6 francés con la carcasa retocada y el logotipo de Olivetti. El PC 128 S, de 1987, era el Acorn BBC Master Compact con otros colores y con el manual y los programas de bienvenida traducidos al italiano. Respondían a los acuerdos de Olivetti de aquellos años: en 1985 había tomado el control de Acorn, con Thomson como tercer socio. Los dos se vendieron solo en Italia, y el PC 128 en muy pocas unidades.\n\nEl PC 1 fue distinto: un compatible PC de diseño italiano, con todo el ordenador dentro de la carcasa del teclado. Llevaba un NEC V40 a 8 MHz, que podía bajarse a 4,77 MHz durante el arranque, vídeo compatible CGA con un Yamaha V6355, una o dos disqueteras de 3,5 pulgadas y una BIOS de 16 KB derivada de la del Olivetti M24. Por formato y prestaciones competía con el Schneider Euro PC y el Amstrad PC20. Se vendió también fuera de Italia: en España llegó con manual, teclado y disco de sistema traducidos. El PC 1 HD, con 640 KB y un disco duro interno de 20 MB, se comercializó como un modelo aparte.\n\nBluMach emula el PC 1 y el PC 1 HD. Los PC 128 y PC 128 S no son compatibles PC y quedan como referencia histórica.",
+  "family.olivetti-prodest.table.title": "Modelos de la gama",
+  "family.olivetti-prodest.table.note": "Las fuentes no coinciden en la fecha del PC 1: la prensa española lo presenta en 1987 y otras fuentes lo sitúan en 1988. Los PC 128 y PC 128 S solo se vendieron en Italia.",
+  "family.olivetti-prodest.table.year": "Año",
+  "family.olivetti-prodest.table.model": "Modelo",
+  "family.olivetti-prodest.table.cpu": "CPU",
+  "family.olivetti-prodest.table.origin": "Origen",
+  "family.olivetti-prodest.table.status": "Catálogo BluMach",
+  "family.olivetti-prodest.cpu.v40": "NEC V40 · 8 MHz o 4,77 MHz",
+  "family.olivetti-prodest.origin.pc128": "Thomson MO6 con marca Olivetti",
+  "family.olivetti-prodest.origin.pc128s": "Acorn BBC Master Compact con marca Olivetti",
+  "family.olivetti-prodest.origin.pc1": "Diseño de Olivetti, compatible PC",
+  "family.olivetti-prodest.origin.pc1hd": "PC 1 con disco duro de 20 MB",
+  "family.olivetti-prodest.status.partial": "Ficha y creación parcial",
+  "family.olivetti-prodest.status.reference": "Referencia histórica; sin ficha"
 }

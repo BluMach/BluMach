@@ -1,3 +1,15 @@
 {
-  "family.trigem-sx386.description": "Familia propia de placas OEM 80386SX de TriGem, independiente de Olivetti. Cada placa y revisión de BIOS demostrada se mantiene separada."
+  "family.trigem-sx386.description": "Placas base 80386SX que TriGem fabricó a principios de los noventa para que otras empresas las montaran en sus ordenadores.",
+  "family.trigem-sx386.history": "SX386 agrupa las placas base 80386SX que TriGem fabricó a principios de los años noventa para otras empresas. No llegaban a la tienda con la marca TriGem: el comprador las encontraba dentro de un ordenador con el nombre del integrador.\n\nLa mejor documentada es la SX386M, revisión KS-II. Lleva un 80386SX a 16 MHz con modo lento a 8 MHz, zócalo para coprocesador 80387SX, hasta 8 MB de memoria con paridad, controladoras de disquete e IDE, dos puertos serie, uno paralelo y seis ranuras ISA, cuatro de ellas de 16 bits; el vídeo iba en una tarjeta aparte. Su chipset es el trío Headland HT101SX, HT113 y GC102-PC, el mismo del Olivetti PCS 386SX, pero compartir chipset no la convierte en un diseño de Olivetti. La BIOS es de AMI, de febrero de 1991.\n\nLa placa se conoce dentro del Emerson Elite SX386/16, fabricado en Corea, y del CMS Enhancements ESP SX386M, de la etapa en que CMS y TriGem se aliaron para vender ordenadores con la marca CMS. Un catálogo de placas la asocia también al Epson CW3S16, aunque no se ha comparado una placa de Epson. Una guía de Epson describe además la SX386MC del CW3S20/C, a 20 MHz, con 32 KB de caché y hasta 32 MB de memoria: es otra revisión de la misma línea, no la misma placa.",
+  "family.trigem-sx386.table.title": "Placas de la gama",
+  "family.trigem-sx386.table.note": "La fecha de la SX386M es la de su BIOS. El Epson CW3S16 solo consta en un catálogo de placas. No es un inventario completo de las placas OEM de TriGem.",
+  "family.trigem-sx386.table.year": "Año",
+  "family.trigem-sx386.table.model": "Placa",
+  "family.trigem-sx386.table.cpu": "CPU",
+  "family.trigem-sx386.table.oem": "Equipos que la usaron",
+  "family.trigem-sx386.table.status": "Catálogo BluMach",
+  "family.trigem-sx386.status.experimental": "Ficha y creación experimental",
+  "family.trigem-sx386.status.reference": "Referencia histórica; sin ficha",
+  "family.trigem-sx386.oem.sx386m": "Emerson Elite SX386/16, CMS ESP SX386M; Epson CW3S16 según un catálogo",
+  "family.trigem-sx386.period.unknown": "Fecha no establecida"
 }

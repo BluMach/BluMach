@@ -1237,13 +1237,15 @@ nvr_at_init(const device_t *info)
         nvr->regs[0x14] = 0x21;
         nvr->regs[0x15] = 0x80;
         nvr->regs[0x16] = 0x02;
-        nvr->regs[0x17] = 0x80;
+        /* 1 MiB: POST shadows 128 KiB of the hole and remaps 256 KiB
+           (port 69h bits 3/7); larger sizes keep 384 KiB. */
+        nvr->regs[0x17] = (mem_size == 1024) ? 0x00 : 0x80;
         nvr->regs[0x18] = 0x01;
         uint16_t sum = 0;
         for (int i = 0x10; i <= 0x2d; i++)
             sum += nvr->regs[i];
         nvr->regs[0x2e] = (sum >> 8) & 0xff;
-        nvr->regs[0x2f] = sum & 0x7f;
+        nvr->regs[0x2f] = sum & 0xff; /* F000:F364 compares all 16 bits. */
         nvr_save();
     }
 
@@ -1265,7 +1267,7 @@ nvr_at_init(const device_t *info)
         for (int i = 0x10; i <= 0x2d; i++)
             sum += nvr->regs[i];
         nvr->regs[0x2e] = (sum >> 8) & 0xff;
-        nvr->regs[0x2f] = sum & 0x7f;
+        nvr->regs[0x2f] = sum & 0xff; /* F000:F3E9 compares all 16 bits. */
     }
 
     /* Factory state expected by the PCS 386SX Phoenix v1.14 diagnostics. */

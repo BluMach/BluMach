@@ -63,65 +63,6 @@
 #include <86box/video.h>
 #include <86box/machine.h>
 
-/* Memory remap: 0x60000-0x7FFFF is aliased to 0x80000-0x9FFFF.
-   The Phoenix v1.42 POST test 6 (MEMORY CONTROLLER) writes the 13-byte
-   string "RAM-REMAPPING" at 0x60000 and verifies the same bytes are
-   readable at 0x80000. The custom Olivetti memory controller on the
-   M250 (GA98/GA80) does this remap on its own in hardware, but
-   86Box does not implement that side effect inside the gate array
-   driver — we add a static alias mapping instead, exactly like the
-   sister PCS 286 implementation in m_at_olivetti_286.c.
-
-   IMPORTANT: mem_read_ram() and mem_write_ram() ignore their `priv`
-   pointer completely — they always access ram[addr] directly. Using
-   them here would make reads/writes land at 0x60000, not 0x80000.
-   We therefore supply custom handlers that translate addr→addr+0x20000
-   and call addreadlookup/addwritelookup so the x86 fast-path cache
-   is also pointed at the correct physical page. */
-static mem_mapping_t olivetti_m250_remap_mapping;
-
-static uint8_t
-olivetti_m250_remap_read8(uint32_t addr, UNUSED(void *priv))
-{
-    addreadlookup(mem_logical_addr, addr + 0x20000);
-    return ram[addr + 0x20000];
-}
-
-static uint16_t
-olivetti_m250_remap_read16(uint32_t addr, UNUSED(void *priv))
-{
-    addreadlookup(mem_logical_addr, addr + 0x20000);
-    return *(uint16_t *) &ram[addr + 0x20000];
-}
-
-static uint32_t
-olivetti_m250_remap_read32(uint32_t addr, UNUSED(void *priv))
-{
-    addreadlookup(mem_logical_addr, addr + 0x20000);
-    return *(uint32_t *) &ram[addr + 0x20000];
-}
-
-static void
-olivetti_m250_remap_write8(uint32_t addr, uint8_t val, UNUSED(void *priv))
-{
-    addwritelookup(mem_logical_addr, addr + 0x20000);
-    mem_write_ramb_page(addr + 0x20000, val, &pages[(addr + 0x20000) >> 12]);
-}
-
-static void
-olivetti_m250_remap_write16(uint32_t addr, uint16_t val, UNUSED(void *priv))
-{
-    addwritelookup(mem_logical_addr, addr + 0x20000);
-    mem_write_ramw_page(addr + 0x20000, val, &pages[(addr + 0x20000) >> 12]);
-}
-
-static void
-olivetti_m250_remap_write32(uint32_t addr, uint32_t val, UNUSED(void *priv))
-{
-    addwritelookup(mem_logical_addr, addr + 0x20000);
-    mem_write_raml_page(addr + 0x20000, val, &pages[(addr + 0x20000) >> 12]);
-}
-
 /* Shared body for both M250 (8 MHz) and M250 E (12 MHz). They use
    different system BIOS images and gate-array revisions, while the
    KBC, FDC and PERC/PDSD 1.06 OVC video ROM are shared.
@@ -163,7 +104,11 @@ machine_at_olivetti_m250_init_internal(const machine_t *model, int is_e_variant)
        layout: it copies the upper 128K of BIOS (E0000-FFFFF) to
        shadow RAM at boot, then enables shadowing via port 0x69
        bit 3 on the gate array. */
-    mem_remap_top(384);
+    /* With 1 MiB the gate array owns the 384 KiB behind the hole: port 69h
+       bits 4/7 remap it to 100000h and bit 3 shadows E0000h-FFFFFh (see
+       olivetti_m250_gate.c).  Other sizes keep the linear remap. */
+    if (mem_size != 1024)
+        mem_remap_top(384);
 
     /* Phoenix v1.42 diagnostic compare expects BDA equip word 0x410
        to use the same encoding as NVR 0x14. The IBM AT encoding is:
@@ -230,42 +175,17 @@ machine_at_olivetti_m250_init_internal(const machine_t *model, int is_e_variant)
        for the stock M250, BA241 for the M250 E). */
     device_add(&fdc_at_device);
 
-    /* Memory remap 0x60000-0x7FFFF → 0x80000-0x9FFFF. The Phoenix
-       POST test 6 writes 13 bytes ("RAM-REMAPPING") to 0x60000
-       then reads them back from 0x80000 (REPE CMPSB). Custom
-       handlers redirect every access to addr+0x20000 and prime
-       the 86Box fast-path cache so subsequent bytes in the same
-       REP MOVSB / REPE CMPSB also land at the right location.
-       flushmmucache() invalidates any stale lookup entries that
-       may have been established during earlier boot-time memory
-       clears. */
-    mem_mapping_add(&olivetti_m250_remap_mapping, 0x60000, 0x20000,
-                    olivetti_m250_remap_read8,  olivetti_m250_remap_read16,  olivetti_m250_remap_read32,
-                    olivetti_m250_remap_write8, olivetti_m250_remap_write16, olivetti_m250_remap_write32,
-                    NULL, 0, NULL);
-    mem_mapping_enable(&olivetti_m250_remap_mapping);
-    flushmmucache();
+    /* No low-memory alias.  PERB 1.03 uses "RAM-REMAPPING" only as a
+       sizing probe: F000:0361 writes it at 0000:0000 and expects 8000:0000
+       to differ (no wrap), and F000:68FC compares 3FFF:0000 with the
+       protected-mode window at 19FFF0h.  A permanent 60000h->80000h alias
+       is not needed and made 128 KiB of conventional memory overlap. */
 
-    /* Onboard Paradise PVGA1A + IMS G176P-40 RAMDAC, 256KB VRAM.
-       Reuses the Amstrad PC3086 driver (same WD90C11-LR / PVGA1A
-       core). The M250 BIOS reports "OVC rev. 1.06" in SET-UP — OVC
-       is just Olivetti's rebrand of the PVGA1A (Paradise sold the
-       die as Western Digital / OVC / Olivetti depending on
-       customer). The PERC 1.06 video BIOS is 32KB flat, loaded at
-       0xC0000.
-
-       We do NOT use rom_load_aux — that function does not exist in
-       this 86Box fork. rom_load_linear() is the correct API for
-       loading a flat video ROM at a custom base address with
-       custom mappings. The system BIOS already lives at
-       0xF0000-0xFFFFF (set up by bios_load_linear above), so the
-       video BIOS at 0xC0000-0xC7FFF is a separate, non-
-       conflicting mapping. */
-    if (gfxcard[0] == VID_INTERNAL) {
-        device_add(&paradise_pvga1a_pc3086_device);
-        rom_load_linear("roms/machines/olivetti_m250/olivetti_m250_perc_106.BIN",
-                        0x000c0000, 32768, 0, NULL);
-    }
+    /* On-board Paradise PVGA1A with 256 KB.  Olivetti calls it OVC; its
+       1.06 video BIOS (PERC on the M250, PDSD on the M250 E, identical
+       bytes) sits in its own ROM at C0000h and is loaded by the device. */
+    if (gfxcard[0] == VID_INTERNAL)
+        device_add(&paradise_pvga1a_m250_device);
 
     return ret;
 }

@@ -580,6 +580,7 @@ extern int             machine_at_t5200_init(const machine_t *);
 extern const device_t  sx386m_device;
 #endif
 extern int             machine_at_trigem_sx386m_init(const machine_t *);
+extern void            machine_at_trigem_sx386m_set_speed(uint8_t kbc_p2);
 
 /* m_at_olivetti_m300.c */
 #ifdef EMU_DEVICE_H
@@ -598,6 +599,7 @@ extern int             machine_at_olivetti_m30015_init(const machine_t *);
 extern int             machine_at_olivetti_m30030_init(const machine_t *);
 extern int             machine_at_olivetti_m290sp_init(const machine_t *);
 extern int             machine_at_olivetti_m380_init(const machine_t *);
+extern void            machine_at_olivetti_m380_kbc_reg_write(uint8_t reg, uint8_t val);
 extern int             machine_at_olivetti_m250_init(const machine_t *);
 extern int             machine_at_olivetti_m250e_init(const machine_t *);
 extern int             machine_xt_olivetti_m240_init(const machine_t *);

@@ -27,6 +27,76 @@
 #include <86box/rom.h>
 #include <86box/serial.h>
 
+/* Dedicated memory (BIOS 1.09).  The 384 KiB behind the A0000h-FFFFFh hole
+   is not remapped above the installed RAM: POST tests it at the 32-bit
+   address 800A0000h (F000:2051) and reports "Dedicated Memory: 384 KB".
+   Its top 128 KiB back the E0000h-FFFFFh shadow window.  Writes to that
+   window always reach the shadow RAM; KBC register 2 bit 6 (Olivetti 8742
+   extended protocol) selects whether reads come from the RAM (set) or from
+   the ROM (clear).  POST copies E000h/F000h onto themselves with the bit
+   clear (F000:707C), then sets it to check the copy (F000:70A8) and to run
+   from RAM.  Other register 2 bits (bank test bit 7, NVRAM byte 6 in bits
+   0-5) are kept by the controller without a modelled effect. */
+static mem_mapping_t m380_dedicated_mapping;
+
+static uint8_t
+m380_ded_read8(uint32_t addr, void *priv)
+{
+    (void) priv;
+    return ram[0xa0000 + (addr - 0x800a0000)];
+}
+
+static uint16_t
+m380_ded_read16(uint32_t addr, void *priv)
+{
+    (void) priv;
+    return *(uint16_t *) &ram[0xa0000 + (addr - 0x800a0000)];
+}
+
+static uint32_t
+m380_ded_read32(uint32_t addr, void *priv)
+{
+    (void) priv;
+    return *(uint32_t *) &ram[0xa0000 + (addr - 0x800a0000)];
+}
+
+static void
+m380_ded_write8(uint32_t addr, uint8_t val, void *priv)
+{
+    (void) priv;
+    ram[0xa0000 + (addr - 0x800a0000)] = val;
+}
+
+static void
+m380_ded_write16(uint32_t addr, uint16_t val, void *priv)
+{
+    (void) priv;
+    *(uint16_t *) &ram[0xa0000 + (addr - 0x800a0000)] = val;
+}
+
+static void
+m380_ded_write32(uint32_t addr, uint32_t val, void *priv)
+{
+    (void) priv;
+    *(uint32_t *) &ram[0xa0000 + (addr - 0x800a0000)] = val;
+}
+
+static void
+m380_update_shadow(uint8_t reg2)
+{
+    mem_set_mem_state_both(0xe0000, 0x20000,
+                           ((reg2 & 0x40) ? MEM_READ_INTERNAL : MEM_READ_EXTANY) | MEM_WRITE_INTERNAL);
+    flushmmucache();
+}
+
+/* Called by the keyboard controller for A8h 80h register writes. */
+void
+machine_at_olivetti_m380_kbc_reg_write(uint8_t reg, uint8_t val)
+{
+    if (reg == 2)
+        m380_update_shadow(val);
+}
+
 int
 machine_at_olivetti_m380_init(const machine_t *model)
 {
@@ -46,12 +116,14 @@ machine_at_olivetti_m380_init(const machine_t *model)
 
     /* CAP7 p. 7-3 maps the first MiB as 640 KiB conventional RAM followed
        by video memory, VGA ROM/option space, video BIOS shadow and system
-       BIOS shadow. The physical RAM backing that falls below A0000h-FFFFFh
-       must be made visible above installed RAM: with a 4 MiB ME912 profile,
-       that is 640 KiB conventional plus 3456 KiB extended, for the documented
-       4096 KiB total. Without this remap Resident Diagnostics loses 384 KiB
-       and reports the incorrect 3712 KiB total. */
-    mem_remap_top(384);
+       BIOS shadow. */
+    /* The hole RAM is the separately reported dedicated memory, see above;
+       it is not added to extended memory. */
+    mem_mapping_add(&m380_dedicated_mapping, 0x800a0000, 0x60000,
+                    m380_ded_read8, m380_ded_read16, m380_ded_read32,
+                    m380_ded_write8, m380_ded_write16, m380_ded_write32,
+                    NULL, 0, NULL);
+    m380_update_shadow(0x00);
 
     /* The physical machine connects its floppy controller through the IF614
        and the proprietary backplane. Treat 86Box's "internal" selection as

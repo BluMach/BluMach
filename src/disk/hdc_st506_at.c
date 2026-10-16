@@ -792,6 +792,44 @@ mfm_init(UNUSED(const device_t *info))
     return mfm;
 }
 
+/* Board reset.  On the AT bus the reset generated through the keyboard
+   controller (Ctrl+Alt+Del, BIOS warm boot) also drives RESET DRV, so an
+   ISA controller starts from its power-on state.  Without this, a warm boot
+   after diagnostics or Setup could find the WD1003 busy, with an interrupt
+   or data request pending, and POST reported a controller failure until a
+   hard reset.  Used by the Olivetti GO boards, flagged DEVICE_SOFTRESET. */
+static void
+mfm_reset(void *priv)
+{
+    mfm_t *mfm = (mfm_t *) priv;
+
+    timer_disable(&mfm->callback_timer);
+
+    mfm->precomp  = 0;
+    mfm->error    = 1;
+    mfm->secount  = 1;
+    mfm->sector   = 1;
+    mfm->head     = 0;
+    mfm->cylinder = 0;
+    mfm->command  = 0;
+    mfm->status   = STAT_READY | STAT_DSC;
+    mfm->fdisk    = 0;
+    mfm->reset    = 0;
+    mfm->drvsel   = 0;
+    mfm->pos      = 0;
+
+    for (uint8_t d = 0; d < MFM_NUM; d++) {
+        mfm->drives[d].steprate = 0x0f;
+        mfm->drives[d].cfg_spt  = 0;
+        mfm->drives[d].cfg_hpc  = 0;
+    }
+
+    irq_lower(mfm);
+
+    ui_sb_update_icon(SB_HDD | HDD_BUS_MFM, 0);
+    ui_sb_update_icon_write(SB_HDD | HDD_BUS_MFM, 0);
+}
+
 static void
 mfm_close(void *priv)
 {
@@ -817,6 +855,57 @@ const device_t st506_at_wd1003_device = {
     .init          = mfm_init,
     .close         = mfm_close,
     .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
+
+/* Olivetti GO-series boards built on Western Digital WD1003 controllers.
+   Olivetti's controller appendix and its controller-board list identify the
+   GO714 as a WD1003-WA2 ST506/MFM hard/floppy combo (M28 with BIOS 2.07 and
+   later, M280), the GO717 as a WD1003-WAH ST506/MFM hard-disk controller
+   (M280, M380) and the GO723 as a WD1003-RA2 ST506/RLL hard/floppy combo
+   (M280, M380 C).  They share the WD1003 register set at 1F0h-1F7h/IRQ 14,
+   so they reuse this controller.  The floppy half of the combo boards is
+   provided by the machine's AT floppy path at 3F0h, and jumper options such
+   as the GO717 secondary address (170h) or twin-drive mode are not modelled. */
+const device_t olivetti_go714_device = {
+    .name          = "Olivetti GO714 (WD1003-WA2, MFM)",
+    .internal_name = "olivetti_go714",
+    .flags         = DEVICE_ISA16 | DEVICE_SOFTRESET,
+    .local         = 0,
+    .init          = mfm_init,
+    .close         = mfm_close,
+    .reset         = mfm_reset,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
+
+const device_t olivetti_go717_device = {
+    .name          = "Olivetti GO717 (WD1003-WAH, MFM)",
+    .internal_name = "olivetti_go717",
+    .flags         = DEVICE_ISA16 | DEVICE_SOFTRESET,
+    .local         = 0,
+    .init          = mfm_init,
+    .close         = mfm_close,
+    .reset         = mfm_reset,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
+
+const device_t olivetti_go723_device = {
+    .name          = "Olivetti GO723 (WD1003-RA2, RLL)",
+    .internal_name = "olivetti_go723",
+    .flags         = DEVICE_ISA16 | DEVICE_SOFTRESET,
+    .local         = 0,
+    .init          = mfm_init,
+    .close         = mfm_close,
+    .reset         = mfm_reset,
     .available     = NULL,
     .speed_changed = NULL,
     .force_redraw  = NULL,

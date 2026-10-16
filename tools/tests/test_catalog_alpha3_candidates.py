@@ -35,7 +35,7 @@ class Alpha3CandidateTests(unittest.TestCase):
         config = self.values(self.products["olivetti-m28"])
         self.assertEqual("525_2hd",
                          config["Floppy and CD-ROM drives"]["fdd_01_type"])
-        self.assertEqual("st506_at", config["Storage controllers"]["hdc_1"])
+        self.assertEqual("olivetti_go714", config["Storage controllers"]["hdc_1"])
         self.assertEqual("17, 4, 615, 0, mfm",
                          config["Hard disks"]["hdd_01_parameters"])
 

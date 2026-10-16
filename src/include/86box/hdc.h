@@ -42,6 +42,9 @@ extern const device_t st506_xt_wd1002a_wx1_device;        /* st506_xt_wd1002a_wx
 extern const device_t st506_xt_wd1002a_wx1_nobios_device; /* st506_xt_wd1002a_wx1 */
 extern const device_t st506_xt_wd1002a_27x_device;        /* st506_xt_wd1002a_27x */
 extern const device_t st506_at_wd1003_device;             /* st506_at_wd1003 */
+extern const device_t olivetti_go714_device;              /* Olivetti GO714, WD1003-WA2 */
+extern const device_t olivetti_go717_device;              /* Olivetti GO717, WD1003-WAH */
+extern const device_t olivetti_go723_device;              /* Olivetti GO723, WD1003-RA2 */
 extern const device_t st506_xt_wd1004a_wx1_device;        /* st506_xt_wd1004a_wx1 */
 extern const device_t st506_xt_wd1004_27x_device;         /* st506_xt_wd1004_27x */
 extern const device_t st506_xt_wd1004a_27x_device;        /* st506_xt_wd1004a_27x */
