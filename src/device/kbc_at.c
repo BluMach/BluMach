@@ -883,6 +883,10 @@ write_p2(atkbc_t *dev, uint8_t val)
     /* Do this here to avoid an infinite reset loop. */
     dev->p2 = val;
 
+    /* TriGem SX386M: bits 2-3 select 16 MHz (set) or 8 MHz (clear). */
+    if ((machines[machine].init == machine_at_trigem_sx386m_init) && ((old ^ val) & 0x0c))
+        machine_at_trigem_sx386m_set_speed(val);
+
     if (!fast_reset && cpu_cpurst_on_sr && ((old ^ val) & 0x01)) { /*Reset*/
         if (!(val & 0x01)) {  /* Pin 0 selected. */
             /* Pin 0 selected. */
@@ -3035,8 +3039,15 @@ kbc_at_port_1_write(uint16_t port, uint8_t val, void *priv)
     if (fast_a20 && dev->wantdata && (dev->command == 0xd1)) {
         kbc_at_log("ATkbc: write P2\n");
 
-        /* Fast A20 - ignore all other bits. */
-        write_p2_fast_a20(dev, (dev->p2 & 0xfd) | (val & 0x02));
+        if (machines[machine].init == machine_at_trigem_sx386m_init) {
+            /* TriGem SX386M: P22-P23 carry the 16/8 MHz selection, so keep
+               them along with A20 (F000:E88E, F000:8F7B). */
+            write_p2_fast_a20(dev, (dev->p2 & 0xf1) | (val & 0x0e));
+            machine_at_trigem_sx386m_set_speed(dev->p2);
+        } else {
+            /* Fast A20 - ignore all other bits. */
+            write_p2_fast_a20(dev, (dev->p2 & 0xfd) | (val & 0x02));
+        }
 
         dev->wantdata  = 0;
         dev->state     = STATE_MAIN_IBF;

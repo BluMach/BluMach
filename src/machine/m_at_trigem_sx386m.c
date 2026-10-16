@@ -13,6 +13,7 @@
 #include <stdlib.h>
 
 #include <86box/86box.h>
+#include "cpu.h"
 #include <86box/timer.h>
 #include <86box/io.h>
 #include <86box/device.h>
@@ -176,6 +177,22 @@ static const device_t sx386m_io_device = {
     .config        = NULL
 };
 
+/*
+ * Start-up speed and the Ctrl+Alt+grey -/+ hot keys both drive bits 2-3 of
+ * the 8042 output port (F000:E88E, F000:8F7B, F000:922D in EESX386.BIN):
+ * both set selects 16 MHz, both clear selects 8 MHz.  The CPU clock itself
+ * is not switched; the low-speed mode is approximated with memory wait
+ * states, as on the PCS 386SX.
+ */
+void
+machine_at_trigem_sx386m_set_speed(uint8_t kbc_p2)
+{
+    const int slow = !(kbc_p2 & 0x0c);
+
+    cpu_waitstates = (slow && (cpu_s != NULL)) ? ((2 * cpu_s->mem_read_cycles) - 1) : 0;
+    cpu_update_waitstates();
+}
+
 int
 machine_at_trigem_sx386m_init(const machine_t *model)
 {
@@ -186,6 +203,9 @@ machine_at_trigem_sx386m_init(const machine_t *model)
         return ret;
 
     machine_at_common_ide_init(model);
+
+    /* The 8042 output port resets to CDh: bits 2-3 set, high speed. */
+    machine_at_trigem_sx386m_set_speed(0x0c);
 
     /* Board photographs and the AMI BIOS register sequence identify the
        three-chip Headland HT101SX + HT113 + GC102-PC implementation. */
