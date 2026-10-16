@@ -2285,9 +2285,21 @@ write_cmd_olivetti(void *priv, uint8_t val)
             }
             break;
 
+        case 0x8a: /* M300-30/30P: close the board configuration register */
+            if (machines[machine].init == machine_at_olivetti_m30030_init) {
+                machine_at_olivetti_m30030_cfg_window(0);
+                ret = 0;
+            }
+            break;
+
         case 0x8b: /* PCS 286S: select manufacturing-jumper status */
             if (machines[machine].init == machine_at_olivetti_pcs286s_ti_init)
                 ret = 0;
+            /* M300-30/30P: open the board configuration register on port 70h */
+            else if (machines[machine].init == machine_at_olivetti_m30030_init) {
+                machine_at_olivetti_m30030_cfg_window(1);
+                ret = 0;
+            }
             break;
 
         case 0xcf: /* Phoenix POST separator/no-op */

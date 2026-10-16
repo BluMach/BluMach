@@ -23,6 +23,7 @@
 #include <86box/io.h>
 #include <86box/keyboard.h>
 #include <86box/mem.h>
+#include <86box/nvr.h>
 #include <86box/port_6x.h>
 #include <86box/rom.h>
 #include <86box/hdc.h>
@@ -92,6 +93,80 @@ m300_cmos_wait_write(uint16_t port, uint8_t val, void *priv)
     (void) priv;
 
     cycles -= 160;
+}
+
+/*
+ * M300-30/30P board configuration register.
+ *
+ * Resident Diagnostics 1.03, 1.04 and 2.00 open it with the Olivetti KBC
+ * command 8Bh, access it through port 70h and close it again with 8Ah
+ * (F000:8E43 write, F000:8E97 read in Diagnostics 2.00).  While it is open,
+ * port 70h does not reach the RTC index.
+ *
+ * Read (board straps), as used by the firmware:
+ *   bit 0: external bus at 33 MHz (1) or 25 MHz (0); stored as 33h/25h and
+ *          used to name the CPU (DX-25/DX-33, DX2-50/DX2-66);
+ *   bit 1: Super I/O configuration index at 26Eh (1) or 398h (0);
+ *   bit 3: returned by the far service at F000:8F88; meaning unknown.
+ * Write (copy kept at 0040:0891h): bit 0 speed select, together with
+ * VL82C486 register 0Ch; bits 1 and 2 are switched by the firmware but
+ * their function is not known.
+ *
+ * Without this register the firmware read back the last RTC index written,
+ * so the bus speed and the Super I/O base depended on previous accesses.
+ */
+static int     m30030_cfg_open;
+static uint8_t m30030_cfg_ctrl;
+static nvr_t  *m30030_nvr;
+
+static uint8_t
+m30030_cfg_read(uint16_t port, void *priv)
+{
+    uint8_t ret = 0xff;
+
+    (void) port;
+    (void) priv;
+
+    if (m30030_cfg_open) {
+        ret = 0x00;
+        if (cpu_busspeed >= 30000000.0)
+            ret |= 0x01;
+    }
+
+    return ret;
+}
+
+static void
+m30030_cfg_write(uint16_t port, uint8_t val, void *priv)
+{
+    (void) port;
+    (void) priv;
+
+    if (m30030_cfg_open)
+        m30030_cfg_ctrl = val;
+}
+
+void
+machine_at_olivetti_m30030_cfg_window(int open)
+{
+    open = !!open;
+
+    if (open == m30030_cfg_open)
+        return;
+
+    m30030_cfg_open = open;
+
+    if (m30030_nvr == NULL)
+        return;
+
+    if (open) {
+        /* Port 70h goes to the board register; keep 71h on the RTC. */
+        nvr_at_handler(0, 0x0070, m30030_nvr);
+        nvr_at_data_port(1, m30030_nvr);
+    } else {
+        nvr_at_data_port(0, m30030_nvr);
+        nvr_at_handler(1, 0x0070, m30030_nvr);
+    }
 }
 
 static int
@@ -242,6 +317,14 @@ machine_at_olivetti_m30030_init(const machine_t *model)
 
     io_sethandler(0x0378, 1, NULL, NULL, NULL,
                   m300_diag_write, NULL, NULL, NULL);
+
+    /* Board configuration register behind KBC commands 8Bh/8Ah. */
+    m30030_cfg_open = 0;
+    m30030_cfg_ctrl = 0x00;
+    m30030_nvr      = (nvr_t *) device_get_priv(machines[machine].nvr_device);
+    io_sethandler(0x0070, 1,
+                  m30030_cfg_read, NULL, NULL,
+                  m30030_cfg_write, NULL, NULL, NULL);
 
     if (gfxcard[0] == VID_INTERNAL)
         device_add(&paradise_wd90c31_m30030_device);
