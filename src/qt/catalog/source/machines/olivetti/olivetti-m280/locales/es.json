@@ -6,7 +6,7 @@
   "product.olivetti-m280.creation.memory.1024": "Sistema base de 1 MB (perfil experimental actual)",
   "product.olivetti-m280.creation.memory.2048": "2 MB totales (la relación con ME903 está documentada, pero este total no está validado)",
   "product.olivetti-m280.creation.memory.3072": "3 MB (inferencia: 1 MB base más el máximo ME903 documentado de 2 MB)",
-  "product.olivetti-m280.creation.note": "El disco duro opcional usa una controladora Olivetti con un disco de su tabla; elige el mismo tipo en el Setup. No se ha recuperado un paquete de venta concreto. PVGA1A es una opción externa de compatibilidad, no un modelo de OEC/PGC Olivetti.",
+  "product.olivetti-m280.creation.note": "El disco duro opcional usa una controladora Olivetti con un disco de su tabla. La BIOS 2.16 no tiene Setup en ROM: el tipo de disco se pone con la utilidad SETUP del disco System Test 2.02 del M280. No se ha recuperado un paquete de venta concreto. PVGA1A es una opción externa de compatibilidad, no un modelo de OEC/PGC Olivetti.",
   "product.olivetti-m280.technical.commercial_configurations": "La guía documenta un sistema base de 1 MB, ampliación ME903 de hasta 2 MB, adaptadores OEC EGA-compatible o PGC y controladoras GO714 MFM o GO723 RLL. No establece qué combinaciones fueron paquetes comerciales ni sus precios; el total seleccionable de 3 MB es una inferencia explícita.",
   "product.olivetti-m280.technical.cpu": "Intel 80286 a 12 MHz, con bus a 8 MHz, acceso RAM de 100 ns y un estado de espera.",
   "product.olivetti-m280.technical.memory": "La guía enumera 1 MB de RAM mínima y ampliación ME903 de hasta 2 MB. El total seleccionable de 3 MB se infiere de esas dos evidencias y sigue siendo experimental, aunque el emulador lo admita.",
