@@ -6,6 +6,147 @@
     "manufacturer_id": "olivetti",
     "parent_family_id": "",
     "name": "Prodest",
-    "description_key": "family.olivetti-prodest.description"
+    "description_key": "family.olivetti-prodest.description",
+    "history_key": "family.olivetti-prodest.history",
+    "history_references": [
+      {
+        "title": "Olivetti computers",
+        "publisher": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Olivetti_computers"
+      },
+      {
+        "title": "Olivetti Prodest PC-128",
+        "publisher": "HomeComputerMuseum",
+        "url": "https://homecomputermuseum.nl/en/collectie/olivetti/olivetti-prodest-pc-128"
+      },
+      {
+        "title": "Olivetti Prodest PC 128S",
+        "publisher": "Centre for Computing History",
+        "url": "https://www.computinghistory.org.uk/det/33142/Olivetti-Prodest-PC-128S"
+      },
+      {
+        "title": "Olivetti Prodest PC1",
+        "publisher": "Seasip.info",
+        "url": "https://www.seasip.info/VintagePC/prodestpc1.html"
+      },
+      {
+        "title": "PC1: instalación y manual del usuario",
+        "publisher": "Internet Archive",
+        "url": "https://archive.org/details/pc1instalacionymanualdelusuario"
+      }
+    ],
+    "comparison_table": {
+      "title_key": "family.olivetti-prodest.table.title",
+      "note_key": "family.olivetti-prodest.table.note",
+      "columns": [
+        {
+          "id": "year",
+          "label_key": "family.olivetti-prodest.table.year",
+          "minimum_width": 95
+        },
+        {
+          "id": "model",
+          "label_key": "family.olivetti-prodest.table.model",
+          "minimum_width": 130
+        },
+        {
+          "id": "cpu",
+          "label_key": "family.olivetti-prodest.table.cpu",
+          "minimum_width": 170
+        },
+        {
+          "id": "origin",
+          "label_key": "family.olivetti-prodest.table.origin",
+          "minimum_width": 260
+        },
+        {
+          "id": "status",
+          "label_key": "family.olivetti-prodest.table.status",
+          "minimum_width": 215
+        }
+      ],
+      "rows": [
+        {
+          "id": "pc128",
+          "cells": [
+            {
+              "value": "1986"
+            },
+            {
+              "value": "PC 128"
+            },
+            {
+              "value": "Motorola 6809E · 1 MHz"
+            },
+            {
+              "value_key": "family.olivetti-prodest.origin.pc128"
+            },
+            {
+              "value_key": "family.olivetti-prodest.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "pc128s",
+          "cells": [
+            {
+              "value": "1987"
+            },
+            {
+              "value": "PC 128 S"
+            },
+            {
+              "value": "65SC12 · 2 MHz"
+            },
+            {
+              "value_key": "family.olivetti-prodest.origin.pc128s"
+            },
+            {
+              "value_key": "family.olivetti-prodest.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "pc1",
+          "cells": [
+            {
+              "value": "1987–1988"
+            },
+            {
+              "value": "PC 1"
+            },
+            {
+              "value_key": "family.olivetti-prodest.cpu.v40"
+            },
+            {
+              "value_key": "family.olivetti-prodest.origin.pc1"
+            },
+            {
+              "value_key": "family.olivetti-prodest.status.partial"
+            }
+          ]
+        },
+        {
+          "id": "pc1hd",
+          "cells": [
+            {
+              "value": "1989"
+            },
+            {
+              "value": "PC 1 HD"
+            },
+            {
+              "value_key": "family.olivetti-prodest.cpu.v40"
+            },
+            {
+              "value_key": "family.olivetti-prodest.origin.pc1hd"
+            },
+            {
+              "value_key": "family.olivetti-prodest.status.partial"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
