@@ -156,12 +156,18 @@ const device_t olivetti_pcs286s_ti_device = {
     .config        = olivetti_pcs286s_ti_config
 };
 
-/* Memory remap: 0x60000-0x7FFFF is aliased to 0x80000-0x9FFFF.
-   The Phoenix v1.42 POST test 6 (MEMORY CONTROLLER) writes the 13-byte
-   string "RAM-REMAPPING" at 0x60000 and verifies the same bytes are
-   readable at 0x80000.  The Headland GC101A has this remap feature
-   controlled by KBC P2 bit 2, but 86Box does not implement that side
-   effect.  We add a static alias mapping instead.
+/* Memory configuration and the 60000h/80000h reflection (BIOS 1.42).
+
+   POST selects the DRAM configuration through KBC P2 bits 2, 4 and 7 with
+   Olivetti commands 80h/84h (F000:02E3): configurations 2/3 are one or two
+   banks of 256 Kbit chips, 6/7 the same with 1 Mbit chips (bit 7).
+   F000:0275 first tries configuration 6 and writes "RAM-REMAPPING" at
+   6000:0000; if the bytes reappear at 8000:0000 the 1 Mbit addressing is
+   wrapping on 256 Kbit SIMMs, so it falls back to configuration 2 and later
+   to 3 (F000:61CD).  The reflection is therefore modelled only while P2
+   bit 7 is set and the board carries 1 MiB (256 Kbit SIMMs); the 2/4 MiB
+   profiles use 1 Mbit chips and never reflect.  Earlier code kept the alias
+   on permanently, which overlapped 128 KiB of conventional memory.
 
    IMPORTANT: mem_read_ram() and mem_write_ram() ignore their `priv`
    pointer completely — they always access ram[addr] directly.  Using
@@ -170,6 +176,7 @@ const device_t olivetti_pcs286s_ti_device = {
    and call addreadlookup/addwritelookup so the x86 fast-path cache
    is also pointed at the correct physical page. */
 static mem_mapping_t olivetti_pcs286_remap_mapping;
+static int           olivetti_pcs286_remap_capable; /* mapping added and 1 MiB fitted */
 
 /* OLIMCU16/TI memory paging interface used by the PCS 286S BIOS.
 
@@ -372,6 +379,16 @@ machine_at_olivetti_pcs286_set_timing(uint8_t kbc_p2)
     pclog("Olivetti PCS 286 KBC 84h frequency code %u\n", code);
 #endif
     olivetti_286_apply_timing(code >= 2, code >= 1);
+
+    /* Bit 7 selects 1 Mbit DRAM addressing; on 256 Kbit SIMMs that wraps
+       80000h onto 60000h, which POST uses to reject the configuration. */
+    if (olivetti_pcs286_remap_capable) {
+        if (kbc_p2 & 0x80)
+            mem_mapping_enable(&olivetti_pcs286_remap_mapping);
+        else
+            mem_mapping_disable(&olivetti_pcs286_remap_mapping);
+        flushmmucache();
+    }
 }
 
 /* BIOS 2.06 accesses the TACT/OLIMCU configuration through three bytes at
@@ -749,24 +766,20 @@ machine_at_olivetti_pcs286_init(const machine_t *model)
     device_add(&fdc_at_device);
 
     /* Headland GC101A + GC102 (rebranded G2) - same family as GC103.
-       Provides memory mapping + EMS. Does NOT implement the
-       0x60000-0x7FFFF ↔ 0x80000-0x9FFFF remap that the Phoenix v1.42
-       POST test 6 expects — we add that mapping below. */
+       Provides memory mapping + EMS.  The DRAM configuration selected
+       through KBC P2 is handled by the reflection mapping below. */
     device_add(&headland_gc10x_device);
 
-    /* Memory remap 0x60000-0x7FFFF → 0x80000-0x9FFFF.
-       The Phoenix POST test 6 writes 13 bytes ("RAM-REMAPPING") to
-       0x60000 then reads them back from 0x80000 (REPE CMPSB).
-       Custom handlers redirect every access to addr+0x20000 and
-       prime the 86Box fast-path cache so subsequent bytes in the
-       same REP MOVSB / REPE CMPSB also land at the right location.
-       flushmmucache() invalidates any stale lookup entries that may
-       have been established during earlier boot-time memory clears. */
+    /* 60000h/80000h reflection used by POST to reject 1 Mbit addressing on
+       256 Kbit SIMMs: added disabled and switched by KBC P2 bit 7 in
+       machine_at_olivetti_pcs286_set_timing().  Only the 1 MiB profile has
+       256 Kbit SIMMs. */
     mem_mapping_add(&olivetti_pcs286_remap_mapping, 0x60000, 0x20000,
                     olivetti_remap_read8,  olivetti_remap_read16,  olivetti_remap_read32,
                     olivetti_remap_write8, olivetti_remap_write16, olivetti_remap_write32,
                     NULL, 0, NULL);
-    mem_mapping_enable(&olivetti_pcs286_remap_mapping);
+    mem_mapping_disable(&olivetti_pcs286_remap_mapping);
+    olivetti_pcs286_remap_capable = (mem_size == 1024);
     flushmmucache();
 
     /* Onboard Paradise PVGA1A + IMS G176P-40 RAMDAC, 256KB VRAM.
