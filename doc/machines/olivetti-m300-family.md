@@ -203,14 +203,19 @@ The firmware names the CPU from two inputs. The family comes from DX after a
 CPU reset; the bus speed comes from a board configuration register. All three
 Diagnostics releases open that register with Olivetti KBC command 8Bh, read or
 write it through port 70h and close it with 8Ah (F000:8E43 write and F000:8E97
-read in Diagnostics 2.00). Read bit 0 reports a 33 MHz external bus and bit 1
-moves the PC87311 configuration index from 398h to 26Eh; bit 3 is returned by
-the far service at F000:8F88 and is not understood yet. Earlier builds had no
-such register: port 70h returned the last RTC index written, so the firmware
-read back its own last write and named the DX2/50 a DX2-66. BluMach now
-disconnects port 70h from the RTC while the window is open and returns the bus
-strap from the configured CPU, with the Super I/O at 398h. Port 71h stays on
-the RTC. Confirmation in Diagnostics 1.04 (SX-25) and 2.00 (DX2-50) is pending.
+read in Diagnostics 2.00). Bits 2-0 hold a bus-speed code: Diagnostics
+1.03/1.04 decode 2, 3, 4 and 5 as 16, 20, 25 and 33 MHz and name a DX2 by its
+bus (DX2-25MHz), while Diagnostics 2.00 only tests bit 0 (33 or 25 MHz) and
+names a DX2 by its core (DX2-50/DX2-66). In 2.00, bit 1 moves the PC87311
+configuration index from 398h to 26Eh; bit 3 is returned by the far service
+at F000:8F88 and is not understood yet. Earlier builds had no such register:
+port 70h returned the last RTC index written, so the firmware read back its
+own last write and named the DX2/50 a DX2-66. BluMach now disconnects port 70h
+from the RTC while the window is open and returns code 4 (25 MHz) or 5
+(33 MHz) from the configured CPU; both codes keep bit 1 clear, so the Super
+I/O stays at 398h. Port 71h stays on the RTC. Confirmation is pending: the
+M300-30 should show i486SX-25MHz, and the M300-30P i486DX2-25MHz with
+Diagnostics 1.03/1.04 and i486DX2-50MHz with 2.00.
 
 The M300-30P still has a reproducible **warm-reset limitation**. A cold start
 completes POST and diagnostics, but Ctrl+Alt+Del can stop during early firmware

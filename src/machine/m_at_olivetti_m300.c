@@ -105,10 +105,15 @@ m300_cmos_wait_write(uint16_t port, uint8_t val, void *priv)
  * port 70h does not reach the RTC index.
  *
  * Read (board straps), as used by the firmware:
- *   bit 0: external bus at 33 MHz (1) or 25 MHz (0); stored as 33h/25h and
- *          used to name the CPU (DX-25/DX-33, DX2-50/DX2-66);
- *   bit 1: Super I/O configuration index at 26Eh (1) or 398h (0);
- *   bit 3: returned by the far service at F000:8F88; meaning unknown.
+ *   bits 2-0: external bus speed code.  Diagnostics 1.03/1.04 decode
+ *             2 = 16 MHz, 3 = 20 MHz, 4 = 25 MHz and 5 = 33 MHz (F000:4D19,
+ *             F000:17C3) and name a DX2 by its bus (DX2-25MHz).
+ *             Diagnostics 2.00 only tests bit 0: 1 = 33 MHz, 0 = 25 MHz
+ *             (F000:4D35), and names a DX2 by its core (DX2-50/DX2-66).
+ *             Both readings agree for codes 4 and 5;
+ *   bit 1:    Diagnostics 2.00 moves the Super I/O configuration index to
+ *             26Eh when set (398h when clear); clear in codes 4 and 5;
+ *   bit 3:    returned by the far service at F000:8F88; meaning unknown.
  * Write (copy kept at 0040:0891h): bit 0 speed select, together with
  * VL82C486 register 0Ch; bits 1 and 2 are switched by the firmware but
  * their function is not known.
@@ -129,9 +134,14 @@ m30030_cfg_read(uint16_t port, void *priv)
     (void) priv;
 
     if (m30030_cfg_open) {
-        ret = 0x00;
         if (cpu_busspeed >= 30000000.0)
-            ret |= 0x01;
+            ret = 0x05; /* 33 MHz */
+        else if (cpu_busspeed >= 22000000.0)
+            ret = 0x04; /* 25 MHz */
+        else if (cpu_busspeed >= 18000000.0)
+            ret = 0x03; /* 20 MHz */
+        else
+            ret = 0x02; /* 16 MHz */
     }
 
     return ret;
