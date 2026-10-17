@@ -95,6 +95,7 @@ extern const device_t ims8848_device;
 
 /* Intel */
 extern const device_t intel_82335_device;
+extern const device_t intel_82335_cc_device;
 extern const device_t i420ex_device;
 extern const device_t i420ex_ide_device;
 extern const device_t i420tx_device;

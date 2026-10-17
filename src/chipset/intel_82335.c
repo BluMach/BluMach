@@ -60,6 +60,9 @@ typedef struct intel_82335_t {
 
     uint16_t cfg_locked;
 
+    /* BluMach: decode the CC0/CC1 address range compare registers. */
+    int      cc_decode;
+    int      cc_programmed;
 } intel_82335_t;
 
 #ifdef ENABLE_INTEL_82335_LOG
@@ -80,6 +83,59 @@ intel_82335_log(const char *fmt, ...)
 #    define intel_82335_log(fmt, ...)
 #endif
 
+/*
+ * BluMach: address range compare registers CC0 (28h) and CC1 (2Ah).
+ *
+ * 82335 SX data sheet, section 2.3.4.3: bits 15-11 hold the compare data
+ * (A23-A19), bits 7-3 the address mask (M23-M19) and bit 0 the enable.  An
+ * access inside either enabled range is a local (on-board DRAM) cycle; any
+ * other access goes to the bus.  BIOS memory autoscan routines, such as the
+ * Olivetti M300 "RAM-REMAPPING" sequence, narrow these ranges and measure
+ * how much extended memory answers before choosing the roll compare
+ * settings.  Only on-board DRAM above 1 MB is gated, up to the board limit;
+ * memory beyond it belongs to bus memory boards and always answers.  The
+ * gate is applied once the BIOS first writes CC0 or CC1, so the power-on
+ * map stays fully populated.
+ */
+#define CC_ONBOARD_LIMIT 0x00400000
+
+static int
+intel_82335_cc_match(uint16_t reg, uint32_t addr)
+{
+    uint32_t mask = (reg >> 3) & 0x1f;
+    uint32_t cmp  = (reg >> 11) & 0x1f;
+
+    if (!(reg & 0x0001))
+        return 0;
+
+    return (((addr >> 19) & mask) == (cmp & mask));
+}
+
+static void
+intel_82335_cc_recalc(intel_82335_t *dev)
+{
+    uint32_t top = (uint32_t) mem_size << 10;
+    uint32_t addr;
+    uint32_t size;
+    int      local;
+
+    if (!dev->cc_decode || !dev->cc_programmed)
+        return;
+
+    if (top > CC_ONBOARD_LIMIT)
+        top = CC_ONBOARD_LIMIT;
+
+    for (addr = 0x00100000; addr < top; addr += 0x00080000) {
+        size  = ((top - addr) < 0x00080000) ? (top - addr) : 0x00080000;
+        local = intel_82335_cc_match(dev->regs[0x28], addr) ||
+                intel_82335_cc_match(dev->regs[0x2a], addr);
+        mem_set_mem_state_both(addr, size, local ? (MEM_READ_INTERNAL | MEM_WRITE_INTERNAL) :
+                                                   (MEM_READ_EXTANY | MEM_WRITE_EXTANY));
+    }
+
+    flushmmucache_nopc();
+}
+
 static void
 intel_82335_write(uint16_t addr, uint16_t val, void *priv)
 {
@@ -97,6 +153,15 @@ intel_82335_write(uint16_t addr, uint16_t val, void *priv)
 
         switch (addr) {
             case 0x22: /* Memory Controller */
+
+                /* BluMach: S640 (bit 3) selects 512 KB or 640 KB of local
+                   base memory.  With 512 KB, 80000h-9FFFFh is a bus cycle;
+                   the Olivetti M300 BIOS probes it there to look for a
+                   memory board before sizing on-board DRAM. */
+                if (dev->cc_decode)
+                    mem_set_mem_state_both(0x80000, 0x20000,
+                                           (dev->regs[0x22] & 0x08) ? (MEM_READ_INTERNAL | MEM_WRITE_INTERNAL) :
+                                                                      (MEM_READ_EXTANY | MEM_WRITE_EXTANY));
 
                 /* Check if the ROM chips are 256 or 512Kbit (Just for Shadowing sanity) */
                 romsize = ROM_SIZE;
@@ -126,6 +191,12 @@ intel_82335_write(uint16_t addr, uint16_t val, void *priv)
                 rc1_remap = (dev->regs[0x24] & 0x01) ? DEFINE_RC1_REMAP_SIZE : 0;
                 rc2_remap = (dev->regs[0x26] & 0x01) ? DEFINE_RC2_REMAP_SIZE : 0;
                 mem_remap_top(rc1_remap + rc2_remap);
+                break;
+
+            case 0x28: /* Address Range Compare CC0 */
+            case 0x2a: /* Address Range Compare CC1 */
+                dev->cc_programmed = 1;
+                intel_82335_cc_recalc(dev);
                 break;
 
             case 0x2e: /* Extended Granularity (Enabled if Bit 0 in Register 2Ch is set) */
@@ -167,11 +238,13 @@ intel_82335_close(void *priv)
 }
 
 static void *
-intel_82335_init(UNUSED(const device_t *info))
+intel_82335_init(const device_t *info)
 {
     intel_82335_t *dev = (intel_82335_t *) calloc(1, sizeof(intel_82335_t));
 
     memset(dev->regs, 0, sizeof(dev->regs));
+
+    dev->cc_decode = !!info->local;
 
     dev->regs[0x22] = 0x08;
     dev->regs[0x28] = 0xf9;
@@ -203,6 +276,21 @@ const device_t intel_82335_device = {
     .internal_name = "intel_82335",
     .flags         = 0,
     .local         = 0,
+    .init          = intel_82335_init,
+    .close         = intel_82335_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
+
+/* BluMach: variant that decodes the CC0/CC1 local memory ranges. */
+const device_t intel_82335_cc_device = {
+    .name          = "Intel 82335 (address range decode)",
+    .internal_name = "intel_82335_cc",
+    .flags         = 0,
+    .local         = 1,
     .init          = intel_82335_init,
     .close         = intel_82335_close,
     .reset         = NULL,

@@ -12,6 +12,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 #include <wchar.h>
 #define HAVE_STDARG_H
 #include <86box/86box.h>
@@ -29,17 +30,52 @@
 #include <86box/serial.h>
 #include <86box/machine.h>
 
+static uint8_t  m300_if378_last_diag;
+static uint16_t m300_if378_mcr;
+static uint8_t  m300_if378_low_c00[0x100];
+
+/*
+ * DRAM row/column scrambling seen by the "RAM-REMAPPING" sizing code.
+ *
+ * During diagnostic step 07 the BIOS (F000:0326) switches the 82335 MCR from
+ * 256 Kbit to 1 Mbit DRAM (DSIZE, bit 4) and then to two interleaved banks
+ * (INTERL, bit 6).  On the real board the change of address multiplexing
+ * moves data already in DRAM: the BIOS copies 0C00h-0FFFh back to
+ * 0000h-03FFh after DSIZE (F000:034D) and 1400h-14FFh back to 0C00h after
+ * INTERL (F000:039A).  BluMach has a linear memory array, so those copies
+ * would replace the interrupt vectors with unrelated data.  Reproduce only
+ * the two moves the BIOS undoes, and only in step 07; the earlier memory
+ * test toggles the same bits and must see unmodified memory.
+ */
+static void
+m300_if378_mcr_write(uint16_t port, uint16_t val, void *priv)
+{
+    uint16_t old = m300_if378_mcr;
+
+    (void) port;
+    (void) priv;
+
+    m300_if378_mcr = val;
+
+    if ((m300_if378_last_diag != 0x07) || (ram == NULL))
+        return;
+
+    if (!(old & 0x0010) && (val & 0x0010)) {
+        memcpy(m300_if378_low_c00, &ram[0x0c00], sizeof(m300_if378_low_c00));
+        memcpy(&ram[0x0c00], &ram[0x0000], 0x0400);
+    }
+
+    if ((val & 0x0010) && !(old & 0x0040) && (val & 0x0040))
+        memcpy(&ram[0x1400], m300_if378_low_c00, sizeof(m300_if378_low_c00));
+}
+
 static void
 m300_if378_diag_write(uint16_t port, uint8_t val, void *priv)
 {
     (void) port;
     (void) priv;
 
-#ifdef ENABLE_OLIVETTI_M300_LOG
-    pclog("Olivetti M300 IF378 diagnostic code: %02X\n", val);
-#else
-    (void) val;
-#endif
+    m300_if378_last_diag = val;
 }
 
 static uint8_t
@@ -100,7 +136,11 @@ machine_at_olivetti_m300_if378_init(const machine_t *model)
 
     machine_at_common_ide_init(model);
 
-    device_add(&intel_82335_device);
+    device_add(&intel_82335_cc_device);
+    m300_if378_last_diag = 0x00;
+    m300_if378_mcr       = 0x0000;
+    io_sethandler(0x0022, 1, NULL, NULL, NULL,
+                  NULL, m300_if378_mcr_write, NULL, NULL);
     device_add_params(machine_get_kbc_device(machine),
                       (void *) model->kbc_params);
 
