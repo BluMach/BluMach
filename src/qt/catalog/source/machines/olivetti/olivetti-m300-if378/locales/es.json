@@ -1,8 +1,8 @@
 {
   "product.olivetti-m300-if378.summary": "M300 modular con 386SX a 16 MHz, tarjeta IF378 y controlador de memoria Intel 82335.",
   "product.olivetti-m300-if378.history": "El M300 modular original combina la tarjeta IF378, el bus IN108 y la placa multifunción GO477. No es la misma placa que los M300 numerados posteriores.",
-  "product.olivetti-m300-if378.technical.verified": "Se han observado los diagnósticos residentes y el arranque de MS-DOS 3.30a conservando la NVR.",
-  "product.olivetti-m300-if378.technical.limitations": "Emulación parcial arrancable: el 82335 está modelado, pero las funciones 82230/82231 y GO477 se componen con dispositivos AT compatibles; GO481 aún requiere una VGA externa. Falta validar IDE y más software, y las esperas del diagnóstico son aproximaciones funcionales.",
+  "product.olivetti-m300-if378.technical.verified": "Con 2 MB, los diagnósticos residentes completan sus pruebas y cuentan 640 KB de base, 1280 KB de extendida y 128 KB de sombra (2048 KB), tras la secuencia de reubicación de memoria de la BIOS; después se abre el Setup de la ROM. Antes se había observado el arranque de MS-DOS 3.30a conservando la NVR.",
+  "product.olivetti-m300-if378.technical.limitations": "Emulación parcial arrancable. Del 82335 se emulan la configuración de memoria, la reubicación de memoria y los rangos de memoria de placa que usa la BIOS para medirla. La memoria no se repite más allá de lo instalado, como en la placa real, y la memoria reubicada queda justo encima de la instalada. Las funciones de los 82230/82231 y de la GO477 se componen con dispositivos AT compatibles, y la GO481 aún requiere una VGA externa. Faltan por validar el disco IDE, otras cantidades de memoria y más software.",
   "product.olivetti-m300-if378.creation.memory.2048": "2 MB (perfil de referencia)",
   "product.olivetti-m300-if378.creation.memory.4096": "4 MB",
   "product.olivetti-m300-if378.creation.memory.8192": "8 MB",
