@@ -215,7 +215,7 @@
             "cpu_family": "am386sx",
             "cpu_speed": 25000000,
             "cpu_multi": 1,
-            "cpu_use_dynarec": 1,
+            "cpu_use_dynarec": 0,
             "mem_size": 4096
           }
         },

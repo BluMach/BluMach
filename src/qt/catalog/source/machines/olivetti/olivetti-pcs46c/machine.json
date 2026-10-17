@@ -221,7 +221,7 @@
             "cpu_family": "i486dx2",
             "cpu_speed": 50000000,
             "cpu_multi": 2,
-            "cpu_use_dynarec": 1,
+            "cpu_use_dynarec": 0,
             "mem_size": 4096
           }
         },

@@ -30,7 +30,7 @@ complete hardware reproduction.
 | M300-08 BA319/BA324/BA325 | `olivetti_m30008` | 386SX/20; OPTi 82C283 plus 82C206; OAK OTI067 | POST, Setup, calendar rollover, floppy and MS-DOS 3.30a | 82C206 is represented by common AT functions; IDE and wider software validation remain pending. |
 | M300-15 BA320 | `olivetti_m30015` | Intel 386SX/25; AMD 386SX/25 documented as a later alternative; OPTi 82C283 plus 82C206; OAK OTI067 | POST, Calendar PASS, floppy and MS-DOS 3.30a | The support-chip composition is functional, not chip-accurate; IDE and broad software validation remain pending. |
 | M300-30 | `olivetti_m30030` | i486SX/25; VLSI VL82C486; WD90C31; PC87311/87312 family | Full POST and resident diagnostics, MS-DOS 5.00 boot and calendar persistence with Diagnostics 1.04 (OVC 1.09) | Initial VL82C486 model; WD90C31 and Super I/O use compatible cores; other RAM populations need validation. |
-| M300-30P | `olivetti_m30030p` | i486DX2/50 on a 25 MHz external bus; otherwise shared M300-30 platform | Cold boot and Diagnostics 2.00 complete at 4 MiB with the correct 640+3072+384 KiB memory accounting | Separate CPU identity and partial shared board model; Diagnostics labels the selected DX2/50 as DX2-66 and Ctrl+Alt+Del does not yet complete reliably. |
+| M300-30P | `olivetti_m30030p` | i486DX2/50 on a 25 MHz external bus; otherwise shared M300-30 platform | Cold boot and Diagnostics 2.00 complete at 4 MiB with the correct 640+3072+384 KiB memory accounting | Separate CPU identity and partial shared board model; the bus-speed strap that names the CPU is emulated but not yet confirmed, and Ctrl+Alt+Del does not yet complete reliably. |
 
 ## M300 with IF378 CPU card
 
