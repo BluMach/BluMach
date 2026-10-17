@@ -23,6 +23,7 @@
 #include <86box/io.h>
 #include <86box/keyboard.h>
 #include <86box/mem.h>
+#include <86box/timer.h>
 #include <86box/nvr.h>
 #include <86box/port_6x.h>
 #include <86box/rom.h>
@@ -232,7 +233,7 @@ static const device_config_t olivetti_m30030_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "BIOS 1.09 / Resident Diagnostics 1.03",
+                .name          = "Resident Diagnostics 1.03 (09/24/92) + OVC 1.09",
                 .internal_name = "diag103",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -241,7 +242,7 @@ static const device_config_t olivetti_m30030_config[] = {
                 .files         = { "roms/machines/m30030/BIOS-1.09-DIAG-1.03.BIN", "" }
             },
             {
-                .name          = "BIOS 1.09 / Resident Diagnostics 1.04",
+                .name          = "Resident Diagnostics 1.04 (11/05/92) + OVC 1.09",
                 .internal_name = "diag104",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -250,7 +251,7 @@ static const device_config_t olivetti_m30030_config[] = {
                 .files         = { "roms/machines/m30030/BIOS-1.09-DIAG-1.04.BIN", "" }
             },
             {
-                .name          = "BIOS 1.09 / Resident Diagnostics 2.00",
+                .name          = "Resident Diagnostics 2.00 (02/22/93) + OVC 1.09",
                 .internal_name = "diag200",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
