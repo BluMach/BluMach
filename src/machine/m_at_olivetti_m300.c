@@ -367,6 +367,17 @@ static const device_config_t olivetti_m30002_config[] = {
             { .files_no = 0 }
         }
     },
+    {
+        .name           = "keylock_locked",
+        .description    = "Front-panel key lock",
+        .type           = CONFIG_BINARY,
+        .default_string = NULL,
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = { { 0 } }
+    },
     { .name = "", .description = "", .type = CONFIG_END }
     // clang-format on
 };
@@ -394,6 +405,17 @@ static const device_config_t olivetti_m30002f_config[] = {
             },
             { .files_no = 0 }
         }
+    },
+    {
+        .name           = "keylock_locked",
+        .description    = "Front-panel key lock",
+        .type           = CONFIG_BINARY,
+        .default_string = NULL,
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = { { 0 } }
     },
     { .name = "", .description = "", .type = CONFIG_END }
     // clang-format on
