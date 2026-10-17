@@ -2,5 +2,21 @@
   "product.olivetti-m30002f.summary": "Professional M300 with BA013/25, a 25 MHz 386SX, TOPCAT and integrated WD90C11.",
   "product.olivetti-m30002f.history": "The M300-02F is the professional model with the BA013/25 board, running at 25 MHz. The PCS 33 of late 1992 uses the same technical base, but the M300-02F has its own BIOS (5.01).",
   "product.olivetti-m30002f.technical.verified": "Cold POST, firmware memory paths, EMS programming and boot have been observed with the recovered model.",
-  "product.olivetti-m30002f.technical.limitations": "Bootable partial emulation. Warm Ctrl+Alt+Del and an independent DOS EMM driver remain pending. TOPCAT is an initial register model; PC87310 and common IDE provisionally aggregate the real 87C310, Acer FDC and MSI logic."
+  "product.olivetti-m30002f.technical.limitations": "Bootable partial emulation. Warm Ctrl+Alt+Del and an independent DOS EMM driver remain pending. TOPCAT is an initial register model; PC87310 and common IDE provisionally aggregate the real 87C310, Acer FDC and MSI logic.",
+  "product.olivetti-m30002f.creation.memory.2048": "2 MB (reference profile)",
+  "product.olivetti-m30002f.creation.memory.4096": "4 MB",
+  "product.olivetti-m30002f.creation.memory.10240": "10 MB (documented maximum)",
+  "product.olivetti-m30002f.creation.storage.none": "No hard disk: one 1.44 MB floppy drive",
+  "product.olivetti-m30002f.creation.storage.ide-40": "40 MB IDE disk, BIOS type 1: 980/5/17",
+  "product.olivetti-m30002f.creation.storage.ide-120": "120 MB IDE disk, BIOS type 3: 762/8/39",
+  "product.olivetti-m30002f.creation.model": "M300-02F with a 25 MHz 386SX, 2 MB, integrated WD90C11 and one 1.44 MB 3.5-inch floppy drive",
+  "product.olivetti-m30002f.creation.note": "This board’s BIOS supports only four drive types. If you add the disk, choose the type shown in the option in Setup. The disk connects to the board’s IDE interface.",
+  "product.olivetti-m30002f.technical.cpu": "25 MHz Intel 386SX on the BA013/25 board, with an i387SX socket. VLSI TOPCAT chipset: VL82C320 system controller and VL82C331 bus controller. Two 16-bit ISA slots on the bus expansion board.",
+  "product.olivetti-m30002f.technical.memory": "Bank 0 with 2 MB soldered and bank 1 with two sockets for 1 M × 9 SIMMs (2 MB in total) or 4 M × 9 SIMMs (8 MB in total): 2, 4 or 10 MB. 80 ns access.",
+  "product.olivetti-m30002f.technical.video": "Integrated VGA: Western Digital WD90C11A, WD90C64 clock generator and Brooktree BT476 DAC. BluMach uses its WD90C11 model with 512 KB.",
+  "product.olivetti-m30002f.technical.storage": "3.5-inch 1.44 MB or 5.25-inch 1.2 MB floppy drive, with an Acer controller and serial and parallel ports in the 87C310. The IDE disk uses a buffered interface on the board. The BIOS table has only four types; the first three are 980/5/17 (40 MB), 903/4/46 (85 MB) and 762/8/39 (120 MB).",
+  "product.olivetti-m30002f.technical.firmware": "The preserved BIOS is 5.01 (08/24/92), 128 KB. The service guide mentions a later 5.03 that adds Quantum ELS and Conner CP30124 drives; it has not been found. It includes Resident Diagnostics and a Setup in ROM with six languages.",
+  "product.olivetti-m30002f.technical.commercial_configurations": "25 MHz model with the BA013/25 board and 2 MB. The service guide presents it as the successor of the 16 MHz M300-02, with the same case and the same two-slot expansion board.",
+  "product.olivetti-m30002f.technical.service_manual": "Olivetti Personal Computer - Pocket Service Guide, chapter 40: M300-02 / M300-02F.",
+  "product.olivetti-m30002f.creation.cpu": "25 MHz Intel 386SX"
 }

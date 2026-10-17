@@ -51,6 +51,164 @@
     "creation": {
       "status": "experimental",
       "directory_prefix": "olivetti-pcs11",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-pcs11.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.commercial_model",
+          "value_key": "product.olivetti-pcs11.creation.model"
+        }
+      ],
+      "fields": [
+        {
+          "id": "firmware",
+          "label_key": "creation.label.firmware",
+          "default": "pcs11_r207",
+          "choices": [
+            {
+              "id": "pcs11_r204",
+              "label_key": "product.olivetti-pcs11.creation.bios.pcs11_r204",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Olivetti PCS 11 (BA013/16)",
+                  "key": "bios",
+                  "value": "pcs11_r204"
+                }
+              ]
+            },
+            {
+              "id": "pcs11_r207",
+              "label_key": "product.olivetti-pcs11.creation.bios.pcs11_r207",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Olivetti PCS 11 (BA013/16)",
+                  "key": "bios",
+                  "value": "pcs11_r207"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "memory",
+          "label_key": "creation.label.memory",
+          "default": "2048",
+          "choices": [
+            {
+              "id": "2048",
+              "label_key": "product.olivetti-pcs11.creation.memory.2048",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 2048
+                }
+              ]
+            },
+            {
+              "id": "4096",
+              "label_key": "product.olivetti-pcs11.creation.memory.4096",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 4096
+                }
+              ]
+            },
+            {
+              "id": "10240",
+              "label_key": "product.olivetti-pcs11.creation.memory.10240",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 10240
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-pcs11.creation.storage.none",
+              "status": "partial",
+              "set": []
+            },
+            {
+              "id": "ide-40",
+              "label_key": "product.olivetti-pcs11.creation.storage.ide-40",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-pcs11-ide-40mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 5, 965, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-pcs11-ide-40mb.img",
+                  "size": 41996800
+                }
+              ]
+            },
+            {
+              "id": "ide-120",
+              "label_key": "product.olivetti-pcs11.creation.storage.ide-120",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-pcs11-ide-120mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "39, 8, 761, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-pcs11-ide-120mb.img",
+                  "size": 121565184
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-pcs11.creation.note"
+      ],
       "configuration": [
         {
           "section": "General",
@@ -72,7 +230,8 @@
         {
           "section": "Olivetti PCS 11 (BA013/16)",
           "values": {
-            "keylock_locked": 0
+            "keylock_locked": 0,
+            "bios": "pcs11_r207"
           }
         },
         {
@@ -94,25 +253,53 @@
             "fdd_01_type": "35_2hd",
             "fdd_02_type": "none"
           }
-        },
-        {
-          "section": "Hard disks",
-          "values": {
-            "hdd_01_fn": "olivetti-pcs11-40mb.img",
-            "hdd_01_parameters": "26, 4, 805, 0, ide",
-            "hdd_01_ide_channel": "0:0",
-            "hdd_01_speed": "1989_3500rpm"
-          }
         }
       ],
-      "generated_files": [
-        {
-          "path": "olivetti-pcs11-40mb.img",
-          "size": 42864640
-        }
-      ]
+      "generated_files": []
     },
     "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-pcs11.technical.commercial_configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.mixed",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-pcs11.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-pcs11.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-pcs11.technical.video"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-pcs11.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.observed",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-pcs11.technical.firmware"
+          }
+        ]
+      },
       {
         "title_key": "technical.section.emulation",
         "evidence_key": "technical.evidence.implementation",
@@ -124,6 +311,17 @@
           {
             "label_key": "technical.label.limitations",
             "value_key": "product.olivetti-pcs11.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs11.technical.press",
+            "url": "https://www.techmonitor.ai/technology/olivetti_adds_low_end_easy_to_run_models_to_pcs_line/"
           }
         ]
       }

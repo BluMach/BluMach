@@ -2,5 +2,22 @@
   "product.olivetti-m300-if378.summary": "M300 modulare 386SX a 16 MHz con scheda IF378 e controllo memoria Intel 82335.",
   "product.olivetti-m300-if378.history": "Il M300 modulare originale combina IF378, bus IN108 e scheda multifunzione GO477; non è la scheda madre dei successivi M300 numerati.",
   "product.olivetti-m300-if378.technical.verified": "Sono stati osservati Resident Diagnostics e avvio di MS-DOS 3.30a con NVR conservata.",
-  "product.olivetti-m300-if378.technical.limitations": "Emulazione parziale avviabile: il 82335 è modellato, mentre le funzioni 82230/82231 e GO477 usano dispositivi AT compatibili; GO481 richiede ancora una VGA esterna. IDE e altro software restano da validare; le attese diagnostiche sono approssimazioni."
+  "product.olivetti-m300-if378.technical.limitations": "Emulazione parziale avviabile: il 82335 è modellato, mentre le funzioni 82230/82231 e GO477 usano dispositivi AT compatibili; GO481 richiede ancora una VGA esterna. IDE e altro software restano da validare; le attese diagnostiche sono approssimazioni.",
+  "product.olivetti-m300-if378.creation.memory.2048": "2 MB (profilo di riferimento)",
+  "product.olivetti-m300-if378.creation.memory.4096": "4 MB",
+  "product.olivetti-m300-if378.creation.memory.8192": "8 MB",
+  "product.olivetti-m300-if378.creation.memory.12288": "12 MB (massimo documentato)",
+  "product.olivetti-m300-if378.creation.storage.none": "Senza disco rigido: un’unità floppy da 1,44 MB",
+  "product.olivetti-m300-if378.creation.storage.ide-40": "Disco IDE da 40 MB, tipo 36 del BIOS: 805/4/26",
+  "product.olivetti-m300-if378.creation.storage.ide-100": "Disco IDE da 100 MB, tipo 33 del BIOS: 776/8/33",
+  "product.olivetti-m300-if378.creation.model": "M300 modulare con scheda IF378: 386SX a 16 MHz, 2 MB, VGA esterna e un’unità floppy da 1,44 MB",
+  "product.olivetti-m300-if378.creation.note": "La scheda video GO481 non è emulata, quindi il profilo usa una VGA Paradise PVGA1A esterna. Se aggiungi il disco, scegli nel Setup il tipo indicato nell’opzione.",
+  "product.olivetti-m300-if378.technical.commercial_configurations": "L’M300 originale è modulare: la scheda CPU (UC093/097 e poi UC112/113, con l’IF378) si inserisce nello slot 3 della scheda bus IN108, che ha 8 slot (cinque a 16 bit e tre a 8). La scheda multifunzione GO477 e la VGA GO481 ne occupano altri due.",
+  "product.olivetti-m300-if378.technical.cpu": "Intel 386SX a 16 MHz con zoccolo per 80387SX. Gli Intel 82230/82231 riuniscono la logica AT (clock, interrupt, DMA, timer, RTC) e l’82335 controlla la memoria.",
+  "product.olivetti-m300-if378.technical.memory": "Fino a 12 MB: due banchi sulla scheda CPU (1 MB con SIMM da 256 KB, oppure 2 o 4 MB con SIMM da 1 M × 9) e schede di memoria AMB 2678 da 2 a 4 MB. Accesso a 100 ns.",
+  "product.olivetti-m300-if378.technical.video": "Scheda VGA GO481 nello slot 6 del bus. Non è emulata; il profilo usa una Paradise PVGA1A esterna.",
+  "product.olivetti-m300-if378.technical.storage": "La GO477 riunisce l’interfaccia del disco, il controller floppy (WD37C65C) e la porta seriale. I dischi documentati sono da 20, 40 e 100 MB (Conner, NEC, Quantum). La tabella del BIOS include il tipo 33 (776/8/33) e il 36 (805/4/26).",
+  "product.olivetti-m300-if378.technical.firmware": "Si conserva il BIOS 1.09 (26/06/90), da 64 KB in una 27C512. La guida di assistenza colloca l’1.09 sulle schede UC112/113 e cita un 1.10 successivo che corregge la perdita del primo tasto dopo Ctrl+Alt+Canc senza memoria shadow.",
+  "product.olivetti-m300-if378.technical.service_manual": "Olivetti Personal Computer - Pocket Service Guide, capitolo 10: M300.",
+  "product.olivetti-m300-if378.creation.cpu": "Intel 386SX a 16 MHz"
 }

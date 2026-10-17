@@ -4,5 +4,20 @@
   "product.olivetti-pcs46c.technical.rom_layout": "Image de 128 Ko : OVC 1.09 en moitié basse à C0000h et BIOS/Diagnostics 1.05 en moitié haute à F0000h.",
   "product.olivetti-pcs46c.technical.verified": "POST, 4 Mo, vidéo interne, CMOS, disquette/MS-DOS, second démarrage NVR et Ctrl+Alt+Suppr ont été observés.",
   "product.olivetti-pcs46c.technical.limitations": "Émulation partielle amorçable: date/heure du Setup, IDE, autres capacités RAM et davantage de logiciels restent à vérifier. Les fonctions AT communes remplacent actuellement le 83C206Q; le modèle n'est ni dédié ni cycle-exact.",
-  "product.olivetti-pcs46c.technical.manual": "Chapitre du manuel de service Olivetti M4-4x, M4-6x et PCS4xx (source matérielle primaire)."
+  "product.olivetti-pcs46c.technical.manual": "Chapitre du manuel de service Olivetti M4-4x, M4-6x et PCS4xx (source matérielle primaire).",
+  "product.olivetti-pcs46c.creation.memory.4096": "4 Mo (profil de référence)",
+  "product.olivetti-pcs46c.creation.memory.8192": "8 Mo",
+  "product.olivetti-pcs46c.creation.memory.12288": "12 Mo",
+  "product.olivetti-pcs46c.creation.memory.20480": "20 Mo",
+  "product.olivetti-pcs46c.creation.memory.36864": "36 Mo (maximum documenté)",
+  "product.olivetti-pcs46c.creation.storage.none": "Sans disque dur : un lecteur de disquettes de 1,44 Mo",
+  "product.olivetti-pcs46c.creation.storage.ide-40": "Disque IDE de 40 Mo, type 17 du BIOS : 805/4/26",
+  "product.olivetti-pcs46c.creation.storage.ide-100": "Disque IDE de 100 Mo, type 18 du BIOS : 776/8/33",
+  "product.olivetti-pcs46c.creation.model": "PCS 46/C avec i486DX2/50, 4 Mo, GD5428 intégré et un lecteur de disquettes de 1,44 Mo",
+  "product.olivetti-pcs46c.creation.note": "Si vous ajoutez le disque, choisissez dans le Setup le type indiqué dans l’option.",
+  "product.olivetti-pcs46c.technical.cpu": "Intel i486DX2/50 sur la carte BA2036, dérivée de l’ensemble T.1 BA2044. Chipset ETEQ ET6000 avec un 83C206Q séparé pour RTC, DMA, interruptions et temporisateur.",
+  "product.olivetti-pcs46c.technical.memory": "De 4 à 36 Mo (4, 8, 12, 20 ou 36 Mo), selon le chapitre du manuel de service des M4-4x, M4-6x et PCS4xx.",
+  "product.olivetti-pcs46c.technical.video": "VGA Cirrus Logic CL-GD5428 intégrée avec 1 Mo. Son BIOS vidéo est l’OVC 1.09.",
+  "product.olivetti-pcs46c.technical.storage": "Disquettes, série et parallèle dans le PC87310, et interface IDE sur la carte. La table de disques du BIOS est la même que celle du M300-30, avec les types 17 à 26 pour les disques IDE.",
+  "product.olivetti-pcs46c.creation.cpu": "Intel i486DX2-50 : 50 MHz en interne sur un bus à 25 MHz"
 }
