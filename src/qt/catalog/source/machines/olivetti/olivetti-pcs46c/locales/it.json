@@ -3,7 +3,7 @@
   "product.olivetti-pcs46c.history": "PCS 46/C usa BA2036, basata sull'insieme T.1 BA2044, con ET6000, 83C206Q, PC87310 e GD5428. M4-46 appartiene alla famiglia tecnica ma è un modello distinto, non un alias.",
   "product.olivetti-pcs46c.technical.rom_layout": "Immagine da 128 KB: OVC 1.09 nella metà inferiore a C0000h e BIOS/Diagnostics 1.05 nella metà superiore a F0000h.",
   "product.olivetti-pcs46c.technical.verified": "Osservati POST, 4 MB, video interno, CMOS, avvio floppy/MS-DOS, secondo avvio NVR e Ctrl+Alt+Canc.",
-  "product.olivetti-pcs46c.technical.limitations": "Emulazione parziale avviabile: data/ora del Setup, IDE, altre capacità RAM e altro software restano da verificare. Le funzioni AT comuni sostituiscono per ora il 83C206Q; il modello non è dedicato né ciclo-esatto.",
+  "product.olivetti-pcs46c.technical.limitations": "Emulazione parziale avviabile: restano da verificare IDE, le altre configurazioni di RAM e altro software. Il Setup non si apre dalla tastiera; resta da stabilire se si esegua da un disco di utilità. Le funzioni dell'83C206Q usano per ora il nucleo AT comune; non è un'emulazione dedicata né ciclo per ciclo.",
   "product.olivetti-pcs46c.technical.manual": "Capitolo del manuale di servizio Olivetti M4-4x, M4-6x e PCS4xx (fonte hardware primaria).",
   "product.olivetti-pcs46c.creation.memory.4096": "4 MB (profilo di riferimento)",
   "product.olivetti-pcs46c.creation.memory.8192": "8 MB",

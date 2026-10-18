@@ -1,8 +1,8 @@
 {
   "product.olivetti-m30030p.summary": "Variante i486DX2 a 50 MHz do M300-30, com barramento externo de 25 MHz.",
   "product.olivetti-m30030p.history": "O M300-30P é a variante rápida do M300-30: a mesma placa e o mesmo firmware, mas com um i486DX2/50, que funciona internamente a 50 MHz sobre um barramento de 25 MHz.",
-  "product.olivetti-m30030p.technical.verified": "Com 4 MB, os Diagnósticos 2.00 concluem todos os testes e mostram 640 KB base + 3072 KB estendida + 384 KB dedicada = 4096 KB.",
-  "product.olivetti-m30030p.technical.limitations": "Emulação parcial que arranca, com os mesmos limites de chipset, vídeo e Super I/O do M300-30. A BIOS deduz o modelo de CPU a partir de um registo de configuração da placa, reconstruído a partir do desmontado; falta verificar que os Diagnósticos 2.00 o mostram já como DX2-50. Ctrl+Alt+Del pode bloquear ao reiniciar o firmware, pelo que, por agora, convém um reinício físico. Faltam as outras configurações de RAM e mais software.",
+  "product.olivetti-m30030p.technical.verified": "Com 4 MB, os Diagnósticos 2.00 concluem todos os testes, identificam a CPU como DX2-50 e mostram 640 KB base + 3072 KB expandida + 384 KB dedicada = 4096 KB.",
+  "product.olivetti-m30030p.technical.limitations": "Emulação parcial arrancável, com os mesmos limites de chipset, vídeo e Super I/O que o M300-30. O registo de configuração da placa, a partir do qual a BIOS deduz o modelo de CPU, foi reconstruído a partir da desmontagem. O Ctrl+Alt+Del pode bloquear ao reiniciar o firmware, por isso por agora convém um reinício físico. Ficam pendentes as restantes configurações de RAM e mais software.",
   "product.olivetti-m30030p.technical.manual": "Capítulo 36 do guia de serviço Olivetti, fonte primária para M300-30 e M300-30P.",
   "product.olivetti-m30030p.creation.bios.diag103": "Diagnósticos 1.03 (24/09/92) · mostra «i486DX2-25MHz»",
   "product.olivetti-m30030p.creation.bios.diag104": "Diagnósticos 1.04 (05/11/92) · mostra «i486DX2-25MHz»",

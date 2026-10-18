@@ -1,8 +1,8 @@
 {
   "product.olivetti-pcs11.summary": "Ordinateur de bureau compact de 1992 avec 386SX à 16 MHz, destiné à la maison et aux petites entreprises.",
   "product.olivetti-pcs11.history": "Olivetti a présenté le PCS 11 en novembre 1992, avec le PCS 33 et le PCS 44, dans une série compacte conçue pour être facile à utiliser. C’était le moins cher des trois, et il n’occupait pas plus de place sur le bureau qu’une feuille A4. Il visait la maison et les petites entreprises : 386SX à 16 MHz, 2 Mo de mémoire, disque de 40 Mo et lecteur de disquettes de 1,44 Mo, avec MS-DOS 5.0 et Windows 3.0 préinstallés. À l’intérieur, il utilise la carte BA013/16, la même base technique que le M300-02, mais avec ses propres BIOS (R2.04 et R2.07).",
-  "product.olivetti-pcs11.technical.verified": "Les BIOS R2.04 et R2.07 (128 Ko) sont identifiés et peuvent être choisis dans la configuration de la machine.",
-  "product.olivetti-pcs11.technical.limitations": "Émulation partielle ; le démarrage n’a pas encore été confirmé. Son BIOS ne diffère de celui du PCS 33 que par les temps de mémoire et de bus qu’il programme dans le chipset TOPCAT, que l’émulateur n’utilise pas ; il devrait donc démarrer de la même façon, mais cela reste à confirmer. Le boîtier n’est pas modélisé.",
+  "product.olivetti-pcs11.technical.verified": "Les BIOS R2.04 et R2.07 (128 Ko) sont identifiés et peuvent être choisis dans la configuration de la machine. Le démarrage a été observé.",
+  "product.olivetti-pcs11.technical.limitations": "Émulation partielle amorçable. Son BIOS ne diffère de celui du PCS 33 que par les temps de mémoire et de bus qu'il programme dans le chipset TOPCAT, que l'émulateur n'utilise pas. Le boîtier n'est pas modélisé. Restent à tester d'autres quantités de mémoire, le disque et davantage de logiciels.",
   "product.olivetti-pcs11.creation.bios.pcs11_r204": "R2.04 (06/03/92)",
   "product.olivetti-pcs11.creation.bios.pcs11_r207": "R2.07 (03/01/93) (profil de référence)",
   "product.olivetti-pcs11.creation.memory.2048": "2 Mo (profil de référence)",

@@ -1,8 +1,8 @@
 {
   "product.olivetti-m30002f.summary": "M300 profesional con placa BA013/25, 386SX a 25 MHz, TOPCAT y WD90C11 integrado.",
   "product.olivetti-m30002f.history": "El M300-02F es el modelo profesional con la placa BA013/25, a 25 MHz. Los PCS 33 de finales de 1992 usan la misma base técnica, pero el M300-02F tiene su propia BIOS (5.01).",
-  "product.olivetti-m30002f.technical.verified": "Se han observado POST en frío, rutas de memoria del firmware, programación EMS y arranque.",
-  "product.olivetti-m30002f.technical.limitations": "Emulación parcial arrancable. Quedan por probar Ctrl+Alt+Supr y un controlador EMM independiente. TOPCAT es un primer modelo de registros; PC87310 e IDE común agrupan provisionalmente las funciones reales del 87C310, FDC Acer y lógica MSI.",
+  "product.olivetti-m30002f.technical.verified": "Con 2 MB y un disco IDE se han observado POST en frío, memoria de 640 KB base + 1024 KB extendida + 384 KB expandida = 2048 KB, programación EMS, detección del disco y arranque.",
+  "product.olivetti-m30002f.technical.limitations": "Emulación parcial arrancable. Quedan por probar Ctrl+Alt+Supr y un controlador EMM independiente. TOPCAT es un primer modelo de registros; PC87310 e IDE común agrupan provisionalmente las funciones reales del 87C310, FDC Acer y lógica MSI. El chip 87C310 lleva dos puertos serie aunque la placa saca un solo conector; queda por comprobar cuántos activa la BIOS.",
   "product.olivetti-m30002f.creation.memory.2048": "2 MB (perfil de referencia)",
   "product.olivetti-m30002f.creation.memory.4096": "4 MB",
   "product.olivetti-m30002f.creation.memory.10240": "10 MB (máximo documentado)",

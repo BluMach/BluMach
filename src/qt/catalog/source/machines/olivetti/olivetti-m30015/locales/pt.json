@@ -1,8 +1,8 @@
 {
   "product.olivetti-m30015.summary": "386SX a 25 MHz com OPTi 82C283, 82C206 separado e vídeo OAK OTI-067 integrado.",
   "product.olivetti-m30015.history": "BA320 foi inicialmente documentada com Intel 386SX a 25 MHz; AMD 80386SX-25 foi alternativa posterior sem mudança de placa. Barramento AT 8,33 MHz; memória 4/8/10/14/16 MB.",
-  "product.olivetti-m30015.technical.verified": "Validados POST, Calendar PASS, disquete e arranque do MS-DOS 3.30a.",
-  "product.olivetti-m30015.technical.limitations": "Emulação parcial arrancável. O 82C283 está modelado com barramento AT a 8,33 MHz; dispositivos compatíveis representam o 82C206 e controladores discretos. IDE e mais software precisam de validação.",
+  "product.olivetti-m30015.technical.verified": "Validados POST, Calendar PASS, acesso à disquete e arranque do MS-DOS 3.30a. Com um disco IDE em modo AUTO, a BIOS deteta-o e arranca a partir dele.",
+  "product.olivetti-m30015.technical.limitations": "Emulação parcial arrancável. O 82C283 está modelado e o barramento AT é fixado em 8,33 MHz; o 82C206 e os controladores discretos são representados por dispositivos compatíveis. Se a unidade 2 estiver em AUTO sem disco, a BIOS espera cerca de 11 s que responda, como faria a máquina real; com a unidade 2 em «–» não a procura. O Setup só abre num arranque a frio com erro de configuração e sai-se com ESC.",
   "product.olivetti-m30015.creation.memory.4096": "4 MB (perfil de referência)",
   "product.olivetti-m30015.creation.memory.8192": "8 MB",
   "product.olivetti-m30015.creation.memory.10240": "10 MB",

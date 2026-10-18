@@ -1,8 +1,8 @@
 {
   "product.olivetti-m30030p.summary": "Variante de rendimiento i486DX2 a 50 MHz del M300-30, con bus externo de 25 MHz.",
   "product.olivetti-m30030p.history": "El M300-30P es la variante rápida del M300-30: la misma placa y el mismo firmware, pero con un i486DX2/50, que trabaja internamente a 50 MHz sobre un bus de 25 MHz.",
-  "product.olivetti-m30030p.technical.verified": "Con 4 MB, los Diagnósticos 2.00 terminan todas sus pruebas y muestran 640 KB base + 3072 KB extendida + 384 KB dedicada = 4096 KB.",
-  "product.olivetti-m30030p.technical.limitations": "Emulación parcial arrancable, con los mismos límites de chipset, vídeo y Super I/O que el M300-30. La BIOS deduce el modelo de CPU de un registro de configuración de la placa, reconstruido a partir del desensamblado; falta comprobar que Diagnósticos 2.00 lo muestre ya como DX2-50. Ctrl+Alt+Supr puede bloquearse al reiniciar el firmware, así que por ahora conviene un reinicio duro. Quedan pendientes las demás configuraciones de RAM y más software.",
+  "product.olivetti-m30030p.technical.verified": "Con 4 MB, los Diagnósticos 2.00 terminan todas sus pruebas, identifican la CPU como DX2-50 y muestran 640 KB base + 3072 KB extendida + 384 KB dedicada = 4096 KB.",
+  "product.olivetti-m30030p.technical.limitations": "Emulación parcial arrancable, con los mismos límites de chipset, vídeo y Super I/O que el M300-30. El registro de configuración de la placa, del que la BIOS deduce el modelo de CPU, está reconstruido a partir del desensamblado. Ctrl+Alt+Supr puede bloquearse al reiniciar el firmware, así que por ahora conviene un reinicio duro. Quedan pendientes las demás configuraciones de RAM y más software.",
   "product.olivetti-m30030p.technical.manual": "Capítulo 36 de la guía de servicio Olivetti; fuente primaria para M300-30 y M300-30P.",
   "product.olivetti-m30030p.creation.bios.diag103": "Diagnósticos 1.03 (24/09/92) · muestra «i486DX2-25MHz»",
   "product.olivetti-m30030p.creation.bios.diag104": "Diagnósticos 1.04 (05/11/92) · muestra «i486DX2-25MHz»",

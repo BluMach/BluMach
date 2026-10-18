@@ -1,8 +1,8 @@
 {
   "product.olivetti-pcs33.summary": "Computador de secretária compacto de 1992 com 386SX a 25 MHz, para uso geral no escritório.",
   "product.olivetti-pcs33.history": "O PCS 33 saiu em novembro de 1992 com o PCS 11 e o PCS 44, como modelo intermédio para uso geral no escritório: 386SX a 25 MHz, 2 MB de memória, unidade de disquetes de 1,44 MB e disco de 40 a 120 MB, com MS-DOS 5.0 e Windows 3.0 pré-instalados. Usa a placa BA013/25, a mesma base técnica do M300-02F, com BIOS própria (R6.03).",
-  "product.olivetti-pcs33.technical.verified": "A BIOS R6.03 (128 KB) está identificada e é carregada na mesma emulação BA013/25 do M300-02F.",
-  "product.olivetti-pcs33.technical.limitations": "Emulação parcial e provisória. Não há manual do PCS 33 que confirme a placa, e a caixa não é modelada. Falta verificar o arranque com a sua própria BIOS.",
+  "product.olivetti-pcs33.technical.verified": "Com a sua própria BIOS R6.03 observaram-se o POST, a deteção do disco IDE e o arranque, na mesma emulação BA013/25 do M300-02F.",
+  "product.olivetti-pcs33.technical.limitations": "Emulação parcial arrancável. Não há manual do PCS 33 que confirme a placa, e a caixa não é modelada. Faltam testar outras quantidades de memória e mais software.",
   "product.olivetti-pcs33.creation.memory.2048": "2 MB (perfil de referência)",
   "product.olivetti-pcs33.creation.memory.4096": "4 MB",
   "product.olivetti-pcs33.creation.memory.10240": "10 MB (máximo documentado)",

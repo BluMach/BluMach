@@ -1,8 +1,8 @@
 {
   "product.olivetti-m30002f.summary": "Professional M300 with BA013/25, a 25 MHz 386SX, TOPCAT and integrated WD90C11.",
   "product.olivetti-m30002f.history": "The M300-02F is the professional model with the BA013/25 board, running at 25 MHz. The PCS 33 of late 1992 uses the same technical base, but the M300-02F has its own BIOS (5.01).",
-  "product.olivetti-m30002f.technical.verified": "Cold POST, firmware memory paths, EMS programming and boot have been observed with the recovered model.",
-  "product.olivetti-m30002f.technical.limitations": "Bootable partial emulation. Warm Ctrl+Alt+Del and an independent DOS EMM driver remain pending. TOPCAT is an initial register model; PC87310 and common IDE provisionally aggregate the real 87C310, Acer FDC and MSI logic.",
+  "product.olivetti-m30002f.technical.verified": "With 2 MB and an IDE disk, cold POST, 640 KB base + 1024 KB extended + 384 KB expanded = 2048 KB, EMS programming, disk detection and booting have been observed.",
+  "product.olivetti-m30002f.technical.limitations": "Bootable partial emulation. Ctrl+Alt+Del and a standalone EMM driver remain to be tested. TOPCAT is a first register model; PC87310 and common IDE provisionally group the real functions of the 87C310, Acer FDC and MSI logic. The 87C310 chip has two serial ports although the board brings out a single connector; how many the BIOS enables remains to be checked.",
   "product.olivetti-m30002f.creation.memory.2048": "2 MB (reference profile)",
   "product.olivetti-m30002f.creation.memory.4096": "4 MB",
   "product.olivetti-m30002f.creation.memory.10240": "10 MB (documented maximum)",

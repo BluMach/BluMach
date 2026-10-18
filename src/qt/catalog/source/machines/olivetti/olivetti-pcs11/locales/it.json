@@ -1,8 +1,8 @@
 {
   "product.olivetti-pcs11.summary": "Computer da tavolo compatto del 1992 con 386SX a 16 MHz, pensato per la casa e la piccola impresa.",
   "product.olivetti-pcs11.history": "Olivetti presentò il PCS 11 nel novembre 1992, insieme al PCS 33 e al PCS 44, in una serie compatta pensata per essere facile da usare. Era il più economico dei tre e sulla scrivania non occupava più di un foglio A4. Si rivolgeva alla casa e alla piccola impresa: 386SX a 16 MHz, 2 MB di memoria, disco da 40 MB e unità floppy da 1,44 MB, con MS-DOS 5.0 e Windows 3.0 preinstallati. All’interno usa la scheda BA013/16, la stessa base tecnica dell’M300-02, ma con BIOS proprie (R2.04 e R2.07).",
-  "product.olivetti-pcs11.technical.verified": "I BIOS R2.04 e R2.07 (128 KB) sono identificati e si possono scegliere nella configurazione della macchina.",
-  "product.olivetti-pcs11.technical.limitations": "Emulazione parziale; l’avvio non è ancora stato confermato. Il suo BIOS differisce da quello del PCS 33 solo per i tempi di memoria e di bus che programma nel chipset TOPCAT, che l’emulatore non usa; dovrebbe quindi avviarsi allo stesso modo, ma va ancora confermato. Il case non è modellato.",
+  "product.olivetti-pcs11.technical.verified": "I BIOS R2.04 e R2.07 (128 KB) sono identificati e si possono scegliere nella configurazione della macchina. L'avvio è stato osservato.",
+  "product.olivetti-pcs11.technical.limitations": "Emulazione parziale avviabile. Il suo BIOS differisce da quello del PCS 33 solo per i tempi di memoria e bus che programma nel chipset TOPCAT, che l'emulatore non usa. Il case non è modellato. Restano da provare altre quantità di memoria, il disco e altro software.",
   "product.olivetti-pcs11.creation.bios.pcs11_r204": "R2.04 (06/03/92)",
   "product.olivetti-pcs11.creation.bios.pcs11_r207": "R2.07 (03/01/93) (profilo di riferimento)",
   "product.olivetti-pcs11.creation.memory.2048": "2 MB (profilo di riferimento)",
