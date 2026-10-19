@@ -337,6 +337,26 @@
           ]
         },
         {
+          "id": "m290sp",
+          "cells": [
+            {
+              "value": "1991"
+            },
+            {
+              "value": "M290 SP"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.alpha"
+            }
+          ]
+        },
+        {
           "id": "m30002",
           "cells": [
             {
@@ -504,26 +524,6 @@
             },
             {
               "value": "M290S"
-            },
-            {
-              "value": "Intel 80286"
-            },
-            {
-              "value_key": "family.olivetti-m.format.desktop"
-            },
-            {
-              "value_key": "family.olivetti-m.status.reference"
-            }
-          ]
-        },
-        {
-          "id": "m290-sp",
-          "cells": [
-            {
-              "value_key": "family.olivetti-m.period.unknown"
-            },
-            {
-              "value": "M290 SP"
             },
             {
               "value": "Intel 80286"

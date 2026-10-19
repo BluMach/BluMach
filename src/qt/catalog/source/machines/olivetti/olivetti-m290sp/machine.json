@@ -1,0 +1,329 @@
+{
+  "order": 95,
+  "machine": {
+    "id": "olivetti-m290sp",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "platform_id": "olivetti-m290sp-platform",
+    "name": "Olivetti M290 SP",
+    "summary_key": "product.olivetti-m290sp.summary",
+    "history_key": "product.olivetti-m290sp.history",
+    "status": "experimental",
+    "period": "1991",
+    "aliases": [
+      "M290-25 (probable)",
+      "BA-08 (probable)"
+    ],
+    "tags": [
+      "80286",
+      "20 MHz",
+      "VLSI TOPCAT",
+      "WD90C11"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "vga"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80286 20 MHz",
+      "memory": "1, 3, 5, 9 or 17 MB (2 x 512 KB soldered + SIMM banks)",
+      "chipset": "VLSI TOPCAT 82C320/82C331",
+      "video": "Integrated Western Digital WD90C11 VGA"
+    },
+    "firmware": {
+      "known_sets": [
+        "Resident Diagnostics 1.08 (02/25/91)"
+      ],
+      "required": true
+    },
+    "creation": {
+      "status": "experimental",
+      "directory_prefix": "olivetti-m290sp",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m290sp.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.commercial_model",
+          "value_key": "product.olivetti-m290sp.creation.model"
+        }
+      ],
+      "fields": [
+        {
+          "id": "memory",
+          "label_key": "creation.label.memory",
+          "default": "1024",
+          "choices": [
+            {
+              "id": "1024",
+              "label_key": "product.olivetti-m290sp.creation.memory.1024",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 1024
+                }
+              ]
+            },
+            {
+              "id": "3072",
+              "label_key": "product.olivetti-m290sp.creation.memory.3072",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 3072
+                }
+              ]
+            },
+            {
+              "id": "5120",
+              "label_key": "product.olivetti-m290sp.creation.memory.5120",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 5120
+                }
+              ]
+            },
+            {
+              "id": "9216",
+              "label_key": "product.olivetti-m290sp.creation.memory.9216",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 9216
+                }
+              ]
+            },
+            {
+              "id": "17408",
+              "label_key": "product.olivetti-m290sp.creation.memory.17408",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 17408
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-m290sp.creation.storage.none",
+              "status": "experimental",
+              "set": []
+            },
+            {
+              "id": "ide-40",
+              "label_key": "product.olivetti-m290sp.creation.storage.ide-40",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m290sp-ide-40mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 5, 980, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m290sp-ide-40mb.img",
+                  "size": 42649600
+                }
+              ]
+            },
+            {
+              "id": "ide-120",
+              "label_key": "product.olivetti-m290sp.creation.storage.ide-120",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m290sp-ide-120mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "39, 8, 762, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m290sp-ide-120mb.img",
+                  "size": 121724928
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m290sp.creation.note"
+      ],
+      "configuration": [
+        {
+          "section": "General",
+          "values": {
+            "vid_renderer": "qt_software",
+            "time_sync": "disabled"
+          }
+        },
+        {
+          "section": "Machine",
+          "values": {
+            "cpu_family": "286",
+            "cpu_speed": 20000000,
+            "cpu_multi": 1,
+            "cpu_use_dynarec": 0,
+            "mem_size": 1024
+          }
+        },
+        {
+          "section": "Video",
+          "values": {
+            "gfxcard": "internal"
+          }
+        },
+        {
+          "section": "Input devices",
+          "values": {
+            "keyboard_type": "keyboard_at",
+            "mouse_type": "none"
+          }
+        },
+        {
+          "section": "Floppy and CD-ROM drives",
+          "values": {
+            "fdd_01_type": "35_2hd",
+            "fdd_02_type": "none"
+          }
+        }
+      ],
+      "generated_files": []
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m290sp.technical.commercial_configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m290sp.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m290sp.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m290sp.technical.video"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m290sp.technical.storage"
+          },
+          {
+            "label_key": "technical.label.setup",
+            "value_key": "product.olivetti-m290sp.technical.setup"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.observed",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m290sp.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m290sp.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m290sp.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m290sp.technical.service_manual",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap32.pdf"
+          },
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.olivetti-m290sp.technical.identity"
+          }
+        ]
+      }
+    ]
+  },
+  "platform_order": 135,
+  "platform": {
+    "id": "olivetti-m290sp-platform",
+    "emulator_machine_id": "olivetti_m290sp",
+    "architecture": "80286"
+  }
+}
