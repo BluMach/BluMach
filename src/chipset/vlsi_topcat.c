@@ -434,7 +434,6 @@ static void *
 vlsi_topcat_init(const device_t *info)
 {
     vlsi_topcat_t *dev = (vlsi_topcat_t *) calloc(1, sizeof(vlsi_topcat_t));
-    (void) info;
 
     dev->regs[0] = 0xe0;
     dev->regs[1] = 0xff;
@@ -449,7 +448,39 @@ vlsi_topcat_init(const device_t *info)
     dev->regs[19] = 0x01;
     dev->regs[20] = 0x06;
 
-    switch (mem_size) {
+    if (info->local == 1) {
+        /*
+         * BA-08 (M290-25 / M290 SP): banks 0 and 1 are the two soldered
+         * 256K x 18 devices, 512 KB each.  Banks 2 and 3 are SIMM pairs of
+         * 1M x 9 (2 MB) or 4M x 9 (8 MB) on the memory expansion board.
+         * Olivetti service guide, chapter 32 (M290-25, BA-08).
+         */
+        dev->phys_size[0] = 0x080000;
+        dev->phys_size[1] = 0x080000;
+        switch (mem_size) {
+            case 3072:
+                dev->regs[3]      = 0xe6;
+                dev->phys_size[2] = 0x200000;
+                break;
+            case 5120:
+                dev->regs[3]      = 0xe9;
+                dev->phys_size[2] = 0x200000;
+                dev->phys_size[3] = 0x200000;
+                break;
+            case 9216:
+                dev->regs[3]      = 0xee;
+                dev->phys_size[2] = 0x800000;
+                break;
+            case 17408:
+                dev->regs[3]      = 0xf3;
+                dev->phys_size[2] = 0x800000;
+                dev->phys_size[3] = 0x800000;
+                break;
+            default:
+                dev->regs[3] = 0xe1;
+                break;
+        }
+    } else switch (mem_size) {
         case 2048:
             dev->regs[3] = 0xe4;
             dev->phys_size[0] = 0x200000;
@@ -510,6 +541,20 @@ vlsi_topcat_init(const device_t *info)
                   vlsi_topcat_write, NULL, NULL, dev);
     return dev;
 }
+
+const device_t vlsi_topcat_ba08_device = {
+    .name          = "VLSI TOPCAT VL82C320/VL82C331 (Olivetti BA-08)",
+    .internal_name = "vlsi_topcat_ba08",
+    .flags         = 0,
+    .local         = 1,
+    .init          = vlsi_topcat_init,
+    .close         = vlsi_topcat_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
 
 const device_t vlsi_topcat_device = {
     .name          = "VLSI TOPCAT VL82C320/VL82C331",

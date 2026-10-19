@@ -2210,6 +2210,16 @@ kbc_at_olivetti_ext_data(atkbc_t *dev, uint8_t val)
     return 1;
 }
 
+/*
+ * M290 SP (BA08): commands 8Ah/8Bh drive a board line that command 80h reads
+ * back on bit 5.  Resident Diagnostics 1.08 (F000:7C15 and F000:7CA1) sends
+ * 8Ah and waits for bit 5 low, then, when it has not found both a monochrome
+ * and a colour text adapter, sends 8Bh and waits for bit 5 high before it
+ * initialises the integrated video.  The line's function is not documented;
+ * only the read-back the firmware relies on is modelled.
+ */
+static uint8_t m290sp_line_8b;
+
 static uint8_t
 write_cmd_olivetti(void *priv, uint8_t val)
 {
@@ -2259,6 +2269,8 @@ write_cmd_olivetti(void *priv, uint8_t val)
                 kbc_delay_to_ob(dev, dev->p2 | 0x20, 0, 0x00);
             else if (machines[machine].init == machine_at_olivetti_pcs386sx_init)
                 kbc_delay_to_ob(dev, dev->olivetti_pcs386sx_cfg, 0, 0x00);
+            else if (machines[machine].init == machine_at_olivetti_m290sp_init)
+                kbc_delay_to_ob(dev, 0x8c | (m290sp_line_8b ? 0x20 : 0x00), 0, 0x00);
             else if ((machines[machine].init == machine_at_olivetti_pcs11_init) ||
                      (machines[machine].init == machine_at_olivetti_pcs33_init) ||
                      (machines[machine].init == machine_at_olivetti_m30002_init) ||
@@ -2293,6 +2305,9 @@ write_cmd_olivetti(void *priv, uint8_t val)
             if (machines[machine].init == machine_at_olivetti_m30030_init) {
                 machine_at_olivetti_m30030_cfg_window(0);
                 ret = 0;
+            } else if (machines[machine].init == machine_at_olivetti_m290sp_init) {
+                m290sp_line_8b = 0;
+                ret = 0;
             }
             break;
 
@@ -2302,6 +2317,9 @@ write_cmd_olivetti(void *priv, uint8_t val)
             /* M300-30/30P: open the board configuration register on port 70h */
             else if (machines[machine].init == machine_at_olivetti_m30030_init) {
                 machine_at_olivetti_m30030_cfg_window(1);
+                ret = 0;
+            } else if (machines[machine].init == machine_at_olivetti_m290sp_init) {
+                m290sp_line_8b = 1;
                 ret = 0;
             }
             break;

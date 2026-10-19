@@ -56,6 +56,56 @@ ba013_diag_write(uint16_t port, uint8_t val, void *priv)
         port_6x_topcat_refresh_disable();
 }
 
+/*
+ * BA08 (M290 SP) PIT access time.
+ *
+ * Resident Diagnostics 1.08 times each PIT channel at POST code 43h
+ * (F000:5AE5-5BE0): it loads the counter with FFFFh and counts loop passes,
+ * each with one latch command and two counter reads, until the count drops
+ * to 40h.  Fewer than about 1000 or more than about 7900 passes send POST to
+ * the error routine before video is initialised, so the screen stays black.
+ * Without extra bus time the emulated 286 at 20 MHz makes more than 8000
+ * passes.  The value below adds the slow AT-bus access of the TOPCAT board
+ * to each PIT port access and puts the count near the middle of the window.
+ * It is a calibration against the firmware check, not a measured timing.
+ */
+#define M290SP_PIT_WAIT 20
+
+/*
+ * Resident Diagnostics 1.08 checks the refresh toggle (port 61h bit 4) at
+ * POST code 44h (F000:5C33), before the memory refresh test that the BA013
+ * BIOSes bracket with codes 62h/63h.  Start the TOPCAT refresh model there
+ * too; codes 62h and 63h keep their BA013 meaning.
+ */
+static void
+m290sp_diag_write(uint16_t port, uint8_t val, void *priv)
+{
+    ba013_diag_write(port, val, priv);
+
+    if (val == 0x44)
+        port_6x_topcat_refresh_enable();
+}
+
+static uint8_t
+m290sp_pit_wait_read(uint16_t port, void *priv)
+{
+    (void) port;
+    (void) priv;
+
+    cycles -= M290SP_PIT_WAIT;
+    return 0xff;
+}
+
+static void
+m290sp_pit_wait_write(uint16_t port, uint8_t val, void *priv)
+{
+    (void) port;
+    (void) val;
+    (void) priv;
+
+    cycles -= M290SP_PIT_WAIT;
+}
+
 static uint8_t
 m300_pit_wait_read(uint16_t port, void *priv)
 {
@@ -613,13 +663,16 @@ machine_at_olivetti_m290sp_init(const machine_t *model)
         return ret;
 
     machine_at_common_ide_init(model);
-    device_add(&vlsi_topcat_device);
+    device_add(&vlsi_topcat_ba08_device);
     device_add(&port_6x_topcat_device);
     device_add_params(machine_get_kbc_device(machine),
                       (void *) model->kbc_params);
     device_add(&pc87310_device);
     io_sethandler(0x0378, 1, NULL, NULL, NULL,
-                  ba013_diag_write, NULL, NULL, NULL);
+                  m290sp_diag_write, NULL, NULL, NULL);
+    io_sethandler(0x0040, 4,
+                  m290sp_pit_wait_read, NULL, NULL,
+                  m290sp_pit_wait_write, NULL, NULL, NULL);
 
     /* BA08-specific WD90C11 power-on state and embedded font. */
     if (gfxcard[0] == VID_INTERNAL)
