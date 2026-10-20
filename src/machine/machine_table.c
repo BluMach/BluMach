@@ -26276,7 +26276,7 @@ const machine_t machines[] = {
 
 /* Preserved from the Mavis recovery branch: olivetti_ba2142. */
     {
-        .name              = "[UMC 82C491] Olivetti BA2142 (Experimental)",
+        .name              = "[82C491/82C493] Olivetti M4-4x2 / PCS42P (BA2142) (Experimental)",
         .internal_name     = "olivetti_ba2142",
         .blumach_release_managed = 1,
         .type              = MACHINE_TYPE_SOCKET1,
@@ -26287,11 +26287,11 @@ const machine_t machines[] = {
         .available_flag    = MACHINE_AVAILABLE,
         .gpio_acpi_handler = NULL,
         .cpu               = {
-            .package     = CPU_PKG_SOCKET1,
+            .package     = CPU_PKG_SOCKET3,  /* CAP4: Intel OverDrive Ready Socket 3 */
             .block       = CPU_BLOCK_NONE,
             .min_bus     = 25000000,
             .max_bus     = 33333333,
-            .min_voltage = 5000,
+            .min_voltage = 3300,
             .max_voltage = 5000,
             .min_multi   = 1,
             .max_multi   = 3

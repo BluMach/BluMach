@@ -1,6 +1,23 @@
 {
   "product.olivetti-m300-if378.summary": "M300 modular 386SX a 16 MHz com placa IF378 e controlo de memória Intel 82335.",
   "product.olivetti-m300-if378.history": "O M300 modular original combina IF378, barramento IN108 e placa multifunções GO477; não é a placa-mãe dos M300 numerados posteriores.",
-  "product.olivetti-m300-if378.technical.verified": "Foram observados os diagnósticos residentes e o arranque do MS-DOS 3.30a com NVR preservada.",
-  "product.olivetti-m300-if378.technical.limitations": "Emulação parcial arrancável: o 82335 está modelado, enquanto as funções 82230/82231 e GO477 usam dispositivos AT compatíveis; GO481 ainda requer VGA externa. IDE e mais software precisam de validação; as esperas de diagnóstico são aproximações."
+  "product.olivetti-m300-if378.technical.verified": "Com 2 MB, os diagnósticos residentes concluem os testes e contam 640 KB de base, 1280 KB estendidos e 128 KB de sombra (2048 KB), após a sequência de remapeamento de memória da BIOS; abre-se depois o Setup em ROM. O arranque do MS-DOS 3.30a com NVR preservada já tinha sido observado.",
+  "product.olivetti-m300-if378.technical.limitations": "Emulação parcial que arranca. Do 82335 são emuladas a configuração de memória, o remapeamento e os intervalos de memória da placa que a BIOS usa para medi-la. A memória não se repete para além da quantidade instalada como na placa real, e a memória remapeada fica logo acima da instalada. As funções dos 82230/82231 e da GO477 usam dispositivos AT compatíveis, e a GO481 ainda requer uma VGA externa. Faltam validar o disco IDE, outras quantidades de memória e mais software.",
+  "product.olivetti-m300-if378.creation.memory.2048": "2 MB (perfil de referência)",
+  "product.olivetti-m300-if378.creation.memory.4096": "4 MB",
+  "product.olivetti-m300-if378.creation.memory.8192": "8 MB",
+  "product.olivetti-m300-if378.creation.memory.12288": "12 MB (máximo documentado)",
+  "product.olivetti-m300-if378.creation.storage.none": "Sem disco rígido: uma unidade de disquetes de 1,44 MB",
+  "product.olivetti-m300-if378.creation.storage.ide-40": "Disco IDE de 40 MB, tipo 36 da BIOS: 805/4/26",
+  "product.olivetti-m300-if378.creation.storage.ide-100": "Disco IDE de 100 MB, tipo 33 da BIOS: 776/8/33",
+  "product.olivetti-m300-if378.creation.model": "M300 modular com placa IF378: 386SX a 16 MHz, 2 MB, VGA externa e uma unidade de disquetes de 1,44 MB",
+  "product.olivetti-m300-if378.creation.note": "A placa de vídeo GO481 não é emulada, por isso o perfil usa uma VGA Paradise PVGA1A externa. Se acrescentar o disco, escolha no Setup o tipo indicado na opção.",
+  "product.olivetti-m300-if378.technical.commercial_configurations": "O M300 original é modular: a placa de CPU (UC093/097 e, depois, UC112/113, com a IF378) encaixa na ranhura 3 da placa de barramento IN108, que tem 8 ranhuras (cinco de 16 bits e três de 8). A placa multifunções GO477 e a VGA GO481 ocupam outras duas.",
+  "product.olivetti-m300-if378.technical.cpu": "Intel 386SX a 16 MHz com suporte para 80387SX. Os Intel 82230/82231 reúnem a lógica AT (relógio, interrupções, DMA, temporizador, RTC) e o 82335 controla a memória.",
+  "product.olivetti-m300-if378.technical.memory": "Até 12 MB: dois bancos na placa de CPU (1 MB com SIMM de 256 KB, ou 2 ou 4 MB com SIMM de 1 M × 9) e placas de memória AMB 2678 de 2 a 4 MB. Acesso a 100 ns.",
+  "product.olivetti-m300-if378.technical.video": "Placa VGA GO481 na ranhura 6 do barramento. Não é emulada; o perfil usa uma Paradise PVGA1A externa.",
+  "product.olivetti-m300-if378.technical.storage": "A GO477 reúne a interface de disco, o controlador de disquetes (WD37C65C) e a porta série. Os discos documentados são de 20, 40 e 100 MB (Conner, NEC, Quantum). A tabela da BIOS inclui o tipo 33 (776/8/33) e o 36 (805/4/26).",
+  "product.olivetti-m300-if378.technical.firmware": "Preserva-se a BIOS 1.09 (26/06/90), de 64 KB numa 27C512. O guia de assistência associa a 1.09 às placas UC112/113 e refere uma 1.10 posterior que corrige a perda da primeira tecla após Ctrl+Alt+Del sem memória sombra.",
+  "product.olivetti-m300-if378.technical.service_manual": "Olivetti Personal Computer - Pocket Service Guide, capítulo 10: M300.",
+  "product.olivetti-m300-if378.creation.cpu": "Intel 386SX a 16 MHz"
 }

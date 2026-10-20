@@ -67,7 +67,7 @@
               "value": "Olivetti PCS 286"
             },
             {
-              "value_key": "family.triumph-adler-dario.status.experimental"
+              "value_key": "family.triumph-adler-dario.status.partial"
             }
           ]
         },
@@ -75,7 +75,7 @@
           "id": "dario386sx",
           "cells": [
             {
-              "value_key": "family.triumph-adler-dario.period.unknown"
+              "value": "1991"
             },
             {
               "value": "Dario 386SX (P45)"
@@ -87,7 +87,7 @@
               "value": "Olivetti PCS 386SX"
             },
             {
-              "value_key": "family.triumph-adler-dario.status.experimental"
+              "value_key": "family.triumph-adler-dario.status.partial"
             }
           ]
         },

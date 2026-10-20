@@ -47,6 +47,8 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItemIterator>
 #include <QVBoxLayout>
+
+#include <functional>
 #include <QUrl>
 
 namespace {
@@ -894,13 +896,14 @@ void BluMachCollectionWidget::rebuildTree()
         manufacturerItem->setExpanded(manufacturerIndex == 0);
         int manufacturerCount = 0;
         int familyIndex = 0;
-        for (const auto &family : m_catalog.families()) {
-            if (family.manufacturerId != manufacturer.id || !family.parentFamilyId.isEmpty())
-                continue;
-            auto *familyItem = new QTreeWidgetItem(manufacturerItem, { family.name });
+        /* Sub-families (parent_family_id set) are nested under their parent
+           family node, after the parent's own products. */
+        std::function<int(QTreeWidgetItem *, const BluMachFamily &, bool)> addFamily;
+        addFamily = [&](QTreeWidgetItem *parentItem, const BluMachFamily &family, bool expand) -> int {
+            auto *familyItem = new QTreeWidgetItem(parentItem, { family.name });
             familyItem->setData(0, IdRole, family.id);
             familyItem->setData(0, TypeRole, FamilyItem);
-            familyItem->setExpanded(manufacturerIndex == 0 && familyIndex == 0);
+            familyItem->setExpanded(expand);
             int familyCount = 0;
             for (const auto &product : m_catalog.products()) {
                 if (product.familyId != family.id)
@@ -908,7 +911,7 @@ void BluMachCollectionWidget::rebuildTree()
                 auto *productItem = new QTreeWidgetItem(familyItem, { product.name });
                 productItem->setData(0, IdRole, product.id);
                 productItem->setData(0, TypeRole, ProductItem);
-                productItem->setData(0, PeriodRole, product.period);
+                productItem->setData(0, PeriodRole, m_catalog.periodText(product));
                 productItem->setData(0, StatusRole, product.status);
                 productItem->setData(0, FamilyRole, product.familyId);
                 const auto formFactors = product.facets.value(QStringLiteral("form_factor")).toArray();
@@ -922,8 +925,18 @@ void BluMachCollectionWidget::rebuildTree()
                                                .arg(product.name, m_catalog.text(product.summaryKey)));
                 ++familyCount;
             }
+            for (const auto &child : m_catalog.families()) {
+                if (child.parentFamilyId == family.id && child.id != family.id)
+                    familyCount += addFamily(familyItem, child, false);
+            }
             familyItem->setData(0, CountRole, familyCount);
-            manufacturerCount += familyCount;
+            return familyCount;
+        };
+        for (const auto &family : m_catalog.families()) {
+            if (family.manufacturerId != manufacturer.id || !family.parentFamilyId.isEmpty())
+                continue;
+            manufacturerCount += addFamily(manufacturerItem, family,
+                                           manufacturerIndex == 0 && familyIndex == 0);
             ++familyIndex;
         }
         manufacturerItem->setData(0, CountRole, manufacturerCount);
@@ -1102,7 +1115,7 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
     m_selectedProductId = product->id;
     saveUiState();
     m_title->setText(product->name);
-    m_subtitle->setText(product->period);
+    m_subtitle->setText(m_catalog.periodText(*product));
     m_summary->setText(m_catalog.text(product->summaryKey));
     m_statusBadge->setText(m_catalog.statusText(product->status));
     m_statusBadge->show();
@@ -1342,17 +1355,21 @@ void BluMachCollectionWidget::applyFilter()
         auto *manufacturerItem = m_tree->topLevelItem(mi);
         int manufacturerMatches = 0;
         const auto *manufacturer = m_catalog.manufacturer(manufacturerItem->data(0, IdRole).toString());
-        for (int fi = 0; fi < manufacturerItem->childCount(); ++fi) {
-            auto *familyItem = manufacturerItem->child(fi);
+        std::function<int(QTreeWidgetItem *)> filterFamily;
+        filterFamily = [&](QTreeWidgetItem *familyItem) -> int {
             int familyMatches = 0;
             const auto *family = m_catalog.family(familyItem->data(0, IdRole).toString());
             for (int pi = 0; pi < familyItem->childCount(); ++pi) {
                 auto *productItem = familyItem->child(pi);
+                if (productItem->data(0, TypeRole).toInt() == FamilyItem) {
+                    familyMatches += filterFamily(productItem);
+                    continue;
+                }
                 const auto *product = m_catalog.product(productItem->data(0, IdRole).toString());
                 const auto *platform = product ? m_catalog.platform(product->platformId) : nullptr;
                 const QString haystack = product
                     ? QStringList({ product->name, product->aliases.join(' '), product->tags.join(' '),
-                                    product->period, m_catalog.text(product->summaryKey),
+                                    m_catalog.periodText(*product), m_catalog.text(product->summaryKey),
                                     manufacturer ? manufacturer->name : QString(),
                                     family ? family->name : QString(),
                                     platform ? platform->architecture : QString() }).join(' ')
@@ -1369,8 +1386,10 @@ void BluMachCollectionWidget::applyFilter()
             familyItem->setHidden(familyMatches == 0);
             if (revealMatches && familyMatches > 0)
                 familyItem->setExpanded(true);
-            manufacturerMatches += familyMatches;
-        }
+            return familyMatches;
+        };
+        for (int fi = 0; fi < manufacturerItem->childCount(); ++fi)
+            manufacturerMatches += filterFamily(manufacturerItem->child(fi));
         manufacturerItem->setData(0, CountRole, manufacturerMatches);
         manufacturerItem->setHidden(manufacturerMatches == 0);
         if (revealMatches && manufacturerMatches > 0)

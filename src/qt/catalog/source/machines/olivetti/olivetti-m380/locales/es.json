@@ -1,6 +1,6 @@
 {
   "product.olivetti-m380.summary": "Familia de sobremesa 80386DX a 16 MHz, con lógica Olivetti propietaria, controladoras externas y firmware local 1.09.",
-  "product.olivetti-m380.history": "El M380 (BA806) y el M380 C compacto (BA818) comparten la plataforma 80386DX a 16 MHz documentada. El M380 C NEW añade las opciones GO723 y VGA GO470/481; no se sustituyen silenciosamente por dispositivos genéricos.",
+  "product.olivetti-m380.history": "El M380 (BA806) y el M380 C compacto (BA818) comparten la plataforma 80386DX a 16 MHz documentada. El M380 C NEW añade las opciones GO723 y VGA GO470/481; BluMach no las sustituye por dispositivos genéricos sin avisar.",
   "product.olivetti-m380.warning": "EMULACIÓN PARCIAL: constan como superados POST, vídeo, arranque por disquete, RTC, la NVRAM del controlador de teclado y la instalación y arranque de MS-DOS 3.30a desde un disco en la GO717. Queda pendiente el reinicio en caliente. La GO717 se emula con el WD1003 sin sus jumpers; PVGA1A, disquetera y servicios AT son aproximaciones de compatibilidad, no modelos del backplane ni de la IF614.",
   "product.olivetti-m380.creation.model": "Perfil de referencia M380 80386DX a 16 MHz: 4 MB, PVGA1A externo y una disquetera de 3,5 pulgadas y 1,44 MB",
   "product.olivetti-m380.creation.variant.m380": "M380 (sobremesa BA806; perfil de referencia actual)",

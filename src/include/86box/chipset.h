@@ -95,6 +95,7 @@ extern const device_t ims8848_device;
 
 /* Intel */
 extern const device_t intel_82335_device;
+extern const device_t intel_82335_cc_device;
 extern const device_t i420ex_device;
 extern const device_t i420ex_ide_device;
 extern const device_t i420tx_device;
@@ -245,6 +246,7 @@ extern const device_t vl82c59x_wildcat_device;
 extern const device_t vl82c59x_wildcat_compaq_device;
 extern const device_t vlsi_scamp_device;
 extern const device_t vlsi_topcat_device;
+extern const device_t vlsi_topcat_ba08_device;
 
 /* WD */
 extern const device_t wd76c10_device;

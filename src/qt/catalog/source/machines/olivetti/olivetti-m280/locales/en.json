@@ -1,7 +1,7 @@
 {
   "product.olivetti-m280.summary": "Experimental 12 MHz 80286 desktop with an 8 MHz bus, FE2000 logic, external OEC/PGC video, and locally preserved BIOS 2.16.",
   "product.olivetti-m280.history": "The M280 service guide records BA817 and BA824 system boards, an IF622 bus adapter, ME903 memory expansion, OEC/PGC monitor adapters, and GO714 MFM or GO723 RLL storage controllers. It is a service options record, not a recovered sales-price matrix.",
-  "product.olivetti-m280.warning": "EXPERIMENTAL: with BIOS 2.16 the POST and keyboard have been observed. Saving Setup, booting and the hard disk remain pending. FE2000, the original console boards and OEC/PGC video are not modelled; external PVGA1A is a compatibility approximation and the GO723/GO717 controllers are emulated with the WD1003 without their jumpers.",
+  "product.olivetti-m280.warning": "IN DEVELOPMENT: we are working on the M280 emulation. You can create the machine, but it may fail or stop partway. Any result you send us, even if it does not boot, helps us finish it.",
   "product.olivetti-m280.creation.model": "Documented base platform: 12 MHz 80286 / 8 MHz bus, 1 MB RAM, external display adapter and no asserted disk bundle",
   "product.olivetti-m280.creation.memory.1024": "1 MB base system (current experimental profile)",
   "product.olivetti-m280.creation.memory.2048": "2 MB total (ME903 relation is documented, but this total is unvalidated)",
@@ -21,5 +21,6 @@
   "product.olivetti-m280.creation.storage.go723-type30": "GO723 (WD1003-RA2) + 62 MB RLL, type 30: CDC Wren II 94205-77, 981/5/26",
   "product.olivetti-m280.creation.storage.go717-type6": "GO717 (WD1003-WAH) + 40 MB, type 6: XM5340, 820/6/17",
   "product.olivetti-m280.creation.storage.go717-type7": "GO717 (WD1003-WAH) + 40 MB, type 7: NEC D5146H, 615/8/17",
-  "product.olivetti-m280.creation.storage.none": "No hard disk: one 1.44 MB floppy drive"
+  "product.olivetti-m280.creation.storage.none": "No hard disk: one 1.44 MB floppy drive",
+  "product.olivetti-m280.period": "Late 1980s"
 }

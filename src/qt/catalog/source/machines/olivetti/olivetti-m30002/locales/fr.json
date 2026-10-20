@@ -1,6 +1,22 @@
 {
-  "product.olivetti-m30002.summary": "Premier M300 BA013/16 avec 386SX 16 MHz, TOPCAT et WD90C11 intégré.",
-  "product.olivetti-m30002.history": "Le M300-02 est le produit professionnel BA013 à 16 MHz. Son firmware et son identité machine sont distincts du M300-02F plus rapide et des produits PCS physiquement différents.",
-  "product.olivetti-m30002.technical.verified": "Le dump R1.02 exact de 128 Ko est identifié, haché et relié à une machine 16 MHz dédiée partageant le cœur BA013.",
-  "product.olivetti-m30002.technical.limitations": "Implémentée mais pas encore validée au démarrage. Le BIOS de service R1.03 manque et TOPCAT ainsi que la logique multifonction restent des modèles partiels."
+  "product.olivetti-m30002.summary": "M300 de 1992 avec 386SX à 16 MHz, chipset VLSI TOPCAT et vidéo WD90C11 intégrée.",
+  "product.olivetti-m30002.history": "Le M300-02 est le modèle à 16 MHz de la carte BA013 dans la gamme professionnelle M300. Le M300-02F utilise la version à 25 MHz de cette carte, et les PCS 11 et PCS 33 de fin 1992 reposent sur la même base, avec un autre boîtier et un autre BIOS.",
+  "product.olivetti-m30002.technical.verified": "Le BIOS R1.02 (128 Ko) est identifié et vérifié par empreinte. Le POST et le démarrage sur disquette ont été observés.",
+  "product.olivetti-m30002.technical.limitations": "Émulation partielle : elle démarre sur disquette ; le disque IDE reste à tester. Le BIOS R1.02 programme dans le TOPCAT les mêmes valeurs que celui du PCS 11 ; par rapport à la carte à 25 MHz, seuls changent les temps de mémoire et de bus, que l’émulateur n’utilise pas. Le BIOS de service R1.03 manque, et le TOPCAT et la logique de la carte sont des modèles fonctionnels partiels.",
+  "product.olivetti-m30002.creation.memory.2048": "2 Mo (profil de référence)",
+  "product.olivetti-m30002.creation.memory.4096": "4 Mo",
+  "product.olivetti-m30002.creation.memory.10240": "10 Mo (maximum documenté)",
+  "product.olivetti-m30002.creation.storage.none": "Sans disque dur : un lecteur de disquettes de 1,44 Mo",
+  "product.olivetti-m30002.creation.storage.ide-40": "Disque IDE de 40 Mo, type 1 du BIOS : 980/5/17",
+  "product.olivetti-m30002.creation.storage.ide-120": "Disque IDE de 120 Mo, type 3 du BIOS : 762/8/39",
+  "product.olivetti-m30002.creation.model": "M300-02 avec 386SX à 16 MHz, 2 Mo, WD90C11 intégré et un lecteur de disquettes 3,5 pouces de 1,44 Mo",
+  "product.olivetti-m30002.creation.note": "Le BIOS de cette carte n’accepte que quatre types de disque. Si vous ajoutez le disque, choisissez dans le Setup le type indiqué dans l’option. Le disque se branche sur l’interface IDE de la carte.",
+  "product.olivetti-m30002.technical.cpu": "Intel 386SX à 16 MHz sur la carte BA013/16, avec support pour i387SX. Chipset VLSI TOPCAT : VL82C320 (contrôleur système) et VL82C331 (contrôleur de bus). Deux emplacements ISA 16 bits sur la carte d’extension de bus.",
+  "product.olivetti-m30002.technical.memory": "Banc 0 avec 2 Mo soudés et banc 1 avec deux supports pour SIMM 1 M × 9 (2 Mo au total) ou 4 M × 9 (8 Mo au total) : 2, 4 ou 10 Mo. Accès à 80 ns.",
+  "product.olivetti-m30002.technical.video": "VGA intégrée : Western Digital WD90C11A, générateur d’horloge WD90C64 et DAC Brooktree BT476. BluMach utilise son modèle WD90C11 avec 512 Ko.",
+  "product.olivetti-m30002.technical.storage": "Lecteur de disquettes 3,5 pouces de 1,44 Mo ou 5,25 pouces de 1,2 Mo, avec contrôleur Acer et ports série et parallèle dans le 87C310. Le disque IDE utilise une interface à tampons sur la carte. La table du BIOS ne compte que quatre types ; les trois premiers sont 980/5/17 (40 Mo), 977/10/17 (85 Mo) et 762/8/39 (120 Mo).",
+  "product.olivetti-m30002.technical.firmware": "Le BIOS conservé est le R1.02 (28/04/92), de 128 Ko dans une 27C010. Le guide de service cite le R1.03 comme dernier pour la BA013/16 ; il n’a pas été retrouvé. Il comprend les Diagnostics résidents et un Setup en ROM en six langues.",
+  "product.olivetti-m30002.technical.commercial_configurations": "Le guide de service présente le M300-02 comme le premier modèle à 16 MHz avec carte BA013/16 et 2 Mo, et le M300-02F comme le modèle suivant à 25 MHz avec la BA013/25.",
+  "product.olivetti-m30002.technical.service_manual": "Olivetti Personal Computer - Pocket Service Guide, chapitre 40 : M300-02 / M300-02F.",
+  "product.olivetti-m30002.creation.cpu": "Intel 386SX à 16 MHz"
 }

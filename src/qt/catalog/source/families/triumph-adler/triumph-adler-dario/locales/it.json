@@ -8,9 +8,10 @@
   "family.triumph-adler-dario.table.cpu": "CPU",
   "family.triumph-adler-dario.table.equivalent": "Equivalente Olivetti",
   "family.triumph-adler-dario.table.status": "Catalogo BluMach",
-  "family.triumph-adler-dario.status.experimental": "Scheda e creazione sperimentale",
+  "family.triumph-adler-dario.status.experimental": "Scheda e creazione sperimentali",
   "family.triumph-adler-dario.status.reference": "Riferimento storico; senza scheda",
   "family.triumph-adler-dario.equivalent.p92": "Olivetti M386-25 (fonte secondaria)",
   "family.triumph-adler-dario.equivalent.p100": "Olivetti M380 XP9 (fonte secondaria)",
-  "family.triumph-adler-dario.period.unknown": "Data non stabilita"
+  "family.triumph-adler-dario.period.unknown": "Data non stabilita",
+  "family.triumph-adler-dario.status.partial": "Scheda e creazione parziali"
 }

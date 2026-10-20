@@ -84,6 +84,6 @@ image at E0000h.
 
 | Set | Expected filename | Size | SHA-256 |
 |---|---|---:|---|
-| BIOS 1.09 / Diagnostics 1.03 | `BIOS-1.09-DIAG-1.03.BIN` | 131072 | `ca62a4a70b5ebc18b84e7d943f6c615f1076a8036dccbbc4ec4cf396fe5ed916` |
-| BIOS 1.09 / Diagnostics 1.04 | `BIOS-1.09-DIAG-1.04.BIN` | 131072 | `11b787c8b721c5237c34e4b7f2231ac603ee1f0fccdcce5c4c81c10bbd3b6ad5` |
-| BIOS 1.09 / Diagnostics 2.00 | `BIOS-1.09-DIAG-2.00.BIN` | 131072 | `cff38096cad2cf74cf4716558281a908787dd8647025a9947d4641326f58b048` |
+| Diagnostics 1.03 + OVC 1.09 | `BIOS-1.09-DIAG-1.03.BIN` | 131072 | `ca62a4a70b5ebc18b84e7d943f6c615f1076a8036dccbbc4ec4cf396fe5ed916` |
+| Diagnostics 1.04 + OVC 1.09 | `BIOS-1.09-DIAG-1.04.BIN` | 131072 | `11b787c8b721c5237c34e4b7f2231ac603ee1f0fccdcce5c4c81c10bbd3b6ad5` |
+| Diagnostics 2.00 + OVC 1.09 | `BIOS-1.09-DIAG-2.00.BIN` | 131072 | `cff38096cad2cf74cf4716558281a908787dd8647025a9947d4641326f58b048` |

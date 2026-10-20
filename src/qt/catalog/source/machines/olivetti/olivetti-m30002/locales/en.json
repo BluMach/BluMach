@@ -1,6 +1,22 @@
 {
-  "product.olivetti-m30002.summary": "Early BA013/16 M300 with a 16 MHz 386SX, TOPCAT and integrated WD90C11.",
-  "product.olivetti-m30002.history": "M300-02 is the 16 MHz professional BA013 product. It has its own firmware line and machine identity, separate from the faster M300-02F and the physically different PCS products.",
-  "product.olivetti-m30002.technical.verified": "The exact 128 KB R1.02 dump is identified, hashed and connected to a dedicated 16 MHz machine target sharing the BA013 core.",
-  "product.olivetti-m30002.technical.limitations": "Implemented but not yet boot-validated. The later R1.03 service BIOS is missing, and the TOPCAT and multifunction support remain partial functional models."
+  "product.olivetti-m30002.summary": "1992 M300 with a 16 MHz 386SX, VLSI TOPCAT chipset and integrated WD90C11 video.",
+  "product.olivetti-m30002.history": "The M300-02 is the 16 MHz model of the BA013 board in the professional M300 range. The M300-02F uses the 25 MHz version of that board, and the PCS 11 and PCS 33 of late 1992 were built on the same base, with a different case and BIOS.",
+  "product.olivetti-m30002.technical.verified": "The R1.02 BIOS (128 KB) is identified and hash-verified. POST and booting from floppy disk have been observed.",
+  "product.olivetti-m30002.technical.limitations": "Partial emulation: it boots from floppy disk; the IDE disk still needs testing. The R1.02 BIOS programs the same TOPCAT values as the PCS 11 one; compared with the 25 MHz board only the memory and bus timings change, and the emulator does not use them. The later R1.03 service BIOS is missing, and the TOPCAT and board logic are partial functional models.",
+  "product.olivetti-m30002.creation.memory.2048": "2 MB (reference profile)",
+  "product.olivetti-m30002.creation.memory.4096": "4 MB",
+  "product.olivetti-m30002.creation.memory.10240": "10 MB (documented maximum)",
+  "product.olivetti-m30002.creation.storage.none": "No hard disk: one 1.44 MB floppy drive",
+  "product.olivetti-m30002.creation.storage.ide-40": "40 MB IDE disk, BIOS type 1: 980/5/17",
+  "product.olivetti-m30002.creation.storage.ide-120": "120 MB IDE disk, BIOS type 3: 762/8/39",
+  "product.olivetti-m30002.creation.model": "M300-02 with a 16 MHz 386SX, 2 MB, integrated WD90C11 and one 1.44 MB 3.5-inch floppy drive",
+  "product.olivetti-m30002.creation.note": "This board’s BIOS supports only four drive types. If you add the disk, choose the type shown in the option in Setup. The disk connects to the board’s IDE interface.",
+  "product.olivetti-m30002.technical.cpu": "16 MHz Intel 386SX on the BA013/16 board, with an i387SX socket. VLSI TOPCAT chipset: VL82C320 system controller and VL82C331 bus controller. Two 16-bit ISA slots on the bus expansion board.",
+  "product.olivetti-m30002.technical.memory": "Bank 0 with 2 MB soldered and bank 1 with two sockets for 1 M × 9 SIMMs (2 MB in total) or 4 M × 9 SIMMs (8 MB in total): 2, 4 or 10 MB. 80 ns access.",
+  "product.olivetti-m30002.technical.video": "Integrated VGA: Western Digital WD90C11A, WD90C64 clock generator and Brooktree BT476 DAC. BluMach uses its WD90C11 model with 512 KB.",
+  "product.olivetti-m30002.technical.storage": "3.5-inch 1.44 MB or 5.25-inch 1.2 MB floppy drive, with an Acer controller and serial and parallel ports in the 87C310. The IDE disk uses a buffered interface on the board. The BIOS table has only four types; the first three are 980/5/17 (40 MB), 977/10/17 (85 MB) and 762/8/39 (120 MB).",
+  "product.olivetti-m30002.technical.firmware": "The preserved BIOS is R1.02 (04/28/92), 128 KB in a 27C010. The service guide lists R1.03 as the last one for the BA013/16; it has not been found. It includes Resident Diagnostics and a Setup in ROM with six languages.",
+  "product.olivetti-m30002.technical.commercial_configurations": "The service guide presents the M300-02 as the earlier 16 MHz model with the BA013/16 board and 2 MB, and the M300-02F as the later 25 MHz model with the BA013/25.",
+  "product.olivetti-m30002.technical.service_manual": "Olivetti Personal Computer - Pocket Service Guide, chapter 40: M300-02 / M300-02F.",
+  "product.olivetti-m30002.creation.cpu": "16 MHz Intel 386SX"
 }

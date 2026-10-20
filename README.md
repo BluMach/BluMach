@@ -22,8 +22,9 @@ BluMach is an independent project and is not an official 86Box build. Existing
 > The project is under active development and is provided as-is, without warranty,
 > under the terms of the GPL-2.0-or-later license. Official binary releases are
 > experimental previews, not stable-release guarantees. The current preview is
-> **0.1.0-alpha.4**; see the [fourth-alpha guide](doc/releases/0.1.0-alpha.4.md).
-> The [third-alpha](doc/releases/0.1.0-alpha.3.md) and
+> **0.1.0-alpha.5**; see the [fifth-alpha guide](doc/releases/0.1.0-alpha.5.md).
+> The [fourth-alpha](doc/releases/0.1.0-alpha.4.md),
+> [third-alpha](doc/releases/0.1.0-alpha.3.md) and
 > [second-alpha](doc/releases/0.1.0-alpha.2.md) guides and the first preview's
 > [setup guide](doc/releases/0.1.0-alpha.1.md) are retained.
 > Check the [published releases](https://github.com/BluMach/BluMach/releases)

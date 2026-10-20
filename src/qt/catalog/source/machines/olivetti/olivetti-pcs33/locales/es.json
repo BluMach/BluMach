@@ -1,6 +1,22 @@
 {
-  "product.olivetti-pcs33.summary": "Sobremesa de oficina 386SX a 25 MHz de la serie PCS de 1992.",
-  "product.olivetti-pcs33.history": "PCS 33 se comercializó como un equipo de oficina distinto, con 2 MB y discos IDE de 40 a 120 MB. Su BIOS 6.03 conservada permite reutilizar provisionalmente BA013/25 sin convertir PCS 11, PCS 33 y M300-02F en alias.",
-  "product.olivetti-pcs33.technical.verified": "El volcado PCS 33 6.03 identificado por su procedencia dispone de una máquina propia de 25 MHz y utiliza el núcleo TOPCAT BA013/25 recuperado.",
-  "product.olivetti-pcs33.technical.limitations": "Ficha de producto independiente. La asignación exacta de placa y las diferencias externas del PCS 33 aún requieren manual o inspección física específica; la implementación compartida debe considerarse provisional y parcial."
+  "product.olivetti-pcs33.summary": "Sobremesa compacto de 1992 con 386SX a 25 MHz, para uso general en la oficina.",
+  "product.olivetti-pcs33.history": "El PCS 33 salió en noviembre de 1992 con el PCS 11 y el PCS 44, como modelo intermedio para uso general en la oficina: 386SX a 25 MHz, 2 MB de memoria, disquetera de 1,44 MB y disco de 40 a 120 MB, con MS-DOS 5.0 y Windows 3.0 instalados de fábrica. Usa la placa BA013/25, la misma base técnica que el M300-02F, con su propia BIOS (R6.03).",
+  "product.olivetti-pcs33.technical.verified": "Con su propia BIOS R6.03 se han observado POST, detección del disco IDE y arranque, en la misma emulación BA013/25 que el M300-02F.",
+  "product.olivetti-pcs33.technical.limitations": "Emulación parcial arrancable. No hay manual del PCS 33 que confirme la placa, y la caja no se modela. Quedan por probar otras cantidades de memoria y más software.",
+  "product.olivetti-pcs33.creation.memory.2048": "2 MB (perfil de referencia)",
+  "product.olivetti-pcs33.creation.memory.4096": "4 MB",
+  "product.olivetti-pcs33.creation.memory.10240": "10 MB (máximo documentado)",
+  "product.olivetti-pcs33.creation.storage.none": "Sin disco duro: una disquetera de 1,44 MB",
+  "product.olivetti-pcs33.creation.storage.ide-40": "Disco IDE de 40 MB, tipo 1 de la BIOS: 965/5/17",
+  "product.olivetti-pcs33.creation.storage.ide-120": "Disco IDE de 120 MB, tipo 3 de la BIOS: 761/8/39",
+  "product.olivetti-pcs33.creation.model": "PCS 33 de 1992: 386SX a 25 MHz, 2 MB, WD90C11 integrado y una disquetera de 1,44 MB",
+  "product.olivetti-pcs33.creation.note": "La BIOS de esta placa solo admite cuatro tipos de disco. Si añades el disco, elige en el Setup el tipo indicado en la opción. El disco se conecta a la interfaz IDE de la placa.",
+  "product.olivetti-pcs33.technical.cpu": "Intel 386SX a 25 MHz en la placa BA013/25, con zócalo para i387SX. Chipset VLSI TOPCAT: VL82C320 (controlador de sistema) y VL82C331 (controlador de bus). Dos ranuras ISA de 16 bits en la tarjeta de expansión de bus. Datos tomados de la placa BA013 compartida con el M300-02/02F; no hay guía de servicio del PCS.",
+  "product.olivetti-pcs33.technical.memory": "Banco 0 con 2 MB soldados y banco 1 con dos zócalos para SIMM de 1 M × 9 (2 MB en total) o de 4 M × 9 (8 MB en total): 2, 4 o 10 MB. Acceso a 80 ns.",
+  "product.olivetti-pcs33.technical.video": "VGA integrada: Western Digital WD90C11A, generador de reloj WD90C64 y DAC Brooktree BT476. BluMach usa el modelo WD90C11 con 512 KB.",
+  "product.olivetti-pcs33.technical.storage": "Disquetera de 3,5 pulgadas y 1,44 MB o de 5,25 pulgadas y 1,2 MB, con controladora Acer y puertos serie y paralelo en el 87C310. El disco IDE va en una interfaz de buffers en la placa. La tabla de la BIOS solo tiene cuatro tipos; los tres primeros son 965/5/17 (40 MB), 975/10/17 (85 MB) y 761/8/39 (120 MB).",
+  "product.olivetti-pcs33.technical.firmware": "Se conserva la BIOS R6.03 (01/03/93), de 128 KB. Su tabla de discos es la misma que la de las BIOS del PCS 11.",
+  "product.olivetti-pcs33.technical.commercial_configurations": "Presentado en noviembre de 1992 con 2 MB, disquetera de 1,44 MB, disco de 40 a 120 MB, MS-DOS 5.0 y Windows 3.0.",
+  "product.olivetti-pcs33.technical.press": "Computer Business Review, 15/11/1992: presentación de los PCS 11, PCS 33 y PCS 44.",
+  "product.olivetti-pcs33.creation.cpu": "Intel 386SX a 25 MHz"
 }

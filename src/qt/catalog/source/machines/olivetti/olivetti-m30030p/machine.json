@@ -2,6 +2,7 @@
   "order": 180,
   "machine": {
     "id": "olivetti-m30030p",
+    "visible": true,
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-m",
     "platform_id": "olivetti-m30030p-platform",
@@ -40,15 +41,221 @@
     },
     "firmware": {
       "known_sets": [
-        "BIOS 1.09 / Diagnostics 1.03",
-        "BIOS 1.09 / Diagnostics 1.04",
-        "BIOS 1.09 / Diagnostics 2.00"
+        "Resident Diagnostics 1.03 + OVC 1.09",
+        "Resident Diagnostics 1.04 + OVC 1.09",
+        "Resident Diagnostics 2.00 + OVC 1.09"
       ],
       "required": true
     },
     "creation": {
       "status": "experimental",
       "directory_prefix": "olivetti-m30030p",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m30030p.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.commercial_model",
+          "value_key": "product.olivetti-m30030p.creation.model"
+        }
+      ],
+      "fields": [
+        {
+          "id": "firmware",
+          "label_key": "creation.label.firmware",
+          "default": "diag200",
+          "choices": [
+            {
+              "id": "diag103",
+              "label_key": "product.olivetti-m30030p.creation.bios.diag103",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Olivetti M300-30 / M300-30P",
+                  "key": "bios",
+                  "value": "diag103"
+                }
+              ]
+            },
+            {
+              "id": "diag104",
+              "label_key": "product.olivetti-m30030p.creation.bios.diag104",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Olivetti M300-30 / M300-30P",
+                  "key": "bios",
+                  "value": "diag104"
+                }
+              ]
+            },
+            {
+              "id": "diag200",
+              "label_key": "product.olivetti-m30030p.creation.bios.diag200",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Olivetti M300-30 / M300-30P",
+                  "key": "bios",
+                  "value": "diag200"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "memory",
+          "label_key": "creation.label.memory",
+          "default": "4096",
+          "choices": [
+            {
+              "id": "4096",
+              "label_key": "product.olivetti-m30030p.creation.memory.4096",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 4096
+                }
+              ]
+            },
+            {
+              "id": "8192",
+              "label_key": "product.olivetti-m30030p.creation.memory.8192",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 8192
+                }
+              ]
+            },
+            {
+              "id": "12288",
+              "label_key": "product.olivetti-m30030p.creation.memory.12288",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 12288
+                }
+              ]
+            },
+            {
+              "id": "20480",
+              "label_key": "product.olivetti-m30030p.creation.memory.20480",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 20480
+                }
+              ]
+            },
+            {
+              "id": "24576",
+              "label_key": "product.olivetti-m30030p.creation.memory.24576",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 24576
+                }
+              ]
+            },
+            {
+              "id": "36864",
+              "label_key": "product.olivetti-m30030p.creation.memory.36864",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 36864
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-m30030p.creation.storage.none",
+              "status": "partial",
+              "set": []
+            },
+            {
+              "id": "ide-40",
+              "label_key": "product.olivetti-m30030p.creation.storage.ide-40",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m30030p-ide-40mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "26, 4, 805, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m30030p-ide-40mb.img",
+                  "size": 42864640
+                }
+              ]
+            },
+            {
+              "id": "ide-100",
+              "label_key": "product.olivetti-m30030p.creation.storage.ide-100",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m30030p-ide-100mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "33, 8, 776, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m30030p-ide-100mb.img",
+                  "size": 104890368
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m30030p.creation.note"
+      ],
       "configuration": [
         {
           "section": "General",
@@ -63,14 +270,14 @@
             "cpu_family": "i486dx2",
             "cpu_speed": 50000000,
             "cpu_multi": 2,
-            "cpu_use_dynarec": 1,
+            "cpu_use_dynarec": 0,
             "mem_size": 4096
           }
         },
         {
           "section": "Olivetti M300-30 / M300-30P",
           "values": {
-            "bios": "diag104"
+            "bios": "diag200"
           }
         },
         {
@@ -92,25 +299,43 @@
             "fdd_01_type": "35_2hd",
             "fdd_02_type": "none"
           }
-        },
-        {
-          "section": "Hard disks",
-          "values": {
-            "hdd_01_fn": "olivetti-m30030p-100mb.img",
-            "hdd_01_parameters": "33, 8, 776, 0, ide",
-            "hdd_01_ide_channel": "0:0",
-            "hdd_01_speed": "CP3104"
-          }
         }
       ],
-      "generated_files": [
-        {
-          "path": "olivetti-m30030p-100mb.img",
-          "size": 104890368
-        }
-      ]
+      "generated_files": []
     },
     "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.mixed",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m30030p.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m30030p.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m30030p.technical.video"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m30030p.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.observed",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m30030p.technical.firmware"
+          }
+        ]
+      },
       {
         "title_key": "technical.section.emulation",
         "evidence_key": "technical.evidence.implementation",

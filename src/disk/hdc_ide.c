@@ -96,6 +96,7 @@
 #define WIN_IDLENOW1                   0xe1
 #define WIN_SETIDLE1                   0xe3
 #define WIN_CHECKPOWERMODE1            0xe5
+#define WIN_READ_BUFFER                0xe4 /* Read Sector Buffer */
 #define WIN_SLEEP1                     0xe6
 #define WIN_IDENTIFY                   0xec /* Ask drive to identify itself */
 #define WIN_SET_FEATURES               0xef
@@ -1938,7 +1939,8 @@ ide_writeb(uint16_t addr, uint8_t val, void *priv)
         case 0x7: /* Command register */
             if ((ide->tf->atastat & (BSY_STAT | DRQ_STAT)) &&
                 ((val != WIN_SRST) || (ide->type != IDE_ATAPI)) &&
-                ((val != WIN_VERIFY) || (prev != WIN_IDENTIFY)))
+                ((val != WIN_VERIFY) || (prev != WIN_IDENTIFY)) &&
+                ((val != WIN_READ_BUFFER) || (prev != WIN_IDENTIFY)))
                 break;
 
             if ((ide->type == IDE_NONE) || ((ide->type & IDE_SHADOW) && (val != WIN_DRIVE_DIAGNOSTICS)))
@@ -2143,6 +2145,21 @@ ide_writeb(uint16_t addr, uint8_t val, void *priv)
                 case WIN_SLEEP1:
                     ide->tf->atastat = BSY_STAT;
                     ide_callback(ide);
+                    break;
+
+                case WIN_READ_BUFFER: /* Read Sector Buffer */
+                    /*
+                     * Olivetti BA013 BIOSes (M300-02/02F, PCS 11/33) issue
+                     * IDENTIFY and then READ BUFFER without draining the
+                     * IDENTIFY data, and wait for IRQ 14 with a ~25 s timeout.
+                     * Real drives return the sector buffer, which still holds
+                     * the IDENTIFY data.
+                     */
+                    if (ide->type == IDE_HDD) {
+                        ide->tf->atastat = BSY_STAT;
+                        ide_set_callback(ide, 200.0 * IDE_TIME);
+                    } else
+                        bad = 1;
                     break;
 
                 case WIN_PACKETCMD: /* ATAPI Packet */
@@ -2383,6 +2400,7 @@ ide_readb(uint16_t addr, void *priv)
         default:
             break;
     }
+
 
     ide_log("[%04X:%08X] ide_readb(%04X, %08X) = %02X\n", CS, cpu_state.pc, addr, priv, ret);
 
@@ -2945,6 +2963,15 @@ ide_callback(void *priv)
                 ide_set_signature(ide);
                 err = ABRT_ERR;
             }
+            break;
+
+        case WIN_READ_BUFFER: /* Read Sector Buffer */
+            if (ide->type == IDE_HDD) {
+                ide->tf->pos     = 0;
+                ide->tf->atastat = DRQ_STAT | DRDY_STAT | DSC_STAT;
+                ide_irq_raise(ide);
+            } else
+                err = ABRT_ERR;
             break;
 
         case WIN_PACKETCMD: /* ATAPI Packet */

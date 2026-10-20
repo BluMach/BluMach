@@ -1,6 +1,23 @@
 {
   "product.olivetti-m300-if378.summary": "M300 modulaire 386SX 16 MHz avec carte IF378 et contrôleur mémoire Intel 82335.",
   "product.olivetti-m300-if378.history": "Le M300 modulaire original associe IF378, bus IN108 et carte multifonction GO477; ce n'est pas la carte mère des M300 numérotés ultérieurs.",
-  "product.olivetti-m300-if378.technical.verified": "Les diagnostics résidents et l'amorçage MS-DOS 3.30a avec NVR conservée ont été observés.",
-  "product.olivetti-m300-if378.technical.limitations": "Émulation partielle amorçable: le 82335 est modélisé, tandis que les fonctions 82230/82231 et GO477 utilisent des composants AT compatibles; GO481 exige encore une VGA externe. IDE et davantage de logiciels restent à valider; les délais de diagnostic sont des approximations."
+  "product.olivetti-m300-if378.technical.verified": "Avec 2 Mo, les diagnostics résidents terminent leurs tests et comptent 640 Ko de base, 1280 Ko étendus et 128 Ko de mémoire fantôme (2048 Ko), après la séquence de remappage mémoire du BIOS ; le Setup en ROM s’ouvre ensuite. Le démarrage de MS-DOS 3.30a avec NVR conservée avait déjà été observé.",
+  "product.olivetti-m300-if378.technical.limitations": "Émulation partielle amorçable. La configuration mémoire du 82335, le remappage de mémoire et les plages de mémoire de la carte que le BIOS utilise pour mesurer la mémoire sont émulés. La mémoire ne se répète pas au-delà de la quantité installée comme sur la carte réelle, et la mémoire remappée se place juste au-dessus de la mémoire installée. Les fonctions des 82230/82231 et de la GO477 utilisent des composants AT compatibles, et la GO481 exige encore une VGA externe. Le disque IDE, d’autres quantités de mémoire et davantage de logiciels restent à valider.",
+  "product.olivetti-m300-if378.creation.memory.2048": "2 Mo (profil de référence)",
+  "product.olivetti-m300-if378.creation.memory.4096": "4 Mo",
+  "product.olivetti-m300-if378.creation.memory.8192": "8 Mo",
+  "product.olivetti-m300-if378.creation.memory.12288": "12 Mo (maximum documenté)",
+  "product.olivetti-m300-if378.creation.storage.none": "Sans disque dur : un lecteur de disquettes de 1,44 Mo",
+  "product.olivetti-m300-if378.creation.storage.ide-40": "Disque IDE de 40 Mo, type 36 du BIOS : 805/4/26",
+  "product.olivetti-m300-if378.creation.storage.ide-100": "Disque IDE de 100 Mo, type 33 du BIOS : 776/8/33",
+  "product.olivetti-m300-if378.creation.model": "M300 modulaire avec carte IF378 : 386SX à 16 MHz, 2 Mo, VGA externe et un lecteur de disquettes de 1,44 Mo",
+  "product.olivetti-m300-if378.creation.note": "La carte vidéo GO481 n’est pas émulée ; le profil utilise donc une VGA Paradise PVGA1A externe. Si vous ajoutez le disque, choisissez dans le Setup le type indiqué dans l’option.",
+  "product.olivetti-m300-if378.technical.commercial_configurations": "Le M300 d’origine est modulaire : la carte CPU (UC093/097 puis UC112/113, avec l’IF378) s’insère dans l’emplacement 3 de la carte de bus IN108, qui compte 8 emplacements (cinq de 16 bits et trois de 8). La carte multifonction GO477 et la VGA GO481 en occupent deux autres.",
+  "product.olivetti-m300-if378.technical.cpu": "Intel 386SX à 16 MHz avec support pour 80387SX. Les Intel 82230/82231 regroupent la logique AT (horloge, interruptions, DMA, temporisateur, RTC) et le 82335 gère la mémoire.",
+  "product.olivetti-m300-if378.technical.memory": "Jusqu’à 12 Mo : deux bancs sur la carte CPU (1 Mo avec des SIMM de 256 Ko, ou 2 ou 4 Mo avec des SIMM 1 M × 9) et des cartes mémoire AMB 2678 de 2 à 4 Mo. Accès à 100 ns.",
+  "product.olivetti-m300-if378.technical.video": "Carte VGA GO481 dans l’emplacement 6 du bus. Elle n’est pas émulée ; le profil utilise une Paradise PVGA1A externe.",
+  "product.olivetti-m300-if378.technical.storage": "La GO477 réunit l’interface disque, le contrôleur de disquettes (WD37C65C) et le port série. Les disques documentés font 20, 40 et 100 Mo (Conner, NEC, Quantum). La table du BIOS comprend le type 33 (776/8/33) et le type 36 (805/4/26).",
+  "product.olivetti-m300-if378.technical.firmware": "Le BIOS 1.09 (26/06/90), de 64 Ko dans une 27C512, est conservé. Le guide de service associe le 1.09 aux cartes UC112/113 et cite un 1.10 ultérieur qui corrige la perte de la première touche après Ctrl+Alt+Suppr sans mémoire fantôme.",
+  "product.olivetti-m300-if378.technical.service_manual": "Olivetti Personal Computer - Pocket Service Guide, chapitre 10 : M300.",
+  "product.olivetti-m300-if378.creation.cpu": "Intel 386SX à 16 MHz"
 }

@@ -11,7 +11,7 @@
     "history_key": "product.toshiba-t5200.history",
     "warning_key": "product.toshiba-t5200.warning",
     "status": "experimental",
-    "period": "1990s",
+    "period": "1989–1991",
     "aliases": [
       "T5200/100",
       "T5200/200"
@@ -54,7 +54,10 @@
       "interfaces": "Two serial ports, parallel/external-floppy connector and proprietary expansion"
     },
     "firmware": {
-      "required_files": ["machines/t5200/t5200-award-v130.bin", "machines/t5200/t5200-vga-1988.bin"],
+      "required_files": [
+        "machines/t5200/t5200-award-v130.bin",
+        "machines/t5200/t5200-vga-1988.bin"
+      ],
       "known_sets": [
         "Award V1.30 system BIOS (1988)",
         "Toshiba VGA BIOS (1988, 24 KB)"
@@ -97,43 +100,85 @@
               "id": "2mb",
               "label_key": "product.toshiba-t5200.creation.2mb",
               "status": "validated",
-              "set": [{ "section": "Machine", "key": "mem_size", "value": 2048 }]
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 2048
+                }
+              ]
             },
             {
               "id": "4mb",
               "label_key": "product.toshiba-t5200.creation.4mb",
               "status": "validated",
-              "set": [{ "section": "Machine", "key": "mem_size", "value": 4096 }]
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 4096
+                }
+              ]
             },
             {
               "id": "6mb",
               "label_key": "product.toshiba-t5200.creation.6mb",
               "status": "validated",
-              "set": [{ "section": "Machine", "key": "mem_size", "value": 6144 }]
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 6144
+                }
+              ]
             },
             {
               "id": "8mb",
               "label_key": "product.toshiba-t5200.creation.8mb",
               "status": "validated",
-              "set": [{ "section": "Machine", "key": "mem_size", "value": 8192 }]
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 8192
+                }
+              ]
             },
             {
               "id": "10mb",
               "label_key": "product.toshiba-t5200.creation.10mb",
               "status": "validated",
-              "set": [{ "section": "Machine", "key": "mem_size", "value": 10240 }]
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 10240
+                }
+              ]
             },
             {
               "id": "12mb",
               "label_key": "product.toshiba-t5200.creation.12mb",
               "status": "validated",
-              "set": [{ "section": "Machine", "key": "mem_size", "value": 12288 }]
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 12288
+                }
+              ]
             },
             {
               "id": "14mb",
               "label_key": "product.toshiba-t5200.creation.14mb",
               "status": "validated",
-              "set": [{ "section": "Machine", "key": "mem_size", "value": 14336 }]
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 14336
+                }
+              ]
             }
           ]
         },
@@ -146,13 +191,25 @@
               "id": "dual-outputs",
               "label_key": "product.toshiba-t5200.creation.display.internal",
               "status": "validated",
-              "set": [{ "section": "Toshiba T5200", "key": "display_output", "value": 0 }]
+              "set": [
+                {
+                  "section": "Toshiba T5200",
+                  "key": "display_output",
+                  "value": 0
+                }
+              ]
             },
             {
               "id": "external-only",
               "label_key": "product.toshiba-t5200.creation.display.external",
               "status": "validated",
-              "set": [{ "section": "Toshiba T5200", "key": "display_output", "value": 1 }]
+              "set": [
+                {
+                  "section": "Toshiba T5200",
+                  "key": "display_output",
+                  "value": 1
+                }
+              ]
             }
           ]
         },
@@ -165,13 +222,25 @@
               "id": "1440k",
               "label_key": "product.toshiba-t5200.creation.1440k",
               "status": "validated",
-              "set": [{ "section": "Floppy and CD-ROM drives", "key": "fdd_01_type", "value": "35_2hd" }]
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_01_type",
+                  "value": "35_2hd"
+                }
+              ]
             },
             {
               "id": "720k",
               "label_key": "product.toshiba-t5200.creation.720k",
               "status": "validated",
-              "set": [{ "section": "Floppy and CD-ROM drives", "key": "fdd_01_type", "value": "35_2dd" }]
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_01_type",
+                  "value": "35_2dd"
+                }
+              ]
             }
           ]
         }
@@ -181,7 +250,16 @@
       ],
       "generated_files": [],
       "configuration": [
-      {"section": "Sound", "values": {"sndcard": "none", "sndcard2": "none", "sndcard3": "none", "sndcard4": "none", "mpu401_standalone": 0}},
+        {
+          "section": "Sound",
+          "values": {
+            "sndcard": "none",
+            "sndcard2": "none",
+            "sndcard3": "none",
+            "sndcard4": "none",
+            "mpu401_standalone": 0
+          }
+        },
         {
           "section": "General",
           "values": {
@@ -284,9 +362,12 @@
       {
         "title_key": "technical.section.emulation",
         "entries": [
-          {"label_key": "technical.label.screen_controls", "value_key": "product.toshiba-t5200.technical.screen_controls"},
           {
-            "label_key": "technical.label.limitations",
+            "label_key": "technical.label.screen_controls",
+            "value_key": "product.toshiba-t5200.technical.screen_controls"
+          },
+          {
+            "label_key": "technical.label.verified",
             "value_key": "product.toshiba-t5200.technical.validation"
           }
         ]

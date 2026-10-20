@@ -29,8 +29,8 @@ complete hardware reproduction.
 | M300-02F BA013/25 | `olivetti_m30002f` | 386SX/25; VLSI TOPCAT VL82C320/VL82C331; WD90C11C | Cold POST, memory paths, EMS register activity and boot | TOPCAT is an initial register/memory-map model; the 87C310, Acer FDC and MSI glue are aggregated through compatible devices. |
 | M300-08 BA319/BA324/BA325 | `olivetti_m30008` | 386SX/20; OPTi 82C283 plus 82C206; OAK OTI067 | POST, Setup, calendar rollover, floppy and MS-DOS 3.30a | 82C206 is represented by common AT functions; IDE and wider software validation remain pending. |
 | M300-15 BA320 | `olivetti_m30015` | Intel 386SX/25; AMD 386SX/25 documented as a later alternative; OPTi 82C283 plus 82C206; OAK OTI067 | POST, Calendar PASS, floppy and MS-DOS 3.30a | The support-chip composition is functional, not chip-accurate; IDE and broad software validation remain pending. |
-| M300-30 | `olivetti_m30030` | i486SX/25; VLSI VL82C486; WD90C31; PC87311/87312 family | Full POST and resident diagnostics, MS-DOS 5.00 boot and calendar persistence with BIOS 1.09/Diagnostics 1.04 | Initial VL82C486 model; WD90C31 and Super I/O use compatible cores; other RAM populations need validation. |
-| M300-30P | `olivetti_m30030p` | i486DX2/50 on a 25 MHz external bus; otherwise shared M300-30 platform | Cold boot and Diagnostics 2.00 complete at 4 MiB with the correct 640+3072+384 KiB memory accounting | Separate CPU identity and partial shared board model; Diagnostics labels the selected DX2/50 as DX2-66 and Ctrl+Alt+Del does not yet complete reliably. |
+| M300-30 | `olivetti_m30030` | i486SX/25; VLSI VL82C486; WD90C31; PC87311/87312 family | Full POST and resident diagnostics, MS-DOS 5.00 boot and calendar persistence with Diagnostics 1.04 (OVC 1.09) | Initial VL82C486 model; WD90C31 and Super I/O use compatible cores; other RAM populations need validation. |
+| M300-30P | `olivetti_m30030p` | i486DX2/50 on a 25 MHz external bus; otherwise shared M300-30 platform | Cold boot and Diagnostics 2.00 complete at 4 MiB with the correct 640+3072+384 KiB memory accounting | Separate CPU identity and partial shared board model; the bus-speed strap that names the CPU is emulated but not yet confirmed, and Ctrl+Alt+Del does not yet complete reliably. |
 
 ## M300 with IF378 CPU card
 
@@ -192,14 +192,30 @@ RTC is currently represented by 128-byte AT NVR-compatible behaviour.
 
 Resident Diagnostics depends on two behaviours added for this platform: a
 visible VLSI refresh transition at port 61h bit 4, and the i486 TR3/TR4/TR5
-cache-test data/tag operations. With BIOS 1.09/Diagnostics 1.04 the recovered
+cache-test data/tag operations. With Diagnostics 1.04 (OVC 1.09) the recovered
 build completed CPU, base/extended/dedicated-memory, cache, parity, PIC, DMA,
 keyboard, RTC/calendar and protected-mode tests, then booted the Olivetti
 MS-DOS 5.00 User Disk. Warm reset and calendar persistence were also observed.
-On the M300-30P, BIOS 1.09/Diagnostics 2.00 has also completed the resident
-tests with the correct 4 MiB accounting above. It currently identifies the
-configured DX2/50 as DX2-66, so CPU timing/identification remains an explicit
-open issue.
+On the M300-30P, Diagnostics 2.00 (OVC 1.09) has also completed the resident
+tests with the correct 4 MiB accounting above.
+
+The firmware names the CPU from two inputs. The family comes from DX after a
+CPU reset; the bus speed comes from a board configuration register. All three
+Diagnostics releases open that register with Olivetti KBC command 8Bh, read or
+write it through port 70h and close it with 8Ah (F000:8E43 write and F000:8E97
+read in Diagnostics 2.00). Bits 2-0 hold a bus-speed code: Diagnostics
+1.03/1.04 decode 2, 3, 4 and 5 as 16, 20, 25 and 33 MHz and name a DX2 by its
+bus (DX2-25MHz), while Diagnostics 2.00 only tests bit 0 (33 or 25 MHz) and
+names a DX2 by its core (DX2-50/DX2-66). In 2.00, bit 1 moves the PC87311
+configuration index from 398h to 26Eh; bit 3 is returned by the far service
+at F000:8F88 and is not understood yet. Earlier builds had no such register:
+port 70h returned the last RTC index written, so the firmware read back its
+own last write and named the DX2/50 a DX2-66. BluMach now disconnects port 70h
+from the RTC while the window is open and returns code 4 (25 MHz) or 5
+(33 MHz) from the configured CPU; both codes keep bit 1 clear, so the Super
+I/O stays at 398h. Port 71h stays on the RTC. Confirmation is pending: the
+M300-30 should show i486SX-25MHz, and the M300-30P i486DX2-25MHz with
+Diagnostics 1.03/1.04 and i486DX2-50MHz with 2.00.
 
 The M300-30P still has a reproducible **warm-reset limitation**. A cold start
 completes POST and diagnostics, but Ctrl+Alt+Del can stop during early firmware
@@ -219,11 +235,11 @@ sets and a wider software set still require a formal regression campaign.
 
 Known firmware metadata (firmware is not distributed):
 
-- BIOS 1.09 / Diagnostics 1.03: 131,072 bytes, SHA-256
+- Diagnostics 1.03 (OVC 1.09): 131,072 bytes, SHA-256
   `CA62A4A70B5EBC18B84E7D943F6C615F1076A8036DCCBBC4EC4CF396FE5ED916`
-- BIOS 1.09 / Diagnostics 1.04: 131,072 bytes, SHA-256
+- Diagnostics 1.04 (OVC 1.09): 131,072 bytes, SHA-256
   `11B787C8B721C5237C34E4B7F2231AC603EE1F0FCCDCCE5C4C81C10BBD3B6AD5`
-- BIOS 1.09 / Diagnostics 2.00: 131,072 bytes, SHA-256
+- Diagnostics 2.00 (OVC 1.09): 131,072 bytes, SHA-256
   `CFF38096CAD2CF74CF4716558281A908787DD8647025A9947D4641326F58B048`
 
 Exact firmware-to-board-number assignment is not yet proven, so BA numbers are

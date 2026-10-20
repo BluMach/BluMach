@@ -1,6 +1,24 @@
 {
   "product.olivetti-m30015.summary": "386SX 25 MHz avec OPTi 82C283, 82C206 séparé et vidéo OAK OTI-067 intégrée.",
   "product.olivetti-m30015.history": "BA320 est d'abord documentée avec un Intel 386SX à 25 MHz; l'AMD 80386SX-25 est une alternative ultérieure sans changement de carte. Bus AT 8,33 MHz; mémoire 4/8/10/14/16 Mo.",
-  "product.olivetti-m30015.technical.verified": "POST, Calendar PASS, disquette et amorçage MS-DOS 3.30a sont validés.",
-  "product.olivetti-m30015.technical.limitations": "Émulation partielle amorçable. Le 82C283 est modélisé avec bus AT à 8,33 MHz; des dispositifs compatibles représentent le 82C206 et les contrôleurs discrets. IDE et davantage de logiciels restent à valider."
+  "product.olivetti-m30015.technical.verified": "POST, Calendar PASS, accès disquette et démarrage de MS-DOS 3.30a validés. Avec un disque IDE en mode AUTO, le BIOS le détecte et démarre dessus.",
+  "product.olivetti-m30015.technical.limitations": "Émulation partielle amorçable. Le 82C283 est modélisé et le bus AT est fixé à 8,33 MHz ; le 82C206 et les contrôleurs discrets sont représentés par des périphériques compatibles. Si l'unité 2 est en AUTO sans disque, le BIOS attend environ 11 s qu'elle réponde, comme le ferait la machine réelle ; avec l'unité 2 sur « – », il ne la recherche pas. Le Setup ne s'ouvre qu'au démarrage à froid avec une erreur de configuration et se quitte avec ÉCHAP.",
+  "product.olivetti-m30015.creation.memory.4096": "4 Mo (profil de référence)",
+  "product.olivetti-m30015.creation.memory.8192": "8 Mo",
+  "product.olivetti-m30015.creation.memory.10240": "10 Mo",
+  "product.olivetti-m30015.creation.memory.14336": "14 Mo",
+  "product.olivetti-m30015.creation.memory.16384": "16 Mo (maximum documenté)",
+  "product.olivetti-m30015.creation.storage.none": "Sans disque dur : un lecteur de disquettes de 1,44 Mo",
+  "product.olivetti-m30015.creation.storage.ide-40": "Disque IDE de 40 Mo (805/4/26) ; le BIOS le détecte",
+  "product.olivetti-m30015.creation.storage.ide-100": "Disque IDE de 100 Mo (776/8/33) ; le BIOS le détecte",
+  "product.olivetti-m30015.creation.model": "M300-15 avec 386SX à 25 MHz, 4 Mo, OTI-067 intégré et un lecteur de disquettes de 1,44 Mo",
+  "product.olivetti-m30015.creation.note": "Le BIOS lit la géométrie du disque IDE au démarrage ; il n’est donc pas nécessaire de choisir un type dans le Setup.",
+  "product.olivetti-m30015.technical.commercial_configurations": "Carte BA320 avec 4 Mo. Le guide de service ajoute plus tard l’AMD 80386SX-25 et le contrôleur ACER 87310 comme alternatives, sans changer le niveau de la carte.",
+  "product.olivetti-m30015.technical.cpu": "Intel 386SX à 25 MHz (ou AMD 80386SX-25, alternative ultérieure) sur la carte BA320, avec support pour i387SX. OPTi 82C283 comme contrôleur de mémoire et de bus, et 82C206 pour RTC, DMA, interruptions et temporisateur. Quatre emplacements ISA 16 bits sur la carte de bus IN133.",
+  "product.olivetti-m30015.technical.memory": "2 Mo soudés dans le banc 0 et 2 Mo de plus en SIMM dans le banc 1 (4 Mo de série) ; les bancs 2 et 3 acceptent des SIMM 1 M × 9 (2 Mo) ou 4 M × 9 (8 Mo) : de 4 à 16 Mo. 6 et 12 Mo ne sont pas possibles, et avec 16 Mo les 2 Mo soudés sont perdus.",
+  "product.olivetti-m30015.technical.video": "VGA OAK OTI-067 intégrée avec 512 Ko.",
+  "product.olivetti-m30015.technical.storage": "Contrôleur de disquettes et ports série et parallèle dans le 87310 ; interface IDE à tampons sur la carte. Les disques documentés font 40 à 240 Mo. Le BIOS lit la géométrie du disque IDE au démarrage.",
+  "product.olivetti-m30015.technical.firmware": "Le BIOS 1.08 (04/12/92), de 64 Ko, est conservé, avec une ROM vidéo EVC de 32 Ko séparée. Les images du M300-08 et du M300-15 ne diffèrent que de cinq octets. Le guide de service s’arrête au 1.07.",
+  "product.olivetti-m30015.technical.service_manual": "Olivetti Personal Computer - Pocket Service Guide, chapitre 29 : M300-15.",
+  "product.olivetti-m30015.creation.cpu": "AMD Am386SX à 25 MHz"
 }

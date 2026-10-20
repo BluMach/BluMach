@@ -1,6 +1,22 @@
 {
-  "product.olivetti-pcs33.summary": "25 MHz 386SX office desktop in Olivetti's 1992 PCS range.",
-  "product.olivetti-pcs33.history": "PCS 33 was marketed as a distinct office system with 2 MB and 40–120 MB IDE disks. Its preserved 6.03 firmware supports provisional reuse of BA013/25 without treating PCS 11, PCS 33 and M300-02F as aliases.",
-  "product.olivetti-pcs33.technical.verified": "The source-identified PCS 33 6.03 dump has its own 25 MHz machine identity and uses the recovered BA013/25 TOPCAT core.",
-  "product.olivetti-pcs33.technical.limitations": "Independent product record. Exact board assignment and PCS 33 external differences still need a model-specific manual or physical inspection; the shared implementation remains provisional and partial."
+  "product.olivetti-pcs33.summary": "Compact 1992 desktop with a 25 MHz 386SX, for general office use.",
+  "product.olivetti-pcs33.history": "The PCS 33 came out in November 1992 with the PCS 11 and PCS 44, as the middle model for general office use: 25 MHz 386SX, 2 MB of memory, a 1.44 MB floppy drive and a 40 to 120 MB hard disk, with MS-DOS 5.0 and Windows 3.0 preinstalled. It uses the BA013/25 board, the same technical base as the M300-02F, with its own BIOS (R6.03).",
+  "product.olivetti-pcs33.technical.verified": "With its own BIOS R6.03, POST, IDE disk detection and booting have been observed, on the same BA013/25 emulation as the M300-02F.",
+  "product.olivetti-pcs33.technical.limitations": "Bootable partial emulation. There is no PCS 33 manual confirming the board, and the case is not modelled. Other memory sizes and more software remain to be tested.",
+  "product.olivetti-pcs33.creation.memory.2048": "2 MB (reference profile)",
+  "product.olivetti-pcs33.creation.memory.4096": "4 MB",
+  "product.olivetti-pcs33.creation.memory.10240": "10 MB (documented maximum)",
+  "product.olivetti-pcs33.creation.storage.none": "No hard disk: one 1.44 MB floppy drive",
+  "product.olivetti-pcs33.creation.storage.ide-40": "40 MB IDE disk, BIOS type 1: 965/5/17",
+  "product.olivetti-pcs33.creation.storage.ide-120": "120 MB IDE disk, BIOS type 3: 761/8/39",
+  "product.olivetti-pcs33.creation.model": "1992 PCS 33: 25 MHz 386SX, 2 MB, integrated WD90C11 and one 1.44 MB floppy drive",
+  "product.olivetti-pcs33.creation.note": "This board’s BIOS supports only four drive types. If you add the disk, choose the type shown in the option in Setup. The disk connects to the board’s IDE interface.",
+  "product.olivetti-pcs33.technical.cpu": "25 MHz Intel 386SX on the BA013/25 board, with an i387SX socket. VLSI TOPCAT chipset: VL82C320 system controller and VL82C331 bus controller. Two 16-bit ISA slots on the bus expansion board. Data taken from the BA013 board shared with the M300-02/02F; there is no PCS service guide.",
+  "product.olivetti-pcs33.technical.memory": "Bank 0 with 2 MB soldered and bank 1 with two sockets for 1 M × 9 SIMMs (2 MB in total) or 4 M × 9 SIMMs (8 MB in total): 2, 4 or 10 MB. 80 ns access.",
+  "product.olivetti-pcs33.technical.video": "Integrated VGA: Western Digital WD90C11A, WD90C64 clock generator and Brooktree BT476 DAC. BluMach uses its WD90C11 model with 512 KB.",
+  "product.olivetti-pcs33.technical.storage": "3.5-inch 1.44 MB or 5.25-inch 1.2 MB floppy drive, with an Acer controller and serial and parallel ports in the 87C310. The IDE disk uses a buffered interface on the board. The BIOS table has only four types; the first three are 965/5/17 (40 MB), 975/10/17 (85 MB) and 761/8/39 (120 MB).",
+  "product.olivetti-pcs33.technical.firmware": "BIOS R6.03 (03/01/93), 128 KB, is preserved. Its disk table is the same as in the PCS 11 BIOS images.",
+  "product.olivetti-pcs33.technical.commercial_configurations": "Introduced in November 1992 with 2 MB, a 1.44 MB floppy drive, a 40 to 120 MB hard disk, MS-DOS 5.0 and Windows 3.0.",
+  "product.olivetti-pcs33.technical.press": "Computer Business Review, 15/11/1992: launch of the PCS 11, PCS 33 and PCS 44.",
+  "product.olivetti-pcs33.creation.cpu": "25 MHz Intel 386SX"
 }

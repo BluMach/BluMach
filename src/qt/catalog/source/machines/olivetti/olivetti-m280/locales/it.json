@@ -1,7 +1,7 @@
 {
   "product.olivetti-m280.summary": "Desktop 80286 sperimentale a 12 MHz, con bus a 8 MHz, logica FE2000, video esterno OEC/PGC e BIOS 2.16 preservato localmente.",
   "product.olivetti-m280.history": "La guida di servizio M280 registra schede di sistema BA817 e BA824, adattatore bus IF622, espansione memoria ME903, adattatori monitor OEC/PGC e controller GO714 MFM o GO723 RLL. È un elenco di opzioni di servizio, non un listino commerciale recuperato.",
-  "product.olivetti-m280.warning": "SPERIMENTALE: con il BIOS 2.16 sono stati osservati il POST e la tastiera. Restano da verificare il salvataggio del Setup, l’avvio e il disco rigido. FE2000, le schede console originali e il video OEC/PGC non sono modellati; la PVGA1A esterna è un’approssimazione di compatibilità e i controller GO723/GO717 sono emulati con il WD1003 senza i loro ponticelli.",
+  "product.olivetti-m280.warning": "IN SVILUPPO: stiamo lavorando all’emulazione dell’M280. Puoi creare la macchina, ma potrebbe non funzionare o fermarsi a metà. Qualsiasi risultato ci invii, anche se non si avvia, ci aiuta a completarla.",
   "product.olivetti-m280.creation.model": "Piattaforma base documentata: 80286 a 12 MHz / bus a 8 MHz, 1 MB RAM, adattatore video esterno e nessun bundle disco dichiarato",
   "product.olivetti-m280.creation.memory.1024": "Sistema base da 1 MB (profilo sperimentale corrente)",
   "product.olivetti-m280.creation.memory.2048": "2 MB totali (il rapporto con ME903 è documentato, ma questo totale non è validato)",
@@ -21,5 +21,6 @@
   "product.olivetti-m280.creation.storage.go723-type30": "GO723 (WD1003-RA2) + 62 MB RLL, tipo 30: CDC Wren II 94205-77, 981/5/26",
   "product.olivetti-m280.creation.storage.go717-type6": "GO717 (WD1003-WAH) + 40 MB, tipo 6: XM5340, 820/6/17",
   "product.olivetti-m280.creation.storage.go717-type7": "GO717 (WD1003-WAH) + 40 MB, tipo 7: NEC D5146H, 615/8/17",
-  "product.olivetti-m280.creation.storage.none": "Senza disco rigido: un’unità floppy da 1,44 MB"
+  "product.olivetti-m280.creation.storage.none": "Senza disco rigido: un’unità floppy da 1,44 MB",
+  "product.olivetti-m280.period": "Fine anni Ottanta"
 }

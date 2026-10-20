@@ -1,6 +1,25 @@
 {
   "product.olivetti-m30008.summary": "386SX a 20 MHz com OPTi 82C283, 82C206 separado e vídeo OAK OTI-067 integrado.",
   "product.olivetti-m30008.history": "O M300-08 BA319/BA324/BA325 é distinto de IF378 e TOPCAT. O manual indica barramento AT a 10 MHz e memória 2/4/8/10/14/16 MB; 6 e 12 MB não são possíveis.",
-  "product.olivetti-m30008.technical.verified": "Validados POST, Setup, mudança de ano, disquete de 1,44 MB e arranque do MS-DOS 3.30a.",
-  "product.olivetti-m30008.technical.limitations": "Emulação parcial arrancável. O 82C283 está modelado com barramento AT a 10 MHz; as funções AT comuns representam o 82C206. IDE e temporização RTC precisam de validação."
+  "product.olivetti-m30008.technical.verified": "Validados POST, Setup, mudança de ano do calendário, disquete de 1,44 MB e arranque do MS-DOS 3.30a. Com um disco IDE em modo AUTO, a BIOS lê a geometria do disco e arranca a partir dele.",
+  "product.olivetti-m30008.technical.limitations": "Emulação parcial arrancável. O 82C283 está modelado e o barramento AT é fixado em 10 MHz; o 82C206 é representado pelo núcleo AT comum e a temporização RTC continua a ser uma aproximação. O Setup não tem combinação de teclas: só aparece num arranque a frio quando o POST deteta um erro de configuração, por isso para o abrir é preciso alterar a configuração da máquina ou apagar a sua NVR.",
+  "product.olivetti-m30008.creation.memory.2048": "2 MB (perfil de referência)",
+  "product.olivetti-m30008.creation.memory.4096": "4 MB",
+  "product.olivetti-m30008.creation.memory.8192": "8 MB",
+  "product.olivetti-m30008.creation.memory.10240": "10 MB",
+  "product.olivetti-m30008.creation.memory.14336": "14 MB",
+  "product.olivetti-m30008.creation.memory.16384": "16 MB (máximo documentado)",
+  "product.olivetti-m30008.creation.storage.none": "Sem disco rígido: uma unidade de disquetes de 1,44 MB",
+  "product.olivetti-m30008.creation.storage.ide-40": "Disco IDE de 40 MB (805/4/26); a BIOS deteta-o sozinha",
+  "product.olivetti-m30008.creation.storage.ide-100": "Disco IDE de 100 MB (776/8/33); a BIOS deteta-o sozinha",
+  "product.olivetti-m30008.creation.model": "M300-08 com 386SX a 20 MHz, 2 MB, OTI-067 integrado e uma unidade de disquetes de 1,44 MB",
+  "product.olivetti-m30008.creation.note": "A BIOS lê a geometria do disco IDE no arranque, por isso não é preciso escolher um tipo no Setup.",
+  "product.olivetti-m30008.technical.commercial_configurations": "O guia de assistência indica as placas BA324 (2 MB) e BA325 (4 MB); a BA325 deixou de ser fabricada e a diferença de memória passou a ser montada no sistema.",
+  "product.olivetti-m30008.technical.cpu": "Intel 386SX a 20 MHz na placa BA324, com suporte para i387SX. OPTi 82C283 como controlador de memória e de barramento, e 82C206 para RTC, DMA, interrupções e temporizador. Quatro ranhuras ISA de 16 bits na placa de barramento IN133.",
+  "product.olivetti-m30008.technical.memory": "2 MB soldados no banco 0 e três bancos de dois suportes para SIMM de 1 M × 9 (2 MB) ou 4 M × 9 (8 MB): de 2 a 16 MB. Não admite 6 nem 12 MB, e com 16 MB perdem-se os 2 MB soldados.",
+  "product.olivetti-m30008.technical.video": "VGA OAK OTI-067 integrada, com 256 KB expansíveis para 512 KB com o kit VGA-MEM.",
+  "product.olivetti-m30008.technical.storage": "Controlador de disquetes e portas série e paralela no 87310; interface IDE com buffers na placa. Os discos documentados são de 40, 85 e 120 MB. A BIOS lê a geometria do disco IDE no arranque.",
+  "product.olivetti-m30008.technical.firmware": "Preserva-se a BIOS 1.08 (04/12/92), de 64 KB, com uma ROM de vídeo EVC separada de 32 KB. As imagens do M300-08 e do M300-15 só diferem em cinco bytes. O guia de assistência chega à 1.07.",
+  "product.olivetti-m30008.technical.service_manual": "Olivetti Personal Computer - Pocket Service Guide, capítulo 28: M300-08.",
+  "product.olivetti-m30008.creation.cpu": "Intel 386SX a 20 MHz"
 }

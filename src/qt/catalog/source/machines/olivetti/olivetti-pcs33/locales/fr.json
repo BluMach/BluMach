@@ -1,6 +1,22 @@
 {
-  "product.olivetti-pcs33.summary": "Ordinateur de bureau 386SX 25 MHz de la gamme PCS 1992.",
-  "product.olivetti-pcs33.history": "Le PCS 33 fut commercialisé comme système de bureau distinct avec 2 Mo et disques IDE de 40 à 120 Mo. Son BIOS 6.03 conservé permet de réutiliser provisoirement BA013/25 sans confondre PCS 11, PCS 33 et M300-02F.",
-  "product.olivetti-pcs33.technical.verified": "Le dump PCS 33 6.03 identifié par sa provenance dispose d'une machine 25 MHz propre et utilise le cœur TOPCAT BA013/25 récupéré.",
-  "product.olivetti-pcs33.technical.limitations": "Fiche produit indépendante. L'affectation exacte de la carte et les différences externes exigent encore un manuel propre au modèle ou une inspection physique; l'implémentation commune reste provisoire et partielle."
+  "product.olivetti-pcs33.summary": "Ordinateur de bureau compact de 1992 avec 386SX à 25 MHz, pour un usage général au bureau.",
+  "product.olivetti-pcs33.history": "Le PCS 33 est sorti en novembre 1992 avec le PCS 11 et le PCS 44, comme modèle intermédiaire pour un usage général au bureau : 386SX à 25 MHz, 2 Mo de mémoire, lecteur de disquettes de 1,44 Mo et disque de 40 à 120 Mo, avec MS-DOS 5.0 et Windows 3.0 préinstallés. Il utilise la carte BA013/25, la même base technique que le M300-02F, avec son propre BIOS (R6.03).",
+  "product.olivetti-pcs33.technical.verified": "Avec son propre BIOS R6.03, on a observé le POST, la détection du disque IDE et le démarrage, sur la même émulation BA013/25 que le M300-02F.",
+  "product.olivetti-pcs33.technical.limitations": "Émulation partielle amorçable. Aucun manuel du PCS 33 ne confirme la carte, et le boîtier n'est pas modélisé. Restent à tester d'autres quantités de mémoire et davantage de logiciels.",
+  "product.olivetti-pcs33.creation.memory.2048": "2 Mo (profil de référence)",
+  "product.olivetti-pcs33.creation.memory.4096": "4 Mo",
+  "product.olivetti-pcs33.creation.memory.10240": "10 Mo (maximum documenté)",
+  "product.olivetti-pcs33.creation.storage.none": "Sans disque dur : un lecteur de disquettes de 1,44 Mo",
+  "product.olivetti-pcs33.creation.storage.ide-40": "Disque IDE de 40 Mo, type 1 du BIOS : 965/5/17",
+  "product.olivetti-pcs33.creation.storage.ide-120": "Disque IDE de 120 Mo, type 3 du BIOS : 761/8/39",
+  "product.olivetti-pcs33.creation.model": "PCS 33 de 1992 : 386SX à 25 MHz, 2 Mo, WD90C11 intégré et un lecteur de disquettes de 1,44 Mo",
+  "product.olivetti-pcs33.creation.note": "Le BIOS de cette carte n’accepte que quatre types de disque. Si vous ajoutez le disque, choisissez dans le Setup le type indiqué dans l’option. Le disque se branche sur l’interface IDE de la carte.",
+  "product.olivetti-pcs33.technical.cpu": "Intel 386SX à 25 MHz sur la carte BA013/25, avec support pour i387SX. Chipset VLSI TOPCAT : VL82C320 (contrôleur système) et VL82C331 (contrôleur de bus). Deux emplacements ISA 16 bits sur la carte d’extension de bus. Données tirées de la carte BA013 partagée avec le M300-02/02F ; il n’existe pas de guide de service du PCS.",
+  "product.olivetti-pcs33.technical.memory": "Banc 0 avec 2 Mo soudés et banc 1 avec deux supports pour SIMM 1 M × 9 (2 Mo au total) ou 4 M × 9 (8 Mo au total) : 2, 4 ou 10 Mo. Accès à 80 ns.",
+  "product.olivetti-pcs33.technical.video": "VGA intégrée : Western Digital WD90C11A, générateur d’horloge WD90C64 et DAC Brooktree BT476. BluMach utilise son modèle WD90C11 avec 512 Ko.",
+  "product.olivetti-pcs33.technical.storage": "Lecteur de disquettes 3,5 pouces de 1,44 Mo ou 5,25 pouces de 1,2 Mo, avec contrôleur Acer et ports série et parallèle dans le 87C310. Le disque IDE utilise une interface à tampons sur la carte. La table du BIOS ne compte que quatre types ; les trois premiers sont 965/5/17 (40 Mo), 975/10/17 (85 Mo) et 761/8/39 (120 Mo).",
+  "product.olivetti-pcs33.technical.firmware": "Le BIOS R6.03 (01/03/93), de 128 Ko, est conservé. Sa table de disques est la même que celle des BIOS du PCS 11.",
+  "product.olivetti-pcs33.technical.commercial_configurations": "Présenté en novembre 1992 avec 2 Mo, un lecteur de disquettes de 1,44 Mo, un disque de 40 à 120 Mo, MS-DOS 5.0 et Windows 3.0.",
+  "product.olivetti-pcs33.technical.press": "Computer Business Review, 15/11/1992 : lancement des PCS 11, PCS 33 et PCS 44.",
+  "product.olivetti-pcs33.creation.cpu": "Intel 386SX à 25 MHz"
 }

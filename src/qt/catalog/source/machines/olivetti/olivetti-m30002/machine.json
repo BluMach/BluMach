@@ -2,6 +2,7 @@
   "order": 110,
   "machine": {
     "id": "olivetti-m30002",
+    "visible": true,
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-m",
     "platform_id": "olivetti-m30002-platform",
@@ -50,6 +51,133 @@
     "creation": {
       "status": "experimental",
       "directory_prefix": "olivetti-m30002",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m30002.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.commercial_model",
+          "value_key": "product.olivetti-m30002.creation.model"
+        }
+      ],
+      "fields": [
+        {
+          "id": "memory",
+          "label_key": "creation.label.memory",
+          "default": "2048",
+          "choices": [
+            {
+              "id": "2048",
+              "label_key": "product.olivetti-m30002.creation.memory.2048",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 2048
+                }
+              ]
+            },
+            {
+              "id": "4096",
+              "label_key": "product.olivetti-m30002.creation.memory.4096",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 4096
+                }
+              ]
+            },
+            {
+              "id": "10240",
+              "label_key": "product.olivetti-m30002.creation.memory.10240",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 10240
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-m30002.creation.storage.none",
+              "status": "partial",
+              "set": []
+            },
+            {
+              "id": "ide-40",
+              "label_key": "product.olivetti-m30002.creation.storage.ide-40",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m30002-ide-40mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 5, 980, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m30002-ide-40mb.img",
+                  "size": 42649600
+                }
+              ]
+            },
+            {
+              "id": "ide-120",
+              "label_key": "product.olivetti-m30002.creation.storage.ide-120",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m30002-ide-120mb.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "39, 8, 762, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m30002-ide-120mb.img",
+                  "size": 121724928
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m30002.creation.note"
+      ],
       "configuration": [
         {
           "section": "General",
@@ -64,7 +192,7 @@
             "cpu_family": "i386sx",
             "cpu_speed": 16000000,
             "cpu_multi": 1,
-            "cpu_use_dynarec": 1,
+            "cpu_use_dynarec": 0,
             "mem_size": 2048
           }
         },
@@ -87,25 +215,53 @@
             "fdd_01_type": "35_2hd",
             "fdd_02_type": "none"
           }
-        },
-        {
-          "section": "Hard disks",
-          "values": {
-            "hdd_01_fn": "olivetti-m30002-40mb.img",
-            "hdd_01_parameters": "26, 4, 805, 0, ide",
-            "hdd_01_ide_channel": "0:0",
-            "hdd_01_speed": "1989_3500rpm"
-          }
         }
       ],
-      "generated_files": [
-        {
-          "path": "olivetti-m30002-40mb.img",
-          "size": 42864640
-        }
-      ]
+      "generated_files": []
     },
     "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m30002.technical.commercial_configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m30002.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m30002.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m30002.technical.video"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m30002.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.observed",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m30002.technical.firmware"
+          }
+        ]
+      },
       {
         "title_key": "technical.section.emulation",
         "evidence_key": "technical.evidence.implementation",
@@ -117,6 +273,17 @@
           {
             "label_key": "technical.label.limitations",
             "value_key": "product.olivetti-m30002.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m30002.technical.service_manual",
+            "url": "https://dusted.dk/pages/Olivetti-M6-460-suprema/docs/pocketguide-olivetti-m.pdf"
           }
         ]
       }

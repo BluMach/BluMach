@@ -11,6 +11,7 @@
     "warning_key": "product.olivetti-m280.warning",
     "status": "experimental",
     "period": "Late 1980s",
+    "period_key": "product.olivetti-m280.period",
     "aliases": [
       "BA817",
       "BA824"
