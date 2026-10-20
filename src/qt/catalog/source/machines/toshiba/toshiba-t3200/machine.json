@@ -11,7 +11,7 @@
     "history_key": "product.toshiba-t3200.history",
     "warning_key": "product.toshiba-t3200.warning",
     "status": "experimental",
-    "period": "1980s",
+    "period": "1987",
     "aliases": [],
     "tags": [
       "80286",
@@ -52,7 +52,11 @@
       "interfaces": "AT-compatible serial/parallel; Toshiba keyboard behavior incomplete"
     },
     "firmware": {
-      "required_files": ["machines/t3200/IC22_033E.BIN", "machines/t3200/IC24_034E.BIN", "machines/t3200/AGS_IC8_035C.BIN"],
+      "required_files": [
+        "machines/t3200/IC22_033E.BIN",
+        "machines/t3200/IC24_034E.BIN",
+        "machines/t3200/AGS_IC8_035C.BIN"
+      ],
       "known_sets": [
         "System BIOS 4.61 (pilot)",
         "System BIOS 4.20B (preserved)",
@@ -175,7 +179,16 @@
       ],
       "generated_files": [],
       "configuration": [
-      {"section": "Sound", "values": {"sndcard": "none", "sndcard2": "none", "sndcard3": "none", "sndcard4": "none", "mpu401_standalone": 0}},
+        {
+          "section": "Sound",
+          "values": {
+            "sndcard": "none",
+            "sndcard2": "none",
+            "sndcard3": "none",
+            "sndcard4": "none",
+            "mpu401_standalone": 0
+          }
+        },
         {
           "section": "General",
           "values": {
@@ -282,9 +295,12 @@
       {
         "title_key": "technical.section.emulation",
         "entries": [
-          {"label_key": "technical.label.screen_controls", "value_key": "product.toshiba-t3200.technical.screen_controls"},
           {
-            "label_key": "technical.label.limitations",
+            "label_key": "technical.label.screen_controls",
+            "value_key": "product.toshiba-t3200.technical.screen_controls"
+          },
+          {
+            "label_key": "technical.label.verified",
             "value_key": "product.toshiba-t3200.technical.validation"
           }
         ]

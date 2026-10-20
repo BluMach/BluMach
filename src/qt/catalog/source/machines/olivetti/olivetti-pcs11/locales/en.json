@@ -20,5 +20,6 @@
   "product.olivetti-pcs11.technical.firmware": "BIOS R2.04 (06/03/92) and R2.07 (03/01/93), 128 KB each, are preserved. Their disk table has the same four types as the M300-02 one, with slightly different geometries.",
   "product.olivetti-pcs11.technical.commercial_configurations": "Introduced in November 1992 with 2 MB, a 40 MB hard disk, a 1.44 MB floppy drive, MS-DOS 5.0 and Windows 3.0.",
   "product.olivetti-pcs11.technical.press": "Computer Business Review, 15/11/1992: launch of the PCS 11, PCS 33 and PCS 44.",
-  "product.olivetti-pcs11.creation.cpu": "16 MHz Intel 386SX"
+  "product.olivetti-pcs11.creation.cpu": "16 MHz Intel 386SX",
+  "product.olivetti-pcs11.warning": "IN DEVELOPMENT: we are working on the PCS 11 emulation. You can create the machine, but it may fail or stop partway. Any result you send us, even if it does not boot, helps us finish it."
 }

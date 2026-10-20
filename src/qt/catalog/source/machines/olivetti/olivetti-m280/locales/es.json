@@ -1,7 +1,7 @@
 {
   "product.olivetti-m280.summary": "Sobremesa 80286 experimental a 12 MHz, con bus a 8 MHz, lógica FE2000, vídeo externo OEC/PGC y BIOS 2.16 preservada localmente.",
   "product.olivetti-m280.history": "La guía de servicio del M280 registra placas de sistema BA817 y BA824, adaptador de bus IF622, ampliación de memoria ME903, adaptadores de monitor OEC/PGC y controladoras GO714 MFM o GO723 RLL. Es un registro de opciones de servicio, no una matriz de precios recuperada.",
-  "product.olivetti-m280.warning": "EXPERIMENTAL: con la BIOS 2.16 se han visto el POST y el teclado. Quedan pendientes guardar el Setup, el arranque y el disco duro. FE2000, las placas de consola originales y el vídeo OEC/PGC no se modelan; PVGA1A externo es una aproximación de compatibilidad y las controladoras GO723/GO717 se emulan con el WD1003 sin sus jumpers.",
+  "product.olivetti-m280.warning": "EN DESARROLLO: estamos trabajando en la emulación del M280. Puedes crear la máquina, pero puede fallar o quedarse a medias. Cualquier resultado que nos envíes, aunque no arranque, nos ayuda a terminarla.",
   "product.olivetti-m280.creation.model": "Plataforma base documentada: 80286 a 12 MHz / bus a 8 MHz, 1 MB de RAM, adaptador de pantalla externo y sin paquete de disco afirmado",
   "product.olivetti-m280.creation.memory.1024": "Sistema base de 1 MB (perfil experimental actual)",
   "product.olivetti-m280.creation.memory.2048": "2 MB totales (la relación con ME903 está documentada, pero este total no está validado)",
@@ -21,5 +21,6 @@
   "product.olivetti-m280.creation.storage.go723-type30": "GO723 (WD1003-RA2) + 62 MB RLL, tipo 30: CDC Wren II 94205-77, 981/5/26",
   "product.olivetti-m280.creation.storage.go717-type6": "GO717 (WD1003-WAH) + 40 MB, tipo 6: XM5340, 820/6/17",
   "product.olivetti-m280.creation.storage.go717-type7": "GO717 (WD1003-WAH) + 40 MB, tipo 7: NEC D5146H, 615/8/17",
-  "product.olivetti-m280.creation.storage.none": "Sin disco duro: una disquetera de 1,44 MB"
+  "product.olivetti-m280.creation.storage.none": "Sin disco duro: una disquetera de 1,44 MB",
+  "product.olivetti-m280.period": "Finales de los años ochenta"
 }

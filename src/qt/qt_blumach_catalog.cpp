@@ -139,6 +139,7 @@ BluMachCatalog::load(QString *errorMessage)
         product.warningKey         = object.value(QStringLiteral("warning_key")).toString();
         product.status             = object.value(QStringLiteral("status")).toString();
         product.period             = object.value(QStringLiteral("period")).toString();
+        product.periodKey          = object.value(QStringLiteral("period_key")).toString();
         product.aliases            = stringArray(object.value(QStringLiteral("aliases")));
         product.tags               = stringArray(object.value(QStringLiteral("tags")));
         product.facets             = object.value(QStringLiteral("facets")).toObject();
@@ -213,6 +214,14 @@ BluMachCatalog::text(const QString &key) const
     if (m_localized.contains(key))
         return m_localized.value(key);
     return m_english.value(key, key);
+}
+
+QString
+BluMachCatalog::periodText(const BluMachProduct &product) const
+{
+    /* A period such as "late 1980s" is prose, so it can come from the
+       translation tables; a plain year or range stays in "period". */
+    return product.periodKey.isEmpty() ? product.period : text(product.periodKey);
 }
 
 QString BluMachCatalog::localeCode() const { return m_localeCode; }

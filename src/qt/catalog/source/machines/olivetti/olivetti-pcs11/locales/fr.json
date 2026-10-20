@@ -20,5 +20,6 @@
   "product.olivetti-pcs11.technical.firmware": "Les BIOS R2.04 (03/06/92) et R2.07 (01/03/93), de 128 Ko, sont conservés. Leur table de disques a les mêmes quatre types que celle du M300-02, avec des géométries légèrement différentes.",
   "product.olivetti-pcs11.technical.commercial_configurations": "Présenté en novembre 1992 avec 2 Mo, un disque de 40 Mo, un lecteur de disquettes de 1,44 Mo, MS-DOS 5.0 et Windows 3.0.",
   "product.olivetti-pcs11.technical.press": "Computer Business Review, 15/11/1992 : lancement des PCS 11, PCS 33 et PCS 44.",
-  "product.olivetti-pcs11.creation.cpu": "Intel 386SX à 16 MHz"
+  "product.olivetti-pcs11.creation.cpu": "Intel 386SX à 16 MHz",
+  "product.olivetti-pcs11.warning": "EN DÉVELOPPEMENT : nous travaillons sur l’émulation du PCS 11. Vous pouvez créer la machine, mais elle peut échouer ou s’arrêter en cours de route. Tout retour, même si elle ne démarre pas, nous aide à la terminer."
 }

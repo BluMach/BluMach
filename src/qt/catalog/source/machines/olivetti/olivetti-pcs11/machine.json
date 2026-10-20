@@ -9,6 +9,7 @@
     "name": "Olivetti PCS 11",
     "summary_key": "product.olivetti-pcs11.summary",
     "history_key": "product.olivetti-pcs11.history",
+    "warning_key": "product.olivetti-pcs11.warning",
     "status": "partial",
     "period": "1992–1993",
     "aliases": [

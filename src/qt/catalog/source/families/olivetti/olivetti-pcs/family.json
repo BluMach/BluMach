@@ -35,6 +35,11 @@
       "note_key": "family.olivetti-pcs.table.note",
       "columns": [
         {
+          "id": "year",
+          "label_key": "family.olivetti-pcs.table.year",
+          "minimum_width": 80
+        },
+        {
           "id": "model",
           "label_key": "family.olivetti-pcs.table.model",
           "minimum_width": 90
@@ -58,12 +63,20 @@
           "id": "notes",
           "label_key": "family.olivetti-pcs.table.notes",
           "minimum_width": 180
+        },
+        {
+          "id": "status",
+          "label_key": "family.olivetti-pcs.table.status",
+          "minimum_width": 150
         }
       ],
       "rows": [
         {
           "id": "pcs86",
           "cells": [
+            {
+              "value": "1989–1990"
+            },
             {
               "value": "PCS 86"
             },
@@ -78,12 +91,18 @@
             },
             {
               "value_key": "family.olivetti-pcs.table.pcs86.notes"
+            },
+            {
+              "value_key": "family.olivetti-pcs.status.validated"
             }
           ]
         },
         {
           "id": "pcs286",
           "cells": [
+            {
+              "value": "1989–1990"
+            },
             {
               "value": "PCS 286"
             },
@@ -98,12 +117,18 @@
             },
             {
               "value_key": "family.olivetti-pcs.table.pcs286.notes"
+            },
+            {
+              "value_key": "family.olivetti-pcs.status.validated"
             }
           ]
         },
         {
           "id": "pcs386sx",
           "cells": [
+            {
+              "value": "1990"
+            },
             {
               "value": "PCS 386SX"
             },
@@ -118,12 +143,44 @@
             },
             {
               "value_key": "family.olivetti-pcs.table.pcs386sx.notes"
+            },
+            {
+              "value_key": "family.olivetti-pcs.status.partial"
+            }
+          ]
+        },
+        {
+          "id": "pcs286s",
+          "cells": [
+            {
+              "value": "1991"
+            },
+            {
+              "value": "PCS 286 S"
+            },
+            {
+              "value": "80286 · 16 MHz"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs286s.memory"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs286s.storage"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs286s.notes"
+            },
+            {
+              "value_key": "family.olivetti-pcs.status.validated"
             }
           ]
         },
         {
           "id": "pcs11",
           "cells": [
+            {
+              "value": "1992–1993"
+            },
             {
               "value": "PCS 11"
             },
@@ -138,12 +195,18 @@
             },
             {
               "value_key": "family.olivetti-pcs.table.pcs11.notes"
+            },
+            {
+              "value_key": "family.olivetti-pcs.status.partial"
             }
           ]
         },
         {
           "id": "pcs33",
           "cells": [
+            {
+              "value": "1992–1993"
+            },
             {
               "value": "PCS 33"
             },
@@ -158,6 +221,61 @@
             },
             {
               "value_key": "family.olivetti-pcs.table.pcs33.notes"
+            },
+            {
+              "value_key": "family.olivetti-pcs.status.partial"
+            }
+          ]
+        },
+        {
+          "id": "pcs44",
+          "cells": [
+            {
+              "value": "1992"
+            },
+            {
+              "value": "PCS 44"
+            },
+            {
+              "value": "80486SX · 25 MHz"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs44.memory"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs44.storage"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs44.notes"
+            },
+            {
+              "value_key": "family.olivetti-pcs.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "pcs46c",
+          "cells": [
+            {
+              "value": "1993"
+            },
+            {
+              "value": "PCS 46/C"
+            },
+            {
+              "value": "i486DX2 · 50 MHz"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs46c.memory"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs46c.storage"
+            },
+            {
+              "value_key": "family.olivetti-pcs.table.pcs46c.notes"
+            },
+            {
+              "value_key": "family.olivetti-pcs.status.partial"
             }
           ]
         }

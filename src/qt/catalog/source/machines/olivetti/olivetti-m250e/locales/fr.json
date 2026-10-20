@@ -1,7 +1,7 @@
 {
   "product.olivetti-m250e.summary": "Carte 80286 à 12 MHz de la famille M250, distincte de celle du M250, avec logique 82C206 et firmware propre.",
   "product.olivetti-m250e.history": "Le M250 E figure à côté du M250 dans la documentation de service d'Olivetti, mais il a sa propre cadence à 12 MHz, un CHIPS 82C206, une logique GA80/GA99 et un firmware PDSF/PDSD. Son Setup documente des disques Conner de 20, 40 et 100 Mo ; on n'a encore retrouvé ni configuration commerciale propre ni date de sortie.",
-  "product.olivetti-m250e.warning": "EXPÉRIMENTAL : le M250 E a son propre BIOS et sa propre carte, mais POST, Setup et System Test restent à vérifier. L’interface disque de la carte est IDE et elle est émulée par le contrôleur IDE générique ; les cavaliers P6 et P10 ne sont pas modélisés.",
+  "product.olivetti-m250e.warning": "EN DÉVELOPPEMENT : nous travaillons sur l’émulation du M250 E. Vous pouvez créer la machine, mais elle peut échouer ou s’arrêter en cours de route. Tout retour, même si elle ne démarre pas, nous aide à la terminer.",
   "product.olivetti-m250e.creation.model": "Identité technique documentée : carte M250 E 80286 à 12 MHz avec 82C206 et firmware PDSF/PDSD distinct",
   "product.olivetti-m250e.creation.memory.1024": "1 Mo (profil actuel de démarrage isolé)",
   "product.olivetti-m250e.creation.memory.2048": "2 Mo (population documentée)",
@@ -23,5 +23,6 @@
   "product.olivetti-m250e.creation.storage.cp3022": "Conner CP3022, 20 Mo, type 4 : 615/4/17",
   "product.olivetti-m250e.creation.storage.cp346": "Conner CP346, 40 Mo, type 1 : 805/4/26",
   "product.olivetti-m250e.creation.storage.cp3142": "Conner CP3142, 40 Mo, type 3 : 635/4/33",
-  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 Mo, type 2 : 776/8/33"
+  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 Mo, type 2 : 776/8/33",
+  "product.olivetti-m250e.period": "Fin des années 1980"
 }

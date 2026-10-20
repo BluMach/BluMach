@@ -1,7 +1,7 @@
 {
   "product.olivetti-m250.summary": "Desktop 80286 a 8 MHz del 1989, con video Paradise VGA compatibile integrato e 1 MB di memoria standard.",
   "product.olivetti-m250.history": "La brochure dell'M250 dell'aprile 1989 colloca questo 80286 a 8 MHz senza stati di attesa nel segmento professionale di base. Indica 1 MB, unità floppy integrata da 1,44 MB e 3,5 pollici, dischi da 20 o 40 MB, unità a nastro opzionale da 40 MB, grafica compatibile VGA, tre slot XT/AT a 8 e 16 bit, e mouse e video integrati.",
-  "product.olivetti-m250.warning": "EMULAZIONE PARZIALE: l'M250 si avvia a freddo con il firmware locale. La revisione del BIOS PERB 1.03 ha corretto il modello di memoria da 1 MB, il caricamento del BIOS video OVC 1.06 e il checksum della CMOS; restano da verificare queste modifiche con POST, Setup e System Test, oltre a RTC e disco rigido. L'interfaccia disco della scheda è IDE ed è emulata con l'IDE generica; i jumper P6 e P8 non sono modellati.",
+  "product.olivetti-m250.warning": "IN SVILUPPO: stiamo lavorando all’emulazione dell’M250. Puoi creare la macchina, ma potrebbe non funzionare o fermarsi a metà. Qualsiasi risultato ci invii, anche se non si avvia, ci aiuta a completarla.",
   "product.olivetti-m250.creation.model": "Base documentata dell'aprile 1989: 80286 a 8 MHz, 1 MB, video compatibile VGA integrato e unità floppy da 1,44 MB e 3,5 pollici",
   "product.olivetti-m250.creation.memory.1024": "1 MB (standard documentato; profilo parzialmente validato)",
   "product.olivetti-m250.creation.memory.2048": "2 MB (massimo documentato)",

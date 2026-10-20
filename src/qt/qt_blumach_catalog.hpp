@@ -73,6 +73,7 @@ struct BluMachProduct {
     QString     warningKey;
     QString     status;
     QString     period;
+    QString     periodKey;
     QStringList aliases;
     QStringList tags;
     QJsonObject facets;
@@ -99,6 +100,7 @@ public:
     const QVector<BluMachFilterFacet>  &filterFacets() const;
 
     QString text(const QString &key) const;
+    QString periodText(const BluMachProduct &product) const;
     QString localeCode() const;
     QString statusText(const QString &status) const;
     QString facetLabel(const QString &facetId) const;

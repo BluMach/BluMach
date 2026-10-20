@@ -11,6 +11,7 @@
     "warning_key": "product.olivetti-m250e.warning",
     "status": "experimental",
     "period": "Late 1980s",
+    "period_key": "product.olivetti-m250e.period",
     "aliases": [
       "M250E"
     ],

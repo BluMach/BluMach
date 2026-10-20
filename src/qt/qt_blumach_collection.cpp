@@ -911,7 +911,7 @@ void BluMachCollectionWidget::rebuildTree()
                 auto *productItem = new QTreeWidgetItem(familyItem, { product.name });
                 productItem->setData(0, IdRole, product.id);
                 productItem->setData(0, TypeRole, ProductItem);
-                productItem->setData(0, PeriodRole, product.period);
+                productItem->setData(0, PeriodRole, m_catalog.periodText(product));
                 productItem->setData(0, StatusRole, product.status);
                 productItem->setData(0, FamilyRole, product.familyId);
                 const auto formFactors = product.facets.value(QStringLiteral("form_factor")).toArray();
@@ -1115,7 +1115,7 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
     m_selectedProductId = product->id;
     saveUiState();
     m_title->setText(product->name);
-    m_subtitle->setText(product->period);
+    m_subtitle->setText(m_catalog.periodText(*product));
     m_summary->setText(m_catalog.text(product->summaryKey));
     m_statusBadge->setText(m_catalog.statusText(product->status));
     m_statusBadge->show();
@@ -1369,7 +1369,7 @@ void BluMachCollectionWidget::applyFilter()
                 const auto *platform = product ? m_catalog.platform(product->platformId) : nullptr;
                 const QString haystack = product
                     ? QStringList({ product->name, product->aliases.join(' '), product->tags.join(' '),
-                                    product->period, m_catalog.text(product->summaryKey),
+                                    m_catalog.periodText(*product), m_catalog.text(product->summaryKey),
                                     manufacturer ? manufacturer->name : QString(),
                                     family ? family->name : QString(),
                                     platform ? platform->architecture : QString() }).join(' ')

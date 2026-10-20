@@ -1,8 +1,8 @@
 {
   "product.olivetti-m30002.summary": "M300 de 1992 avec 386SX à 16 MHz, chipset VLSI TOPCAT et vidéo WD90C11 intégrée.",
   "product.olivetti-m30002.history": "Le M300-02 est le modèle à 16 MHz de la carte BA013 dans la gamme professionnelle M300. Le M300-02F utilise la version à 25 MHz de cette carte, et les PCS 11 et PCS 33 de fin 1992 reposent sur la même base, avec un autre boîtier et un autre BIOS.",
-  "product.olivetti-m30002.technical.verified": "Le BIOS R1.02 (128 Ko) est identifié et vérifié par empreinte.",
-  "product.olivetti-m30002.technical.limitations": "Émulation partielle ; le démarrage n’a pas encore été confirmé. Le BIOS R1.02 programme dans le TOPCAT les mêmes valeurs que celui du PCS 11 ; par rapport à la carte à 25 MHz, seuls changent les temps de mémoire et de bus, que l’émulateur n’utilise pas. Le BIOS de service R1.03 manque, et le TOPCAT et la logique de la carte sont des modèles fonctionnels partiels.",
+  "product.olivetti-m30002.technical.verified": "Le BIOS R1.02 (128 Ko) est identifié et vérifié par empreinte. Le POST et le démarrage sur disquette ont été observés.",
+  "product.olivetti-m30002.technical.limitations": "Émulation partielle : elle démarre sur disquette ; le disque IDE reste à tester. Le BIOS R1.02 programme dans le TOPCAT les mêmes valeurs que celui du PCS 11 ; par rapport à la carte à 25 MHz, seuls changent les temps de mémoire et de bus, que l’émulateur n’utilise pas. Le BIOS de service R1.03 manque, et le TOPCAT et la logique de la carte sont des modèles fonctionnels partiels.",
   "product.olivetti-m30002.creation.memory.2048": "2 Mo (profil de référence)",
   "product.olivetti-m30002.creation.memory.4096": "4 Mo",
   "product.olivetti-m30002.creation.memory.10240": "10 Mo (maximum documenté)",

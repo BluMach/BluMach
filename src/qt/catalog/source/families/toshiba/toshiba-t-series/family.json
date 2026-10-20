@@ -127,6 +127,46 @@
           ]
         },
         {
+          "id": "t3200",
+          "cells": [
+            {
+              "value": "1987"
+            },
+            {
+              "value": "T3200"
+            },
+            {
+              "value": "Intel 80286"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.plasma"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.alpha"
+            }
+          ]
+        },
+        {
+          "id": "t5200",
+          "cells": [
+            {
+              "value": "1989–1991"
+            },
+            {
+              "value": "T5200"
+            },
+            {
+              "value": "Intel 80386DX"
+            },
+            {
+              "value_key": "family.toshiba-t-series.format.plasma"
+            },
+            {
+              "value_key": "family.toshiba-t-series.status.alpha"
+            }
+          ]
+        },
+        {
           "id": "t1000",
           "cells": [
             {
@@ -167,26 +207,6 @@
           ]
         },
         {
-          "id": "t3200",
-          "cells": [
-            {
-              "value_key": "family.toshiba-t-series.period.unknown"
-            },
-            {
-              "value": "T3200"
-            },
-            {
-              "value": "Intel 80286"
-            },
-            {
-              "value_key": "family.toshiba-t-series.format.plasma"
-            },
-            {
-              "value_key": "family.toshiba-t-series.status.alpha"
-            }
-          ]
-        },
-        {
           "id": "t3200sx",
           "cells": [
             {
@@ -203,26 +223,6 @@
             },
             {
               "value_key": "family.toshiba-t-series.status.reference"
-            }
-          ]
-        },
-        {
-          "id": "t5200",
-          "cells": [
-            {
-              "value_key": "family.toshiba-t-series.period.unknown"
-            },
-            {
-              "value": "T5200"
-            },
-            {
-              "value": "Intel 80386DX"
-            },
-            {
-              "value_key": "family.toshiba-t-series.format.plasma"
-            },
-            {
-              "value_key": "family.toshiba-t-series.status.alpha"
             }
           ]
         },

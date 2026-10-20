@@ -1,7 +1,7 @@
 {
   "product.olivetti-m250e.summary": "Separate 12 MHz M250-family 80286 board with 82C206 logic and its own firmware identity.",
   "product.olivetti-m250e.history": "The M250 E is documented alongside the M250 in Olivetti service material, but has distinct 12 MHz timing, CHIPS 82C206 and GA80/GA99 board logic, as well as its own PDSF/PDSD firmware. Its Setup documents 20, 40 and 100 MB Conner types, while a standalone sales configuration and release date remain unrecovered.",
-  "product.olivetti-m250e.warning": "EXPERIMENTAL: the M250 E has its own BIOS and board, but POST, Setup and System Test have not been checked yet. The on-board disk interface is IDE and is emulated with the generic IDE controller; jumpers P6 and P10 are not modelled.",
+  "product.olivetti-m250e.warning": "IN DEVELOPMENT: we are working on the M250 E emulation. You can create the machine, but it may fail or stop partway. Any result you send us, even if it does not boot, helps us finish it.",
   "product.olivetti-m250e.creation.model": "Documented technical identity: 12 MHz 80286 M250 E board with 82C206 and separate PDSF/PDSD firmware",
   "product.olivetti-m250e.creation.memory.1024": "1 MB (current isolated startup profile)",
   "product.olivetti-m250e.creation.memory.2048": "2 MB (documented population)",
@@ -23,5 +23,6 @@
   "product.olivetti-m250e.creation.storage.cp3022": "Conner CP3022, 20 MB, type 4: 615/4/17",
   "product.olivetti-m250e.creation.storage.cp346": "Conner CP346, 40 MB, type 1: 805/4/26",
   "product.olivetti-m250e.creation.storage.cp3142": "Conner CP3142, 40 MB, type 3: 635/4/33",
-  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 MB, type 2: 776/8/33"
+  "product.olivetti-m250e.creation.storage.cp3106": "Conner CP3106, 100 MB, type 2: 776/8/33",
+  "product.olivetti-m250e.period": "Late 1980s"
 }

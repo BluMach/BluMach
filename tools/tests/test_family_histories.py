@@ -44,7 +44,8 @@ class FamilyHistoriesTests(unittest.TestCase):
             rows = self.families[family_id]['comparison_table']['rows']
             enabled = {r['id'] for r in rows if r['cells'][4].get('value_key', '').endswith(('.status.alpha', '.status.partial'))}
             self.assertEqual(enabled, expected)
-            visible = {p['id'] for p in self.catalog['products'] if p.get('visible') and p['family_id'] == family_id}
+            visible = {p['id'] for p in self.catalog['products'] if p.get('visible') and p['family_id'] == family_id
+                       and p.get('status') != 'research'}
             prefix = 'olivetti-' if family_id == 'olivetti-m' else 'toshiba-'
             self.assertEqual(visible, {prefix + model for model in enabled})
             for row in rows:
