@@ -13,9 +13,17 @@
 #include "qt_coremach.hpp"
 #include "qt_blumach_catalog.hpp"
 #include "qt_firmware.hpp"
+#ifdef BLUMACH_COREMACH
+#    include "qt_coremach_window.hpp"
+#    include "qt_vmmanager_clientsocket.hpp"
+#endif
 
+#include <QApplication>
 #include <QDir>
 #include <QMessageBox>
+#ifdef Q_OS_WINDOWS
+#    include <windows.h>
+#endif
 
 #include <cstdio>
 
@@ -68,15 +76,57 @@ namespace {
         return folders;
     }
 
-    // Placeholder until the machine window is in place.
-    int runMachine(const Profile &, const QByteArray &, const States &)
+#ifdef BLUMACH_COREMACH
+    int runMachine(const BluMachCatalog &catalog, const QString &name, const QString &folder,
+                   const Profile &profile, const QByteArray &firmware, const States &states)
     {
-        BluMachCatalog catalog;
-        catalog.load();
-        return report("session_unavailable", QMessageBox::Warning, catalog.text(QStringLiteral("firmware.unavailable")),
-                      QStringLiteral("CoreMach sessions are not available in this development build yet."),
-                      startupFailureExitCode);
+        Window window(catalog, name, folder, profile, firmware, states);
+        const auto status = window.start();
+        if (status != BM_STATUS_OK)
+            return report("start_failed", QMessageBox::Warning, catalog.text(QStringLiteral("firmware.unavailable")),
+                          catalog.text(QStringLiteral("coremach.start_failed")).arg(name, QString::number(static_cast<int>(status))),
+                          startupFailureExitCode);
+
+        // The VM manager drives this process as it drives an 86Box one.
+        VMManagerClientSocket manager;
+        const auto            socketPath = qgetenv("VMM_86BOX_SOCKET");
+        if (!socketPath.isEmpty()) {
+            manager.IPCConnect(QString::fromLocal8Bit(socketPath));
+            QObject::connect(&manager, &VMManagerClientSocket::pause, &window, &Window::togglePause);
+            QObject::connect(&manager, &VMManagerClientSocket::resetVM, &window, &Window::hardReset);
+            QObject::connect(&manager, &VMManagerClientSocket::request_shutdown, &window, &QWidget::close);
+            QObject::connect(&manager, &VMManagerClientSocket::force_shutdown, &window, &Window::forceShutdown);
+            QObject::connect(&manager, &VMManagerClientSocket::showsettings, &window, &Window::showSettingsNotice);
+            QObject::connect(&window, &Window::runningStateChanged, &manager, [&manager](bool paused) {
+                manager.clientRunningStateChanged(paused ? VMManagerProtocol::RunningState::Paused
+                                                         : VMManagerProtocol::RunningState::Running);
+            });
+            window.installEventFilter(&manager);
+        }
+
+#    ifdef Q_OS_WINDOWS
+        // Sleep precisely enough for the session's short emulation slices.
+        timeBeginPeriod(1);
+#    endif
+        window.show();
+        window.adjustSize();
+        if (!socketPath.isEmpty()) {
+            manager.sendWinIdMessage(window.winId());
+            manager.clientRunningStateChanged(VMManagerProtocol::RunningState::Running);
+        }
+        QApplication::exec();
+#    ifdef Q_OS_WINDOWS
+        timeEndPeriod(1);
+#    endif
+        return window.exitCode();
     }
+#else
+    int runMachine(const BluMachCatalog &, const QString &, const QString &, const Profile &, const QByteArray &,
+                   const States &)
+    {
+        return startupFailureExitCode; // checkStartup() rejects every system first
+    }
+#endif
 }
 
 bool
@@ -215,7 +265,7 @@ run()
             states.insert(QString::fromLatin1(state.role), data);
     }
 
-    return runMachine(profile, firmware.data, states);
+    return runMachine(catalog, name, folder, profile, firmware.data, states);
 }
 
 }

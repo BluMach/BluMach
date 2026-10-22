@@ -4,6 +4,7 @@
 // No firmware or guest media is needed.
 #include "qt_coremach_profile.hpp"
 #ifdef BLUMACH_COREMACH
+#    include "qt_coremach_keys.hpp"
 #    include "qt_coremach_session.hpp"
 #endif
 
@@ -13,6 +14,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QSet>
 #include <QTemporaryDir>
 #include <QTest>
 
@@ -209,6 +211,28 @@ private slots:
     }
 
 #ifdef BLUMACH_COREMACH
+    void keysFollowPhysicalPositions()
+    {
+        QCOMPARE(keyFromSetOneScanCode(0x01e), BM_KEY_A);
+        QCOMPARE(keyFromSetOneScanCode(0x01d), BM_KEY_LEFT_CONTROL);
+        QCOMPARE(keyFromSetOneScanCode(0x11d), BM_KEY_RIGHT_CONTROL);
+        QCOMPARE(keyFromSetOneScanCode(0x148), BM_KEY_UP);
+        QCOMPARE(keyFromSetOneScanCode(0x047), noKey); // keypad 7: no M10 key
+        // Linux input codes share the set 1 main block; extended keys differ.
+        QCOMPARE(keyFromEvdevCode(30), BM_KEY_A);
+        QCOMPARE(keyFromEvdevCode(97), BM_KEY_RIGHT_CONTROL);
+        QCOMPARE(keyFromEvdevCode(105), BM_KEY_LEFT);
+        QCOMPARE(keyFromEvdevCode(111), BM_KEY_DELETE);
+        QCOMPARE(keyFromEvdevCode(200), noKey);
+        // Layout-dependent fallback.
+        QCOMPARE(keyFromQtKey(Qt::Key_Q, 0), BM_KEY_Q);
+        QCOMPARE(keyFromQtKey(Qt::Key_F5, 0), BM_KEY_F5);
+        QCOMPARE(keyFromQtKey(Qt::Key_0, 0), BM_KEY_0);
+        QCOMPARE(keyFromQtKey(Qt::Key_Shift, 0xa1), BM_KEY_RIGHT_SHIFT);
+        QCOMPARE(keyFromQtKey(Qt::Key_Shift, 0), BM_KEY_LEFT_SHIFT);
+        QCOMPARE(keyFromQtKey(Qt::Key_F11, 0), noKey);
+    }
+
     void sessionRunsSyntheticRom()
     {
         // JMP 0000h: the CPU loops in ROM and never writes RAM.
@@ -267,6 +291,53 @@ private slots:
         QCOMPARE(final.value(QStringLiteral("ram")), ram);
         QCOMPARE(final.value(QStringLiteral("rtc")).size(), 40);
         QCOMPARE(session.capture(), final);
+    }
+
+    // Opt-in: BLUMACH_TEST_ROM_DIR names a ROM folder holding the M10
+    // firmware. BLUMACH_TEST_OUTPUT_DIR, if set, receives the last frame.
+    void realM10Firmware()
+    {
+        const QString romDir = qEnvironmentVariable("BLUMACH_TEST_ROM_DIR");
+        if (romDir.isEmpty())
+            QSKIP("BLUMACH_TEST_ROM_DIR is not set");
+        const auto firmware = loadFirmware(m10().firmware, { romDir });
+        QCOMPARE(firmware.status, FirmwareStatus::Ok);
+
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("language"), 2);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+        std::mutex mutex;
+        QImage     lastFrame;
+        Session    session(profile, firmware.data, {}, [&](const Session::Frame &frame) {
+            if (frame.image.isNull())
+                return;
+            std::lock_guard<std::mutex> lock(mutex);
+            lastFrame = frame.image;
+        });
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        // Three seconds of guest time reach the firmware's main menu.
+        QTRY_VERIFY_WITH_TIMEOUT(session.ticks() >= UINT64_C(3000000000), 20000);
+        QTest::qWait(100);
+        QImage frame;
+        {
+            std::lock_guard<std::mutex> lock(mutex);
+            frame = lastFrame;
+        }
+        QCOMPARE(frame.size(), QSize(240, 64));
+        QSet<QRgb> colours;
+        for (int y = 0; y < frame.height(); ++y)
+            for (int x = 0; x < frame.width(); ++x)
+                colours.insert(frame.pixel(x, y));
+        QVERIFY2(colours.size() >= 2, "the LCD shows nothing");
+        const QString output = qEnvironmentVariable("BLUMACH_TEST_OUTPUT_DIR");
+        if (!output.isEmpty())
+            QVERIFY(frame.scaled(frame.size() * 3).save(QDir(output).filePath(QStringLiteral("m10-frame.png"))));
+
+        const States states = session.stop();
+        QCOMPARE(states.value(QStringLiteral("ram")).size(), 32768);
+        QCOMPARE(states.value(QStringLiteral("rtc")).size(), 40);
     }
 
     void sessionRejectsInvalidFirmware()

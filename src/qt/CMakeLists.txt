@@ -377,8 +377,12 @@ endif()
 if(BLUMACH_COREMACH_ENABLED)
     target_compile_definitions(ui PRIVATE BLUMACH_COREMACH)
     target_sources(ui PRIVATE
+        qt_coremach_keys.cpp
+        qt_coremach_keys.hpp
         qt_coremach_session.cpp
         qt_coremach_session.hpp
+        qt_coremach_window.cpp
+        qt_coremach_window.hpp
     )
     target_link_libraries(ui PRIVATE blumach_coremach_systems)
 endif()
