@@ -7,17 +7,14 @@
  */
 
 #include "qt_coremach_window.hpp"
-#include "qt_coremach_keys.hpp"
 #include "qt_blumach_catalog.hpp"
 
 #include <QActionGroup>
 #include <QCloseEvent>
 #include <QDir>
-#include <QKeyEvent>
 #include <QLabel>
 #include <QMenuBar>
 #include <QMessageBox>
-#include <QPainter>
 #include <QStatusBar>
 
 #include <cstdio>
@@ -31,95 +28,11 @@ namespace CoreMachBridge {
 namespace {
     constexpr int savePeriodMs   = 60 * 1000;
     constexpr int statusPeriodMs = 500;
-    constexpr int minimumScale   = 2;
-    constexpr int maximumScale   = 6;
 
     bool unattended()
     {
         return qEnvironmentVariable("BLUMACH_UNATTENDED") == QStringLiteral("1");
     }
-}
-
-Display::Display(QWidget *parent)
-    : QWidget(parent)
-{
-    setFocusPolicy(Qt::StrongFocus);
-    setAttribute(Qt::WA_OpaquePaintEvent);
-    setAttribute(Qt::WA_InputMethodEnabled, false);
-}
-
-void
-Display::setFrame(const QImage &frame)
-{
-    if (frame.size() != m_frameSize) {
-        m_frameSize = frame.size();
-        updateGeometry();
-    }
-    m_frame = frame;
-    update();
-}
-
-void
-Display::setScale(int scale)
-{
-    m_scale = std::clamp(scale, minimumScale, maximumScale);
-    updateGeometry();
-}
-
-QSize
-Display::sizeHint() const
-{
-    return m_frameSize * m_scale;
-}
-
-void
-Display::paintEvent(QPaintEvent *)
-{
-    QPainter painter(this);
-    painter.fillRect(rect(), Qt::black);
-    if (m_frame.isNull())
-        return;
-    // Integer scaling keeps every LCD dot the same size.
-    const int fit   = std::max(1, std::min(width() / m_frame.width(), height() / m_frame.height()));
-    const int scale = std::min(m_scale, fit);
-    const QSize size = m_frame.size() * scale;
-    const QRect target(QPoint((width() - size.width()) / 2, (height() - size.height()) / 2), size);
-    painter.setRenderHint(QPainter::SmoothPixmapTransform, false);
-    painter.drawImage(target, m_frame);
-}
-
-void
-Display::keyPressEvent(QKeyEvent *event)
-{
-    event->accept();
-    // The machine's firmware repeats keys itself.
-    if (event->isAutoRepeat())
-        return;
-    if (const auto code = keyForEvent(*event); code != noKey)
-        emit key(code, true);
-}
-
-void
-Display::keyReleaseEvent(QKeyEvent *event)
-{
-    event->accept();
-    if (event->isAutoRepeat())
-        return;
-    if (const auto code = keyForEvent(*event); code != noKey)
-        emit key(code, false);
-}
-
-void
-Display::focusOutEvent(QFocusEvent *event)
-{
-    QWidget::focusOutEvent(event);
-    emit focusLost();
-}
-
-bool
-Display::focusNextPrevChild(bool)
-{
-    return false; // Tab belongs to the machine.
 }
 
 Window::Window(const BluMachCatalog &catalog, const QString &machineName, const QString &machineFolder,
@@ -150,7 +63,7 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
 
     auto *view   = menuBar()->addMenu(m_catalog.text(QStringLiteral("coremach.menu.view")));
     auto *scales = new QActionGroup(this);
-    for (int scale = minimumScale; scale <= maximumScale; ++scale) {
+    for (int scale = Display::minimumScale; scale <= Display::maximumScale; ++scale) {
         auto *item = view->addAction(m_catalog.text(QStringLiteral("coremach.menu.scale")).arg(scale));
         item->setCheckable(true);
         item->setChecked(scale == m_display->scale());

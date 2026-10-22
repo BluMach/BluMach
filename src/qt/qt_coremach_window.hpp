@@ -9,13 +9,13 @@
 #ifndef QT_COREMACH_WINDOW_HPP
 #define QT_COREMACH_WINDOW_HPP
 
+#include "qt_coremach_display.hpp"
 #include "qt_coremach_session.hpp"
 
 #include <QImage>
 #include <QMainWindow>
 #include <QSet>
 #include <QTimer>
-#include <QWidget>
 
 #include <memory>
 
@@ -24,33 +24,6 @@ class QActionGroup;
 class QLabel;
 
 namespace CoreMachBridge {
-
-// Shows a machine frame at an integer scale and reports host keys.
-class Display final : public QWidget {
-    Q_OBJECT
-public:
-    explicit Display(QWidget *parent = nullptr);
-    void  setFrame(const QImage &frame);
-    void  setScale(int scale);
-    int   scale() const { return m_scale; }
-    QSize sizeHint() const override;
-
-signals:
-    void key(bm_key_code_t key, bool pressed);
-    void focusLost();
-
-protected:
-    void paintEvent(QPaintEvent *event) override;
-    void keyPressEvent(QKeyEvent *event) override;
-    void keyReleaseEvent(QKeyEvent *event) override;
-    void focusOutEvent(QFocusEvent *event) override;
-    bool focusNextPrevChild(bool next) override;
-
-private:
-    QImage m_frame;
-    QSize  m_frameSize { 240, 64 };
-    int    m_scale = 3;
-};
 
 // The window of a running CoreMach machine. It owns the session and saves
 // the persistent states in the machine folder while it runs and on exit.

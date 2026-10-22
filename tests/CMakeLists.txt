@@ -160,7 +160,7 @@ endif()
 
 # CoreMach bridge contracts on synthetic data; no firmware is needed.
 if(QT)
-    find_package(Qt6 COMPONENTS Core Gui Test REQUIRED)
+    find_package(Qt6 COMPONENTS Core Gui Widgets Test REQUIRED)
     add_executable(coremach-bridge
         coremach_bridge_test.cpp
         "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_profile.cpp"
@@ -169,9 +169,10 @@ if(QT)
     target_include_directories(coremach-bridge PRIVATE "${PROJECT_SOURCE_DIR}/src/qt")
     target_compile_definitions(coremach-bridge PRIVATE
         "BLUMACH_TEST_CATALOG_JSON=\"${PROJECT_BINARY_DIR}/src/qt/catalog/catalog.json\"")
-    target_link_libraries(coremach-bridge PRIVATE Qt6::Core Qt6::Gui Qt6::Test)
+    target_link_libraries(coremach-bridge PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Test)
     if(BLUMACH_COREMACH_ENABLED)
         target_sources(coremach-bridge PRIVATE
+            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_display.cpp"
             "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_keys.cpp"
             "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_session.cpp")
         target_compile_definitions(coremach-bridge PRIVATE BLUMACH_COREMACH)

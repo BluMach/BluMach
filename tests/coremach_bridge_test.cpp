@@ -4,6 +4,7 @@
 // No firmware or guest media is needed.
 #include "qt_coremach_profile.hpp"
 #ifdef BLUMACH_COREMACH
+#    include "qt_coremach_display.hpp"
 #    include "qt_coremach_keys.hpp"
 #    include "qt_coremach_session.hpp"
 #endif
@@ -14,6 +15,11 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLineEdit>
+#include <QMainWindow>
+#include <QMenuBar>
+#include <QSignalSpy>
+#include <QStyleFactory>
 #include <QSet>
 #include <QTemporaryDir>
 #include <QTest>
@@ -233,6 +239,57 @@ private slots:
         QCOMPARE(keyFromQtKey(Qt::Key_F11, 0), noKey);
     }
 
+    void displayKeepsAltAndMnemonics()
+    {
+        // The Windows style activates the menu bar on Alt, as on Windows.
+        QMainWindow window;
+        window.setStyle(QStyleFactory::create(QStringLiteral("Windows")));
+        auto *menu    = window.menuBar()->addMenu(QStringLiteral("&Action"));
+        menu->addAction(QStringLiteral("&Pause"));
+        auto *central = new QWidget(&window);
+        auto *edit    = new QLineEdit(central);
+        auto *display = new Display(central);
+        display->move(0, 40);
+        window.setCentralWidget(central);
+        window.show();
+        QVERIFY(QTest::qWaitForWindowExposed(&window));
+
+        // Control: another widget lets Alt reach the menu bar.
+        edit->setFocus();
+        QTRY_VERIFY(edit->hasFocus());
+        QTest::keyClick(edit, Qt::Key_Alt);
+        const bool altReachesMenus = window.menuBar()->activeAction() != nullptr;
+        QTest::keyClick(window.menuBar(), Qt::Key_Escape);
+        QTest::keyClick(edit, Qt::Key_Escape);
+
+        display->setFocus();
+        QTRY_VERIFY(display->hasFocus());
+        QSignalSpy keys(display, &Display::key);
+        QTest::keyPress(display, Qt::Key_Alt);
+        QTest::keyRelease(display, Qt::Key_Alt);
+        QCOMPARE(window.menuBar()->activeAction(), nullptr);
+        QVERIFY(display->hasFocus());
+        QCOMPARE(keys.count(), 2);
+        QCOMPARE(keys.at(0).at(0).value<bm_key_code_t>(), BM_KEY_LEFT_ALT);
+        QCOMPARE(keys.at(0).at(1).toBool(), true);
+        QCOMPARE(keys.at(1).at(1).toBool(), false);
+
+        // GRPH+A types on the machine instead of opening "&Action".
+        keys.clear();
+        QTest::keyClick(display, Qt::Key_A, Qt::AltModifier);
+        QVERIFY(!menu->isVisible());
+        QVERIFY(display->hasFocus());
+        // Alt down, A down, A up, Alt up.
+        QCOMPARE(keys.count(), 4);
+        QCOMPARE(keys.at(0).at(0).value<bm_key_code_t>(), BM_KEY_LEFT_ALT);
+        QCOMPARE(keys.at(1).at(0).value<bm_key_code_t>(), BM_KEY_A);
+        QCOMPARE(keys.at(1).at(1).toBool(), true);
+        QCOMPARE(keys.at(3).at(0).value<bm_key_code_t>(), BM_KEY_LEFT_ALT);
+        QCOMPARE(keys.at(3).at(1).toBool(), false);
+        if (!altReachesMenus)
+            qInfo("note: this platform style does not activate menus on Alt");
+    }
+
     void sessionRunsSyntheticRom()
     {
         // JMP 0000h: the CPU loops in ROM and never writes RAM.
@@ -352,5 +409,5 @@ private slots:
 #endif
 };
 
-QTEST_GUILESS_MAIN(CoreMachBridgeTest)
+QTEST_MAIN(CoreMachBridgeTest)
 #include "coremach_bridge_test.moc"
