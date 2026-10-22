@@ -9,15 +9,13 @@
 #ifndef QT_COREMACH_HPP
 #define QT_COREMACH_HPP
 
+#include "qt_coremach_profile.hpp"
+
 #include <QString>
 
 class BluMachCatalog;
 
 namespace CoreMachBridge {
-
-struct System {
-    const char *id;
-};
 
 enum class StartupCheck {
     Ready,
@@ -28,7 +26,7 @@ enum class StartupCheck {
 
 // True when this build includes the CoreMach engine.
 bool built();
-// The CoreMach systems this build runs; nullptr when systemId is not one.
+// A system this build runs; nullptr when systemId is not one.
 const System *findSystem(const QString &systemId);
 // Whether a configuration naming systemId can run in this build.
 StartupCheck checkStartup(const QString &systemId);

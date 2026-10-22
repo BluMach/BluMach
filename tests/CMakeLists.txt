@@ -157,3 +157,24 @@ if(QT AND TARGET 86Box)
             -P "${CMAKE_CURRENT_SOURCE_DIR}/coremach_startup_guard.cmake")
     set_tests_properties(coremach-startup-guard PROPERTIES TIMEOUT 300)
 endif()
+
+# CoreMach bridge contracts on synthetic data; no firmware is needed.
+if(QT)
+    find_package(Qt6 COMPONENTS Core Gui Test REQUIRED)
+    add_executable(coremach-bridge
+        coremach_bridge_test.cpp
+        "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_profile.cpp"
+    )
+    set_target_properties(coremach-bridge PROPERTIES AUTOMOC ON)
+    target_include_directories(coremach-bridge PRIVATE "${PROJECT_SOURCE_DIR}/src/qt")
+    target_compile_definitions(coremach-bridge PRIVATE
+        "BLUMACH_TEST_CATALOG_JSON=\"${PROJECT_BINARY_DIR}/src/qt/catalog/catalog.json\"")
+    target_link_libraries(coremach-bridge PRIVATE Qt6::Core Qt6::Gui Qt6::Test)
+    if(BLUMACH_COREMACH_ENABLED)
+        target_sources(coremach-bridge PRIVATE "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_session.cpp")
+        target_compile_definitions(coremach-bridge PRIVATE BLUMACH_COREMACH)
+        target_link_libraries(coremach-bridge PRIVATE blumach_coremach_systems)
+    endif()
+    add_test(NAME coremach-bridge COMMAND coremach-bridge)
+    set_tests_properties(coremach-bridge PROPERTIES TIMEOUT 120 ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
+endif()

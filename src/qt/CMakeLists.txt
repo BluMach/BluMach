@@ -178,6 +178,8 @@ add_library(ui STATIC
     qt_blumach_catalog.cpp
     qt_coremach.cpp
     qt_coremach.hpp
+    qt_coremach_profile.cpp
+    qt_coremach_profile.hpp
     qt_firmware.cpp
     qt_firmware.hpp
     qt_blumach_catalog.hpp
@@ -374,6 +376,11 @@ endif()
 
 if(BLUMACH_COREMACH_ENABLED)
     target_compile_definitions(ui PRIVATE BLUMACH_COREMACH)
+    target_sources(ui PRIVATE
+        qt_coremach_session.cpp
+        qt_coremach_session.hpp
+    )
+    target_link_libraries(ui PRIVATE blumach_coremach_systems)
 endif()
 
 if(RTMIDI)
