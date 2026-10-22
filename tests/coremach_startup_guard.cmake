@@ -14,7 +14,12 @@ endforeach()
 file(REMOVE_RECURSE "${WORK_DIR}")
 file(MAKE_DIRECTORY "${WORK_DIR}/roms")
 set(ENV{BLUMACH_UNATTENDED} 1)
-set(ENV{QT_QPA_PLATFORM} offscreen)
+# No window is opened on these paths. Hosts without a display still need a
+# platform plugin, but Windows builds deploy only the native one, and asking
+# Qt for a missing plugin stops at a modal error.
+if(NOT CMAKE_HOST_WIN32)
+    set(ENV{QT_QPA_PLATFORM} offscreen)
+endif()
 
 function(snapshot directory out)
     file(GLOB_RECURSE files LIST_DIRECTORIES true RELATIVE "${directory}" "${directory}/*")
