@@ -45,6 +45,7 @@ public slots:
     void updateAppearance();
 
 signals:
+    // emulatorMachineId is empty for products that CoreMach runs.
     void createMachineRequested(const QString &productId, const QString &emulatorMachineId);
     void showMachinesRequested();
     void selectionContextChanged(const QString &productId, const QString &productName, bool canCreate);

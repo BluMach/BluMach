@@ -6,6 +6,7 @@
 #include <QComboBox>
 #include <QCryptographicHash>
 #include <QImage>
+#include <QJsonDocument>
 #include <QDir>
 #include <QFile>
 #include <QLabel>
@@ -223,6 +224,59 @@ private slots:
         BluMachCatalog unloaded;
         QVERIFY(!unloaded.isMachineSelectable(QStringLiteral("olivetti_pcs86"), true));
         QVERIFY(unloaded.isMachineSelectable(QStringLiteral("ibmxt"), false));
+    }
+
+    void engineSelectsCreationConfiguration()
+    {
+        const auto object = [](const char *json) { return QJsonDocument::fromJson(json).object(); };
+        const auto creation = object(R"({"configuration": [{"section": "CoreMach",
+            "values": {"language": 2, "rtc_time": 0}}]})");
+        const QVector<QJsonObject> choices = {
+            object(R"({"set": [{"section": "CoreMach", "key": "ram_kib", "value": 32}]})") };
+
+        BluMachPlatform coreMach { QStringLiteral("m10-platform"), QString(), QStringLiteral("80C85"),
+                                   QStringLiteral("coremach"), QStringLiteral("olivetti-m10") };
+        QVERIFY(coreMach.isCoreMach());
+        QVERIFY(coreMach.hasMachineProfile());
+        QCOMPARE(BluMachCatalog::creationConfiguration(coreMach, creation, choices),
+                 QStringLiteral("[CoreMach]\nsystem = olivetti-m10\nlanguage = 2\nrtc_time = 0\n"
+                                "ram_kib = 32\n\n"));
+        // No 86Box defaults are written when a CoreMach profile is empty.
+        QCOMPARE(BluMachCatalog::creationConfiguration(coreMach, QJsonObject(), {}),
+                 QStringLiteral("[CoreMach]\nsystem = olivetti-m10\n\n"));
+        coreMach.coremachSystemId.clear();
+        QVERIFY(!coreMach.hasMachineProfile());
+
+        BluMachPlatform pc { QStringLiteral("pc-platform"), QStringLiteral("ibmxt"), QStringLiteral("8088"),
+                             QStringLiteral("86box"), QString() };
+        QVERIFY(!pc.isCoreMach());
+        QVERIFY(pc.hasMachineProfile());
+        QCOMPARE(BluMachCatalog::creationConfiguration(pc, QJsonObject(), {}),
+                 QStringLiteral("[General]\nvid_renderer = qt_software\ntime_sync = disabled\n\n"
+                                "[Machine]\nmachine = ibmxt\n\n"));
+    }
+
+    void releasedPlatformsUseTheirDeclaredEngine()
+    {
+        BluMachCatalog catalog;
+        QVERIFY(catalog.load());
+        for (const auto &platform : catalog.platforms()) {
+            QVERIFY2(platform.engine == QStringLiteral("86box") || platform.isCoreMach(),
+                     qPrintable(platform.id));
+            if (platform.isCoreMach())
+                QVERIFY2(platform.emulatorMachineId.isEmpty(), qPrintable(platform.id));
+        }
+    }
+
+    void developmentEntriesNeedExplicitRequest()
+    {
+        qunsetenv("BLUMACH_CATALOG_DEVELOPMENT");
+        QVERIFY(!BluMachCatalog::developmentEntriesEnabled());
+        qputenv("BLUMACH_CATALOG_DEVELOPMENT", "yes");
+        QVERIFY(!BluMachCatalog::developmentEntriesEnabled());
+        qputenv("BLUMACH_CATALOG_DEVELOPMENT", "1");
+        QVERIFY(BluMachCatalog::developmentEntriesEnabled());
+        qunsetenv("BLUMACH_CATALOG_DEVELOPMENT");
     }
 
     void toshibaCandidatesCreateFromTheirOwnSheets()

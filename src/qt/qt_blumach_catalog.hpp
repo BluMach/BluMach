@@ -49,6 +49,12 @@ struct BluMachPlatform {
     QString id;
     QString emulatorMachineId;
     QString architecture;
+    QString engine;           // "86box" (the default) or "coremach"
+    QString coremachSystemId; // CoreMach system for "coremach" platforms
+
+    bool isCoreMach() const { return engine == QLatin1String("coremach"); }
+    // A machine can be created when the platform names what runs it.
+    bool hasMachineProfile() const { return isCoreMach() ? !coremachSystemId.isEmpty() : !emulatorMachineId.isEmpty(); }
 };
 
 struct BluMachFacetValue {
@@ -92,6 +98,13 @@ class BluMachCatalog final {
 public:
     bool load(QString *errorMessage = nullptr);
     void reloadLocale();
+    // Hidden entries marked "development" are loaded only when the
+    // BLUMACH_CATALOG_DEVELOPMENT environment variable is 1.
+    static bool developmentEntriesEnabled();
+    // Configuration file for a machine created from a product's creation
+    // profile and the choices selected in its fields.
+    static QString creationConfiguration(const BluMachPlatform &platform, const QJsonObject &creation,
+                                         const QVector<QJsonObject> &selectedChoices);
 
     const QVector<BluMachManufacturer> &manufacturers() const;
     const QVector<BluMachFamily>       &families() const;

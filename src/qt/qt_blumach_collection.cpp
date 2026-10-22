@@ -1330,7 +1330,7 @@ bool BluMachCollectionWidget::canCreateProduct(const BluMachProduct &product) co
     return product.status != QStringLiteral("research")
         && product.status != QStringLiteral("not_bootable")
         && platform != nullptr
-        && !platform->emulatorMachineId.isEmpty();
+        && platform->hasMachineProfile();
 }
 
 void BluMachCollectionWidget::applyFilter()
