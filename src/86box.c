@@ -107,6 +107,7 @@
 #include <86box/acpi.h>
 #include <86box/nv/vid_nv_rivatimer.h>
 #include <86box/vfio.h>
+#include <86box/coremach_engine.h>
 
 /* Stuff that used to be globally declared in plat.h but is now extern there
    and declared here instead. */
@@ -1429,43 +1430,56 @@ usage:
             pclog("# Asset path: %s\n", cur_asset_path->path);
         }
 
-        /*
-         * We are about to read the configuration file, which MAY
-         * put data into global variables (the hard- and floppy
-         * disks are an example) so we have to initialize those
-         * modules before we load the config..
-         */
-        hdd_init();
-        network_init();
-        mouse_init();
-        cdrom_global_init();
-        rdisk_global_init();
-        mo_global_init();
-        tape_global_init();
-
-        /* Load the configuration file. */
-        config_load();
-        /* To save the global key binds. */
-        config_save_global();
-
-        /* Clear the CMOS and/or BIOS flash file, if we were started with
-           the relevant parameter(s). */
-        if (clear_cmos) {
-            delete_nvr_file(0);
-            clear_cmos = 0;
-        }
-
-        if (clear_flash) {
-            delete_nvr_file(1);
-            clear_flash = 0;
-        }
-
-        for (uint8_t i = 0; i < FDD_NUM; i++) {
-            if (fn[i] != NULL) {
-                if (strlen(fn[i]) <= 511)
-                    strncpy(floppyfns[i], fn[i], 511);
+        /* A [CoreMach] section hands the machine to the CoreMach engine.
+           The 86Box core then never loads, changes or saves this
+           configuration; the platform layer runs or rejects it. */
+        blumach_engine = blumach_detect_engine(cfg_path, blumach_coremach_system,
+                                               sizeof(blumach_coremach_system));
+        if (blumach_engine == BLUMACH_ENGINE_COREMACH) {
+            pclog("# Engine: CoreMach, system \"%s\"\n", blumach_coremach_system);
+            for (uint8_t i = 0; i < FDD_NUM; i++) {
                 free(fn[i]);
                 fn[i] = NULL;
+            }
+        } else {
+            /*
+             * We are about to read the configuration file, which MAY
+             * put data into global variables (the hard- and floppy
+             * disks are an example) so we have to initialize those
+             * modules before we load the config..
+             */
+            hdd_init();
+            network_init();
+            mouse_init();
+            cdrom_global_init();
+            rdisk_global_init();
+            mo_global_init();
+            tape_global_init();
+
+            /* Load the configuration file. */
+            config_load();
+            /* To save the global key binds. */
+            config_save_global();
+
+            /* Clear the CMOS and/or BIOS flash file, if we were started with
+               the relevant parameter(s). */
+            if (clear_cmos) {
+                delete_nvr_file(0);
+                clear_cmos = 0;
+            }
+
+            if (clear_flash) {
+                delete_nvr_file(1);
+                clear_flash = 0;
+            }
+
+            for (uint8_t i = 0; i < FDD_NUM; i++) {
+                if (fn[i] != NULL) {
+                    if (strlen(fn[i]) <= 511)
+                        strncpy(floppyfns[i], fn[i], 511);
+                    free(fn[i]);
+                    fn[i] = NULL;
+                }
             }
         }
     }

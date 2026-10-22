@@ -176,6 +176,8 @@ add_library(ui STATIC
     qt_preferenceskeybindings.ui
 
     qt_blumach_catalog.cpp
+    qt_coremach.cpp
+    qt_coremach.hpp
     qt_firmware.cpp
     qt_firmware.hpp
     qt_blumach_catalog.hpp
@@ -368,6 +370,10 @@ if(EMU_BUILD_NUM)
         qt_updatedetails.hpp
         qt_updatedetails.ui
     )
+endif()
+
+if(BLUMACH_COREMACH_ENABLED)
+    target_compile_definitions(ui PRIVATE BLUMACH_COREMACH)
 endif()
 
 if(RTMIDI)

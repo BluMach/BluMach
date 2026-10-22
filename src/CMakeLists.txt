@@ -28,6 +28,7 @@ endif()
 add_executable(86Box
     86box.c
     config.c
+    coremach_engine.c
     timer.c
     io.c
     acpi.c

@@ -135,3 +135,25 @@ blumach_add_host_contract(t3200-ags
 )
 blumach_enable_dead_code_elimination(t3200-ags)
 target_sources(t3200-ags PRIVATE "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")
+
+blumach_add_host_contract(coremach-engine-detect
+    coremach_engine_test.c
+    "${PROJECT_SOURCE_DIR}/src/coremach_engine.c"
+)
+
+# A [CoreMach] configuration never reaches the 86Box core or config_save(),
+# whether or not this build includes CoreMach.
+if(QT AND TARGET 86Box)
+    if(BLUMACH_COREMACH_ENABLED)
+        set(coremach_built ON)
+    else()
+        set(coremach_built OFF)
+    endif()
+    add_test(NAME coremach-startup-guard
+        COMMAND "${CMAKE_COMMAND}"
+            "-DBLUMACH=$<TARGET_FILE:86Box>"
+            "-DWORK_DIR=${CMAKE_CURRENT_BINARY_DIR}/coremach-startup-guard"
+            "-DCOREMACH_BUILT=${coremach_built}"
+            -P "${CMAKE_CURRENT_SOURCE_DIR}/coremach_startup_guard.cmake")
+    set_tests_properties(coremach-startup-guard PROPERTIES TIMEOUT 300)
+endif()
