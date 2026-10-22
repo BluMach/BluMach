@@ -80,7 +80,7 @@ namespace {
     int runMachine(const BluMachCatalog &catalog, const QString &name, const QString &folder,
                    const Profile &profile, const QByteArray &firmware, const States &states)
     {
-        Window window(catalog, name, folder, profile, firmware, states);
+        Window window(catalog, name, folder, QString::fromUtf8(cfg_path), profile, firmware, states);
         const auto status = window.start();
         if (status != BM_STATUS_OK)
             return report("start_failed", QMessageBox::Warning, catalog.text(QStringLiteral("firmware.unavailable")),

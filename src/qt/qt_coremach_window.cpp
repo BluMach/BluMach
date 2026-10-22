@@ -14,6 +14,7 @@
 #include <QCloseEvent>
 #include <QDir>
 #include <QLabel>
+#include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QStatusBar>
@@ -37,10 +38,12 @@ namespace {
 }
 
 Window::Window(const BluMachCatalog &catalog, const QString &machineName, const QString &machineFolder,
-               const Profile &profile, const QByteArray &firmware, const States &states)
+               const QString &configPath, const Profile &profile, const QByteArray &firmware,
+               const States &states)
     : m_catalog(catalog)
     , m_name(machineName)
     , m_folder(machineFolder)
+    , m_configPath(configPath)
     , m_events(machineFolder)
     , m_systemName(profile.system ? QString::fromUtf8(profile.system->name) : QString())
 {
@@ -77,6 +80,57 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
                 adjustSize();
         });
     }
+
+    // LCD look, saved per machine. Contrast only where the machine has the
+    // knob (the M10: right side panel, operations guide p. 1-10).
+    LcdSettings lcd;
+    if (profile.system) {
+        const auto preferences = readDisplayPreferences(m_configPath, *profile.system);
+        lcd.enabled            = preferences.lcdEffect;
+        lcd.persistence        = preferences.lcdPersistence;
+        lcd.contrast           = preferences.lcdContrast;
+    }
+    m_display->setLcdSettings(lcd);
+    view->addSeparator();
+    auto *effect = view->addAction(m_catalog.text(QStringLiteral("coremach.menu.lcd_effect")));
+    effect->setCheckable(true);
+    effect->setChecked(lcd.enabled);
+    auto *persistence = view->addAction(m_catalog.text(QStringLiteral("coremach.menu.lcd_persistence")));
+    persistence->setCheckable(true);
+    persistence->setChecked(lcd.persistence);
+    persistence->setEnabled(lcd.enabled);
+    QMenu *contrast = nullptr;
+    if (profile.system && profile.system->contrastControl) {
+        contrast       = view->addMenu(m_catalog.text(QStringLiteral("coremach.menu.contrast")));
+        auto *contrasts = new QActionGroup(this);
+        for (int step = 0; step < LcdSettings::contrastSteps; ++step) {
+            auto *item = contrast->addAction(m_catalog.text(QStringLiteral("coremach.menu.contrast_step"))
+                                                 .arg(step + 1)
+                                                 .arg(LcdSettings::contrastSteps));
+            item->setCheckable(true);
+            item->setChecked(step == lcd.contrast);
+            contrasts->addAction(item);
+            connect(item, &QAction::triggered, this, [this, step] {
+                LcdSettings settings = m_display->lcdSettings();
+                settings.contrast    = step;
+                setLcd(settings, "lcd_contrast", QString::number(step));
+            });
+        }
+        contrast->setEnabled(lcd.enabled);
+    }
+    connect(effect, &QAction::toggled, this, [this, persistence, contrast](bool on) {
+        LcdSettings settings = m_display->lcdSettings();
+        settings.enabled     = on;
+        persistence->setEnabled(on);
+        if (contrast)
+            contrast->setEnabled(on);
+        setLcd(settings, "lcd_effect", on ? QStringLiteral("1") : QStringLiteral("0"));
+    });
+    connect(persistence, &QAction::toggled, this, [this](bool on) {
+        LcdSettings settings = m_display->lcdSettings();
+        settings.persistence = on;
+        setLcd(settings, "lcd_persistence", on ? QStringLiteral("1") : QStringLiteral("0"));
+    });
 
     m_status = new QLabel(this);
     statusBar()->addWidget(m_status, 1);
@@ -285,6 +339,18 @@ Window::shutdown()
     m_pressed.clear();
     saveStates(m_session->stop());
     updateStatus();
+}
+
+void
+Window::setLcd(const LcdSettings &settings, const char *key, const QString &value)
+{
+    m_display->setLcdSettings(settings);
+    if (writeCoreMachValue(m_configPath, QString::fromLatin1(key), value))
+        return;
+    const QString text = m_catalog.text(QStringLiteral("coremach.display_save_failed"))
+                             .arg(m_name, QDir::toNativeSeparators(m_configPath));
+    std::fprintf(stderr, "BluMach: CoreMach display_save_failed: %s\n", text.toUtf8().constData());
+    statusBar()->showMessage(text, 10000);
 }
 
 void

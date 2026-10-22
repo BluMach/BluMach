@@ -31,7 +31,8 @@ class Window final : public QMainWindow {
     Q_OBJECT
 public:
     Window(const BluMachCatalog &catalog, const QString &machineName, const QString &machineFolder,
-           const Profile &profile, const QByteArray &firmware, const States &states);
+           const QString &configPath, const Profile &profile, const QByteArray &firmware,
+           const States &states);
     ~Window() override;
 
     bm_status_t start();
@@ -61,10 +62,13 @@ private:
     void saveStates(const States &states);
     void shutdown();
     void updateStatus();
+    // Applies and saves a display preference ([CoreMach] lcd_* key).
+    void setLcd(const LcdSettings &settings, const char *key, const QString &value);
 
     const BluMachCatalog    &m_catalog;
     QString                  m_name;
     QString                  m_folder;
+    QString                  m_configPath;
     std::unique_ptr<Session> m_session;
     Display                 *m_display  = nullptr;
     QLabel                  *m_status   = nullptr;
