@@ -248,7 +248,7 @@ private slots:
         menu->addAction(QStringLiteral("&Pause"));
         auto *central = new QWidget(&window);
         auto *edit    = new QLineEdit(central);
-        auto *display = new Display(central);
+        auto *display = new CoreMachBridge::Display(central);
         display->move(0, 40);
         window.setCentralWidget(central);
         window.show();
@@ -264,7 +264,7 @@ private slots:
 
         display->setFocus();
         QTRY_VERIFY(display->hasFocus());
-        QSignalSpy keys(display, &Display::key);
+        QSignalSpy keys(display, &CoreMachBridge::Display::key);
         QTest::keyPress(display, Qt::Key_Alt);
         QTest::keyRelease(display, Qt::Key_Alt);
         QCOMPARE(window.menuBar()->activeAction(), nullptr);
