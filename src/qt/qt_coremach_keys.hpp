@@ -14,6 +14,7 @@
 #ifndef QT_COREMACH_KEYS_HPP
 #define QT_COREMACH_KEYS_HPP
 
+#include <QString>
 #include <QtGlobal>
 
 #include <blumach/engine/input.h>
@@ -30,6 +31,8 @@ bm_key_code_t keyFromSetOneScanCode(quint32 scanCode);
 bm_key_code_t keyFromEvdevCode(quint32 code);
 // Layout-dependent fallback from the Qt key.
 bm_key_code_t keyFromQtKey(int key, quint32 nativeVirtualKey);
+// Short English key-cap name of a CoreMach key, such as "ESC" or "Home".
+QString keyName(bm_key_code_t key);
 // The CoreMach key for a host key event, or noKey.
 bm_key_code_t keyForEvent(const QKeyEvent &event);
 

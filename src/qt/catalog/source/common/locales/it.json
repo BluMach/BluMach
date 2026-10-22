@@ -217,6 +217,7 @@
   "coremach.confirm_exit": "Spegnere %1? La RAM e l’orologio vengono conservati nella cartella della macchina.",
   "coremach.save_failed": "%1: impossibile salvare la RAM o l’orologio in %2.",
   "coremach.session_failed": "%1 si è arrestata per un errore di emulazione (stato CoreMach %2). L’ultima RAM e l’orologio sono stati conservati.",
+  "coremach.key_missing": "Il tasto %1 non esiste su %2",
   "firmware.invalid_memory_choice": "%1 MB — non supportati; scegli un valore valido",
   "firmware.invalid_bios_choice": "%1 — non disponibile; scegli un BIOS",
   "firmware.choose_available_bios": "Scegli un BIOS disponibile prima di salvare. La configurazione non è stata modificata.",

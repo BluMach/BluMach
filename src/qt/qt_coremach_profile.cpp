@@ -10,6 +10,7 @@
 #include "qt_coremach_profile.hpp"
 
 #include <QCryptographicHash>
+#include <QDateTime>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -152,6 +153,37 @@ loadFirmware(const Firmware &firmware, const QStringList &romFolders)
     image.status = FirmwareStatus::Ok;
     image.data   = data;
     return image;
+}
+
+EventLog::EventLog(const QString &machineFolder)
+    : m_path(QDir(machineFolder).filePath(QStringLiteral("coremach-events.log")))
+{
+    QFile file(m_path);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+    while (!file.atEnd()) {
+        const QStringList fields = QString::fromUtf8(file.readLine()).trimmed().split(QLatin1Char('\t'));
+        if (fields.size() >= 3)
+            m_seen.insert(fields.at(1) + QLatin1Char('\t') + fields.at(2));
+    }
+}
+
+bool
+EventLog::record(const QString &kind, const QString &detail, const QString &context)
+{
+    const QString key = kind + QLatin1Char('\t') + detail;
+    if (m_seen.contains(key))
+        return false;
+    m_seen.insert(key);
+    if (m_seen.size() > maximumEntries)
+        return true; // still new, but the file stops growing
+    QFile file(m_path);
+    if (file.open(QIODevice::WriteOnly | QIODevice::Append)) {
+        const QString line = QStringList { QDateTime::currentDateTime().toString(Qt::ISODate), kind, detail, context }
+                                 .join(QLatin1Char('\t'));
+        file.write(line.toUtf8() + '\n');
+    }
+    return true;
 }
 
 QString

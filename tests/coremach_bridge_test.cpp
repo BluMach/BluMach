@@ -10,6 +10,7 @@
 #endif
 
 #include <QCryptographicHash>
+#include <QDateTime>
 #include <QDir>
 #include <QFile>
 #include <QJsonArray>
@@ -147,6 +148,28 @@ private slots:
         QVERIFY(loaded.sha256 != QString::fromLatin1(hash));
 
         QCOMPARE(loadFirmware(m10().firmware, { second.path() }).status, FirmwareStatus::Missing);
+    }
+
+    void eventLogRecordsEachEventOnce()
+    {
+        QTemporaryDir dir;
+        {
+            EventLog log(dir.path());
+            QCOMPARE(QFileInfo(log.path()).fileName(), QStringLiteral("coremach-events.log"));
+            QVERIFY(log.record(QStringLiteral("key_without_position"), QStringLiteral("ESC"), QStringLiteral("Olivetti M10")));
+            QVERIFY(!log.record(QStringLiteral("key_without_position"), QStringLiteral("ESC"), QStringLiteral("again")));
+            QVERIFY(log.record(QStringLiteral("key_without_position"), QStringLiteral("Home")));
+        }
+        // A later session keeps the earlier events.
+        EventLog later(dir.path());
+        QVERIFY(!later.record(QStringLiteral("key_without_position"), QStringLiteral("ESC")));
+        QVERIFY(later.record(QStringLiteral("video_failed"), QStringLiteral("status -6")));
+        const auto lines = QString::fromUtf8(read(later.path())).split(QLatin1Char('\n'), Qt::SkipEmptyParts);
+        QCOMPARE(lines.size(), 3);
+        const auto first = lines.at(0).split(QLatin1Char('\t'));
+        QCOMPARE(first.size(), 4);
+        QVERIFY(QDateTime::fromString(first.at(0), Qt::ISODate).isValid());
+        QCOMPARE(first.mid(1), (QStringList { "key_without_position", "ESC", "Olivetti M10" }));
     }
 
     void persistentStates()
@@ -290,6 +313,81 @@ private slots:
             qInfo("note: this platform style does not activate menus on Alt");
     }
 
+    void keyNamesForNotices()
+    {
+        QCOMPARE(keyName(BM_KEY_ESCAPE), QStringLiteral("ESC"));
+        QCOMPARE(keyName(BM_KEY_HOME), QStringLiteral("Home"));
+        QCOMPARE(keyName(BM_KEY_F5), QStringLiteral("F5"));
+        QCOMPARE(keyName(BM_KEY_Q), QStringLiteral("Q"));
+        QCOMPARE(keyName(BM_KEY_0), QStringLiteral("0"));
+    }
+
+    void keysWithoutPositionDoNotStopTheSession()
+    {
+        QByteArray rom(32768, '\0');
+        rom[0] = '\xc3'; // JMP 0000h
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+
+        std::mutex                     mutex;
+        QList<Session::Notice>         notices;
+        std::atomic<int>               failures { 0 };
+        Session session(profile, rom, {}, [&](const Session::Frame &frame) {
+            if (frame.status != BM_STATUS_OK)
+                ++failures;
+            if (frame.notice.kind == Session::Notice::Kind::None)
+                return;
+            std::lock_guard<std::mutex> lock(mutex);
+            notices.append(frame.notice);
+        });
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        // The M10 has no ESC or Home key; A is on its keyboard.
+        session.key(BM_KEY_ESCAPE, true);
+        session.key(BM_KEY_ESCAPE, false);
+        session.key(BM_KEY_HOME, true);
+        session.key(BM_KEY_A, true);
+        session.key(BM_KEY_A, false);
+        QTRY_VERIFY_WITH_TIMEOUT([&] { std::lock_guard<std::mutex> lock(mutex); return notices.size() >= 3; }(), 2000);
+        const uint64_t ticks = session.ticks();
+        QTRY_VERIFY_WITH_TIMEOUT(session.ticks() > ticks, 2000);
+        QCOMPARE(session.state(), BM_SESSION_RUNNING);
+        QCOMPARE(failures.load(), 0);
+        {
+            std::lock_guard<std::mutex> lock(mutex);
+            QCOMPARE(notices.size(), 3);
+            for (const auto &notice : notices) {
+                QCOMPARE(notice.kind, Session::Notice::Kind::KeyWithoutPosition);
+                QCOMPARE(notice.status, BM_STATUS_UNSUPPORTED);
+            }
+            QCOMPARE(notices.at(0).key, BM_KEY_ESCAPE);
+            QCOMPARE(notices.at(2).key, BM_KEY_HOME);
+        }
+        session.stop();
+    }
+
+    void failedRunStopsTheSession()
+    {
+        // DSUB (08h) is undocumented; CoreMach rejects it in strict mode,
+        // so the run fails and the session must stop with that status.
+        QByteArray rom(32768, '\0');
+        rom[0] = '\x08';
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+        std::atomic<int> failure { BM_STATUS_OK };
+        Session session(profile, rom, {}, [&](const Session::Frame &frame) {
+            if (frame.status != BM_STATUS_OK)
+                failure = frame.status;
+        });
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        QTRY_COMPARE_WITH_TIMEOUT(failure.load(), static_cast<int>(BM_STATUS_UNSUPPORTED), 2000);
+        QTRY_COMPARE_WITH_TIMEOUT(session.state(), BM_SESSION_STOPPED, 2000);
+        session.stop();
+    }
+
     void sessionRunsSyntheticRom()
     {
         // JMP 0000h: the CPU loops in ROM and never writes RAM.
@@ -388,6 +486,13 @@ private slots:
             for (int x = 0; x < frame.width(); ++x)
                 colours.insert(frame.pixel(x, y));
         QVERIFY2(colours.size() >= 2, "the LCD shows nothing");
+
+        // ESC in the menu (the M10 has no ESC key) must not stop the machine.
+        session.key(BM_KEY_ESCAPE, true);
+        session.key(BM_KEY_ESCAPE, false);
+        const uint64_t afterEscape = session.ticks();
+        QTRY_VERIFY_WITH_TIMEOUT(session.ticks() > afterEscape + UINT64_C(500000000), 5000);
+        QCOMPARE(session.state(), BM_SESSION_RUNNING);
         const QString output = qEnvironmentVariable("BLUMACH_TEST_OUTPUT_DIR");
         if (!output.isEmpty())
             QVERIFY(frame.scaled(frame.size() * 3).save(QDir(output).filePath(QStringLiteral("m10-frame.png"))));

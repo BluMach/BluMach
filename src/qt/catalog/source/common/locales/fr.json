@@ -217,6 +217,7 @@
   "coremach.confirm_exit": "Éteindre %1 ? Sa RAM et son horloge sont conservées dans le dossier de la machine.",
   "coremach.save_failed": "%1 : impossible d’enregistrer la RAM ou l’horloge dans %2.",
   "coremach.session_failed": "%1 s’est arrêtée à cause d’une erreur d’émulation (état CoreMach %2). Sa dernière RAM et son horloge ont été conservées.",
+  "coremach.key_missing": "La touche %1 n’existe pas sur le %2",
   "firmware.invalid_memory_choice": "%1 Mo — non pris en charge ; choisissez une valeur valide",
   "firmware.invalid_bios_choice": "%1 — indisponible ; choisissez un BIOS",
   "firmware.choose_available_bios": "Choisissez un BIOS disponible avant d’enregistrer. La configuration n’a pas été modifiée.",

@@ -35,10 +35,25 @@ namespace CoreMachBridge {
 
 class Session final {
 public:
+    // Something the machine rejected or failed to do without stopping.
+    struct Notice {
+        enum class Kind {
+            None,
+            KeyWithoutPosition, // the machine has no such key
+            InputRejected,
+            VideoFailed,
+            CommandFailed, // pause, resume or reset
+        };
+        Kind          kind   = Kind::None;
+        bm_status_t   status = BM_STATUS_OK;
+        bm_key_code_t key    = static_cast<bm_key_code_t>(0);
+    };
     struct Frame {
         QImage             image;
         bm_session_state_t state = BM_SESSION_NEW;
-        bm_status_t        status = BM_STATUS_OK;
+        // Not OK only when emulation itself failed and the session stopped.
+        bm_status_t status = BM_STATUS_OK;
+        Notice      notice;
     };
     using FrameHandler = std::function<void(const Frame &)>;
 
@@ -76,8 +91,10 @@ private:
     void   enqueue(const Command &command);
     void   run();
     bool   process(bm_session_t *session);
+    bool   stopAfterFailure(bm_session_t *session, bm_status_t status);
     States captureFrom(bm_session_t *session) const;
     void   publish(bm_session_t *session, bm_status_t status, bool render);
+    void   publish(bm_session_t *session, bm_status_t status, bool render, const Notice &notice);
 
     std::unique_ptr<Machine> m_machine;
     FrameHandler             m_handler;

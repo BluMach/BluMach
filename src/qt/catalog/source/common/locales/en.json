@@ -217,6 +217,7 @@
   "coremach.confirm_exit": "Turn off %1? Its RAM and clock are kept in the machine folder.",
   "coremach.save_failed": "%1: the RAM or clock could not be saved in %2.",
   "coremach.session_failed": "%1 stopped because of an emulation error (CoreMach status %2). Its last RAM and clock were kept.",
+  "coremach.key_missing": "%1 does not exist on the %2",
   "firmware.invalid_memory_choice": "%1 MB — unsupported; choose a supported value",
   "firmware.invalid_bios_choice": "%1 — unavailable; choose a BIOS",
   "firmware.choose_available_bios": "Choose an available BIOS before saving. The configuration has not been changed.",

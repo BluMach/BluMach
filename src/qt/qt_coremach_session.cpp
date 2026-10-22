@@ -236,8 +236,15 @@ Session::captureFrom(bm_session_t *session) const
 void
 Session::publish(bm_session_t *session, bm_status_t status, bool render)
 {
+    publish(session, status, render, Notice());
+}
+
+void
+Session::publish(bm_session_t *session, bm_status_t status, bool render, const Notice &notice)
+{
     Frame frame;
     frame.status = status;
+    frame.notice = notice;
     frame.state  = session ? bm_session_state(session) : BM_SESSION_NEW;
     m_state.store(frame.state);
     if (session)
@@ -252,13 +259,33 @@ Session::publish(bm_session_t *session, bm_status_t status, bool render)
                                                  static_cast<size_t>(image.sizeInBytes()) / sizeof(uint32_t),
                                                  static_cast<uint32_t>(image.bytesPerLine() / sizeof(uint32_t)),
                                                  geometry };
-            frame.status = bm_session_render_video(session, &framebuffer);
-            if (frame.status == BM_STATUS_OK)
+            // A frame that cannot be drawn is skipped; emulation goes on.
+            const bm_status_t video = bm_session_render_video(session, &framebuffer);
+            if (video == BM_STATUS_OK)
                 frame.image = image;
+            else if (frame.notice.kind == Notice::Kind::None)
+                frame.notice = { Notice::Kind::VideoFailed, video, {} };
         }
     }
     if (m_handler)
         m_handler(frame);
+}
+
+bool
+Session::stopAfterFailure(bm_session_t *session, bm_status_t status)
+{
+    // The engine cannot go on after a failed run: keep the last states and
+    // stop. The frame published here carries the failure to the window.
+    std::fprintf(stderr, "BluMach: CoreMach session stopped with status %d\n", static_cast<int>(status));
+    States states = captureFrom(session);
+    (void) bm_session_stop(session);
+    {
+        std::lock_guard<std::mutex> lock(m_mutex);
+        if (!states.isEmpty())
+            m_captured = states;
+    }
+    publish(session, status, false);
+    return false;
 }
 
 bool
@@ -271,7 +298,10 @@ Session::process(bm_session_t *session)
     }
     const uint64_t tps = m_machine->ticksPerSecond;
     for (const auto &command : commands) {
+        // Only a failed emulation run stops the session. A rejected command
+        // or key is reported as a notice and the machine keeps running.
         bm_status_t status = BM_STATUS_OK;
+        Notice      notice;
         switch (command.kind) {
             case CommandKind::Pause:
                 if (bm_session_state(session) == BM_SESSION_RUNNING)
@@ -288,14 +318,19 @@ Session::process(bm_session_t *session)
                 m_paceOrigin = now();
                 m_paceTicks  = 0;
                 break;
-            case CommandKind::Key:
-                status = bm_session_send_input(session, &command.input);
-                if (status == BM_STATUS_OK && bm_session_state(session) == BM_SESSION_RUNNING) {
+            case CommandKind::Key: {
+                const bm_status_t input = bm_session_send_input(session, &command.input);
+                if (input == BM_STATUS_UNSUPPORTED)
+                    notice = { Notice::Kind::KeyWithoutPosition, input, command.input.key };
+                else if (input != BM_STATUS_OK)
+                    notice = { Notice::Kind::InputRejected, input, command.input.key };
+                else if (bm_session_state(session) == BM_SESSION_RUNNING) {
                     const uint64_t transition = interval(tps, keyTransitionsPerSecond);
                     status = bm_session_run_for(session, transition);
                     m_paceTicks += transition;
                 }
                 break;
+            }
             case CommandKind::Capture: {
                 States states = captureFrom(session);
                 std::lock_guard<std::mutex> lock(m_mutex);
@@ -314,8 +349,18 @@ Session::process(bm_session_t *session)
                 return false;
             }
         }
+        if ((command.kind == CommandKind::Pause || command.kind == CommandKind::Resume
+             || command.kind == CommandKind::Reset)
+            && status != BM_STATUS_OK) {
+            notice = { Notice::Kind::CommandFailed, status, {} };
+            status = BM_STATUS_OK;
+        }
+        if (status != BM_STATUS_OK) {
+            (void) stopAfterFailure(session, status);
+            continue;
+        }
         if (command.kind != CommandKind::Capture)
-            publish(session, status, false);
+            publish(session, status, false, notice);
     }
     return true;
 }
@@ -364,15 +409,7 @@ Session::run()
                 m_paceTicks += due;
             }
             if (status != BM_STATUS_OK) {
-                std::fprintf(stderr, "BluMach: CoreMach session stopped with status %d\n", static_cast<int>(status));
-                States states = captureFrom(session);
-                (void) bm_session_stop(session);
-                {
-                    std::lock_guard<std::mutex> lock(m_mutex);
-                    if (!states.isEmpty())
-                        m_captured = states;
-                }
-                publish(session, status, false);
+                (void) stopAfterFailure(session, status);
                 status = BM_STATUS_OK;
             } else if (now() - m_lastFrame >= frameNs) {
                 m_lastFrame = now();

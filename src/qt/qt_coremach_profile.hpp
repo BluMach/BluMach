@@ -12,6 +12,7 @@
 
 #include <QByteArray>
 #include <QHash>
+#include <QSet>
 #include <QString>
 #include <QStringList>
 
@@ -96,6 +97,24 @@ struct FirmwareImage {
 // Looks for the firmware in each ROM folder in order and verifies the first
 // file found against the expected size and SHA-256.
 FirmwareImage loadFirmware(const Firmware &firmware, const QStringList &romFolders);
+
+// Events of a CoreMach machine that BluMach tolerated, kept once each in
+// <machine folder>/coremach-events.log, also across sessions. Each line is
+// "<local time>\t<kind>\t<detail>\t<context>".
+class EventLog final {
+public:
+    static constexpr int maximumEntries = 1000;
+
+    explicit EventLog(const QString &machineFolder);
+    // Appends the event unless kind and detail were already recorded.
+    // Returns true when the event is new in this machine folder.
+    bool    record(const QString &kind, const QString &detail, const QString &context = QString());
+    QString path() const { return m_path; }
+
+private:
+    QString       m_path;
+    QSet<QString> m_seen;
+};
 
 // <machine folder>/state/<role>.bin
 QString stateFile(const QString &machineFolder, const char *role);

@@ -54,6 +54,7 @@ protected:
 
 private:
     void present(const Session::Frame &frame);
+    void handleNotice(const Session::Notice &notice);
     void sendKey(bm_key_code_t key, bool pressed);
     void releaseKeys();
     void setPausedState(bool paused);
@@ -71,6 +72,9 @@ private:
     QTimer                   m_saveTimer;
     QTimer                   m_statusTimer;
     QSet<int>                m_pressed;
+    QSet<int>                m_missingKeysShown; // this session
+    EventLog                 m_events;
+    QString                  m_systemName;
     bool                     m_paused   = false;
     bool                     m_stopped  = false;
     bool                     m_failed   = false;

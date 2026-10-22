@@ -8,6 +8,7 @@
 
 #include "qt_coremach_window.hpp"
 #include "qt_blumach_catalog.hpp"
+#include "qt_coremach_keys.hpp"
 
 #include <QActionGroup>
 #include <QCloseEvent>
@@ -40,6 +41,8 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
     : m_catalog(catalog)
     , m_name(machineName)
     , m_folder(machineFolder)
+    , m_events(machineFolder)
+    , m_systemName(profile.system ? QString::fromUtf8(profile.system->name) : QString())
 {
     m_session = std::make_unique<Session>(profile, firmware, states, [this](const Session::Frame &frame) {
         QMetaObject::invokeMethod(this, [this, frame] { present(frame); }, Qt::QueuedConnection);
@@ -186,6 +189,9 @@ Window::present(const Session::Frame &frame)
         return;
     if (!frame.image.isNull())
         m_display->setFrame(frame.image);
+    if (frame.notice.kind != Session::Notice::Kind::None)
+        handleNotice(frame.notice);
+    // Only a failed emulation run reaches here as a status.
     if (frame.status != BM_STATUS_OK && !m_failed) {
         m_failed = true;
         shutdown();
@@ -195,6 +201,38 @@ Window::present(const Session::Frame &frame)
         if (!unattended())
             QMessageBox::warning(this, m_name, text);
         close();
+    }
+}
+
+void
+Window::handleNotice(const Session::Notice &notice)
+{
+    using Kind = Session::Notice::Kind;
+    const QString status = QStringLiteral("status %1").arg(static_cast<int>(notice.status));
+    switch (notice.kind) {
+        case Kind::None:
+            return;
+        case Kind::KeyWithoutPosition: {
+            const QString name = keyName(notice.key);
+            m_events.record(QStringLiteral("key_without_position"), name, m_systemName);
+            if (m_missingKeysShown.contains(static_cast<int>(notice.key)))
+                return;
+            m_missingKeysShown.insert(static_cast<int>(notice.key));
+            statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.key_missing")).arg(name, m_systemName), 5000);
+            return;
+        }
+        case Kind::InputRejected:
+            if (m_events.record(QStringLiteral("input_rejected"), keyName(notice.key), status))
+                std::fprintf(stderr, "BluMach: CoreMach input rejected (%s)\n", status.toUtf8().constData());
+            return;
+        case Kind::VideoFailed:
+            if (m_events.record(QStringLiteral("video_failed"), status))
+                std::fprintf(stderr, "BluMach: CoreMach frame not drawn (%s)\n", status.toUtf8().constData());
+            return;
+        case Kind::CommandFailed:
+            if (m_events.record(QStringLiteral("command_failed"), status))
+                std::fprintf(stderr, "BluMach: CoreMach command failed (%s)\n", status.toUtf8().constData());
+            return;
     }
 }
 

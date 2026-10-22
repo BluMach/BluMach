@@ -188,6 +188,47 @@ keyFromQtKey(int key, quint32 nativeVirtualKey)
     }
 }
 
+QString
+keyName(bm_key_code_t key)
+{
+    if (key >= BM_KEY_A && key <= BM_KEY_Z)
+        return QString(QLatin1Char(static_cast<char>('A' + (key - BM_KEY_A))));
+    if (key >= BM_KEY_1 && key <= BM_KEY_9)
+        return QString(QLatin1Char(static_cast<char>('1' + (key - BM_KEY_1))));
+    if (key >= BM_KEY_F1 && key <= BM_KEY_F10)
+        return QStringLiteral("F%1").arg(1 + (key - BM_KEY_F1));
+    switch (key) {
+        case BM_KEY_0:                return QStringLiteral("0");
+        case BM_KEY_ENTER:            return QStringLiteral("Enter");
+        case BM_KEY_ESCAPE:           return QStringLiteral("ESC");
+        case BM_KEY_BACKSPACE:        return QStringLiteral("Backspace");
+        case BM_KEY_TAB:              return QStringLiteral("Tab");
+        case BM_KEY_SPACE:            return QStringLiteral("Space");
+        case BM_KEY_CAPS_LOCK:        return QStringLiteral("Caps Lock");
+        case BM_KEY_PRINT_SCREEN:     return QStringLiteral("Print Screen");
+        case BM_KEY_SCROLL_LOCK:      return QStringLiteral("Scroll Lock");
+        case BM_KEY_PAUSE:            return QStringLiteral("Pause");
+        case BM_KEY_INSERT:           return QStringLiteral("Insert");
+        case BM_KEY_HOME:             return QStringLiteral("Home");
+        case BM_KEY_PAGE_UP:          return QStringLiteral("Page Up");
+        case BM_KEY_DELETE:           return QStringLiteral("Delete");
+        case BM_KEY_END:              return QStringLiteral("End");
+        case BM_KEY_PAGE_DOWN:        return QStringLiteral("Page Down");
+        case BM_KEY_RIGHT:            return QStringLiteral("Right");
+        case BM_KEY_LEFT:             return QStringLiteral("Left");
+        case BM_KEY_DOWN:             return QStringLiteral("Down");
+        case BM_KEY_UP:               return QStringLiteral("Up");
+        case BM_KEY_NON_US_BACKSLASH: return QStringLiteral("ISO \\");
+        case BM_KEY_LEFT_CONTROL:
+        case BM_KEY_RIGHT_CONTROL:    return QStringLiteral("Ctrl");
+        case BM_KEY_LEFT_SHIFT:
+        case BM_KEY_RIGHT_SHIFT:      return QStringLiteral("Shift");
+        case BM_KEY_LEFT_ALT:         return QStringLiteral("Alt");
+        case BM_KEY_RIGHT_ALT:        return QStringLiteral("AltGr");
+        default:                      return QStringLiteral("0x%1").arg(static_cast<int>(key), 2, 16, QLatin1Char('0'));
+    }
+}
+
 bm_key_code_t
 keyForEvent(const QKeyEvent &event)
 {
