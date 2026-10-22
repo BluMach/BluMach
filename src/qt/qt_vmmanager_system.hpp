@@ -127,6 +127,8 @@ public:
 
     [[nodiscard]] bool   isValid() const;
     [[nodiscard]] bool   isProcessRunning() const;
+    // True when the configuration selects the CoreMach engine.
+    [[nodiscard]] bool   isCoreMach() const;
     [[nodiscard]] qint64 processId() const;
 public slots:
     void launch86Box(bool settings = false);
@@ -203,6 +205,7 @@ private:
     void find86BoxBinary();
     void setupPaths();
     void setupVars();
+    void setupCoreMachVars();
     void setProcessEnvVars();
 
     void dataReceived();

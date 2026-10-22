@@ -32,6 +32,33 @@ BluMach --rompath path
 to its log during startup. Required relative filenames and layouts are listed
 in the relevant public machine note when they can be disclosed safely.
 
+## CoreMach machines
+
+Machines run by the [CoreMach](https://github.com/Palimbit/CoreMach) engine
+use the same ROM folders. Their firmware must match the expected size and
+SHA-256 exactly; another file at the same path is refused and the saved
+configuration is left unchanged.
+
+| Machine | Relative path | Size | SHA-256 |
+| --- | --- | --- | --- |
+| Olivetti M10 | `machines/olivetti_m10/m10-system-first32k.bin` | 32 768 bytes | `43f85e3ac5cc264be3ad4c3b36dea82381409a66381146ce06a78c22704b0dbc` |
+
+The battery-backed RAM and clock of a CoreMach machine are kept in its machine
+folder as `state/ram.bin` and `state/rtc.bin`.
+
+The Olivetti M10 entry is a hidden development sheet while the machine is
+brought up. It appears in the collection only when BluMach starts with the
+environment variable `BLUMACH_CATALOG_DEVELOPMENT=1`. For automated checks,
+`BLUMACH_UNATTENDED=1` reports CoreMach startup errors on standard error
+instead of in a dialog.
+
+With a local copy of the M10 firmware, the opt-in check of the
+`coremach-bridge` test runs it to the firmware's main menu:
+
+```text
+BLUMACH_TEST_ROM_DIR=<ROM folder> ctest --test-dir <build-directory> -R coremach-bridge
+```
+
 ## Distribution boundary
 
 - Official source archives, binaries and CI artifacts must contain no

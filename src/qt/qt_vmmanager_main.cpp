@@ -848,20 +848,18 @@ VMManagerMain::newMachineWizard()
 void
 VMManagerMain::newHistoricalMachine(const QString &productId, const QString &machineId)
 {
-    if (machineId.isEmpty()) {
-        QMessageBox::warning(this, tr("Machine unavailable"),
-                             tr("This catalog entry does not yet have a usable emulator profile."));
-        return;
-    }
-
     BluMachCatalog catalog;
     QString        catalogError;
     if (!catalog.load(&catalogError)) {
         QMessageBox::critical(this, tr("Catalog unavailable"), catalogError);
         return;
     }
-    const BluMachProduct *product = catalog.product(productId);
-    if (!product) {
+    const BluMachProduct  *product  = catalog.product(productId);
+    const BluMachPlatform *platform = product ? catalog.platform(product->platformId) : nullptr;
+    // CoreMach products have no 86Box machine; their platform names the system.
+    const bool coreMach = platform && platform->isCoreMach();
+    if (!platform || !platform->hasMachineProfile()
+        || (!coreMach && machineId != platform->emulatorMachineId)) {
         QMessageBox::warning(this, tr("Machine unavailable"),
                              tr("This catalog entry does not yet have a usable emulator profile."));
         return;
@@ -946,75 +944,13 @@ VMManagerMain::newHistoricalMachine(const QString &productId, const QString &mac
         return;
     }
 
-    struct ConfigSection {
-        QString                         name;
-        QVector<QPair<QString, QString>> values;
-    };
-    QVector<ConfigSection> sections;
-
-    const auto scalarText = [](const QJsonValue &value) {
-        if (value.isBool())
-            return value.toBool() ? QStringLiteral("1") : QStringLiteral("0");
-        if (value.isDouble())
-            return QString::number(value.toDouble(), 'g', 16);
-        return value.toString();
-    };
-    const auto setConfig = [&sections, &scalarText](const QString &sectionName, const QString &key,
-                                                    const QJsonValue &value) {
-        for (auto &section : sections) {
-            if (section.name != sectionName)
-                continue;
-            for (auto &entry : section.values) {
-                if (entry.first == key) {
-                    entry.second = scalarText(value);
-                    return;
-                }
-            }
-            section.values.append({ key, scalarText(value) });
-            return;
-        }
-        ConfigSection section;
-        section.name = sectionName;
-        section.values.append({ key, scalarText(value) });
-        sections.append(section);
-    };
-
-    if (creation.isEmpty()) {
-        setConfig(QStringLiteral("General"), QStringLiteral("vid_renderer"), QStringLiteral("qt_software"));
-        setConfig(QStringLiteral("General"), QStringLiteral("time_sync"), QStringLiteral("disabled"));
-    } else {
-        for (const auto &sectionValue : creation.value(QStringLiteral("configuration")).toArray()) {
-            const auto section = sectionValue.toObject();
-            const auto name = section.value(QStringLiteral("section")).toString();
-            const auto values = section.value(QStringLiteral("values")).toObject();
-            for (auto it = values.constBegin(); it != values.constEnd(); ++it)
-                setConfig(name, it.key(), it.value());
-        }
-    }
-    setConfig(QStringLiteral("Machine"), QStringLiteral("machine"), machineId);
-
     QVector<QJsonObject> selectedChoices;
     for (const auto &field : fields) {
         const int choiceIndex = field.widget->currentData().toInt();
-        if (choiceIndex < 0 || choiceIndex >= field.choices.size())
-            continue;
-        const auto choice = field.choices.at(choiceIndex).toObject();
-        selectedChoices.append(choice);
-        for (const auto &settingValue : choice.value(QStringLiteral("set")).toArray()) {
-            const auto setting = settingValue.toObject();
-            setConfig(setting.value(QStringLiteral("section")).toString(),
-                      setting.value(QStringLiteral("key")).toString(),
-                      setting.value(QStringLiteral("value")));
-        }
+        if (choiceIndex >= 0 && choiceIndex < field.choices.size())
+            selectedChoices.append(field.choices.at(choiceIndex).toObject());
     }
-
-    QString configuration;
-    for (const auto &section : sections) {
-        configuration += QStringLiteral("[%1]\n").arg(section.name);
-        for (const auto &entry : section.values)
-            configuration += QStringLiteral("%1 = %2\n").arg(entry.first, entry.second);
-        configuration += QLatin1Char('\n');
-    }
+    const QString configuration = BluMachCatalog::creationConfiguration(*platform, creation, selectedChoices);
 
     QString directoryName = creation.value(QStringLiteral("directory_prefix")).toString();
     if (directoryName.isEmpty())

@@ -29,6 +29,7 @@
 #include "qt_vmmanager_system.hpp"
 // #include "qt_vmmanager_details_section.hpp"
 #include "qt_vmmanager_detailsection.hpp"
+#include "qt_coremach_profile.hpp"
 
 #ifdef Q_OS_WINDOWS
 #    include <windows.h>
@@ -545,6 +546,10 @@ VMManagerSystem::setupVars()
 {
     unique_name = QCryptographicHash::hash(config_file.path().toUtf8().constData(), QCryptographicHash::Algorithm::Sha256).toHex().right(9);
     // unique_name = "aaaaaa";
+    if (isCoreMach()) {
+        setupCoreMachVars();
+        return;
+    }
     // Set up the display vars
     // This will likely get moved out to its own class
     // This will likely get moved out to its own class
@@ -1154,6 +1159,37 @@ VMManagerSystem::setupVars()
         }
     }
     display_table[VMManager::Display::Name::IsaRom] = IsaRomCards.join(VMManagerDetailSection::sectionSeparator);
+}
+
+bool
+VMManagerSystem::isCoreMach() const
+{
+    return config_hash.contains(QStringLiteral("CoreMach"));
+}
+
+void
+VMManagerSystem::setupCoreMachVars()
+{
+    // A CoreMach machine has none of the 86Box devices; only the rows its
+    // system describes are shown, and empty sections stay hidden.
+    display_table.clear();
+    const auto  coremach = config_hash.value(QStringLiteral("CoreMach"));
+    const auto  systemId = coremach.value(QStringLiteral("system"));
+    const auto *system   = CoreMachBridge::knownSystem(systemId);
+    if (!system) {
+        display_table[VMManager::Display::Name::Machine] = QStringLiteral("CoreMach: %1").arg(systemId);
+        return;
+    }
+    display_table[VMManager::Display::Name::Machine] = QString::fromUtf8(system->name);
+    display_table[VMManager::Display::Name::CPU]     = QString::fromUtf8(system->cpu);
+    display_table[VMManager::Display::Name::Video]   = QString::fromUtf8(system->display);
+    if (const auto *ram = system->option(QStringLiteral("ram_kib"))) {
+        bool       valid = false;
+        const uint value = coremach.value(QStringLiteral("ram_kib")).toUInt(&valid);
+        // As for 86Box machines: the number, then the translated unit.
+        display_table[VMManager::Display::Name::Memory]
+            = QString::number(valid ? value : ram->defaultValue) + QLatin1Char(' ') + QCoreApplication::translate("", "KB");
+    }
 }
 
 bool

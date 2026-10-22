@@ -1,0 +1,18 @@
+{
+  "product.olivetti-m10.summary": "Scheda di sviluppo per avviare l’Olivetti M10 con il motore CoreMach. Non è una scheda del catalogo.",
+  "product.olivetti-m10.warning": "SOLO SVILUPPO: visibile solo con BLUMACH_CATALOG_DEVELOPMENT=1. Richiede la ROM di sistema locale da 32 KB in roms/machines/olivetti_m10/.",
+  "product.olivetti-m10.creation.model": "Olivetti M10 (CoreMach)",
+  "product.olivetti-m10.creation.label.language": "Lingua della tastiera (ponticelli)",
+  "product.olivetti-m10.creation.language.it": "Italiano",
+  "product.olivetti-m10.creation.language.fr": "Francese",
+  "product.olivetti-m10.creation.language.de": "Tedesco",
+  "product.olivetti-m10.creation.language.en": "Inglese",
+  "product.olivetti-m10.creation.label.clock": "Orologio",
+  "product.olivetti-m10.creation.clock.host": "Ora del computer, continua da spento",
+  "product.olivetti-m10.creation.clock.fixed": "Avvio fisso (1 gennaio 00:00), riproducibile",
+  "product.olivetti-m10.creation.note": "La RAM e l’orologio sono conservati nella cartella della macchina (state/ram.bin, state/rtc.bin).",
+  "product.olivetti-m10.creation.memory.8": "8 KB",
+  "product.olivetti-m10.creation.memory.16": "16 KB",
+  "product.olivetti-m10.creation.memory.24": "24 KB",
+  "product.olivetti-m10.creation.memory.32": "32 KB"
+}

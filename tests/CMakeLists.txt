@@ -135,3 +135,49 @@ blumach_add_host_contract(t3200-ags
 )
 blumach_enable_dead_code_elimination(t3200-ags)
 target_sources(t3200-ags PRIVATE "${PROJECT_SOURCE_DIR}/src/video/video_panel.c")
+
+blumach_add_host_contract(coremach-engine-detect
+    coremach_engine_test.c
+    "${PROJECT_SOURCE_DIR}/src/coremach_engine.c"
+)
+
+# A [CoreMach] configuration never reaches the 86Box core or config_save(),
+# whether or not this build includes CoreMach.
+if(QT AND TARGET 86Box)
+    if(BLUMACH_COREMACH_ENABLED)
+        set(coremach_built ON)
+    else()
+        set(coremach_built OFF)
+    endif()
+    add_test(NAME coremach-startup-guard
+        COMMAND "${CMAKE_COMMAND}"
+            "-DBLUMACH=$<TARGET_FILE:86Box>"
+            "-DWORK_DIR=${CMAKE_CURRENT_BINARY_DIR}/coremach-startup-guard"
+            "-DCOREMACH_BUILT=${coremach_built}"
+            -P "${CMAKE_CURRENT_SOURCE_DIR}/coremach_startup_guard.cmake")
+    set_tests_properties(coremach-startup-guard PROPERTIES TIMEOUT 300)
+endif()
+
+# CoreMach bridge contracts on synthetic data; no firmware is needed.
+if(QT)
+    find_package(Qt6 COMPONENTS Core Gui Widgets Test REQUIRED)
+    add_executable(coremach-bridge
+        coremach_bridge_test.cpp
+        "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_profile.cpp"
+    )
+    set_target_properties(coremach-bridge PROPERTIES AUTOMOC ON)
+    target_include_directories(coremach-bridge PRIVATE "${PROJECT_SOURCE_DIR}/src/qt")
+    target_compile_definitions(coremach-bridge PRIVATE
+        "BLUMACH_TEST_CATALOG_JSON=\"${PROJECT_BINARY_DIR}/src/qt/catalog/catalog.json\"")
+    target_link_libraries(coremach-bridge PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Test)
+    if(BLUMACH_COREMACH_ENABLED)
+        target_sources(coremach-bridge PRIVATE
+            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_display.cpp"
+            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_keys.cpp"
+            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_session.cpp")
+        target_compile_definitions(coremach-bridge PRIVATE BLUMACH_COREMACH)
+        target_link_libraries(coremach-bridge PRIVATE blumach_coremach_systems)
+    endif()
+    add_test(NAME coremach-bridge COMMAND coremach-bridge)
+    set_tests_properties(coremach-bridge PROPERTIES TIMEOUT 120 ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
+endif()
