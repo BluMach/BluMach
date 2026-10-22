@@ -44,6 +44,7 @@ struct System {
     const char            *id;
     const char            *name;
     const char            *cpu;
+    const char            *display;
     Firmware               firmware;
     const Option          *options;
     size_t                 optionCount;

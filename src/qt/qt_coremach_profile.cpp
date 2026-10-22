@@ -39,7 +39,7 @@ namespace {
     };
 
     const System systems[] = {
-        { "olivetti-m10", "Olivetti M10", "Intel/OKI 80C85",
+        { "olivetti-m10", "Olivetti M10", "Intel/OKI 80C85", "LCD 240 × 64 (HD44102)",
           { "machines/olivetti_m10/m10-system-first32k.bin", 32768,
             "43f85e3ac5cc264be3ad4c3b36dea82381409a66381146ce06a78c22704b0dbc" },
           m10Options, std::size(m10Options), m10States, std::size(m10States) },
