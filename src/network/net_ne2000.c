@@ -1091,7 +1091,15 @@ nic_init(const device_t *info)
     dev->name  = info->name;
     dev->board = info->local;
 
-    if (dev->board >= NE2K_RTL8019AS_PNP) {
+    if (info == &conventional_3inoneder_ne2000_8bit_device) {
+        /* The card documentation gives these shipped defaults.  RSET8019
+           persistence is deliberately not claimed until the controller/NVRAM
+           contract is identified from board-specific evidence. */
+        dev->base_address = 0x300;
+        dev->base_irq     = 5;
+        dev->bios_addr    = 0x00000;
+        dev->has_bios     = 0;
+    } else if (dev->board >= NE2K_RTL8019AS_PNP) {
         dev->base_address = 0x340;
         dev->base_irq     = 12;
         if (dev->board == NE2K_RTL8029AS) {
@@ -1983,6 +1991,20 @@ const device_t ne2000_compat_8bit_device = {
     .speed_changed = NULL,
     .force_redraw  = NULL,
     .config        = ne2000_compat_8bit_config
+};
+
+const device_t conventional_3inoneder_ne2000_8bit_device = {
+    .name          = "Conventional Memories 3inONEder Ethernet (8-bit)",
+    .internal_name = "conventional_3inoneder_ne2k8",
+    .flags         = DEVICE_ISA,
+    .local         = NE2K_NE2000_COMPAT_8BIT,
+    .init          = nic_init,
+    .close         = nic_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = NULL
 };
 
 const device_t ethernext_mc_device = {
