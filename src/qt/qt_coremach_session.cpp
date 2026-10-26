@@ -21,6 +21,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
+#include <iterator>
 #include <limits>
 
 namespace CoreMachBridge {
@@ -108,9 +109,10 @@ struct Session::Machine {
     uint64_t            ticksPerSecond = 0;
     bool                valid          = false;
 
-    std::unique_ptr<Buzzer>  buzzer;
-    bm_host_audio_services_t audio {};
-    bm_host_capability_t     audioCapability {};
+    std::unique_ptr<Buzzer>   buzzer;
+    bm_host_audio_services_t  audio {};
+    bm_host_serial_services_t serial {};
+    bm_host_capability_t      capabilities[2] {};
 };
 
 Session::Session(const Profile &profile, const QByteArray &firmware, const States &states,
@@ -158,11 +160,34 @@ Session::Session(const Profile &profile, const QByteArray &firmware, const State
         // The machine reports its buzzer to the host; silent until setSound().
         machine.buzzer          = std::make_unique<Buzzer>(machine.ticksPerSecond);
         machine.audio           = { hostAudioChange, machine.buzzer.get() };
-        machine.audioCapability = { BM_HOST_CAPABILITY_AUDIO_OUTPUT, BM_HOST_AUDIO_VERSION, sizeof(machine.audio),
+        machine.serial          = { serialTransmitted, this };
+        machine.capabilities[0] = { BM_HOST_CAPABILITY_AUDIO_OUTPUT, BM_HOST_AUDIO_VERSION, sizeof(machine.audio),
                                     &machine.audio };
-        machine.host.capabilities     = &machine.audioCapability;
-        machine.host.capability_count = 1;
+        machine.capabilities[1] = { BM_HOST_CAPABILITY_SERIAL, BM_HOST_SERIAL_VERSION, sizeof(machine.serial),
+                                    &machine.serial };
+        machine.host.capabilities     = machine.capabilities;
+        machine.host.capability_count = std::size(machine.capabilities);
     }
+}
+
+QByteArray
+serialText(const QByteArray &file)
+{
+    QByteArray text;
+    text.reserve(file.size() + file.count('\n') + 1);
+    for (qsizetype index = 0; index < file.size(); ++index) {
+        const char c = file.at(index);
+        if (c == '\x1a')
+            break; // the end of the text
+        if (c == '\r' || c == '\n') {
+            text.append("\r\n");
+            if (c == '\r' && index + 1 < file.size() && file.at(index + 1) == '\n')
+                ++index;
+        } else
+            text.append(c);
+    }
+    text.append('\x1a');
+    return text;
 }
 
 Session::~Session()
@@ -204,6 +229,49 @@ Session::setSound(bool on)
     Command command { CommandKind::Sound };
     command.on = on;
     enqueue(command);
+}
+
+void
+Session::sendSerial(const QByteArray &data)
+{
+    if (data.isEmpty())
+        return;
+    Command command { CommandKind::SerialSend };
+    command.data = data;
+    m_serialPending.fetch_add(data.size());
+    enqueue(command);
+}
+
+void Session::cancelSerial() { enqueue({ CommandKind::SerialCancel }); }
+
+void
+Session::serialTransmitted(void *context, uint32_t port, uint8_t data, bm_tick_t)
+{
+    // Called on the session thread, inside bm_session_run_for().
+    auto *session = static_cast<Session *>(context);
+    if (port != 0)
+        return;
+    if (data == 0x13) // XOFF
+        session->m_xoff = true;
+    else if (data == 0x11) // XON
+        session->m_xoff = false;
+    session->m_serialIn.append(static_cast<char>(data));
+}
+
+void
+Session::feedSerial(bm_session_t *session)
+{
+    if (!m_serialOut.isEmpty() && !m_xoff) {
+        size_t            accepted = 0;
+        const bm_status_t status   = bm_session_serial_receive(session, 0,
+                                                               reinterpret_cast<const uint8_t *>(m_serialOut.constData()),
+                                                               static_cast<size_t>(m_serialOut.size()), &accepted);
+        if (status == BM_STATUS_OK)
+            m_serialOut.remove(0, static_cast<qsizetype>(accepted));
+        else
+            m_serialOut.clear(); // no serial port to take them
+    }
+    m_serialPending.store(m_serialOut.size());
 }
 
 States
@@ -276,6 +344,7 @@ Session::publish(bm_session_t *session, bm_status_t status, bool render, const N
     frame.status = status;
     frame.notice = notice;
     frame.state  = session ? bm_session_state(session) : BM_SESSION_NEW;
+    frame.serial.swap(m_serialIn);
     m_state.store(frame.state);
     if (session)
         m_ticks.store(bm_session_time(session));
@@ -360,6 +429,9 @@ Session::process(bm_session_t *session)
                 status       = bm_session_reset(session);
                 m_paceOrigin = now();
                 m_paceTicks  = 0;
+                m_serialOut.clear();
+                m_serialPending.store(0);
+                m_xoff = false;
                 break;
             case CommandKind::Key: {
                 const bm_status_t input = bm_session_send_input(session, &command.input);
@@ -379,6 +451,13 @@ Session::process(bm_session_t *session)
                     m_audio.close();
                 else if (m_machine->buzzer && !m_audio.open())
                     notice = { Notice::Kind::SoundUnavailable, BM_STATUS_UNSUPPORTED, {} };
+                break;
+            case CommandKind::SerialSend:
+                m_serialOut.append(command.data);
+                break;
+            case CommandKind::SerialCancel:
+                m_serialOut.clear();
+                m_serialPending.store(0);
                 break;
             case CommandKind::Capture: {
                 States states = captureFrom(session);
@@ -409,8 +488,9 @@ Session::process(bm_session_t *session)
             (void) stopAfterFailure(session, status);
             continue;
         }
-        if ((command.kind != CommandKind::Capture && command.kind != CommandKind::Sound)
-            || notice.kind != Notice::Kind::None)
+        const bool quiet = command.kind == CommandKind::Capture || command.kind == CommandKind::Sound
+            || command.kind == CommandKind::SerialSend || command.kind == CommandKind::SerialCancel;
+        if (!quiet || notice.kind != Notice::Kind::None)
             publish(session, status, false, notice);
     }
     return true;
@@ -457,6 +537,7 @@ Session::run()
             if (target > m_paceTicks + maxLag)
                 m_paceTicks = target - maxLag;
             const uint64_t due = std::min(target > m_paceTicks ? target - m_paceTicks : 0, chunk);
+            feedSerial(session);
             if (due > 0) {
                 status = bm_session_run_for(session, due);
                 m_paceTicks += due;

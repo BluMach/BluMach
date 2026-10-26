@@ -56,6 +56,8 @@ public:
         // Not OK only when emulation itself failed and the session stopped.
         bm_status_t status = BM_STATUS_OK;
         Notice      notice;
+        // Characters the machine sent on its serial port since the last frame.
+        QByteArray serial;
     };
     using FrameHandler = std::function<void(const Frame &)>;
 
@@ -74,6 +76,13 @@ public:
     void        key(bm_key_code_t key, bool pressed);
     // Plays the machine's sound or keeps it silent (off until called).
     void setSound(bool on);
+    // Queues characters for the machine's serial port. They go in at its
+    // line rate and wait while the machine has sent XOFF, until XON; a
+    // reset drops what has not gone in yet.
+    void sendSerial(const QByteArray &data);
+    void cancelSerial();
+    // Characters queued and not yet taken by the machine.
+    qint64 serialPending() const { return m_serialPending.load(); }
     // Current persistent states, saved from the running machine.
     States capture();
     // Stops the machine and returns its final persistent states.
@@ -85,13 +94,15 @@ public:
     double realTimePercent() const { return m_realTime.load(); }
 
 private:
-    enum class CommandKind { Pause, Resume, Reset, Key, Sound, Capture, Stop };
+    enum class CommandKind { Pause, Resume, Reset, Key, Sound, SerialSend, SerialCancel, Capture, Stop };
     struct Command {
         CommandKind      kind;
         bm_input_event_t input {};
         bool             on = false; // Sound
+        QByteArray       data;       // SerialSend
     };
     struct Machine;
+    static void serialTransmitted(void *context, uint32_t port, uint8_t data, bm_tick_t time);
 
     void   enqueue(const Command &command);
     void   run();
@@ -99,6 +110,8 @@ private:
     bool   stopAfterFailure(bm_session_t *session, bm_status_t status);
     // Renders the sound up to the session's time and plays it when on.
     void   playSound(bm_session_t *session);
+    // Offers the queued serial characters the machine has room for.
+    void   feedSerial(bm_session_t *session);
     States captureFrom(bm_session_t *session) const;
     void   publish(bm_session_t *session, bm_status_t status, bool render);
     void   publish(bm_session_t *session, bm_status_t status, bool render, const Notice &notice);
@@ -132,7 +145,17 @@ private:
     // Sound, owned by the session thread.
     AudioOutput          m_audio;
     std::vector<int16_t> m_samples;
+
+    // Serial port, owned by the session thread.
+    QByteArray          m_serialOut;  // queued for the machine
+    QByteArray          m_serialIn;   // sent by the machine, not yet published
+    bool                m_xoff = false;
+    std::atomic<qint64> m_serialPending { 0 };
 };
+
+// A text file as the M10's own SAVE "COM:" sends it: lines end in CR LF and
+// the text ends with Ctrl+Z, which LOAD "COM:" waits for.
+QByteArray serialText(const QByteArray &file);
 
 }
 

@@ -640,6 +640,66 @@ private slots:
         QCOMPARE(samples.size(), size_t(perMs));
     }
 
+    void serialTextEndsLikeTheM10()
+    {
+        QCOMPARE(serialText("10 A\n20 B\r\n30 C\r"), QByteArray("10 A\r\n20 B\r\n30 C\r\n\x1a"));
+        QCOMPARE(serialText("x\x1a" "after"), QByteArray("x\x1a"));
+        QCOMPARE(serialText(QByteArray()), QByteArray("\x1a"));
+    }
+
+    void serialWaitsForXonAndEchoes()
+    {
+        // 9600 bit/s 8N1; XOFF, half a second, XON, then RST 6.5 echoes
+        // every character received.
+        static const uint8_t program[] = {
+            0x31, 0xf0, 0xff,             // 0040 LXI SP,FFF0h
+            0x3e, 0x10, 0xd3, 0xb4,       //      timer count 16
+            0x3e, 0x40, 0xd3, 0xb5,       //      continuous square
+            0x3e, 0xc2, 0xd3, 0xb0,       //      START, PB output
+            0x3e, 0x1c, 0xd3, 0xd0,       //      UART 8N1
+            0x3e, 0x13, 0xd3, 0xc0,       //      XOFF
+            0x01, 0x00, 0xc8,             //      LXI B,C800h: 51200 x 24 clocks
+            0x0b, 0x78, 0xb1,             // 005A DCX B, MOV A,B, ORA C
+            0xc2, 0x5a, 0x00,             //      JNZ 005Ah
+            0x3e, 0x11, 0xd3, 0xc0,       //      XON
+            0x3e, 0x0d, 0x30,             //      SIM: RST 6.5 only
+            0xfb,                         //      EI
+            0xc3, 0x68, 0x00,             // 0068 JMP 0068h
+        };
+        static const uint8_t echo[] = { 0xdb, 0xc0, 0xd3, 0xc0, 0xfb, 0xc9 }; // IN C0h, OUT C0h, EI, RET
+        QByteArray rom(32768, '\0');
+        rom[0] = '\xc3';
+        rom[1] = '\x40';
+        std::memcpy(rom.data() + 0x34, echo, sizeof(echo));
+        std::memcpy(rom.data() + 0x40, program, sizeof(program));
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("language"), 2);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+
+        std::mutex mutex;
+        QByteArray received;
+        Session    session(profile, rom, {}, [&](const Session::Frame &frame) {
+            std::lock_guard<std::mutex> lock(mutex);
+            received += frame.serial;
+        });
+        const auto output = [&] {
+            std::lock_guard<std::mutex> lock(mutex);
+            return received;
+        };
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        QTRY_COMPARE_WITH_TIMEOUT(output(), QByteArray("\x13"), 2000);
+
+        // XOFF holds the characters back; XON lets them in and they echo.
+        session.sendSerial("ABC");
+        QTest::qWait(100);
+        QCOMPARE(session.serialPending(), qint64(3));
+        QTRY_COMPARE_WITH_TIMEOUT(output(), QByteArray("\x13\x11" "ABC"), 5000);
+        QCOMPARE(session.serialPending(), qint64(0));
+        session.stop();
+    }
+
     void sessionWithoutSoundDeviceKeepsRunning()
     {
         // Built without OpenAL, the test has no sound device: the session

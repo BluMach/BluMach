@@ -47,6 +47,7 @@ struct System {
     const char            *cpu;
     const char            *display;
     bool                   contrastControl; // the machine has a contrast knob
+    bool                   serialPort;      // CoreMach models its serial port
     Firmware               firmware;
     const Option          *options;
     size_t                 optionCount;

@@ -13,10 +13,12 @@
 #include <QActionGroup>
 #include <QCloseEvent>
 #include <QDir>
+#include <QFileDialog>
 #include <QLabel>
 #include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
+#include <QSignalBlocker>
 #include <QStatusBar>
 
 #include <cstdio>
@@ -77,6 +79,21 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
         if (!writeCoreMachValue(m_configPath, QStringLiteral("sound"), on ? QStringLiteral("1") : QStringLiteral("0")))
             showPreferenceSaveFailure("coremach.sound_save_failed");
     });
+    // Serial port: text files in, received characters out to a file.
+    if (profile.system && profile.system->serialPort) {
+        auto *serial = action->addMenu(m_catalog.text(QStringLiteral("coremach.menu.serial")));
+        connect(serial->addAction(m_catalog.text(QStringLiteral("coremach.menu.serial_send"))), &QAction::triggered,
+                this, &Window::sendSerialFile);
+        m_serialCapture = serial->addAction(m_catalog.text(QStringLiteral("coremach.menu.serial_capture")));
+        m_serialCapture->setCheckable(true);
+        connect(m_serialCapture, &QAction::toggled, this, &Window::setSerialCapture);
+        m_serialCancel = serial->addAction(m_catalog.text(QStringLiteral("coremach.menu.serial_cancel")));
+        m_serialCancel->setEnabled(false);
+        connect(m_serialCancel, &QAction::triggered, this, [this] {
+            m_session->cancelSerial();
+            m_serialCancel->setEnabled(false);
+        });
+    }
     action->addSeparator();
     connect(action->addAction(m_catalog.text(QStringLiteral("coremach.menu.exit"))), &QAction::triggered,
             this, &QWidget::close);
@@ -257,6 +274,21 @@ Window::present(const Session::Frame &frame)
         return;
     if (!frame.image.isNull())
         m_display->setFrame(frame.image);
+    if (!frame.serial.isEmpty() && m_capture.isOpen()) {
+        if (m_capture.write(frame.serial) == frame.serial.size() && m_capture.flush())
+            m_capturedBytes += frame.serial.size();
+        else {
+            const QString text = m_catalog.text(QStringLiteral("coremach.serial_write_failed"))
+                                     .arg(m_name, QDir::toNativeSeparators(m_capture.fileName()));
+            std::fprintf(stderr, "BluMach: CoreMach serial_write_failed: %s\n", text.toUtf8().constData());
+            m_capture.close();
+            if (m_serialCapture) {
+                const QSignalBlocker blocker(m_serialCapture);
+                m_serialCapture->setChecked(false);
+            }
+            statusBar()->showMessage(text, 10000);
+        }
+    }
     if (frame.notice.kind != Session::Notice::Kind::None)
         handleNotice(frame.notice);
     // Only a failed emulation run reaches here as a status.
@@ -357,7 +389,59 @@ Window::shutdown()
     m_statusTimer.stop();
     m_pressed.clear();
     saveStates(m_session->stop());
+    if (m_capture.isOpen())
+        m_capture.close();
     updateStatus();
+}
+
+void
+Window::sendSerialFile()
+{
+    if (m_stopped)
+        return;
+    const QString title = m_catalog.text(QStringLiteral("coremach.menu.serial_send")).remove(QLatin1Char('&'));
+    const QString path  = QFileDialog::getOpenFileName(this, title, m_folder,
+                                                       m_catalog.text(QStringLiteral("coremach.serial_text_filter")));
+    if (path.isEmpty())
+        return;
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly)) {
+        statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.serial_open_failed"))
+                                     .arg(QDir::toNativeSeparators(path)),
+                                 10000);
+        return;
+    }
+    m_session->sendSerial(serialText(file.readAll()));
+    updateStatus();
+}
+
+void
+Window::setSerialCapture(bool on)
+{
+    if (!on) {
+        if (!m_capture.isOpen())
+            return;
+        m_capture.close();
+        statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.serial_capture_saved"))
+                                     .arg(QString::number(m_capturedBytes),
+                                          QDir::toNativeSeparators(m_capture.fileName())),
+                                 10000);
+        return;
+    }
+    const QString title = m_catalog.text(QStringLiteral("coremach.menu.serial_capture")).remove(QLatin1Char('&'));
+    const QString path  = QFileDialog::getSaveFileName(this, title, QDir(m_folder).filePath(QStringLiteral("serial.txt")),
+                                                       m_catalog.text(QStringLiteral("coremach.serial_text_filter")));
+    m_capture.setFileName(path);
+    if (path.isEmpty() || !m_capture.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        if (!path.isEmpty())
+            statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.serial_open_failed"))
+                                         .arg(QDir::toNativeSeparators(path)),
+                                     10000);
+        const QSignalBlocker blocker(m_serialCapture);
+        m_serialCapture->setChecked(false);
+        return;
+    }
+    m_capturedBytes = 0;
 }
 
 void
@@ -395,6 +479,12 @@ Window::updateStatus()
             text += QStringLiteral(" · ")
                 + m_catalog.text(QStringLiteral("coremach.status.speed")).arg(QString::number(speed, 'f', 0));
     }
+    const qint64 pending = m_stopped ? 0 : m_session->serialPending();
+    if (pending > 0)
+        text += QStringLiteral(" · ")
+            + m_catalog.text(QStringLiteral("coremach.status.serial_sending")).arg(QString::number(pending));
+    if (m_serialCancel)
+        m_serialCancel->setEnabled(pending > 0);
     m_status->setText(text);
 }
 
