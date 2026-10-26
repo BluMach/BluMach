@@ -4,6 +4,7 @@
 // No firmware or guest media is needed.
 #include "qt_coremach_profile.hpp"
 #ifdef BLUMACH_COREMACH
+#    include "qt_coremach_buzzer.hpp"
 #    include "qt_coremach_display.hpp"
 #    include "qt_coremach_keys.hpp"
 #    include "qt_coremach_lcd.hpp"
@@ -26,9 +27,12 @@
 #include <QTemporaryDir>
 #include <QTest>
 
+#include <algorithm>
 #include <atomic>
+#include <cstdlib>
 #include <cstring>
 #include <mutex>
+#include <vector>
 
 using namespace CoreMachBridge;
 
@@ -194,7 +198,12 @@ private slots:
         QVERIFY(!preferences.lcdEffect);
         QCOMPARE(preferences.lcdContrast, 4);
 
-        // lcd_* keys are display preferences, not machine options.
+        // Sound is on unless the machine says otherwise.
+        QVERIFY(preferences.sound);
+        QVERIFY(writeCoreMachValue(path, QStringLiteral("sound"), QStringLiteral("0")));
+        QVERIFY(!readDisplayPreferences(path, m10()).sound);
+
+        // lcd_* and sound are preferences, not machine options.
         Profile profile;
         QCOMPARE(readProfile(path, m10(), &profile), ProfileError::None);
         QCOMPARE(profile.value("ram_kib"), 32u);
@@ -572,6 +581,92 @@ private slots:
         bool recognised = false;
         LcdRenderer::mask(frame, &recognised);
         QVERIFY(recognised);
+    }
+
+    void buzzerLevelsAndTones()
+    {
+        constexpr uint64_t ms = 1000000; // CoreMach ticks are nanoseconds here
+        constexpr int      perMs = Buzzer::sampleRate / 1000;
+        const auto change = [](uint64_t time, int level, uint64_t numerator = 0, uint64_t denominator = 0) {
+            bm_audio_change_t result {};
+            result.size             = sizeof(result);
+            result.time             = time;
+            result.level            = level;
+            result.tone_numerator   = numerator;
+            result.tone_denominator = denominator;
+            return result;
+        };
+        const auto peak = [](const std::vector<int16_t> &samples, size_t from) {
+            int result = 0;
+            for (size_t index = from; index < samples.size(); ++index)
+                result = std::max(result, std::abs(static_cast<int>(samples[index])));
+            return result;
+        };
+
+        Buzzer               buzzer(UINT64_C(1000000000));
+        std::vector<int16_t> samples;
+        buzzer.restart(0);
+        buzzer.render(10 * ms, samples);
+        QCOMPARE(samples.size(), size_t(10 * perMs));
+        QCOMPARE(peak(samples, 0), 0);
+
+        // A step clicks and then decays: a level held high is silent.
+        buzzer.change(change(10 * ms, 1));
+        buzzer.render(510 * ms, samples);
+        QCOMPARE(samples.size(), size_t(510 * perMs));
+        QVERIFY(samples[10 * perMs] > 15000);
+        QVERIFY(peak(samples, 500 * perMs) < 100);
+
+        // 1 kHz from the timer: a square wave of the full swing.
+        samples.clear();
+        buzzer.change(change(510 * ms, 0, 1000, 1));
+        buzzer.render(810 * ms, samples);
+        int crossings = 0;
+        for (size_t index = 200 * perMs; index < samples.size(); ++index)
+            crossings += (samples[index - 1] < 0) != (samples[index] < 0);
+        QVERIFY2(crossings >= 198 && crossings <= 202, qPrintable(QString::number(crossings)));
+        QVERIFY(peak(samples, 200 * perMs) > 7500 && peak(samples, 200 * perMs) < 9000);
+
+        // The M10 timer at count 16 (153.6 kHz) cannot be heard.
+        samples.clear();
+        buzzer.change(change(810 * ms, 0, 2457600, 16));
+        buzzer.render(1310 * ms, samples);
+        QVERIFY(peak(samples, 400 * perMs) < 100);
+
+        // Changes before the samples already rendered apply at the next one.
+        samples.clear();
+        buzzer.change(change(1000 * ms, 0));
+        buzzer.render(1311 * ms, samples);
+        QCOMPARE(samples.size(), size_t(perMs));
+    }
+
+    void sessionWithoutSoundDeviceKeepsRunning()
+    {
+        // Built without OpenAL, the test has no sound device: the session
+        // reports it once and runs on.
+        QByteArray rom(32768, '\0');
+        rom[0] = '\xc3';
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("language"), 2);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+
+        std::atomic<int> unavailable { 0 };
+        Session session(profile, rom, {}, [&](const Session::Frame &frame) {
+            if (frame.notice.kind == Session::Notice::Kind::SoundUnavailable)
+                ++unavailable;
+        });
+        QVERIFY(!AudioOutput::available());
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        session.setSound(true);
+        QTRY_COMPARE_WITH_TIMEOUT(unavailable.load(), 1, 2000);
+        const uint64_t ticks = session.ticks();
+        QTRY_VERIFY_WITH_TIMEOUT(session.ticks() > ticks, 2000);
+        session.setSound(false);
+        QCOMPARE(session.state(), BM_SESSION_RUNNING);
+        session.stop();
+        QCOMPARE(unavailable.load(), 1);
     }
 
     void sessionRunsSyntheticRom()

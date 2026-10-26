@@ -64,6 +64,8 @@ private:
     void updateStatus();
     // Applies and saves a display preference ([CoreMach] lcd_* key).
     void setLcd(const LcdSettings &settings, const char *key, const QString &value);
+    // Reports a preference that could not be written to the configuration.
+    void showPreferenceSaveFailure(const char *textKey);
 
     const BluMachCatalog    &m_catalog;
     QString                  m_name;

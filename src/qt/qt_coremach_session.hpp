@@ -14,6 +14,7 @@
 #ifndef QT_COREMACH_SESSION_HPP
 #define QT_COREMACH_SESSION_HPP
 
+#include "qt_coremach_audio.hpp"
 #include "qt_coremach_profile.hpp"
 
 #include <QByteArray>
@@ -43,6 +44,7 @@ public:
             InputRejected,
             VideoFailed,
             CommandFailed, // pause, resume or reset
+            SoundUnavailable, // no sound device could be opened
         };
         Kind          kind   = Kind::None;
         bm_status_t   status = BM_STATUS_OK;
@@ -70,6 +72,8 @@ public:
     void        resume();
     void        reset();
     void        key(bm_key_code_t key, bool pressed);
+    // Plays the machine's sound or keeps it silent (off until called).
+    void setSound(bool on);
     // Current persistent states, saved from the running machine.
     States capture();
     // Stops the machine and returns its final persistent states.
@@ -81,10 +85,11 @@ public:
     double realTimePercent() const { return m_realTime.load(); }
 
 private:
-    enum class CommandKind { Pause, Resume, Reset, Key, Capture, Stop };
+    enum class CommandKind { Pause, Resume, Reset, Key, Sound, Capture, Stop };
     struct Command {
         CommandKind      kind;
         bm_input_event_t input {};
+        bool             on = false; // Sound
     };
     struct Machine;
 
@@ -92,6 +97,8 @@ private:
     void   run();
     bool   process(bm_session_t *session);
     bool   stopAfterFailure(bm_session_t *session, bm_status_t status);
+    // Renders the sound up to the session's time and plays it when on.
+    void   playSound(bm_session_t *session);
     States captureFrom(bm_session_t *session) const;
     void   publish(bm_session_t *session, bm_status_t status, bool render);
     void   publish(bm_session_t *session, bm_status_t status, bool render, const Notice &notice);
@@ -121,6 +128,10 @@ private:
     uint64_t m_lastFrame   = 0;
     uint64_t m_speedOrigin = 0;
     uint64_t m_speedTicks  = 0;
+
+    // Sound, owned by the session thread.
+    AudioOutput          m_audio;
+    std::vector<int16_t> m_samples;
 };
 
 }

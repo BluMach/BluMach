@@ -64,6 +64,20 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
     connect(action->addAction(m_catalog.text(QStringLiteral("coremach.menu.reset"))), &QAction::triggered,
             this, &Window::hardReset);
     action->addSeparator();
+    // Sound, saved per machine; builds without OpenAL have none.
+    auto *sound = action->addAction(m_catalog.text(QStringLiteral("coremach.menu.sound")));
+    sound->setCheckable(true);
+    sound->setEnabled(AudioOutput::available());
+    const bool soundOn = AudioOutput::available()
+        && (!profile.system || readDisplayPreferences(m_configPath, *profile.system).sound);
+    sound->setChecked(soundOn);
+    m_session->setSound(soundOn);
+    connect(sound, &QAction::toggled, this, [this](bool on) {
+        m_session->setSound(on);
+        if (!writeCoreMachValue(m_configPath, QStringLiteral("sound"), on ? QStringLiteral("1") : QStringLiteral("0")))
+            showPreferenceSaveFailure("coremach.sound_save_failed");
+    });
+    action->addSeparator();
     connect(action->addAction(m_catalog.text(QStringLiteral("coremach.menu.exit"))), &QAction::triggered,
             this, &QWidget::close);
 
@@ -287,6 +301,11 @@ Window::handleNotice(const Session::Notice &notice)
             if (m_events.record(QStringLiteral("command_failed"), status))
                 std::fprintf(stderr, "BluMach: CoreMach command failed (%s)\n", status.toUtf8().constData());
             return;
+        case Kind::SoundUnavailable:
+            if (m_events.record(QStringLiteral("sound_unavailable"), QStringLiteral("OpenAL")))
+                std::fprintf(stderr, "BluMach: CoreMach sound device unavailable\n");
+            statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.sound_unavailable")), 5000);
+            return;
     }
 }
 
@@ -345,11 +364,17 @@ void
 Window::setLcd(const LcdSettings &settings, const char *key, const QString &value)
 {
     m_display->setLcdSettings(settings);
-    if (writeCoreMachValue(m_configPath, QString::fromLatin1(key), value))
-        return;
-    const QString text = m_catalog.text(QStringLiteral("coremach.display_save_failed"))
-                             .arg(m_name, QDir::toNativeSeparators(m_configPath));
-    std::fprintf(stderr, "BluMach: CoreMach display_save_failed: %s\n", text.toUtf8().constData());
+    if (!writeCoreMachValue(m_configPath, QString::fromLatin1(key), value))
+        showPreferenceSaveFailure("coremach.display_save_failed");
+}
+
+void
+Window::showPreferenceSaveFailure(const char *textKey)
+{
+    const QString key  = QString::fromLatin1(textKey);
+    const QString text = m_catalog.text(key).arg(m_name, QDir::toNativeSeparators(m_configPath));
+    std::fprintf(stderr, "BluMach: CoreMach %s: %s\n", key.mid(key.indexOf('.') + 1).toUtf8().constData(),
+                 text.toUtf8().constData());
     statusBar()->showMessage(text, 10000);
 }
 

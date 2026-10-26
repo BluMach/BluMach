@@ -12,6 +12,7 @@
  */
 
 #include "qt_coremach_session.hpp"
+#include "qt_coremach_buzzer.hpp"
 
 #include <blumach/systems/olivetti_m10.h>
 
@@ -66,6 +67,13 @@ namespace {
 
     int64_t hostWallClock(void *) { return static_cast<int64_t>(std::time(nullptr)); }
 
+    // Called on the session thread, inside bm_session_run_for().
+    void hostAudioChange(void *context, const bm_audio_change_t *change)
+    {
+        if (change && change->size >= sizeof(bm_audio_change_t) && change->channel == 0)
+            static_cast<Buzzer *>(context)->change(*change);
+    }
+
     bm_upd1990ac_time_t hostLocalTime()
     {
         const std::time_t   current = std::time(nullptr);
@@ -99,12 +107,17 @@ struct Session::Machine {
     bm_host_services_t  host {};
     uint64_t            ticksPerSecond = 0;
     bool                valid          = false;
+
+    std::unique_ptr<Buzzer>  buzzer;
+    bm_host_audio_services_t audio {};
+    bm_host_capability_t     audioCapability {};
 };
 
 Session::Session(const Profile &profile, const QByteArray &firmware, const States &states,
                  FrameHandler handler)
     : m_machine(std::make_unique<Machine>())
     , m_handler(std::move(handler))
+    , m_audio(Buzzer::sampleRate)
 {
     Machine &machine = *m_machine;
     machine.host     = { nullptr, hostAllocate, hostRelease, hostTime, hostLog, nullptr, 0 };
@@ -141,6 +154,15 @@ Session::Session(const Profile &profile, const QByteArray &firmware, const State
     }
     if (machine.valid)
         machine.ticksPerSecond = machine.config.definition->scheduler_ticks_per_second;
+    if (machine.valid && machine.ticksPerSecond > 0) {
+        // The machine reports its buzzer to the host; silent until setSound().
+        machine.buzzer          = std::make_unique<Buzzer>(machine.ticksPerSecond);
+        machine.audio           = { hostAudioChange, machine.buzzer.get() };
+        machine.audioCapability = { BM_HOST_CAPABILITY_AUDIO_OUTPUT, BM_HOST_AUDIO_VERSION, sizeof(machine.audio),
+                                    &machine.audio };
+        machine.host.capabilities     = &machine.audioCapability;
+        machine.host.capability_count = 1;
+    }
 }
 
 Session::~Session()
@@ -173,6 +195,14 @@ Session::key(bm_key_code_t key, bool pressed)
     command.input.kind    = BM_INPUT_KEY;
     command.input.key     = key;
     command.input.pressed = pressed ? 1 : 0;
+    enqueue(command);
+}
+
+void
+Session::setSound(bool on)
+{
+    Command command { CommandKind::Sound };
+    command.on = on;
     enqueue(command);
 }
 
@@ -285,7 +315,19 @@ Session::stopAfterFailure(bm_session_t *session, bm_status_t status)
             m_captured = states;
     }
     publish(session, status, false);
+    m_audio.close();
     return false;
+}
+
+void
+Session::playSound(bm_session_t *session)
+{
+    if (!m_machine->buzzer)
+        return;
+    m_samples.clear();
+    m_machine->buzzer->render(bm_session_time(session), m_samples);
+    if (!m_samples.empty())
+        m_audio.play(m_samples.data(), m_samples.size());
 }
 
 bool
@@ -306,6 +348,7 @@ Session::process(bm_session_t *session)
             case CommandKind::Pause:
                 if (bm_session_state(session) == BM_SESSION_RUNNING)
                     status = bm_session_pause(session);
+                m_audio.stop();
                 break;
             case CommandKind::Resume:
                 if (bm_session_state(session) == BM_SESSION_PAUSED)
@@ -331,6 +374,12 @@ Session::process(bm_session_t *session)
                 }
                 break;
             }
+            case CommandKind::Sound:
+                if (!command.on)
+                    m_audio.close();
+                else if (m_machine->buzzer && !m_audio.open())
+                    notice = { Notice::Kind::SoundUnavailable, BM_STATUS_UNSUPPORTED, {} };
+                break;
             case CommandKind::Capture: {
                 States states = captureFrom(session);
                 std::lock_guard<std::mutex> lock(m_mutex);
@@ -343,6 +392,7 @@ Session::process(bm_session_t *session)
             case CommandKind::Stop: {
                 States states = captureFrom(session);
                 (void) bm_session_stop(session);
+                m_audio.close();
                 std::lock_guard<std::mutex> lock(m_mutex);
                 if (!states.isEmpty())
                     m_captured = states;
@@ -359,7 +409,8 @@ Session::process(bm_session_t *session)
             (void) stopAfterFailure(session, status);
             continue;
         }
-        if (command.kind != CommandKind::Capture)
+        if ((command.kind != CommandKind::Capture && command.kind != CommandKind::Sound)
+            || notice.kind != Notice::Kind::None)
             publish(session, status, false, notice);
     }
     return true;
@@ -395,6 +446,8 @@ Session::run()
     const uint64_t frameNs = nanosecondsPerSecond / framesPerSecond;
     m_paceOrigin = m_lastFrame = m_speedOrigin = now();
     m_paceTicks = m_speedTicks = 0;
+    if (m_machine->buzzer)
+        m_machine->buzzer->restart(bm_session_time(session));
 
     while (process(session)) {
         const bool running = bm_session_state(session) == BM_SESSION_RUNNING;
@@ -408,6 +461,8 @@ Session::run()
                 status = bm_session_run_for(session, due);
                 m_paceTicks += due;
             }
+            if (status == BM_STATUS_OK)
+                playSound(session);
             if (status != BM_STATUS_OK) {
                 (void) stopAfterFailure(session, status);
                 status = BM_STATUS_OK;
@@ -443,6 +498,7 @@ Session::run()
             m_wake.wait(lock, [this] { return !m_commands.empty(); });
     }
 
+    m_audio.close();
     bm_session_destroy(session);
     {
         std::lock_guard<std::mutex> lock(m_mutex);
