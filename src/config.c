@@ -94,6 +94,7 @@
 #include <86box/snd_opl.h>
 #include <86box/version.h>
 #include <86box/plat_floppy_ioctl.h>
+#include <86box/coremach_engine.h>
 
 #ifndef USE_SDL_UI
 /* Deliberate to not make the 86box.h header kitchen-sink. */
@@ -4484,6 +4485,12 @@ config_save_global(void)
 void
 config_save(void)
 {
+    /* A CoreMach machine's configuration is not an 86Box configuration. */
+    if (blumach_engine == BLUMACH_ENGINE_COREMACH) {
+        pclog("CONFIG: refusing to save the configuration of a CoreMach machine\n");
+        return;
+    }
+
     if (config_mutex)
         thread_wait_mutex(config_mutex);
 

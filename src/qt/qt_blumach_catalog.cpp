@@ -13,6 +13,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QLocale>
+#include <QPair>
 
 extern "C" {
 extern int lang_id;
@@ -48,9 +49,96 @@ stringArray(const QJsonValue &value)
 bool
 isVisible(const QJsonObject &object)
 {
-    return object.value(QStringLiteral("visible")).toBool(false);
+    if (object.value(QStringLiteral("visible")).toBool(false))
+        return true;
+    return object.value(QStringLiteral("development")).toBool(false)
+        && BluMachCatalog::developmentEntriesEnabled();
 }
 } // namespace
+
+bool
+BluMachCatalog::developmentEntriesEnabled()
+{
+    return qEnvironmentVariable("BLUMACH_CATALOG_DEVELOPMENT") == QStringLiteral("1");
+}
+
+QString
+BluMachCatalog::creationConfiguration(const BluMachPlatform &platform, const QJsonObject &creation,
+                                      const QVector<QJsonObject> &selectedChoices)
+{
+    struct ConfigSection {
+        QString                          name;
+        QVector<QPair<QString, QString>> values;
+    };
+    QVector<ConfigSection> sections;
+
+    const auto scalarText = [](const QJsonValue &value) {
+        if (value.isBool())
+            return value.toBool() ? QStringLiteral("1") : QStringLiteral("0");
+        if (value.isDouble())
+            return QString::number(value.toDouble(), 'g', 16);
+        return value.toString();
+    };
+    const auto setConfig = [&sections, &scalarText](const QString &sectionName, const QString &key,
+                                                    const QJsonValue &value) {
+        for (auto &section : sections) {
+            if (section.name != sectionName)
+                continue;
+            for (auto &entry : section.values) {
+                if (entry.first == key) {
+                    entry.second = scalarText(value);
+                    return;
+                }
+            }
+            section.values.append({ key, scalarText(value) });
+            return;
+        }
+        ConfigSection section;
+        section.name = sectionName;
+        section.values.append({ key, scalarText(value) });
+        sections.append(section);
+    };
+
+    // The [CoreMach] section selects the CoreMach engine for the machine;
+    // such machines have no 86Box machine or 86Box defaults.
+    const bool coreMach = platform.isCoreMach();
+    if (coreMach)
+        setConfig(QStringLiteral("CoreMach"), QStringLiteral("system"), platform.coremachSystemId);
+    if (creation.isEmpty()) {
+        if (!coreMach) {
+            setConfig(QStringLiteral("General"), QStringLiteral("vid_renderer"), QStringLiteral("qt_software"));
+            setConfig(QStringLiteral("General"), QStringLiteral("time_sync"), QStringLiteral("disabled"));
+        }
+    } else {
+        for (const auto &sectionValue : creation.value(QStringLiteral("configuration")).toArray()) {
+            const auto section = sectionValue.toObject();
+            const auto name    = section.value(QStringLiteral("section")).toString();
+            const auto values  = section.value(QStringLiteral("values")).toObject();
+            for (auto it = values.constBegin(); it != values.constEnd(); ++it)
+                setConfig(name, it.key(), it.value());
+        }
+    }
+    if (!coreMach)
+        setConfig(QStringLiteral("Machine"), QStringLiteral("machine"), platform.emulatorMachineId);
+
+    for (const auto &choice : selectedChoices) {
+        for (const auto &settingValue : choice.value(QStringLiteral("set")).toArray()) {
+            const auto setting = settingValue.toObject();
+            setConfig(setting.value(QStringLiteral("section")).toString(),
+                      setting.value(QStringLiteral("key")).toString(),
+                      setting.value(QStringLiteral("value")));
+        }
+    }
+
+    QString configuration;
+    for (const auto &section : sections) {
+        configuration += QStringLiteral("[%1]\n").arg(section.name);
+        for (const auto &entry : section.values)
+            configuration += QStringLiteral("%1 = %2\n").arg(entry.first, entry.second);
+        configuration += QLatin1Char('\n');
+    }
+    return configuration;
+}
 
 bool
 BluMachCatalog::load(QString *errorMessage)
@@ -110,7 +198,9 @@ BluMachCatalog::load(QString *errorMessage)
         const auto object = value.toObject();
         m_platforms.append({ object.value(QStringLiteral("id")).toString(),
                              object.value(QStringLiteral("emulator_machine_id")).toString(),
-                             object.value(QStringLiteral("architecture")).toString() });
+                             object.value(QStringLiteral("architecture")).toString(),
+                             object.value(QStringLiteral("engine")).toString(QStringLiteral("86box")),
+                             object.value(QStringLiteral("coremach_system_id")).toString() });
     }
     for (const auto &value : root.value(QStringLiteral("filter_facets")).toArray()) {
         const auto object = value.toObject();

@@ -35,6 +35,18 @@ VALID_STATUSES = {
     "not_bootable",
 }
 CREATION_ID = re.compile(r"^[a-z0-9]+(?:[-_][a-z0-9]+)*$")
+DEFAULT_ENGINE = "86box"
+ENGINES = {DEFAULT_ENGINE, "coremach"}
+# CoreMach systems that BluMach runs, with the [CoreMach] settings a creation
+# profile may write for each. Keep in step with the bridge's system table.
+COREMACH_SECTION = "CoreMach"
+COREMACH_SYSTEMS: dict[str, dict[str, set[int]]] = {
+    "olivetti-m10": {
+        "ram_kib": {8, 16, 24, 32},
+        "language": {0, 1, 2, 3},
+        "rtc_time": {0, 1},
+    },
+}
 
 
 class DuplicateKeyError(ValueError):
@@ -266,6 +278,93 @@ def validate_media(product_id: str, product: dict[str, Any], errors: list[str]) 
         errors.append(f"{owner}.label_key is required")
 
 
+def platform_engine(platform: dict[str, Any]) -> Any:
+    return platform.get("engine", DEFAULT_ENGINE)
+
+
+def validate_platform(platform_id: str, platform: dict[str, Any], errors: list[str]) -> None:
+    owner = f"catalog.json: platform {platform_id!r}"
+    engine = platform_engine(platform)
+    if engine not in ENGINES:
+        errors.append(f"{owner}.engine must be one of {sorted(ENGINES)}, got {engine!r}")
+        return
+    if engine == "coremach":
+        system_id = platform.get("coremach_system_id")
+        if system_id not in COREMACH_SYSTEMS:
+            errors.append(
+                f"{owner}.coremach_system_id must name a supported CoreMach system "
+                f"{sorted(COREMACH_SYSTEMS)}, got {system_id!r}"
+            )
+        if "emulator_machine_id" in platform:
+            errors.append(f"{owner}: a CoreMach platform must not define emulator_machine_id")
+    elif "coremach_system_id" in platform:
+        errors.append(f"{owner}: coremach_system_id requires engine 'coremach'")
+
+
+def validate_coremach_creation(
+    product_id: str, product: dict[str, Any], system_id: str, errors: list[str]
+) -> None:
+    """CoreMach profiles may only write their system's documented settings."""
+    creation = product.get("creation")
+    if not isinstance(creation, dict):
+        return
+    owner = f"catalog.json: product {product_id!r}.creation"
+    accepted = COREMACH_SYSTEMS[system_id]
+
+    def check_setting(location: str, section: Any, key: Any, value: Any) -> None:
+        if section != COREMACH_SECTION:
+            errors.append(
+                f"{location}: a CoreMach profile may only write the "
+                f"[{COREMACH_SECTION}] section, got {section!r}"
+            )
+        elif key not in accepted:
+            errors.append(
+                f"{location}: {system_id!r} does not accept setting {key!r}"
+            )
+        elif isinstance(value, bool) or not isinstance(value, int) or value not in accepted[key]:
+            errors.append(
+                f"{location}: {key!r} must be one of {sorted(accepted[key])}, got {value!r}"
+            )
+
+    if creation.get("generated_files"):
+        errors.append(f"{owner}: a CoreMach profile must not generate files")
+    for position, section in enumerate(creation.get("configuration", [])):
+        if not isinstance(section, dict) or not isinstance(section.get("values"), dict):
+            continue
+        for key, value in section["values"].items():
+            check_setting(f"{owner}.configuration[{position}]", section.get("section"), key, value)
+    for field_position, field in enumerate(creation.get("fields", [])):
+        if not isinstance(field, dict) or not isinstance(field.get("choices"), list):
+            continue
+        for choice_position, choice in enumerate(field["choices"]):
+            if not isinstance(choice, dict):
+                continue
+            location = f"{owner}.fields[{field_position}].choices[{choice_position}]"
+            if choice.get("generated_files"):
+                errors.append(f"{location}: a CoreMach profile must not generate files")
+            settings = choice.get("set", [])
+            if not isinstance(settings, list):
+                continue
+            for setting in settings:
+                if isinstance(setting, dict):
+                    check_setting(location, setting.get("section"), setting.get("key"),
+                                  setting.get("value"))
+
+
+def validate_development(collection: str, entity_id: str, entity: dict[str, Any],
+                         errors: list[str]) -> bool:
+    """Development entries stay hidden; BluMach shows them only on request."""
+    value = entity.get("development", False)
+    if not isinstance(value, bool):
+        errors.append(f"catalog.json: {collection} {entity_id!r}.development must be a boolean")
+        return False
+    if value and entity.get("visible", False) is not False:
+        errors.append(
+            f"catalog.json: development {collection} {entity_id!r} must not be visible"
+        )
+    return value
+
+
 def validate_visibility(
     manufacturers: dict[str, dict[str, Any]],
     families: dict[str, dict[str, Any]],
@@ -317,6 +416,43 @@ def validate_visibility(
             errors.append(
                 f"catalog.json: visible product {product_id!r} requires visible "
                 f"family {family_id!r}"
+            )
+
+    development_manufacturers = {
+        entity_id
+        for entity_id, entity in manufacturers.items()
+        if validate_development("manufacturer", entity_id, entity, errors)
+    }
+    development_families = {
+        entity_id
+        for entity_id, entity in families.items()
+        if validate_development("family", entity_id, entity, errors)
+    }
+    development_products = {
+        entity_id
+        for entity_id, entity in products.items()
+        if validate_development("product", entity_id, entity, errors)
+    }
+    shown_manufacturers = visible_manufacturers | development_manufacturers
+    shown_families = visible_families | development_families
+    for family_id in development_families:
+        manufacturer_id = families[family_id].get("manufacturer_id")
+        if manufacturer_id not in shown_manufacturers:
+            errors.append(
+                f"catalog.json: development family {family_id!r} requires a visible or "
+                f"development manufacturer {manufacturer_id!r}"
+            )
+    for product_id in development_products:
+        product = products[product_id]
+        if product.get("manufacturer_id") not in shown_manufacturers:
+            errors.append(
+                f"catalog.json: development product {product_id!r} requires a visible or "
+                f"development manufacturer {product.get('manufacturer_id')!r}"
+            )
+        if product.get("family_id") not in shown_families:
+            errors.append(
+                f"catalog.json: development product {product_id!r} requires a visible or "
+                f"development family {product.get('family_id')!r}"
             )
 
 
@@ -380,6 +516,8 @@ def validate_catalog(catalog: Any, errors: list[str]) -> set[str]:
     products = require_unique_ids(catalog.get("products"), "products", errors)
 
     validate_visibility(manufacturers, families, products, errors)
+    for platform_id, platform in platforms.items():
+        validate_platform(platform_id, platform, errors)
 
     for family_id, family in families.items():
         validate_family_comparison(family_id, family, errors)
@@ -426,6 +564,12 @@ def validate_catalog(catalog: Any, errors: list[str]) -> set[str]:
         if status not in VALID_STATUSES:
             errors.append(f"catalog.json: product {product_id!r} has invalid status {status!r}")
         validate_creation(product_id, product, errors)
+        platform = platforms.get(platform_id) if isinstance(platform_id, str) else None
+        if platform is not None and platform_engine(platform) == "coremach" \
+                and platform.get("coremach_system_id") in COREMACH_SYSTEMS:
+            validate_coremach_creation(
+                product_id, product, platform["coremach_system_id"], errors
+            )
         validate_media(product_id, product, errors)
         implementation = product.get("implementation")
         if implementation is not None:

@@ -176,6 +176,10 @@ add_library(ui STATIC
     qt_preferenceskeybindings.ui
 
     qt_blumach_catalog.cpp
+    qt_coremach.cpp
+    qt_coremach.hpp
+    qt_coremach_profile.cpp
+    qt_coremach_profile.hpp
     qt_firmware.cpp
     qt_firmware.hpp
     qt_blumach_catalog.hpp
@@ -368,6 +372,21 @@ if(EMU_BUILD_NUM)
         qt_updatedetails.hpp
         qt_updatedetails.ui
     )
+endif()
+
+if(BLUMACH_COREMACH_ENABLED)
+    target_compile_definitions(ui PRIVATE BLUMACH_COREMACH)
+    target_sources(ui PRIVATE
+        qt_coremach_display.cpp
+        qt_coremach_display.hpp
+        qt_coremach_keys.cpp
+        qt_coremach_keys.hpp
+        qt_coremach_session.cpp
+        qt_coremach_session.hpp
+        qt_coremach_window.cpp
+        qt_coremach_window.hpp
+    )
+    target_link_libraries(ui PRIVATE blumach_coremach_systems)
 endif()
 
 if(RTMIDI)

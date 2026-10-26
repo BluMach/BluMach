@@ -1,0 +1,221 @@
+{
+  "order": 320,
+  "platform_order": 300,
+  "machine": {
+    "id": "olivetti-m10",
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "platform_id": "olivetti-m10-platform",
+    "name": "Olivetti M10 (development)",
+    "visible": false,
+    "development": true,
+    "summary_key": "product.olivetti-m10.summary",
+    "warning_key": "product.olivetti-m10.warning",
+    "status": "experimental",
+    "period": "1983",
+    "aliases": [
+      "M10"
+    ],
+    "tags": [
+      "80C85",
+      "LCD",
+      "notebook",
+      "CoreMach",
+      "development"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
+      "display_color": [
+        "monochrome"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel/OKI 80C85 2.4 MHz",
+      "memory": "8, 16, 24 or 32 KB battery-backed RAM",
+      "video": "LCD 240 × 64 (ten HD44102)",
+      "clock": "NEC uPD1990AC"
+    },
+    "firmware": {
+      "required_files": [
+        "machines/olivetti_m10/m10-system-first32k.bin"
+      ],
+      "known_sets": [
+        "International system ROM, 32 KB (local custody only)"
+      ],
+      "required": true,
+      "identity_note": "First 32 KB of a local dump, SHA-256 43f85e3ac5cc264be3ad4c3b36dea82381409a66381146ce06a78c22704b0dbc. Local only."
+    },
+    "creation": {
+      "status": "experimental",
+      "directory_prefix": "olivetti-m10",
+      "facts": [
+        {
+          "label_key": "creation.label.commercial_model",
+          "value_key": "product.olivetti-m10.creation.model"
+        }
+      ],
+      "fields": [
+        {
+          "id": "memory",
+          "label_key": "creation.label.memory",
+          "default": "32",
+          "choices": [
+            {
+              "id": "8",
+              "label_key": "product.olivetti-m10.creation.memory.8",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "ram_kib",
+                  "value": 8
+                }
+              ]
+            },
+            {
+              "id": "16",
+              "label_key": "product.olivetti-m10.creation.memory.16",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "ram_kib",
+                  "value": 16
+                }
+              ]
+            },
+            {
+              "id": "24",
+              "label_key": "product.olivetti-m10.creation.memory.24",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "ram_kib",
+                  "value": 24
+                }
+              ]
+            },
+            {
+              "id": "32",
+              "label_key": "product.olivetti-m10.creation.memory.32",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "ram_kib",
+                  "value": 32
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "language",
+          "label_key": "product.olivetti-m10.creation.label.language",
+          "default": "it",
+          "choices": [
+            {
+              "id": "it",
+              "label_key": "product.olivetti-m10.creation.language.it",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "language",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "id": "fr",
+              "label_key": "product.olivetti-m10.creation.language.fr",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "language",
+                  "value": 3
+                }
+              ]
+            },
+            {
+              "id": "de",
+              "label_key": "product.olivetti-m10.creation.language.de",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "language",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "id": "en",
+              "label_key": "product.olivetti-m10.creation.language.en",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "language",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "clock",
+          "label_key": "product.olivetti-m10.creation.label.clock",
+          "default": "host",
+          "choices": [
+            {
+              "id": "host",
+              "label_key": "product.olivetti-m10.creation.clock.host",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "rtc_time",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "id": "fixed",
+              "label_key": "product.olivetti-m10.creation.clock.fixed",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "CoreMach",
+                  "key": "rtc_time",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m10.creation.note"
+      ],
+      "configuration": [],
+      "generated_files": []
+    }
+  },
+  "platform": {
+    "id": "olivetti-m10-platform",
+    "engine": "coremach",
+    "coremach_system_id": "olivetti-m10",
+    "architecture": "80C85"
+  }
+}

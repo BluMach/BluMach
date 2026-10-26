@@ -490,7 +490,8 @@ VMManagerDetails::updateProcessStatus()
     updateStatusAppearance();
     resetButton->setEnabled(running);
     stopButton->setEnabled(running);
-    cadButton->setEnabled(running);
+    // Ctrl+Alt+Del means nothing to a CoreMach machine.
+    cadButton->setEnabled(running && !sysconfig->isCoreMach());
     if (running) {
         if (sysconfig->getProcessStatus() == VMManagerSystem::ProcessStatus::Running) {
             startPauseButton->setIcon(pauseIcon);

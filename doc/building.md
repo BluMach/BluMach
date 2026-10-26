@@ -21,6 +21,22 @@ cmake --install build
 Use the `regular` preset for a release build. Qt 5 and 32-bit hosts are not
 supported BluMach configurations.
 
+## CoreMach engine
+
+Machines whose catalogue profile names the CoreMach engine are run by
+[CoreMach](https://github.com/Palimbit/CoreMach), included as the pinned Git
+submodule `external/coremach`. Clone with `--recurse-submodules`, or fetch it
+in an existing checkout with:
+
+```text
+git submodule update --init external/coremach
+```
+
+The `BLUMACH_COREMACH` CMake option controls the bridge. The default `AUTO`
+builds it when the submodule is present and otherwise leaves it out, so
+86Box-based machines build exactly as before. `ON` makes a missing submodule a
+configuration error, and `OFF` disables the bridge.
+
 On Windows, configure and build inside the MSYS2 UCRT64 environment. Launch the
 result through `tools/run-blumach-local.ps1`; the launcher supplies the UCRT64
 runtime and accepts `-VmPath`, `-LogPath` and the workspace ROM directory.

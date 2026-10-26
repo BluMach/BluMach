@@ -1,0 +1,3 @@
+[submodule "external/coremach"]
+	path = external/coremach
+	url = https://github.com/Palimbit/CoreMach.git

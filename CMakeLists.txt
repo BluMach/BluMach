@@ -270,6 +270,8 @@ endif()
 
 set(CMAKE_TOP_LEVEL_PROCESSED TRUE)
 
+include(CoreMach)
+
 add_subdirectory(src)
 
 if(BUILD_TESTING)

@@ -78,6 +78,7 @@ extern "C" {
 #include "qt_settings.hpp"
 #include "qt_firmware.hpp"
 #include "qt_blumach_catalog.hpp"
+#include "qt_coremach.hpp"
 #include "cocoa_mouse.hpp"
 #include "qt_styleoverride.hpp"
 #include "qt_unixmanagerfilter.hpp"
@@ -98,6 +99,7 @@ extern "C" {
 #include "cpu.h"
 #include <86box/timer.h>
 #include <86box/nvr.h>
+#include <86box/coremach_engine.h>
 extern int  qt_nvr_save(void);
 #ifndef Q_OS_MACOS
 extern void exit_pause(void);
@@ -649,6 +651,11 @@ main(int argc, char *argv[])
 #endif
 
     BluMachFirmware::restoreDirectory();
+
+    /* CoreMach machines never reach the 86Box core or its configuration. */
+    if (blumach_engine == BLUMACH_ENGINE_COREMACH)
+        return CoreMachBridge::run();
+
     pc_init_roms(); // Empty firmware collections do not prevent browsing or repair.
 
     if (start_vmm) {
