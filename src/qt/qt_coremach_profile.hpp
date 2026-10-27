@@ -49,6 +49,7 @@ struct System {
     bool                   contrastControl; // the machine has a contrast knob
     bool                   serialPort;      // CoreMach models its serial port
     bool                   cassette;        // and its cassette interface
+    bool                   printer;         // and its printer port
     Firmware               firmware;
     const Option          *options;
     size_t                 optionCount;

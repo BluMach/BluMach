@@ -12,6 +12,7 @@
 
 #include <QActionGroup>
 #include <QCloseEvent>
+#include <QDesktopServices>
 #include <QDir>
 #include <QFileDialog>
 #include <QLabel>
@@ -21,6 +22,7 @@
 #include <QSaveFile>
 #include <QSignalBlocker>
 #include <QStatusBar>
+#include <QUrl>
 
 #include <cstdio>
 
@@ -33,6 +35,8 @@ namespace CoreMachBridge {
 namespace {
     constexpr int savePeriodMs   = 60 * 1000;
     constexpr int statusPeriodMs = 500;
+    // A printout ends after this long without bytes.
+    constexpr int printoutIdleMs = 5 * 1000;
 
     bool unattended()
     {
@@ -113,6 +117,18 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
         m_tapeRecord = cassette->addAction(m_catalog.text(QStringLiteral("coremach.menu.cassette_record")));
         m_tapeRecord->setCheckable(true);
         connect(m_tapeRecord, &QAction::toggled, this, &Window::setTapeRecording);
+    }
+    // Printer: always on line, printouts saved as text files.
+    if (profile.system && profile.system->printer) {
+        auto *printer = action->addMenu(m_catalog.text(QStringLiteral("coremach.menu.printer")));
+        connect(printer->addAction(m_catalog.text(QStringLiteral("coremach.menu.printer_folder"))),
+                &QAction::triggered, this, [this] {
+                    QDir().mkpath(printerFolder());
+                    QDesktopServices::openUrl(QUrl::fromLocalFile(printerFolder()));
+                });
+        m_printoutTimer.setSingleShot(true);
+        m_printoutTimer.setInterval(printoutIdleMs);
+        connect(&m_printoutTimer, &QTimer::timeout, this, &Window::closePrintout);
     }
     action->addSeparator();
     connect(action->addAction(m_catalog.text(QStringLiteral("coremach.menu.exit"))), &QAction::triggered,
@@ -331,6 +347,8 @@ Window::present(const Session::Frame &frame)
             statusBar()->showMessage(text, 10000);
         }
     }
+    if (!frame.printed.isEmpty())
+        writePrintout(frame.printed);
     if (frame.notice.kind != Session::Notice::Kind::None)
         handleNotice(frame.notice);
     // Only a failed emulation run reaches here as a status.
@@ -434,7 +452,59 @@ Window::shutdown()
     if (m_capture.isOpen())
         m_capture.close();
     saveRecording(); // a recording still running goes to its file
+    closePrintout();
     updateStatus();
+}
+
+QString
+Window::printerFolder() const
+{
+    return QDir(m_folder).filePath(QStringLiteral("printer"));
+}
+
+void
+Window::writePrintout(const QByteArray &printed)
+{
+    m_printoutTimer.start();
+    if (m_printoutFailed)
+        return;
+    if (!m_printout.isOpen()) {
+        const QDir    folder(printerFolder());
+        const QString name = printoutFileName(QDateTime::currentDateTime());
+        QString       path = folder.filePath(name);
+        for (int copy = 2; QFile::exists(path); ++copy)
+            path = folder.filePath(QString(name).insert(name.size() - 4, QStringLiteral("-%1").arg(copy)));
+        m_printout.setFileName(path);
+        m_printoutBytes = 0;
+        m_printoutText  = PrintoutText();
+        if (!folder.mkpath(QStringLiteral(".")) || !m_printout.open(QIODevice::WriteOnly))
+            m_printoutFailed = true;
+    }
+    const QByteArray text = m_printoutText.convert(printed);
+    if (!m_printoutFailed && m_printout.write(text) == text.size() && m_printout.flush()) {
+        m_printoutBytes += printed.size();
+        return;
+    }
+    m_printoutFailed = true;
+    m_printout.close();
+    const QString message = m_catalog.text(QStringLiteral("coremach.printer_failed"))
+                                .arg(m_name, QDir::toNativeSeparators(m_printout.fileName()));
+    std::fprintf(stderr, "BluMach: CoreMach printer_failed: %s\n", message.toUtf8().constData());
+    statusBar()->showMessage(message, 10000);
+}
+
+void
+Window::closePrintout()
+{
+    m_printoutTimer.stop();
+    m_printoutFailed = false;
+    if (!m_printout.isOpen())
+        return;
+    m_printout.close();
+    statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.printer_saved"))
+                                 .arg(QString::number(m_printoutBytes),
+                                      QDir::toNativeSeparators(m_printout.fileName())),
+                             10000);
 }
 
 namespace {

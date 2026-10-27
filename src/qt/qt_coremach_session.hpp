@@ -19,6 +19,7 @@
 #include "qt_coremach_tape.hpp"
 
 #include <QByteArray>
+#include <QDateTime>
 #include <QHash>
 #include <QImage>
 
@@ -70,6 +71,8 @@ public:
         Notice      notice;
         // Characters the machine sent on its serial port since the last frame.
         QByteArray serial;
+        // Bytes the machine sent to its printer since the last frame.
+        QByteArray printed;
         // Fallbacks since the last frame.
         std::vector<Tolerated> tolerated;
         // bm_keyboard_led_t bits; 0 when the machine reports none.
@@ -159,6 +162,7 @@ private:
     static void tolerated(void *context, const bm_tolerance_event_t *event);
     static void tapeMotor(void *context, uint32_t port, int on, bm_tick_t time);
     static void tapeRecord(void *context, uint32_t port, int level, bm_tick_t time);
+    static void printerWrite(void *context, uint32_t port, uint8_t data, bm_tick_t time);
     // Lends the tape to the machine from position, or ejects it.
     void        insertTape(bm_session_t *session, size_t position);
     // Publishes the tape position and recording length for tapeStatus().
@@ -213,6 +217,7 @@ private:
     QByteArray          m_serialOut;  // queued for the machine
     QByteArray          m_serialIn;   // sent by the machine, not yet published
     std::vector<Tolerated> m_tolerated; // reported, not yet published
+    QByteArray          m_printed;    // printed, not yet published
     bool                m_xoff = false;
     std::atomic<qint64> m_serialPending { 0 };
 
@@ -237,6 +242,20 @@ QString toleratedDetail(const Session::Tolerated &event);
 // A text file as the M10's own SAVE "COM:" sends it: lines end in CR LF and
 // the text ends with Ctrl+Z, which LOAD "COM:" waits for.
 QByteArray serialText(const QByteArray &file);
+
+// What a machine prints, as a text file. The M10 ends its lines with CR
+// alone, for a printer that feeds a line on CR, so a CR becomes CR LF and
+// an LF right after it is dropped. Other bytes are kept as sent.
+class PrintoutText {
+public:
+    QByteArray convert(const QByteArray &printed);
+
+private:
+    bool m_afterCr = false;
+};
+
+// The name of a printout started at time, such as print-20261027-153000.txt.
+QString printoutFileName(const QDateTime &time);
 
 }
 

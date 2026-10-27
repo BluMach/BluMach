@@ -79,6 +79,7 @@ private slots:
                     != option.accepted + option.acceptedCount);
         }
         QVERIFY(!system.option(QStringLiteral("system")));
+        QVERIFY(system.printer);
     }
 
     void profileDefaultsAndValues()
@@ -790,6 +791,55 @@ private slots:
         session.key(BM_KEY_CAPS_LOCK, true);
         session.key(BM_KEY_CAPS_LOCK, false);
         QTRY_VERIFY_WITH_TIMEOUT((leds.load() & BM_KEYBOARD_LED_CAPS_LOCK) != 0, 2000);
+        session.stop();
+    }
+
+    void printoutTextFeedsALineOnCr()
+    {
+        PrintoutText text;
+        QCOMPARE(text.convert("10 A\r20 B\r"), QByteArray("10 A\r\n20 B\r\n"));
+        // An LF right after a CR, even in the next call, is the same line feed.
+        QCOMPARE(text.convert("\nC\n\x0c"), QByteArray("C\n\x0c"));
+        QCOMPARE(printoutFileName(QDateTime(QDate(2026, 10, 27), QTime(15, 30, 5))),
+                 QStringLiteral("print-20261027-153005.txt"));
+    }
+
+    void sessionPrintsWhatTheMachineStrobes()
+    {
+        // PA carries each byte and E0h bit 1 strobes it (service manual 6.11).
+        static const uint8_t strobe[] = { 0x3e, 0x02, 0xd3, 0xe0, 0x3e, 0x00, 0xd3, 0xe0 };
+        QByteArray rom(32768, '\0');
+        rom[0] = '\xc3';
+        rom[1] = '\x40';
+        int at = 0x40;
+        const auto put = [&](const QByteArray &bytes) {
+            std::memcpy(rom.data() + at, bytes.constData(), bytes.size());
+            at += bytes.size();
+        };
+        put(QByteArray::fromHex("3e03d3b0")); // PA and PB outputs
+        for (const char c : QByteArray("Hi\r")) {
+            put(QByteArray::fromHex("3e") + c + QByteArray::fromHex("d3b1"));
+            put(QByteArray(reinterpret_cast<const char *>(strobe), sizeof(strobe)));
+        }
+        put(QByteArray::fromHex("c3") + char(at & 0xff) + char(at >> 8)); // JMP to itself
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("language"), 2);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+
+        std::mutex mutex;
+        QByteArray printed;
+        Session    session(profile, rom, {}, [&](const Session::Frame &frame) {
+            std::lock_guard<std::mutex> lock(mutex);
+            printed += frame.printed;
+        });
+        const auto output = [&] {
+            std::lock_guard<std::mutex> lock(mutex);
+            return printed;
+        };
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        QTRY_COMPARE_WITH_TIMEOUT(output(), QByteArray("Hi\r"), 2000);
         session.stop();
     }
 

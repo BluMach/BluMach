@@ -74,6 +74,11 @@ private:
     void insertTape();
     void setTapeRecording(bool on);
     void saveRecording();
+    // Printer: each printout goes to its own text file in the machine's
+    // printer folder, closed after a few idle seconds.
+    void    writePrintout(const QByteArray &printed);
+    void    closePrintout();
+    QString printerFolder() const;
 
     const BluMachCatalog    &m_catalog;
     QString                  m_name;
@@ -91,6 +96,11 @@ private:
     qint64                   m_capturedBytes = 0;
     QAction                 *m_tapeRecord = nullptr;
     QString                  m_recordPath; // while recording
+    QFile                    m_printout; // open while the machine prints
+    qint64                   m_printoutBytes  = 0;
+    bool                     m_printoutFailed = false; // until the printout ends
+    PrintoutText             m_printoutText;
+    QTimer                   m_printoutTimer;
     QTimer                   m_saveTimer;
     QTimer                   m_statusTimer;
     QSet<int>                m_pressed;

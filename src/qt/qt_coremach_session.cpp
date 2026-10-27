@@ -113,8 +113,9 @@ struct Session::Machine {
     bm_host_audio_services_t  audio {};
     bm_host_serial_services_t   serial {};
     bm_host_cassette_services_t  cassette {};
+    bm_host_parallel_services_t  printer {};
     bm_host_tolerance_services_t tolerance {};
-    bm_host_capability_t         capabilities[4] {};
+    bm_host_capability_t         capabilities[5] {};
 };
 
 Session::Session(const Profile &profile, const QByteArray &firmware, const States &states,
@@ -164,6 +165,8 @@ Session::Session(const Profile &profile, const QByteArray &firmware, const State
         machine.audio           = { hostAudioChange, machine.buzzer.get() };
         machine.serial          = { serialTransmitted, this };
         machine.cassette        = { tapeMotor, tapeRecord, this };
+        // A printer that is never busy and always on line.
+        machine.printer         = { printerWrite, nullptr, this };
         machine.tolerance       = { tolerated, this };
         machine.capabilities[0] = { BM_HOST_CAPABILITY_AUDIO_OUTPUT, BM_HOST_AUDIO_VERSION, sizeof(machine.audio),
                                     &machine.audio };
@@ -171,10 +174,12 @@ Session::Session(const Profile &profile, const QByteArray &firmware, const State
                                     &machine.serial };
         machine.capabilities[2] = { BM_HOST_CAPABILITY_CASSETTE, BM_HOST_CASSETTE_VERSION, sizeof(machine.cassette),
                                     &machine.cassette };
+        machine.capabilities[3] = { BM_HOST_CAPABILITY_PARALLEL, BM_HOST_PARALLEL_VERSION, sizeof(machine.printer),
+                                    &machine.printer };
         // Tolerant (last, so a strict session leaves it out): unmodelled ports and memory, extended 8085 instructions
         // and unknown device commands fall back as documented by CoreMach
         // and are reported, instead of stopping the machine.
-        machine.capabilities[3] = { BM_HOST_CAPABILITY_TOLERANCE, BM_HOST_TOLERANCE_VERSION,
+        machine.capabilities[4] = { BM_HOST_CAPABILITY_TOLERANCE, BM_HOST_TOLERANCE_VERSION,
                                     sizeof(machine.tolerance), &machine.tolerance };
         machine.host.capabilities     = machine.capabilities;
         machine.host.capability_count = std::size(machine.capabilities) - (tolerant ? 0 : 1);
@@ -249,6 +254,31 @@ serialText(const QByteArray &file)
     return text;
 }
 
+QByteArray
+PrintoutText::convert(const QByteArray &printed)
+{
+    QByteArray text;
+    text.reserve(printed.size() + printed.count('\r'));
+    for (const char c : printed) {
+        if (c == '\n' && m_afterCr) {
+            m_afterCr = false;
+            continue;
+        }
+        m_afterCr = c == '\r';
+        if (m_afterCr)
+            text.append("\r\n");
+        else
+            text.append(c);
+    }
+    return text;
+}
+
+QString
+printoutFileName(const QDateTime &time)
+{
+    return QStringLiteral("print-%1.txt").arg(time.toString(QStringLiteral("yyyyMMdd-HHmmss")));
+}
+
 Session::~Session()
 {
     if (m_thread.joinable())
@@ -315,6 +345,15 @@ Session::serialTransmitted(void *context, uint32_t port, uint8_t data, bm_tick_t
     else if (data == 0x11) // XON
         session->m_xoff = false;
     session->m_serialIn.append(static_cast<char>(data));
+}
+
+void
+Session::printerWrite(void *context, uint32_t port, uint8_t data, bm_tick_t)
+{
+    // Called on the session thread, inside bm_session_run_for().
+    auto *session = static_cast<Session *>(context);
+    if (port == 0)
+        session->m_printed.append(static_cast<char>(data));
 }
 
 void
@@ -514,6 +553,7 @@ Session::publish(bm_session_t *session, bm_status_t status, bool render, const N
     frame.notice = notice;
     frame.state  = session ? bm_session_state(session) : BM_SESSION_NEW;
     frame.serial.swap(m_serialIn);
+    frame.printed.swap(m_printed);
     frame.tolerated.swap(m_tolerated);
     bm_keyboard_led_state_t leds {};
     if (session && bm_session_keyboard_leds(session, &leds) == BM_STATUS_OK)

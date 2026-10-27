@@ -44,6 +44,7 @@ namespace {
           true, // contrast knob on the right side panel (operations guide p. 1-10)
           true, // RS-232C through the IM6402
           true, // cassette through SOD/SID (service manual 6.9)
+          true, // Centronics printer port (service manual 6.11)
           { "machines/olivetti_m10/m10-system-first32k.bin", 32768,
             "43f85e3ac5cc264be3ad4c3b36dea82381409a66381146ce06a78c22704b0dbc" },
           m10Options, std::size(m10Options), m10States, std::size(m10States) },
