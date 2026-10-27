@@ -666,9 +666,31 @@ private slots:
         QVERIFY(readWav(stereo, &read));
         QCOMPARE(read.samples, (std::vector<int16_t> { -128, 0 }));
 
-        QByteArray floating = writeWav(tape);
-        floating[20]        = 3; // IEEE float
-        QVERIFY(!readWav(floating, &read, &reason));
+        // 32-bit float and 24-bit WAVE_FORMAT_EXTENSIBLE.
+        QByteArray floating = writeWav(tape).left(44);
+        floating[20]        = 3;  // IEEE float
+        floating[34]        = 32; // bits
+        for (const float value : { 0.5f, -1.0f, 2.0f }) {
+            char bytes[4];
+            std::memcpy(bytes, &value, 4);
+            floating.append(bytes, 4);
+        }
+        qToLittleEndian<uint32_t>(12, floating.data() + 40);
+        QVERIFY(readWav(floating, &read, &reason));
+        QCOMPARE(read.samples, (std::vector<int16_t> { 16383, -32767, 32767 }));
+        QByteArray extensible = writeWav(tape).left(36);
+        qToLittleEndian<uint32_t>(40, extensible.data() + 16); // fmt length
+        qToLittleEndian<uint16_t>(0xfffe, extensible.data() + 20);
+        extensible[34] = 24;
+        extensible.append(QByteArray::fromHex("1600180003000000") + QByteArray::fromHex("0100000000001000800000aa00389b71"));
+        extensible.append("data", 4);
+        extensible.append(QByteArray::fromHex("06000000" "ff7f00" "000080"));
+        QVERIFY(readWav(extensible, &read, &reason));
+        QCOMPARE(read.samples, (std::vector<int16_t> { 127, -32768 }));
+
+        QByteArray adpcm = writeWav(tape);
+        adpcm[20]        = 2; // MS ADPCM
+        QVERIFY(!readWav(adpcm, &read, &reason));
         QVERIFY(!readWav("not a wav", &read));
     }
 

@@ -10,6 +10,8 @@
 
 #include <QtEndian>
 
+#include <algorithm>
+#include <cmath>
 #include <cstring>
 
 namespace CoreMachBridge {
@@ -65,26 +67,39 @@ readWav(const QByteArray &file, Tape *tape, QString *reason)
             channels = le16(chunk + 10);
             rate     = le32(chunk + 12);
             bits     = le16(chunk + 22);
+            // WAVE_FORMAT_EXTENSIBLE: the format is the subformat GUID's first two bytes.
+            if (format == 0xfffe && length >= 40)
+                format = le16(chunk + 32);
         } else if (std::memcmp(chunk, "data", 4) == 0) {
             data = file.constData() + body;
             size = length;
         }
         at = body + length + (length & 1);
     }
-    if (format != 1 || (bits != 8 && bits != 16) || (channels != 1 && channels != 2) || rate == 0)
-        return fail(reason, "only 8 or 16-bit PCM, mono or stereo");
+    const bool integer  = format == 1 && (bits == 8 || bits == 16 || bits == 24 || bits == 32);
+    const bool floating = format == 3 && bits == 32;
+    if ((!integer && !floating) || channels == 0 || rate == 0)
+        return fail(reason, "only PCM of 8, 16, 24 or 32 bits or 32-bit float");
     if (!data)
         return fail(reason, "no audio data");
-    const qsizetype frame  = channels * (bits / 8);
+    const int       width  = bits / 8;
+    const qsizetype frame  = channels * width;
     const qsizetype frames = size / frame;
     tape->sampleRate       = rate;
     tape->samples.resize(static_cast<size_t>(frames));
     for (qsizetype index = 0; index < frames; ++index) {
-        int sum = 0;
+        double sum = 0;
         for (int channel = 0; channel < channels; ++channel) {
-            const char *sample = data + index * frame + channel * (bits / 8);
-            sum += bits == 8 ? (static_cast<int>(static_cast<uint8_t>(*sample)) - 128) * 256
-                             : static_cast<int>(static_cast<int16_t>(le16(sample)));
+            const char *sample = data + index * frame + channel * width;
+            if (floating) {
+                float value;
+                const uint32_t raw = le32(sample);
+                std::memcpy(&value, &raw, sizeof(value));
+                sum += std::isfinite(value) ? std::clamp(value, -1.0f, 1.0f) * 32767.0 : 0.0;
+            } else if (bits == 8)
+                sum += (static_cast<int>(static_cast<uint8_t>(*sample)) - 128) * 256;
+            else // the top 16 bits of a signed little-endian sample
+                sum += static_cast<int16_t>(le16(sample + width - 2));
         }
         tape->samples[static_cast<size_t>(index)] = static_cast<int16_t>(sum / channels);
     }

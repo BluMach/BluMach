@@ -26,8 +26,10 @@ struct Tape {
     uint32_t             sampleRate = 0;
 };
 
-// Reads a PCM WAV file (8 or 16 bits, mono or stereo, any rate); stereo is
-// mixed to mono. Returns false with a short reason for anything else.
+// Reads a WAV file: integer PCM of 8, 16, 24 or 32 bits or 32-bit float,
+// plain or WAVE_FORMAT_EXTENSIBLE, any number of channels and any rate.
+// Channels are mixed to mono 16-bit. Returns false with a short reason for
+// anything else.
 bool readWav(const QByteArray &file, Tape *tape, QString *reason = nullptr);
 // A mono 16-bit PCM WAV file.
 QByteArray writeWav(const Tape &tape);
