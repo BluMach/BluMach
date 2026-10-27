@@ -50,9 +50,14 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
     , m_events(machineFolder)
     , m_systemName(profile.system ? QString::fromUtf8(profile.system->name) : QString())
 {
-    m_session = std::make_unique<Session>(profile, firmware, states, [this](const Session::Frame &frame) {
-        QMetaObject::invokeMethod(this, [this, frame] { present(frame); }, Qt::QueuedConnection);
-    });
+    // Tolerant unless the machine's [CoreMach] section says tolerant = 0.
+    const bool tolerant = !profile.system || readDisplayPreferences(configPath, *profile.system).tolerant;
+    m_session = std::make_unique<Session>(
+        profile, firmware, states,
+        [this](const Session::Frame &frame) {
+            QMetaObject::invokeMethod(this, [this, frame] { present(frame); }, Qt::QueuedConnection);
+        },
+        tolerant);
 
     setWindowTitle(QStringLiteral("%1 — BluMach").arg(m_name));
     m_display = new Display(this);
@@ -180,6 +185,9 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
 
     m_status = new QLabel(this);
     statusBar()->addWidget(m_status, 1);
+    m_capsLock = new QLabel(m_catalog.text(QStringLiteral("coremach.status.caps_lock")), this);
+    m_capsLock->setVisible(false);
+    statusBar()->addPermanentWidget(m_capsLock);
     statusBar()->setSizeGripEnabled(false);
 
     m_saveTimer.setInterval(savePeriodMs);
@@ -289,6 +297,25 @@ Window::present(const Session::Frame &frame)
         return;
     if (!frame.image.isNull())
         m_display->setFrame(frame.image);
+    m_capsLock->setVisible((frame.keyboardLeds & BM_KEYBOARD_LED_CAPS_LOCK) != 0);
+    for (const auto &event : frame.tolerated) {
+        // Logged once per machine folder; shown once per session.
+        const QString kind   = toleratedKind(event);
+        const QString detail = toleratedDetail(event);
+        QString       context = event.device + QStringLiteral(": ") + event.note;
+        if (event.flags & BM_TOLERANCE_FLAG_ASSUMED_BEHAVIOUR)
+            context += QStringLiteral(" [assumed behaviour]");
+        if (m_events.record(kind, detail, context))
+            std::fprintf(stderr, "BluMach: CoreMach tolerated %s %s\n", kind.toUtf8().constData(),
+                         detail.toUtf8().constData());
+        if (!m_toleratedShown.contains(kind)) {
+            m_toleratedShown.insert(kind);
+            statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.tolerated"))
+                                         .arg(m_systemName, kind + QLatin1Char(' ') + detail,
+                                              QDir::toNativeSeparators(m_events.path())),
+                                     10000);
+        }
+    }
     if (!frame.serial.isEmpty() && m_capture.isOpen()) {
         if (m_capture.write(frame.serial) == frame.serial.size() && m_capture.flush())
             m_capturedBytes += frame.serial.size();

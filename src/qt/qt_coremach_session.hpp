@@ -51,6 +51,17 @@ public:
         bm_status_t   status = BM_STATUS_OK;
         bm_key_code_t key    = static_cast<bm_key_code_t>(0);
     };
+    // A fallback the machine applied instead of failing (tolerant host).
+    struct Tolerated {
+        bm_tolerance_event_kind_t kind    = BM_TOLERANCE_UNMODELLED_IO_READ;
+        uint32_t                  flags   = 0;
+        QString                   device;
+        QString                   note;
+        uint64_t                  pc      = 0;
+        uint32_t                  opcode  = 0;
+        uint64_t                  address = 0;
+        uint64_t                  value   = 0;
+    };
     struct Frame {
         QImage             image;
         bm_session_state_t state = BM_SESSION_NEW;
@@ -59,12 +70,18 @@ public:
         Notice      notice;
         // Characters the machine sent on its serial port since the last frame.
         QByteArray serial;
+        // Fallbacks since the last frame.
+        std::vector<Tolerated> tolerated;
+        // bm_keyboard_led_t bits; 0 when the machine reports none.
+        uint8_t keyboardLeds = 0;
     };
     using FrameHandler = std::function<void(const Frame &)>;
 
     // Called on the session thread; the handler must not block.
+    // A tolerant session reports fallbacks (Frame::tolerated) where a strict
+    // one stops with the machine's failure.
     Session(const Profile &profile, const QByteArray &firmware, const States &states,
-            FrameHandler handler);
+            FrameHandler handler, bool tolerant = true);
     ~Session();
     Session(const Session &)            = delete;
     Session &operator=(const Session &) = delete;
@@ -139,6 +156,7 @@ private:
     };
     struct Machine;
     static void serialTransmitted(void *context, uint32_t port, uint8_t data, bm_tick_t time);
+    static void tolerated(void *context, const bm_tolerance_event_t *event);
     static void tapeMotor(void *context, uint32_t port, int on, bm_tick_t time);
     static void tapeRecord(void *context, uint32_t port, int level, bm_tick_t time);
     // Lends the tape to the machine from position, or ejects it.
@@ -194,6 +212,7 @@ private:
     // Serial port, owned by the session thread.
     QByteArray          m_serialOut;  // queued for the machine
     QByteArray          m_serialIn;   // sent by the machine, not yet published
+    std::vector<Tolerated> m_tolerated; // reported, not yet published
     bool                m_xoff = false;
     std::atomic<qint64> m_serialPending { 0 };
 
@@ -209,6 +228,11 @@ private:
     std::atomic<uint64_t>         m_recordedSamples { 0 };
     std::atomic<bool>             m_recording { false };
 };
+
+// The event-log kind and detail of a fallback, such as "io_read" and
+// "A8h at PC 0000h (DBh)".
+QString toleratedKind(const Session::Tolerated &event);
+QString toleratedDetail(const Session::Tolerated &event);
 
 // A text file as the M10's own SAVE "COM:" sends it: lines end in CR LF and
 // the text ends with Ctrl+Z, which LOAD "COM:" waits for.

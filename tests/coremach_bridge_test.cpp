@@ -200,8 +200,10 @@ private slots:
         QVERIFY(!preferences.lcdEffect);
         QCOMPARE(preferences.lcdContrast, 4);
 
-        // Sound is on unless the machine says otherwise.
-        QVERIFY(preferences.sound);
+        // Sound and tolerance are on unless the machine says otherwise.
+        QVERIFY(preferences.sound && preferences.tolerant);
+        QVERIFY(writeCoreMachValue(path, QStringLiteral("tolerant"), QStringLiteral("0")));
+        QVERIFY(!readDisplayPreferences(path, m10()).tolerant);
         QVERIFY(writeCoreMachValue(path, QStringLiteral("sound"), QStringLiteral("0")));
         QVERIFY(!readDisplayPreferences(path, m10()).sound);
 
@@ -421,8 +423,9 @@ private slots:
 
     void failedRunStopsTheSession()
     {
-        // DSUB (08h) is undocumented; CoreMach rejects it in strict mode,
-        // so the run fails and the session must stop with that status.
+        // DSUB (08h) is undocumented; CoreMach rejects it in strict mode
+        // (tolerant = 0), so the run fails and the session must stop with
+        // that status.
         QByteArray rom(32768, '\0');
         rom[0] = '\x08';
         Profile profile;
@@ -433,7 +436,7 @@ private slots:
         Session session(profile, rom, {}, [&](const Session::Frame &frame) {
             if (frame.status != BM_STATUS_OK)
                 failure = frame.status;
-        });
+        }, false);
         QCOMPARE(session.start(), BM_STATUS_OK);
         QTRY_COMPARE_WITH_TIMEOUT(failure.load(), static_cast<int>(BM_STATUS_UNSUPPORTED), 2000);
         QTRY_COMPARE_WITH_TIMEOUT(session.state(), BM_SESSION_STOPPED, 2000);
@@ -740,6 +743,54 @@ private slots:
         QTest::qWait(100);
         session.stop();
         QVERIFY(!session.stopRecording().samples.empty());
+    }
+
+    void tolerantSessionReportsAndKeepsRunning()
+    {
+        // IN A8h and OUT A8h (no device there), then DSUB (08h), an extended
+        // 8085 instruction, in a loop.
+        QByteArray rom(32768, '\0');
+        rom[0] = '\xc3';
+        rom[1] = '\x40';
+        static const uint8_t program[] = { 0xdb, 0xa8, 0xd3, 0xa8, 0x08, 0xc3, 0x40, 0x00 };
+        std::memcpy(rom.data() + 0x40, program, sizeof(program));
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("language"), 2);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+
+        std::mutex                      mutex;
+        std::vector<Session::Tolerated> reports;
+        std::atomic<int>                leds { 0 };
+        Session session(profile, rom, {}, [&](const Session::Frame &frame) {
+            std::lock_guard<std::mutex> lock(mutex);
+            reports.insert(reports.end(), frame.tolerated.begin(), frame.tolerated.end());
+            leds.store(frame.keyboardLeds);
+        });
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        const auto details = [&] {
+            std::lock_guard<std::mutex> lock(mutex);
+            QStringList list;
+            for (const auto &event : reports)
+                list << toleratedKind(event) + QLatin1Char(' ') + toleratedDetail(event);
+            return list;
+        };
+        QTRY_COMPARE_WITH_TIMEOUT(details().size(), 3, 2000);
+        QVERIFY2(details().contains(QStringLiteral("io_read A8h at PC 0040h (DBh)")), qPrintable(details().join('|')));
+        QVERIFY(details().contains(QStringLiteral("io_write A8h at PC 0042h (D3h)")));
+        QVERIFY(details().contains(QStringLiteral("undocumented_instruction 08h at PC 0044h (08h)")));
+        const uint64_t ticks = session.ticks();
+        QTRY_VERIFY_WITH_TIMEOUT(session.ticks() > ticks, 2000);
+        QCOMPARE(session.state(), BM_SESSION_RUNNING);
+        QCOMPARE(details().size(), 3); // once per case
+
+        // CAPS LOCK latches on the M10 and its indicator reaches the frame.
+        QCOMPARE(leds.load() & BM_KEYBOARD_LED_CAPS_LOCK, 0);
+        session.key(BM_KEY_CAPS_LOCK, true);
+        session.key(BM_KEY_CAPS_LOCK, false);
+        QTRY_VERIFY_WITH_TIMEOUT((leds.load() & BM_KEYBOARD_LED_CAPS_LOCK) != 0, 2000);
+        session.stop();
     }
 
     void serialTextEndsLikeTheM10()

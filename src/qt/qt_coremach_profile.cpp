@@ -53,6 +53,7 @@ namespace {
     const QString systemKey   = QStringLiteral("system");
     const QString displayKeyPrefix = QStringLiteral("lcd_");
     const QString soundKey         = QStringLiteral("sound");
+    const QString tolerantKey      = QStringLiteral("tolerant");
     constexpr int contrastSteps = 5;
 }
 
@@ -109,7 +110,7 @@ readProfile(const QString &configPath, const System &system, Profile *profile,
             continue;
         const QString key   = fullKey.mid(prefix.size());
         const QString value = settings.value(fullKey).toString().trimmed();
-        if (key == systemKey || key == soundKey || key.startsWith(displayKeyPrefix))
+        if (key == systemKey || key == soundKey || key == tolerantKey || key.startsWith(displayKeyPrefix))
             continue;
         const Option *option = system.option(key);
         if (!option)
@@ -204,6 +205,7 @@ readDisplayPreferences(const QString &configPath, const System &system)
     preferences.lcdEffect      = flag("lcd_effect", preferences.lcdEffect);
     preferences.lcdPersistence = flag("lcd_persistence", preferences.lcdPersistence);
     preferences.sound          = flag("sound", preferences.sound);
+    preferences.tolerant       = flag("tolerant", preferences.tolerant);
     if (system.contrastControl) {
         bool      number   = false;
         const int contrast = settings.value(sectionName + QStringLiteral("/lcd_contrast")).toString().toInt(&number);

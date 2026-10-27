@@ -82,6 +82,8 @@ private:
     std::unique_ptr<Session> m_session;
     Display                 *m_display  = nullptr;
     QLabel                  *m_status   = nullptr;
+    QLabel                  *m_capsLock = nullptr;
+    QSet<QString>            m_toleratedShown; // this session
     QAction                 *m_pause    = nullptr;
     QAction                 *m_serialCapture = nullptr;
     QAction                 *m_serialCancel  = nullptr;

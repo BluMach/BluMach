@@ -112,12 +112,13 @@ struct Session::Machine {
     std::unique_ptr<Buzzer>   buzzer;
     bm_host_audio_services_t  audio {};
     bm_host_serial_services_t   serial {};
-    bm_host_cassette_services_t cassette {};
-    bm_host_capability_t        capabilities[3] {};
+    bm_host_cassette_services_t  cassette {};
+    bm_host_tolerance_services_t tolerance {};
+    bm_host_capability_t         capabilities[4] {};
 };
 
 Session::Session(const Profile &profile, const QByteArray &firmware, const States &states,
-                 FrameHandler handler)
+                 FrameHandler handler, bool tolerant)
     : m_machine(std::make_unique<Machine>())
     , m_handler(std::move(handler))
     , m_audio(Buzzer::sampleRate)
@@ -163,15 +164,69 @@ Session::Session(const Profile &profile, const QByteArray &firmware, const State
         machine.audio           = { hostAudioChange, machine.buzzer.get() };
         machine.serial          = { serialTransmitted, this };
         machine.cassette        = { tapeMotor, tapeRecord, this };
+        machine.tolerance       = { tolerated, this };
         machine.capabilities[0] = { BM_HOST_CAPABILITY_AUDIO_OUTPUT, BM_HOST_AUDIO_VERSION, sizeof(machine.audio),
                                     &machine.audio };
         machine.capabilities[1] = { BM_HOST_CAPABILITY_SERIAL, BM_HOST_SERIAL_VERSION, sizeof(machine.serial),
                                     &machine.serial };
         machine.capabilities[2] = { BM_HOST_CAPABILITY_CASSETTE, BM_HOST_CASSETTE_VERSION, sizeof(machine.cassette),
                                     &machine.cassette };
+        // Tolerant (last, so a strict session leaves it out): unmodelled ports and memory, extended 8085 instructions
+        // and unknown device commands fall back as documented by CoreMach
+        // and are reported, instead of stopping the machine.
+        machine.capabilities[3] = { BM_HOST_CAPABILITY_TOLERANCE, BM_HOST_TOLERANCE_VERSION,
+                                    sizeof(machine.tolerance), &machine.tolerance };
         machine.host.capabilities     = machine.capabilities;
-        machine.host.capability_count = std::size(machine.capabilities);
+        machine.host.capability_count = std::size(machine.capabilities) - (tolerant ? 0 : 1);
     }
+}
+
+QString
+toleratedKind(const Session::Tolerated &event)
+{
+    switch (event.kind) {
+        case BM_TOLERANCE_UNMODELLED_IO_READ:
+            return QStringLiteral("io_read");
+        case BM_TOLERANCE_UNMODELLED_IO_WRITE:
+            return QStringLiteral("io_write");
+        case BM_TOLERANCE_UNMODELLED_MEMORY_READ:
+            return QStringLiteral("memory_read");
+        case BM_TOLERANCE_UNMODELLED_MEMORY_WRITE:
+            return QStringLiteral("memory_write");
+        case BM_TOLERANCE_UNDOCUMENTED_INSTRUCTION:
+            return QStringLiteral("undocumented_instruction");
+        case BM_TOLERANCE_UNKNOWN_DEVICE_COMMAND:
+            return QStringLiteral("device_command");
+    }
+    return QStringLiteral("tolerated");
+}
+
+QString
+toleratedDetail(const Session::Tolerated &event)
+{
+    const auto hex = [](uint64_t value, int digits) {
+        return QStringLiteral("%1").arg(value, digits, 16, QLatin1Char('0')).toUpper() + QLatin1Char('h');
+    };
+    QString detail;
+    switch (event.kind) {
+        case BM_TOLERANCE_UNMODELLED_IO_READ:
+        case BM_TOLERANCE_UNMODELLED_IO_WRITE:
+            detail = hex(event.address, 2);
+            break;
+        case BM_TOLERANCE_UNMODELLED_MEMORY_READ:
+        case BM_TOLERANCE_UNMODELLED_MEMORY_WRITE:
+            detail = hex(event.address, 4);
+            break;
+        case BM_TOLERANCE_UNDOCUMENTED_INSTRUCTION:
+            detail = hex(event.opcode, 2);
+            break;
+        case BM_TOLERANCE_UNKNOWN_DEVICE_COMMAND:
+            detail = event.device + QLatin1Char(' ') + hex(event.value, 2);
+            break;
+    }
+    if (event.flags & BM_TOLERANCE_FLAG_HAS_PC)
+        detail += QStringLiteral(" at PC %1 (%2)").arg(hex(event.pc, 4), hex(event.opcode, 2));
+    return detail;
 }
 
 QByteArray
@@ -327,6 +382,24 @@ Session::tapeStatus() const
 }
 
 void
+Session::tolerated(void *context, const bm_tolerance_event_t *event)
+{
+    // Called on the session thread, inside bm_session_run_for().
+    if (!event || event->size < sizeof(bm_tolerance_event_t))
+        return;
+    Tolerated report;
+    report.kind    = event->kind;
+    report.flags   = event->flags;
+    report.device  = QString::fromUtf8(event->device ? event->device : "");
+    report.note    = QString::fromUtf8(event->note ? event->note : "");
+    report.pc      = event->pc;
+    report.opcode  = event->opcode;
+    report.address = event->address;
+    report.value   = event->value;
+    static_cast<Session *>(context)->m_tolerated.push_back(report);
+}
+
+void
 Session::tapeMotor(void *context, uint32_t port, int on, bm_tick_t time)
 {
     // Called on the session thread, inside bm_session_run_for() or reset.
@@ -441,6 +514,10 @@ Session::publish(bm_session_t *session, bm_status_t status, bool render, const N
     frame.notice = notice;
     frame.state  = session ? bm_session_state(session) : BM_SESSION_NEW;
     frame.serial.swap(m_serialIn);
+    frame.tolerated.swap(m_tolerated);
+    bm_keyboard_led_state_t leds {};
+    if (session && bm_session_keyboard_leds(session, &leds) == BM_STATUS_OK)
+        frame.keyboardLeds = leds.indicators;
     m_state.store(frame.state);
     if (session)
         m_ticks.store(bm_session_time(session));

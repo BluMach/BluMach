@@ -119,14 +119,15 @@ private:
     QSet<QString> m_seen;
 };
 
-// Display and sound preferences of a machine, kept as lcd_* keys and
-// "sound" in its [CoreMach] section. They are not machine options:
-// readProfile() skips them.
+// Display, sound and tolerance preferences of a machine, kept as lcd_*
+// keys, "sound" and "tolerant" in its [CoreMach] section. They are not
+// machine options: readProfile() skips them.
 struct DisplayPreferences {
     bool lcdEffect      = true;
     bool lcdPersistence = true;
     int  lcdContrast    = 2;
     bool sound          = true;
+    bool tolerant       = true; // 0: stop on the first unsupported operation
 };
 DisplayPreferences readDisplayPreferences(const QString &configPath, const System &system);
 // Sets one key of the [CoreMach] section, keeping every other line of the

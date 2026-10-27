@@ -247,6 +247,8 @@
   "coremach.cassette_unreadable": "%1 non è un file WAV PCM a 8 o 16 bit, mono o stereo.",
   "coremach.cassette_saved": "Registrazione: %1 salvata in %2.",
   "coremach.cassette_save_failed": "%1: impossibile salvare la registrazione in %2.",
+  "coremach.status.caps_lock": "BLOC MAIUSC",
+  "coremach.tolerated": "%1 ha continuato a funzionare dopo un’operazione non supportata (%2). Dettagli in %3.",
   "firmware.invalid_memory_choice": "%1 MB — non supportati; scegli un valore valido",
   "firmware.invalid_bios_choice": "%1 — non disponibile; scegli un BIOS",
   "firmware.choose_available_bios": "Scegli un BIOS disponibile prima di salvare. La configurazione non è stata modificata.",
