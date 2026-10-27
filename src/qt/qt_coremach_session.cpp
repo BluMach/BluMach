@@ -111,8 +111,9 @@ struct Session::Machine {
 
     std::unique_ptr<Buzzer>   buzzer;
     bm_host_audio_services_t  audio {};
-    bm_host_serial_services_t serial {};
-    bm_host_capability_t      capabilities[2] {};
+    bm_host_serial_services_t   serial {};
+    bm_host_cassette_services_t cassette {};
+    bm_host_capability_t        capabilities[3] {};
 };
 
 Session::Session(const Profile &profile, const QByteArray &firmware, const States &states,
@@ -161,10 +162,13 @@ Session::Session(const Profile &profile, const QByteArray &firmware, const State
         machine.buzzer          = std::make_unique<Buzzer>(machine.ticksPerSecond);
         machine.audio           = { hostAudioChange, machine.buzzer.get() };
         machine.serial          = { serialTransmitted, this };
+        machine.cassette        = { tapeMotor, tapeRecord, this };
         machine.capabilities[0] = { BM_HOST_CAPABILITY_AUDIO_OUTPUT, BM_HOST_AUDIO_VERSION, sizeof(machine.audio),
                                     &machine.audio };
         machine.capabilities[1] = { BM_HOST_CAPABILITY_SERIAL, BM_HOST_SERIAL_VERSION, sizeof(machine.serial),
                                     &machine.serial };
+        machine.capabilities[2] = { BM_HOST_CAPABILITY_CASSETTE, BM_HOST_CASSETTE_VERSION, sizeof(machine.cassette),
+                                    &machine.cassette };
         machine.host.capabilities     = machine.capabilities;
         machine.host.capability_count = std::size(machine.capabilities);
     }
@@ -272,6 +276,98 @@ Session::feedSerial(bm_session_t *session)
             m_serialOut.clear(); // no serial port to take them
     }
     m_serialPending.store(m_serialOut.size());
+}
+
+void
+Session::loadTape(const Tape &tape)
+{
+    Command command { CommandKind::TapeLoad };
+    command.tape = tape;
+    enqueue(command);
+}
+
+void Session::rewindTape() { enqueue({ CommandKind::TapeRewind }); }
+void Session::ejectTape() { enqueue({ CommandKind::TapeEject }); }
+
+void
+Session::startRecording()
+{
+    m_recording.store(true);
+    enqueue({ CommandKind::RecordStart });
+}
+
+Tape
+Session::stopRecording()
+{
+    std::unique_lock<std::mutex> lock(m_mutex);
+    if (m_thread.joinable() && !m_finished) {
+        const uint64_t request = ++m_recordRequests;
+        m_commands.push_back({ CommandKind::RecordStop });
+        m_wake.notify_all();
+        m_done.wait(lock, [this, request] { return m_recordReplies >= request || m_finished; });
+    }
+    m_recording.store(false);
+    Tape recorded;
+    std::swap(recorded, m_recorded);
+    return recorded;
+}
+
+Session::TapeStatus
+Session::tapeStatus() const
+{
+    TapeStatus status;
+    status.loaded    = m_tapeStatusLoaded.load();
+    status.motor     = m_motor.load();
+    status.recording = m_recording.load();
+    status.position  = m_tapePosition.load();
+    status.length    = m_tapeLength.load();
+    status.rate      = m_tapeRate.load();
+    status.recorded  = m_recordedSamples.load();
+    return status;
+}
+
+void
+Session::tapeMotor(void *context, uint32_t port, int on, bm_tick_t time)
+{
+    // Called on the session thread, inside bm_session_run_for() or reset.
+    auto *session = static_cast<Session *>(context);
+    if (port != 0)
+        return;
+    session->m_motor.store(on != 0);
+    if (session->m_recorder)
+        session->m_recorder->motor(on != 0, time);
+}
+
+void
+Session::tapeRecord(void *context, uint32_t port, int level, bm_tick_t time)
+{
+    auto *session = static_cast<Session *>(context);
+    if (port == 0 && session->m_recorder)
+        session->m_recorder->record(level != 0, time);
+}
+
+void
+Session::insertTape(bm_session_t *session, size_t position)
+{
+    if (!m_tapeLoaded) {
+        (void) bm_session_cassette_load(session, 0, nullptr);
+        return;
+    }
+    const bm_cassette_tape_t medium { m_tape.samples.data(), m_tape.samples.size(), m_tape.sampleRate,
+                                      std::min(position, m_tape.samples.size()) };
+    (void) bm_session_cassette_load(session, 0, &medium);
+}
+
+void
+Session::updateTapeStatus(bm_session_t *session)
+{
+    size_t position = 0;
+    m_tapeStatusLoaded.store(m_tapeLoaded);
+    if (m_tapeLoaded && bm_session_cassette_position(session, 0, &position) == BM_STATUS_OK)
+        m_tapePosition.store(position);
+    m_tapeLength.store(m_tapeLoaded ? m_tape.samples.size() : 0);
+    m_tapeRate.store(m_tapeLoaded ? m_tape.sampleRate : 0);
+    m_recordedSamples.store(m_recorder ? m_recorder->samples().size() : 0);
 }
 
 States
@@ -459,6 +555,39 @@ Session::process(bm_session_t *session)
                 m_serialOut.clear();
                 m_serialPending.store(0);
                 break;
+            case CommandKind::TapeLoad:
+                m_tape       = command.tape;
+                m_tapeLoaded = command.tape.sampleRate != 0;
+                insertTape(session, 0);
+                break;
+            case CommandKind::TapeRewind:
+                insertTape(session, 0);
+                break;
+            case CommandKind::TapeEject:
+                m_tapeLoaded = false;
+                insertTape(session, 0);
+                m_tape = {};
+                break;
+            case CommandKind::RecordStart:
+                if (!m_recorder) {
+                    m_recorder = std::make_unique<TapeRecorder>(m_machine->ticksPerSecond);
+                    // Recording starts at once if the motor already runs.
+                    if (m_motor.load())
+                        m_recorder->motor(true, bm_session_time(session));
+                }
+                break;
+            case CommandKind::RecordStop: {
+                if (m_recorder)
+                    m_recorder->motor(false, bm_session_time(session));
+                std::lock_guard<std::mutex> lock(m_mutex);
+                if (m_recorder)
+                    m_recorded = { m_recorder->samples(), TapeRecorder::sampleRate };
+                m_recorder.reset();
+                m_recordedSamples.store(0);
+                ++m_recordReplies;
+                m_done.notify_all();
+                break;
+            }
             case CommandKind::Capture: {
                 States states = captureFrom(session);
                 std::lock_guard<std::mutex> lock(m_mutex);
@@ -470,11 +599,17 @@ Session::process(bm_session_t *session)
             }
             case CommandKind::Stop: {
                 States states = captureFrom(session);
+                if (m_recorder)
+                    m_recorder->motor(false, bm_session_time(session));
                 (void) bm_session_stop(session);
                 m_audio.close();
                 std::lock_guard<std::mutex> lock(m_mutex);
                 if (!states.isEmpty())
                     m_captured = states;
+                // A recording still running is kept for stopRecording().
+                if (m_recorder)
+                    m_recorded = { m_recorder->samples(), TapeRecorder::sampleRate };
+                m_recorder.reset();
                 return false;
             }
         }
@@ -488,11 +623,14 @@ Session::process(bm_session_t *session)
             (void) stopAfterFailure(session, status);
             continue;
         }
-        const bool quiet = command.kind == CommandKind::Capture || command.kind == CommandKind::Sound
-            || command.kind == CommandKind::SerialSend || command.kind == CommandKind::SerialCancel;
+        // Commands that change nothing on screen publish only a notice.
+        const bool quiet = command.kind != CommandKind::Pause && command.kind != CommandKind::Resume
+            && command.kind != CommandKind::Reset && command.kind != CommandKind::Key;
         if (!quiet || notice.kind != Notice::Kind::None)
             publish(session, status, false, notice);
     }
+    if (!commands.empty())
+        updateTapeStatus(session);
     return true;
 }
 
@@ -541,6 +679,7 @@ Session::run()
             if (due > 0) {
                 status = bm_session_run_for(session, due);
                 m_paceTicks += due;
+                updateTapeStatus(session);
             }
             if (status == BM_STATUS_OK)
                 playSound(session);

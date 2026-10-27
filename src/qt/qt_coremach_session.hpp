@@ -16,6 +16,7 @@
 
 #include "qt_coremach_audio.hpp"
 #include "qt_coremach_profile.hpp"
+#include "qt_coremach_tape.hpp"
 
 #include <QByteArray>
 #include <QHash>
@@ -83,6 +84,25 @@ public:
     void cancelSerial();
     // Characters queued and not yet taken by the machine.
     qint64 serialPending() const { return m_serialPending.load(); }
+
+    // Cassette: a tape plays while the machine's motor runs; recording
+    // keeps what the machine sends while the motor runs.
+    void loadTape(const Tape &tape);
+    void rewindTape();
+    void ejectTape();
+    void startRecording();
+    // Stops recording and returns the recording.
+    Tape stopRecording();
+    struct TapeStatus {
+        bool     loaded    = false;
+        bool     motor     = false;
+        bool     recording = false;
+        uint64_t position  = 0; // samples
+        uint64_t length    = 0;
+        uint32_t rate      = 0;
+        uint64_t recorded  = 0; // samples at TapeRecorder::sampleRate
+    };
+    TapeStatus tapeStatus() const;
     // Current persistent states, saved from the running machine.
     States capture();
     // Stops the machine and returns its final persistent states.
@@ -94,15 +114,37 @@ public:
     double realTimePercent() const { return m_realTime.load(); }
 
 private:
-    enum class CommandKind { Pause, Resume, Reset, Key, Sound, SerialSend, SerialCancel, Capture, Stop };
+    enum class CommandKind {
+        Pause,
+        Resume,
+        Reset,
+        Key,
+        Sound,
+        SerialSend,
+        SerialCancel,
+        TapeLoad,
+        TapeRewind,
+        TapeEject,
+        RecordStart,
+        RecordStop,
+        Capture,
+        Stop
+    };
     struct Command {
         CommandKind      kind;
         bm_input_event_t input {};
         bool             on = false; // Sound
         QByteArray       data;       // SerialSend
+        Tape             tape;       // TapeLoad
     };
     struct Machine;
     static void serialTransmitted(void *context, uint32_t port, uint8_t data, bm_tick_t time);
+    static void tapeMotor(void *context, uint32_t port, int on, bm_tick_t time);
+    static void tapeRecord(void *context, uint32_t port, int level, bm_tick_t time);
+    // Lends the tape to the machine from position, or ejects it.
+    void        insertTape(bm_session_t *session, size_t position);
+    // Publishes the tape position and recording length for tapeStatus().
+    void        updateTapeStatus(bm_session_t *session);
 
     void   enqueue(const Command &command);
     void   run();
@@ -129,6 +171,9 @@ private:
     uint64_t                m_captureRequests = 0;
     uint64_t                m_captureReplies  = 0;
     States                  m_captured;
+    uint64_t                m_recordRequests = 0;
+    uint64_t                m_recordReplies  = 0;
+    Tape                    m_recorded;
     bool                    m_finished = false;
 
     std::atomic<bm_session_state_t> m_state { BM_SESSION_NEW };
@@ -151,6 +196,18 @@ private:
     QByteArray          m_serialIn;   // sent by the machine, not yet published
     bool                m_xoff = false;
     std::atomic<qint64> m_serialPending { 0 };
+
+    // Cassette, owned by the session thread.
+    Tape                          m_tape; // lent to the machine while loaded
+    bool                          m_tapeLoaded = false;
+    std::unique_ptr<TapeRecorder> m_recorder;
+    std::atomic<bool>             m_tapeStatusLoaded { false };
+    std::atomic<bool>             m_motor { false };
+    std::atomic<uint64_t>         m_tapePosition { 0 };
+    std::atomic<uint64_t>         m_tapeLength { 0 };
+    std::atomic<uint32_t>         m_tapeRate { 0 };
+    std::atomic<uint64_t>         m_recordedSamples { 0 };
+    std::atomic<bool>             m_recording { false };
 };
 
 // A text file as the M10's own SAVE "COM:" sends it: lines end in CR LF and

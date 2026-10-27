@@ -18,6 +18,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
+#include <QSaveFile>
 #include <QSignalBlocker>
 #include <QStatusBar>
 
@@ -93,6 +94,20 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
             m_session->cancelSerial();
             m_serialCancel->setEnabled(false);
         });
+    }
+    // Cassette: WAV tapes in and out.
+    if (profile.system && profile.system->cassette) {
+        auto *cassette = action->addMenu(m_catalog.text(QStringLiteral("coremach.menu.cassette")));
+        connect(cassette->addAction(m_catalog.text(QStringLiteral("coremach.menu.cassette_insert"))),
+                &QAction::triggered, this, &Window::insertTape);
+        connect(cassette->addAction(m_catalog.text(QStringLiteral("coremach.menu.cassette_rewind"))),
+                &QAction::triggered, this, [this] { m_session->rewindTape(); });
+        connect(cassette->addAction(m_catalog.text(QStringLiteral("coremach.menu.cassette_eject"))),
+                &QAction::triggered, this, [this] { m_session->ejectTape(); });
+        cassette->addSeparator();
+        m_tapeRecord = cassette->addAction(m_catalog.text(QStringLiteral("coremach.menu.cassette_record")));
+        m_tapeRecord->setCheckable(true);
+        connect(m_tapeRecord, &QAction::toggled, this, &Window::setTapeRecording);
     }
     action->addSeparator();
     connect(action->addAction(m_catalog.text(QStringLiteral("coremach.menu.exit"))), &QAction::triggered,
@@ -391,7 +406,86 @@ Window::shutdown()
     saveStates(m_session->stop());
     if (m_capture.isOpen())
         m_capture.close();
+    saveRecording(); // a recording still running goes to its file
     updateStatus();
+}
+
+namespace {
+    QString duration(uint64_t samples, uint32_t rate)
+    {
+        const uint64_t seconds = rate ? samples / rate : 0;
+        return QStringLiteral("%1:%2").arg(seconds / 60).arg(seconds % 60, 2, 10, QLatin1Char('0'));
+    }
+}
+
+void
+Window::insertTape()
+{
+    if (m_stopped)
+        return;
+    const QString title = m_catalog.text(QStringLiteral("coremach.menu.cassette_insert")).remove(QLatin1Char('&'));
+    const QString path  = QFileDialog::getOpenFileName(this, title, m_folder,
+                                                       m_catalog.text(QStringLiteral("coremach.cassette_filter")));
+    if (path.isEmpty())
+        return;
+    QFile   file(path);
+    Tape    tape;
+    QString reason;
+    if (!file.open(QIODevice::ReadOnly) || !readWav(file.readAll(), &tape, &reason)) {
+        std::fprintf(stderr, "BluMach: CoreMach tape not loaded: %s\n", reason.toUtf8().constData());
+        statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.cassette_unreadable"))
+                                     .arg(QDir::toNativeSeparators(path)),
+                                 10000);
+        return;
+    }
+    m_session->loadTape(tape);
+    updateStatus();
+}
+
+void
+Window::setTapeRecording(bool on)
+{
+    if (!on) {
+        saveRecording();
+        return;
+    }
+    const QString title = m_catalog.text(QStringLiteral("coremach.menu.cassette_record")).remove(QLatin1Char('&'));
+    const QString path  = QFileDialog::getSaveFileName(this, title, QDir(m_folder).filePath(QStringLiteral("tape.wav")),
+                                                       m_catalog.text(QStringLiteral("coremach.cassette_filter")));
+    if (path.isEmpty() || m_stopped) {
+        const QSignalBlocker blocker(m_tapeRecord);
+        m_tapeRecord->setChecked(false);
+        return;
+    }
+    m_recordPath = path;
+    m_session->startRecording();
+    updateStatus();
+}
+
+void
+Window::saveRecording()
+{
+    if (m_recordPath.isEmpty())
+        return;
+    const QString path = m_recordPath;
+    m_recordPath.clear();
+    if (m_tapeRecord) {
+        const QSignalBlocker blocker(m_tapeRecord);
+        m_tapeRecord->setChecked(false);
+    }
+    const Tape tape = m_session->stopRecording();
+    QSaveFile  file(path);
+    if (file.open(QIODevice::WriteOnly) && file.write(writeWav(tape)) >= 0 && file.commit()) {
+        statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.cassette_saved"))
+                                     .arg(duration(tape.samples.size(), tape.sampleRate),
+                                          QDir::toNativeSeparators(path)),
+                                 10000);
+        return;
+    }
+    const QString text = m_catalog.text(QStringLiteral("coremach.cassette_save_failed"))
+                             .arg(m_name, QDir::toNativeSeparators(path));
+    std::fprintf(stderr, "BluMach: CoreMach cassette_save_failed: %s\n", text.toUtf8().constData());
+    statusBar()->showMessage(text, 10000);
 }
 
 void
@@ -485,6 +579,19 @@ Window::updateStatus()
             + m_catalog.text(QStringLiteral("coremach.status.serial_sending")).arg(QString::number(pending));
     if (m_serialCancel)
         m_serialCancel->setEnabled(pending > 0);
+    if (!m_stopped) {
+        const auto tape = m_session->tapeStatus();
+        if (tape.loaded)
+            text += QStringLiteral(" · ")
+                + m_catalog.text(QStringLiteral("coremach.status.tape"))
+                      .arg(duration(tape.position, tape.rate), duration(tape.length, tape.rate));
+        if (tape.motor)
+            text += QStringLiteral(" · ") + m_catalog.text(QStringLiteral("coremach.status.tape_motor"));
+        if (tape.recording)
+            text += QStringLiteral(" · ")
+                + m_catalog.text(QStringLiteral("coremach.status.tape_recording"))
+                      .arg(duration(tape.recorded, TapeRecorder::sampleRate));
+    }
     m_status->setText(text);
 }
 

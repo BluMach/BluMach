@@ -9,6 +9,7 @@
 #    include "qt_coremach_keys.hpp"
 #    include "qt_coremach_lcd.hpp"
 #    include "qt_coremach_session.hpp"
+#    include "qt_coremach_tape.hpp"
 #endif
 
 #include <QCryptographicHash>
@@ -26,6 +27,7 @@
 #include <QSet>
 #include <QTemporaryDir>
 #include <QTest>
+#include <QtEndian>
 
 #include <algorithm>
 #include <atomic>
@@ -638,6 +640,106 @@ private slots:
         buzzer.change(change(1000 * ms, 0));
         buzzer.render(1311 * ms, samples);
         QCOMPARE(samples.size(), size_t(perMs));
+    }
+
+    void wavTapesRoundTrip()
+    {
+        Tape tape;
+        tape.sampleRate = 44100;
+        tape.samples    = { 0, 1000, -1000, 32767, -32768 };
+        Tape    read;
+        QString reason;
+        QVERIFY(readWav(writeWav(tape), &read, &reason));
+        QCOMPARE(read.sampleRate, 44100u);
+        QCOMPARE(read.samples, tape.samples);
+
+        // 8-bit stereo is mixed to mono 16-bit.
+        QByteArray stereo = writeWav(tape).left(44);
+        stereo[22]        = 2;                        // channels
+        stereo[34]        = 8;                        // bits
+        stereo.append(QByteArray("\xff\x00\x80\x80", 4)); // (127 + -128) / 2, then 0
+        qToLittleEndian<uint32_t>(4, stereo.data() + 40);
+        QVERIFY(readWav(stereo, &read));
+        QCOMPARE(read.samples, (std::vector<int16_t> { -128, 0 }));
+
+        QByteArray floating = writeWav(tape);
+        floating[20]        = 3; // IEEE float
+        QVERIFY(!readWav(floating, &read, &reason));
+        QVERIFY(!readWav("not a wav", &read));
+    }
+
+    void tapeRecorderKeepsOnlyMotorRuns()
+    {
+        constexpr uint64_t ms = 1000000;
+        TapeRecorder       recorder(UINT64_C(1000000000));
+        recorder.record(true, 0); // motor off: not on tape
+        recorder.motor(true, 10 * ms);
+        recorder.record(false, 15 * ms);
+        recorder.motor(false, 20 * ms);
+        recorder.record(true, 30 * ms);
+        recorder.motor(true, 40 * ms);
+        recorder.motor(false, 41 * ms);
+        const auto &samples = recorder.samples();
+        QCOMPARE(samples.size(), size_t(11 * 48));
+        QCOMPARE(samples[0], TapeRecorder::amplitude);                  // high from 10 ms
+        QCOMPARE(samples[5 * 48], int16_t(-TapeRecorder::amplitude));  // low from 15 ms
+        QCOMPARE(samples[10 * 48], TapeRecorder::amplitude);            // the second run
+    }
+
+    void sessionRecordsAndPlaysTapes()
+    {
+        // REMOTE on, then SOD toggles about every 0.37 ms.
+        static const uint8_t program[] = {
+            0x31, 0xf0, 0xff,       // 0040 LXI SP,FFF0h
+            0x3e, 0x08, 0xd3, 0xe0, //      REMOTE on
+            0x3e, 0xc0, 0x30,       // 0047 SIM: SOD 1
+            0xcd, 0x58, 0x00,       //      CALL 0058h
+            0x3e, 0x40, 0x30,       //      SIM: SOD 0
+            0xcd, 0x58, 0x00,       //      CALL 0058h
+            0xc3, 0x47, 0x00,       //      JMP 0047h
+            0x00, 0x00,             //
+            0x06, 0x40,             // 0058 MVI B,40h
+            0x05,                   // 005A DCR B
+            0xc2, 0x5a, 0x00,       //      JNZ 005Ah
+            0xc9,                   //      RET
+        };
+        QByteArray rom(32768, '\0');
+        rom[0] = '\xc3';
+        rom[1] = '\x40';
+        std::memcpy(rom.data() + 0x40, program, sizeof(program));
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("language"), 2);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+
+        Session session(profile, rom, {}, [](const Session::Frame &) {});
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        QTRY_VERIFY_WITH_TIMEOUT(session.tapeStatus().motor, 2000);
+
+        session.startRecording();
+        QTRY_VERIFY_WITH_TIMEOUT(session.tapeStatus().recorded > 48000 / 5, 3000);
+        const Tape recorded = session.stopRecording();
+        QCOMPARE(recorded.sampleRate, TapeRecorder::sampleRate);
+        QVERIFY(recorded.samples.size() >= 48000 / 5);
+        const auto highs = std::count(recorded.samples.begin(), recorded.samples.end(), TapeRecorder::amplitude);
+        QVERIFY(highs > 0 && highs < static_cast<qsizetype>(recorded.samples.size()));
+        QVERIFY(!session.tapeStatus().recording);
+
+        // The recording plays back while the motor runs.
+        session.loadTape(recorded);
+        QTRY_VERIFY_WITH_TIMEOUT(session.tapeStatus().loaded, 2000);
+        QTRY_VERIFY_WITH_TIMEOUT(session.tapeStatus().position > 4800, 3000);
+        QCOMPARE(session.tapeStatus().length, uint64_t(recorded.samples.size()));
+        session.rewindTape();
+        session.ejectTape();
+        QTRY_VERIFY_WITH_TIMEOUT(!session.tapeStatus().loaded, 2000);
+
+        // A recording running when the session stops is kept.
+        session.startRecording();
+        QTest::qWait(100);
+        session.stop();
+        QVERIFY(!session.stopRecording().samples.empty());
     }
 
     void serialTextEndsLikeTheM10()

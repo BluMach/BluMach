@@ -70,6 +70,10 @@ private:
     // Serial port: sends a text file, or saves what the machine sends.
     void sendSerialFile();
     void setSerialCapture(bool on);
+    // Cassette: plays a WAV tape, or records what the machine saves.
+    void insertTape();
+    void setTapeRecording(bool on);
+    void saveRecording();
 
     const BluMachCatalog    &m_catalog;
     QString                  m_name;
@@ -83,6 +87,8 @@ private:
     QAction                 *m_serialCancel  = nullptr;
     QFile                    m_capture; // open while saving received data
     qint64                   m_capturedBytes = 0;
+    QAction                 *m_tapeRecord = nullptr;
+    QString                  m_recordPath; // while recording
     QTimer                   m_saveTimer;
     QTimer                   m_statusTimer;
     QSet<int>                m_pressed;
