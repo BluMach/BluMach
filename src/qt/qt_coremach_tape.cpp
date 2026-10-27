@@ -12,6 +12,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstdlib>
 #include <cstring>
 
 namespace CoreMachBridge {
@@ -104,6 +105,27 @@ readWav(const QByteArray &file, Tape *tape, QString *reason)
         tape->samples[static_cast<size_t>(index)] = static_cast<int16_t>(sum / channels);
     }
     return true;
+}
+
+double
+adjustVolume(Tape &tape)
+{
+    if (tape.samples.empty())
+        return 1.0;
+    int64_t sum = 0;
+    for (const int16_t sample : tape.samples)
+        sum += sample;
+    const int        offset = static_cast<int>(sum / static_cast<int64_t>(tape.samples.size()));
+    std::vector<int> levels(tape.samples.size());
+    for (size_t index = 0; index < levels.size(); ++index)
+        levels[index] = std::abs(tape.samples[index] - offset);
+    const auto peak = levels.begin() + static_cast<std::ptrdiff_t>(levels.size() - 1 - levels.size() / 10000);
+    std::nth_element(levels.begin(), peak, levels.end());
+    constexpr int target = 16384;
+    const double  gain   = (*peak == 0 || *peak >= target / 2) ? 1.0 : std::min(64.0, double(target) / *peak);
+    for (int16_t &sample : tape.samples)
+        sample = static_cast<int16_t>(std::clamp((sample - offset) * gain, -32768.0, 32767.0));
+    return gain;
 }
 
 QByteArray

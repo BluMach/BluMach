@@ -31,6 +31,12 @@ struct Tape {
 // Channels are mixed to mono 16-bit. Returns false with a short reason for
 // anything else.
 bool readWav(const QByteArray &file, Tape *tape, QString *reason = nullptr);
+// Sets the playback volume, as on a real recorder: removes any DC offset
+// and raises a quiet tape until its peaks (ignoring the loudest 0.01% of
+// samples, such as clicks) reach half of full scale, at most 64 times.
+// Tapes already at a quarter of full scale or more keep their level.
+// Returns the gain applied.
+double adjustVolume(Tape &tape);
 // A mono 16-bit PCM WAV file.
 QByteArray writeWav(const Tape &tape);
 

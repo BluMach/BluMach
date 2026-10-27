@@ -694,6 +694,33 @@ private slots:
         QVERIFY(!readWav("not a wav", &read));
     }
 
+    void quietTapesAreRaised()
+    {
+        // A 1 kHz tape at 400 with an offset of 300 and one click.
+        Tape tape;
+        tape.sampleRate = 48000;
+        for (int index = 0; index < 48000; ++index)
+            tape.samples.push_back(static_cast<int16_t>(300 + ((index / 24) % 2 ? 400 : -400)));
+        tape.samples[100] = 30000;
+        QCOMPARE(adjustVolume(tape), 16384.0 / 400);
+        QCOMPARE(tape.samples[0], int16_t(-16384));
+        QCOMPARE(tape.samples[24], int16_t(16384));
+        QCOMPARE(tape.samples[100], int16_t(32767));
+
+        // Loud tapes and silence keep their level; the gain stops at 64.
+        Tape loud;
+        loud.samples = { 9000, -9000, 9000, -9000 };
+        QCOMPARE(adjustVolume(loud), 1.0);
+        QCOMPARE(loud.samples, (std::vector<int16_t> { 9000, -9000, 9000, -9000 }));
+        Tape silent;
+        silent.samples = { 0, 0, 0 };
+        QCOMPARE(adjustVolume(silent), 1.0);
+        Tape faint;
+        faint.samples = { 10, -10, 10, -10 };
+        QCOMPARE(adjustVolume(faint), 64.0);
+        QCOMPARE(faint.samples[0], int16_t(640));
+    }
+
     void tapeRecorderKeepsOnlyMotorRuns()
     {
         constexpr uint64_t ms = 1000000;

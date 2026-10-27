@@ -535,6 +535,9 @@ Window::insertTape()
                                  10000);
         return;
     }
+    const double gain = adjustVolume(tape);
+    if (gain != 1.0)
+        std::fprintf(stderr, "BluMach: CoreMach tape volume raised %.1f times\n", gain);
     m_session->loadTape(tape);
     updateStatus();
 }
