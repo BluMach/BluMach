@@ -18,7 +18,7 @@ class M15ReleaseProfileTests(unittest.TestCase):
         family = next(f for f in self.catalog['families'] if f['id'] == 'olivetti-m')
         self.assertTrue(family['visible'])
         visible = {p['id'] for p in self.catalog['products'] if p['family_id']=='olivetti-m' and p.get('visible')}
-        self.assertEqual({'olivetti-m15', 'olivetti-m15-plus', 'olivetti-m28', 'olivetti-m380',
+        self.assertEqual({'olivetti-m10', 'olivetti-m15', 'olivetti-m15-plus', 'olivetti-m28', 'olivetti-m380',
                           'olivetti-m250', 'olivetti-m250e', 'olivetti-m280',
                           'olivetti-m300-if378', 'olivetti-m30002', 'olivetti-m30002f',
                           'olivetti-m30008', 'olivetti-m30015', 'olivetti-m30030',

@@ -86,13 +86,13 @@
               "value": "M10"
             },
             {
-              "value_key": "family.olivetti-m.cpu.m10"
+              "value": "OKI 80C85"
             },
             {
               "value_key": "family.olivetti-m.format.lcd"
             },
             {
-              "value_key": "family.olivetti-m.status.reference"
+              "value_key": "family.olivetti-m.status.alpha"
             }
           ]
         },
