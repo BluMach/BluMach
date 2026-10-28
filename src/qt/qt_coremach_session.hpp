@@ -77,6 +77,8 @@ public:
         std::vector<Tolerated> tolerated;
         // bm_keyboard_led_t bits; 0 when the machine reports none.
         uint8_t keyboardLeds = 0;
+        // The machine has switched itself off (the M10's P.C.S.).
+        bool poweredOff = false;
     };
     using FrameHandler = std::function<void(const Frame &)>;
 

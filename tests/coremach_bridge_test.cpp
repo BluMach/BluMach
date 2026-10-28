@@ -892,6 +892,33 @@ private slots:
         session.stop();
     }
 
+    void sessionReportsPowerOffAndSwitchesOn()
+    {
+        // P.C.S. (PB4) switches the machine off once; RAM remembers it, so
+        // after the power switch (a reset) it stays on.
+        QByteArray rom(32768, '\0');
+        rom[0] = '\xc3';
+        rom[1] = '\x40';
+        const QByteArray program = QByteArray::fromHex("3a00f0" "fe55" "ca5500" "3e55" "3200f0"
+                                                       "3e02" "d3b0" "3e10" "d3b2" "c35500");
+        std::memcpy(rom.data() + 0x40, program.constData(), program.size());
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("language"), 2);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+
+        std::atomic<int> off { -1 };
+        Session session(profile, rom, {}, [&](const Session::Frame &frame) { off.store(frame.poweredOff ? 1 : 0); });
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        QTRY_COMPARE_WITH_TIMEOUT(off.load(), 1, 2000);
+        session.reset();
+        QTRY_COMPARE_WITH_TIMEOUT(off.load(), 0, 2000);
+        QTest::qWait(200);
+        QCOMPARE(off.load(), 0);
+        session.stop();
+    }
+
     void serialTextEndsLikeTheM10()
     {
         QCOMPARE(serialText("10 A\n20 B\r\n30 C\r"), QByteArray("10 A\r\n20 B\r\n30 C\r\n\x1a"));

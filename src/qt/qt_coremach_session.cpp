@@ -558,6 +558,9 @@ Session::publish(bm_session_t *session, bm_status_t status, bool render, const N
     bm_keyboard_led_state_t leds {};
     if (session && bm_session_keyboard_leds(session, &leds) == BM_STATUS_OK)
         frame.keyboardLeds = leds.indicators;
+    uint64_t poweredOff = 0;
+    if (session && bm_session_inspect_machine(session, "powered_off", &poweredOff) == BM_STATUS_OK)
+        frame.poweredOff = poweredOff != 0;
     m_state.store(frame.state);
     if (session)
         m_ticks.store(bm_session_time(session));

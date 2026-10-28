@@ -88,6 +88,9 @@ private:
     Display                 *m_display  = nullptr;
     QLabel                  *m_status   = nullptr;
     QLabel                  *m_capsLock = nullptr;
+    QLabel                  *m_off      = nullptr;
+    QAction                 *m_switchOn = nullptr;
+    bool                     m_poweredOff = false;
     QSet<QString>            m_toleratedShown; // this session
     QAction                 *m_pause    = nullptr;
     QAction                 *m_serialCapture = nullptr;

@@ -75,6 +75,11 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
     connect(m_pause, &QAction::triggered, this, &Window::togglePause);
     connect(action->addAction(m_catalog.text(QStringLiteral("coremach.menu.reset"))), &QAction::triggered,
             this, &Window::hardReset);
+    // After the machine switches itself off: the power switch, off and on
+    // again, which CoreMach models as a reset that keeps the memory.
+    m_switchOn = action->addAction(m_catalog.text(QStringLiteral("coremach.menu.switch_on")));
+    m_switchOn->setEnabled(false);
+    connect(m_switchOn, &QAction::triggered, this, &Window::hardReset);
     action->addSeparator();
     // Sound, saved per machine; builds without OpenAL have none.
     auto *sound = action->addAction(m_catalog.text(QStringLiteral("coremach.menu.sound")));
@@ -204,6 +209,9 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
     m_capsLock = new QLabel(m_catalog.text(QStringLiteral("coremach.status.caps_lock")), this);
     m_capsLock->setVisible(false);
     statusBar()->addPermanentWidget(m_capsLock);
+    m_off = new QLabel(m_catalog.text(QStringLiteral("coremach.status.powered_off")), this);
+    m_off->setVisible(false);
+    statusBar()->addPermanentWidget(m_off);
     statusBar()->setSizeGripEnabled(false);
 
     m_saveTimer.setInterval(savePeriodMs);
@@ -314,6 +322,13 @@ Window::present(const Session::Frame &frame)
     if (!frame.image.isNull())
         m_display->setFrame(frame.image);
     m_capsLock->setVisible((frame.keyboardLeds & BM_KEYBOARD_LED_CAPS_LOCK) != 0);
+    if (frame.poweredOff != m_poweredOff) {
+        m_poweredOff = frame.poweredOff;
+        m_off->setVisible(m_poweredOff);
+        m_switchOn->setEnabled(m_poweredOff);
+        if (m_poweredOff)
+            statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.powered_off")).arg(m_name), 30000);
+    }
     for (const auto &event : frame.tolerated) {
         // Logged once per machine folder; shown once per session.
         const QString kind   = toleratedKind(event);
