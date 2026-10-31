@@ -21,7 +21,6 @@
   "family.olivetti-m.period.unknown": "Fecha no establecida",
   "family.olivetti-m.table.title": "Selección de modelos por orden cronológico",
   "family.olivetti-m.table.note": "Se distinguen los lanzamientos conocidos de los periodos de referencia del catálogo: los intervalos son aproximados, no años exactos de lanzamiento. Los modelos sin fecha van al final. No es un inventario completo de la gama. Una referencia histórica no descarta que exista emulación heredada, y aparecer en la tabla no habilita crear la máquina.",
-  "family.olivetti-m.cpu.m10": "8 bits",
   "family.olivetti-m.cpu.m21": "Compatible PC",
   "family.olivetti-m.cpu.m30030": "x86 · 32 bits",
   "family.olivetti-m.cpu.m30030p": "x86 · 32 bits"

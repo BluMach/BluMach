@@ -6,22 +6,27 @@
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-m",
     "platform_id": "olivetti-m10-platform",
-    "name": "Olivetti M10 (development)",
-    "visible": false,
-    "development": true,
+    "name": "Olivetti M10",
+    "visible": true,
     "summary_key": "product.olivetti-m10.summary",
+    "history_key": "product.olivetti-m10.history",
     "warning_key": "product.olivetti-m10.warning",
     "status": "experimental",
     "period": "1983",
     "aliases": [
-      "M10"
+      "M10",
+      "Olivetti M-10"
     ],
     "tags": [
       "80C85",
+      "2.4576 MHz",
+      "8-bit",
       "LCD",
       "notebook",
-      "CoreMach",
-      "development"
+      "battery-backed RAM",
+      "BASIC",
+      "cassette",
+      "CoreMach"
     ],
     "facets": {
       "form_factor": [
@@ -38,20 +43,24 @@
       ]
     },
     "hardware": {
-      "cpu": "Intel/OKI 80C85 2.4 MHz",
-      "memory": "8, 16, 24 or 32 KB battery-backed RAM",
-      "video": "LCD 240 × 64 (ten HD44102)",
-      "clock": "NEC uPD1990AC"
+      "cpu": "OKI MSM80C85A at 2.4576 MHz (4.9152 MHz crystal)",
+      "memory": "8, 16, 24 or 32 KB battery-backed RAM in 8 KB modules; 32 KB system ROM",
+      "video": "Tilting 240 × 64 dot LCD, 40 × 8 characters, ten HD44102 drivers",
+      "clock": "NEC uPD1990AC calendar clock, running while switched off",
+      "interfaces": "RS-232C (IM6402), Centronics parallel, cassette with remote motor control, bar-code reader, 40-pin system bus",
+      "keyboard": "73 keys; Italian, French, German or British layout by jumpers",
+      "sound": "Buzzer driven by the 81C55 timer",
+      "power": "Four AA cells or 6 V DC; automatic power-off after 10 idle minutes"
     },
     "firmware": {
       "required_files": [
         "machines/olivetti_m10/m10-system-first32k.bin"
       ],
       "known_sets": [
-        "International system ROM, 32 KB (local custody only)"
+        "International system ROM, first 32 KB (MAME m10rom.m12; local custody only)"
       ],
       "required": true,
-      "identity_note": "First 32 KB of a local dump, SHA-256 43f85e3ac5cc264be3ad4c3b36dea82381409a66381146ce06a78c22704b0dbc. Local only."
+      "identity_note": "First 32 KB of a local dump; CRC32 F0E8447A and SHA-1 D58867276213116A79F7074109B7D7CE02E8A3AF match MAME m10rom.m12. SHA-256 43f85e3ac5cc264be3ad4c3b36dea82381409a66381146ce06a78c22704b0dbc. Not distributed."
     },
     "creation": {
       "status": "experimental",
@@ -60,6 +69,10 @@
         {
           "label_key": "creation.label.commercial_model",
           "value_key": "product.olivetti-m10.creation.model"
+        },
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m10.creation.cpu"
         }
       ],
       "fields": [
@@ -210,7 +223,132 @@
       ],
       "configuration": [],
       "generated_files": []
-    }
+    },
+    "storage": {
+      "bus": "No floppy or hard disk: programs and files stay in battery-backed RAM or go to cassette",
+      "official_drives": [
+        "External cassette recorder with remote motor control"
+      ]
+    },
+    "relationships": {
+      "distinct_from": [
+        "Olivetti M10 MODEM (USA)",
+        "TRS-80 MC-10",
+        "Olivetti M21"
+      ],
+      "probable_commercial_relative": [
+        "Kyocera Kyotronic 85",
+        "Tandy TRS-80 Model 100",
+        "NEC PC-8201"
+      ]
+    },
+    "implementation": {
+      "document": "olivetti-m10-implementation.md",
+      "language": "en"
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m10.technical.cpu_bus"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m10.technical.memory_map"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m10.technical.video"
+          },
+          {
+            "label_key": "technical.label.keyboard_mouse",
+            "value_key": "product.olivetti-m10.technical.keyboard"
+          },
+          {
+            "label_key": "technical.label.serial_parallel",
+            "value_key": "product.olivetti-m10.technical.interfaces"
+          },
+          {
+            "label_key": "technical.label.rtc",
+            "value_key": "product.olivetti-m10.technical.clock"
+          },
+          {
+            "label_key": "technical.label.jumpers",
+            "value_key": "product.olivetti-m10.technical.jumpers"
+          },
+          {
+            "label_key": "technical.label.firmware_evidence",
+            "value_key": "product.olivetti-m10.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.implementation_lineage",
+            "value_key": "product.olivetti-m10.technical.implementation"
+          },
+          {
+            "label_key": "technical.label.screen_controls",
+            "value_key": "product.olivetti-m10.technical.screen_controls"
+          },
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m10.technical.status"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m10.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.sources",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m10.source.service_manual",
+            "url": "https://www.rsp-italy.it/IT/Computers/Olivetti/_contents/Olivetti%20M10%20portable%20computer%20-%20manuale%20generale%20per%20l%27assistenza.pdf"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m10.source.operations_guide",
+            "url": "https://archive.org/details/m10portablecomputeroperationsguide"
+          },
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.olivetti-m10.source.booklet",
+            "url": "https://archive.org/details/olivettim10librettoinformativo"
+          },
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.olivetti-m10.source.review",
+            "url": "https://www.digitanto.it/mc-online/PDF/Articoli/027_054_059_0.pdf"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m10.source.history",
+            "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m10.source.owner",
+            "url": "https://electrickery.hosting.philpem.me.uk/comp/m10/"
+          },
+          {
+            "label_key": "technical.label.firmware_evidence",
+            "value_key": "product.olivetti-m10.source.mame",
+            "url": "https://github.com/mamedev/mame/blob/ab2d1ca215c6e14dbe83fd2d0a70a4862fd16253/src/mame/kyocera/kyocera.cpp"
+          }
+        ]
+      }
+    ]
   },
   "platform": {
     "id": "olivetti-m10-platform",
