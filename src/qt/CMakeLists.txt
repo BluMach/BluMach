@@ -381,6 +381,8 @@ if(BLUMACH_COREMACH_ENABLED)
         qt_coremach_display.hpp
         qt_coremach_keys.cpp
         qt_coremach_keys.hpp
+        qt_coremach_lcd.cpp
+        qt_coremach_lcd.hpp
         qt_coremach_session.cpp
         qt_coremach_session.hpp
         qt_coremach_window.cpp

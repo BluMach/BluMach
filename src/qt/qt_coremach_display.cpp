@@ -29,6 +29,17 @@ Display::Display(QWidget *parent)
     setFocusPolicy(Qt::StrongFocus);
     setAttribute(Qt::WA_OpaquePaintEvent);
     setAttribute(Qt::WA_InputMethodEnabled, false);
+    // Frames arrive at about 60 Hz while the machine runs; the timer only
+    // fires when they stop.
+    m_settle.setSingleShot(true);
+    m_settle.setInterval(40);
+    connect(&m_settle, &QTimer::timeout, this, [this] {
+        m_lcd.settle();
+        m_rendered = QImage();
+        update();
+        if (m_lcd.settling())
+            m_settle.start(16);
+    });
 }
 
 Display::~Display()
@@ -44,7 +55,26 @@ Display::setFrame(const QImage &frame)
         updateGeometry();
     }
     m_frame = frame;
+    m_lcd.push(frame);
+    m_rendered = QImage();
+    if (m_lcd.settling())
+        m_settle.start(40);
     update();
+}
+
+void
+Display::setLcdSettings(const LcdSettings &settings)
+{
+    m_lcd.setSettings(settings);
+    m_rendered = QImage();
+    update();
+}
+
+int
+Display::shownScale() const
+{
+    const int fit = std::max(1, std::min(width() / m_frameSize.width(), height() / m_frameSize.height()));
+    return std::min(m_scale, fit);
 }
 
 void
@@ -97,13 +127,15 @@ Display::paintEvent(QPaintEvent *)
     painter.fillRect(rect(), Qt::black);
     if (m_frame.isNull())
         return;
-    // Integer scaling keeps every LCD dot the same size.
-    const int   fit   = std::max(1, std::min(width() / m_frame.width(), height() / m_frame.height()));
-    const int   scale = std::min(m_scale, fit);
-    const QSize size  = m_frame.size() * scale;
-    const QRect target(QPoint((width() - size.width()) / 2, (height() - size.height()) / 2), size);
-    painter.setRenderHint(QPainter::SmoothPixmapTransform, false);
-    painter.drawImage(target, m_frame);
+    // Integer scaling keeps every LCD dot the same size; the renderer draws
+    // at that scale, so the image is shown pixel for pixel.
+    const int scale = shownScale();
+    if (m_rendered.isNull() || m_renderedScale != scale) {
+        m_rendered      = m_lcd.render(scale);
+        m_renderedScale = scale;
+    }
+    const QSize size = m_rendered.size();
+    painter.drawImage(QPoint((width() - size.width()) / 2, (height() - size.height()) / 2), m_rendered);
 }
 
 void

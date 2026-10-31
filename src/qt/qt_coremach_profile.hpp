@@ -46,6 +46,7 @@ struct System {
     const char            *name;
     const char            *cpu;
     const char            *display;
+    bool                   contrastControl; // the machine has a contrast knob
     Firmware               firmware;
     const Option          *options;
     size_t                 optionCount;
@@ -115,6 +116,18 @@ private:
     QString       m_path;
     QSet<QString> m_seen;
 };
+
+// Display preferences of a machine, kept as lcd_* keys in its [CoreMach]
+// section. They are not machine options: readProfile() skips them.
+struct DisplayPreferences {
+    bool lcdEffect      = true;
+    bool lcdPersistence = true;
+    int  lcdContrast    = 2;
+};
+DisplayPreferences readDisplayPreferences(const QString &configPath, const System &system);
+// Sets one key of the [CoreMach] section, keeping every other line of the
+// file as it is, and replaces the file atomically.
+bool writeCoreMachValue(const QString &configPath, const QString &key, const QString &value);
 
 // <machine folder>/state/<role>.bin
 QString stateFile(const QString &machineFolder, const char *role);

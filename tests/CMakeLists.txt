@@ -174,6 +174,7 @@ if(QT)
         target_sources(coremach-bridge PRIVATE
             "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_display.cpp"
             "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_keys.cpp"
+            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_lcd.cpp"
             "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_session.cpp")
         target_compile_definitions(coremach-bridge PRIVATE BLUMACH_COREMACH)
         target_link_libraries(coremach-bridge PRIVATE blumach_coremach_systems)

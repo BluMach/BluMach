@@ -6,6 +6,7 @@
 #ifdef BLUMACH_COREMACH
 #    include "qt_coremach_display.hpp"
 #    include "qt_coremach_keys.hpp"
+#    include "qt_coremach_lcd.hpp"
 #    include "qt_coremach_session.hpp"
 #endif
 
@@ -26,6 +27,7 @@
 #include <QTest>
 
 #include <atomic>
+#include <cstring>
 #include <mutex>
 
 using namespace CoreMachBridge;
@@ -170,6 +172,45 @@ private slots:
         QCOMPARE(first.size(), 4);
         QVERIFY(QDateTime::fromString(first.at(0), Qt::ISODate).isValid());
         QCOMPARE(first.mid(1), (QStringList { "key_without_position", "ESC", "Olivetti M10" }));
+    }
+
+    void displayPreferencesInTheConfiguration()
+    {
+        QTemporaryDir dir;
+        // Comments, other sections and spacing must survive.
+        const QByteArray config = "; machine\r\n[CoreMach]\r\nsystem = olivetti-m10\r\nram_kib = 32\r\n"
+                                  "lcd_effect = 1\r\n\r\n[Other]\r\nkeep = yes\r\n";
+        const QString path = write(QDir(dir.path()), QStringLiteral("blumach.cfg"), config);
+
+        auto preferences = readDisplayPreferences(path, m10());
+        QVERIFY(preferences.lcdEffect && preferences.lcdPersistence);
+        QCOMPARE(preferences.lcdContrast, 2);
+
+        QVERIFY(writeCoreMachValue(path, QStringLiteral("lcd_effect"), QStringLiteral("0")));
+        QVERIFY(writeCoreMachValue(path, QStringLiteral("lcd_contrast"), QStringLiteral("4")));
+        QCOMPARE(read(path), QByteArray("; machine\r\n[CoreMach]\r\nsystem = olivetti-m10\r\nram_kib = 32\r\n"
+                                        "lcd_effect = 0\r\nlcd_contrast = 4\r\n\r\n[Other]\r\nkeep = yes\r\n"));
+        preferences = readDisplayPreferences(path, m10());
+        QVERIFY(!preferences.lcdEffect);
+        QCOMPARE(preferences.lcdContrast, 4);
+
+        // lcd_* keys are display preferences, not machine options.
+        Profile profile;
+        QCOMPARE(readProfile(path, m10(), &profile), ProfileError::None);
+        QCOMPARE(profile.value("ram_kib"), 32u);
+
+        // Out-of-range or garbled values keep the defaults.
+        QVERIFY(writeCoreMachValue(path, QStringLiteral("lcd_contrast"), QStringLiteral("9")));
+        QVERIFY(writeCoreMachValue(path, QStringLiteral("lcd_persistence"), QStringLiteral("maybe")));
+        preferences = readDisplayPreferences(path, m10());
+        QCOMPARE(preferences.lcdContrast, 2);
+        QVERIFY(preferences.lcdPersistence);
+
+        // Never on a file without a [CoreMach] section.
+        const QByteArray other = "[Machine]\nmachine = ibmxt\n";
+        const QString    pc    = write(QDir(dir.path()), QStringLiteral("pc.cfg"), other);
+        QVERIFY(!writeCoreMachValue(pc, QStringLiteral("lcd_effect"), QStringLiteral("0")));
+        QCOMPARE(read(pc), other);
     }
 
     void persistentStates()
@@ -388,6 +429,151 @@ private slots:
         session.stop();
     }
 
+    void lcdGridAndShadowScaleWithTheDots()
+    {
+        QCOMPARE(LcdRenderer::gapPixels(2), 0);
+        QCOMPARE(LcdRenderer::gapPixels(3), 1);
+        QCOMPARE(LcdRenderer::gapPixels(4), 1);
+        QCOMPARE(LcdRenderer::gapPixels(5), 1);
+        QCOMPARE(LcdRenderer::gapPixels(6), 2);
+
+        // One lit dot at (0,0) of a 2 x 2 frame.
+        QImage frame(2, 2, QImage::Format_RGB32);
+        frame.fill(LcdRenderer::coreMachOff);
+        frame.setPixel(0, 0, LcdRenderer::coreMachOn);
+        LcdRenderer lcd;
+        QVERIFY(lcd.push(frame));
+        const QRgb lit   = LcdRenderer::litColour(LcdSettings::defaultContrast);
+        const QRgb unlit = LcdRenderer::unlitColour(LcdSettings::defaultContrast);
+
+        const QImage at4 = lcd.render(4);
+        QCOMPARE(at4.size(), QSize(8, 8));
+        QCOMPARE(at4.pixel(0, 0) | 0xff000000U, lit);
+        QCOMPARE(at4.pixel(3, 0) | 0xff000000U, LcdRenderer::background); // gap
+        QCOMPARE(at4.pixel(6, 6) | 0xff000000U, unlit);                   // far unlit dot
+        // The shadow falls 1 px down and right: on the gaps beside and below
+        // the lit dot, not beyond.
+        QVERIFY(qGray(at4.pixel(3, 1)) < qGray(LcdRenderer::background));
+        QVERIFY(qGray(at4.pixel(1, 3)) < qGray(LcdRenderer::background));
+        QCOMPARE(at4.pixel(4, 1) | 0xff000000U, unlit);
+
+        const QImage at6 = lcd.render(6);
+        QCOMPARE(at6.pixel(4, 0) | 0xff000000U, LcdRenderer::background); // 2 px gap
+        QVERIFY(qGray(at6.pixel(5, 2)) < qGray(LcdRenderer::background));  // 2 px shadow
+        QCOMPARE(at6.pixel(4, 1) | 0xff000000U, LcdRenderer::background); // not 1 px
+        QCOMPARE(at6.pixel(6, 1) | 0xff000000U, unlit);
+
+        const QImage at2 = lcd.render(2);
+        QCOMPARE(at2.pixel(1, 1) | 0xff000000U, lit); // no gap at 2x
+    }
+
+    void lcdEffectOffShowsTheFrameUnchanged()
+    {
+        QImage frame(3, 2, QImage::Format_RGB32);
+        frame.fill(LcdRenderer::coreMachOff);
+        frame.setPixel(1, 1, LcdRenderer::coreMachOn);
+        LcdRenderer lcd;
+        LcdSettings settings;
+        settings.enabled = false;
+        lcd.setSettings(settings);
+        lcd.push(frame);
+        QCOMPARE(lcd.render(3), frame.scaled(frame.size() * 3, Qt::IgnoreAspectRatio, Qt::FastTransformation));
+    }
+
+    void lcdPersistenceAndContrast()
+    {
+        QImage off(1, 1, QImage::Format_RGB32);
+        off.fill(LcdRenderer::coreMachOff);
+        QImage on(1, 1, QImage::Format_RGB32);
+        on.fill(LcdRenderer::coreMachOn);
+        const QRgb lit   = LcdRenderer::litColour(LcdSettings::defaultContrast);
+        const QRgb unlit = LcdRenderer::unlitColour(LcdSettings::defaultContrast);
+
+        LcdRenderer lcd;
+        lcd.push(off);
+        lcd.push(on); // halfway
+        QVERIFY(lcd.settling());
+        const QRgb half = lcd.render(1).pixel(0, 0);
+        QVERIFY(qGray(half) < qGray(unlit) && qGray(half) > qGray(lit));
+        int frames = 0;
+        while (lcd.settling() && frames < 20) {
+            lcd.settle();
+            ++frames;
+        }
+        QVERIFY(frames > 0 && frames <= 8);
+        QCOMPARE(lcd.render(1).pixel(0, 0) | 0xff000000U, lit);
+
+        LcdSettings settings;
+        settings.persistence = false;
+        lcd.setSettings(settings);
+        lcd.push(off);
+        QVERIFY(!lcd.settling());
+        QCOMPARE(lcd.render(1).pixel(0, 0) | 0xff000000U, unlit);
+
+        // Contrast: darker dots at higher steps; out-of-range steps clamp.
+        QVERIFY(qGray(LcdRenderer::litColour(0)) > qGray(LcdRenderer::litColour(4)));
+        QVERIFY(qGray(LcdRenderer::unlitColour(0)) >= qGray(LcdRenderer::unlitColour(4)));
+        QCOMPARE(LcdRenderer::litColour(-3), LcdRenderer::litColour(0));
+        QCOMPARE(LcdRenderer::litColour(99), LcdRenderer::litColour(4));
+        // The default dot is 0.30 of the measured background, keeping its hue.
+        QCOMPARE(qRed(lit), qRound(qRed(LcdRenderer::background) * 0.30));
+        QCOMPARE(qGreen(lit), qRound(qGreen(LcdRenderer::background) * 0.30));
+        QVERIFY(qGreen(lit) > qRed(lit) && qGreen(lit) > qBlue(lit));
+
+        QImage strange(1, 1, QImage::Format_RGB32);
+        strange.fill(qRgb(10, 10, 200));
+        bool recognised = true;
+        QCOMPARE(LcdRenderer::mask(strange, &recognised).at(0), 1.0F);
+        QVERIFY(!recognised);
+    }
+
+    void lcdColoursMatchCoreMachOutput()
+    {
+        // The mask depends on the two colours CoreMach paints for the M10.
+        // This program turns chip 0 on and lights one column of dots, so a
+        // change of either colour in CoreMach fails here.
+        QByteArray rom(32768, '\0');
+        const char program[] = {
+            '\x3e', '\x03', '\xd3', '\xb0',            // 81C55: PA, PB outputs
+            '\x3e', '\x01', '\xd3', '\xb1',            // PA0: select chip 0
+            '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
+            '\x3e', '\x39', '\xd3', '\xf0',            // display ON
+            '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
+            '\x3e', '\xff', '\xd3', '\xf1',            // eight lit dots
+            '\xc3', '\x1c', '\x00'                     // loop
+        };
+        std::memcpy(rom.data(), program, sizeof(program));
+        Profile profile;
+        profile.system = &m10();
+        profile.options.insert(QStringLiteral("ram_kib"), 32);
+        profile.options.insert(QStringLiteral("rtc_time"), 1);
+        std::mutex mutex;
+        QImage     lastFrame;
+        Session    session(profile, rom, {}, [&](const Session::Frame &frame) {
+            if (frame.image.isNull())
+                return;
+            std::lock_guard<std::mutex> lock(mutex);
+            lastFrame = frame.image;
+        });
+        QCOMPARE(session.start(), BM_STATUS_OK);
+        QTest::qWait(300);
+        QImage frame;
+        {
+            std::lock_guard<std::mutex> lock(mutex);
+            frame = lastFrame;
+        }
+        session.stop();
+        QVERIFY(!frame.isNull());
+        QSet<QRgb> colours;
+        for (int y = 0; y < frame.height(); ++y)
+            for (int x = 0; x < frame.width(); ++x)
+                colours.insert(frame.pixel(x, y) | 0xff000000U);
+        QCOMPARE(colours, (QSet<QRgb> { LcdRenderer::coreMachOff, LcdRenderer::coreMachOn }));
+        bool recognised = false;
+        LcdRenderer::mask(frame, &recognised);
+        QVERIFY(recognised);
+    }
+
     void sessionRunsSyntheticRom()
     {
         // JMP 0000h: the CPU loops in ROM and never writes RAM.
@@ -495,7 +681,12 @@ private slots:
         QCOMPARE(session.state(), BM_SESSION_RUNNING);
         const QString output = qEnvironmentVariable("BLUMACH_TEST_OUTPUT_DIR");
         if (!output.isEmpty())
+        {
             QVERIFY(frame.scaled(frame.size() * 3).save(QDir(output).filePath(QStringLiteral("m10-frame.png"))));
+            LcdRenderer lcd;
+            QVERIFY(lcd.push(frame));
+            QVERIFY(lcd.render(4).save(QDir(output).filePath(QStringLiteral("m10-lcd-4x.png"))));
+        }
 
         const States states = session.stop();
         QCOMPARE(states.value(QStringLiteral("ram")).size(), 32768);

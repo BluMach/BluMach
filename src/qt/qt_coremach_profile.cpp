@@ -41,6 +41,7 @@ namespace {
 
     const System systems[] = {
         { "olivetti-m10", "Olivetti M10", "Intel/OKI 80C85", "LCD 240 × 64 (HD44102)",
+          true, // contrast knob on the right side panel (operations guide p. 1-10)
           { "machines/olivetti_m10/m10-system-first32k.bin", 32768,
             "43f85e3ac5cc264be3ad4c3b36dea82381409a66381146ce06a78c22704b0dbc" },
           m10Options, std::size(m10Options), m10States, std::size(m10States) },
@@ -48,6 +49,8 @@ namespace {
 
     const QString sectionName = QStringLiteral("CoreMach");
     const QString systemKey   = QStringLiteral("system");
+    const QString displayKeyPrefix = QStringLiteral("lcd_");
+    constexpr int contrastSteps = 5;
 }
 
 const Option *
@@ -103,7 +106,7 @@ readProfile(const QString &configPath, const System &system, Profile *profile,
             continue;
         const QString key   = fullKey.mid(prefix.size());
         const QString value = settings.value(fullKey).toString().trimmed();
-        if (key == systemKey)
+        if (key == systemKey || key.startsWith(displayKeyPrefix))
             continue;
         const Option *option = system.option(key);
         if (!option)
@@ -184,6 +187,84 @@ EventLog::record(const QString &kind, const QString &detail, const QString &cont
         file.write(line.toUtf8() + '\n');
     }
     return true;
+}
+
+DisplayPreferences
+readDisplayPreferences(const QString &configPath, const System &system)
+{
+    DisplayPreferences preferences;
+    const QSettings    settings(configPath, QSettings::IniFormat);
+    const auto flag = [&settings](const char *key, bool fallback) {
+        const QString value = settings.value(sectionName + QLatin1Char('/') + QLatin1String(key)).toString().trimmed();
+        return value == QLatin1String("0") ? false : value == QLatin1String("1") ? true : fallback;
+    };
+    preferences.lcdEffect      = flag("lcd_effect", preferences.lcdEffect);
+    preferences.lcdPersistence = flag("lcd_persistence", preferences.lcdPersistence);
+    if (system.contrastControl) {
+        bool      number   = false;
+        const int contrast = settings.value(sectionName + QStringLiteral("/lcd_contrast")).toString().toInt(&number);
+        if (number && contrast >= 0 && contrast < contrastSteps)
+            preferences.lcdContrast = contrast;
+    }
+    return preferences;
+}
+
+bool
+writeCoreMachValue(const QString &configPath, const QString &key, const QString &value)
+{
+    QFile input(configPath);
+    if (!input.open(QIODevice::ReadOnly))
+        return false;
+    const QByteArray original = input.readAll();
+    input.close();
+    const bool        crlf  = original.contains("\r\n");
+    QList<QByteArray> lines = original.split('\n');
+    if (!lines.isEmpty() && lines.last().isEmpty())
+        lines.removeLast();
+    for (auto &line : lines)
+        if (line.endsWith('\r'))
+            line.chop(1);
+
+    const QByteArray header = "[" + sectionName.toUtf8() + "]";
+    const QByteArray entry  = key.toUtf8() + " = " + value.toUtf8();
+    int  section = -1;
+    int  end     = lines.size();
+    bool written = false;
+    for (int index = 0; index < lines.size(); ++index) {
+        const QByteArray text = lines[index].trimmed();
+        if (text.startsWith('[')) {
+            if (section >= 0) {
+                end = index;
+                break;
+            }
+            if (text == header)
+                section = index;
+            continue;
+        }
+        if (section < 0 || text.startsWith('#') || text.startsWith(';'))
+            continue;
+        const int     equals = text.indexOf('=');
+        const QString name   = QString::fromUtf8((equals < 0 ? text : text.left(equals)).trimmed());
+        if (name == key) {
+            lines[index] = entry;
+            written      = true;
+            break;
+        }
+    }
+    if (!written) {
+        if (section < 0)
+            return false; // not a CoreMach machine
+        // After the last non-blank line of the section.
+        int insert = end;
+        while (insert > section + 1 && lines[insert - 1].trimmed().isEmpty())
+            --insert;
+        lines.insert(insert, entry);
+    }
+
+    QByteArray output = lines.join(crlf ? "\r\n" : "\n");
+    output += crlf ? "\r\n" : "\n";
+    QSaveFile file(configPath);
+    return file.open(QIODevice::WriteOnly) && file.write(output) == output.size() && file.commit();
 }
 
 QString
