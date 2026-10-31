@@ -2,8 +2,7 @@
 
 ## Outcome and evidence boundary
 
-BluMach has an **experimental** M10. It is the first BluMach machine that does
-not run on the 86Box core: the board is a CoreMach system
+BluMach has an **experimental** M10. The board is a CoreMach system
 (`external/coremach`, `systems/olivetti-m10`) and BluMach hosts it through its
 own window, with no 86Box machine, configuration path or device behind it.
 

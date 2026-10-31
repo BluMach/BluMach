@@ -1,8 +1,8 @@
 # Olivetti M10
 
-Status: experimental. The M10 runs on the CoreMach engine, not on the 86Box
-core, and needs a BluMach build with CoreMach. For the evidence-to-model
-account see the [M10 engineering notes](olivetti-m10-implementation.md).
+Status: experimental. The M10 runs on the CoreMach engine and needs a
+BluMach build with CoreMach. For the evidence-to-model account see the
+[M10 engineering notes](olivetti-m10-implementation.md).
 
 ## Historical identity
 
