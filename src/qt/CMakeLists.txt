@@ -399,10 +399,19 @@ if(BLUMACH_COREMACH_ENABLED)
     # src/sound); with another sound backend they are silent.
     if(OPENAL AND NOT AUDIO4 AND NOT SNDIO)
         target_compile_definitions(ui PRIVATE BLUMACH_COREMACH_OPENAL)
+        # Found again here: the imported target and, in recent CMake, the
+        # include variable stay in the scope of src/sound.
         if(VCPKG_TOOLCHAIN)
             find_package(OpenAL CONFIG REQUIRED)
+        elseif(MINGW)
+            find_package(OpenAL MODULE REQUIRED)
+        else()
+            find_package(OpenAL REQUIRED)
+        endif()
+        if(TARGET OpenAL::OpenAL)
             target_link_libraries(ui PRIVATE OpenAL::OpenAL)
-        elseif(OPENAL_INCLUDE_DIR)
+        endif()
+        if(OPENAL_INCLUDE_DIR)
             # FindOpenAL may name either .../include or .../include/AL.
             target_include_directories(ui PRIVATE "${OPENAL_INCLUDE_DIR}" "${OPENAL_INCLUDE_DIR}/..")
         endif()
