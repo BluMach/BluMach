@@ -377,6 +377,10 @@ endif()
 if(BLUMACH_COREMACH_ENABLED)
     target_compile_definitions(ui PRIVATE BLUMACH_COREMACH)
     target_sources(ui PRIVATE
+        qt_coremach_audio.cpp
+        qt_coremach_audio.hpp
+        qt_coremach_buzzer.cpp
+        qt_coremach_buzzer.hpp
         qt_coremach_display.cpp
         qt_coremach_display.hpp
         qt_coremach_keys.cpp
@@ -385,10 +389,24 @@ if(BLUMACH_COREMACH_ENABLED)
         qt_coremach_lcd.hpp
         qt_coremach_session.cpp
         qt_coremach_session.hpp
+        qt_coremach_tape.cpp
+        qt_coremach_tape.hpp
         qt_coremach_window.cpp
         qt_coremach_window.hpp
     )
     target_link_libraries(ui PRIVATE blumach_coremach_systems)
+    # CoreMach machines play through OpenAL when 86Box itself uses it (see
+    # src/sound); with another sound backend they are silent.
+    if(OPENAL AND NOT AUDIO4 AND NOT SNDIO)
+        target_compile_definitions(ui PRIVATE BLUMACH_COREMACH_OPENAL)
+        if(VCPKG_TOOLCHAIN)
+            find_package(OpenAL CONFIG REQUIRED)
+            target_link_libraries(ui PRIVATE OpenAL::OpenAL)
+        elseif(OPENAL_INCLUDE_DIR)
+            # FindOpenAL may name either .../include or .../include/AL.
+            target_include_directories(ui PRIVATE "${OPENAL_INCLUDE_DIR}" "${OPENAL_INCLUDE_DIR}/..")
+        endif()
+    endif()
 endif()
 
 if(RTMIDI)

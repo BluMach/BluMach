@@ -12,6 +12,7 @@
 #include "qt_coremach_display.hpp"
 #include "qt_coremach_session.hpp"
 
+#include <QFile>
 #include <QImage>
 #include <QMainWindow>
 #include <QSet>
@@ -64,6 +65,20 @@ private:
     void updateStatus();
     // Applies and saves a display preference ([CoreMach] lcd_* key).
     void setLcd(const LcdSettings &settings, const char *key, const QString &value);
+    // Reports a preference that could not be written to the configuration.
+    void showPreferenceSaveFailure(const char *textKey);
+    // Serial port: sends a text file, or saves what the machine sends.
+    void sendSerialFile();
+    void setSerialCapture(bool on);
+    // Cassette: plays a WAV tape, or records what the machine saves.
+    void insertTape();
+    void setTapeRecording(bool on);
+    void saveRecording();
+    // Printer: each printout goes to its own text file in the machine's
+    // printer folder, closed after a few idle seconds.
+    void    writePrintout(const QByteArray &printed);
+    void    closePrintout();
+    QString printerFolder() const;
 
     const BluMachCatalog    &m_catalog;
     QString                  m_name;
@@ -72,7 +87,23 @@ private:
     std::unique_ptr<Session> m_session;
     Display                 *m_display  = nullptr;
     QLabel                  *m_status   = nullptr;
+    QLabel                  *m_capsLock = nullptr;
+    QLabel                  *m_off      = nullptr;
+    QAction                 *m_switchOn = nullptr;
+    bool                     m_poweredOff = false;
+    QSet<QString>            m_toleratedShown; // this session
     QAction                 *m_pause    = nullptr;
+    QAction                 *m_serialCapture = nullptr;
+    QAction                 *m_serialCancel  = nullptr;
+    QFile                    m_capture; // open while saving received data
+    qint64                   m_capturedBytes = 0;
+    QAction                 *m_tapeRecord = nullptr;
+    QString                  m_recordPath; // while recording
+    QFile                    m_printout; // open while the machine prints
+    qint64                   m_printoutBytes  = 0;
+    bool                     m_printoutFailed = false; // until the printout ends
+    PrintoutText             m_printoutText;
+    QTimer                   m_printoutTimer;
     QTimer                   m_saveTimer;
     QTimer                   m_statusTimer;
     QSet<int>                m_pressed;

@@ -12,12 +12,17 @@
 
 #include <QActionGroup>
 #include <QCloseEvent>
+#include <QDesktopServices>
 #include <QDir>
+#include <QFileDialog>
 #include <QLabel>
 #include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
+#include <QSaveFile>
+#include <QSignalBlocker>
 #include <QStatusBar>
+#include <QUrl>
 
 #include <cstdio>
 
@@ -30,6 +35,8 @@ namespace CoreMachBridge {
 namespace {
     constexpr int savePeriodMs   = 60 * 1000;
     constexpr int statusPeriodMs = 500;
+    // A printout ends after this long without bytes.
+    constexpr int printoutIdleMs = 5 * 1000;
 
     bool unattended()
     {
@@ -47,9 +54,14 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
     , m_events(machineFolder)
     , m_systemName(profile.system ? QString::fromUtf8(profile.system->name) : QString())
 {
-    m_session = std::make_unique<Session>(profile, firmware, states, [this](const Session::Frame &frame) {
-        QMetaObject::invokeMethod(this, [this, frame] { present(frame); }, Qt::QueuedConnection);
-    });
+    // Tolerant unless the machine's [CoreMach] section says tolerant = 0.
+    const bool tolerant = !profile.system || readDisplayPreferences(configPath, *profile.system).tolerant;
+    m_session = std::make_unique<Session>(
+        profile, firmware, states,
+        [this](const Session::Frame &frame) {
+            QMetaObject::invokeMethod(this, [this, frame] { present(frame); }, Qt::QueuedConnection);
+        },
+        tolerant);
 
     setWindowTitle(QStringLiteral("%1 — BluMach").arg(m_name));
     m_display = new Display(this);
@@ -63,6 +75,66 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
     connect(m_pause, &QAction::triggered, this, &Window::togglePause);
     connect(action->addAction(m_catalog.text(QStringLiteral("coremach.menu.reset"))), &QAction::triggered,
             this, &Window::hardReset);
+    // After the machine switches itself off: the power switch, off and on
+    // again, which CoreMach models as a reset that keeps the memory.
+    m_switchOn = action->addAction(m_catalog.text(QStringLiteral("coremach.menu.switch_on")));
+    m_switchOn->setEnabled(false);
+    connect(m_switchOn, &QAction::triggered, this, &Window::hardReset);
+    action->addSeparator();
+    // Sound, saved per machine; builds without OpenAL have none.
+    auto *sound = action->addAction(m_catalog.text(QStringLiteral("coremach.menu.sound")));
+    sound->setCheckable(true);
+    sound->setEnabled(AudioOutput::available());
+    const bool soundOn = AudioOutput::available()
+        && (!profile.system || readDisplayPreferences(m_configPath, *profile.system).sound);
+    sound->setChecked(soundOn);
+    m_session->setSound(soundOn);
+    connect(sound, &QAction::toggled, this, [this](bool on) {
+        m_session->setSound(on);
+        if (!writeCoreMachValue(m_configPath, QStringLiteral("sound"), on ? QStringLiteral("1") : QStringLiteral("0")))
+            showPreferenceSaveFailure("coremach.sound_save_failed");
+    });
+    // Serial port: text files in, received characters out to a file.
+    if (profile.system && profile.system->serialPort) {
+        auto *serial = action->addMenu(m_catalog.text(QStringLiteral("coremach.menu.serial")));
+        connect(serial->addAction(m_catalog.text(QStringLiteral("coremach.menu.serial_send"))), &QAction::triggered,
+                this, &Window::sendSerialFile);
+        m_serialCapture = serial->addAction(m_catalog.text(QStringLiteral("coremach.menu.serial_capture")));
+        m_serialCapture->setCheckable(true);
+        connect(m_serialCapture, &QAction::toggled, this, &Window::setSerialCapture);
+        m_serialCancel = serial->addAction(m_catalog.text(QStringLiteral("coremach.menu.serial_cancel")));
+        m_serialCancel->setEnabled(false);
+        connect(m_serialCancel, &QAction::triggered, this, [this] {
+            m_session->cancelSerial();
+            m_serialCancel->setEnabled(false);
+        });
+    }
+    // Cassette: WAV tapes in and out.
+    if (profile.system && profile.system->cassette) {
+        auto *cassette = action->addMenu(m_catalog.text(QStringLiteral("coremach.menu.cassette")));
+        connect(cassette->addAction(m_catalog.text(QStringLiteral("coremach.menu.cassette_insert"))),
+                &QAction::triggered, this, &Window::insertTape);
+        connect(cassette->addAction(m_catalog.text(QStringLiteral("coremach.menu.cassette_rewind"))),
+                &QAction::triggered, this, [this] { m_session->rewindTape(); });
+        connect(cassette->addAction(m_catalog.text(QStringLiteral("coremach.menu.cassette_eject"))),
+                &QAction::triggered, this, [this] { m_session->ejectTape(); });
+        cassette->addSeparator();
+        m_tapeRecord = cassette->addAction(m_catalog.text(QStringLiteral("coremach.menu.cassette_record")));
+        m_tapeRecord->setCheckable(true);
+        connect(m_tapeRecord, &QAction::toggled, this, &Window::setTapeRecording);
+    }
+    // Printer: always on line, printouts saved as text files.
+    if (profile.system && profile.system->printer) {
+        auto *printer = action->addMenu(m_catalog.text(QStringLiteral("coremach.menu.printer")));
+        connect(printer->addAction(m_catalog.text(QStringLiteral("coremach.menu.printer_folder"))),
+                &QAction::triggered, this, [this] {
+                    QDir().mkpath(printerFolder());
+                    QDesktopServices::openUrl(QUrl::fromLocalFile(printerFolder()));
+                });
+        m_printoutTimer.setSingleShot(true);
+        m_printoutTimer.setInterval(printoutIdleMs);
+        connect(&m_printoutTimer, &QTimer::timeout, this, &Window::closePrintout);
+    }
     action->addSeparator();
     connect(action->addAction(m_catalog.text(QStringLiteral("coremach.menu.exit"))), &QAction::triggered,
             this, &QWidget::close);
@@ -134,6 +206,12 @@ Window::Window(const BluMachCatalog &catalog, const QString &machineName, const 
 
     m_status = new QLabel(this);
     statusBar()->addWidget(m_status, 1);
+    m_capsLock = new QLabel(m_catalog.text(QStringLiteral("coremach.status.caps_lock")), this);
+    m_capsLock->setVisible(false);
+    statusBar()->addPermanentWidget(m_capsLock);
+    m_off = new QLabel(m_catalog.text(QStringLiteral("coremach.status.powered_off")), this);
+    m_off->setVisible(false);
+    statusBar()->addPermanentWidget(m_off);
     statusBar()->setSizeGripEnabled(false);
 
     m_saveTimer.setInterval(savePeriodMs);
@@ -243,6 +321,49 @@ Window::present(const Session::Frame &frame)
         return;
     if (!frame.image.isNull())
         m_display->setFrame(frame.image);
+    m_capsLock->setVisible((frame.keyboardLeds & BM_KEYBOARD_LED_CAPS_LOCK) != 0);
+    if (frame.poweredOff != m_poweredOff) {
+        m_poweredOff = frame.poweredOff;
+        m_off->setVisible(m_poweredOff);
+        m_switchOn->setEnabled(m_poweredOff);
+        if (m_poweredOff)
+            statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.powered_off")).arg(m_name), 30000);
+    }
+    for (const auto &event : frame.tolerated) {
+        // Logged once per machine folder; shown once per session.
+        const QString kind   = toleratedKind(event);
+        const QString detail = toleratedDetail(event);
+        QString       context = event.device + QStringLiteral(": ") + event.note;
+        if (event.flags & BM_TOLERANCE_FLAG_ASSUMED_BEHAVIOUR)
+            context += QStringLiteral(" [assumed behaviour]");
+        if (m_events.record(kind, detail, context))
+            std::fprintf(stderr, "BluMach: CoreMach tolerated %s %s\n", kind.toUtf8().constData(),
+                         detail.toUtf8().constData());
+        if (!m_toleratedShown.contains(kind)) {
+            m_toleratedShown.insert(kind);
+            statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.tolerated"))
+                                         .arg(m_systemName, kind + QLatin1Char(' ') + detail,
+                                              QDir::toNativeSeparators(m_events.path())),
+                                     10000);
+        }
+    }
+    if (!frame.serial.isEmpty() && m_capture.isOpen()) {
+        if (m_capture.write(frame.serial) == frame.serial.size() && m_capture.flush())
+            m_capturedBytes += frame.serial.size();
+        else {
+            const QString text = m_catalog.text(QStringLiteral("coremach.serial_write_failed"))
+                                     .arg(m_name, QDir::toNativeSeparators(m_capture.fileName()));
+            std::fprintf(stderr, "BluMach: CoreMach serial_write_failed: %s\n", text.toUtf8().constData());
+            m_capture.close();
+            if (m_serialCapture) {
+                const QSignalBlocker blocker(m_serialCapture);
+                m_serialCapture->setChecked(false);
+            }
+            statusBar()->showMessage(text, 10000);
+        }
+    }
+    if (!frame.printed.isEmpty())
+        writePrintout(frame.printed);
     if (frame.notice.kind != Session::Notice::Kind::None)
         handleNotice(frame.notice);
     // Only a failed emulation run reaches here as a status.
@@ -286,6 +407,11 @@ Window::handleNotice(const Session::Notice &notice)
         case Kind::CommandFailed:
             if (m_events.record(QStringLiteral("command_failed"), status))
                 std::fprintf(stderr, "BluMach: CoreMach command failed (%s)\n", status.toUtf8().constData());
+            return;
+        case Kind::SoundUnavailable:
+            if (m_events.record(QStringLiteral("sound_unavailable"), QStringLiteral("OpenAL")))
+                std::fprintf(stderr, "BluMach: CoreMach sound device unavailable\n");
+            statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.sound_unavailable")), 5000);
             return;
     }
 }
@@ -338,18 +464,210 @@ Window::shutdown()
     m_statusTimer.stop();
     m_pressed.clear();
     saveStates(m_session->stop());
+    if (m_capture.isOpen())
+        m_capture.close();
+    saveRecording(); // a recording still running goes to its file
+    closePrintout();
     updateStatus();
+}
+
+QString
+Window::printerFolder() const
+{
+    return QDir(m_folder).filePath(QStringLiteral("printer"));
+}
+
+void
+Window::writePrintout(const QByteArray &printed)
+{
+    m_printoutTimer.start();
+    if (m_printoutFailed)
+        return;
+    if (!m_printout.isOpen()) {
+        const QDir    folder(printerFolder());
+        const QString name = printoutFileName(QDateTime::currentDateTime());
+        QString       path = folder.filePath(name);
+        for (int copy = 2; QFile::exists(path); ++copy)
+            path = folder.filePath(QString(name).insert(name.size() - 4, QStringLiteral("-%1").arg(copy)));
+        m_printout.setFileName(path);
+        m_printoutBytes = 0;
+        m_printoutText  = PrintoutText();
+        if (!folder.mkpath(QStringLiteral(".")) || !m_printout.open(QIODevice::WriteOnly))
+            m_printoutFailed = true;
+    }
+    const QByteArray text = m_printoutText.convert(printed);
+    if (!m_printoutFailed && m_printout.write(text) == text.size() && m_printout.flush()) {
+        m_printoutBytes += printed.size();
+        return;
+    }
+    m_printoutFailed = true;
+    m_printout.close();
+    const QString message = m_catalog.text(QStringLiteral("coremach.printer_failed"))
+                                .arg(m_name, QDir::toNativeSeparators(m_printout.fileName()));
+    std::fprintf(stderr, "BluMach: CoreMach printer_failed: %s\n", message.toUtf8().constData());
+    statusBar()->showMessage(message, 10000);
+}
+
+void
+Window::closePrintout()
+{
+    m_printoutTimer.stop();
+    m_printoutFailed = false;
+    if (!m_printout.isOpen())
+        return;
+    m_printout.close();
+    statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.printer_saved"))
+                                 .arg(QString::number(m_printoutBytes),
+                                      QDir::toNativeSeparators(m_printout.fileName())),
+                             10000);
+}
+
+namespace {
+    QString duration(uint64_t samples, uint32_t rate)
+    {
+        const uint64_t seconds = rate ? samples / rate : 0;
+        return QStringLiteral("%1:%2").arg(seconds / 60).arg(seconds % 60, 2, 10, QLatin1Char('0'));
+    }
+}
+
+void
+Window::insertTape()
+{
+    if (m_stopped)
+        return;
+    const QString title = m_catalog.text(QStringLiteral("coremach.menu.cassette_insert")).remove(QLatin1Char('&'));
+    const QString path  = QFileDialog::getOpenFileName(this, title, m_folder,
+                                                       m_catalog.text(QStringLiteral("coremach.cassette_filter")));
+    if (path.isEmpty())
+        return;
+    QFile   file(path);
+    Tape    tape;
+    QString reason;
+    if (!file.open(QIODevice::ReadOnly) || !readWav(file.readAll(), &tape, &reason)) {
+        std::fprintf(stderr, "BluMach: CoreMach tape not loaded: %s\n", reason.toUtf8().constData());
+        statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.cassette_unreadable"))
+                                     .arg(QDir::toNativeSeparators(path)),
+                                 10000);
+        return;
+    }
+    const double gain = adjustVolume(tape);
+    if (gain != 1.0)
+        std::fprintf(stderr, "BluMach: CoreMach tape volume raised %.1f times\n", gain);
+    m_session->loadTape(tape);
+    updateStatus();
+}
+
+void
+Window::setTapeRecording(bool on)
+{
+    if (!on) {
+        saveRecording();
+        return;
+    }
+    const QString title = m_catalog.text(QStringLiteral("coremach.menu.cassette_record")).remove(QLatin1Char('&'));
+    const QString path  = QFileDialog::getSaveFileName(this, title, QDir(m_folder).filePath(QStringLiteral("tape.wav")),
+                                                       m_catalog.text(QStringLiteral("coremach.cassette_filter")));
+    if (path.isEmpty() || m_stopped) {
+        const QSignalBlocker blocker(m_tapeRecord);
+        m_tapeRecord->setChecked(false);
+        return;
+    }
+    m_recordPath = path;
+    m_session->startRecording();
+    updateStatus();
+}
+
+void
+Window::saveRecording()
+{
+    if (m_recordPath.isEmpty())
+        return;
+    const QString path = m_recordPath;
+    m_recordPath.clear();
+    if (m_tapeRecord) {
+        const QSignalBlocker blocker(m_tapeRecord);
+        m_tapeRecord->setChecked(false);
+    }
+    const Tape tape = m_session->stopRecording();
+    QSaveFile  file(path);
+    if (file.open(QIODevice::WriteOnly) && file.write(writeWav(tape)) >= 0 && file.commit()) {
+        statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.cassette_saved"))
+                                     .arg(duration(tape.samples.size(), tape.sampleRate),
+                                          QDir::toNativeSeparators(path)),
+                                 10000);
+        return;
+    }
+    const QString text = m_catalog.text(QStringLiteral("coremach.cassette_save_failed"))
+                             .arg(m_name, QDir::toNativeSeparators(path));
+    std::fprintf(stderr, "BluMach: CoreMach cassette_save_failed: %s\n", text.toUtf8().constData());
+    statusBar()->showMessage(text, 10000);
+}
+
+void
+Window::sendSerialFile()
+{
+    if (m_stopped)
+        return;
+    const QString title = m_catalog.text(QStringLiteral("coremach.menu.serial_send")).remove(QLatin1Char('&'));
+    const QString path  = QFileDialog::getOpenFileName(this, title, m_folder,
+                                                       m_catalog.text(QStringLiteral("coremach.serial_text_filter")));
+    if (path.isEmpty())
+        return;
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly)) {
+        statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.serial_open_failed"))
+                                     .arg(QDir::toNativeSeparators(path)),
+                                 10000);
+        return;
+    }
+    m_session->sendSerial(serialText(file.readAll()));
+    updateStatus();
+}
+
+void
+Window::setSerialCapture(bool on)
+{
+    if (!on) {
+        if (!m_capture.isOpen())
+            return;
+        m_capture.close();
+        statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.serial_capture_saved"))
+                                     .arg(QString::number(m_capturedBytes),
+                                          QDir::toNativeSeparators(m_capture.fileName())),
+                                 10000);
+        return;
+    }
+    const QString title = m_catalog.text(QStringLiteral("coremach.menu.serial_capture")).remove(QLatin1Char('&'));
+    const QString path  = QFileDialog::getSaveFileName(this, title, QDir(m_folder).filePath(QStringLiteral("serial.txt")),
+                                                       m_catalog.text(QStringLiteral("coremach.serial_text_filter")));
+    m_capture.setFileName(path);
+    if (path.isEmpty() || !m_capture.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        if (!path.isEmpty())
+            statusBar()->showMessage(m_catalog.text(QStringLiteral("coremach.serial_open_failed"))
+                                         .arg(QDir::toNativeSeparators(path)),
+                                     10000);
+        const QSignalBlocker blocker(m_serialCapture);
+        m_serialCapture->setChecked(false);
+        return;
+    }
+    m_capturedBytes = 0;
 }
 
 void
 Window::setLcd(const LcdSettings &settings, const char *key, const QString &value)
 {
     m_display->setLcdSettings(settings);
-    if (writeCoreMachValue(m_configPath, QString::fromLatin1(key), value))
-        return;
-    const QString text = m_catalog.text(QStringLiteral("coremach.display_save_failed"))
-                             .arg(m_name, QDir::toNativeSeparators(m_configPath));
-    std::fprintf(stderr, "BluMach: CoreMach display_save_failed: %s\n", text.toUtf8().constData());
+    if (!writeCoreMachValue(m_configPath, QString::fromLatin1(key), value))
+        showPreferenceSaveFailure("coremach.display_save_failed");
+}
+
+void
+Window::showPreferenceSaveFailure(const char *textKey)
+{
+    const QString key  = QString::fromLatin1(textKey);
+    const QString text = m_catalog.text(key).arg(m_name, QDir::toNativeSeparators(m_configPath));
+    std::fprintf(stderr, "BluMach: CoreMach %s: %s\n", key.mid(key.indexOf('.') + 1).toUtf8().constData(),
+                 text.toUtf8().constData());
     statusBar()->showMessage(text, 10000);
 }
 
@@ -369,6 +687,25 @@ Window::updateStatus()
         if (speed >= 0.0)
             text += QStringLiteral(" · ")
                 + m_catalog.text(QStringLiteral("coremach.status.speed")).arg(QString::number(speed, 'f', 0));
+    }
+    const qint64 pending = m_stopped ? 0 : m_session->serialPending();
+    if (pending > 0)
+        text += QStringLiteral(" · ")
+            + m_catalog.text(QStringLiteral("coremach.status.serial_sending")).arg(QString::number(pending));
+    if (m_serialCancel)
+        m_serialCancel->setEnabled(pending > 0);
+    if (!m_stopped) {
+        const auto tape = m_session->tapeStatus();
+        if (tape.loaded)
+            text += QStringLiteral(" · ")
+                + m_catalog.text(QStringLiteral("coremach.status.tape"))
+                      .arg(duration(tape.position, tape.rate), duration(tape.length, tape.rate));
+        if (tape.motor)
+            text += QStringLiteral(" · ") + m_catalog.text(QStringLiteral("coremach.status.tape_motor"));
+        if (tape.recording)
+            text += QStringLiteral(" · ")
+                + m_catalog.text(QStringLiteral("coremach.status.tape_recording"))
+                      .arg(duration(tape.recorded, TapeRecorder::sampleRate));
     }
     m_status->setText(text);
 }

@@ -47,6 +47,9 @@ struct System {
     const char            *cpu;
     const char            *display;
     bool                   contrastControl; // the machine has a contrast knob
+    bool                   serialPort;      // CoreMach models its serial port
+    bool                   cassette;        // and its cassette interface
+    bool                   printer;         // and its printer port
     Firmware               firmware;
     const Option          *options;
     size_t                 optionCount;
@@ -117,12 +120,15 @@ private:
     QSet<QString> m_seen;
 };
 
-// Display preferences of a machine, kept as lcd_* keys in its [CoreMach]
-// section. They are not machine options: readProfile() skips them.
+// Display, sound and tolerance preferences of a machine, kept as lcd_*
+// keys, "sound" and "tolerant" in its [CoreMach] section. They are not
+// machine options: readProfile() skips them.
 struct DisplayPreferences {
     bool lcdEffect      = true;
     bool lcdPersistence = true;
     int  lcdContrast    = 2;
+    bool sound          = true;
+    bool tolerant       = true; // 0: stop on the first unsupported operation
 };
 DisplayPreferences readDisplayPreferences(const QString &configPath, const System &system);
 // Sets one key of the [CoreMach] section, keeping every other line of the

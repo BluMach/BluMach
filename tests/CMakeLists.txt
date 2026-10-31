@@ -171,11 +171,15 @@ if(QT)
         "BLUMACH_TEST_CATALOG_JSON=\"${PROJECT_BINARY_DIR}/src/qt/catalog/catalog.json\"")
     target_link_libraries(coremach-bridge PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Test)
     if(BLUMACH_COREMACH_ENABLED)
+        # Without BLUMACH_COREMACH_OPENAL the sound output is silent here.
         target_sources(coremach-bridge PRIVATE
+            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_audio.cpp"
+            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_buzzer.cpp"
             "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_display.cpp"
             "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_keys.cpp"
             "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_lcd.cpp"
-            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_session.cpp")
+            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_session.cpp"
+            "${PROJECT_SOURCE_DIR}/src/qt/qt_coremach_tape.cpp")
         target_compile_definitions(coremach-bridge PRIVATE BLUMACH_COREMACH)
         target_link_libraries(coremach-bridge PRIVATE blumach_coremach_systems)
     endif()
