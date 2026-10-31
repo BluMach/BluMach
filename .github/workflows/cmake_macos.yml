@@ -66,11 +66,11 @@ jobs:
           - build: { name: Debug, preset: dev_debug, slug: -Debug }
             dynarec: { name: NDR, new: on, slug: -NDR }
             ui: { name: Qt 6 GUI, qt: on, slug: -Qt6, packages: qt }
-            environment: { arch: arm64, slug: -arm64, runner: macos-14 }
+            environment: { arch: arm64, slug: -arm64, runner: macos-15 }
           - build: { name: Dev, preset: development, slug: -Dev }
             dynarec: { name: NDR, new: on, slug: -NDR }
             ui: { name: SDL GUI, qt: off, slug: -SDL }
-            environment: { arch: arm64, slug: -arm64, runner: macos-14 }
+            environment: { arch: arm64, slug: -arm64, runner: macos-15 }
 
     steps:
       - name: Install dependencies
