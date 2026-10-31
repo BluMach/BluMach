@@ -238,8 +238,10 @@
       ],
       "probable_commercial_relative": [
         "Kyocera Kyotronic 85",
-        "Tandy TRS-80 Model 100",
         "NEC PC-8201"
+      ],
+      "related_models": [
+        "Tandy TRS-80 Model 100"
       ]
     },
     "implementation": {
