@@ -47,13 +47,25 @@ Installed artifacts can be checked without firmware using:
 python tools/package_audit.py --help
 ```
 
-The private `0.1.0-rc.1` reference build has a stricter Windows wrapper which
-builds, tests, installs, audits and produces a file-by-file manifest plus an
-archive SHA-256 from a clean commit:
+The published Windows package of each version comes from a stricter wrapper,
+first written for the private `0.1.0-rc.1` reference build. It builds, tests,
+installs, audits and produces a file-by-file manifest plus an archive SHA-256
+from a clean commit:
 
 ```text
-powershell -ExecutionPolicy Bypass -File tools/build-private-rc.ps1
+powershell -ExecutionPolicy Bypass -File tools/build-private-rc.ps1 -Version <version>
 ```
+
+A published package always includes CoreMach. The wrapper does both steps
+itself; a package built by hand must do the same:
+
+1. Check out the pinned submodules before configuring:
+   `git submodule update --init --recursive`.
+2. Configure with `-D BLUMACH_COREMACH=ON`, so a missing submodule stops the
+   build instead of leaving the CoreMach machines out.
+
+The manifest records the BluMach commit and, as `source.coremach_commit`, the
+`external/coremach` commit the package was built with.
 
 See [the private RC validation record](releases/0.1.0-rc.1.md) for the evidence
 that must be captured before portable-engine work begins.

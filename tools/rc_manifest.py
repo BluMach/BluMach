@@ -72,6 +72,20 @@ def git_value(source: Path, *arguments: str) -> str:
     return result.stdout.strip()
 
 
+def submodule_commit(source: Path, path: str) -> str:
+    """Return the commit pinned for a submodule, checking that it is the one checked out."""
+    pinned = git_value(source, "rev-parse", f"HEAD:{path}")
+    checkout = source / path
+    if not (checkout / ".git").exists():
+        raise ManifestError(
+            f"{path} is not checked out; run git submodule update --init --recursive"
+        )
+    checked_out = git_value(checkout, "rev-parse", "HEAD")
+    if checked_out != pinned:
+        raise ManifestError(f"{path} is at {checked_out}, but the source pins {pinned}")
+    return pinned
+
+
 def create_manifest(
     root: Path,
     source: Path,
@@ -108,6 +122,7 @@ def create_manifest(
         "source": {
             "commit": git_value(source, "rev-parse", "HEAD"),
             "ref": git_value(source, "branch", "--show-current"),
+            "coremach_commit": submodule_commit(source, "external/coremach"),
         },
         "build": {"platform": platform, "configuration": configuration},
         "firmware_included": False,

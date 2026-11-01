@@ -18,6 +18,12 @@ try {
         throw "Release metadata does not describe BluMach $Version"
     }
 
+    # The release always carries the CoreMach bridge, at the pinned commit.
+    git submodule update --init --recursive
+    if ($LASTEXITCODE -ne 0) {
+        throw "The external/coremach submodule could not be checked out."
+    }
+
     $changes = git status --porcelain --untracked-files=normal
     if ($changes) {
         throw "The RC must be built from a clean, committed checkout."
@@ -53,7 +59,8 @@ cd "$BLUMACH_RC_SOURCE_UNIX"
 cmake -S . -B "$BLUMACH_RC_BUILD" -G Ninja \
   -DCMAKE_BUILD_TYPE="$BLUMACH_RC_CONFIGURATION" \
   -DCMAKE_INSTALL_PREFIX="$BLUMACH_RC_STAGE" \
-  -DRELEASE=ON -DNEW_DYNAREC=ON -DQT=ON -DSTATIC_BUILD=OFF
+  -DRELEASE=ON -DNEW_DYNAREC=ON -DQT=ON -DSTATIC_BUILD=OFF \
+  -DBLUMACH_COREMACH=ON
 cmake --build "$BLUMACH_RC_BUILD"
 ctest --test-dir "$BLUMACH_RC_BUILD" --output-on-failure
 cmake --install "$BLUMACH_RC_BUILD"
