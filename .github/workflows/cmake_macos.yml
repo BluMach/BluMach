@@ -106,6 +106,7 @@ jobs:
           cmake -S . -B build --preset ${{ matrix.build.preset }}
           -D NEW_DYNAREC=${{ matrix.dynarec.new }}
           -D QT=${{ matrix.ui.qt }}
+          -D BLUMACH_COREMACH=ON
           -D CMAKE_PREFIX_PATH=$(brew --prefix qt)
           -D OpenAL_ROOT=$(brew --prefix openal-soft)
           -D LIBSERIALPORT_ROOT=$(brew --prefix libserialport)

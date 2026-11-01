@@ -125,6 +125,7 @@ jobs:
           cmake -S . -B build --preset ${{ matrix.build.preset }}
           -D NEW_DYNAREC=${{ matrix.dynarec.new }}
           -D QT=${{ matrix.ui.qt }}
+          -D BLUMACH_COREMACH=ON
           -D STATIC_BUILD=${{ matrix.ui.static }}
           -D CMAKE_C_COMPILER_LAUNCHER=ccache
           -D CMAKE_CXX_COMPILER_LAUNCHER=ccache
