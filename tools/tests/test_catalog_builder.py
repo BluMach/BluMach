@@ -81,7 +81,7 @@ class CatalogBuilderTests(unittest.TestCase):
              "triumph-adler-dario", "trigem-sx386"}, visible_families)
         self.assertEqual(
             {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx",
-             "olivetti-m15", "olivetti-m15-plus", "toshiba-t3200",
+             "olivetti-m10", "olivetti-m15", "olivetti-m15-plus", "toshiba-t3200",
              "toshiba-t5100", "toshiba-t5200", "olivetti-pcs286s",
              "olivetti-prodest-pc1", "olivetti-prodest-pc1hd",
              "olivetti-m28", "amstrad-pc5286",
