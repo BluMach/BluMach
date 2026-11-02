@@ -23,6 +23,14 @@
       "display_color": ["monochrome"],
       "storage_interface": ["floppy"]
     },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-m15-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Sailko",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivetti,_primo_computer_portatile_M15,_1987_(fond._natale_cappellaro).jpg"
+    },
     "hardware": {
       "cpu": "Intel 80C88 at 4.77 MHz",
       "memory": "256 or 512 KB system RAM; 16 KB video RAM",

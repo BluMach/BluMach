@@ -44,6 +44,14 @@
         "mfm"
       ]
     },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/toshiba-t3200-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Liftarn",
+      "license": "public-domain",
+      "source": "https://commons.wikimedia.org/wiki/File:ToshibaT3200.jpg"
+    },
     "hardware": {
       "cpu": "Intel 80286, 12/6 MHz; pilot fixed at 12 MHz",
       "memory": "1 MB base or 4 MB with experimental 3 MB card: EMS-only, or 3 MB extended plus 384 KB EMS",

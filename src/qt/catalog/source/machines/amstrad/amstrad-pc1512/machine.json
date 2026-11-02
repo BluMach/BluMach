@@ -42,6 +42,14 @@
         "floppy"
       ]
     },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/amstrad-pc1512-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Marcin Wichary",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amstrad_PC1512.jpg"
+    },
     "filter_profiles": [
       {
         "id": "pc-cm",

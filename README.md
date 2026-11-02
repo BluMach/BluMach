@@ -46,8 +46,9 @@ BluMach is an independent project and is not an official 86Box build. Existing
 - Continued access to the broad processor, bus and peripheral emulation inherited
   from 86Box.
 
-Catalogue illustrations are editorial concept images or board recreations, not
-documentary photographs. Their purpose and provenance are recorded in the
+Catalogue images are either credited photographs under free licences or
+editorial concept images and board recreations, and the sheet says which. Their
+authors, licences and provenance are recorded in the
 [asset notes](src/qt/catalog/images/README.md).
 
 ## Historical collection
