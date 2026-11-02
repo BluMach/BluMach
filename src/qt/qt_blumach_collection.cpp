@@ -7,6 +7,7 @@
  */
 
 #include "qt_blumach_collection.hpp"
+#include "qt_coremach.hpp"
 #include "qt_blumach_formfactoricon.hpp"
 #include "qt_vmmanager_config.hpp"
 
@@ -1330,7 +1331,9 @@ bool BluMachCollectionWidget::canCreateProduct(const BluMachProduct &product) co
     return product.status != QStringLiteral("research")
         && product.status != QStringLiteral("not_bootable")
         && platform != nullptr
-        && platform->hasMachineProfile();
+        && platform->hasMachineProfile()
+        // A CoreMach machine needs a build that runs its system.
+        && (!platform->isCoreMach() || CoreMachBridge::findSystem(platform->coremachSystemId));
 }
 
 void BluMachCollectionWidget::applyFilter()
