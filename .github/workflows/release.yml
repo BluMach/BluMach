@@ -1,0 +1,156 @@
+name: Release
+
+# Builds the Windows package of a version with tools/build-private-rc.ps1, the
+# same script used locally, and leaves a draft GitHub release for review.
+# Nothing is ever published from here: the draft is published by hand.
+
+on:
+  push:
+    tags: [ "v*" ]
+
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to build, without the leading v (for example 0.1.0-alpha.5)"
+        required: true
+        type: string
+      dry_run:
+        description: "Build and upload the run artifact only; create no draft release"
+        required: false
+        type: boolean
+        default: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    name: Windows x86_64 package
+    runs-on: windows-2022
+    timeout-minutes: 150
+
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Resolve and check the version
+        id: version
+        shell: pwsh
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          if ($env:GITHUB_EVENT_NAME -eq 'push') {
+            $tag = $env:GITHUB_REF_NAME
+            if (-not $tag.StartsWith('v')) { throw "Release tags start with v, got $tag" }
+            $version = $tag.Substring(1)
+          } else {
+            $version = "$env:INPUT_VERSION".Trim()
+            $tag = "v$version"
+          }
+          if ($version -notmatch '^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$') {
+            throw "Not a BluMach version: '$version'"
+          }
+          $reported = python -B tools/release_version.py check
+          if ($LASTEXITCODE -ne 0) { throw "Release metadata is not synchronized" }
+          if ("$reported".Trim() -ne "BluMach release metadata is synchronized at $version") {
+            throw "The release metadata does not describe $version ($reported)"
+          }
+          "version=$version" >> $env:GITHUB_OUTPUT
+          "tag=$tag" >> $env:GITHUB_OUTPUT
+          Write-Host "Building BluMach $version ($tag)"
+
+      - name: Prepare MSYS2 environment
+        id: msys2
+        uses: msys2/setup-msys2@66cd2cce69caa17b53920067426061ca1de3a884 # v2.32.0
+        with:
+          release: true
+          update: true
+          msystem: UCRT64
+          pacboy: >-
+            ninja:p
+            cmake:p
+            ccache:p
+            gcc:p
+            pkgconf:p
+            freetype:p
+            sdl3:p
+            zlib:p
+            libpng:p
+            openal:p
+            rtmidi:p
+            libslirp:p
+            fluidsynth:p
+            libserialport:p
+            qt6-base:p
+            qt6-tools:p
+            vulkan-headers:p
+            llvm-openmp:p
+            zstd:p
+
+      - name: Build, test, audit and package
+        shell: pwsh
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          MSYS2_ROOT: ${{ steps.msys2.outputs.msys2-location }}
+        run: ./tools/build-private-rc.ps1 -Version $env:VERSION -Msys2Root $env:MSYS2_ROOT
+
+      - name: Attest the package provenance
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: dist/BluMach-${{ steps.version.outputs.version }}-Windows-x86_64.zip
+
+      - name: Upload the package
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: BluMach-${{ steps.version.outputs.version }}-Windows-x86_64
+          path: |
+            dist/BluMach-${{ steps.version.outputs.version }}-Windows-x86_64.zip
+            dist/BluMach-${{ steps.version.outputs.version }}-Windows-x86_64.zip.sha256
+            dist/BluMach-${{ steps.version.outputs.version }}-Windows-x86_64.manifest.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Create the draft release
+        if: github.event_name == 'push' || inputs.dry_run == false
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          $base = "dist/BluMach-$env:VERSION-Windows-x86_64"
+          $arguments = @(
+            'release', 'create', $env:TAG,
+            "$base.zip", "$base.zip.sha256", "$base.manifest.json",
+            '--draft', '--title', "BluMach $env:VERSION"
+          )
+          # An existing tag must name the commit that was built; otherwise the
+          # draft records that commit as the tag's target.
+          $tagged = git rev-parse -q --verify "refs/tags/$env:TAG^{commit}"
+          if ($LASTEXITCODE -eq 0) {
+            if ($tagged -ne $env:GITHUB_SHA) { throw "$env:TAG points to $tagged, not the built $env:GITHUB_SHA" }
+            $arguments += '--verify-tag'
+          } else {
+            $arguments += @('--target', $env:GITHUB_SHA)
+          }
+          if ($env:VERSION.Contains('-')) { $arguments += '--prerelease' }
+          $notes = "doc/releases/$env:VERSION.md"
+          if (Test-Path -LiteralPath $notes) {
+            $arguments += @('--notes-file', $notes)
+          } else {
+            $arguments += @('--notes', "BluMach $env:VERSION")
+          }
+          gh @arguments
+          if ($LASTEXITCODE -ne 0) { throw "The draft release could not be created" }

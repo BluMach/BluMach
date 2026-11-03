@@ -47,10 +47,30 @@ Installed artifacts can be checked without firmware using:
 python tools/package_audit.py --help
 ```
 
-The published Windows package of each version comes from a stricter wrapper,
-first written for the private `0.1.0-rc.1` reference build. It builds, tests,
-installs, audits and produces a file-by-file manifest plus an archive SHA-256
-from a clean commit:
+## Publishing a version
+
+A version is published by pushing its tag, `v<version>`, on the commit whose
+release metadata describes it (`python tools/release_version.py check`). The
+tag starts the [Release workflow](../.github/workflows/release.yml), which:
+
+1. checks that the tag matches the release metadata;
+2. runs `tools/build-private-rc.ps1 -Version <version>` in MSYS2 UCRT64 on
+   `windows-2022`, which builds, tests, installs, audits and writes the
+   manifest and the archive SHA-256;
+3. attests the provenance of the ZIP with GitHub artifact attestations;
+4. uploads the ZIP, the SHA-256 file and the manifest as a run artifact;
+5. creates a **draft** GitHub release with those three files and, as notes,
+   `doc/releases/<version>.md` when it exists.
+
+The workflow never publishes: review the draft and publish it by hand. It can
+also be started from the Actions tab with a `version` and `dry_run`; a dry run,
+the default, stops after the run artifact and creates no release.
+
+The provenance of a downloaded package can be checked with
+`gh attestation verify BluMach-<version>-Windows-x86_64.zip --repo BluMach/BluMach`.
+
+The same script still works locally to test a package before tagging. It
+expects MSYS2 at `C:\msys64`; pass `-Msys2Root` for another location:
 
 ```text
 powershell -ExecutionPolicy Bypass -File tools/build-private-rc.ps1 -Version <version>

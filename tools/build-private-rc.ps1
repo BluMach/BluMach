@@ -1,12 +1,13 @@
 param(
     [string]$Version = "0.1.0-rc.1",
     [string]$Configuration = "Release",
-    [switch]$SkipArchive
+    [switch]$SkipArchive,
+    [string]$Msys2Root = "C:\msys64"
 )
 
 $ErrorActionPreference = "Stop"
 $sourceRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
-$bash = "C:\msys64\usr\bin\bash.exe"
+$bash = Join-Path $Msys2Root "usr\bin\bash.exe"
 if (-not (Test-Path -LiteralPath $bash)) {
     throw "MSYS2 was not found at $bash"
 }
@@ -14,7 +15,8 @@ if (-not (Test-Path -LiteralPath $bash)) {
 Push-Location $sourceRoot
 try {
     $reportedVersion = python -B tools/release_version.py check
-    if ($LASTEXITCODE -ne 0 -or $reportedVersion -notmatch [regex]::Escape($Version)) {
+    # Exact match: 0.1.0-alpha must not pass for 0.1.0-alpha.5.
+    if ($LASTEXITCODE -ne 0 -or "$reportedVersion".Trim() -notmatch ("synchronized at " + [regex]::Escape($Version) + '$')) {
         throw "Release metadata does not describe BluMach $Version"
     }
 
