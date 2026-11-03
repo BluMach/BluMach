@@ -130,6 +130,39 @@ class CatalogAuditTests(unittest.TestCase):
 
         self.assertEqual([], errors)
 
+    def test_photograph_requires_credit_license_and_source(self) -> None:
+        errors: list[str] = []
+        catalog_audit.validate_media(
+            "example",
+            {"media": {
+                "kind": "photograph",
+                "resource": ":/blumach/catalog/images/example-photo.jpg",
+                "label_key": "media.kind.photograph",
+                "license": "All rights reserved",
+                "source": "http://example.org/file",
+            }},
+            errors,
+        )
+
+        self.assertEqual(3, len(errors))
+
+    def test_photograph_accepts_credited_free_license(self) -> None:
+        errors: list[str] = []
+        catalog_audit.validate_media(
+            "example",
+            {"media": {
+                "kind": "photograph",
+                "resource": ":/blumach/catalog/images/example-photo.jpg",
+                "label_key": "media.kind.photograph",
+                "credit": "Example Author",
+                "license": "CC BY-SA 4.0",
+                "source": "https://commons.wikimedia.org/wiki/File:Example.jpg",
+            }},
+            errors,
+        )
+
+        self.assertEqual([], errors)
+
     def test_visible_product_requires_visible_parents(self) -> None:
         errors: list[str] = []
 

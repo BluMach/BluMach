@@ -26,6 +26,7 @@
 #include <QJsonArray>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMouseEvent>
 #include <QPainter>
 #include <QPainterPath>
 #include <QPixmap>
@@ -100,23 +101,46 @@ public:
 
     void setProduct(const QString &caption, const QString &formFactor,
                     const QString &genericLabel, const QJsonObject &media,
-                    const QString &mediaLabel)
+                    const QString &mediaLabel, const QString &credit)
     {
         m_formFactor = formFactor;
         m_genericLabel = genericLabel;
         m_mediaLabel = mediaLabel;
         m_image.load(media.value(QStringLiteral("resource")).toString());
+        m_photograph = media.value(QStringLiteral("kind")).toString() == QStringLiteral("photograph");
+        m_credit.clear();
+        m_source.clear();
         if (m_image.isNull()) {
             m_mediaLabel = m_genericLabel;
+            m_photograph = false;
+        } else {
+            m_credit = credit;
+            const QUrl source(media.value(QStringLiteral("source")).toString());
+            if (source.isValid() && source.scheme() == QStringLiteral("https"))
+                m_source = source;
         }
+        setToolTip(m_source.isEmpty() ? m_credit
+                                      : QStringLiteral("%1\n%2").arg(m_credit, m_source.toString()));
+        setCursor(m_source.isEmpty() ? Qt::ArrowCursor : Qt::PointingHandCursor);
+        const QString description = m_credit.isEmpty()
+                                      ? m_mediaLabel
+                                      : QStringLiteral("%1. %2").arg(m_mediaLabel, m_credit);
         setAccessibleName(QStringLiteral("%1 — %2").arg(caption, m_mediaLabel));
-        setAccessibleDescription(m_mediaLabel);
+        setAccessibleDescription(description);
         update();
     }
 
     QSize sizeHint() const override { return { 250, 122 }; }
 
 protected:
+    void mouseReleaseEvent(QMouseEvent *event) override
+    {
+        // The photograph links to the file page that states its author and licence.
+        if (event->button() == Qt::LeftButton && !m_source.isEmpty())
+            QDesktopServices::openUrl(m_source);
+        QWidget::mouseReleaseEvent(event);
+    }
+
     void paintEvent(QPaintEvent *) override
     {
         QPainter painter(this);
@@ -133,7 +157,10 @@ protected:
             return path;
         }());
         if (!m_image.isNull()) {
-            const QPixmap scaled = m_image.scaled(size(), Qt::KeepAspectRatioByExpanding,
+            // Photographs are shown whole; illustrations are composed to fill the card.
+            const QPixmap scaled = m_image.scaled(size(),
+                                                  m_photograph ? Qt::KeepAspectRatio
+                                                               : Qt::KeepAspectRatioByExpanding,
                                                   Qt::SmoothTransformation);
             painter.drawPixmap((width() - scaled.width()) / 2,
                                (height() - scaled.height()) / 2, scaled);
@@ -166,13 +193,33 @@ protected:
         painter.drawRoundedRect(labelRect, 12, 12);
         painter.setPen(pal.color(QPalette::Text));
         painter.drawText(labelRect, Qt::AlignCenter, label);
+
+        if (!m_credit.isEmpty()) {
+            auto creditFont = font();
+            creditFont.setPointSizeF(qMax(6.5, creditFont.pointSizeF() - 2.0));
+            painter.setFont(creditFont);
+            const QString credit = painter.fontMetrics().elidedText(m_credit, Qt::ElideRight,
+                                                                    qMax(0, width() - 28));
+            const int creditWidth = painter.fontMetrics().horizontalAdvance(credit) + 12;
+            const int creditHeight = painter.fontMetrics().height() + 4;
+            const QRectF creditRect(width() - 8 - creditWidth, height() - 8 - creditHeight,
+                                    creditWidth, creditHeight);
+            painter.setPen(Qt::NoPen);
+            painter.setBrush(labelBackground);
+            painter.drawRoundedRect(creditRect, creditHeight / 2.0, creditHeight / 2.0);
+            painter.setPen(pal.color(QPalette::Text));
+            painter.drawText(creditRect, Qt::AlignCenter, credit);
+        }
     }
 
 private:
     QString m_formFactor;
     QString m_genericLabel;
     QString m_mediaLabel;
+    QString m_credit;
+    QUrl m_source;
     QPixmap m_image;
+    bool m_photograph = false;
 };
 
 class CollectionItemDelegate final : public QStyledItemDelegate {
@@ -1132,8 +1179,18 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
     const QString mediaLabel = product->media.isEmpty()
                                  ? genericLabel
                                  : m_catalog.text(product->media.value(QStringLiteral("label_key")).toString());
+    QString mediaCredit;
+    const QString mediaAuthor = product->media.value(QStringLiteral("credit")).toString();
+    if (!mediaAuthor.isEmpty()) {
+        const QString license = product->media.value(QStringLiteral("license")).toString();
+        mediaCredit = m_catalog.text(QStringLiteral("media.credit"))
+                          .arg(mediaAuthor,
+                               license == QStringLiteral("public-domain")
+                                   ? m_catalog.text(QStringLiteral("media.license.public_domain"))
+                                   : license);
+    }
     static_cast<MachineIllustration *>(m_machineIllustration)
-        ->setProduct(product->name, formFactor, genericLabel, product->media, mediaLabel);
+        ->setProduct(product->name, formFactor, genericLabel, product->media, mediaLabel, mediaCredit);
     updateResponsiveLayout();
     if (!product->warningKey.isEmpty()) {
         m_warningLabel->setText(m_catalog.text(product->warningKey));

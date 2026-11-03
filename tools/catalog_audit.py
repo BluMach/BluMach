@@ -259,6 +259,20 @@ def validate_creation(product_id: str, product: dict[str, Any], errors: list[str
                 errors.append(f"{location} must define a section and values object")
 
 
+PHOTOGRAPH_LICENSES = {
+    "public-domain",
+    "CC0 1.0",
+    "CC BY 2.0",
+    "CC BY 2.5",
+    "CC BY 3.0",
+    "CC BY 4.0",
+    "CC BY-SA 2.0",
+    "CC BY-SA 2.5",
+    "CC BY-SA 3.0",
+    "CC BY-SA 4.0",
+}
+
+
 def validate_media(product_id: str, product: dict[str, Any], errors: list[str]) -> None:
     media = product.get("media")
     if media is None:
@@ -276,6 +290,19 @@ def validate_media(product_id: str, product: dict[str, Any], errors: list[str]) 
         errors.append(f"{owner}.resource must be a catalogue image resource path")
     if not isinstance(media.get("label_key"), str) or not media.get("label_key"):
         errors.append(f"{owner}.label_key is required")
+    if media.get("kind") != "photograph":
+        return
+    # Third-party photographs keep their own licence: the sheet must credit the
+    # author, name a free licence and link the file page that states it.
+    credit = media.get("credit")
+    if not isinstance(credit, str) or not credit.strip():
+        errors.append(f"{owner}.credit must name the photograph's author")
+    if media.get("license") not in PHOTOGRAPH_LICENSES:
+        errors.append(f"{owner}.license must be one of {sorted(PHOTOGRAPH_LICENSES)}")
+    source = media.get("source")
+    if not isinstance(source, str) or urlparse(source).scheme != "https" \
+            or not urlparse(source).netloc:
+        errors.append(f"{owner}.source must be the https page that states the licence")
 
 
 def platform_engine(platform: dict[str, Any]) -> Any:

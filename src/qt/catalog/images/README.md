@@ -1,10 +1,15 @@
-# BluMach catalog illustrations
+# BluMach catalog images
 
-Author and copyright: rtzor, 2026. Distributed under
-`GPL-2.0-or-later` as part of BluMach.
+This directory holds two kinds of image:
 
-These images are generated editorial recreations, not documentary photographs.
-The UI identifies them as **Concept illustration** or **Board recreation**.
+- **Illustrations** (`*-family-*.jpg`, `*-branded.jpg`, `*-board.jpg`): author and
+  copyright rtzor, 2026, distributed under `GPL-2.0-or-later` as part of BluMach.
+  They are generated editorial recreations, not documentary photographs, and the
+  UI identifies them as **Concept illustration** or **Board recreation**.
+- **Photographs** (`*-photo.jpg`): third-party works under their own free
+  licences, listed in [Photographs](#photographs). They are not covered by the
+  GPL. The UI labels them **Photograph** and shows the author and licence on the
+  image; clicking it opens the file page that states the licence.
 
 Each bundled image is opt-in metadata in its machine bundle:
 
@@ -20,6 +25,46 @@ Supported v1 kinds are `photograph`, `concept_illustration` and
 `board_recreation`. A machine without `media` uses the localized generic
 form-factor symbol. The interface never guesses a product image from its ID;
 an unreadable declared resource also falls back to that generic symbol.
+
+A photograph also names its author, licence and source page, and
+`tools/catalog_audit.py` rejects one without them or under a non-free licence:
+
+```json
+"media": {
+  "kind": "photograph",
+  "resource": ":/blumach/catalog/images/example-photo.jpg",
+  "label_key": "media.kind.photograph",
+  "credit": "Author as stated on the file page",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Example.jpg"
+}
+```
+
+`license` is `public-domain` or a Creative Commons short name (`CC0 1.0`,
+`CC BY x.y`, `CC BY-SA x.y`).
+
+## Photographs
+
+Downloaded from Wikimedia Commons on 2026-11-02. Each was resized to fit within
+900 × 600 pixels and re-encoded as JPEG at quality 90 without its EXIF or other
+metadata; nothing else was changed. The licences are those stated on each file
+page at that date.
+
+| File | Machine | Author | Licence | Source |
+|---|---|---|---|---|
+| `toshiba-t3200-photo.jpg` | Toshiba T3200 | Liftarn | Public domain | [ToshibaT3200.jpg](https://commons.wikimedia.org/wiki/File:ToshibaT3200.jpg) |
+| `olivetti-prodest-pc1hd-photo.jpg` | Olivetti Prodest PC 1 HD | A7N8X | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | [Olivetti Prodest PC1 HD.jpg](https://commons.wikimedia.org/wiki/File:Olivetti_Prodest_PC1_HD.jpg) |
+| `amstrad-pc1512-photo.jpg` | Amstrad PC1512 | Marcin Wichary | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | [Amstrad PC1512.jpg](https://commons.wikimedia.org/wiki/File:Amstrad_PC1512.jpg) |
+| `olivetti-m15-photo.jpg` | Olivetti M15 | Sailko | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) | [Olivetti, primo computer portatile M15, 1987 (fond. natale cappellaro).jpg](https://commons.wikimedia.org/wiki/File:Olivetti,_primo_computer_portatile_M15,_1987_(fond._natale_cappellaro).jpg) |
+| `olivetti-m10-photo.jpg` | Olivetti M10 | Museo Nazionale Scienza e Tecnologia Leonardo da Vinci, Milan | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Personal computer portatile - Museo scienza tecnologia Milano 15635.jpg](https://commons.wikimedia.org/wiki/File:Personal_computer_portatile_-_Museo_scienza_tecnologia_Milano_15635.jpg) |
+| `olivetti-m28-photo.jpg` | Olivetti M28 | TiBo's Retro Computers | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Olivetti-M28.jpg](https://commons.wikimedia.org/wiki/File:Olivetti-M28.jpg) |
+| `olivetti-prodest-pc1-photo.jpg` | Olivetti Prodest PC 1 | ValorosoIT; crop by DnaX | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Olivetti Prodest PC1 vintage computer, diagnostics and DOS boot, front view (crop).jpg](https://commons.wikimedia.org/wiki/File:Olivetti_Prodest_PC1_vintage_computer,_diagnostics_and_DOS_boot,_front_view_(crop).jpg) |
+
+The resized `CC BY` and `CC BY-SA` files are adaptations of the originals and
+are distributed under the same licence as their original. They are separate
+works aggregated with BluMach, not part of the GPL-covered program.
+
+## Illustrations
 
 Generated with the built-in OpenAI image tool on 2026-08-31 and 2026-09-01 from
 locally held research references. The reference images are not distributed with

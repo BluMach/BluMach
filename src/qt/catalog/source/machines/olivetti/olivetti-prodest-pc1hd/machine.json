@@ -39,6 +39,14 @@
         "xta"
       ]
     },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-prodest-pc1hd-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "A7N8X",
+      "license": "CC0 1.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivetti_Prodest_PC1_HD.jpg"
+    },
     "hardware": {
       "cpu": "NEC V40, switchable 4.77/8 MHz",
       "memory": "640 KB visible; 768 KB physically populated according to the technical guide",

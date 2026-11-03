@@ -41,6 +41,14 @@
         "mfm"
       ]
     },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-m28-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "TiBo's Retro Computers",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivetti-M28.jpg"
+    },
     "hardware": {
       "cpu": "Intel 80286, 8 MHz",
       "memory": "512 KB standard; 1 MB on-board documented",

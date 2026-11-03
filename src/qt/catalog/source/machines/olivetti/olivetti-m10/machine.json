@@ -42,6 +42,14 @@
         "monochrome"
       ]
     },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-m10-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Museo Nazionale Scienza e Tecnologia Leonardo da Vinci",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Personal_computer_portatile_-_Museo_scienza_tecnologia_Milano_15635.jpg"
+    },
     "hardware": {
       "cpu": "OKI MSM80C85A at 2.4576 MHz (4.9152 MHz crystal)",
       "memory": "8, 16, 24 or 32 KB battery-backed RAM in 8 KB modules; 32 KB system ROM",
