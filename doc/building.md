@@ -57,9 +57,13 @@ tag starts the [Release workflow](../.github/workflows/release.yml), which:
 2. runs `tools/build-private-rc.ps1 -Version <version>` in MSYS2 UCRT64 on
    `windows-2022`, which builds, tests, installs, audits and writes the
    manifest and the archive SHA-256;
-3. attests the provenance of the ZIP with GitHub artifact attestations;
-4. uploads the ZIP, the SHA-256 file and the manifest as a run artifact;
-5. creates a **draft** GitHub release with those three files and, as notes,
+3. exports the public part of the catalogue for the website with
+   `tools/catalog_web_export.py` (see below);
+4. attests the provenance of the package ZIP and the catalogue ZIP with
+   GitHub artifact attestations;
+5. uploads the package ZIP, its SHA-256 file, the manifest and the catalogue
+   ZIP as a run artifact;
+6. creates a **draft** GitHub release with those four files and, as notes,
    `doc/releases/<version>.md` when it exists.
 
 The workflow never publishes: review the draft and publish it by hand. It can
@@ -69,6 +73,16 @@ attested. A manual run without `dry_run` must use `master`.
 
 The provenance of a downloaded package can be checked with
 `gh attestation verify BluMach-<version>-Windows-x86_64.zip --repo BluMach/BluMach`.
+
+`BluMach-<version>-catalog-web.zip` feeds the machine pages of the website.
+It holds `manifest.json` (version, tag and commit), `catalog.json` with the
+visible manufacturers, families and machines, the five locale packs and the
+images the machines use. Creation templates and emulator identifiers stay out:
+they only matter to the application. To produce it for a checkout:
+
+```text
+python -B tools/catalog_web_export.py --version <version> --commit <commit> --output catalog-web.zip
+```
 
 The same script still works locally to test a package before tagging. It
 expects MSYS2 at `C:\msys64`; pass `-Msys2Root` for another location:
