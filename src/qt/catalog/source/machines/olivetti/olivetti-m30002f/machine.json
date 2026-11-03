@@ -10,6 +10,7 @@
     "summary_key": "product.olivetti-m30002f.summary",
     "history_key": "product.olivetti-m30002f.history",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1992",
     "aliases": [
       "BA013/25"

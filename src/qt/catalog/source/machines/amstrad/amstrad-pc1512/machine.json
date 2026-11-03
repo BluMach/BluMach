@@ -10,6 +10,7 @@
     "history_key": "product.amstrad-pc1512.history",
     "warning_key": "product.amstrad-pc1512.warning",
     "status": "partial",
+    "blumach_emulation": "improved",
     "period": "1986–1987",
     "aliases": [
       "PC1512 SD",

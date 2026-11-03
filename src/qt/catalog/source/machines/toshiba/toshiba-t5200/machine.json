@@ -11,6 +11,7 @@
     "history_key": "product.toshiba-t5200.history",
     "warning_key": "product.toshiba-t5200.warning",
     "status": "experimental",
+    "blumach_emulation": "implemented",
     "period": "1989–1991",
     "aliases": [
       "T5200/100",

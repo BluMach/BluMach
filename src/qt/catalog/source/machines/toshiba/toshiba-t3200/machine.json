@@ -11,6 +11,7 @@
     "history_key": "product.toshiba-t3200.history",
     "warning_key": "product.toshiba-t3200.warning",
     "status": "experimental",
+    "blumach_emulation": "implemented",
     "period": "1987",
     "aliases": [],
     "tags": [

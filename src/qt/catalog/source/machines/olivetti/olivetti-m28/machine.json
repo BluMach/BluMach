@@ -11,6 +11,7 @@
     "history_key": "product.olivetti-m28.history",
     "warning_key": "product.olivetti-m28.warning",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1986–1987",
     "aliases": [
       "Olivetti CPU 2801"

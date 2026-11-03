@@ -10,6 +10,7 @@
     "history_key": "product.olivetti-m250.history",
     "warning_key": "product.olivetti-m250.warning",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1989",
     "aliases": [],
     "tags": [

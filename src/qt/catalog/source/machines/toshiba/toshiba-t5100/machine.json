@@ -10,6 +10,7 @@
     "history_key": "product.toshiba-t5100.history",
     "warning_key": "product.toshiba-t5100.warning",
     "status": "experimental",
+    "blumach_emulation": "implemented",
     "visible": true,
     "period": "1987–1988",
     "aliases": [],

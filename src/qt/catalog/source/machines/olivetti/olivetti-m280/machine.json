@@ -10,6 +10,7 @@
     "history_key": "product.olivetti-m280.history",
     "warning_key": "product.olivetti-m280.warning",
     "status": "experimental",
+    "blumach_emulation": "implemented",
     "period": "Late 1980s",
     "period_key": "product.olivetti-m280.period",
     "aliases": [

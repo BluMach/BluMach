@@ -10,6 +10,7 @@
     "summary_key": "product.olivetti-m300-if378.summary",
     "history_key": "product.olivetti-m300-if378.history",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1990",
     "aliases": [
       "M300 UC.112/113"

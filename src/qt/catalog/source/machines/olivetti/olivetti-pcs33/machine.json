@@ -10,6 +10,7 @@
     "summary_key": "product.olivetti-pcs33.summary",
     "history_key": "product.olivetti-pcs33.history",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1992–1993",
     "aliases": [
       "PCS33"

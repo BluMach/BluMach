@@ -10,6 +10,7 @@
     "summary_key": "product.olivetti-pcs386sx.summary",
     "history_key": "product.olivetti-pcs386sx.history",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1990",
     "aliases": [
       "PCS386SX",

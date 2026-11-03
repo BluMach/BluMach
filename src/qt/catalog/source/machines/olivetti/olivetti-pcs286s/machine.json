@@ -11,6 +11,7 @@
     "history_key": "product.olivetti-pcs286s.history",
     "warning_key": "product.olivetti-pcs286s.warning",
     "status": "validated",
+    "blumach_emulation": "implemented",
     "period": "1991",
     "aliases": [
       "PCS 286/S",

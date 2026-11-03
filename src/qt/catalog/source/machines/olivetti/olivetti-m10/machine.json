@@ -12,6 +12,7 @@
     "history_key": "product.olivetti-m10.history",
     "warning_key": "product.olivetti-m10.warning",
     "status": "experimental",
+    "blumach_emulation": "implemented",
     "period": "1983",
     "aliases": [
       "M10",

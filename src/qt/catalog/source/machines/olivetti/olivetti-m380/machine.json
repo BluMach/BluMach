@@ -10,6 +10,7 @@
     "history_key": "product.olivetti-m380.history",
     "warning_key": "product.olivetti-m380.warning",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1988–1989",
     "aliases": [
       "M380 C",
