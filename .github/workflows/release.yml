@@ -51,7 +51,7 @@ jobs:
         env:
           INPUT_VERSION: ${{ inputs.version }}
         run: |
-          if ($env:GITHUB_EVENT_NAME -eq 'push') {
+          if ($env:GITHUB_REF_TYPE -eq 'tag') {
             $tag = $env:GITHUB_REF_NAME
             if (-not $tag.StartsWith('v')) { throw "Release tags start with v, got $tag" }
             $version = $tag.Substring(1)
@@ -123,7 +123,10 @@ jobs:
           retention-days: 30
 
       - name: Create the draft release
-        if: github.event_name == 'push' || inputs.dry_run == false
+        # Only a pushed v* tag, or a manual run with dry_run unticked.
+        if: >-
+          (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v'))
+          || (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
