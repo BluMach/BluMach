@@ -14,8 +14,8 @@
 
 Name:		blumach
 Version:	0.1.0
-Release:	0.alpha5%{?dist}
-%global upstream_version 0.1.0-alpha.5
+Release:	0.alpha6%{?dist}
+%global upstream_version 0.1.0-alpha.6
 Summary:	Classic PC emulator
 License:	GPLv2+
 URL:		https://github.com/BluMach/BluMach
@@ -92,8 +92,8 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/io.github.BluM
 %{_datadir}/icons/hicolor/*/apps/io.github.BluMach.BluMach.png
 
 %changelog
-* Tue Oct 20 2026 BluMach project maintainers <blumach@users.noreply.github.com> 0.1.0-0.alpha5
-- Prepare the fourth classic preview with TriGem and more Olivetti M machines
+* Tue Nov 03 2026 BluMach project maintainers <blumach@users.noreply.github.com> 0.1.0-0.alpha6
+- Prepare the sixth classic preview with the Olivetti M10 on the CoreMach engine
 
 * Thu Oct 15 2026 BluMach project maintainers <blumach@users.noreply.github.com> 0.1.0-0.alpha3
 - Prepare the third classic preview with more Olivetti, Amstrad and Triumph-Adler machines
