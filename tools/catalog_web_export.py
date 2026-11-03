@@ -5,7 +5,9 @@ The archive holds what the application's Collection shows about each machine
 (history, technical sheet, status, sources, images with their credits) in
 every catalogue language. It leaves out what only the application needs to
 create a machine: creation templates, emulator machine identifiers and
-CoreMach system identifiers.
+CoreMach system identifiers. Entries the application hides (without
+"visible": true, including development-only ones) are left out entirely,
+together with their texts.
 """
 
 from __future__ import annotations
@@ -50,7 +52,13 @@ def image_files(resource_file: Path) -> dict[str, Path]:
 
 
 def visible(entity: dict[str, Any]) -> bool:
-    return entity.get("visible", True) is not False
+    """Same rule as the application's release catalogue: only an explicit "visible": true."""
+    return entity.get("visible") is True
+
+
+def hidden_text(key: str, hidden: dict[str, set[str]]) -> bool:
+    kind, _, rest = key.partition(".")
+    return any(rest.startswith(f"{entity_id}.") for entity_id in hidden.get(kind, ()))
 
 
 def public_product(
@@ -99,12 +107,18 @@ def export(
     families = [f for f in catalog["families"]
                 if visible(f) and f.get("manufacturer_id") in manufacturer_ids]
     family_ids = {f["id"] for f in families}
+    hidden = {
+        "manufacturer": {m["id"] for m in catalog["manufacturers"]} - manufacturer_ids,
+        "family": {f["id"] for f in catalog["families"]} - family_ids,
+    }
     images: set[str] = set()
     products = [
         public_product(product, platforms, tag, images)
         for product in catalog["products"]
         if visible(product) and product.get("family_id") in family_ids
     ]
+
+    hidden["product"] = {p["id"] for p in catalog["products"]} - {p["id"] for p in products}
 
     files: dict[str, bytes] = {}
     image_paths = image_files(resource_file)
@@ -114,7 +128,8 @@ def export(
             raise ValueError(f"image resource not found: {name} ({path})")
         files[f"images/{name}"] = path.read_bytes()
     for locale, values in sorted(translations.items()):
-        files[f"locales/{locale}.json"] = encode(values)
+        files[f"locales/{locale}.json"] = encode(
+            {key: value for key, value in values.items() if not hidden_text(key, hidden)})
     files["catalog.json"] = encode({
         "filter_facets": catalog["filter_facets"],
         "manufacturers": manufacturers,

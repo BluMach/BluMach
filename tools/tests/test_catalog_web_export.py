@@ -38,6 +38,27 @@ class CatalogWebExportTests(unittest.TestCase):
         self.assertNotIn("emulator_machine_id", text)
         self.assertNotIn("coremach_system_id", text)
 
+    def test_hidden_entries_and_their_texts_stay_out(self) -> None:
+        catalog, _ = catalog_web_export.catalog_builder.assemble(ROOT / "src/qt/catalog/source")
+        hidden = {p["id"] for p in catalog["products"] if p.get("visible") is not True}
+        hidden_families = {f["id"] for f in catalog["families"] if f.get("visible") is not True}
+        self.assertTrue(hidden)
+        exported = {p["id"] for p in self.catalog["products"]}
+        self.assertFalse(hidden & exported)
+        self.assertFalse(hidden_families & {f["id"] for f in self.catalog["families"]})
+        for locale in self.manifest["locales"]:
+            keys = json.loads(self.files[f"locales/{locale}.json"])
+            for product_id in hidden:
+                self.assertFalse([k for k in keys if k.startswith(f"product.{product_id}.")], product_id)
+            for family_id in hidden_families:
+                self.assertFalse([k for k in keys if k.startswith(f"family.{family_id}.")], family_id)
+
+    def test_only_explicitly_visible_entries_count(self) -> None:
+        self.assertTrue(catalog_web_export.visible({"visible": True}))
+        self.assertFalse(catalog_web_export.visible({}))
+        self.assertFalse(catalog_web_export.visible({"visible": False}))
+        self.assertFalse(catalog_web_export.visible({"development": True}))
+
     def test_every_image_is_included_with_its_product(self) -> None:
         for product in self.catalog["products"]:
             media = product.get("media")
