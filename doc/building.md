@@ -64,7 +64,8 @@ tag starts the [Release workflow](../.github/workflows/release.yml), which:
 
 The workflow never publishes: review the draft and publish it by hand. It can
 also be started from the Actions tab with a `version` and `dry_run`; a dry run,
-the default, stops after the run artifact and creates no release.
+the default, stops after the run artifact, creates no release and is not
+attested. A manual run without `dry_run` must use `master`.
 
 The provenance of a downloaded package can be checked with
 `gh attestation verify BluMach-<version>-Windows-x86_64.zip --repo BluMach/BluMach`.
