@@ -179,6 +179,17 @@ class CatalogAuditTests(unittest.TestCase):
                 "test", {"platform_id": "test-platform", "blumach_emulation": value}, errors)
             self.assertEqual([], errors)
 
+    def test_inherited_machine_has_no_implementation_document(self) -> None:
+        product = {"platform_id": "test-platform", "blumach_emulation": "inherited",
+                   "implementation": {"document": "test-implementation.md", "language": "en"}}
+        errors: list[str] = []
+        catalog_audit.validate_blumach_emulation("test", product, errors)
+        self.assertTrue(any("no implementation document" in error for error in errors))
+        product["blumach_emulation"] = "improved"
+        errors.clear()
+        catalog_audit.validate_blumach_emulation("test", product, errors)
+        self.assertEqual([], errors)
+
     def test_research_sheet_has_no_blumach_emulation(self) -> None:
         errors: list[str] = []
         catalog_audit.validate_blumach_emulation("test", {"blumach_emulation": "implemented"}, errors)

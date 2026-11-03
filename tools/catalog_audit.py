@@ -320,6 +320,9 @@ def validate_blumach_emulation(product_id: str, product: dict[str, Any], errors:
         errors.append(
             f"{owner}.blumach_emulation must be one of {sorted(BLUMACH_EMULATION)}, got {value!r}"
         )
+    elif value == "inherited" and "implementation" in product:
+        # BluMach did not write an inherited machine, so it has no engineering note.
+        errors.append(f"{owner}: an inherited machine has no implementation document")
 
 
 def platform_engine(platform: dict[str, Any]) -> Any:
