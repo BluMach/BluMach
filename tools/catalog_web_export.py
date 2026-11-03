@@ -119,6 +119,17 @@ def export(
     ]
 
     hidden["product"] = {p["id"] for p in catalog["products"]} - {p["id"] for p in products}
+    for product in products:
+        relationships = product.get("relationships")
+        if isinstance(relationships, dict):
+            for kind in list(relationships):
+                kept = [item for item in relationships[kind] if item not in hidden["product"]]
+                if kept:
+                    relationships[kind] = kept
+                else:
+                    del relationships[kind]
+            if not relationships:
+                del product["relationships"]
 
     files: dict[str, bytes] = {}
     image_paths = image_files(resource_file)

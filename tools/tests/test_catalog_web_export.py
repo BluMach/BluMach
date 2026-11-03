@@ -46,6 +46,12 @@ class CatalogWebExportTests(unittest.TestCase):
         exported = {p["id"] for p in self.catalog["products"]}
         self.assertFalse(hidden & exported)
         self.assertFalse(hidden_families & {f["id"] for f in self.catalog["families"]})
+        for name, data in self.files.items():
+            if name.endswith(".json"):
+                text = data.decode("utf-8")
+                for entity_id in hidden | hidden_families:
+                    self.assertNotIn(f'"{entity_id}"', text, (name, entity_id))
+                    self.assertNotIn(f'.{entity_id}.', text, (name, entity_id))
         for locale in self.manifest["locales"]:
             keys = json.loads(self.files[f"locales/{locale}.json"])
             for product_id in hidden:
