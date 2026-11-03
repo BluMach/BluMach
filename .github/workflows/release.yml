@@ -50,6 +50,7 @@ jobs:
         shell: pwsh
         env:
           INPUT_VERSION: ${{ inputs.version }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
           if ($env:GITHUB_REF_TYPE -eq 'tag') {
             $tag = $env:GITHUB_REF_NAME
@@ -57,6 +58,10 @@ jobs:
             $version = $tag.Substring(1)
           } else {
             $version = "$env:INPUT_VERSION".Trim()
+            # A manual run that creates a draft must build master; dry runs may build any branch.
+            if ($env:DRY_RUN -ne 'true' -and $env:GITHUB_REF -ne 'refs/heads/master') {
+              throw "A draft release can only be created from master, not $env:GITHUB_REF; tick dry_run to test another branch"
+            }
             $tag = "v$version"
           }
           if ($version -notmatch '^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$') {
@@ -107,6 +112,11 @@ jobs:
         run: ./tools/build-private-rc.ps1 -Version $env:VERSION -Msys2Root $env:MSYS2_ROOT
 
       - name: Attest the package provenance
+        # Dry runs are tests: only a package that becomes a draft is attested.
+        if: >-
+          (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v'))
+          || (github.event_name == 'workflow_dispatch' && !inputs.dry_run
+              && github.ref == 'refs/heads/master')
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
           subject-path: dist/BluMach-${{ steps.version.outputs.version }}-Windows-x86_64.zip
@@ -123,10 +133,11 @@ jobs:
           retention-days: 30
 
       - name: Create the draft release
-        # Only a pushed v* tag, or a manual run with dry_run unticked.
+        # Only a pushed v* tag, or a manual run on master with dry_run unticked.
         if: >-
           (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v'))
-          || (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
+          || (github.event_name == 'workflow_dispatch' && !inputs.dry_run
+              && github.ref == 'refs/heads/master')
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
