@@ -7,7 +7,8 @@ every catalogue language. It leaves out what only the application needs to
 create a machine: creation templates, emulator machine identifiers and
 CoreMach system identifiers. Entries the application hides (without
 "visible": true, including development-only ones) are left out entirely,
-together with their texts.
+together with their texts. Every exported entry keeps its "visible": true so
+the website can refuse anything else.
 """
 
 from __future__ import annotations
@@ -32,7 +33,7 @@ SCHEMA = "blumach-catalog-web-v1"
 REPOSITORY = "https://github.com/BluMach/BluMach"
 RESOURCE_PREFIX = ":/blumach/catalog/images/"
 # Product fields only the application uses to create or filter machines.
-PRIVATE_PRODUCT_FIELDS = ("creation", "filter_profiles", "platform_id", "visible", "development")
+PRIVATE_PRODUCT_FIELDS = ("creation", "filter_profiles", "platform_id", "development")
 # Fixed timestamp so the same catalogue always gives the same archive bytes.
 ZIP_TIMESTAMP = (2000, 1, 1, 0, 0, 0)
 

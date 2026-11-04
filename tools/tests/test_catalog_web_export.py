@@ -59,6 +59,11 @@ class CatalogWebExportTests(unittest.TestCase):
             for family_id in hidden_families:
                 self.assertFalse([k for k in keys if k.startswith(f"family.{family_id}.")], family_id)
 
+    def test_exported_entries_say_they_are_visible(self) -> None:
+        for kind in ("manufacturers", "families", "products"):
+            for entity in self.catalog[kind]:
+                self.assertIs(True, entity.get("visible"), (kind, entity["id"]))
+
     def test_only_explicitly_visible_entries_count(self) -> None:
         self.assertTrue(catalog_web_export.visible({"visible": True}))
         self.assertFalse(catalog_web_export.visible({}))
