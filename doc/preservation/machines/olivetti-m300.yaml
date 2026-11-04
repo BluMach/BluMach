@@ -80,7 +80,7 @@ firmware_metadata:
     internal_date: "04/28/92"
     size: 131072
     sha256: 5E3E0BF74741C7C68B81711E410B5900132C1F81D1F4240F683A97DDC3288177
-    source: https://theretroweb.com/motherboard/bios/olivetti-m300-02-bios-1-02-6904790be6b23201031634.bin
+    source: https://theretroweb.com/
   - machine_id: olivetti_m30008
     set: system-bios-logical
     size: 65536
@@ -113,9 +113,9 @@ firmware_metadata:
     size: 131072
     sha256: CFF38096CAD2CF74CF4716558281A908787DD8647025A9947D4641326F58B048
 sources:
-  - { type: primary-service-documentation, model: "M300 IF378", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap10.pdf" }
-  - { type: primary-service-documentation, model: "M300-08", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap28.pdf" }
-  - { type: primary-service-documentation, model: "M300-15", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap29.pdf" }
-  - { type: primary-service-documentation, model: "M300-02/M300-02F", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap40.pdf" }
-  - { type: primary-service-documentation, model: "M300-30/M300-30P", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap36.pdf" }
+  - { type: primary-service-documentation, model: "M300 IF378", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html" }
+  - { type: primary-service-documentation, model: "M300-08", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html" }
+  - { type: primary-service-documentation, model: "M300-15", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html" }
+  - { type: primary-service-documentation, model: "M300-02/M300-02F", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html" }
+  - { type: primary-service-documentation, model: "M300-30/M300-30P", url: "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html" }
 notes: "Observed boot paths validate only the listed scenarios; none of these machines is presented as cycle-accurate or complete."

@@ -42,7 +42,7 @@ Sources:
 
 - [Contemporary 1992 PCS range announcement](https://www.techmonitor.ai/technology/olivetti_adds_low_end_easy_to_run_models_to_pcs_line)
 - [Preserved BA013 board record and firmware inventory](https://theretroweb.com/motherboards/s/olivetti-ba013-m300-02)
-- [PCS 11 R2.04 preservation package](https://theretroweb.com/motherboard/bios/ba013-2-04-68455d3661669806977912.zip)
-- [PCS 11 R2.07 preservation package](https://theretroweb.com/motherboard/bios/olivetti-pcs-11-r2-07-61e6bb82d9618185665720.zip)
+- PCS 11 BIOS R2.04 package, on [The Retro Web](https://theretroweb.com/) (Olivetti PCS 11 board page)
+- PCS 11 BIOS R2.07 package, on [The Retro Web](https://theretroweb.com/) (Olivetti PCS 11 board page)
 
 BluMach records metadata only and does not distribute firmware.

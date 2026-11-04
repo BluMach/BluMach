@@ -325,7 +325,7 @@
           {
             "label_key": "technical.label.manual",
             "value_key": "product.olivetti-m10.source.service_manual",
-            "url": "https://www.rsp-italy.it/IT/Computers/Olivetti/_contents/Olivetti%20M10%20portable%20computer%20-%20manuale%20generale%20per%20l%27assistenza.pdf"
+            "url": "https://www.rsp-italy.it/IT/Computers/Olivetti/"
           },
           {
             "label_key": "technical.label.manual",
@@ -340,7 +340,7 @@
           {
             "label_key": "technical.label.market",
             "value_key": "product.olivetti-m10.source.review",
-            "url": "https://www.digitanto.it/mc-online/PDF/Articoli/027_054_059_0.pdf"
+            "url": "https://www.digitanto.it/mc-online/PHP/MCsearch.php?mc=027"
           },
           {
             "label_key": "technical.label.source_notes",

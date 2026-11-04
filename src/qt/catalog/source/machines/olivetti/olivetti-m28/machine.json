@@ -259,7 +259,7 @@
           {
             "label_key": "technical.label.manual",
             "value_key": "product.olivetti-m28.technical.service_manual",
-            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap3.pdf"
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html"
           },
           {
             "label_key": "technical.label.manual",
@@ -269,7 +269,7 @@
           {
             "label_key": "technical.label.brochure",
             "value_key": "product.olivetti-m28.technical.brochure",
-            "url": "https://classic.technology/wp-content/uploads/2021/12/olivettim28nl.pdf"
+            "url": "https://classic.technology/olivetti-personal-computer-m28/"
           }
         ]
       }

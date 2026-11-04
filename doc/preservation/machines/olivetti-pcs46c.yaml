@@ -54,8 +54,8 @@ publications:
   brochures: []
   manuals:
     - title: Olivetti Pocket Service Guide, M4-4x / M4-6x / PCS4xx
-      url: https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2/cap2.pdf
+      url: https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html
 sources:
   - type: primary-service-documentation
-    url: https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2/cap2.pdf
+    url: https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html
 notes: "Bootable and useful, but explicitly partial; M4-46 must not be used as an alias."

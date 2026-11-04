@@ -28,7 +28,7 @@ firmware:
       internal_date: "06/03/92"
       size: 131072
       sha256: A26220590540E2E4DA71FC5EFD97C9C6EC9E14C4F04CAD705BC60F02366907B8
-      source: https://theretroweb.com/motherboard/bios/ba013-2-04-68455d3661669806977912.zip
+      source: https://theretroweb.com/
       source_archive_sha256: 34271B00BB5A314E55185E610D294B771A3C9CE8FB44A58A42F282EA98ECC930
     - name: Olivetti-pcs-11-r2.07.BIN
       expected_path: roms/machines/pcs11/BIOS-R2.07.ROM
@@ -36,7 +36,7 @@ firmware:
       internal_date: "03/01/93"
       size: 131072
       sha256: DAEF0B341FF3446DA6C439D7ECABC579FFB29B953FA5307442CB9238C1F28392
-      source: https://theretroweb.com/motherboard/bios/olivetti-pcs-11-r2-07-61e6bb82d9618185665720.zip
+      source: https://theretroweb.com/
       source_archive_sha256: B2A1531CA8ADDDC5DFBF1A12526113B9E014F917B575EB5D59D44CECD0FA172F
 sources:
   - type: contemporary-product-report

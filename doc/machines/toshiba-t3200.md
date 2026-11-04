@@ -152,8 +152,8 @@ These tests establish useful behavior, not cycle accuracy.
 
 ## Sources
 
-- [Toshiba T3200 Maintenance Manual](https://www.minuszerodegrees.net/manuals/Toshiba/Other/Toshiba%20T3200%20-%20Maintenance%20Manual.pdf)
-- [Toshiba T3200 sales brochure](https://macdat.net/files/pdf/toshiba/brochures/t3200.pdf)
+- [Toshiba T3200 Maintenance Manual](https://www.minuszerodegrees.net/manuals/Toshiba/Toshiba.htm)
+- [Toshiba T3200 sales brochure](https://macdat.net/files/pdf/toshiba/brochures/)
 - [Toshiba TECHaccess T3200 technical sheet](https://conventionalmemories.com/Toshiba/TECHaccess/tech3wog.htm)
 
 The local preservation record is `library/toshiba/t3200`, stable record ID

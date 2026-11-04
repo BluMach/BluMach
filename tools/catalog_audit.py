@@ -715,6 +715,31 @@ def validate_translation_sets(
                 )
 
 
+# Documents on other people's sites are cited through the page where that site
+# presents them, so readers reach the site and its context rather than the bare
+# file. Only a manufacturer's own publications are linked directly.
+MANUFACTURER_DOCUMENT_HOSTS = {
+    "files.support.epson.com",
+    "www.analog.com",
+    "www.ti.com",
+    "www.triumph-adler.com",
+}
+DIRECT_FILE = re.compile(r"\.(?:7z|bin|djvu|exe|ima|img|lzh|pdf|rar|rom|zip)$", re.IGNORECASE)
+DOWNLOAD_PATH = re.compile(r"file-download|downloader\.php|/get/", re.IGNORECASE)
+# Pages that happen to end in a file name but are the site's own description page.
+FILE_PAGE_PREFIXES = {("files.scene.org", "/view/")}
+
+
+def links_to_third_party_file(url: str) -> bool:
+    parsed = urlparse(url)
+    host = parsed.netloc.lower()
+    if host in MANUFACTURER_DOCUMENT_HOSTS:
+        return False
+    if any(host == page_host and parsed.path.startswith(prefix) for page_host, prefix in FILE_PAGE_PREFIXES):
+        return False
+    return bool(DIRECT_FILE.search(parsed.path) or DOWNLOAD_PATH.search(f"{parsed.path}?{parsed.query}"))
+
+
 def validate_urls(value: Any, errors: list[str], path: str = "catalog.json") -> None:
     if isinstance(value, list):
         for position, child in enumerate(value):
@@ -725,6 +750,10 @@ def validate_urls(value: Any, errors: list[str], path: str = "catalog.json") -> 
             if key.endswith("url"):
                 if not isinstance(child, str) or urlparse(child).scheme not in {"http", "https"}:
                     errors.append(f"{child_path}: URL must use http or https")
+                elif links_to_third_party_file(child):
+                    errors.append(
+                        f"{child_path}: link to the page that presents the document, not to the file ({child})"
+                    )
             validate_urls(child, errors, child_path)
 
 

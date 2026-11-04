@@ -139,11 +139,11 @@ software-selected display modes.
 ## Principal references
 
 - *Olivetti M15 Plus Service Guide*, system-board and mass-storage sections:
-  <https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2/capk.pdf>
+  <https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html>
 - *Olivetti M15 Plus Installation and Operations Guide*, first edition,
-  March 1988: <https://mail.minuszerodegrees.net/manuals/Olivetti/Olivetti%20-%20M15%20Plus%20-%20Installation%20and%20Operations%20Guide.pdf>
+  March 1988: <https://www.minuszerodegrees.net/manuals.htm#Olivetti>
 - *Olivetti Personal Computer M15 Plus* brochure, 01200090 G, March 1988:
-  <https://www.museotecnologicamente.it/wp-content/uploads/M15_Depliant_inglese.pdf>
+  <https://www.museotecnologicamente.it/olivetti-m-15-1987/>
 - BIOS index and metadata:
   <https://minuszerodegrees.net/rom/rom.htm>
 - M15 Plus software catalogue:

@@ -252,12 +252,12 @@ a similar name is not sufficient evidence to reuse another M300 model.
 
 ## Sources
 
-- [Olivetti Pocket Service Guide, M300 modular platform (chapter 10)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap10.pdf)
-- [Olivetti Pocket Service Guide, M300-08 (chapter 28)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap28.pdf)
-- [Olivetti Pocket Service Guide, M300-15 (chapter 29)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap29.pdf)
-- [Olivetti Pocket Service Guide, M300-02/M300-02F (chapter 40)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap40.pdf)
-- [Olivetti Pocket Service Guide, M300-30/M300-30P (chapter 36)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1/cap36.pdf)
-- [M300-02 R1.02 preserved dump record](https://theretroweb.com/motherboard/bios/olivetti-m300-02-bios-1-02-6904790be6b23201031634.bin)
+- [Olivetti Pocket Service Guide, M300 modular platform (chapter 10)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html)
+- [Olivetti Pocket Service Guide, M300-08 (chapter 28)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html)
+- [Olivetti Pocket Service Guide, M300-15 (chapter 29)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html)
+- [Olivetti Pocket Service Guide, M300-02/M300-02F (chapter 40)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html)
+- [Olivetti Pocket Service Guide, M300-30/M300-30P (chapter 36)](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html)
+- M300-02 BIOS R1.02 dump, on [The Retro Web](https://theretroweb.com/) (Olivetti M300-02 board page)
 
 No firmware image is distributed by BluMach. Expected names, layouts, hashes
 and observations are recorded for identification and preservation only.
