@@ -11,6 +11,7 @@ on:
       - src/qt_resources.qrc
       - tools/catalog_audit.py
       - tools/catalog_builder.py
+      - tools/catalog_web_export.py
       - tools/tests/test_catalog_*.py
       - .github/workflows/catalog.yml
   pull_request:
@@ -20,6 +21,7 @@ on:
       - src/qt_resources.qrc
       - tools/catalog_audit.py
       - tools/catalog_builder.py
+      - tools/catalog_web_export.py
       - tools/tests/test_catalog_*.py
       - .github/workflows/catalog.yml
 
