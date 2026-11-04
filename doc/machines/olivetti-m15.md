@@ -146,7 +146,7 @@ configuration controls without stronger documentation or a hardware trace.
 
 - *Olivetti M15 Installation and Operations Guide*.
 - *Olivetti M15 Technical Specifications*, publication 3928093 K/1 (1987):
-  <https://www.valoroso.it/file-share/documenti-manuali/Olivetti-M15-technical-specifications.pdf>
+  <https://www.valoroso.it/olivetti-m15-portable-personal-computer/>
 - internal photographs and board identification:
   <https://oldcrap.org/2024/04/18/olivetti-m15/>
 - Yamaha V6355D register research:

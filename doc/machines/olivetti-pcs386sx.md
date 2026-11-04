@@ -183,7 +183,7 @@ ISA 8-bit slot; selecting one card is not simultaneous multi-card validation.
 
 Use period DOS/native game support. Card bus compatibility does not certify a
 driver suite, bundled game, or acceptable performance on a 16 MHz 386SX.
-The [SB16 user guide](https://datassette.s3.us-west-004.backblazeb2.com/manuais/sound_blaster_16_users_guide.pdf),
+The [SB16 user guide](https://datassette.org/pt-br/manuais/diversos/hardware/us-estados-unidos/sound-blaster-16-users-guide),
 printed page iv, specifies 386SX and 4 MB for its multimedia package, plus
 graphics/display requirements beyond some stock configurations. The creator
 does not silently change RAM or video; its 1 MB default is retained.

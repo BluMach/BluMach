@@ -358,12 +358,12 @@
           {
             "label_key": "technical.label.brochure",
             "value_key": "product.amstrad-pc5286.technical.brochure",
-            "url": "https://acpc.me/ACME/AMSTRAD_PRO/AMSTRAD_PC/DOCUMENTS_COMMERCIAUX/CATALOGUES_DEPLIANTS_TARIFS/AMSTRAD_PC5286_Games_Pack[ENG].pdf"
+            "url": "https://acpc.me/"
           },
           {
             "label_key": "technical.label.manual",
             "value_key": "product.amstrad-pc5286.technical.manual",
-            "url": "https://acpc.me/ACME/AMSTRAD_PRO/AMSTRAD_PC/LITTERATURE/MANUELS/PC5086_PC5286_User_Instructions[ENG].pdf"
+            "url": "https://acpc.me/"
           },
           {
             "label_key": "technical.label.source_firmware",

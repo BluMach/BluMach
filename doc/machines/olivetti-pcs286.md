@@ -129,6 +129,6 @@ Original captures and working conversions remain separate.
   <https://wiki.pldarchive.co.uk/index.php?title=Olivetti_PCS_286>
 - machine and software archive: <https://olivrea.de/olivetti-pcs-286/> and
   <https://olivrea.de/software/>
-- SUPSI technical record:
-  <https://lastin.dti.supsi.ch/VET/sys/Olivetti/PCS-286/00496C-Olivetti-PCS-286.pdf>
+- SUPSI technical record: document 00496C in the SUPSI DTI VET archive (no
+  public index page to link)
 - SCO XENIX supplements: <https://www.ardent-tool.com/XENIX/>

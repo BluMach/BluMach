@@ -73,4 +73,4 @@ Still pending:
 Consequently the machine is useful and bootable, but the documentation and GUI
 must not label it a complete or cycle-accurate emulation.
 
-Primary source: [Olivetti Pocket Service Guide, M4-4x / M4-6x / PCS4xx](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2/cap2.pdf).
+Primary source: [Olivetti Pocket Service Guide, M4-4x / M4-6x / PCS4xx](https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html).

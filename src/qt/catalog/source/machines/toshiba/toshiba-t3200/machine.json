@@ -320,12 +320,12 @@
           {
             "label_key": "technical.label.manual",
             "value_key": "product.toshiba-t3200.technical.manual",
-            "url": "https://www.minuszerodegrees.net/manuals/Toshiba/Other/Toshiba%20T3200%20-%20Maintenance%20Manual.pdf"
+            "url": "https://www.minuszerodegrees.net/manuals/Toshiba/Toshiba.htm"
           },
           {
             "label_key": "product.toshiba-t3200.source.brochure",
             "value_key": "product.toshiba-t3200.technical.brochure",
-            "url": "https://macdat.net/files/pdf/toshiba/brochures/t3200.pdf"
+            "url": "https://macdat.net/files/pdf/toshiba/brochures/"
           },
           {
             "label_key": "product.toshiba-t3200.source.techaccess",

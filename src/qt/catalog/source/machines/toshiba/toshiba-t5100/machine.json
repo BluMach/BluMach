@@ -265,7 +265,7 @@
           {
             "label_key": "technical.label.manual",
             "value_key": "product.toshiba-t5100.technical.manual",
-            "url": "https://www.minuszerodegrees.net/manuals/Toshiba/Other/Toshiba%20T5100%20-%20Maintenance%20Manual.pdf"
+            "url": "https://www.minuszerodegrees.net/manuals/Toshiba/Toshiba.htm"
           },
           {
             "label_key": "product.toshiba-t5100.source.techaccess",
@@ -275,7 +275,7 @@
           {
             "label_key": "technical.label.brochure",
             "value_key": "product.toshiba-t5100.technical.flyer",
-            "url": "https://www.minuszerodegrees.net/manuals/Toshiba/Other/Toshiba%20T5100%20-%20Flyer.pdf"
+            "url": "https://www.minuszerodegrees.net/manuals/Toshiba/Toshiba.htm"
           }
         ]
       }

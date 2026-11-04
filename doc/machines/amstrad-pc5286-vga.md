@@ -475,12 +475,12 @@ CMOS cycles, complete keyboard behavior and OS boot remain unvalidated.
 
 ## Sources
 
-- [C&T 82C452 data sheet, September 1991 revision 2.1](https://www.dosdays.co.uk/media/c_and_t/82C452_VGA_Controller_Sep91.pdf)
+- [C&T 82C452 data sheet, September 1991 revision 2.1](https://www.dosdays.co.uk/topics/datasheets_index.php#CT)
 - [Amstrad user manual archive](https://acpc.me/ACME/AMSTRAD_PRO/AMSTRAD_PC/LITTERATURE/MANUELS/)
 - [FreddyV/Banjo firmware provenance](https://banjosmods.wordpress.com/2021/03/18/amstrad-pc5286-bios-dump/)
 - [Owner board photographs, post 16](https://www.forosdeelectronica.com/threads/valores-fuente-de-alimentaci%C3%B3n-de-amstrad-pc5286.151834/)
 - [ADV476 manufacturer data sheet](https://www.analog.com/media/en/technical-documentation/obsolete-data-sheets/35026349641821151adv476.pdf)
-- [IBM PS/2 and PC BIOS Interface Technical Reference, May 1988](https://bitsavers.org/pdf/ibm/pc/ps2/15F0306_PS2_and_PC_BIOS_Interface_Technical_Reference_May88.pdf)
+- [IBM PS/2 and PC BIOS Interface Technical Reference, May 1988](https://bitsavers.org/pdf/ibm/pc/ps2/)
 - [C&T 82C235 Single Chip AT data-sheet index](https://www.datasheetarchive.com/?q=82c235)
 
 Canonical preservation record: `amstrad/pc5286`, machine ID `pc5286`.

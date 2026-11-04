@@ -149,8 +149,8 @@
         "title_key": "technical.section.sources",
         "evidence_key": "technical.evidence.traceable",
         "entries": [
-          {"label_key": "technical.label.manual", "value_key": "product.olivetti-m15-plus.source.manual", "url": "https://mail.minuszerodegrees.net/manuals/Olivetti/Olivetti%20-%20M15%20Plus%20-%20Installation%20and%20Operations%20Guide.pdf"},
-          {"label_key": "technical.label.brochure", "value_key": "product.olivetti-m15-plus.source.brochure", "url": "https://www.museotecnologicamente.it/wp-content/uploads/M15_Depliant_inglese.pdf"},
+          {"label_key": "technical.label.manual", "value_key": "product.olivetti-m15-plus.source.manual", "url": "https://www.minuszerodegrees.net/manuals.htm#Olivetti"},
+          {"label_key": "technical.label.brochure", "value_key": "product.olivetti-m15-plus.source.brochure", "url": "https://www.museotecnologicamente.it/olivetti-m-15-1987/"},
           {"label_key": "technical.label.firmware_evidence", "value_key": "product.olivetti-m15-plus.source.firmware", "url": "https://minuszerodegrees.net/rom/rom.htm"},
           {"label_key": "technical.label.software", "value_key": "product.olivetti-m15-plus.source.software", "url": "https://olivrea.de/software/"}
         ]

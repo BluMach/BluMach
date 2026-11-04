@@ -94,7 +94,7 @@ These checks establish a functional vertical slice, not cycle accuracy.
 ## Sources
 
 - [Toshiba T5200 Maintenance Manual](https://archive.org/details/toshiba-t-5200-maintenance-manual)
-- [Toshiba T5200 and T5200C summary](https://www.minuszerodegrees.net/manuals/Toshiba/Other/Toshiba%20T5200%20and%20T5200C%20-%20Summary.pdf)
+- [Toshiba T5200 and T5200C summary](https://www.minuszerodegrees.net/manuals/Toshiba/Toshiba.htm)
 - [T5200 TECHaccess specification](https://conventionalmemories.com/Toshiba/TECHaccess/tech5580.htm)
 
 The canonical local preservation record is `library/toshiba/t5200`, stable ID
