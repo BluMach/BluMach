@@ -10,6 +10,7 @@
     "summary_key": "product.olivetti-m290sp.summary",
     "history_key": "product.olivetti-m290sp.history",
     "status": "experimental",
+    "blumach_emulation": "implemented",
     "period": "1991",
     "aliases": [
       "M290-25 (probable)",

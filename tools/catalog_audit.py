@@ -35,6 +35,9 @@ VALID_STATUSES = {
     "not_bootable",
 }
 CREATION_ID = re.compile(r"^[a-z0-9]+(?:[-_][a-z0-9]+)*$")
+# What BluMach did with a machine's emulation, for filtering: implemented it,
+# improved one it inherited, or inherited it unchanged.
+BLUMACH_EMULATION = {"implemented", "improved", "inherited"}
 DEFAULT_ENGINE = "86box"
 ENGINES = {DEFAULT_ENGINE, "coremach"}
 # CoreMach systems that BluMach runs, with the [CoreMach] settings a creation
@@ -303,6 +306,23 @@ def validate_media(product_id: str, product: dict[str, Any], errors: list[str]) 
     if not isinstance(source, str) or urlparse(source).scheme != "https" \
             or not urlparse(source).netloc:
         errors.append(f"{owner}.source must be the https page that states the licence")
+
+
+def validate_blumach_emulation(product_id: str, product: dict[str, Any], errors: list[str]) -> None:
+    """A machine that can run says what BluMach did with its emulation. It is
+    only a filter; a research sheet without a platform has nothing to declare."""
+    owner = f"catalog.json: product {product_id!r}"
+    value = product.get("blumach_emulation")
+    if not product.get("platform_id"):
+        if value is not None:
+            errors.append(f"{owner}.blumach_emulation requires a platform")
+    elif value not in BLUMACH_EMULATION:
+        errors.append(
+            f"{owner}.blumach_emulation must be one of {sorted(BLUMACH_EMULATION)}, got {value!r}"
+        )
+    elif value == "inherited" and "implementation" in product:
+        # BluMach did not write an inherited machine, so it has no engineering note.
+        errors.append(f"{owner}: an inherited machine has no implementation document")
 
 
 def platform_engine(platform: dict[str, Any]) -> Any:
@@ -591,6 +611,7 @@ def validate_catalog(catalog: Any, errors: list[str]) -> set[str]:
         if status not in VALID_STATUSES:
             errors.append(f"catalog.json: product {product_id!r} has invalid status {status!r}")
         validate_creation(product_id, product, errors)
+        validate_blumach_emulation(product_id, product, errors)
         platform = platforms.get(platform_id) if isinstance(platform_id, str) else None
         if platform is not None and platform_engine(platform) == "coremach" \
                 and platform.get("coremach_system_id") in COREMACH_SYSTEMS:

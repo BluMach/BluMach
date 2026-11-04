@@ -10,6 +10,7 @@
     "summary_key": "product.olivetti-pcs46c.summary",
     "history_key": "product.olivetti-pcs46c.history",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1993",
     "aliases": [
       "BA2036"

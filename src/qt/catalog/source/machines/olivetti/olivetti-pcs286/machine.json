@@ -10,6 +10,7 @@
     "summary_key": "product.olivetti-pcs286.summary",
     "history_key": "product.olivetti-pcs286.history",
     "status": "validated",
+    "blumach_emulation": "implemented",
     "period": "1989–1990",
     "aliases": [
       "PCS286",

@@ -11,6 +11,7 @@
     "history_key": "product.olivetti-prodest-pc1hd.history",
     "warning_key": "product.olivetti-prodest-pc1hd.warning",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1989",
     "aliases": [
       "Prodest PC1 HD",

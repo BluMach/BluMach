@@ -10,6 +10,7 @@
     "history_key": "product.trigem-sx386m.history",
     "warning_key": "product.trigem-sx386m.warning",
     "status": "experimental",
+    "blumach_emulation": "implemented",
     "period": "1991",
     "aliases": [
       "Emerson Elite SX386/16",

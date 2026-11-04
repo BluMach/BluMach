@@ -11,6 +11,7 @@
     "history_key": "product.amstrad-pc5286.history",
     "warning_key": "product.amstrad-pc5286.warning",
     "status": "experimental",
+    "blumach_emulation": "improved",
     "period": "1991–1992",
     "aliases": [
       "PC 5286"

@@ -10,6 +10,7 @@
     "summary_key": "product.olivetti-m30030.summary",
     "history_key": "product.olivetti-m30030.history",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1992–1993",
     "aliases": [],
     "tags": [

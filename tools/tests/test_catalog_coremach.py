@@ -34,9 +34,11 @@ def coremach_catalog():
         ],
         "products": [
             {"id": "pc", "manufacturer_id": "maker", "family_id": "family",
-             "platform_id": "pc-platform", "status": "experimental", "visible": True},
+             "platform_id": "pc-platform", "status": "experimental",
+             "blumach_emulation": "implemented", "visible": True},
             {"id": "m10", "manufacturer_id": "maker", "family_id": "notebooks",
              "platform_id": "m10-platform", "status": "experimental",
+             "blumach_emulation": "implemented",
              "visible": False, "development": True,
              "creation": {
                  "fields": [{

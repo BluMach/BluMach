@@ -11,6 +11,7 @@
     "history_key": "product.olivetti-pcs11.history",
     "warning_key": "product.olivetti-pcs11.warning",
     "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1992–1993",
     "aliases": [
       "PCS11"

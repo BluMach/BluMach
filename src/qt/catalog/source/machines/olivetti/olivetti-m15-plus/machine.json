@@ -11,6 +11,7 @@
     "history_key": "product.olivetti-m15-plus.history",
     "warning_key": "product.olivetti-m15-plus.warning",
     "status": "experimental",
+    "blumach_emulation": "implemented",
     "period": "1988",
     "aliases": ["Olivetti M-15 Plus", "Olivetti M15 PLUS"],
     "tags": ["80C88", "4.77 MHz", "XT-compatible", "backlit LCD", "portable", "720 KB", "dual floppy", "20 MB HDU", "SCSI"],

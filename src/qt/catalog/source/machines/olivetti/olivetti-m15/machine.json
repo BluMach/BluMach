@@ -11,6 +11,7 @@
     "history_key": "product.olivetti-m15.history",
     "warning_key": "product.olivetti-m15.warning",
     "status": "experimental",
+    "blumach_emulation": "implemented",
     "period": "1987",
     "aliases": ["Olivetti M-15"],
     "tags": ["80C88", "4.77 MHz", "XT-compatible", "LCD", "portable", "720 KB", "dual floppy"],
