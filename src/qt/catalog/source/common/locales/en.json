@@ -14,7 +14,7 @@
   "collection.catalogue": "Historical computer catalogue",
   "collection.information": "Machine information",
   "collection.all_states": "All preservation states",
-  "collection.unpreserved": "Unpreserved firmware",
+  "collection.unpreserved": "No emulation profile",
   "collection.manufacturer": "Manufacturer",
   "collection.family": "Computer family",
   "collection.history": "History",
