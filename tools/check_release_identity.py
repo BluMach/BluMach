@@ -5,10 +5,27 @@ from __future__ import annotations
 
 import subprocess
 import sys
+import re
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+# Historical source citations are not product firmware download endpoints.
+# Only machine-specific URLs pinned to a complete commit are accepted here.
+HISTORICAL_ROM_URL = re.compile(
+    r"https://github\.com/86Box/" + r"roms/tree/[0-9a-f]{40}/machines/[a-z0-9_-]+(?=[\s\"')]|$)"
+)
+
+
+def identity_line(relative: str, line: str) -> str:
+    catalogue_source = re.fullmatch(
+        r"src/qt/catalog/source/machines/[^/]+/[^/]+/machine\.json", relative
+    )
+    preservation_note = re.fullmatch(r"doc/preservation/machines/[^/]+\.md", relative)
+    if catalogue_source or preservation_note:
+        return HISTORICAL_ROM_URL.sub("[historical firmware provenance]", line)
+    return line
 
 # Keep these fragments split so this file checks itself as well.
 FORBIDDEN_TEXT = (
@@ -99,8 +116,9 @@ def main() -> int:
             continue
 
         for line_number, line in enumerate(contents.splitlines(), 1):
+            release_identity_line = identity_line(relative, line)
             for value in FORBIDDEN_TEXT:
-                if value in line:
+                if value in release_identity_line:
                     errors.append(f"{relative}:{line_number}: obsolete identity {value!r}")
             folded_line = line.casefold()
             for value in REMOVED_FEATURE_TEXT:

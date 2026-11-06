@@ -67,3 +67,8 @@ keys/order with the base commit, and verifies that PC5086 and its translations
 are included in the website export. Exact results are recorded in the PR and
 canonical worklogs. This text-only review does not rebuild the GUI or execute
 firmware; the final native card layout has not been visually reviewed.
+
+The release-identity guard accepts machine-specific firmware provenance URLs
+pinned to a full commit only in catalogue machine metadata and preservation
+notes. Product download links, unpinned collections and direct firmware files
+remain rejected. Six regression tests cover these boundaries.
