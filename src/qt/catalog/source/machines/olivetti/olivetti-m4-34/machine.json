@@ -1,0 +1,84 @@
+{
+  "order": 10056,
+  "machine": {
+    "id": "olivetti-m4-34",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M4-34",
+    "summary_key": "product.olivetti-m4-34.summary",
+    "history_key": "product.olivetti-m4-34.history",
+    "warning_key": "product.olivetti-m4-34.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
+      ]
+    },
+    "hardware": {
+      "cpu": "AMD Am386SX · 40 MHz",
+      "memory": "2–16 MB",
+      "chipset": "82C390SX",
+      "video": "Cirrus Logic CL-GD5422 · 512 KB–1 MB VRAM",
+      "expansion": "2 × ISA 16-bit"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m4-34.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m4-34.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m4-34.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m4-34.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m4-34.guide",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html"
+          }
+        ]
+      }
+    ]
+  }
+}
