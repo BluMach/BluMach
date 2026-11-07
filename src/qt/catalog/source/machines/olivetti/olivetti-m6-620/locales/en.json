@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-620.summary": "The desktop workstation that combined dual-channel SCSI and Ethernet on the motherboard.",
+  "product.olivetti-m6-620.history": "The press presented the M6-620 as an Olivetti Pentium workstation. In April 1994, ASCII reported its Japanese offer at ¥998.000 with 210 MB.",
+  "product.olivetti-m6-620.warning": "Historical sheet under research.",
+  "product.olivetti-m6-620.architecture": "The motherboard handles storage and networking. The AIC-7770 drives two SCSI channels and the Intel 82596DX handles Ethernet over EISA.",
+  "product.olivetti-m6-620.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m6-620.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m6-620.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 10",
+  "product.olivetti-m6-620.ascii-1994": "ASCII EXPRESS, April 1994, Japanese market report (archival reproduction)",
+  "product.olivetti-m6-620.mc-micro": "MCmicrocomputer 139, April 1994, pp. 128–129"
+}

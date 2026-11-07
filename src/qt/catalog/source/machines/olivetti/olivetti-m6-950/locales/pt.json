@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-950.summary": "A variante de entrada da plataforma Olivetti Pentium Pro do guia.",
+  "product.olivetti-m6-950.history": "O guia da Olivetti agrupa-o com o M6-950, o Modulo PRO 180 e o M6-6200 na mesma plataforma Pentium Pro.",
+  "product.olivetti-m6-950.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m6-950.architecture": "Os três partilham a placa principal e o encaixe do processador. A BA2261 usa Socket 8 e o Pentium Pro integra 256 KB de cache L2.",
+  "product.olivetti-m6-950.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m6-950.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m6-950.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 18",
+  "product.olivetti-m6-950.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia indica 1.00.03.CG0."
+}

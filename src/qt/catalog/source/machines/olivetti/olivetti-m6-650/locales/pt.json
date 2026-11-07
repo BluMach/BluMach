@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-650.summary": "O M6 de secretária com Pentium de 100 MHz da série 650/670/680/690.",
+  "product.olivetti-m6-650.history": "A Olivetti agrupou este modelo com os M6-650, 670, 680 e 690 na caixa Tin Box.",
+  "product.olivetti-m6-650.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m6-650.architecture": "A placa principal determina como se liga o monitor. A BA2189 integra vídeo e a BA2190 usa uma Matrox Impression Plus. Esta configuração tem 256 KB de cache L2.",
+  "product.olivetti-m6-650.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m6-650.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m6-650.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 14",
+  "product.olivetti-m6-650.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia indica 1.13."
+}

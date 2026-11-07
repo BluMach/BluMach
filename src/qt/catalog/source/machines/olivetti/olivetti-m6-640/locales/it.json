@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-640.summary": "L’M6-640 abbinava un solo Pentium alle opzioni di espansione PCI della gamma professionale.",
+  "product.olivetti-m6-640.history": "Olivetti lo presentò al CeBIT del 1994 nella gamma professionale.",
+  "product.olivetti-m6-640.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m6-640.architecture": "La scheda madre determina se occorre una scheda video. La BA2139 integra il controller video, assente sulla BA2144.",
+  "product.olivetti-m6-640.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m6-640.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m6-640.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 11",
+  "product.olivetti-m6-640.mc-micro": "MCmicrocomputer 139, April 1994, pp. 128–129",
+  "product.olivetti-m6-640.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.16."
+}

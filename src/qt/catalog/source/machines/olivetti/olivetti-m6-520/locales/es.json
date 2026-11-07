@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-520.summary": "La versión SX de la serie M6 con bus Micro Channel.",
+  "product.olivetti-m6-520.history": "Olivetti documentó tres M6 con Micro Channel. Las marcas de las placas BA2096 y BA2097 vinculan su fabricación a Reply.",
+  "product.olivetti-m6-520.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m6-520.architecture": "La placa reúne vídeo y disco. Integra ATI 68800 y NCR53C700-66 para SCSI. El SX va soldado y deja libre el zócalo OverDrive.",
+  "product.olivetti-m6-520.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m6-520.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m6-520.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 3",
+  "product.olivetti-m6-520.reply-board": "Ardent Tool, Olivetti M6-5x0 board photographs and markings",
+  "product.olivetti-m6-520.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra R1.47.36."
+}

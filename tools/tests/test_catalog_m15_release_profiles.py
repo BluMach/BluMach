@@ -22,7 +22,7 @@ class M15ReleaseProfileTests(unittest.TestCase):
                           'olivetti-m250', 'olivetti-m250e', 'olivetti-m280',
                           'olivetti-m300-if378', 'olivetti-m30002', 'olivetti-m30002f',
                           'olivetti-m30008', 'olivetti-m30015', 'olivetti-m30030',
-                          'olivetti-m30030p', 'olivetti-m290sp', 'olivetti-m6-420', 'olivetti-m6-440', 'olivetti-m6-450', 'olivetti-m6-460'}, visible)
+                          'olivetti-m30030p', 'olivetti-m290sp', 'olivetti-m6-520', 'olivetti-m6-540', 'olivetti-m6-560', 'olivetti-m6-750', 'olivetti-m6-750-s', 'olivetti-m6-760', 'olivetti-m6-760-s', 'olivetti-m6-770', 'olivetti-m6-770-s', 'olivetti-m6-850', 'olivetti-m6-860', 'olivetti-m6-880', 'olivetti-m6-400', 'olivetti-m6-620', 'olivetti-m6-640', 'olivetti-m6-640-dp', 'olivetti-m6-650', 'olivetti-m6-650-dp', 'olivetti-m6-670', 'olivetti-m6-680', 'olivetti-m6-680-dp', 'olivetti-m6-690', 'olivetti-m6-690-dp', 'olivetti-m6-950', 'olivetti-modulo-pro-180', 'olivetti-m6-6200', 'olivetti-m6-420', 'olivetti-m6-440', 'olivetti-m6-450', 'olivetti-m6-460'}, visible)
         for model in ('olivetti-m15', 'olivetti-m15-plus'):
             self.assertEqual('experimental', self.products[model]['status'])
 

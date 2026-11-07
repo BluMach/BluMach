@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-860.summary": "A torre EISA da gama M6 com i486DX2 a 66 MHz.",
+  "product.olivetti-m6-860.history": "A Olivetti incluiu-o entre as torres M6 com barramento EISA. Em abril de 1994, a ASCII referiu a oferta no Japão a 748.000 ¥ com 525 MB e 848.000 ¥ com 1 GB.",
+  "product.olivetti-m6-860.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m6-860.architecture": "O processador fica numa placa dedicada. A placa liga à placa principal e integra 256 KB de cache L2.",
+  "product.olivetti-m6-860.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m6-860.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m6-860.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 6",
+  "product.olivetti-m6-860.ascii-1994": "ASCII EXPRESS, April 1994, Japanese market report (archival reproduction)",
+  "product.olivetti-m6-860.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia indica 1.2 · rev. 2.3."
+}

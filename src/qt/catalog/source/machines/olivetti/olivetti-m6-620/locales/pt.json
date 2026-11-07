@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-620.summary": "A estação de trabalho de secretária que reunia dois canais SCSI e Ethernet na placa principal.",
+  "product.olivetti-m6-620.history": "A imprensa apresentou o M6-620 como uma estação de trabalho Pentium da Olivetti. Em abril de 1994, a ASCII referiu a oferta no Japão a 998.000 ¥ com 210 MB.",
+  "product.olivetti-m6-620.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m6-620.architecture": "A placa principal gere armazenamento e rede. O AIC-7770 controla dois canais SCSI e o Intel 82596DX gere Ethernet por EISA.",
+  "product.olivetti-m6-620.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m6-620.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m6-620.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 10",
+  "product.olivetti-m6-620.ascii-1994": "ASCII EXPRESS, April 1994, Japanese market report (archival reproduction)",
+  "product.olivetti-m6-620.mc-micro": "MCmicrocomputer 139, April 1994, pp. 128–129"
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-560.summary": "La versión DX2 de la serie M6 con bus Micro Channel.",
+  "product.olivetti-m6-560.history": "Olivetti documentó tres M6 con Micro Channel. Las marcas de las placas BA2096 y BA2097 vinculan su fabricación a Reply.",
+  "product.olivetti-m6-560.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m6-560.architecture": "La placa reúne vídeo y disco. Integra ATI 68800 y NCR53C700-66 para SCSI. El procesador ocupa el zócalo OverDrive.",
+  "product.olivetti-m6-560.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m6-560.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m6-560.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 3",
+  "product.olivetti-m6-560.reply-board": "Ardent Tool, Olivetti M6-5x0 board photographs and markings",
+  "product.olivetti-m6-560.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra R1.47.36."
+}
