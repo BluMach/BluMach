@@ -103,6 +103,7 @@ class CatalogBuilderTests(unittest.TestCase):
              "schneider-d48620-175", "schneider-d48620-320", "schneider-d48620-420",
              "schneider-d38620-52", "schneider-d38620-105", "schneider-d38620-200",
              "schneider-n38616-40", "schneider-n38616-80", "schneider-n38616-86",
+             "schneider-pc2640-2",
              "schneider-386-60-16", "schneider-386-professional-60", "schneider-386-professional-160", "schneider-386-professional-340",
              "schneider-48625",
              "schneider-portable-sx",
