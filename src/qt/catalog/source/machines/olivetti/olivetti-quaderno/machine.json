@@ -1,0 +1,92 @@
+{
+  "order": 10045,
+  "machine": {
+    "id": "olivetti-quaderno",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Quaderno",
+    "summary_key": "product.olivetti-quaderno.summary",
+    "history_key": "product.olivetti-quaderno.history",
+    "warning_key": "product.olivetti-quaderno.warning",
+    "status": "research",
+    "aliases": [
+      "PT-XT-20"
+    ],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "NEC V30 · 16 MHz",
+      "memory": "1 MB",
+      "hard_disk": "20 MB",
+      "video": "LCD",
+      "expansion": "PCMCIA 1.0"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-quaderno.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-quaderno.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-quaderno.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-quaderno.archive",
+            "url": "https://artsandculture.google.com/asset/associazione-archivio-storico-olivetti-computer-portatile-olivetti-quaderno-progettato-da-ugo-carena-design-di-mario-bellini-e-hagai-shvadron/swENYF7nqPxpxg?hl=it"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-quaderno.press",
+            "url": "https://www.computerwoche.de/article/2816923/sprechender-notebook-rechner-zielt-auf-den-reise-massenmarkt.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-quaderno.museum",
+            "url": "https://www.museotecnologicamente.it/olivetti-quaderno-1992/"
+          }
+        ]
+      }
+    ],
+    "period": "1992",
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-quaderno-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "OnlySoft",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivetti_Quaderno_33.jpg"
+    }
+  }
+}

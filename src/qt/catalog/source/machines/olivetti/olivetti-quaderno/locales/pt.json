@@ -1,0 +1,11 @@
+{
+  "product.olivetti-quaderno.summary": "O portátil A5 que reunia um PC com DOS e um gravador de voz.",
+  "product.olivetti-quaderno.history": "A Olivetti lançou o Quaderno em 1992 para preencher o espaço entre agendas eletrónicas e notebooks. O Arquivo Histórico atribui o projeto a Ugo Carena e o design a Mario Bellini e Hagai Shvadron, com preço inicial italiano de 1,35 milhões de liras. A Computerwoche registou o desenvolvimento italiano e a produção japonesa com a Pegasus, empresa conjunta com a Y-E Data. Em 1993 seguiu-se o Quaderno 33.",
+  "product.olivetti-quaderno.warning": "Ficha histórica em investigação.",
+  "product.olivetti-quaderno.architecture": "A máquina gravava notas de voz no disco e arrancava MS-DOS 5.0 a partir da ROM. A Computerwoche descreve um LCD de 640 × 400 e o museu Tecnologic@mente regista 640 × 480. Os dois valores mantêm a atribuição.",
+  "product.olivetti-quaderno.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-quaderno.limitations": "Faltam a verificação do firmware e os testes de arranque e gravação.",
+  "product.olivetti-quaderno.archive": "Associazione Archivio Storico Olivetti, Quaderno.",
+  "product.olivetti-quaderno.press": "Computerwoche, 22.05.1992, Sprechender Notebook-Rechner.",
+  "product.olivetti-quaderno.museum": "Museo Tecnologic@mente, Olivetti Quaderno, 1992."
+}

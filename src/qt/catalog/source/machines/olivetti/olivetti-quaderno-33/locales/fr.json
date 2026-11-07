@@ -1,0 +1,10 @@
+{
+  "product.olivetti-quaderno-33.summary": "L’évolution A5 du Quaderno qui ajoutait Windows et une boule de commande intégrée.",
+  "product.olivetti-quaderno-33.history": "Le Quaderno 33 a succédé au Quaderno en 1993 et conservé le format A5. MCmicrocomputer a essayé la configuration Windows 3.1 avec disque de 60 MB, vendue 3,4 millions de lires hors TVA. Cette évolution élargissait les usages d’un portable de poche.",
+  "product.olivetti-quaderno-33.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-quaderno-33.architecture": "La fréquence pouvait être adaptée à l’utilisation sur batterie. L’essai relève un 386SX à 10 ou 20 MHz, 4 MB de RAM et un afficheur auxiliaire indiquant la fréquence et l’état du dictaphone.",
+  "product.olivetti-quaderno-33.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-quaderno-33.limitations": "La vérification du firmware et les essais de démarrage et d’enregistrement restent à faire.",
+  "product.olivetti-quaderno-33.archive": "Associazione Archivio Storico Olivetti, Quaderno.",
+  "product.olivetti-quaderno-33.review": "Andrea de Prisco, Olivetti Quaderno 33, MCmicrocomputer 131, 1993, pp. 154–159."
+}
