@@ -1,0 +1,24 @@
+{
+  "order": 129,
+  "family": {
+    "id": "amstrad-pci-1995",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PC9486i / PC9555i",
+    "description_key": "family.amstrad-pci-1995.description",
+    "history_key": "family.amstrad-pci-1995.history",
+    "history_references": [
+      {
+        "title": "Computerwoche · 7 April 1995 · CeBIT, Pentium- und 486-Rechner vorgestellt",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2738334/pentium-und-486-rechner-vorgestellt-amstrad-will-auch-weiterhin-in-dem-pc-geschaeft-mitmischen.html"
+      },
+      {
+        "title": "Cliff Lawson · General notes on Amstrad PCs · 9486, 9486i, 9555i",
+        "publisher": "Cliff Lawson",
+        "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/general.htm"
+      }
+    ]
+  }
+}

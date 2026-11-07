@@ -1,0 +1,16 @@
+{
+  "product.amstrad-pc9555i.summary": "Le Pentium de la gamme PCI d’Amstrad, également vendu en configurations multimédias par Amstrad Direct.",
+  "product.amstrad-pc9555i.history": "Amstrad a présenté le PC9555i au CeBIT 1995 aux côtés du PC9486i à processeur 486. Computerwoche citait des Pentium à 75, 90 et 100 MHz. En mai 1996, Amstrad Direct proposait au Royaume-Uni le P75 Premier à 949 £, le P75 Multimedia à 1 099 £ et le P100 Multimedia à 1 169 £. Les offres Multimedia ajoutaient un lecteur CD-ROM 4×, du son 16 bits et des enceintes stéréo.",
+  "product.amstrad-pc9555i.technical.cpu": "La configuration présentée au CeBIT comportait 8 Mo de RAM, 256 Ko de cache, DOS 6.2 et Windows 3.11. Un propriétaire a décrit un P120 en 1997. Son témoignage porte sur un exemplaire, tandis que le compte rendu du CeBIT cite les P75, P90 et P100.",
+  "product.amstrad-pc9555i.technical.storage": "Le bus PCI et les deux interfaces Enhanced IDE facilitaient la connexion des unités de stockage. Dans les échanges du support Amstrad, Cliff Lawson décrit le cavalier qui permet de désactiver le circuit graphique S3 intégré à son propre 9555i.",
+  "product.amstrad-pc9555i.warning": "⚠ Attribution provisoire du BIOS Epson/ECS. Compatibilité et validation du démarrage en attente.",
+  "product.amstrad-pc9555i.technical.firmware": "Le candidat de 128 Kio identifie Epson et contient du code Elitegroup ainsi que le micrologiciel vidéo S3 Trio64. Les révisions 1.9X et 2.0X des ActionTower 8100/8200 sont des pistes d’étude aux empreintes distinctes.",
+  "product.amstrad-pc9555i.technical.verified": "La recherche a confirmé l’identité commerciale et examiné le contenu des ROM candidates. La validation dans BluMach reste à faire.",
+  "product.amstrad-pc9555i.technical.limitations": "Un propriétaire a lu S154P VIO Rev. 1.1 sur sa carte mère. La comparaison avec l’ECS SI54P VIO et l’identification du fabricant nécessitent une photo lisible et un relevé de la ROM Amstrad.",
+  "product.amstrad-pc9555i.technical.cebit": "Computerwoche · 7 April 1995 · CeBIT, Pentium- und 486-Rechner vorgestellt",
+  "product.amstrad-pc9555i.technical.lawson": "Cliff Lawson · General notes on Amstrad PCs · 9486, 9486i, 9555i",
+  "product.amstrad-pc9555i.technical.times": "Amstrad Direct · The Times · 23 May 1996 · PC9555i advert",
+  "product.amstrad-pc9555i.technical.video": "Cliff Lawson · Amstrad support · Q0222 · 16 November 1997",
+  "product.amstrad-pc9555i.technical.board": "Jon Smeed · Amstrad support · 1 March 1999",
+  "product.amstrad-pc9555i.technical.epson": "Epson · ActionTower 8100/8200 flash BIOS bulletins 1996.06.003 and 1996.11.002"
+}
