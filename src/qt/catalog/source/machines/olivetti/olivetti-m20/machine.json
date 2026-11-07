@@ -141,6 +141,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-m20.technical.source_photo",
             "url": "https://commons.wikimedia.org/wiki/File:L1m20ol.jpg"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20.technical.source_bios",
+            "url": "https://archive.org/details/Olivetti-M20-L1-bios"
           }
         ]
       }
