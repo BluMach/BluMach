@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs44.summary": "El PCS 44 compartía la plataforma BA362 con el M300-28.",
+  "product.olivetti-pcs44.history": "L’Unità documentó el PCS 44 en septiembre de 1992 entre los nuevos compatibles con 486SX de Olivetti. La guía de servicio lo agrupó con el M300-28.",
+  "product.olivetti-pcs44.warning": "Ficha histórica en investigación.",
+  "product.olivetti-pcs44.architecture": "La gráfica estaba integrada en la placa. La guía da OTI-077, National 87C311 y BIOS Flash V032004K.25 para la BA362.",
+  "product.olivetti-pcs44.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-pcs44.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-pcs44.guide": "Olivetti, Pocket Service Guide, vol. I, §35.",
+  "product.olivetti-pcs44.press": "L’Unità, 25 September 1992, p. 16."
+}
