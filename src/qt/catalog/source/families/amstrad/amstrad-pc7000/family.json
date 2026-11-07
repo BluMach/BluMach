@@ -1,0 +1,29 @@
+{
+  "order": 126,
+  "family": {
+    "id": "amstrad-pc7000",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PC7000",
+    "description_key": "family.amstrad-pc7000.description",
+    "history_key": "family.amstrad-pc7000.history",
+    "history_references": [
+      {
+        "title": "Amstrad / PC Review 13 · November 1992 · PDF pp. 23–24",
+        "publisher": "Amstrad / PC Review; Internet Archive",
+        "url": "https://archive.org/details/pc-review-13"
+      },
+      {
+        "title": "Amstrad PC7486SLC-33 Technical Reference Manual · pp. 3–5, 11, 13; Software Installation Guide · p. 3 · Phipscube / Banjo",
+        "publisher": "Amstrad; Phipscube / Banjo",
+        "url": "https://banjosmods.wordpress.com/2021/04/18/amstrad-pc7486-slc33-manuals/"
+      },
+      {
+        "title": "Dioxaz / keropi · VOGONS, Amstrad Mega PC · replies 67, 71 · 2020-08-26–30",
+        "publisher": "Dioxaz / keropi, VOGONS",
+        "url": "https://www.vogons.org/viewtopic.php?p=887671#p887671"
+      }
+    ]
+  }
+}

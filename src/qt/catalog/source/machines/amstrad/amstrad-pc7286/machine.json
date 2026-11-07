@@ -1,0 +1,124 @@
+{
+  "order": 281,
+  "machine": {
+    "id": "amstrad-pc7286",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc7000",
+    "name": "Amstrad PC7286",
+    "summary_key": "product.amstrad-pc7286.summary",
+    "history_key": "product.amstrad-pc7286.history",
+    "warning_key": "product.amstrad-pc7286.warning",
+    "status": "research",
+    "period": "1992",
+    "aliases": [
+      "PC 7286"
+    ],
+    "tags": [
+      "PC7000",
+      "80286"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80286 · 16 MHz",
+      "memory": "1 MB",
+      "hard_disk": "40 MB",
+      "video": "VGA",
+      "floppy": "3.5″ · 1.44 MB"
+    },
+    "firmware": {
+      "known_sets": [
+        "PC7286 BIOS (AM27C010@DIP32).BIN · 128 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc7286.technical.market"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc7286.technical.hardware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc7286.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc7286.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc7286.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7286.technical.press",
+            "url": "https://archive.org/details/pc-review-13"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7286.technical.prices",
+            "url": "https://worldradiohistory.com/UK/Personal-Computer-World/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7286.technical.roms",
+            "url": "https://github.com/86Box/roms/tree/c4cd8da9034a8557896ff6a975ae58499a83bb80/machines/pc7286"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7286.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src"
+          }
+        ]
+      }
+    ]
+  }
+}

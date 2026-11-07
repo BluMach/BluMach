@@ -1,0 +1,127 @@
+{
+  "order": 283,
+  "machine": {
+    "id": "amstrad-pc7486slc33",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc7000",
+    "name": "Amstrad PC7486SLC-33",
+    "summary_key": "product.amstrad-pc7486slc33.summary",
+    "history_key": "product.amstrad-pc7486slc33.history",
+    "warning_key": "product.amstrad-pc7486slc33.warning",
+    "status": "research",
+    "period": "—",
+    "aliases": [
+      "PC 7486SLC-33"
+    ],
+    "tags": [
+      "PC7000",
+      "486SLC"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "486SLC · 33 MHz",
+      "memory": "2 / 4 MB · ≤16 MB",
+      "hard_disk": "130 / 214 MB",
+      "video": "SVGA · 512 KB / 1 MB",
+      "floppy": "3.5″ · 1.44 MB",
+      "expansion": "2 × ISA 16-bit",
+      "interfaces": "2 × RS-232 · LPT · VGA · PS/2"
+    },
+    "firmware": {
+      "known_sets": [
+        "PC7486 · 64 KiB",
+        "E000.ROM = E800.ROM · 32 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc7486slc33.technical.market"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc7486slc33.technical.hardware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc7486slc33.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc7486slc33.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc7486slc33.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7486slc33.technical.manuals",
+            "url": "https://banjosmods.wordpress.com/2021/04/18/amstrad-pc7486-slc33-manuals/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7486slc33.technical.banjo",
+            "url": "https://banjosmods.wordpress.com/2021/04/17/amstrad-pc7486-slc33-bios-dump/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7486slc33.technical.press",
+            "url": "https://archive.org/details/pc-review-13"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7486slc33.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src"
+          }
+        ]
+      }
+    ]
+  }
+}
