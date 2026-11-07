@@ -1,0 +1,24 @@
+{
+  "order": 190,
+  "family": {
+    "id": "schneider-target-pc",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Target PC",
+    "description_key": "family.schneider-target-pc.description",
+    "history_key": "family.schneider-target-pc.history",
+    "history_references": [
+      {
+        "title": "CPC Amstrad International 5/1988, pp. 27 / PDF 60",
+        "publisher": "Computerstore · Reinhard Schuster · Homecomputerworld",
+        "url": "http://www.homecomputerworld.at/"
+      },
+      {
+        "title": "Service Manual PC7640, Ident-Nr. 36866",
+        "publisher": "Schneider · Internet Archive",
+        "url": "https://archive.org/details/manual_PC7640_SM_SCHNEIDER_EN_DE"
+      }
+    ]
+  }
+}

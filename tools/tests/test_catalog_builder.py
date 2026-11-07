@@ -78,7 +78,7 @@ class CatalogBuilderTests(unittest.TestCase):
         self.assertEqual(
             {"olivetti-pcs", "olivetti-m", "olivetti-prodest",
              "toshiba-t-series", "amstrad-series-5",
-             "triumph-adler-dario", "trigem-sx386", "schneider-euro-xt", "schneider-at-desktops", "schneider-tower-at", "schneider-vga-at", "schneider-tower386sx"}, visible_families)
+             "triumph-adler-dario", "trigem-sx386", "schneider-euro-xt", "schneider-at-desktops", "schneider-tower-at", "schneider-vga-at", "schneider-tower386sx", "schneider-target-pc"}, visible_families)
         self.assertEqual(
             {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx",
              "olivetti-m10", "olivetti-m15", "olivetti-m15-plus", "toshiba-t3200",
@@ -96,7 +96,7 @@ class CatalogBuilderTests(unittest.TestCase):
              "schneider-towerat201", "schneider-towerat202", "schneider-towerat220",
              "schneider-towerat220-mega", "schneider-towerat240", "schneider-towerat260",
              "schneider-vgaat40", "schneider-vgaat70",
-             "schneider-tower386sx40", "schneider-tower386sx70"},
+             "schneider-tower386sx40", "schneider-tower386sx70", "schneider-targetpc7640"},
             visible_products,
         )
 
