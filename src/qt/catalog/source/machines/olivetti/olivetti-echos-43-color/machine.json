@@ -64,6 +64,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-echos-43-color.brochure",
             "url": "https://classic.technology/olivetti-echos/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-43-color.unita-1994",
+            "url": "https://archivio.unita.news/"
           }
         ]
       }

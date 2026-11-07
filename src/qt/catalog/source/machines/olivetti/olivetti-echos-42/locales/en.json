@@ -1,10 +1,11 @@
 {
   "product.olivetti-echos-42.summary": "The entry-level Echos paired a 486 with a monochrome display.",
-  "product.olivetti-echos-42.history": "In its October 1994 brochure, Olivetti positioned the Echos 42 as the affordable notebook for business users who could do without colour. Computer Business Review reported a UK price of £1,270 and that shipments began in October.",
+  "product.olivetti-echos-42.history": "In June 1994, L’Unità reported the introduction of Echos as a notebook range positioned below Philos. The 42 was the lower-priced monochrome model. Computer Business Review reported a UK price of £1,270 and an October shipping start.",
   "product.olivetti-echos-42.warning": "Historical sheet under research.",
   "product.olivetti-echos-42.architecture": "Expansion cards could add connectivity. The brochure documents a VESA local video bus and room for two Type II PCMCIA cards or one Type III card.",
   "product.olivetti-echos-42.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
   "product.olivetti-echos-42.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
   "product.olivetti-echos-42.brochure": "Olivetti, Echos Portable Personal Computers, 3994073P-00, 10/1994, pp. 2, 4.",
-  "product.olivetti-echos-42.market": "Computer Business Review, 4 October 1994, Olivetti launches new range of terracotta notebook computers."
+  "product.olivetti-echos-42.market": "Computer Business Review, 4 October 1994, Olivetti launches new range of terracotta notebook computers.",
+  "product.olivetti-echos-42.unita-1994": "Dario Venegoni, L’Unità, 3 June 1994, p. 20"
 }

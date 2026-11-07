@@ -69,6 +69,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-echos-42.market",
             "url": "https://www.techmonitor.ai/analysis/olivetti_launches_new_range_of_terracotta_notebook_computers/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-42.unita-1994",
+            "url": "https://archivio.unita.news/"
           }
         ]
       }

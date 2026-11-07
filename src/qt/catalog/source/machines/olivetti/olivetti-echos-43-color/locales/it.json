@@ -1,9 +1,10 @@
 {
   "product.olivetti-echos-43-color.summary": "L’Echos di fascia media portava lo schermo a colori nelle applicazioni da ufficio.",
-  "product.olivetti-echos-43-color.history": "Nella brochure dell’ottobre 1994, Olivetti collocava l’Echos 43 Color tra il 42 monocromatico e il 44 Color per le applicazioni professionali di uso comune.",
+  "product.olivetti-echos-43-color.history": "Nel giugno 1994 L’Unità riportò la presentazione di Echos come gamma di portatili sotto Philos. Olivetti collocò il 43 Color tra il 42 monocromatico e il 44 Color per il lavoro d’ufficio quotidiano.",
   "product.olivetti-echos-43-color.warning": "Scheda storica in fase di ricerca.",
   "product.olivetti-echos-43-color.architecture": "Le schede di espansione potevano aggiungere connessioni. La brochure documenta un bus video locale VESA e due schede PCMCIA di tipo II o una di tipo III.",
   "product.olivetti-echos-43-color.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
   "product.olivetti-echos-43-color.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
-  "product.olivetti-echos-43-color.brochure": "Olivetti, Echos Portable Personal Computers, 3994073P-00, 10/1994, pp. 2, 4."
+  "product.olivetti-echos-43-color.brochure": "Olivetti, Echos Portable Personal Computers, 3994073P-00, 10/1994, pp. 2, 4.",
+  "product.olivetti-echos-43-color.unita-1994": "Dario Venegoni, L’Unità, 3 June 1994, p. 20"
 }

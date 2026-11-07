@@ -1,11 +1,13 @@
 {
   "product.olivetti-echos-44-color.summary": "L’Echos le plus performant de la brochure de 1994 visait les applications graphiques exigeantes.",
-  "product.olivetti-echos-44-color.history": "En octobre 1994, la brochure Olivetti plaçait l’Echos 44 Color au-dessus du 43 Color pour les travaux graphiques professionnels plus exigeants. Computer Business Review indiquait un prix britannique de 2 100 livres et le début des livraisons en octobre.",
+  "product.olivetti-echos-44-color.history": "En juin 1994, L’Unità a rapporté la présentation d’Echos, une gamme de portables située sous Philos. Le 44 Color était destiné aux travaux graphiques plus exigeants. En octobre, MCmicrocomputer a indiqué 5 390 000 lires hors TVA pour la configuration italienne de 240 Mo et Computer Business Review a donné un prix britannique de 2 100 livres.",
   "product.olivetti-echos-44-color.warning": "Fiche historique en cours de recherche.",
   "product.olivetti-echos-44-color.architecture": "Les cartes d’extension pouvaient élargir la connectivité. La brochure documente un bus vidéo local VESA et deux cartes PCMCIA de type II ou une de type III. La brochure indique un i486DX2 à 40 MHz, tandis que la fiche de la photographie du Danmarks Tekniske Museum identifie son NB40 comme un i486SX à 33 MHz.",
   "product.olivetti-echos-44-color.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
   "product.olivetti-echos-44-color.limitations": "La vérification du firmware et les essais de démarrage restent à faire.",
   "product.olivetti-echos-44-color.brochure": "Olivetti, Echos Portable Personal Computers, 3994073P-00, 10/1994, pp. 2, 4.",
   "product.olivetti-echos-44-color.museum": "Danmarks Tekniske Museum, Echos 44 Color NB40 photograph record.",
-  "product.olivetti-echos-44-color.market": "Computer Business Review, 4 October 1994, Olivetti launches new range of terracotta notebook computers."
+  "product.olivetti-echos-44-color.market": "Computer Business Review, 4 October 1994, Olivetti launches new range of terracotta notebook computers.",
+  "product.olivetti-echos-44-color.unita-1994": "Dario Venegoni, L’Unità, 3 June 1994, p. 20",
+  "product.olivetti-echos-44-color.mc-micro-1994": "Paolo Ciardelli, MCmicrocomputer 144, October 1994, pp. 206–211"
 }
