@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p2s.summary": "The P2S doubled the P2’s disk capacity while keeping the same working memory.",
+  "product.ta-alphatronic-p2s.history": "The P2S extended the Alphatronic P2 office range with double-sided drives. A May 1982 price list offered it for DM 7,950 before VAT, including the monitor.",
+  "product.ta-alphatronic-p2s.technical.configuration": "Each disk could hold twice as much data as on the P2. It used two sides, with 40 tracks per side and 16 sectors of 256 bytes per track.",
+  "product.ta-alphatronic-p2s.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-alphatronic-p2s.technical.limitations": "The model-specific firmware and a boot disk remain to be preserved for verification.",
+  "product.ta-alphatronic-p2s.technical.source_1": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 53–54",
+  "product.ta-alphatronic-p2s.technical.source_2": "Systemhandbuch · Triumph-Adler SH/04823/d · §2.1.1",
+  "product.ta-alphatronic-p2s.technical.source_3": "Alphatronic Preisliste · 5/1982 · p. 1"
+}

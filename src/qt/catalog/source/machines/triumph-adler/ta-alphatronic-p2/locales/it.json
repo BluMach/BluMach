@@ -3,12 +3,14 @@
   "product.ta-alphatronic-p2.history": "Annunciato insieme al P1 a Systems 1979, il P2 arrivò sul mercato nel 1980 come modello da ufficio di fascia superiore della gamma derivata dal KISS di SKS. Fu annunciato a 4.995 DM IVA esclusa, con il monitor venduto a parte. L’Homecomputermuseum ne attribuisce la produzione a SKS. L’HNF identifica Diehl Datensysteme come produttore del P1 e lascia aperta la questione per il P2.",
   "product.ta-alphatronic-p2.technical.configuration": "Il monitor MOS prepara la macchina a caricare i programmi da dischetto. Il manuale documenta 6 KiB di ROM e 1 KiB di RAM di lavoro. L’interprete BASIC viene caricato da dischetto.",
   "product.ta-alphatronic-p2.technical.verified": "Il P2 non dispone di un profilo eseguibile in BluMach.",
-  "product.ta-alphatronic-p2.technical.limitations": "Restano da ottenere un set esatto del P2 e una prova di avvio.",
+  "product.ta-alphatronic-p2.technical.limitations": "Restano da ottenere il generatore di caratteri della variante spagnola e una prova di avvio.",
   "product.ta-alphatronic-p2.technical.source_1": "Alphatronic – Das neue modulare Microcomputer-System · Systems 1979 · pp. 2, 4, 6",
   "product.ta-alphatronic-p2.technical.source_2": "Es begann mit einem KISS · Heinz Nixdorf MuseumsForum",
   "product.ta-alphatronic-p2.technical.source_3": "Alphatronic P2 · Homecomputermuseum",
   "product.ta-alphatronic-p2.technical.source_4": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 47, 53–57",
   "product.ta-alphatronic-p2.technical.source_5": "Alphatronic P1 / P2 / P2U · MAME",
   "product.ta-alphatronic-p2.technical.source_6": "Helmut Wiertalla · Alphatronic P2 · MOS",
-  "product.ta-alphatronic-p2.technical.firmware_identity": "Gli SHA-1 del MOS pubblicato dal suo sviluppatore come P2 coincidono con quelli dei tre chip che MAME assegna al P2U. MAME indica il P2 come non funzionante."
+  "product.ta-alphatronic-p2.technical.firmware_identity": "Gli SHA-1 del MOS pubblicato dal suo sviluppatore come P2 coincidono con quelli dei tre chip che MAME assegna al P2U. MAME indica il P2 come non funzionante.",
+  "product.ta-alphatronic-p2.technical.owner_report": "rfka01 · Triumph-Adler alphatronic P3 (+ P1, P2 and P4) · Bannister",
+  "product.ta-alphatronic-p2.technical.preserved": "La biblioteca conserva tre set MOS del P2 verificati tramite SHA-1, due tedeschi e uno spagnolo. Conserva anche due ROM dei caratteri e una ROM della tastiera."
 }

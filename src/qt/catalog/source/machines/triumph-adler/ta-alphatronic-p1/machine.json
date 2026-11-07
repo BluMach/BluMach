@@ -99,6 +99,16 @@
             "label_key": "technical.label.source_firmware",
             "value_key": "product.ta-alphatronic-p1.technical.source_5",
             "url": "https://github.com/mamedev/mame/blob/master/src/mame/ta/alphatpx.cpp"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.ta-alphatronic-p1.technical.owner_report",
+            "url": "https://forums.bannister.org/ubbthreads.php?Number=110034&page=all&ubb=showflat"
+          },
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.ta-alphatronic-p1.technical.preserved",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/ta/alphatpx.cpp"
           }
         ]
       }

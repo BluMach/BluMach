@@ -1,0 +1,117 @@
+{
+  "order": 1884,
+  "machine": {
+    "id": "ta-alphatronic-p2u",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-alphatronic-p",
+    "name": "Triumph-Adler Alphatronic P2U",
+    "summary_key": "product.ta-alphatronic-p2u.summary",
+    "history_key": "product.ta-alphatronic-p2u.history",
+    "status": "research",
+    "period": "1982",
+    "aliases": [
+      "TA Alphatronic P2U"
+    ],
+    "tags": [
+      "8085A",
+      "MOS",
+      "CP/M"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "monochrome"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 8085A · 3 MHz",
+      "video": "CRT 12″ · 80 × 24",
+      "floppy": "2 × 5.25″ · DS/DD · MFM · 320 KiB",
+      "memory": "64 KiB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.ta-alphatronic-p2u.technical.configuration",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/ta/alphatronic/"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-alphatronic-p2u.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-alphatronic-p2u.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-alphatronic-p2u.technical.source_1",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/ta/alphatronic/"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-alphatronic-p2u.technical.source_2",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/ta/alphatronic/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-p2u.technical.source_3",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/ta/alphatronic/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.ta-alphatronic-p2u.technical.source_4",
+            "url": "https://www.classic-computing.de/hellwie/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.ta-alphatronic-p2u.technical.source_5",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/ta/alphatpx.cpp"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.ta-alphatronic-p2u.technical.source_6",
+            "url": "https://forum.classic-computing.de/forum/index.php?postID=169561&thread%2F12908-alphatronic-p2%2F="
+          },
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.ta-alphatronic-p2u.technical.firmware_identity",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/ta/alphatpx.cpp"
+          }
+        ]
+      }
+    ]
+  }
+}

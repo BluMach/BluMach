@@ -213,6 +213,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "schneider-towerat220-mega", "schneider-towerat240", "schneider-towerat260",
                 "schneider-vgaat40", "schneider-vgaat70", "sinclair-apc286", "sinclair-apc386sx",
                 "sinclair-pc200", "ta-alphatronic-p1", "ta-alphatronic-p2",
+                "ta-alphatronic-p2l", "ta-alphatronic-p2s", "ta-alphatronic-p2u",
                 "ta-dario286", "ta-dario386sx", "toshiba-t3200", "toshiba-t5100",
                 "toshiba-t5200", "trigem-sx386m",
             },

@@ -3,10 +3,12 @@
   "product.ta-alphatronic-p1.history": "Triumph-Adler y Diehl Datensysteme presentaron el P1 en Systems 1979, en Múnich. Era la opción de entrada para uso profesional, derivada del KISS de SKS. Se anunció por 3.595 DM antes de IVA, con el monitor aparte. El HNF sitúa la fabricación en Diehl Datensysteme, en Núremberg. El Homecomputermuseum la atribuye a SKS.",
   "product.ta-alphatronic-p1.technical.configuration": "La memoria del P1 podía ampliarse para usar programas más grandes. El folleto de 1979 anunciaba 16 KiB y el manual posterior indica 32 KiB de base, ampliables a 48 KiB.",
   "product.ta-alphatronic-p1.technical.verified": "El P1 carece de un perfil ejecutable en BluMach.",
-  "product.ta-alphatronic-p1.technical.limitations": "Quedan por conservar y cotejar las ROM de la variante y un disco de arranque. MAME declara una máquina P1 y la marca como no funcional.",
+  "product.ta-alphatronic-p1.technical.limitations": "Quedan pendientes la ROM de teclado 1702 y una prueba de arranque. MAME declara una máquina P1 y la marca como no funcional.",
   "product.ta-alphatronic-p1.technical.source_1": "Alphatronic – Das neue modulare Microcomputer-System · Systems 1979 · pp. 2, 4, 6",
   "product.ta-alphatronic-p1.technical.source_2": "Es begann mit einem KISS · Heinz Nixdorf MuseumsForum",
   "product.ta-alphatronic-p1.technical.source_3": "Alphatronic P2 · Homecomputermuseum",
   "product.ta-alphatronic-p1.technical.source_4": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 47, 53–57",
-  "product.ta-alphatronic-p1.technical.source_5": "Alphatronic P1 / P2 / P2U · MAME"
+  "product.ta-alphatronic-p1.technical.source_5": "Alphatronic P1 / P2 / P2U · MAME",
+  "product.ta-alphatronic-p1.technical.owner_report": "rfka01 · Triumph-Adler alphatronic P3 (+ P1, P2 and P4) · Bannister",
+  "product.ta-alphatronic-p1.technical.preserved": "El MOS y la ROM de caracteres del ejemplar 00001 están preservados y sus hashes coinciden con MAME. El autor del volcado señala que podría ser de preserie."
 }
