@@ -1,0 +1,11 @@
+{
+  "product.olivetti-laptop-d33-c.summary": "El D33/C llevó la pantalla TFT a la gama portátil de alto rendimiento.",
+  "product.olivetti-laptop-d33-c.history": "Olivrea fecha el folleto alemán del D33/C en 1991. MCmicrocomputer documentó en mayo de 1992 que se había mostrado en Hannover y estimó un precio inferior a diez millones de liras.",
+  "product.olivetti-laptop-d33-c.warning": "Ficha histórica en investigación.",
+  "product.olivetti-laptop-d33-c.architecture": "El TFT daba color con matriz activa. La configuración de noviembre tiene 640 × 480 y 256 colores, y un teclado extraíble.",
+  "product.olivetti-laptop-d33-c.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-laptop-d33-c.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-laptop-d33-c.spring": "MCmicrocomputer 118, May 1992, p. 112.",
+  "product.olivetti-laptop-d33-c.autumn": "MCmicrocomputer 123, November 1992, p. 138.",
+  "product.olivetti-laptop-d33-c.brochure-index": "Olivrea, Olivetti Laptop D33/C brochure index."
+}

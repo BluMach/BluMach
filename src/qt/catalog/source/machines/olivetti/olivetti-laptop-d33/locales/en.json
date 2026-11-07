@@ -2,9 +2,11 @@
   "product.olivetti-laptop-d33.summary": "The highest-clocked portable in the September 1991 Olivetti 1. catalogue.",
   "product.olivetti-laptop-d33.history": "In September 1991 Olivetti offered the Laptop D33 in the Olivetti 1. line. The Historical Archive attributes development of the range to Triumph-Adler with Y-E Data collaboration and locates production in Nuremberg.",
   "product.olivetti-laptop-d33.warning": "Historical sheet under research.",
-  "product.olivetti-laptop-d33.architecture": "The format explains the differences in weight and expansion. The catalogue specifies 5 kg and 386 × 300 × 61 mm, with an integrated mouse and 1.44 MB floppy drive.",
+  "product.olivetti-laptop-d33.architecture": "The format explains the weight and expansion. Olivetti lists 5 kg and a 1.44 MB floppy drive. The 1991 brochure lists a 33 MHz 80386SX. The Centre for Computing History specimen and the Classic Computing record identify a 386DX, at 33 MHz in the latter.",
   "product.olivetti-laptop-d33.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
   "product.olivetti-laptop-d33.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
   "product.olivetti-laptop-d33.catalogue": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91, p. 3.",
-  "product.olivetti-laptop-d33.archive": "Associazione Archivio Storico Olivetti, Lavorare dovunque, Olivetti 1."
+  "product.olivetti-laptop-d33.archive": "Associazione Archivio Storico Olivetti, Lavorare dovunque, Olivetti 1.",
+  "product.olivetti-laptop-d33.museum": "Centre for Computing History, Olivetti D33 specimen.",
+  "product.olivetti-laptop-d33.exhibit": "Classic Computing 2023, Olivetti D33 / Triumph-Adler Walkstation 386DX."
 }

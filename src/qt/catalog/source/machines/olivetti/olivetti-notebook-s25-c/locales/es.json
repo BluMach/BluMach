@@ -1,0 +1,10 @@
+{
+  "product.olivetti-notebook-s25-c.summary": "El S25/C añadió color de matriz pasiva a la gama Notebook de Olivetti 1.",
+  "product.olivetti-notebook-s25-c.history": "MCmicrocomputer documentó el S25/C en mayo de 1992, con disponibilidad prevista para finales del verano. Era la variante en color del S25 dentro de Olivetti 1.",
+  "product.olivetti-notebook-s25-c.warning": "Ficha histórica en investigación.",
+  "product.olivetti-notebook-s25-c.architecture": "La pantalla distinguía ambas versiones. En noviembre, MCmicrocomputer describió la misma base 386SX, disco de 80 MB y compatibilidad VGA con paneles distintos.",
+  "product.olivetti-notebook-s25-c.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-notebook-s25-c.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-notebook-s25-c.spring": "MCmicrocomputer 118, May 1992, p. 112.",
+  "product.olivetti-notebook-s25-c.autumn": "MCmicrocomputer 123, November 1992, p. 138."
+}

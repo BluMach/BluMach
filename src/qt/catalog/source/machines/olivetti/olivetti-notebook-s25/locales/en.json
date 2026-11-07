@@ -1,0 +1,11 @@
+{
+  "product.olivetti-notebook-s25.summary": "The monochrome S25 extended the Olivetti 1. Notebook range.",
+  "product.olivetti-notebook-s25.history": "MCmicrocomputer documented the expansion of the Olivetti 1. portable line with the S25 and S25/C in May 1992.",
+  "product.olivetti-notebook-s25.warning": "Historical sheet under research.",
+  "product.olivetti-notebook-s25.architecture": "The display distinguished the versions. In November, MCmicrocomputer described the same 386SX base, 80 MB disk and VGA compatibility with different panels.",
+  "product.olivetti-notebook-s25.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-notebook-s25.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-notebook-s25.spring": "MCmicrocomputer 118, May 1992, p. 112.",
+  "product.olivetti-notebook-s25.autumn": "MCmicrocomputer 123, November 1992, p. 138.",
+  "product.olivetti-notebook-s25.brochure-index": "VintAds, Olivetti Notebook S25 brochure record, 1992."
+}

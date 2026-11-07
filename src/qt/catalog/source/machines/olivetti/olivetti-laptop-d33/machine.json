@@ -20,11 +20,11 @@
         "portable"
       ],
       "cpu_generation": [
-        "x86_386sx"
+        "x86_386"
       ]
     },
     "hardware": {
-      "cpu": "80386SX · 33 MHz",
+      "cpu": "Intel 80386DX · 33 MHz",
       "memory": "4–20 MB",
       "hard_disk": "40 / 60 MB",
       "floppy": "3.5″ · 1.44 MB",
@@ -72,6 +72,16 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-laptop-d33.archive",
             "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-laptop-d33.museum",
+            "url": "https://www.computinghistory.org.uk/det/43954/Olivetti-D33/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-laptop-d33.exhibit",
+            "url": "https://www.classic-computing.org/classic-computing/"
           }
         ]
       }
