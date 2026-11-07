@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m480-10.summary": "L’M480 con bus AT, 486SX a 20 MHz e opzioni IDE o SCSI.",
+  "product.olivetti-m480-10.history": "La guida Olivetti documenta M480-10 (l’M480 con bus AT, 486SX a 20 MHz e opzioni IDE o SCSI).",
+  "product.olivetti-m480-10.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m480-10.architecture": "La scheda determina la combinazione di periferiche da verificare. La guida indica BA372 · 82C453 · IDE / SCSI.",
+  "product.olivetti-m480-10.firmware": "La revisione del BIOS aiuta a identificare la configurazione di servizio. La guida indica 1.03 / 2.07 (BA372).",
+  "product.olivetti-m480-10.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-m480-10.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m480-10.guide": "Olivetti, Personal Computer – Pocket Service Guide, 34-1."
+}

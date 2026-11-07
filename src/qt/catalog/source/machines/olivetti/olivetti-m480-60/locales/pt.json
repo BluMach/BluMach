@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m480-60.summary": "O M480 Micro Channel com memória ECC e cache secundária de 256 KB.",
+  "product.olivetti-m480-60.history": "O guia da Olivetti documenta M480-60 (o M480 Micro Channel com memória ECC e cache secundária de 256 KB).",
+  "product.olivetti-m480-60.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m480-60.architecture": "A placa determina a combinação de periféricos a verificar. O guia indica BA307 · UC118 · GO2002 · SCSI. O arranque IML requer uma segunda parte do código no primeiro disco rígido.",
+  "product.olivetti-m480-60.firmware": "A revisão da BIOS ajuda a identificar a configuração de serviço. O guia regista EPROM + IML.",
+  "product.olivetti-m480-60.verified": "A identidade foi verificada na documentação da Olivetti. A ficha permanece em investigação.",
+  "product.olivetti-m480-60.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m480-60.guide": "Olivetti, Personal Computer – Pocket Service Guide, 31-1."
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m480-40.summary": "The Micro Channel M480 with a UC117 CPU board and IML boot.",
+  "product.olivetti-m480-40.history": "The Olivetti service guide documents M480-40 (the Micro Channel M480 with a UC117 CPU board and IML boot).",
+  "product.olivetti-m480-40.warning": "Historical sheet under research.",
+  "product.olivetti-m480-40.architecture": "The board determines which peripheral combination needs verification. The guide identifies BA307 · UC117 · GO589 / GO2002 · SCSI. IML boot needs a second part of the code on the first hard disk.",
+  "product.olivetti-m480-40.firmware": "The BIOS revision helps identify the service configuration. The guide records EPROM + IML.",
+  "product.olivetti-m480-40.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m480-40.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m480-40.guide": "Olivetti, Personal Computer – Pocket Service Guide, 30-1."
+}
