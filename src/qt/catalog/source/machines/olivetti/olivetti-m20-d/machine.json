@@ -1,0 +1,76 @@
+{
+  "order": 10233,
+  "machine": {
+    "id": "olivetti-m20-d",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M20 D",
+    "summary_key": "product.olivetti-m20-d.summary",
+    "history_key": "product.olivetti-m20-d.history",
+    "warning_key": "product.olivetti-m20-d.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Zilog Z8001 · 4 MHz",
+      "memory": "128–224 KB",
+      "video": "CRT",
+      "storage": "2 × 5.25″ FDD"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m20-d.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m20-d.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m20-d.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20-d.cambridge-museum",
+            "url": "https://www.computinghistory.org.uk/det/49850/Olivetti-M20-D/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20-d.cambridge-specimen",
+            "url": "https://www.computinghistory.org.uk/det/49850/Olivetti-M20-D/"
+          }
+        ]
+      }
+    ],
+    "period": "1982"
+  }
+}

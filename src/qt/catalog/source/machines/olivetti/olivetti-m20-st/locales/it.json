@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m20-st.summary": "La configurazione dell’M20 che la stampa italiana identificò come ST nel 1982.",
+  "product.olivetti-m20-st.history": "Nel 1982 Pixel documentò l’M20 ST nella gamma professionale Olivetti. Il Museo del Calcolatore di Prato conserva un esemplare con questa denominazione.",
+  "product.olivetti-m20-st.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m20-st.architecture": "La memoria si poteva espandere con schede. Pixel descrive 128–224 KB con tre schede e il museo indica fino a 512 KB per la famiglia.",
+  "product.olivetti-m20-st.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m20-st.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m20-st.pixel-1982": "Pixel 2, 1982, pp. 59–60, Olivetti Personal Computer M20 ST",
+  "product.olivetti-m20-st.prato-museum": "Museo del Calcolatore di Prato, Olivetti M20 ST"
+}
