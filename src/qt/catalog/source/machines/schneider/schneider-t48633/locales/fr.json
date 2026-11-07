@@ -1,0 +1,9 @@
+{
+  "product.schneider-t48633.summary": "La tour 486SX de la gamme allemande de décembre 1991.",
+  "product.schneider-t48633.history": "Le tarif allemand de décembre 1991 plaçait le T486/33 dans la gamme des tours. La configuration sans disque coûtait 8 595 DM nets et celle de 200 Mo, 10 469 DM. Elle incluait MS-DOS 5.0 et Windows 3.0.",
+  "product.schneider-t48633.warning": "Fiche historique en cours de recherche.",
+  "product.schneider-t48633.technical.configuration": "Le 486SX à 33 MHz était associé à une mémoire cache. Le tarif indique 64 Ko de cache, 8 Mo de RAM extensibles à 16 Mo et une VGA de 512 Ko.",
+  "product.schneider-t48633.technical.verified": "L’offre est documentée. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
+  "product.schneider-t48633.technical.limitations": "Il reste à comparer la carte à un exemplaire et à préserver un BIOS attribué. Une image aux droits de publication clairs reste à trouver.",
+  "product.schneider-t48633.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–3"
+}

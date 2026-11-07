@@ -1,0 +1,9 @@
+{
+  "product.schneider-t48633.summary": "La torre 486SX de la gama alemana de diciembre de 1991.",
+  "product.schneider-t48633.history": "La tarifa alemana de diciembre de 1991 situaba el T486/33 en la gama de torres. La configuración sin disco costaba 8.595 DM netos y la de 200 MB, 10.469 DM. Incluía MS-DOS 5.0 y Windows 3.0.",
+  "product.schneider-t48633.warning": "Ficha histórica en investigación.",
+  "product.schneider-t48633.technical.configuration": "La caché acompañaba al 486SX de 33 MHz. La tarifa indica 64 KB de caché, 8 MB de RAM ampliables a 16 MB y VGA de 512 KB.",
+  "product.schneider-t48633.technical.verified": "La oferta está documentada. El modelo dedicado y la validación de arranque en BluMach siguen pendientes.",
+  "product.schneider-t48633.technical.limitations": "Queda por cotejar la placa con un ejemplar y conservar una BIOS atribuida. Falta una imagen con derechos de publicación claros.",
+  "product.schneider-t48633.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–3"
+}
