@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m54.summary": "Le Linea 1 de bureau qui ajoutait un cache et une mémoire à correction d’erreurs.",
+  "product.olivetti-m54.history": "Le M54 conservait le boîtier et la compatibilité des M30 et M34. Olivetti documentait une nouvelle carte centrale et jusqu’à trois périphériques magnétiques.",
+  "product.olivetti-m54.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m54.architecture": "Le cache découplait le processeur du bus. Le manuel indique 10 MHz pour l’UC070 dans l’introduction et 8 MHz pour son Z8001B dans la fiche de la carte.",
+  "product.olivetti-m54.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m54.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m54.service": "Olivetti, M34/M44/M54 Service Manual, §§1 and 4."
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m34.summary": "Il successore dell’M30 manteneva il contenitore e accelerava il processore.",
+  "product.olivetti-m34.history": "L’Unità documentò M34 e M44 nel giugno 1985. L’M34 proseguiva il ramo da scrivania dell’M30 con lo stesso contenitore e la compatibilità MOS.",
+  "product.olivetti-m34.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m34.architecture": "La diagnostica e il caricamento iniziale risiedevano sulla scheda CPU. L’UC048/A montava due EPROM, una MMU Z8010B e un MC6850 per RS-232.",
+  "product.olivetti-m34.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m34.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m34.service": "Olivetti, M34/M44/M54 Service Manual, §§1 and 4.",
+  "product.olivetti-m34.press": "L’Unità, 13 June 1985, p. 10."
+}

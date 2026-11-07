@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m54.summary": "O Linea 1 de secretária que acrescentou cache e memória com correção de erros.",
+  "product.olivetti-m54.history": "O M54 manteve a caixa e a compatibilidade do M30 e do M34. A Olivetti documentou uma nova unidade central e até três periféricos magnéticos.",
+  "product.olivetti-m54.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m54.architecture": "A cache desacoplava a CPU do barramento. O manual indica 10 MHz para a UC070 na introdução e 8 MHz para o seu Z8001B na ficha da placa.",
+  "product.olivetti-m54.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m54.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m54.service": "Olivetti, M34/M44/M54 Service Manual, §§1 and 4."
+}

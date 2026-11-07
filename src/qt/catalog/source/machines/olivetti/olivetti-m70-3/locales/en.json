@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m70-3.summary": "The 3-CPU version of the Linea 1 M70.",
+  "product.olivetti-m70-3.history": "The Historical Archive dates the M70 to 1986 as a high-end system for organisations with more workstations.",
+  "product.olivetti-m70-3.warning": "Historical sheet under research.",
+  "product.olivetti-m70-3.architecture": "The system bus supported double-height boards. The documented UC071 has a 10 MHz Z8001B and 8 KB of cache.",
+  "product.olivetti-m70-3.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m70-3.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m70-3.archive": "Associazione Archivio Storico Olivetti, L1: una nuova linea di sistemi informatici.",
+  "product.olivetti-m70-3.service": "Olivetti, M64/M70 Service Manual, §§1 and 4.1."
+}

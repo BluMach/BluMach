@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m70.summary": "La versión de 1 CPU del M70 de Linea 1.",
+  "product.olivetti-m70.history": "El Archivo Histórico sitúa el M70 en 1986 como sistema de gama alta para organizaciones con más puestos de trabajo.",
+  "product.olivetti-m70.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m70.architecture": "El bus de sistema admitía tarjetas de doble altura. La placa UC071 documentada tiene un Z8001B a 10 MHz y 8 KB de caché.",
+  "product.olivetti-m70.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m70.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m70.archive": "Associazione Archivio Storico Olivetti, L1: una nuova linea di sistemi informatici.",
+  "product.olivetti-m70.service": "Olivetti, M64/M70 Service Manual, §§1 and 4.1."
+}

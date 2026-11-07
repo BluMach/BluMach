@@ -1,0 +1,82 @@
+{
+  "order": 10064,
+  "machine": {
+    "id": "olivetti-m30",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti L1 M30",
+    "summary_key": "product.olivetti-m30.summary",
+    "history_key": "product.olivetti-m30.history",
+    "warning_key": "product.olivetti-m30.warning",
+    "status": "research",
+    "aliases": [
+      "M30",
+      "Linea 1 M30"
+    ],
+    "tags": [
+      "Linea 1",
+      "MOS"
+    ],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Zilog Z8001",
+      "expansion": "OLIBUS"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m30.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m30.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m30.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m30.archive",
+            "url": "https://www.storiaolivetti.it/articolo/57-l1-una-nuova-linea-di-sistemi-informatici/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m30.service",
+            "url": "https://olivrea.de/handbuecher/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m30.basic",
+            "url": "https://olivrea.de/handbuecher/"
+          }
+        ]
+      }
+    ],
+    "period": "1982"
+  }
+}

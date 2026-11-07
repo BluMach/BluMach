@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m54.summary": "Il Linea 1 da scrivania che aggiungeva cache e memoria con correzione degli errori.",
+  "product.olivetti-m54.history": "L’M54 conservava contenitore e compatibilità di M30 e M34. Olivetti documentava una nuova unità centrale e fino a tre periferiche magnetiche.",
+  "product.olivetti-m54.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m54.architecture": "La cache separava la CPU dal bus. Il manuale indica 10 MHz per l’UC070 nell’introduzione e 8 MHz per lo Z8001B nella scheda della piastra.",
+  "product.olivetti-m54.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m54.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m54.service": "Olivetti, M34/M44/M54 Service Manual, §§1 and 4."
+}

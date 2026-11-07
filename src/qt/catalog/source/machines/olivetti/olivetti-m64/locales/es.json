@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m64.summary": "El Linea 1 vertical de gama media con tarjetas OLIBUS de formato 3000.",
+  "product.olivetti-m64.history": "Olivetti situó el M64 en la gama media-alta de Linea 1 junto al M70. El manual documenta una ampliación a M64 SP con CPU Motorola 68000.",
+  "product.olivetti-m64.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m64.architecture": "La expansión empleaba un formato común de tarjetas. El manual describe OLIBUS de formato 3000 y un procesador a 10 MHz.",
+  "product.olivetti-m64.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m64.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m64.service": "Olivetti, M64/M70 Service Manual, §§1 and 4.1."
+}

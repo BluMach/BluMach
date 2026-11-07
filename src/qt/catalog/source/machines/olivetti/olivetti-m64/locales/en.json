@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m64.summary": "The mid-range upright Linea 1 system with 3000-format OLIBUS boards.",
+  "product.olivetti-m64.history": "Olivetti placed the M64 in the upper middle of Linea 1 alongside the M70. The manual documents an M64 SP upgrade with a Motorola 68000 CPU.",
+  "product.olivetti-m64.warning": "Historical sheet under research.",
+  "product.olivetti-m64.architecture": "Expansion used a common board format. The manual describes 3000-format OLIBUS and a 10 MHz processor.",
+  "product.olivetti-m64.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m64.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m64.service": "Olivetti, M64/M70 Service Manual, §§1 and 4.1."
+}
