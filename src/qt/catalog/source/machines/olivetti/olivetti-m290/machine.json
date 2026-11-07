@@ -1,0 +1,162 @@
+{
+  "order": 94,
+  "machine": {
+    "id": "olivetti-m290",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "platform_id": "olivetti-m290-platform",
+    "name": "Olivetti M290",
+    "summary_key": "product.olivetti-m290.summary",
+    "history_key": "product.olivetti-m290.history",
+    "warning_key": "product.olivetti-m290.warning",
+    "status": "research",
+    "blumach_emulation": "inherited",
+    "period": "1988",
+    "aliases": [],
+    "tags": [
+      "80286",
+      "UC081",
+      "UC090",
+      "EVA",
+      "ADAMO"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80286 · 12 MHz",
+      "coprocessor": "Intel 80287",
+      "memory": "1–2 MB · 14 MB",
+      "chipset": "Olivetti EVA / ADAMO · 82C206",
+      "video": "OEC (EGA) / OVC (VGA) / PGC",
+      "floppy": "5.25″ · 1.2 MB / 3.5″ · 1.44 MB",
+      "hard_disk": "20 / 40 / 100 MB",
+      "expansion": "3 × 8-bit · 5 × 16-bit",
+      "interfaces": "RS-232C · Centronics",
+      "dimensions": "360 × 147 × 390 mm · 12.5 kg"
+    },
+    "firmware": {
+      "known_sets": [
+        "PDPB 1.17 · 64 KiB",
+        "PEP3 1.25 · 64 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.olivetti-m290.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m290.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m290.technical.architecture"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m290.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m290.technical.video"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.olivetti-m290.technical.expansion"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.observed",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m290.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m290.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m290.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.olivetti-m290.technical.brochure",
+            "url": "https://classic.technology/olivetti-m290-sheet-dutch/"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m290.technical.manual",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html"
+          },
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.olivetti-m290.technical.press",
+            "url": "https://www.computerwoche.de/article/2787843/olivetti-bringt-80386er-auf-den-markt.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290.technical.museum",
+            "url": "https://www.computinghistory.org.uk/det/41372/Olivetti-M290/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.olivetti-m290.technical.firmware_source",
+            "url": "https://archive.org/details/olivetti-m-290-bios-dump-version-1-17"
+          },
+          {
+            "label_key": "technical.label.implementation_lineage",
+            "value_key": "product.olivetti-m290.technical.source",
+            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_at_286.c"
+          }
+        ]
+      }
+    ]
+  },
+  "platform_order": 134,
+  "platform": {
+    "id": "olivetti-m290-platform",
+    "emulator_machine_id": "m290",
+    "architecture": "80286"
+  }
+}
