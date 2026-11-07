@@ -1,0 +1,89 @@
+{
+  "order": 10109,
+  "machine": {
+    "id": "olivetti-m380-c",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M380/C",
+    "summary_key": "product.olivetti-m380-c.summary",
+    "history_key": "product.olivetti-m380-c.history",
+    "warning_key": "product.olivetti-m380-c.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80386 · 16 MHz",
+      "expansion": "3 × 32-bit · 2 × 16-bit · 2 × 8-bit",
+      "memory": "1 MB",
+      "storage": "ST-506 MFM / ESDI"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m380-c.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m380-c.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m380-c.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m380-c.brochure",
+            "url": "https://olivrea.de/prospekte-personal-computer/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m380-c.service",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m380-c.press87",
+            "url": "https://www.computerwoche.de/article/2806520/neue-pc-familie-nach-altem-standard.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m380-c.press88",
+            "url": "https://www.computerwoche.de/article/2787843/olivetti-bringt-80386er-auf-den-markt.html"
+          }
+        ]
+      }
+    ],
+    "period": "1987–1988"
+  }
+}

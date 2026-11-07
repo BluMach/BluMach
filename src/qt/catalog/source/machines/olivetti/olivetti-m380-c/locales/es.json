@@ -1,0 +1,12 @@
+{
+  "product.olivetti-m380-c.summary": "La versión compacta del M380 alojaba un solo disco duro interno.",
+  "product.olivetti-m380-c.history": "Olivetti anunció el M380/C en 1987 como 386 de sobremesa compacto para puestos autónomos o en red. En abril de 1988, Computerwoche describió el XP1 como una evolución más rápida del M380/C.",
+  "product.olivetti-m380-c.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m380-c.architecture": "La RAM se ampliaba con tarjetas. El folleto describe una configuración de hasta 36 MB, y la guía y Computerwoche registran hasta 48 MB. El folleto ofrece disco de 63 MB donde Computerwoche indica 62 MB.",
+  "product.olivetti-m380-c.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m380-c.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m380-c.brochure": "Olivetti, Hardware-Informationen M380–M380/C, 1987.",
+  "product.olivetti-m380-c.service": "Olivetti, Pocket Service Guide, vol. I, §7.",
+  "product.olivetti-m380-c.press87": "Computerwoche, 3 July 1987, Neue PC-Familie nach altem Standard.",
+  "product.olivetti-m380-c.press88": "Computerwoche, 29 April 1988, Olivetti bringt 80386er auf den Markt."
+}

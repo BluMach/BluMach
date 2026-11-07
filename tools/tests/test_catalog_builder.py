@@ -90,7 +90,7 @@ class CatalogBuilderTests(unittest.TestCase):
              "olivetti-m280", "olivetti-m300-if378", "olivetti-m30002",
              "olivetti-m30002f", "olivetti-m30008", "olivetti-m30015",
              "olivetti-m30030", "olivetti-m30030p", "olivetti-pcs11",
-             "olivetti-pcs33", "olivetti-pcs46c", "olivetti-m290sp", "olivetti-m380t", "olivetti-m380-xp1", "olivetti-m380-xp3", "olivetti-m380-xp5", "olivetti-m380-xp4", "olivetti-m380-xp7", "olivetti-m380-xp9", "olivetti-m380-40"},
+             "olivetti-pcs33", "olivetti-pcs46c", "olivetti-m290sp", "olivetti-m380-c", "olivetti-m380-c-new", "olivetti-m380t", "olivetti-m380-xp1", "olivetti-m380-xp3", "olivetti-m380-xp5", "olivetti-m380-xp4", "olivetti-m380-xp7", "olivetti-m380-xp9", "olivetti-m380-40"},
             visible_products,
         )
 
