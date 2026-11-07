@@ -64,6 +64,8 @@ The resized `CC BY` and `CC BY-SA` files are adaptations of the originals and
 are distributed under the same licence as their original. They are separate
 works aggregated with BluMach, not part of the GPL-covered program.
 
+The unmodified [amstrad-acl-386sx120-photo.jpg](https://commons.wikimedia.org/wiki/File:Amstrad2-og.jpg) photograph is by Oguenther, who dedicated it to the public domain.
+
 ## Illustrations
 
 Generated with the built-in OpenAI image tool on 2026-08-31 and 2026-09-01 from
