@@ -1,0 +1,11 @@
+{
+  "product.amstrad-anb-386sx20.summary": "L’ANB d’entrée de gamme, avec un processeur plus lent et un disque deux fois moins grand que celui du SX40.",
+  "product.amstrad-anb-386sx20.history": "En septembre 1991, Amstrad proposait le SX20 aux acheteurs qui cherchaient un notebook moins cher que le SX40. Computerwoche indiquait un prix allemand d’environ 5 000 marks. En 1992, Amstrad l’annonçait en Espagne à 229 900 pesetas hors TVA.",
+  "product.amstrad-anb-386sx20.technical.storage": "Un disque IDE de 20 Mo hébergeait les logiciels et les données. La publicité espagnole indique sa capacité et le support Amstrad identifie l’interface IDE.",
+  "product.amstrad-anb-386sx20.technical.utilities": "Le manuel présentait des utilitaires de réglage, selon un propriétaire qui cite la section 4.1. SPEED modifiait la fréquence du processeur et DISPLAY sélectionnait les modes EGA, MDA/Hercules ou CGA.",
+  "product.amstrad-anb-386sx20.technical.verified": "La configuration commerciale a été recoupée avec les publicités et la presse de l’époque. La fiche BluMach est au stade de la recherche.",
+  "product.amstrad-anb-386sx20.technical.limitations": "Il reste à obtenir un relevé de BIOS attribuable, à identifier la carte mère et à valider le démarrage dans BluMach.",
+  "product.amstrad-anb-386sx20.technical.germany": "Computerwoche · Neue tragbare PCs mit 386SX-Prozessor · 27 September 1991",
+  "product.amstrad-anb-386sx20.technical.spain": "Amstrad · ANB 386 SX-20 and SX-40 advertisement · PC World España, 1992 · Universidad de Zaragoza exhibition · PDF p. 15",
+  "product.amstrad-anb-386sx20.technical.support": "Cliff Lawson · Amstrad support correspondence · ANB-386SX20 owner · 4 March 1997"
+}
