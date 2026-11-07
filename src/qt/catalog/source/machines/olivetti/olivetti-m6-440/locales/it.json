@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-440.summary": "La configurazione con DX a 33 MHz della prima famiglia M6 trattata dalla guida.",
+  "product.olivetti-m6-440.history": "La guida Olivetti colloca l’M6-440 in una serie di quattro configurazioni AT. La variante con DX a 33 MHz apparteneva alla stessa famiglia dell’M6-420.",
+  "product.olivetti-m6-440.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m6-440.architecture": "La memoria poteva crescere senza sostituire la scheda. La guida indica 4 MB saldati e tre zoccoli SIMM da riempire in ordine. La scheda documentata è BA2001.",
+  "product.olivetti-m6-440.firmware": "La revisione del BIOS aiuta a identificare la configurazione di servizio. La guida indica Flash EPROM · Rev. 1.20.",
+  "product.olivetti-m6-440.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-m6-440.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m6-440.guide": "Olivetti, Personal Computer – Pocket Service Guide, §37, pp. 37-1–37-3."
+}

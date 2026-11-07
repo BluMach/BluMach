@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-420.summary": "El M6 de entrada con SX en la primera familia M6 documentada en la guía.",
+  "product.olivetti-m6-420.history": "La guía de Olivetti sitúa el M6-420 en una serie de cuatro configuraciones de arquitectura AT. Su variante de entrada con SX se ofrecía dentro de la misma familia que el M6-440.",
+  "product.olivetti-m6-420.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m6-420.architecture": "La memoria podía crecer sin sustituir la placa. La guía registra 4 MB soldados y tres zócalos SIMM consecutivos. La placa documentada es BA2000.",
+  "product.olivetti-m6-420.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra Flash EPROM · Rev. 1.20.",
+  "product.olivetti-m6-420.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m6-420.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m6-420.guide": "Olivetti, Personal Computer – Pocket Service Guide, §37, pp. 37-1–37-3."
+}

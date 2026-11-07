@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-460.summary": "La configurazione con DX2 a 66 MHz della prima famiglia M6 trattata dalla guida.",
+  "product.olivetti-m6-460.history": "La guida Olivetti colloca l’M6-460 in una serie di quattro configurazioni AT. La variante con DX2 a 66 MHz apparteneva alla stessa famiglia dell’M6-450.",
+  "product.olivetti-m6-460.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m6-460.architecture": "La memoria poteva crescere senza sostituire la scheda. La guida indica 4 MB saldati e tre zoccoli SIMM da riempire in ordine. La scheda documentata è BA2002.",
+  "product.olivetti-m6-460.firmware": "La revisione del BIOS aiuta a identificare la configurazione di servizio. La guida indica Flash EPROM · Rev. 1.20.",
+  "product.olivetti-m6-460.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-m6-460.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m6-460.guide": "Olivetti, Personal Computer – Pocket Service Guide, §37, pp. 37-1–37-3."
+}
