@@ -22,7 +22,7 @@ class M15ReleaseProfileTests(unittest.TestCase):
                           'olivetti-m250', 'olivetti-m250e', 'olivetti-m280',
                           'olivetti-m300-if378', 'olivetti-m30002', 'olivetti-m30002f',
                           'olivetti-m30008', 'olivetti-m30015', 'olivetti-m30030',
-                          'olivetti-m30030p', 'olivetti-m290sp'}, visible)
+                          'olivetti-m30030p', 'olivetti-m290sp', 'olivetti-m4-554', 'olivetti-m4-554-s', 'olivetti-m4-564', 'olivetti-m4-564-s', 'olivetti-m4-584', 'olivetti-m4-584-s', 'olivetti-pcs-d4-100-en', 'olivetti-pcs-d4-100-n'}, visible)
         for model in ('olivetti-m15', 'olivetti-m15-plus'):
             self.assertEqual('experimental', self.products[model]['status'])
 

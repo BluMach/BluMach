@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-564.summary": "Le M4 PCI à i486DX2 de 66 MHz dans le boîtier Tin Box.",
+  "product.olivetti-m4-564.history": "Olivetti a inclus ce modèle dans sa gamme professionnelle M4 Modulo. Les M4-5x4 partageaient leur plate-forme avec les PCS D4/100 et proposaient deux tailles de boîtier.",
+  "product.olivetti-m4-564.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m4-564.architecture": "Le réseau peut être intégré. Les cartes BA2197 et BA2205 possèdent un contrôleur Ethernet AM79C970. Le guide indique 256 KB de cache L2 pour ce modèle.",
+  "product.olivetti-m4-564.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m4-564.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m4-564.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 13",
+  "product.olivetti-m4-564.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-564.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 1.25 · Update 1."
+}

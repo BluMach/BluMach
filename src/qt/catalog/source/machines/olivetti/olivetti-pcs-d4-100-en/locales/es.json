@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs-d4-100-en.summary": "El PCS con DX4 y caja Tin Box de esta plataforma.",
+  "product.olivetti-pcs-d4-100-en.history": "Olivetti documentó el PCS D4/100 como la variante de la gama PCS que compartía plataforma con los M4-5x4. Esta configuración llevaba la caja Tin Box.",
+  "product.olivetti-pcs-d4-100-en.warning": "Ficha histórica en investigación.",
+  "product.olivetti-pcs-d4-100-en.architecture": "La caché ayuda a distinguir la configuración PCS. La guía registra 128 KB de caché L2 y vídeo Trident TGUI9440 AGi integrado.",
+  "product.olivetti-pcs-d4-100-en.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-pcs-d4-100-en.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-pcs-d4-100-en.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 13",
+  "product.olivetti-pcs-d4-100-en.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 1.25 · Update 1."
+}
