@@ -64,6 +64,10 @@ The resized `CC BY` and `CC BY-SA` files are adaptations of the originals and
 are distributed under the same licence as their original. They are separate
 works aggregated with BluMach, not part of the GPL-covered program.
 
+The Sinclair APC386SX front-panel photograph is the unmodified Commons file
+by 4throck, dedicated to the public domain under CC0 1.0.
+[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SINCLAIR_APC_386SX.jpg)
+
 ## Illustrations
 
 Generated with the built-in OpenAI image tool on 2026-08-31 and 2026-09-01 from

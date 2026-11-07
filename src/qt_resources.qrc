@@ -115,6 +115,7 @@
         <file alias="images/ta-dario286s.jpg">qt/catalog/images/ta-dario286s-family-v1.jpg</file>
         <file alias="images/ta-dario386sx.jpg">qt/catalog/images/ta-dario386sx-family-v1.jpg</file>
         <file alias="images/amstrad-pc1512-photo.jpg">qt/catalog/images/amstrad-pc1512-photo.jpg</file>
+        <file alias="images/sinclair-apc386sx-photo.jpg">qt/catalog/images/sinclair-apc386sx-photo.jpg</file>
         <file alias="images/olivetti-m10-photo.jpg">qt/catalog/images/olivetti-m10-photo.jpg</file>
         <file alias="images/olivetti-m15-photo.jpg">qt/catalog/images/olivetti-m15-photo.jpg</file>
         <file alias="images/olivetti-m28-photo.jpg">qt/catalog/images/olivetti-m28-photo.jpg</file>

@@ -1,0 +1,11 @@
+{
+  "product.sinclair-apc386sx.summary": "Desktop PC with a plug-in 386SX processor card and onboard VGA.",
+  "product.sinclair-apc386sx.history": "The front badge reads “Sinclair APC 386SX by Amstrad”. A specimen labelled APC386SX carries an internal “3386 SX” sticker. Its chassis and processor card support identification as Amstrad’s PC3386SX design sold under the Sinclair brand.",
+  "product.sinclair-apc386sx.technical.cpu": "The APC specimen record lists 20 MHz. The PC3386SX leaflet also lists 20 MHz, while its user manual’s specification table lists 16 MHz.",
+  "product.sinclair-apc386sx.technical.board": "The photographed mainboard is marked Z70921 and DPA1704. The processor card shares its layout and 2600-025P PCB series with the PC3386SX’s MS0196A. The APC specimen carries revision 2 and 3 markings on opposite sides. Full electrical equivalence between the boards remains unverified.",
+  "product.sinclair-apc386sx.technical.hardware": "The photographed unit has four SIMM sockets, Paradise PVGA1A graphics and a Dallas DS1287 clock. Another documented unit has a Seagate ST-157A-1 IDE hard disk. The keyboard uses Amstrad’s own protocol.",
+  "product.sinclair-apc386sx.warning": "A verified BIOS dump from an identified unit is still needed. Byte-for-byte identity with the PC3386SX remains open and virtual machine creation is disabled.",
+  "product.sinclair-apc386sx.technical.acme": "APC386SX specimen record and photographs in the ACME archive",
+  "product.sinclair-apc386sx.technical.owner": "APC 386SX teardown and owner observations",
+  "product.sinclair-apc386sx.technical.amstrad": "PC3386SX Generation 3 leaflet, user manual and MS0196A processor card"
+}
