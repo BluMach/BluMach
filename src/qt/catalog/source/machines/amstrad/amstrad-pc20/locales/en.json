@@ -1,0 +1,10 @@
+{
+  "product.amstrad-pc20.summary": "The Amstrad version of the compact home PC sold in Britain as the Sinclair PC200.",
+  "product.amstrad-pc20.history": "Amstrad aimed the PC20 at first-time home PC buyers. For the 1988 Australian Christmas season, the Sunday Times announced A$899 without a monitor and A$1,199 with a colour monitor. In Britain, Amstrad sold the design as the Sinclair PC200.",
+  "product.amstrad-pc20.technical.architecture": "The sources give different clock speeds for the 8086. The Sunday Times announced 8 MHz, while APC reported 10 MHz in its pre-release review.",
+  "product.amstrad-pc20.technical.firmware": "The shared profile BIOS helps establish the relationship between the two models. Two 8 KiB dumps form a 16 KiB image that identifies itself as Sinclair PC200, the same branding APC saw on its pre-production PC20 at power-on.",
+  "product.amstrad-pc20.technical.verified": "BluMach includes the shared pc200 profile. The hashes were verified and the BIOS was examined statically.",
+  "product.amstrad-pc20.technical.limitations": "A retail PC20 firmware comparison and BluMach boot validation are pending.",
+  "product.amstrad-pc20.technical.sunday": "Sunday Times · New PC · 11 December 1988 · p. 117",
+  "product.amstrad-pc20.technical.apc": "Australian Personal Computer · Steve Withers · Amstrad PC20 · issue 100"
+}

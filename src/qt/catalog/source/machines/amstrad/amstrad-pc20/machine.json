@@ -1,0 +1,99 @@
+{
+  "order": 297,
+  "machine": {
+    "id": "amstrad-pc20",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc20-pc200",
+    "name": "Amstrad PC20",
+    "summary_key": "product.amstrad-pc20.summary",
+    "history_key": "product.amstrad-pc20.history",
+    "status": "research",
+    "period": "1988",
+    "tags": [
+      "CGA",
+      "MDA",
+      "MS-DOS"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "cga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "8086",
+      "memory": "512 KB",
+      "video": "CGA / MDA",
+      "expansion": "2 × ISA 8-bit",
+      "floppy": "3.5″ · 720 KB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc20.technical.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc20.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc20.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc20.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc20.technical.sunday",
+            "url": "https://www.cvxmelody.net/AppleUsersGroupSydneyAppleIIDiskCollection.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc20.technical.apc",
+            "url": "https://messui.polygonal-moogle.com/comp/index.html"
+          }
+        ]
+      }
+    ]
+  }
+}

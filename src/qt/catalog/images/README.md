@@ -64,6 +64,8 @@ The resized `CC BY` and `CC BY-SA` files are adaptations of the originals and
 are distributed under the same licence as their original. They are separate
 works aggregated with BluMach, not part of the GPL-covered program.
 
+The unmodified `sinclair-pc200-photo.jpg` photograph is by Marcin Wichary, licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). [Wikimedia Commons source](https://commons.wikimedia.org/wiki/File:Sinclair_PC_200.jpg).
+
 ## Illustrations
 
 Generated with the built-in OpenAI image tool on 2026-08-31 and 2026-09-01 from
