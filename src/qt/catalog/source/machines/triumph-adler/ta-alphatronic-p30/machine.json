@@ -1,0 +1,101 @@
+{
+  "order": 1888,
+  "machine": {
+    "id": "ta-alphatronic-p30",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-alphatronic-p",
+    "name": "Triumph-Adler Alphatronic P30",
+    "summary_key": "product.ta-alphatronic-p30.summary",
+    "history_key": "product.ta-alphatronic-p30.history",
+    "status": "research",
+    "period": "1983",
+    "aliases": [
+      "TA Alphatronic P30"
+    ],
+    "tags": [
+      "8085A",
+      "8088",
+      "MOS",
+      "CP/M-86"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "monochrome"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 8085A · 3 MHz + Intel 8088 · 5 MHz",
+      "memory": "64 / 128 KiB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.ta-alphatronic-p30.technical.configuration",
+            "url": "https://www.computerwoche.de/article/2848348/alphatronic-teletex-und-btx-faehig.html"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-alphatronic-p30.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-alphatronic-p30.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-p30.technical.source_1",
+            "url": "https://www.computerwoche.de/article/2848348/alphatronic-teletex-und-btx-faehig.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-p30.technical.source_2",
+            "url": "https://www.computerwoche.de/article/2829753/mehr-leistung-fuer-die-alphatronic.html"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.ta-alphatronic-p30.technical.source_3",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/ta/alphatpx.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-p30.technical.svm_france",
+            "url": "https://awm.segamiga.com/magazine/49/numero/1720"
+          }
+        ]
+      }
+    ]
+  }
+}

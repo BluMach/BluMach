@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p4.summary": "Le P4 associait un disque fixe au lecteur de disquettes de l’Alphatronic de bureau.",
+  "product.ta-alphatronic-p4.history": "Le P4 est apparu en 1982 aux côtés du P3. Il constituait l’option de bureau à stockage fixe et conservait le CP/M fourni sur disquette. En 1984, Triumph-Adler a présenté le disque de 12,5 Mo pour les P4 et P40.",
+  "product.ta-alphatronic-p4.technical.configuration": "Le disque fixe augmentait l’espace pour les programmes et les données. Le manuel de 1984 indique 360 pistes par surface, quatre surfaces et 17 secteurs de 512 octets par piste.",
+  "product.ta-alphatronic-p4.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-alphatronic-p4.technical.limitations": "Le firmware propre au modèle et une disquette de démarrage restent à conserver pour vérification.",
+  "product.ta-alphatronic-p4.technical.source_1": "Bedienungsanleitung P3/P4 · Triumph-Adler 08841d · pp. 2–4, 14–15, 63–64",
+  "product.ta-alphatronic-p4.technical.source_2": "Es begann mit einem KISS · HNF",
+  "product.ta-alphatronic-p4.technical.source_3": "Mehr Leistung für die Alphatronic · Computerwoche · 06.04.1984"
+}

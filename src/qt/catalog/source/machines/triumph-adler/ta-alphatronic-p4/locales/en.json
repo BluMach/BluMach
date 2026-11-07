@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p4.summary": "The P4 gave the office Alphatronic a fixed disk alongside its floppy drive.",
+  "product.ta-alphatronic-p4.history": "The P4 appeared alongside the P3 in 1982. It was the office option with fixed storage and retained CP/M supplied on floppy. In 1984 Triumph-Adler showed the 12.5 MB disk for the P4 and P40.",
+  "product.ta-alphatronic-p4.technical.configuration": "The fixed disk expanded storage for programs and data. The 1984 manual gives 360 tracks per surface, four surfaces and 17 sectors of 512 bytes per track.",
+  "product.ta-alphatronic-p4.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-alphatronic-p4.technical.limitations": "The model-specific firmware and a boot disk remain to be preserved for verification.",
+  "product.ta-alphatronic-p4.technical.source_1": "Bedienungsanleitung P3/P4 · Triumph-Adler 08841d · pp. 2–4, 14–15, 63–64",
+  "product.ta-alphatronic-p4.technical.source_2": "Es begann mit einem KISS · HNF",
+  "product.ta-alphatronic-p4.technical.source_3": "Mehr Leistung für die Alphatronic · Computerwoche · 06.04.1984"
+}

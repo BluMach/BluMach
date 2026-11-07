@@ -1,0 +1,12 @@
+{
+  "product.ta-alphatronic-p3.summary": "No P3, o CP/M e a folha de cálculo LOGICALC vinham de série no Alphatronic de duas unidades.",
+  "product.ta-alphatronic-p3.history": "A Triumph-Adler introduziu o P3 e o P4 em 1982, depois da primeira família P1/P2. O P3 era o modelo de escritório com duas unidades de disquetes. O P4 acrescentava armazenamento fixo e o P30 retomou a base do P3 para também executar programas de 16 bits.",
+  "product.ta-alphatronic-p3.technical.configuration": "As disquetes de dados guardavam 800 KiB. Cada face tinha 80 pistas de cinco setores de 1 024 bytes.",
+  "product.ta-alphatronic-p3.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p3.technical.limitations": "Estão preservados o MOS, as ROM de caracteres de duas revisões e a ROM de teclado. Falta validar o arranque. O MAME assinala o P3 como não funcional.",
+  "product.ta-alphatronic-p3.technical.source_1": "Bedienungsanleitung P3/P4 · Triumph-Adler 08841d · pp. 2–4, 14–15, 63–64",
+  "product.ta-alphatronic-p3.technical.source_2": "Es begann mit einem KISS · HNF",
+  "product.ta-alphatronic-p3.technical.source_3": "alphatronic Teletex- und Btx-fähig · Computerwoche · 15.04.1983",
+  "product.ta-alphatronic-p3.technical.source_4": "rfka01 · Triumph-Adler alphatronic P3 · Bannister",
+  "product.ta-alphatronic-p3.technical.source_5": "alphatronic P3 · MAME"
+}
