@@ -16,7 +16,7 @@
   "product.amstrad-pc2386.technical.press": "Computerwoche, Amstrad kommt mit PC-Serie 2000, 30 de septiembre de 1988: anuncio y posición de cada modelo.",
   "product.amstrad-pc2386.technical.oem": "Dataquest, Amstrad Plc, ESAM Volume I, septiembre de 1989, informe 0004839, pp. 9–10: GPT en Kirkcaldy para PC2286/PC2386; contrasta con el montaje en Corea indicado por el folleto.",
   "product.amstrad-pc2386.technical.manual": "Amstrad PC2386 Service Manual, pp. 2, 19, 42 y 44: especificaciones, ROM y teclado; copia preservada con hash.",
-  "product.amstrad-pc2386.technical.firmware_source": "Internet Archive, PC 2386: juego anunciado como v1.11, preservado con originales y derivados separados; la atribución del uploader no sustituye una comprobación física.",
+  "product.amstrad-pc2386.technical.firmware_source": "Internet Archive, PC 2386, v1.11: la descripción asigna 40189-2/40192-2 a IC156/IC159; el manual, p. 44, asigna 40189/40192 a IC159/IC156. Ambas referencias se conservan; la correspondencia física queda pendiente.",
   "product.amstrad-pc2386.technical.source": "Inspección del código BluMach en 88f74ba3: tabla de máquinas y m_amstrad.c. Documenta presencia de código, no funcionamiento comprobado.",
   "product.amstrad-pc2386.technical.rom_identity": "Los conjuntos archivados bajo PC2286 y PC2386 comparten contenido. Las cuatro imágenes 40189-2 a 40192-2 y la reconstrucción de sistema de 64 KiB coinciden byte a byte. Esto no demuestra que las placas sean equivalentes ni valida su compatibilidad."
 }

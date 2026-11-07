@@ -1,6 +1,7 @@
 # Amstrad PC2000: historical catalogue evidence
 
 Editorial review: 2026-11-06. Models: PC2086, PC2286 and PC2386.
+Owner-provenance follow-up: 2026-11-07.
 Inspected BluMach base: `88f74ba30693e14b0003c656fa3ac578c3d85eed`.
 Spanish is the reference text; English, French, Italian and Portuguese carry
 the same claims, qualifications and source locators.
@@ -105,6 +106,47 @@ gate-array, cache and video mapping from manuals/datasheets/BIOS analysis.
 These need separate treatment rather than expanding the catalogue cards.
 
 ## Validation scope
+
+### Owner-provenance follow-up, 7 November 2026
+
+The preserved VCF page 4, post 1312785 (VintageVic, 26 April 2023), describes
+readings of IC149–IC152 while attempting to revive a faulty PC2286. Page 7,
+post 1518132 (JogiBaer, 17 September 2026), describes another four-ROM reading
+and byte-wise interleaving; post 1518932 (23 September) still reports failure
+to start after memory replacement. These are owner dump testimonies, not boot
+validation of the archived set. VintageVic later reports working PC2286 use
+(post 1518339), but that does not uniquely identify the board/dump involved.
+The functioning games/Windows account in post 1292046 follows a replacement
+386 motherboard described in post 1291829; it is not a successful original
+PC2286 boot. The forum's live URL was misresolved to its home page by the web
+reader; this review used the already-preserved, hashed thread HTML.
+
+Internet Archive metadata for [PC 2386](https://archive.org/details/pc-2386),
+published 28 December 2023 by "the caver", was acquired on 7 November 2026
+and registered as `amstrad-pc2000-ia-metadata-20261107`. It identifies v1.11
+and lists chip/socket associations, but does not state a successful boot.
+Its description spells the machine "PC2368/64", whereas its subject is
+"Amstrad PC2386-65". Keep that as a metadata discrepancy, not a new model.
+
+The uploader's socket list differs from the manufacturer parts list:
+
+| ROM label | Uploader description (v1.11, -2 filenames) | PC2386 service manual, p. 44 (base part numbers) |
+| --- | --- | --- |
+| 40189 | IC156 | IC159 |
+| 40190 | IC157 | IC158 |
+| 40191 | IC158 | IC157 |
+| 40192 | IC159 | IC156 |
+
+Manual p. 19 connects IC159/158/157/156 to data lanes 0–7/8–15/16–23/24–31.
+Both original scans were visually checked. Both source descriptions remain
+visible in the card; physical mapping/revision equivalence is unresolved.
+This does not undo the observed binary identity. It limits conclusions about
+physical chip interchange and verified operation in both machines.
+
+The follow-up's analysis report is `amstrad-pc2000-owner-provenance-20261107`.
+No boot, firmware programming or FPGA implementation was performed.
+
+### Catalogue checks
 
 Run the catalogue builder, catalogue/source-link/family-history tests, release
 identity check, existing-content contract and five-language web export. Audit

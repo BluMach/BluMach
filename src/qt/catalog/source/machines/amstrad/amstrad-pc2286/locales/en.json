@@ -15,7 +15,7 @@
   "product.amstrad-pc2286.technical.prices": "Tarifs gamme PC2000, 1 November 1988: indicative French prices excluding VAT, with monitor and configuration specified.",
   "product.amstrad-pc2286.technical.press": "Computerwoche, Amstrad kommt mit PC-Serie 2000, 30 September 1988: announcement and each model's position.",
   "product.amstrad-pc2286.technical.oem": "Dataquest, Amstrad Plc, ESAM Volume I, September 1989, report 0004839, pp. 9–10: GPT in Kirkcaldy for PC2286/PC2386; this differs from Korean assembly stated in the brochure.",
-  "product.amstrad-pc2286.technical.firmware_source": "VCF, Amstrad PC 2286 thread, pages 4 and 7: 2023 and 2026 attachments preserved and compared; redistribution rights are unknown.",
+  "product.amstrad-pc2286.technical.firmware_source": "VCF, Amstrad PC 2286 thread, pages 4 and 7: VintageVic (26 April 2023) and JogiBaer (17 September 2026) supplied reads from faulty computers; those posts do not certify booting. Attachments are preserved and compared, with unknown redistribution rights.",
   "product.amstrad-pc2286.technical.source": "BluMach source inspection at 88f74ba3: machine table and m_amstrad.c. This documents code presence, not verified operation.",
   "product.amstrad-pc2286.technical.rom_identity": "The sets archived under PC2286 and PC2386 share content. The four images 40189-2 through 40192-2 and the 64 KiB system reconstruction match byte for byte. This does not establish equivalent motherboards or validate compatibility."
 }
