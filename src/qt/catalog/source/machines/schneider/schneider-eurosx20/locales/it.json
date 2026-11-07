@@ -1,0 +1,14 @@
+{
+  "product.schneider-eurosx20.summary": "La configurazione a 20 MHz del desktop EuroSX.",
+  "product.schneider-eurosx20.history": "Nel maggio 1992 IFS pubblicizzava in Portogallo l’EuroSX /20–90 accanto al /16–40 e all’Euro486. Era la configurazione EuroSX con la frequenza più alta, con un proprio codice della scheda CPU nel manuale Schneider.",
+  "product.schneider-eurosx20.warning": "Scheda storica in fase di ricerca.",
+  "product.schneider-eurosx20.technical.configurations": "L’annuncio identifica l’offerta come /20–90. Il manuale distingue la scheda a 20 MHz con il codice 53 456 00. Il disco di questa offerta resta da verificare su un esemplare.",
+  "product.schneider-eurosx20.technical.board": "La scheda integra la logica della memoria e il video. Il manuale mostra VLSI VL82C331, BIGJIM in U33 e ATI 28800 in U45. Distingue le schede a 16 e 20 MHz.",
+  "product.schneider-eurosx20.technical.firmware": "La ROM è divisa fra due chip. Il manuale identifica LOW e HIGH in U9 e U10. Una foto di avvio di un EuroSX mostra il BIOS di sistema 1.05 e il VGA 3.01a. Restano da associare queste versioni a una configurazione precisa e da conservare i dump.",
+  "product.schneider-eurosx20.technical.verified": "BluMach dispone della scheda documentale. Il modello dedicato e la convalida dell’avvio sono ancora da realizzare.",
+  "product.schneider-eurosx20.technical.limitations": "Mancano i dump di sistema e video e il riscontro della mappa della scheda. Resta da trovare una foto pubblicabile.",
+  "product.schneider-eurosx20.technical.press91": "Correio do Ribatejo 5224, 31-05-1991, p. 8 — Micromineiro",
+  "product.schneider-eurosx20.technical.press92": "Expresso, 23-05-1992, p. A3 — IFS",
+  "product.schneider-eurosx20.technical.manual": "Schneider, Service Manual EURO 386 SX / L 386/16",
+  "product.schneider-eurosx20.technical.post": "Pingaloka, Schneider Euro SX 80386 BIOS config Help Needed (2019)"
+}

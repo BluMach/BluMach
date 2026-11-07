@@ -1,0 +1,14 @@
+{
+  "product.schneider-eurosx20.summary": "The 20 MHz configuration of the EuroSX desktop.",
+  "product.schneider-eurosx20.history": "In May 1992, IFS advertised the EuroSX /20–90 in Portugal alongside the /16–40 and Euro486. It was the faster-clocked EuroSX configuration, with its own CPU board part number in Schneider’s manual.",
+  "product.schneider-eurosx20.warning": "Historical sheet under research.",
+  "product.schneider-eurosx20.technical.configurations": "The advertisement names this offer /20–90. The manual distinguishes the 20 MHz board by part number 53 456 00. The disk drive in this offer still needs comparison with a physical specimen.",
+  "product.schneider-eurosx20.technical.board": "The board integrates memory logic and video. The manual shows VLSI VL82C331, BIGJIM at U33 and ATI 28800 at U45. It distinguishes the 16 and 20 MHz boards.",
+  "product.schneider-eurosx20.technical.firmware": "The ROM is split across two chips. The manual identifies LOW and HIGH at U9 and U10. A boot photograph of a EuroSX shows system BIOS 1.05 and VGA 3.01a. These versions still need to be matched to a specific configuration and the dumps preserved.",
+  "product.schneider-eurosx20.technical.verified": "BluMach has a documentary sheet. A dedicated model and boot validation remain pending.",
+  "product.schneider-eurosx20.technical.limitations": "System and video dumps and comparison of the board map are pending. A photograph suitable for publication is still needed.",
+  "product.schneider-eurosx20.technical.press91": "Correio do Ribatejo 5224, 31-05-1991, p. 8 — Micromineiro",
+  "product.schneider-eurosx20.technical.press92": "Expresso, 23-05-1992, p. A3 — IFS",
+  "product.schneider-eurosx20.technical.manual": "Schneider, Service Manual EURO 386 SX / L 386/16",
+  "product.schneider-eurosx20.technical.post": "Pingaloka, Schneider Euro SX 80386 BIOS config Help Needed (2019)"
+}

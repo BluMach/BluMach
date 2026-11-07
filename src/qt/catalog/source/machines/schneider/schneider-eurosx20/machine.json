@@ -1,0 +1,121 @@
+{
+  "order": 500,
+  "machine": {
+    "id": "schneider-eurosx20",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-eurosx",
+    "name": "Schneider EuroSX /20–90",
+    "summary_key": "product.schneider-eurosx20.summary",
+    "history_key": "product.schneider-eurosx20.history",
+    "warning_key": "product.schneider-eurosx20.warning",
+    "status": "research",
+    "period": "1992",
+    "aliases": [
+      "Schneider Euro SX (386) / 20 - 90"
+    ],
+    "tags": [
+      "Schneider",
+      "EuroSX",
+      "386SX"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386SX · 20 MHz",
+      "video": "ATI 28800 · SVGA",
+      "floppy": "3.5″ · 1.44 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-eurosx20.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-eurosx20.technical.board"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.schneider-eurosx20.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-eurosx20.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-eurosx20.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-eurosx20.technical.press91",
+            "url": "https://arquivo.correiodoribatejo.pt/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-eurosx20.technical.press92",
+            "url": "https://hemerotecadigital.cm-lisboa.pt/"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.schneider-eurosx20.technical.manual",
+            "url": "https://archive.org/details/manual_EURO386SX_SM_SCHNEIDER_DE"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-eurosx20.technical.post",
+            "url": "https://www.vogons.org/viewtopic.php?t=69908"
+          }
+        ]
+      }
+    ]
+  }
+}
