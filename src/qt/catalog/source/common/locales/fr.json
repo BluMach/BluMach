@@ -14,7 +14,7 @@
   "collection.catalogue": "Catalogue d’ordinateurs historiques",
   "collection.information": "Informations sur la machine",
   "collection.all_states": "Tous les états de préservation",
-  "collection.unpreserved": "Micrologiciel non préservé",
+  "collection.unpreserved": "Sans profil d'émulation",
   "collection.manufacturer": "Fabricant",
   "collection.family": "Gamme d’ordinateurs",
   "collection.history": "Histoire",

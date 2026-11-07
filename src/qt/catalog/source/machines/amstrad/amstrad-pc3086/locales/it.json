@@ -1,0 +1,18 @@
+{
+  "product.amstrad-pc3086.summary": "L’accesso alla Generation 3 conservava l’8086 e offriva configurazioni con soli dischetti per casa e piccola impresa.",
+  "product.amstrad-pc3086.history": "Il dépliant dell’agosto 1990 colloca il PC3086 alla base della Generation 3, sotto PC3286 e PC3386SX. Amstrad lo destinava alla casa e alla piccola impresa, per testi, fogli di calcolo, database e contabilità. Si poteva iniziare con i dischetti oppure scegliere un disco rigido. Lo stesso dépliant dichiara progettazione britannica e produzione a Taiwan, in Corea o nel Regno Unito, senza identificare l’OEM di ciascun esemplare.",
+  "product.amstrad-pc3086.warning": "Scheda storica in fase di ricerca; non certifica l’avvio in BluMach.",
+  "product.amstrad-pc3086.technical.market": "L’offerta si adattava alla postazione di lavoro. I dépliant dell’agosto 1990 propongono monitor VGA monocromatici da 12 pollici e a colori da 14 pollici, con MS-DOS 3.3.",
+  "product.amstrad-pc3086.technical.configurations": "L’archiviazione era una scelta iniziale. Il dépliant offre una o due unità da 3,5 pollici e 720 KB oppure da 5,25 pollici e 360 KB; la versione con disco rigido abbina 30 MB a un’unità floppy.",
+  "product.amstrad-pc3086.technical.memory": "L’espansione della RAM richiedeva una scheda. Il manuale, p. 1-2, documenta 640 KB e l’espansione mediante memoria espansa su scheda ISA a 8 bit; il dépliant aggiunge uno zoccolo 8087.",
+  "product.amstrad-pc3086.technical.video": "Il video integrato consentiva di usare programmi delle generazioni precedenti. I dépliant documentano VGA con compatibilità EGA, CGA, MDA e Hercules.",
+  "product.amstrad-pc3086.technical.expansion": "C’era spazio per quattro schede. Dépliant e manuale concordano: tre slot ISA a 8 bit a lunghezza intera e uno a mezza lunghezza.",
+  "product.amstrad-pc3086.technical.interfaces": "Stampante e modem avevano collegamenti dedicati. Il manuale, pp. 1-2–1-3, documenta porte parallela Centronics e seriale RS-232, entrambe con connettori a 25 contatti.",
+  "product.amstrad-pc3086.technical.firmware": "Sono conservati file per studiare l’avvio. fc00.bin occupa 16 KiB e c000.bin 32 KiB; gli hash sono verificati. Una raccolta DOS fornisce candidati per il controller del disco (8 KiB) e la tastiera (2 KiB). Revisione e provenienza fisica restano da confermare.",
+  "product.amstrad-pc3086.technical.verified": "BluMach contiene codice dedicato. In 88f74ba3, pc3086 e machine_pc3086_init usano video Paradise PVGA1A e un controller XTA WD XT150; questa revisione ha solo ispezionato il codice.",
+  "product.amstrad-pc3086.technical.limitations": "L’avvio con una configurazione riproducibile resta da dimostrare. Il firmware non è stato eseguito né analizzato con antivirus; i diritti restano incerti. La scheda non offre un profilo di creazione. Immagine pubblicabile in attesa.",
+  "product.amstrad-pc3086.technical.brochure": "Amstrad Generation 3, dépliant del modello, agosto 1990, pp. 1–2: pubblico, configurazioni e specifiche; originale conservato.",
+  "product.amstrad-pc3086.technical.manual": "User Manual and MS-DOS Guide, 2ª edizione, 1990, pp. 1-2–1-4, 4-18 e 8-7: specifiche, frequenza ed espansioni della RAM.",
+  "product.amstrad-pc3086.technical.firmware_source": "DOS ROM BIOS Collection, Internet Archive: contenitore conservato; candidati per controller e tastiera, senza garanzia di un set completo.",
+  "product.amstrad-pc3086.technical.source": "BluMach 88f74ba3, machine_table.c e m_amstrad.c: ispezione del codice conservata; non è una prova di avvio."
+}

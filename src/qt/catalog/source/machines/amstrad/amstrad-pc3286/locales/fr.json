@@ -1,0 +1,18 @@
+{
+  "product.amstrad-pc3286.summary": "Le modèle intermédiaire associait le 286 à une mémoire extensible et cinq emplacements pour adapter le poste au travail.",
+  "product.amstrad-pc3286.history": "Documenté dans le dépliant d’août 1990, le PC3286 occupait le niveau intermédiaire de la Generation 3 entre PC3086 et PC3386SX. Amstrad le présentait comme un poste de travail évolutif : mémoire, unités internes et cartes permettaient de l’adapter à de nouveaux besoins professionnels. Le disque de 40 Mo était en option. Le dépliant indique une conception britannique et une fabrication à Taïwan, en Corée ou au Royaume-Uni, sans identifier l’OEM de chaque exemplaire.",
+  "product.amstrad-pc3286.warning": "Fiche historique en cours de recherche ; elle ne certifie pas le démarrage dans BluMach.",
+  "product.amstrad-pc3286.technical.market": "L’offre s’adaptait au poste de travail. Les dépliants d’août 1990 proposent des moniteurs VGA monochromes de 12 pouces et couleur de 14 pouces, avec MS-DOS 3.3.",
+  "product.amstrad-pc3286.technical.configurations": "Le disque dur était optionnel. Le dépliant associe un lecteur de 3,5 pouces à 1,44 Mo ou de 5,25 pouces à 1,2 Mo à un disque IDE de 40 Mo en option.",
+  "product.amstrad-pc3286.technical.memory": "La mémoire était extensible, mais les listes diffèrent. Le dépliant part de 1 Mo et cite 2/4/8/10/16 Mo ; le manuel, p. 8-7, présente 512/640 Ko et 1/2/2,5/4/8/16 Mo. Les deux listes sont conservées ; l’option de 10 Mo n’a pas été vérifiée sur matériel.",
+  "product.amstrad-pc3286.technical.video": "La vidéo intégrée permettait d’utiliser les logiciels des générations précédentes. Les dépliants documentent VGA avec compatibilité EGA, CGA, MDA et Hercules.",
+  "product.amstrad-pc3286.technical.expansion": "Les cartes étendaient les fonctions du poste. Dépliant et manuel documentent trois emplacements ISA 16 bits et deux 8 bits ; un de chaque type est demi-longueur.",
+  "product.amstrad-pc3286.technical.interfaces": "Imprimante et modem disposaient de connexions dédiées. Le manuel, p. 1-2–1-3, documente les ports parallèle Centronics et série RS-232, tous deux à 25 contacts.",
+  "product.amstrad-pc3286.technical.firmware": "Un témoignage de copie existe, mais aucun fichier n’a encore été acquis. Le 28 mars 2016, Phylante déclarait avoir extrait le BIOS avec DEBUG et prévoyait de lire les puces ; le fil n’atteste pas la remise de cette seconde copie.",
+  "product.amstrad-pc3286.technical.verified": "La documentation permet de décrire la machine. BluMach 88f74ba3 ne contient pas d’entrée dédiée à ce modèle ; aucun test de démarrage n’a été effectué.",
+  "product.amstrad-pc3286.technical.limitations": "Il manque un firmware identifié localement, un modèle dédié et une validation. La fiche reste en recherche, sans profil de création ; l’absence dans les registres consultés ne prouve pas que le BIOS n’existe pas. Une image publiable reste à trouver.",
+  "product.amstrad-pc3286.technical.brochure": "Amstrad Generation 3, dépliant du modèle, août 1990, p. 1–2 : public, configurations et caractéristiques ; original conservé.",
+  "product.amstrad-pc3286.technical.manual": "User Manual and MS-DOS Guide, 2e édition, 1990, p. 1-2–1-4, 4-18 et 8-7 : caractéristiques, fréquence et extensions de RAM.",
+  "product.amstrad-pc3286.technical.firmware_source": "Bannister, Amstrad PC3286 Bios dump, messages 104755–104756, 28 mars 2016 : fil conservé ; témoignage, pas de BIOS acquis.",
+  "product.amstrad-pc3286.technical.source": "BluMach 88f74ba3, machine_table.c et m_amstrad.c : inspection du code conservée ; il ne s’agit pas d’un test de démarrage."
+}

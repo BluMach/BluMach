@@ -1,0 +1,24 @@
+{
+  "order": 117,
+  "family": {
+    "id": "amstrad-pc3000",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PC3000 · Generation 3",
+    "description_key": "family.amstrad-pc3000.description",
+    "history_key": "family.amstrad-pc3000.history",
+    "history_references": [
+      {
+        "title": "Amstrad Generation 3: PC3086, PC3286 and PC3386SX leaflets, August 1990, pp. 1–2",
+        "publisher": "Amstrad, preserved by ACPC",
+        "url": "https://acpc.me/"
+      },
+      {
+        "title": "User Manual and MS-DOS Guide, second edition, 1990, pp. 1-2–1-4",
+        "publisher": "Amstrad, preserved by ACPC",
+        "url": "https://acpc.me/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "order": 263,
+  "machine": {
+    "id": "amstrad-pc3386sx",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc3000",
+    "name": "Amstrad PC3386SX",
+    "summary_key": "product.amstrad-pc3386sx.summary",
+    "history_key": "product.amstrad-pc3386sx.history",
+    "warning_key": "product.amstrad-pc3386sx.warning",
+    "status": "research",
+    "period": "1990",
+    "aliases": [
+      "PC 3386SX"
+    ],
+    "tags": [
+      "PC3000",
+      "Generation 3",
+      "VGA",
+      "80386SX"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386SX · 16 / 20 MHz",
+      "memory": "1 / 4 / 16 MB",
+      "video": "VGA · EGA / CGA / MDA / Hercules",
+      "floppy": "3.5″ · 1.44 MB",
+      "coprocessor": "80387SX",
+      "expansion": "3 × ISA 16-bit + 2 × ISA 8-bit",
+      "interfaces": "RS-232 · LPT",
+      "dimensions": "425 × 135 × 390 mm"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc3386sx.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.amstrad-pc3386sx.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc3386sx.technical.clock"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-pc3386sx.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-pc3386sx.technical.video"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.amstrad-pc3386sx.technical.expansion"
+          },
+          {
+            "label_key": "technical.label.serial_parallel",
+            "value_key": "product.amstrad-pc3386sx.technical.interfaces"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc3386sx.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc3386sx.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc3386sx.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.amstrad-pc3386sx.technical.brochure",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.amstrad-pc3386sx.technical.manual",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc3386sx.technical.source",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}
