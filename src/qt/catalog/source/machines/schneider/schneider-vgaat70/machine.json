@@ -1,0 +1,130 @@
+{
+  "order": 450,
+  "machine": {
+    "id": "schneider-vgaat70",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-vga-at",
+    "name": "Schneider VGA AT System 70",
+    "summary_key": "product.schneider-vgaat70.summary",
+    "history_key": "product.schneider-vgaat70.history",
+    "warning_key": "product.schneider-vgaat70.warning",
+    "status": "research",
+    "aliases": [
+      "Schneider Tower VGA System 70"
+    ],
+    "tags": [
+      "Schneider",
+      "VGA AT",
+      "VGA"
+    ],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80286 · 12.5 MHz",
+      "video": "ATI18800-1 · VGA · 256 KB",
+      "floppy": "3.5″ · 1.44 MB",
+      "storage": "70 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-vgaat70.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.schneider-vgaat70.technical.clock"
+          },
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-vgaat70.technical.board"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.schneider-vgaat70.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-vgaat70.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-vgaat70.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-vgaat70.technical.owner",
+            "url": "https://www.jungsi.de/schneider-vga-at-system-40-schneider/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-vgaat70.technical.cc",
+            "url": "https://www.classic-computing.de/cc2022-hauptseite/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-vgaat70.technical.hcl",
+            "url": "https://www.infania.net/misc/kbarchive/kb/062/Q62098/index.html"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.schneider-vgaat70.technical.mame",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/at.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-vgaat70.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/7968236c8ecabdd264f39a1e910524b34247a439/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

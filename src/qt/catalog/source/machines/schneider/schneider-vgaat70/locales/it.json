@@ -1,0 +1,16 @@
+{
+  "product.schneider-vgaat70.summary": "La variante con disco più capiente dei VGA AT con processore 286.",
+  "product.schneider-vgaat70.history": "Il VGA AT System 70 affiancava il System 40 come configurazione con maggiore spazio su disco nella gamma tower 286 di Schneider. Jungsi lo descrive con disco da 70 MB e Microsoft lo elenca per nome nella lista di compatibilità di Windows 3.0. Questa identità commerciale va distinta dal 386SX System 70, che impiega un'altra scheda CPU.",
+  "product.schneider-vgaat70.warning": "Scheda storica in ricerca; emulazione in BluMach da realizzare.",
+  "product.schneider-vgaat70.technical.configurations": "La capacità pubblicata deve mantenere la propria attribuzione. Jungsi descrive il System 70 con 70 MB; un manuale specifico e un esemplare della variante restano da confrontare prima di fissarne tutta la dotazione.",
+  "product.schneider-vgaat70.technical.board": "La scheda CPU distingue questi tower dai 386SX. Le foto del 40 mostrano un Siemens 80286 e GC102; Jungsi identifica la scheda I/O VGA 50925. MAME descrive video ATI18800-1 con 256 KB ed elettronica I/O condivisa, senza provare la compatibilità dei BIOS di sistema.",
+  "product.schneider-vgaat70.technical.firmware": "Manca un BIOS attribuito fisicamente a questo modello. Le etichette V2.00a osservate appartengono al System 40; famiglia o video comuni non provano che quella coppia funzioni sul 70.",
+  "product.schneider-vgaat70.technical.verified": "Sono stati confrontati documenti e fotografie dei proprietari. BluMach 7968236c non ha una voce VGA AT specifica; questa macchina non è stata eseguita né validata.",
+  "product.schneider-vgaat70.technical.limitations": "L'emulazione completa resta da realizzare. Mancano BIOS di sistema attribuito, revisione della scheda e verifica di POST, memoria, video, RTC, dischi e porte.",
+  "product.schneider-vgaat70.technical.clock": "Le fonti divergono sulla velocità. La tabella di Jungsi indica 10 MHz e il testo 12 MHz; la foto del SETUP del suo System 40 mostra CPU/bus a 12,5/6,25 MHz. Anche MAME descrive una scheda da 12,5 MHz per i VGA System 40/70. Non è una nostra misurazione.",
+  "product.schneider-vgaat70.technical.owner": "Jungsi, Schneider VGA AT System 40, 2024, aggiornato nel 2026: restauro, foto della scheda e del SETUP; mantenute le frequenze discordanti.",
+  "product.schneider-vgaat70.technical.cc": "ODW.lab, catalogo Classic Computing 2022, p. 55: esemplare VGA AT System 40, data 1989 e memoria; PDF conservato.",
+  "product.schneider-vgaat70.technical.hcl": "Microsoft Q62098, Windows 3.0 Hardware Compatibility List, copia archiviata: elenca VGA AT System 40 e 70 senza stabilirne la data di lancio.",
+  "product.schneider-vgaat70.technical.mame": "MAME, at.cpp, copia del 07-11-2026: osservazioni fisiche sui Tower VGA 286 e 386SX, scheda I/O comune e limiti di attribuzione.",
+  "product.schneider-vgaat70.technical.code": "BluMach 7968236c: tabella delle macchine conservata ed esaminata, senza voce VGA AT specifica."
+}
