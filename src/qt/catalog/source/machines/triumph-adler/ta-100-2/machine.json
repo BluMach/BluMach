@@ -1,0 +1,81 @@
+{
+  "order": 1910,
+  "machine": {
+    "id": "ta-100-2",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-ta100",
+    "name": "Triumph-Adler TA 100/2",
+    "summary_key": "product.ta-100-2.summary",
+    "history_key": "product.ta-100-2.history",
+    "status": "research",
+    "period": "1972",
+    "aliases": [
+      "TA100/2"
+    ],
+    "tags": [
+      "TA 100"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.keyboard_mouse",
+            "value_key": "product.ta-100-2.technical.configuration",
+            "url": "https://www.horniger.de/computer/ta/ta100.html"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-100-2.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-100-2.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-100-2.technical.source_1",
+            "url": "https://www.horniger.de/computer/ta/ta100.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-100-2.technical.source_2",
+            "url": "https://www.horniger.de/computer/ta/index_d.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-100-2.technical.source_3",
+            "url": "https://blog.computeum.org/2025/10/01/wir-sind-dann-mal-weg/"
+          }
+        ]
+      }
+    ]
+  }
+}

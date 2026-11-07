@@ -1,0 +1,10 @@
+{
+  "product.ta-100-2.summary": "The TA 100/2 added a separate numeric keypad for accounting work.",
+  "product.ta-100-2.history": "The /2 was the accounting model in the TA 100 range, between the /1 invoicing machine and the /3 for magnetic ledger cards. Rainer Horniger’s archive dates it to 1972. Computeum documents a unit from the Computermuseum in Stuttgart.",
+  "product.ta-100-2.technical.configuration": "The operator could enter amounts on a separate keypad. Triumph-Adler’s photographs show the typewriter, the numeric keypad and the electronics cabinet.",
+  "product.ta-100-2.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-100-2.technical.limitations": "The board and the contents of program memory remain to be documented on an identified unit.",
+  "product.ta-100-2.technical.source_1": "Triumph Adler TA 100 · Rainer Horniger",
+  "product.ta-100-2.technical.source_2": "Triumph Adler · Modellübersicht · Rainer Horniger",
+  "product.ta-100-2.technical.source_3": "Wir sind dann mal weg … · Computeum"
+}
