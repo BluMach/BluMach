@@ -64,6 +64,15 @@ The resized `CC BY` and `CC BY-SA` files are adaptations of the originals and
 are distributed under the same licence as their original. They are separate
 works aggregated with BluMach, not part of the GPL-covered program.
 
+The ALT photographs are distributed unmodified from Wikimedia Commons under
+[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+
+- [alt286-photo.jpg](https://commons.wikimedia.org/wiki/File:Museo_de_Inform%C3%A1tica_Hist%C3%B3rica_de_la_Universidad_de_Zaragoza_10.jpg) — Retroacción. The ALT-286
+  is on the right of the IBM PC at the Museo de Informática Histórica,
+  Universidad de Zaragoza.
+- [alt386sx-photo.png](https://commons.wikimedia.org/wiki/File:Amstrad_ALT-386SX_low-res.png) — MrCauldron, with two
+  frames stitched and edited by DigitalIceAge in the source image.
+
 ## Illustrations
 
 Generated with the built-in OpenAI image tool on 2026-08-31 and 2026-09-01 from

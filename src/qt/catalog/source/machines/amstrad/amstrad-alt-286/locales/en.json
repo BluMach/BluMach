@@ -1,0 +1,13 @@
+{
+  "product.amstrad-alt-286.summary": "The entry-level ALT with the same VGA screen as the 386SX.",
+  "product.amstrad-alt-286.history": "Amstrad introduced the ALT-286 at CeBIT in March 1990 as the lower-priced of its two ALT laptops. Micro News reported a planned June release in France at 16,770 francs before tax. In July 1991, Amstrad Germany offered it with a portable Canon BJ-10e printer for 4,600 marks.",
+  "product.amstrad-alt-286.technical.storage": "Storage specifications vary by source. The manual lists a 20 MB hard drive and a 1.44 MB internal floppy drive. The Centre for Computing History lists 60 MB and 720 KB for its CH46565 specimen.",
+  "product.amstrad-alt-286.technical.bios": "The manual identifies the two boot firmware chips. U302 and U303 are TMS27C256 EPROMs with Amstrad part numbers 270386 and 270387.",
+  "product.amstrad-alt-286.technical.verified": "The factory configuration and board schematic have been cross-checked. The BluMach sheet remains in research.",
+  "product.amstrad-alt-286.technical.limitations": "The system BIOS and U508 video ROM still need to be dumped. Boot and LCD control remain to be validated in BluMach.",
+  "product.amstrad-alt-286.technical.photo": "In the Zaragoza museum photograph, the ALT-286 is to the right of the IBM PC.",
+  "product.amstrad-alt-286.technical.micro_news": "Micro News no. 33 · Les nouveaux portables Amstrad · April 1990 · p. 16",
+  "product.amstrad-alt-286.technical.computerwoche": "Computerwoche · Amstrad schnürt Paket mit PCs und Canon-Kleindrucker · 12 July 1991",
+  "product.amstrad-alt-286.technical.manual": "Amstrad · ALT286 / ALT386SX Service Manual · pp. 2, 10–11",
+  "product.amstrad-alt-286.technical.museum": "Centre for Computing History · ALT-286 · CH46565"
+}
