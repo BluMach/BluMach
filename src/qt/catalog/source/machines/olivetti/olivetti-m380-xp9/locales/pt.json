@@ -1,0 +1,12 @@
+{
+  "product.olivetti-m380-xp9.summary": "O topo da série 300 em abril de 1989, anunciado a 33 MHz e classificado como servidor no catálogo de 1991.",
+  "product.olivetti-m380-xp9.history": "A documentação apresenta o M380/XP9 como o topo da série 300 em abril de 1989, anunciado a 33 MHz e classificado como servidor no catálogo de 1991.",
+  "product.olivetti-m380-xp9.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m380-xp9.architecture": "A organização da memória determina as expansões. O guia identifica BA832 / BA833 / BA839. A placa admite 4–8 MB e a expansão adicional usa placas de memória. O guia indica dez ranhuras e sete disponíveis, face às oito da Computerwoche e do catálogo de 1991.",
+  "product.olivetti-m380-xp9.firmware": "A revisão da BIOS ajuda a identificar a configuração de serviço. O guia regista 1.07 · PBZ1/PBZ0 (BA832/BA833) · PBZH1/PBZ0 (BA839) / 2.02 · PBZP/PBZQ.",
+  "product.olivetti-m380-xp9.verified": "A identidade foi verificada na documentação da Olivetti. A ficha permanece em investigação.",
+  "product.olivetti-m380-xp9.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m380-xp9.guide": "Olivetti, Personal Computer – Pocket Service Guide, 9-1, 9-4–9-6.",
+  "product.olivetti-m380-xp9.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91.",
+  "product.olivetti-m380-xp9.press": "Computerwoche, 28.04.1989, Olivetti PC: Künstlich gebremst."
+}

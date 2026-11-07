@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m380-xp7.summary": "La variante M380/XP avec dix emplacements à la même fréquence que le XP4.",
+  "product.olivetti-m380-xp7.history": "La documentation présente le M380/XP7 comme la variante M380/XP avec dix emplacements à la même fréquence que le XP4.",
+  "product.olivetti-m380-xp7.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m380-xp7.architecture": "L’organisation de la mémoire détermine les extensions. Le guide identifie BA842 / BA829 / BA825. La carte accepte 4–8 MB et l’extension supplémentaire utilise des cartes mémoire.",
+  "product.olivetti-m380-xp7.firmware": "La révision du BIOS aide à identifier la configuration de maintenance. Le guide indique BA825 / BA829: 1.05 · PBU5/PBU4 / 1.07 · PBZ1/PBZ0.",
+  "product.olivetti-m380-xp7.verified": "L’identité a été vérifiée dans la documentation Olivetti. La fiche reste en cours de recherche.",
+  "product.olivetti-m380-xp7.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m380-xp7.guide": "Olivetti, Personal Computer – Pocket Service Guide, 9-1–9-3."
+}

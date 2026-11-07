@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m380t.summary": "La gama profesional M380 con diez posiciones y opciones de disco ESDI o ST-506.",
+  "product.olivetti-m380t.history": "La documentación presenta el M380 T como la gama profesional M380 con diez posiciones y opciones de disco ESDI o ST-506.",
+  "product.olivetti-m380t.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m380t.architecture": "La organización de la memoria condiciona las ampliaciones. La guía identifica BA814. Toda la RAM reside en tarjetas de expansión.",
+  "product.olivetti-m380t.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra 2.0 · PBZ6/PBZ7.",
+  "product.olivetti-m380t.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m380t.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m380t.guide": "Olivetti, Personal Computer – Pocket Service Guide, 8-1–8-2."
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m380-xp5.summary": "The tower version announced for Europe in April 1988 with ten expansion positions.",
+  "product.olivetti-m380-xp5.history": "The documentation places M380/XP5 as the tower version announced for Europe in April 1988 with ten expansion positions.",
+  "product.olivetti-m380-xp5.warning": "Historical sheet under research.",
+  "product.olivetti-m380-xp5.architecture": "Memory organisation determines expansion options. The guide identifies BA814. All RAM resides on expansion boards.",
+  "product.olivetti-m380-xp5.firmware": "The BIOS revision helps identify the service configuration. The guide records 2.0 · PBZ6/PBZ7.",
+  "product.olivetti-m380-xp5.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m380-xp5.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m380-xp5.guide": "Olivetti, Personal Computer – Pocket Service Guide, 8-1–8-2.",
+  "product.olivetti-m380-xp5.press": "Computerwoche, 29.04.1988, Olivetti bringt 80386er auf den Markt."
+}

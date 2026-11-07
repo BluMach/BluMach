@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m380-xp4.summary": "La rama de 25 MHz de los M380/XP, con siete posiciones frente a las diez del XP7.",
+  "product.olivetti-m380-xp4.history": "La documentación presenta el M380/XP4 como la rama de 25 MHz de los M380/XP, con siete posiciones frente a las diez del XP7.",
+  "product.olivetti-m380-xp4.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m380-xp4.architecture": "La organización de la memoria condiciona las ampliaciones. La guía identifica BA842 / BA829. La placa admite 4–8 MB y la expansión adicional usa tarjetas de memoria.",
+  "product.olivetti-m380-xp4.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra BA829: 1.05 · PBU5/PBU4 / 1.07 · PBZ1/PBZ0.",
+  "product.olivetti-m380-xp4.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m380-xp4.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m380-xp4.guide": "Olivetti, Personal Computer – Pocket Service Guide, 9-1–9-3."
+}
