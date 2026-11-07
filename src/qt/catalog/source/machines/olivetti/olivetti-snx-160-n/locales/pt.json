@@ -1,0 +1,9 @@
+{
+  "product.olivetti-snx-160-n.summary": "O SNX de secretária preparado para concentrar terminais série e tráfego Ethernet.",
+  "product.olivetti-snx-160-n.history": "A Olivetti manteve o nome SNX 160/N para as configurações de 133 e 166 MHz da plataforma Uranos.",
+  "product.olivetti-snx-160-n.warning": "Ficha histórica em investigação.",
+  "product.olivetti-snx-160-n.architecture": "Podia concentrar ligações série de vários terminais. A placa ISA Stallion GO2175 suporta até 32 canais RS-232D através de caixas externas.",
+  "product.olivetti-snx-160-n.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-snx-160-n.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-snx-160-n.service-guide-10": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 10"
+}

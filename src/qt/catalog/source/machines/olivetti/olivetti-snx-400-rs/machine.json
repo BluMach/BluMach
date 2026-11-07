@@ -1,0 +1,77 @@
+{
+  "order": 10214,
+  "machine": {
+    "id": "olivetti-snx-400-rs",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti SNX 400/RS Systema",
+    "summary_key": "product.olivetti-snx-400-rs.summary",
+    "history_key": "product.olivetti-snx-400-rs.history",
+    "warning_key": "product.olivetti-snx-400-rs.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 100/133/166 MHz",
+      "memory": "32 MB–1 GB ECC",
+      "video": "SVGA",
+      "storage": "Narrow / Wide SCSI",
+      "expansion": "C-Bus II / EISA / PCI"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-snx-400-rs.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-snx-400-rs.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-snx-400-rs.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-snx-400-rs.service-guide-3",
+            "url": "https://www.elhvb.com/mboards/olivetti/servers1.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-snx-400-rs.computerwoche-1995",
+            "url": "https://www.computerwoche.de/article/2760057/maschinen-werden-nicht-mit-os-2-ausgeliefert-olivetti-server-mit-pentium-pro-nutzen-platinendesign-von-intel.html"
+          }
+        ]
+      }
+    ],
+    "period": "1995"
+  }
+}

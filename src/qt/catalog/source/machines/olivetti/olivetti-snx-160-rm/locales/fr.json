@@ -1,0 +1,9 @@
+{
+  "product.olivetti-snx-160-rm.summary": "Le Systema 160 en baie sur carte Olimpus.",
+  "product.olivetti-snx-160-rm.history": "Olivetti a documenté le SNX 160/RM comme version en baie 19 pouces de la plate-forme Olimpus.",
+  "product.olivetti-snx-160-rm.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-snx-160-rm.architecture": "La baie acceptait des disques amovibles. La BA2298 pouvait recevoir deux Pentium et le remplacement à chaud nécessitait un contrôleur RAID DPT.",
+  "product.olivetti-snx-160-rm.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-snx-160-rm.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-snx-160-rm.service-guide-6": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 6"
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-400-rs.summary": "Le Systema en tour pouvant accueillir 4 processeurs.",
+  "product.olivetti-snx-400-rs.history": "Le SNX 400 faisait partie de Systema avant l’annonce du 460 en décembre 1995. Le guide identifie la version RS en tour.",
+  "product.olivetti-snx-400-rs.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-snx-400-rs.architecture": "Les processeurs pouvaient être ajoutés sur des cartes. Le Corollary C-Bus II 64 bits relie jusqu’à 4 cartes processeur à la mémoire.",
+  "product.olivetti-snx-400-rs.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-snx-400-rs.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-snx-400-rs.service-guide-3": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 3",
+  "product.olivetti-snx-400-rs.computerwoche-1995": "Computerwoche, Olivetti-Server mit Pentium Pro nutzen Platinendesign von Intel, 22 December 1995"
+}

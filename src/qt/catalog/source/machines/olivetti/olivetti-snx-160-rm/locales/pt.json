@@ -1,0 +1,9 @@
+{
+  "product.olivetti-snx-160-rm.summary": "O Systema 160 para bastidor com placa Olimpus.",
+  "product.olivetti-snx-160-rm.history": "A Olivetti documentou o SNX 160/RM como variante para bastidor de 19 polegadas da plataforma Olimpus.",
+  "product.olivetti-snx-160-rm.warning": "Ficha histórica em investigação.",
+  "product.olivetti-snx-160-rm.architecture": "O bastidor aceitava discos extraíveis. A BA2298 podia receber dois Pentium e a troca a quente requeria um controlador RAID DPT.",
+  "product.olivetti-snx-160-rm.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-snx-160-rm.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-snx-160-rm.service-guide-6": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 6"
+}

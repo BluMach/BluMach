@@ -1,0 +1,9 @@
+{
+  "product.olivetti-snx-160e.summary": "O sucessor do SNX 160 manteve a opção de dois processadores.",
+  "product.olivetti-snx-160e.history": "O guia da Olivetti data de abril de 1995 a substituição do SNX 160 pelo SNX 160E.",
+  "product.olivetti-snx-160e.warning": "Ficha histórica em investigação.",
+  "product.olivetti-snx-160e.architecture": "A placa de processador permite ampliar o sistema. As GO2063 e GO2079-100 têm um segundo encaixe documentado para Pentium de 100 MHz.",
+  "product.olivetti-snx-160e.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-snx-160e.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-snx-160e.service-guide-1": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 1"
+}

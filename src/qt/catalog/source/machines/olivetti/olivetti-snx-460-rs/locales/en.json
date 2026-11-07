@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-460-rs.summary": "The tower Pentium Pro Systema with room for four processors.",
+  "product.olivetti-snx-460-rs.history": "Olivetti announced the SNX 460 in December 1995 as its first Pentium Pro server and confirmed that the processor board used an Intel design. Computerwoche reported first-quarter 1996 shipments from about DM 20,000.",
+  "product.olivetti-snx-460-rs.warning": "Historical sheet under research.",
+  "product.olivetti-snx-460-rs.architecture": "Work could be shared across four processors. The Intel Orion chipset connects two CPU cards, with two Pentium Pro chips per card, and two PCI buses.",
+  "product.olivetti-snx-460-rs.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-snx-460-rs.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-snx-460-rs.service-guide-4": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 4",
+  "product.olivetti-snx-460-rs.computerwoche-1995": "Computerwoche, Olivetti-Server mit Pentium Pro nutzen Platinendesign von Intel, 22 December 1995"
+}

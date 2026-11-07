@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-160.summary": "El Systema de 1994 que permitía sumar un segundo Pentium.",
+  "product.olivetti-snx-160.history": "En 1994, el SNX 160 se ofrecía por encima del SNX 140 en la gama de servidores de red de Olivetti. El SNX 160E lo sustituyó en abril de 1995.",
+  "product.olivetti-snx-160.warning": "Ficha histórica en investigación.",
+  "product.olivetti-snx-160.architecture": "El segundo procesador se instalaba en la misma tarjeta. Las GO898, GO2060 y GO2082 admiten otro Pentium a 90 MHz.",
+  "product.olivetti-snx-160.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-snx-160.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-snx-160.service-guide-1": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 1",
+  "product.olivetti-snx-160.olivetti-brochure-1994": "Olivetti, Server-Reihe SNX Systema, German brochure, 1994"
+}
