@@ -1,4 +1,4 @@
-# Series 5 catalogue: PC5086 and PC5286
+# Series 5 catalogue: PC5086, PC5286 and PC5386SX
 
 Editorial review, 6 November 2026. Spanish is the reference text; English,
 French, Italian and Portuguese translate the same claims and qualifications.
@@ -47,8 +47,10 @@ documents, photographs and firmware remain outside this repository.
 
 No exact PC5086 sale price, named OEM, direct predecessor or successor is added
 without sufficient evidence. The GBP 400 Series 5 entry price is not assigned
-to a particular PC5086 configuration. PC5386SX is not promoted to a confirmed
-Series 5 member or added as a machine in this change.
+to a particular PC5086 configuration. PC5386SX is now a visible research card
+following the 7 November source review. Its announcement and two owner accounts
+are documented in [the PC5386SX evidence dossier](amstrad-pc5386sx-catalogue.md);
+its sale date, clock discrepancy and BIOS remain unresolved.
 
 Neither machine gains an image: no suitable photograph or brochure with clear
 redistribution permission was established in the relevant records. Existing

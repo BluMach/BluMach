@@ -84,7 +84,7 @@ class CatalogBuilderTests(unittest.TestCase):
              "olivetti-m10", "olivetti-m15", "olivetti-m15-plus", "toshiba-t3200",
              "toshiba-t5100", "toshiba-t5200", "olivetti-pcs286s",
              "olivetti-prodest-pc1", "olivetti-prodest-pc1hd",
-             "olivetti-m28", "amstrad-pc5286", "amstrad-pc5086",
+             "olivetti-m28", "amstrad-pc5286", "amstrad-pc5086", "amstrad-pc5386sx",
              "ta-dario286", "ta-dario386sx", "trigem-sx386m",
              "olivetti-m380", "olivetti-m250", "olivetti-m250e",
              "olivetti-m280", "olivetti-m300-if378", "olivetti-m30002",

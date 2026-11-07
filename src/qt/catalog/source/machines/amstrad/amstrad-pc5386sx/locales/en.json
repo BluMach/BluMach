@@ -1,0 +1,20 @@
+{
+  "product.amstrad-pc5386sx.summary": "The 386SX option in Series 5, documented by Amstrad and by owners who used it as a work PC.",
+  "product.amstrad-pc5386sx.history": "The PC5386SX extended Series 5 towards the 386SX alongside the PC5086 and PC5286. In September 1991, Science & Vie Micro presented the PC5386 as a possible higher-end addition, with no launch date yet set. Cliff Lawson later included it among Amstrad PCs. Accounts from two owners in Australia, published in 1999 and 2000, document machines named PC5386SX and PC5386SXHD; one was used as a workstation running Windows 3.11.",
+  "product.amstrad-pc5386sx.warning": "Historical card under research; it does not certify booting in BluMach.",
+  "product.amstrad-pc5386sx.technical.market": "The announcement does not establish when sales began. Science & Vie Micro no. 86, September 1991, p. 76, placed the PC5386 above the PC5086 and PC5286, without a date or price.",
+  "product.amstrad-pc5386sx.technical.identity": "Owner accounts distinguish a real machine from an announced project. Peter Fitzpatrick identified his PC5386SX on 17 January 1999; Keith mentioned a PC5386SXHD on 19 August 2000. They do not establish board revisions or interchangeable BIOS images.",
+  "product.amstrad-pc5386sx.technical.cpu": "Sources disagree on the clock speed. Science & Vie Micro announced a 16 MHz 386SX; the system-cfg sheet specifies 20 MHz. Lawson confirms 80386SX, VGA and AT architecture, but no clock speed. Two variants are not inferred.",
+  "product.amstrad-pc5386sx.technical.memory": "Memory and expansion are supported only by a secondary sheet. system-cfg specifies 2 MB and two 16-bit ISA slots; a manual and board are needed to verify maximum capacity and layout.",
+  "product.amstrad-pc5386sx.technical.storage": "Storage needs model-specific documentation. system-cfg lists a 3.5-inch 1.44 MB floppy drive, a hard disk and serial/parallel ports, without disk capacity. PC5286 disk geometry is not inherited.",
+  "product.amstrad-pc5386sx.technical.video": "The integrated video is only partly identified. Lawson lists VGA; Fitzpatrick attributes the controller to Chips & Technologies without naming a chip. His query does not prove that PC5286 jumper settings apply here.",
+  "product.amstrad-pc5386sx.technical.firmware": "A BIOS name is reported, but no dump is available. Fitzpatrick wrote “AM53004”; this remains owner testimony, without ROM bytes, size or hash to confirm it. It is not a mandatory string for accepting another revision.",
+  "product.amstrad-pc5386sx.technical.verified": "The card rests on preserved documents and owner accounts. Their hashes were verified; BluMach 88f74ba3 has no dedicated pc5386sx registration. No firmware was executed.",
+  "product.amstrad-pc5386sx.technical.limitations": "An attributable BIOS, identified board and boot tests are missing. Clock speed, final configuration and sale date remain unresolved; no image has clear publication rights.",
+  "product.amstrad-pc5386sx.technical.press": "L. C., “La gamme 5000 d’Amstrad : trois ordinateurs plus une console de jeu”, Science & Vie Micro no. 86, September 1991, p. 76: announcement and 16 MHz.",
+  "product.amstrad-pc5386sx.technical.lawson": "Cliff Lawson, General notes on Amstrad PCs: 5386 listed as 80386SX, VGA and AT; archived page copy.",
+  "product.amstrad-pc5386sx.technical.secondary": "Fabien Neck, system-cfg, Amstrad PC5386 sheet preserved by ACPC: 20 MHz, 2 MB, VGA and connections; secondary source without a specimen in his collection.",
+  "product.amstrad-pc5386sx.technical.owner1": "Peter Fitzpatrick, Cliff Lawson question archive, 17 January 1999: PC5386SX, AM53004 and Chips & Technologies video.",
+  "product.amstrad-pc5386sx.technical.owner2": "Keith, Cliff Lawson question archive, 19 August 2000: PC5386SXHD and floppy-drive failure.",
+  "product.amstrad-pc5386sx.technical.source": "BluMach 88f74ba3, machine_table.c and m_amstrad.c: registration inspection, without a boot test."
+}
