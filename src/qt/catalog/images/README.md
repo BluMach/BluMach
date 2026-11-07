@@ -64,6 +64,16 @@ The resized `CC BY` and `CC BY-SA` files are adaptations of the originals and
 are distributed under the same licence as their original. They are separate
 works aggregated with BluMach, not part of the GPL-covered program.
 
+## Original M20 photograph, 2026-11-07
+
+`olivetti-m20-photo.jpg` is the original, unmodified photograph by **OnlySoft**,
+[L1m20ol.jpg](https://commons.wikimedia.org/wiki/File:L1m20ol.jpg), licensed
+under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+It shows an M20 at the Retro Computer museum in Žatec. Downloaded 2026-11-07;
+no resizing, cropping, retouching or metadata removal. Its licence is separate
+from BluMach's GPL. The original and licence-page snapshot are preserved in
+the official library. It is used in both the app and the website export.
+
 ## Illustrations
 
 Generated with the built-in OpenAI image tool on 2026-08-31 and 2026-09-01 from
