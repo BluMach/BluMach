@@ -1,0 +1,10 @@
+{
+  "product.olivetti-philos-45.summary": "O Philos 45 da ampliação da gama anunciada na CeBIT 1994.",
+  "product.olivetti-philos-45.history": "A Olivetti ampliou a gama de portáteis profissionais com os Philos 45, 46 e 48 na CeBIT 1994. A MCmicrocomputer identifica o 45 entre as novidades.",
+  "product.olivetti-philos-45.warning": "Ficha histórica em investigação.",
+  "product.olivetti-philos-45.architecture": "O processador distingue as configurações nas fontes. A MCmicrocomputer indicava 33 MHz e a Clous documentou um exemplar com i486SL a 25 MHz.",
+  "product.olivetti-philos-45.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-philos-45.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-philos-45.cebit": "MCmicrocomputer 139, April 1994, pp. 128–129.",
+  "product.olivetti-philos-45.specimen": "Clous, Olivetti Philos 45, specimen examination."
+}

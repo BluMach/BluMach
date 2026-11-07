@@ -1,0 +1,10 @@
+{
+  "product.olivetti-philos-46-color-plus.summary": "The Philos 46 Color Plus combined a numeric keypad and external audio connections.",
+  "product.olivetti-philos-46-color-plus.history": "Folha de S.Paulo tested the Philos 46 Color Plus in November 1994 and reported a price of US$6,592 for its test configuration.",
+  "product.olivetti-philos-46-color-plus.warning": "Historical sheet under research.",
+  "product.olivetti-philos-46-color-plus.architecture": "Audio supported multimedia applications. The test machine had a built-in microphone and speaker, external audio jacks and Type III PCMCIA.",
+  "product.olivetti-philos-46-color-plus.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-philos-46-color-plus.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-philos-46-color-plus.cebit": "MCmicrocomputer 139, April 1994, pp. 128–129.",
+  "product.olivetti-philos-46-color-plus.review": "Folha de S.Paulo, 9 November 1994, Philos 46 Color Plus test."
+}

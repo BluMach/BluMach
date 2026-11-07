@@ -1,0 +1,10 @@
+{
+  "product.olivetti-philos-22-color.summary": "La version couleur du Philos 22 proposée par Olivetti au Japon.",
+  "product.olivetti-philos-22-color.history": "Le numéro de novembre 1993 d’ASCII incluait le Philos 22 Color dans l’offre avec laquelle Olivetti développait sa présence sur le marché japonais des compatibles PC.",
+  "product.olivetti-philos-22-color.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-philos-22-color.architecture": "Le pointeur intégré permettait de se passer de souris externe. La transcription d’ASCII indique un i486SL à 25 MHz, 4 Mo de RAM et un disque de 84 Mo pour le Japon.",
+  "product.olivetti-philos-22-color.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-philos-22-color.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-philos-22-color.index": "Olivrea, index of Olivetti portable brochures, Philos 22 and 22 Color.",
+  "product.olivetti-philos-22-color.ascii": "ASCII, November 1993, Japanese announcement, transcription by ECC member."
+}

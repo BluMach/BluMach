@@ -1,0 +1,12 @@
+{
+  "product.olivetti-philos-44-color.summary": "The active-matrix Philos 44 added a dedicated numeric keypad and voice recording.",
+  "product.olivetti-philos-44-color.history": "The 44C was the colour version of the Philos 44, the high-end model in the 1993 ad. BYTE tested a US$3,720 unit in March 1994. Access advertised its configuration at C$5,195 in May.",
+  "product.olivetti-philos-44-color.warning": "Historical sheet under research.",
+  "product.olivetti-philos-44-color.architecture": "The hinged keyboard made the removable disk accessible. BYTE tested a 25 MHz 486SL, and Access advertised a 486 SL-33 (DX) for the 44 line.",
+  "product.olivetti-philos-44-color.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-philos-44-color.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-philos-44-color.ad": "Olivetti advertisement, BYTE, December 1993, PDF p. 229.",
+  "product.olivetti-philos-44-color.byte": "BYTE/NSTL Lab Report, March 1994, 46 Powerful Portables Tested.",
+  "product.olivetti-philos-44-color.dealer": "Access Business Centre, The Computer Paper, February 1994.",
+  "product.olivetti-philos-44-color.dealer_color": "Access Business Centre, The Computer Paper, May 1994, p. 54."
+}
