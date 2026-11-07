@@ -9,5 +9,7 @@
   "product.olivetti-m290-20.checkit": "Clous, M290-20 CheckIt 2.1 photograph",
   "product.olivetti-m290-20.riser": "Clous, M290-20 riser photograph",
   "product.olivetti-m290-20.second-unit": "Aukro, Olivetti M290-20 specimen listing 7014402956",
-  "product.olivetti-m290-20.ports": "Los puertos se pueden identificar en el diagnóstico del ejemplar. CheckIt 2.1 muestra COM1 en 3F8h y LPT1 en 378h."
+  "product.olivetti-m290-20.ports": "Los puertos se pueden identificar en el diagnóstico del ejemplar. CheckIt 2.1 muestra COM1 en 3F8h y LPT1 en 378h.",
+  "product.olivetti-m290-20.memory-limit": "El límite de memoria sigue abierto. El vendedor de Aukro indica 3 MB y The Retro Web lista 17 MB para la BA014.",
+  "product.olivetti-m290-20.board-database": "The Retro Web, Olivetti M290-20 (BA014)"
 }

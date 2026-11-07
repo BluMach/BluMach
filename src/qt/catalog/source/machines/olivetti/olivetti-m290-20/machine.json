@@ -43,6 +43,10 @@
           {
             "label_key": "technical.label.cpu_bus",
             "value_key": "product.olivetti-m290-20.architecture"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m290-20.memory-limit"
           }
         ]
       },
@@ -93,6 +97,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-m290-20.second-unit",
             "url": "https://aukro.cz/pc-286-olivetti-m290-20-fdd-hdd-40mb-vga-256kb-ram-1mb-od-1-kc-7014402956"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290-20.board-database",
+            "url": "https://theretroweb.com/motherboards/s/olivetti-m290-20-ba014"
           }
         ]
       }
