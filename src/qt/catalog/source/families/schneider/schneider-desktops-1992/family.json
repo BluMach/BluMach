@@ -1,0 +1,24 @@
+{
+  "order": 280,
+  "family": {
+    "id": "schneider-desktops-1992",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Desktop PC (1992)",
+    "description_key": "family.schneider-desktops-1992.description",
+    "history_key": "family.schneider-desktops-1992.history",
+    "history_references": [
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 12/1992, pp. 1–3",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_92.html"
+      },
+      {
+        "title": "Ein Handwerk mit Tradition, 27-11-1992",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2829067/ein-handwerk-mit-tradition-schneider-verkauft-wieder-pcs.html"
+      }
+    ]
+  }
+}
