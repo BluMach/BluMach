@@ -1,0 +1,29 @@
+{
+  "order": 127,
+  "family": {
+    "id": "amstrad-series-8",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "Professional Series / 8486",
+    "description_key": "family.amstrad-series-8.description",
+    "history_key": "family.amstrad-series-8.history",
+    "history_references": [
+      {
+        "title": "Tilt 103 · June 1992 · p. 42 · Amstrad : Quel avenir ?",
+        "publisher": "Tilt; Amigaland",
+        "url": "https://amigaland.com/"
+      },
+      {
+        "title": "Martine Guenzet · SVM 97 · September 1992 · pp. 48–51 · Amstrad joue la carte Intel",
+        "publisher": "Science & Vie Micro; Internet Archive",
+        "url": "https://archive.org/details/science-et-vie-micro-097"
+      },
+      {
+        "title": "Admincure · Personal Computer World · January 1993 · p. 493 / PDF p. 503",
+        "publisher": "Admincure; Personal Computer World",
+        "url": "https://worldradiohistory.com/UK/Personal-Computer-World/"
+      }
+    ]
+  }
+}

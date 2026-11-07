@@ -1,0 +1,18 @@
+{
+  "product.amstrad-es8486.summary": "The lower-cost ISA alternative in the Amstrad by Intel professional range, without the LP’s integrated networking and SCSI.",
+  "product.amstrad-es8486.history": "The ES8486 was the entry option in the new 1992 Amstrad by Intel professional offering. Tilt announced the range in June as the successor to the 3000 generation; SVM described it in September with ES below LP, using ISA and omitting its integrated networking and SCSI. Amstrad claimed a design based on its own specifications within the Intel collaboration. In January 1993, Admincure advertised the ES SX25 without disk or monitor in the UK for £795 excluding VAT. A replacement date for the model is not established here.",
+  "product.amstrad-es8486.technical.market": "The price refers to a specific offer, not the launch. Admincure distinguishes SX25 and DX33, with or without a disk; prices exclude monitor and VAT. MS-DOS 5, Windows 3.1 and a mouse are included.",
+  "product.amstrad-es8486.technical.cpu": "Sources disagree on the initially announced CPU. Tilt, June 1992, gives a 33 MHz 486DX or 25 MHz 386SX; SVM, September, and Admincure, January 1993, describe a 25 MHz 486SX and 33 MHz 486DX. The 386SX mention is not treated as a proven commercial variant.",
+  "product.amstrad-es8486.technical.memory": "Memory and slots distinguish ES from its LP sibling. Admincure advertises 4 MB expandable to 40 MB and five 16-bit ISA slots. A manual is still needed to confirm bank organisation and supported modules.",
+  "product.amstrad-es8486.technical.io": "ES simplified the range’s connectivity. SVM describes it without LP’s integrated SCSI and networking interfaces. The ES disk controller and video chip still need identification; LP components are not copied across.",
+  "product.amstrad-es8486.technical.storage": "A hard disk was a purchase option. Admincure advertises diskless units and 120 or 240 MB alternatives; the card retains that British offer without assigning the tested SVM LP’s 105 MB disk to ES.",
+  "product.amstrad-es8486.warning": "Documented historical card; its own BIOS and booting in BluMach remain pending.",
+  "product.amstrad-es8486.technical.firmware": "No attributable dump is registered for this line in the reviewed library. The Intel collaboration does not establish compatibility with a generic Intel BIOS; labels, board revision and chip reads are needed.",
+  "product.amstrad-es8486.technical.verified": "Press and advertisements were cross-checked without executing firmware. BluMach 88f74ba3’s machine table has no ES8486 or LP8486 registration; a generic 486 board validates neither computer.",
+  "product.amstrad-es8486.technical.limitations": "An attributable BIOS, technical manual and board map are missing. Chipset, video, keyboard, RTC and controllers need physical comparison before implementation and boot testing; status remains research.",
+  "product.amstrad-es8486.technical.tilt": "Tilt 103 · June 1992 · p. 42 · Amstrad : Quel avenir ?",
+  "product.amstrad-es8486.technical.svm": "Martine Guenzet · SVM 97 · September 1992 · pp. 48–51 · Amstrad joue la carte Intel",
+  "product.amstrad-es8486.technical.advert": "Admincure · Personal Computer World · January 1993 · p. 493 / PDF p. 503",
+  "product.amstrad-es8486.technical.lawson": "Cliff Lawson · General notes on Amstrad PCs · 8486",
+  "product.amstrad-es8486.technical.source": "BluMach 88f74ba3 · machine_table.c"
+}

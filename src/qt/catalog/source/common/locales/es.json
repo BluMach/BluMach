@@ -14,7 +14,7 @@
   "collection.catalogue": "Catálogo de ordenadores históricos",
   "collection.information": "Información de la máquina",
   "collection.all_states": "Todos los estados de conservación",
-  "collection.unpreserved": "Firmware no preservado",
+  "collection.unpreserved": "Sin perfil de emulación",
   "collection.manufacturer": "Fabricante",
   "collection.family": "Familia de ordenadores",
   "collection.history": "Historia",

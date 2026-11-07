@@ -1,0 +1,142 @@
+{
+  "order": 287,
+  "machine": {
+    "id": "amstrad-es8486",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-series-8",
+    "name": "Amstrad ES8486",
+    "summary_key": "product.amstrad-es8486.summary",
+    "history_key": "product.amstrad-es8486.history",
+    "warning_key": "product.amstrad-es8486.warning",
+    "status": "research",
+    "period": "1992",
+    "aliases": [
+      "ES 8486",
+      "ES8486 SX25",
+      "ES8486 DX33"
+    ],
+    "tags": [
+      "Professional Series",
+      "8486",
+      "Intel",
+      "ISA"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 486SX · 25 MHz / 486DX · 33 MHz",
+      "memory": "4 MB · ≤40 MB",
+      "video": "SVGA",
+      "expansion": "5 × ISA 16-bit"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-es8486.technical.market"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-es8486.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-es8486.technical.memory"
+          },
+          {
+            "label_key": "technical.label.serial_parallel",
+            "value_key": "product.amstrad-es8486.technical.io"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.amstrad-es8486.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-es8486.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-es8486.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-es8486.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-es8486.technical.tilt",
+            "url": "https://amigaland.com/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-es8486.technical.svm",
+            "url": "https://archive.org/details/science-et-vie-micro-097"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-es8486.technical.advert",
+            "url": "https://worldradiohistory.com/UK/Personal-Computer-World/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-es8486.technical.lawson",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/general.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-es8486.technical.source",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}
