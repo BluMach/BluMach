@@ -64,6 +64,23 @@ The resized `CC BY` and `CC BY-SA` files are adaptations of the originals and
 are distributed under the same licence as their original. They are separate
 works aggregated with BluMach, not part of the GPL-covered program.
 
+## Additional original photographs, 2026-11-07
+
+The following photographs were acquired from their Commons file pages on
+2026-11-07 and bundled byte-for-byte, with no resizing, cropping, retouching or
+metadata removal. Their originals and licence-page snapshots are preserved in
+the official library. They retain their own licences and are not GPL-covered.
+
+| File | Machine | Author | Licence | Source |
+|---|---|---|---|---|
+| `olivetti-m24-photo.jpg` | Olivetti M24 | Federigo Federighi | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Olivetti M24 (1987 - 1988).jpg](https://commons.wikimedia.org/wiki/File:Olivetti_M24_(1987_-_1988).jpg) |
+| `olivetti-m21-photo.jpg` | Olivetti M21 | tomislav medak | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | [Olivetti M21.jpg](https://commons.wikimedia.org/wiki/File:Olivetti_M21.jpg) |
+
+The dates in the M24 image title describe that museum specimen; the image is
+not evidence of the product's introduction date. The M21 photograph shows an
+exhibited unit with part of its keyboard out of focus; no detail has been
+reconstructed.
+
 ## Illustrations
 
 Generated with the built-in OpenAI image tool on 2026-08-31 and 2026-09-01 from

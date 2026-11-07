@@ -118,6 +118,8 @@
         <file alias="images/olivetti-m10-photo.jpg">qt/catalog/images/olivetti-m10-photo.jpg</file>
         <file alias="images/olivetti-m15-photo.jpg">qt/catalog/images/olivetti-m15-photo.jpg</file>
         <file alias="images/olivetti-m28-photo.jpg">qt/catalog/images/olivetti-m28-photo.jpg</file>
+        <file alias="images/olivetti-m24-photo.jpg">qt/catalog/images/olivetti-m24-photo.jpg</file>
+        <file alias="images/olivetti-m21-photo.jpg">qt/catalog/images/olivetti-m21-photo.jpg</file>
         <file alias="images/olivetti-prodest-pc1-photo.jpg">qt/catalog/images/olivetti-prodest-pc1-photo.jpg</file>
         <file alias="images/olivetti-prodest-pc1hd-photo.jpg">qt/catalog/images/olivetti-prodest-pc1hd-photo.jpg</file>
         <file alias="images/toshiba-t3200-photo.jpg">qt/catalog/images/toshiba-t3200-photo.jpg</file>
