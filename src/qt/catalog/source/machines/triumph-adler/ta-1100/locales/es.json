@@ -1,0 +1,10 @@
+{
+  "product.ta-1100.summary": "El TA 1100 adaptaba su almacenamiento a cada oficina mediante unidades externas.",
+  "product.ta-1100.history": "Triumph-Adler lo destinó a la gestión de oficinas. En 1980, siete delegaciones de la empresa de carga aérea J. H. Bachmann utilizaban el TA 1100 con disqueteras.",
+  "product.ta-1100.technical.configuration": "Los soportes magnéticos guardaban programas y datos. El manual describe hasta tres unidades de cassette separadas. La unidad FDE podía alojar hasta cuatro disqueteras.",
+  "product.ta-1100.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-1100.technical.limitations": "Queda pendiente recuperar el firmware y un soporte de sistema de una instalación identificada.",
+  "product.ta-1100.technical.source_1": "TA 1100 · FDE, MPE, DR 12 · Triumph-Adler",
+  "product.ta-1100.technical.source_2": "TA 1100 / TA 1100 C · Triumph-Adler",
+  "product.ta-1100.technical.source_3": "Schneller durch die Luft verfrachtet · Computerwoche, 1980"
+}

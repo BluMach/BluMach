@@ -1,0 +1,10 @@
+{
+  "product.ta-1100c.summary": "Il TA 1100 C integrava due unità a dischetti in una postazione più compatta del TA 1100.",
+  "product.ta-1100c.history": "Triumph-Adler lo offriva alle piccole e medie imprese. Computerwoche riportò un’offerta di 36.000 DM nel 1979. Il museo dell’UPV ne data la commercializzazione al 1981.",
+  "product.ta-1100c.technical.configuration": "Lo schermo visualizzava il lavoro d’ufficio. Il dépliant del costruttore indica 48 colonne per 22 righe. Il museo dell’UPV indica 44 per 24.",
+  "product.ta-1100c.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
+  "product.ta-1100c.technical.limitations": "Restano da leggere i 24 KB di MOS-PROM documentati nel dépliant e da recuperare un dischetto di sistema.",
+  "product.ta-1100c.technical.source_1": "TA 1100 C · Bedienungsanleitung und Produktprospekt · Triumph-Adler",
+  "product.ta-1100c.technical.source_2": "TA sucht Jedermann-Computer neue Vertriebswege · Computerwoche, 1979",
+  "product.ta-1100c.technical.source_3": "Triumph Adler TA 1100 C · Museu d’Informàtica UPV"
+}
