@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs30-sx40.summary": "Le PCS30 bureau compact avec un 386SX à 40 MHz.",
+  "product.olivetti-pcs30-sx40.history": "Olivetti incluait le PCS30 SX/40 dans la gamme PCS30–PCS40 de systèmes 386 et 486. Le guide le présente comme une configuration bureau compact.",
+  "product.olivetti-pcs30-sx40.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-pcs30-sx40.architecture": "La vidéo et le stockage utilisaient des cartes d’extension. Les cartes de série laissaient 3 des 5 emplacements AT libres dans la configuration standard.",
+  "product.olivetti-pcs30-sx40.firmware": "La carte détermine le BIOS à rechercher. Le guide indique AMI pour WH 386 SX.",
+  "product.olivetti-pcs30-sx40.verified": "L’identité a été vérifiée dans la documentation Olivetti. La fiche reste en cours de recherche.",
+  "product.olivetti-pcs30-sx40.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-pcs30-sx40.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

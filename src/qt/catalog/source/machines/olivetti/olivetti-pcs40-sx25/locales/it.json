@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-sx25.summary": "Il PCS40 in formato desktop compatto con 486SX a 25 MHz.",
+  "product.olivetti-pcs40-sx25.history": "Olivetti includeva il PCS40 SX/25 nella serie PCS30–PCS40 di sistemi 386 e 486. Il manuale lo presenta in formato desktop compatto.",
+  "product.olivetti-pcs40-sx25.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-pcs40-sx25.architecture": "Video e archiviazione utilizzavano schede di espansione. Le schede di serie lasciavano 3 dei 5 slot AT liberi nella configurazione standard.",
+  "product.olivetti-pcs40-sx25.firmware": "La scheda determina quale BIOS cercare. La guida indica Harward per 486-VC.",
+  "product.olivetti-pcs40-sx25.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-pcs40-sx25.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-pcs40-sx25.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs30-dx40.summary": "The slim desktop PCS30 with a 40 MHz 386DX.",
+  "product.olivetti-pcs30-dx40.history": "Olivetti included the PCS30 DX/40 in the PCS30–PCS40 line of 386 and 486 systems. It documented this model as a slim desktop configuration.",
+  "product.olivetti-pcs30-dx40.warning": "Historical sheet under research.",
+  "product.olivetti-pcs30-dx40.architecture": "Video and storage used expansion cards. With the standard cards installed, 3 of the 5 AT slots remained free in the standard configuration.",
+  "product.olivetti-pcs30-dx40.firmware": "The board determines which BIOS to look for. The guide documents Harward for 4386-VC-HD.",
+  "product.olivetti-pcs30-dx40.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-pcs30-dx40.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-pcs30-dx40.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

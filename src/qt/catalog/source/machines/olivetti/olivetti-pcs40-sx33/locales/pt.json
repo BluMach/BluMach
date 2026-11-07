@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-sx33.summary": "O PCS40 em formato minitorre com 486SX a 33 MHz.",
+  "product.olivetti-pcs40-sx33.history": "A Olivetti incluía o PCS40 SX/33 na gama PCS30–PCS40 de sistemas 386 e 486. O guia apresenta-o em formato minitorre.",
+  "product.olivetti-pcs40-sx33.warning": "Ficha histórica em investigação.",
+  "product.olivetti-pcs40-sx33.architecture": "O vídeo e o armazenamento usavam placas de expansão. As placas de série deixavam 6 das 8 ranhuras AT livres na configuração padrão.",
+  "product.olivetti-pcs40-sx33.firmware": "A placa determina qual a BIOS a procurar. O guia indica Harward para 486-VC.",
+  "product.olivetti-pcs40-sx33.verified": "A identidade foi verificada na documentação da Olivetti. A ficha permanece em investigação.",
+  "product.olivetti-pcs40-sx33.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-pcs40-sx33.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

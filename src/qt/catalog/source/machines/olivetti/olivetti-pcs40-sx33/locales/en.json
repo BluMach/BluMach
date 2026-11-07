@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-sx33.summary": "The minitower PCS40 with a 33 MHz 486SX.",
+  "product.olivetti-pcs40-sx33.history": "Olivetti included the PCS40 SX/33 in the PCS30–PCS40 line of 386 and 486 systems. It documented this model as a minitower configuration.",
+  "product.olivetti-pcs40-sx33.warning": "Historical sheet under research.",
+  "product.olivetti-pcs40-sx33.architecture": "Video and storage used expansion cards. With the standard cards installed, 6 of the 8 AT slots remained free in the standard configuration.",
+  "product.olivetti-pcs40-sx33.firmware": "The board determines which BIOS to look for. The guide documents Harward for 486-VC.",
+  "product.olivetti-pcs40-sx33.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-pcs40-sx33.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-pcs40-sx33.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}
