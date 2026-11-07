@@ -164,3 +164,14 @@ https://victoriancollections.net.au/items/5ac6fbae21ea6b0ac0af74d5, the Dario
 The reference photographs are not distributed with BluMach. All prompts lock the
 chassis, drives, grille, perspective, lighting and background and permit changes
 only inside the recessed front badge.
+
+## Olivetti M4-454 S photograph
+
+`olivetti-m4-454s-photo.jpg` is the unchanged photograph by **Alessio Sbarbaro
+(Yoggysot)**, dated 6 January 2013, from
+[Olivetti M4 454 S 01](https://commons.wikimedia.org/wiki/File:Olivetti_M4_454_S_01.jpg).
+Used under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+No changes have been made. The photograph retains its own licence; it is not
+covered by BluMach's code licence. It depicts the labelled M4-454 S and is used
+only for that sheet, not as a photograph of other M4 or PCS models.
+Original SHA-256: `dcb0ec315c0c7e33466db965912863b633ef5a5e050ff0661870d8adc21883fe`.
