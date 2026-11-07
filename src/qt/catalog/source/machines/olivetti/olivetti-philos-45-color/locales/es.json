@@ -1,0 +1,12 @@
+{
+  "product.olivetti-philos-45-color.summary": "La variante Philos 45 con pantalla en color de matriz activa.",
+  "product.olivetti-philos-45-color.history": "Olivetti comercializó la versión en color como Philos Color 45. La etiqueta del ejemplar conservado identifica el modelo NB101S y la fabricación en Italia.",
+  "product.olivetti-philos-45-color.warning": "Ficha histórica en investigación.",
+  "product.olivetti-philos-45-color.architecture": "Se podían conectar auriculares y micrófono. En el lateral del ejemplar NB101S se ven las dos tomas y el control de volumen.",
+  "product.olivetti-philos-45-color.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-philos-45-color.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-philos-45-color.chassis-label": "Philos 45 Color specimen, lid photograph",
+  "product.olivetti-philos-45-color.bottom-label": "Philos 45 Color specimen, Olivetti NB101S label",
+  "product.olivetti-philos-45-color.audio-ports": "Philos 45 Color specimen, left side photograph",
+  "product.olivetti-philos-45-color.macdat": "MacDat, Olivetti Philos Series configuration table"
+}
