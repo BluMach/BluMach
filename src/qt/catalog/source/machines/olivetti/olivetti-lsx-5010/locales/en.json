@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5010.summary": "The 25 MHz i486 LSX server offered an optional i860 socket.",
+  "product.olivetti-lsx-5010.history": "Olivetti offered the LSX 5000 line to medium-sized businesses and departments of large organisations under its OSA architecture. The 5010 brochure presents it as a Unix application server and a server for Open Desktop workstations.",
+  "product.olivetti-lsx-5010.warning": "Historical sheet under research.",
+  "product.olivetti-lsx-5010.architecture": "The board allowed extra computing hardware. Olivetti documents optional sockets for Weitek 4167 and Intel i860.",
+  "product.olivetti-lsx-5010.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-lsx-5010.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-lsx-5010.olivetti-model": "Olivetti Systems & Networks, LSX 5010 brochure, 1991",
+  "product.olivetti-lsx-5010.olivetti-osa": "Olivetti, LSX 5000 System Line in OSA, 1991"
+}

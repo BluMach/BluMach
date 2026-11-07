@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5025e.summary": "La variante E del LSX 5025, identificada por su placa BA386.",
+  "product.olivetti-lsx-5025e.history": "Un inventario público de la administración tributaria italiana identifica 23 servidores Olivetti con la denominación LSX 5025E.",
+  "product.olivetti-lsx-5025e.warning": "Ficha histórica en investigación.",
+  "product.olivetti-lsx-5025e.architecture": "La referencia de placa distingue la variante. Total Hardware 99 registra la BA386 con 486DX2 a 66 MHz, hasta 256 MB y caché de 128 o 512 KB.",
+  "product.olivetti-lsx-5025e.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-lsx-5025e.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-lsx-5025e.veneto-inventory": "Agenzia delle Entrate, Veneto equipment transfer inventory, annex",
+  "product.olivetti-lsx-5025e.th99-board": "Total Hardware 1999, Olivetti LSX 5025E BA386 board settings"
+}

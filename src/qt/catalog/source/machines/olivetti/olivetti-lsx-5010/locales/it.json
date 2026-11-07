@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5010.summary": "Il server LSX con i486 a 25 MHz offriva uno zoccolo opzionale per i860.",
+  "product.olivetti-lsx-5010.history": "Olivetti offriva la gamma LSX 5000 alle medie imprese e ai dipartimenti delle grandi organizzazioni nell’architettura OSA. L’opuscolo del 5010 lo presenta come server di applicazioni Unix e di postazioni grafiche Open Desktop.",
+  "product.olivetti-lsx-5010.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-lsx-5010.architecture": "La scheda consentiva di aggiungere capacità di calcolo. Olivetti documenta zoccoli opzionali per Weitek 4167 e Intel i860.",
+  "product.olivetti-lsx-5010.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-lsx-5010.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-lsx-5010.olivetti-model": "Olivetti Systems & Networks, LSX 5010 brochure, 1991",
+  "product.olivetti-lsx-5010.olivetti-osa": "Olivetti, LSX 5000 System Line in OSA, 1991"
+}
