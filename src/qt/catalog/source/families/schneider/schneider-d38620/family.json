@@ -1,0 +1,29 @@
+{
+  "order": 240,
+  "family": {
+    "id": "schneider-d38620",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Desktop D386/20",
+    "description_key": "family.schneider-d38620.description",
+    "history_key": "family.schneider-d38620.history",
+    "history_references": [
+      {
+        "title": "Schneider, Service Manual D 386/20 / D 486/20, PDF pp. 5, 14, 34",
+        "publisher": "Schneider",
+        "url": "https://archive.org/details/manual_D38620_SM_SCHNEIDER_EN"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–2",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_91.html"
+      },
+      {
+        "title": "IFS, Expresso, 23-05-1992, p. A3",
+        "publisher": "Expresso",
+        "url": "https://hemerotecadigital.cm-lisboa.pt/"
+      }
+    ]
+  }
+}
