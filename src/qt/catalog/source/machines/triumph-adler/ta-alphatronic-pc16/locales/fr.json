@@ -1,0 +1,12 @@
+{
+  "product.ta-alphatronic-pc16.summary": "Le PC16 conservait le format compact de l’Alphatronic PC et passait à un 8088 avec affichage modulaire.",
+  "product.ta-alphatronic-pc16.history": "Triumph-Adler reprenait le clavier intégré du PC pour le bureau. Le Homecomputermuseum situe son introduction en 1985. Le Computermuseum Mannheim indique 1983, année qui figure aussi dans la fiche d’un exemplaire avec BTX.",
+  "product.ta-alphatronic-pc16.technical.configuration": "Le système proposait différents modules d’affichage. Un exemplaire CDA 026 équipé pour le Bildschirmtext (BTX) est conservé.",
+  "product.ta-alphatronic-pc16.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-alphatronic-pc16.technical.limitations": "Les ROM système et de clavier correspondent à MAME, qui utilise un générateur de caractères provenant d’une autre machine. L’original et un essai de démarrage restent à obtenir. MAME signale le PC16 comme non fonctionnel.",
+  "product.ta-alphatronic-pc16.technical.source_1": "Alphatronic PC 16 Typ CDA 026 mit Btx-Modul · MSPT",
+  "product.ta-alphatronic-pc16.technical.source_2": "Alphatronic PC-16 · Homecomputermuseum",
+  "product.ta-alphatronic-pc16.technical.source_3": "Triumph-Adler · Computermuseum Mannheim",
+  "product.ta-alphatronic-pc16.technical.source_4": "Alphatronic · LOAD n° 6 · 2020",
+  "product.ta-alphatronic-pc16.technical.source_5": "alphatpc16 · MAME"
+}

@@ -80,6 +80,7 @@ class CatalogBuilderTests(unittest.TestCase):
         self.assertEqual(
             {
                 "amstrad-acl", "amstrad-alt", "amstrad-anb", "amstrad-integra", "amstrad-mega-pc",
+                "triumph-adler-alphatronic-pc",
                 "amstrad-pc1640", "amstrad-pc1x86", "amstrad-pc20-pc200", "amstrad-pc2000",
                 "amstrad-pc3000", "amstrad-pc6000", "amstrad-pc7000", "amstrad-pc9000",
                 "amstrad-pci-1995", "amstrad-ppc", "amstrad-series-4", "amstrad-series-5",
@@ -99,6 +100,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "amstrad-anb-386sx20", "amstrad-anb-386sx40", "amstrad-es8486",
                 "amstrad-integra-486", "amstrad-integra-p75", "amstrad-integra-powerpro",
                 "amstrad-lp8486", "amstrad-megapc", "amstrad-megaplus", "amstrad-pc1286",
+                "ta-alphatronic-pc", "ta-alphatronic-pc16",
                 "amstrad-pc1386", "amstrad-pc1640", "amstrad-pc20", "amstrad-pc2086",
                 "amstrad-pc2286", "amstrad-pc2386", "amstrad-pc3086", "amstrad-pc3286",
                 "amstrad-pc3386sx", "amstrad-pc4386sx", "amstrad-pc5086", "amstrad-pc5286",

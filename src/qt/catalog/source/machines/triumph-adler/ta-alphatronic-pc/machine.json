@@ -1,0 +1,107 @@
+{
+  "order": 1890,
+  "machine": {
+    "id": "ta-alphatronic-pc",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-alphatronic-pc",
+    "name": "Triumph-Adler Alphatronic PC",
+    "summary_key": "product.ta-alphatronic-pc.summary",
+    "history_key": "product.ta-alphatronic-pc.history",
+    "status": "research",
+    "period": "1983",
+    "aliases": [
+      "TA Alphatronic PC",
+      "Royal Alphatronic PC",
+      "Alphatronic PC-8"
+    ],
+    "tags": [
+      "Z80A",
+      "BASIC",
+      "CP/M"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Zilog Z80A · 4 MHz",
+      "memory": "64 KiB",
+      "video": "40 / 80 × 24 · RGB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.bundled_software",
+            "value_key": "product.ta-alphatronic-pc.technical.configuration",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/ta/alphatronic/"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-alphatronic-pc.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-alphatronic-pc.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-alphatronic-pc.technical.source_1",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/ta/alphatronic/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-pc.technical.source_2",
+            "url": "https://www.computerwoche.de/article/2849115/alphatronic-ist-teletext-faehig.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-pc.technical.source_3",
+            "url": "https://blog.hnf.de/es-begann-mit-einem-kiss/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-pc.technical.source_4",
+            "url": "https://awm.segamiga.com/magazine/49/numero/1720"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-pc.technical.source_5",
+            "url": "https://iser.wisski.data.fau.de/wisski/navigate/3054/view"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.ta-alphatronic-pc.technical.source_6",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/ta/alphatro.cpp"
+          }
+        ]
+      }
+    ]
+  }
+}
