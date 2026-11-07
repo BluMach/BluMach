@@ -1,0 +1,14 @@
+{
+  "product.ta-alphatronic-p2.summary": "Le P2 pouvait utiliser une disquette de programme et une disquette de données sans les échanger dans le même lecteur.",
+  "product.ta-alphatronic-p2.history": "Annoncé avec le P1 au salon Systems de 1979, le P2 est arrivé sur le marché en 1980 comme modèle de bureau supérieur de la gamme dérivée du KISS de SKS. Il était annoncé à 4 995 DM hors TVA, moniteur vendu séparément. Le Homecomputermuseum attribue sa fabrication à SKS. Le HNF identifie Diehl Datensysteme comme fabricant du P1 et laisse ouverte la question du P2.",
+  "product.ta-alphatronic-p2.technical.configuration": "Le moniteur MOS prépare la machine à charger les programmes depuis une disquette. Le manuel indique 6 Kio de ROM et 1 Kio de RAM de travail. L’interpréteur BASIC se charge depuis une disquette.",
+  "product.ta-alphatronic-p2.technical.verified": "Le P2 ne dispose pas de profil exécutable dans BluMach.",
+  "product.ta-alphatronic-p2.technical.limitations": "Un jeu exact pour le P2 et un essai de démarrage restent à obtenir.",
+  "product.ta-alphatronic-p2.technical.source_1": "Alphatronic – Das neue modulare Microcomputer-System · Systems 1979 · pp. 2, 4, 6",
+  "product.ta-alphatronic-p2.technical.source_2": "Es begann mit einem KISS · Heinz Nixdorf MuseumsForum",
+  "product.ta-alphatronic-p2.technical.source_3": "Alphatronic P2 · Homecomputermuseum",
+  "product.ta-alphatronic-p2.technical.source_4": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 47, 53–57",
+  "product.ta-alphatronic-p2.technical.source_5": "Alphatronic P1 / P2 / P2U · MAME",
+  "product.ta-alphatronic-p2.technical.source_6": "Helmut Wiertalla · Alphatronic P2 · MOS",
+  "product.ta-alphatronic-p2.technical.firmware_identity": "Les SHA-1 du MOS publié par son développeur sous le nom P2 correspondent aux trois puces que MAME attribue au P2U. MAME signale le P2 comme non fonctionnel."
+}
