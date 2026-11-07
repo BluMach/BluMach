@@ -1,0 +1,13 @@
+{
+  "product.olivetti-m22.summary": "Le prototype portable d’Olivetti doté d’un second processeur pour l’affichage et les utilitaires de bureau.",
+  "product.olivetti-m22.history": "Olivetti a présenté le M22 à Venise en février 1986 pour prolonger sa gamme de portables après le M21. Il visait les professionnels en déplacement. Practical Computing a essayé un prototype en mai 1986 et estimé le prix britannique à moins de £1 800. En mai 1987, la revue a signalé son retrait avant le lancement. Computerwoche a désigné le M15 comme son successeur et constaté que le M22 restait indisponible en Allemagne en février 1987.",
+  "product.olivetti-m22.warning": "Fiche d’un prototype présenté et testé en 1986. Le prix publié était une estimation.",
+  "product.olivetti-m22.architecture": "Le second processeur déchargeait le processeur principal. Practical Computing décrit deux 80C88 pour le système et la gestion de l’affichage, un LCD rétroéclairé de 640 × 200 et 256 KB de RAM extensibles à 1 MB.",
+  "product.olivetti-m22.storage": "Le prototype pouvait utiliser une partie de la RAM comme disque. L’essai documente un lecteur de disquettes de 5,25 pouces et 360 KB et décrit un disque dur amovible de 10 MB occupant l’espace des batteries.",
+  "product.olivetti-m22.firmware": "Personal Windows proposait des utilitaires avant le démarrage de DOS. L’essai indique 96 KB de ROM pour le BIOS, les diagnostics et Personal Windows. Cette spécification concerne le prototype.",
+  "product.olivetti-m22.verified": "Les archives historiques et la presse d’époque ont été recoupées. Le code BluMach examiné ne contient aucune entrée de machine M22.",
+  "product.olivetti-m22.limitations": "La validation du démarrage nécessite les dumps du firmware, la carte mémoire et le protocole entre processeurs. La reproduction de l’image des archives historiques est soumise à restriction.",
+  "product.olivetti-m22.press": "Practical Computing, Glyn Moody, mai 1986, pp. 52–53, essai du prototype. Steve Malone, mai 1987, p. 48, annonce de son retrait.",
+  "product.olivetti-m22.archive": "Associazione Archivio Storico Olivetti, Lavorare dovunque, présentation du M22 et place dans la gamme portable.",
+  "product.olivetti-m22.succession": "Computerwoche, 27 février 1987, remplacement par le M15 et disponibilité en Allemagne."
+}

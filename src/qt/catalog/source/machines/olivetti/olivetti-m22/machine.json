@@ -1,0 +1,103 @@
+{
+  "order": 204,
+  "machine": {
+    "id": "olivetti-m22",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M22",
+    "summary_key": "product.olivetti-m22.summary",
+    "history_key": "product.olivetti-m22.history",
+    "warning_key": "product.olivetti-m22.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "2 × 80C88 · 4.77 MHz",
+      "memory": "256 KB–1 MB",
+      "video": "LCD · 640 × 200",
+      "floppy": "5.25″ · 360 KB",
+      "hard_disk": "10 MB",
+      "interfaces": "RS-232 · Centronics"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m22.architecture"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m22.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.rom_layout",
+            "value_key": "product.olivetti-m22.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m22.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m22.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m22.press",
+            "url": "https://www.worldradiohistory.com/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m22.archive",
+            "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m22.succession",
+            "url": "https://www.computerwoche.de/article/2800224/olivetti-loest-laptop-m22-ab.html"
+          }
+        ]
+      }
+    ],
+    "period": "1986"
+  }
+}
