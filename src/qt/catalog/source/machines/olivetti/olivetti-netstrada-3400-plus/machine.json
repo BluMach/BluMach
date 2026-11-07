@@ -1,0 +1,62 @@
+{
+  "order": 10249,
+  "machine": {
+    "id": "olivetti-netstrada-3400-plus",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti NetStrada 3400 Plus",
+    "summary_key": "product.olivetti-netstrada-3400-plus.summary",
+    "history_key": "product.olivetti-netstrada-3400-plus.history",
+    "warning_key": "product.olivetti-netstrada-3400-plus.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-netstrada-3400-plus.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-netstrada-3400-plus.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-netstrada-3400-plus.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-3400-plus.ocpr-audit",
+            "url": "https://iapconsulta.ocpr.gov.pr/OpenDoc.aspx?id=abc6022d-0d66-4e11-97df-2a956653e054&nombre=TI-07-01"
+          }
+        ]
+      }
+    ]
+  }
+}

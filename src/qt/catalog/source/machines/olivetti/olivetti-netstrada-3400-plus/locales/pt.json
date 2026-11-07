@@ -1,0 +1,9 @@
+{
+  "product.olivetti-netstrada-3400-plus.summary": "O NetStrada Plus instalado na rede da Administração de Reabilitação Profissional de Porto Rico.",
+  "product.olivetti-netstrada-3400-plus.history": "Uma auditoria de 2006 regista 32 NetStrada 3400 Plus na rede Windows 2000 do organismo e outros três com Windows NT para a sua base de dados.",
+  "product.olivetti-netstrada-3400-plus.warning": "Ficha histórica em investigação.",
+  "product.olivetti-netstrada-3400-plus.architecture": "A auditoria distingue dois usos do mesmo modelo. Os equipamentos com Windows NT alojavam uma base de dados ADABAS-D.",
+  "product.olivetti-netstrada-3400-plus.verified": "A auditoria confirma o modelo. Falta a validação no BluMach.",
+  "product.olivetti-netstrada-3400-plus.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-netstrada-3400-plus.ocpr-audit": "Oficina del Contralor de Puerto Rico, TI-07-01, 31 August 2006, p. 5"
+}

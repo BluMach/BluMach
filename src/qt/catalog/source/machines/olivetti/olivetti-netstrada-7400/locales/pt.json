@@ -1,0 +1,9 @@
+{
+  "product.olivetti-netstrada-7400.summary": "O mais acessível dos dois servidores Xeon de topo atualizados pela Olivetti em 1999.",
+  "product.olivetti-netstrada-7400.history": "Em fevereiro de 1999, a Olivetti Computers Worldwide atualizou o NetStrada 7400. A Computerwoche indicou um preço alemão de cerca de 19 000 marcos.",
+  "product.olivetti-netstrada-7400.warning": "Ficha histórica em investigação.",
+  "product.olivetti-netstrada-7400.architecture": "A atualização manteve o suporte para até quatro processadores. A imprensa da época indicou a passagem dos Xeon de 400 para 450 MHz.",
+  "product.olivetti-netstrada-7400.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-netstrada-7400.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-netstrada-7400.computerwoche-1999": "Computerwoche, Olivetti verpaßt PC-Servern schnellere CPUs, 26 February 1999"
+}

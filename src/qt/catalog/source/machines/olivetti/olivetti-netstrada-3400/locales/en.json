@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-3400.summary": "The NetStrada 3400 listed separately from the 3400 Plus in the range's support listings.",
+  "product.olivetti-netstrada-3400.history": "A copy of the driver index groups the NetStrada 3400 with the 5400 and lists the 3400 Plus separately.",
+  "product.olivetti-netstrada-3400.warning": "Historical sheet under research.",
+  "product.olivetti-netstrada-3400.architecture": "Data Memory Systems offered error-correcting memory for this model. Its listing specifies PC100 ECC SDRAM.",
+  "product.olivetti-netstrada-3400.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-netstrada-3400.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-netstrada-3400.driver-index-copy": "Driver index reproduction, NetStrada 3400/5400 and NetStrada 3400 Plus entries",
+  "product.olivetti-netstrada-3400.dms-memory": "Data Memory Systems, Olivetti Netstrada 3400 memory upgrades"
+}

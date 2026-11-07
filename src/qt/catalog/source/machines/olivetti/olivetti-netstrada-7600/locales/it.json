@@ -1,0 +1,9 @@
+{
+  "product.olivetti-netstrada-7600.summary": "Il NetStrada Xeon usato dal Comune di Pisa per la gestione documentale.",
+  "product.olivetti-netstrada-7600.history": "Il contratto di locazione del Comune di Pisa indica due NetStrada 7600 per il servizio documentale, uno principale e uno di riserva.",
+  "product.olivetti-netstrada-7600.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-netstrada-7600.architecture": "Pisa usava una configurazione monoprocessore. Il contratto indica un Pentium III Xeon da 700 MHz, 2 MB di cache, 1 GB di RAM e RAID 5 Ultra Wide SCSI.",
+  "product.olivetti-netstrada-7600.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-netstrada-7600.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-netstrada-7600.pisa-contract": "Comune di Pisa, equipment leasing technical schedule, system G"
+}

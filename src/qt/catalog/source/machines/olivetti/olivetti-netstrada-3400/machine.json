@@ -1,0 +1,69 @@
+{
+  "order": 10252,
+  "machine": {
+    "id": "olivetti-netstrada-3400",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti NetStrada 3400",
+    "summary_key": "product.olivetti-netstrada-3400.summary",
+    "history_key": "product.olivetti-netstrada-3400.history",
+    "warning_key": "product.olivetti-netstrada-3400.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "memory": "PC100 SDRAM · ECC"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-netstrada-3400.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-netstrada-3400.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-netstrada-3400.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-3400.driver-index-copy",
+            "url": "https://app-football87.hatenablog.com/entry/modem-driver-ws-5614psl"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-3400.dms-memory",
+            "url": "https://www.datamemorysystems.com/dms-memory/olivetti/netstrada-3400.htm"
+          }
+        ]
+      }
+    ]
+  }
+}
