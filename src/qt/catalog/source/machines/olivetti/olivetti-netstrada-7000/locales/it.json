@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-7000.summary": "Il NetStrada Condor fino a quattro processori con archiviazione ridondante di serie.",
+  "product.olivetti-netstrada-7000.history": "Olivetti documentò il NetStrada 7000 su piattaforma Condor in telai Silver e Rack con lo stesso nome commerciale.",
+  "product.olivetti-netstrada-7000.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-netstrada-7000.architecture": "I dischi si potevano sostituire a caldo in tutte le configurazioni. La guida indica RAID DPT Ultra Wide SCSI, due alimentatori e due gruppi di ventole.",
+  "product.olivetti-netstrada-7000.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-netstrada-7000.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-netstrada-7000.service-guide-8": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 8",
+  "product.olivetti-netstrada-7000.solaris-hcl": "Sun Microsystems, Hardware Compatibility List for Solaris 2.6 Intel Platform Edition"
+}

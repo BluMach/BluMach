@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-5000.summary": "Le NetStrada Olimpus qui acceptait un second Pentium Pro sur la même carte.",
+  "product.olivetti-netstrada-5000.history": "Olivetti proposait le NetStrada 5000 sur Olimpus en boîtiers Silver et Rack sous le même nom commercial.",
+  "product.olivetti-netstrada-5000.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-netstrada-5000.architecture": "La mémoire pouvait s’étendre pour les deux processeurs. La BA2320 utilise Intel Natoma et accepte jusqu’à 1 Go avec des DIMM ECC de 3,3 V.",
+  "product.olivetti-netstrada-5000.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-netstrada-5000.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-netstrada-5000.service-guide-7": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 7",
+  "product.olivetti-netstrada-5000.solaris-hcl": "Sun Microsystems, Hardware Compatibility List for Solaris 2.6 Intel Platform Edition"
+}
