@@ -1,0 +1,12 @@
+{
+  "product.ta-alphatronic-p1.summary": "The entry-level P model could be expanded as the office’s needs grew.",
+  "product.ta-alphatronic-p1.history": "Triumph-Adler and Diehl Datensysteme presented the P1 at Systems 1979 in Munich. It was the entry-level professional model, derived from the SKS KISS. It was advertised at DM 3,595 before VAT, with the monitor sold separately. HNF places production at Diehl Datensysteme in Nuremberg. The Homecomputermuseum attributes it to SKS.",
+  "product.ta-alphatronic-p1.technical.configuration": "The P1’s memory could be expanded to run larger programs. The 1979 brochure advertised 16 KiB, and the later manual gives a base of 32 KiB, expandable to 48 KiB.",
+  "product.ta-alphatronic-p1.technical.verified": "The P1 has no runnable profile in BluMach.",
+  "product.ta-alphatronic-p1.technical.limitations": "The ROMs for this variant and a boot disk remain to be preserved and checked. MAME lists a P1 machine and marks it as not working.",
+  "product.ta-alphatronic-p1.technical.source_1": "Alphatronic – Das neue modulare Microcomputer-System · Systems 1979 · pp. 2, 4, 6",
+  "product.ta-alphatronic-p1.technical.source_2": "Es begann mit einem KISS · Heinz Nixdorf MuseumsForum",
+  "product.ta-alphatronic-p1.technical.source_3": "Alphatronic P2 · Homecomputermuseum",
+  "product.ta-alphatronic-p1.technical.source_4": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 47, 53–57",
+  "product.ta-alphatronic-p1.technical.source_5": "Alphatronic P1 / P2 / P2U · MAME"
+}

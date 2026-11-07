@@ -91,6 +91,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "schneider-n486slc", "schneider-portable-sx", "schneider-target-pc",
                 "schneider-tower-at", "schneider-tower386sx", "schneider-towers-1991",
                 "schneider-towers-1992", "schneider-vga-at", "toshiba-t-series", "trigem-sx386",
+                "triumph-adler-alphatronic-p",
                 "triumph-adler-dario",
             }, visible_families)
         self.assertEqual(
@@ -211,7 +212,8 @@ class CatalogBuilderTests(unittest.TestCase):
                 "schneider-towerat201", "schneider-towerat202", "schneider-towerat220",
                 "schneider-towerat220-mega", "schneider-towerat240", "schneider-towerat260",
                 "schneider-vgaat40", "schneider-vgaat70", "sinclair-apc286", "sinclair-apc386sx",
-                "sinclair-pc200", "ta-dario286", "ta-dario386sx", "toshiba-t3200", "toshiba-t5100",
+                "sinclair-pc200", "ta-alphatronic-p1", "ta-alphatronic-p2",
+                "ta-dario286", "ta-dario386sx", "toshiba-t3200", "toshiba-t5100",
                 "toshiba-t5200", "trigem-sx386m",
             },
             visible_products,
