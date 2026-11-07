@@ -1,0 +1,124 @@
+{
+  "order": 11,
+  "machine": {
+    "id": "amstrad-pc1640",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc1640",
+    "name": "Amstrad PC1640",
+    "summary_key": "product.amstrad-pc1640.summary",
+    "history_key": "product.amstrad-pc1640.history",
+    "status": "research",
+    "period": "1987",
+    "aliases": [
+      "PC1640 SD",
+      "PC1640 DD",
+      "PC1640 HD20",
+      "PC6400"
+    ],
+    "tags": [
+      "8086",
+      "XT",
+      "Paradise",
+      "EGA"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "cga",
+        "ega"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "monochrome",
+        "color"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/amstrad-pc1640hd20-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Ana Mora (photograph), Ismael Olea (Flickr)",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amstrad_PC1640HD20_(1).jpg"
+    },
+    "hardware": {
+      "cpu": "8086-2 · 8 MHz",
+      "memory": "640 KB · 256 KB VRAM",
+      "video": "Paradise IGA · CGA / EGA / Hercules · PC-MD / PC-CD / PC-ECD",
+      "storage": "20 MB HDD",
+      "expansion": "3 × ISA 8-bit",
+      "floppy": "1–2 × 5.25″ · 360 KB"
+    },
+    "firmware": {
+      "known_sets": [
+        "40043.v3 / 40044.v3 / 40100"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-pc1640.technical.video"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-pc1640.technical.memory"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc1640.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc1640.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc1640.technical.pcw",
+            "url": "https://www.worldradiohistory.com/Personal_Computer_World.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc1640.technical.manual",
+            "url": "https://www.seasip.info/AmstradXT/1640tech/index.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc1640.technical.regional",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/quest9.htm"
+          }
+        ]
+      }
+    ]
+  }
+}
