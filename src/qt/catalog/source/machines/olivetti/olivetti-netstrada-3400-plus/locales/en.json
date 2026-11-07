@@ -1,0 +1,9 @@
+{
+  "product.olivetti-netstrada-3400-plus.summary": "The NetStrada Plus deployed on Puerto Rico's Vocational Rehabilitation Administration network.",
+  "product.olivetti-netstrada-3400-plus.history": "A 2006 audit records 32 NetStrada 3400 Plus servers on the agency's Windows 2000 network and three more running Windows NT for its database.",
+  "product.olivetti-netstrada-3400-plus.warning": "Historical sheet under research.",
+  "product.olivetti-netstrada-3400-plus.architecture": "The audit distinguishes two uses for the same model. The Windows NT systems hosted an ADABAS-D database.",
+  "product.olivetti-netstrada-3400-plus.verified": "The audit confirms the model. BluMach validation is pending.",
+  "product.olivetti-netstrada-3400-plus.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-netstrada-3400-plus.ocpr-audit": "Oficina del Contralor de Puerto Rico, TI-07-01, 31 August 2006, p. 5"
+}

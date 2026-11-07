@@ -1,0 +1,170 @@
+{
+  "order": 197,
+  "machine": {
+    "id": "olivetti-m200",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M200",
+    "summary_key": "product.olivetti-m200.summary",
+    "history_key": "product.olivetti-m200.history",
+    "warning_key": "product.olivetti-m200.warning",
+    "status": "research",
+    "period": "1988",
+    "aliases": [
+      "BU 200-X"
+    ],
+    "tags": [
+      "NEC V40",
+      "DSM 200",
+      "CGA",
+      "MS-DOS"
+    ],
+    "facets": {
+      "form_factor": [
+        "all_in_one"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "cga"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "monochrome"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-m200-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "ValorosoIT / Amedeo Valoroso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivetti_M200_computer,_ValorosoIT_collection,_CRT_monitor,_keyboard_1.jpg"
+    },
+    "hardware": {
+      "cpu": "NEC V40 (µPD70208) · 8 MHz",
+      "memory": "640 KB · 1024 KB (?)",
+      "video": "DSM 200 · 12″ CRT · CGA · 640 × 200",
+      "floppy": "3.5″ · 720 KB / 1.44 MB (?)",
+      "interfaces": "RS-232C DB25 · Centronics DB25 · AT DIN-5",
+      "expansion": "2 × ISA · 8-bit"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m200.technical.identity"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m200.technical.memory"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m200.technical.storage"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m200.technical.video"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.olivetti-m200.technical.ports"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.olivetti-m200.technical.firmware"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.olivetti-m200.technical.etv",
+            "url": "https://archive.org/details/etv-2900"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m200.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m200.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m200.technical.source_ad",
+            "url": "https://www.worldradiohistory.com/Personal_Computer_World.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m200.technical.source_cern",
+            "url": "https://repository.cern/records/cteee-azs45"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m200.technical.source_owner",
+            "url": "https://www.valoroso.it/en/olivetti-m200/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m200.technical.source_olivrea",
+            "url": "https://olivrea.de/olivetti-m200/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m200.technical.source_museum",
+            "url": "https://www.museodelcalcolatore.it/singolo.php?cod=47&ord=5"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m200.technical.source_photo",
+            "url": "https://commons.wikimedia.org/wiki/File:Olivetti_M200_computer,_ValorosoIT_collection,_CRT_monitor,_keyboard_1.jpg"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m200.technical.source_code",
+            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_xt_olivetti_prodest_pc1.c"
+          }
+        ]
+      }
+    ]
+  }
+}

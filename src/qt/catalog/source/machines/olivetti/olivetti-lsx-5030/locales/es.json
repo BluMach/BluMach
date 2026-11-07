@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5030.summary": "El LSX 5000 que podía repartir el trabajo entre cuatro procesadores 486.",
+  "product.olivetti-lsx-5030.history": "Olivetti ofrecía la serie LSX 5000 a empresas medianas y departamentos de grandes organizaciones dentro de su arquitectura OSA. El folleto de 1992 presentó el 5030 como el servidor multiprocesador de la gama para aplicaciones departamentales.",
+  "product.olivetti-lsx-5030.warning": "Ficha histórica en investigación.",
+  "product.olivetti-lsx-5030.architecture": "El bus de procesadores era independiente del de periféricos. OLIBUS4 enlaza CPU y memoria mediante 64 bits y EISA se ocupa de la ampliación de E/S.",
+  "product.olivetti-lsx-5030.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-lsx-5030.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-lsx-5030.olivetti-model": "Olivetti Systems & Networks, LSX 5030 brochure, 1992",
+  "product.olivetti-lsx-5030.olivetti-osa": "Olivetti, LSX 5000 System Line in OSA, 1991"
+}

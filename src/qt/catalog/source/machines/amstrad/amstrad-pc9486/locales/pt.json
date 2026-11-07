@@ -1,0 +1,19 @@
+{
+  "product.amstrad-pc9486.summary": "O 486 da gama PC9000 combinava um processador substituível com tutoriais para quem utilizava um PC pela primeira vez.",
+  "product.amstrad-pc9486.history": "A Amstrad apresentou o PC9486 no início de 1994 na gama PC9000. A oferta abrangia o trabalho profissional e a multimédia doméstica. O soquete do processador e os tutoriais respondiam a duas prioridades: facilitar a expansão e a utilização por principiantes. A BYTE publicou preços britânicos a partir de 849,99 £ e de 1249,99 £ para a versão multimédia. A Computerwoche situou a produção em Inglaterra.",
+  "product.amstrad-pc9486.technical.cpu": "O soquete ZIF facilitava a substituição do processador. A gama documentada incluía um 486SX a 25 MHz e 486DX2 a 50 ou 66 MHz. Lawson distingue este modelo AT do PC9486i com AT/PCI.",
+  "product.amstrad-pc9486.technical.memory": "O limite de expansão da memória varia entre revistas. A Joystick indica 48 MB e a PC Review, 64 MB. Ambas descrevem 4 MB de série.",
+  "product.amstrad-pc9486.technical.video": "O vídeo integrado deixava livres as ranhuras de expansão. A Joystick descreve um Cirrus Logic 5426 com 1 MB de memória de vídeo no DX2-50 testado.",
+  "product.amstrad-pc9486.technical.board": "Um exemplar conservado ajuda a identificar a placa. O proprietário documentou a UX486VIO-A Rev. 1.0 e os chips UMC UM82C481BF e UM82C482AF.",
+  "product.amstrad-pc9486.warning": "BIOS identificada. Validação do arranque no BluMach pendente.",
+  "product.amstrad-pc9486.technical.firmware": "A imagem de sistema de 64 KiB identifica o Amstrad PC9486 e contém a data 11/11/92. Uma leitura da memória do mesmo exemplar conserva outra cópia do bloco de sistema.",
+  "product.amstrad-pc9486.technical.verified": "A investigação cruzou a identidade comercial com as fontes e comparou o conteúdo das leituras. No BluMach, o modelo está em investigação.",
+  "product.amstrad-pc9486.technical.limitations": "Os blocos de sistema diferem em quatro bytes do vetor de reinicialização, em FFF1–FFF4. Falta esclarecer a diferença e validar o arranque e os periféricos.",
+  "product.amstrad-pc9486.technical.news": "Computerwoche · Amstrad steigt wieder in den Profimarkt ein · 14 January 1994",
+  "product.amstrad-pc9486.technical.byte": "BYTE · Pentium OverDrive-ready PCs · May 1994",
+  "product.amstrad-pc9486.technical.review": "PC Review 30 · Amstrad PC9000 Multimedia and Amstrad 9486 (66MHz, 486DX2) · April 1994",
+  "product.amstrad-pc9486.technical.joystick": "Joystick 47 · Les PC 9000 d’Amstrad · March 1994",
+  "product.amstrad-pc9486.technical.lawson": "Cliff Lawson · General notes on Amstrad PCs · 9486 and 9486i",
+  "product.amstrad-pc9486.technical.museum": "Centre for Computing History · Amstrad PC9486 Series · CH24997",
+  "product.amstrad-pc9486.technical.owner": "Zalog · 80486 BIOS image collection · Amstrad PC9486 · April 2021"
+}

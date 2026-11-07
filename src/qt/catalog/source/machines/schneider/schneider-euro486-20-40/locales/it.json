@@ -1,0 +1,14 @@
+{
+  "product.schneider-euro486-20-40.summary": "L’Euro486 di ingresso con disco da 40 MB.",
+  "product.schneider-euro486-20-40.history": "L’Euro486 con disco da 40 MB fu presentato nel settembre 1991 a circa 4.000 DM. Nella gamma Euro, Schneider lo destinava a impaginazione, grafica e postazioni di rete. La pubblicità portoghese del 1992 lo identifica come /20–40.",
+  "product.schneider-euro486-20-40.warning": "Scheda storica in fase di ricerca.",
+  "product.schneider-euro486-20-40.technical.configuration": "Il disco da 40 MB compare nel manuale con il codice 51 550 00. La stampa del 1991 indica 4 MB di RAM di serie per la gamma Euro486, espandibili a 16 MB.",
+  "product.schneider-euro486-20-40.technical.board": "La scheda integra memoria e video. Schneider firma lo schema Singleboard 486 della scheda 53 854 00 degli HD 40 e HD 90. L’elenco identifica VLSI VL82C330/331/332, BIGJIM e ATI 28800-5.",
+  "product.schneider-euro486-20-40.technical.firmware": "Una EPROM riunisce avvio e video. Per la scheda 53 854 00, lo schema colloca sistema e VGA in U16, una 27C010 da 128 KiB, codice 53 891 00. Resta da conservare un dump attribuito.",
+  "product.schneider-euro486-20-40.technical.verified": "La configurazione è documentata. Il modello dedicato e l’avvio in BluMach restano da realizzare.",
+  "product.schneider-euro486-20-40.technical.limitations": "Restano da ottenere firmware attribuito, convalidare la mappa della scheda e trovare un’immagine con diritti di pubblicazione chiari.",
+  "product.schneider-euro486-20-40.technical.press": "Computerwoche, Schneider baut 486SX-PC für unter 5000 Mark, 20-09-1991",
+  "product.schneider-euro486-20-40.technical.range": "IFS, Expresso, 23-05-1992, p. A3",
+  "product.schneider-euro486-20-40.technical.manual": "Schneider, Service Manual EURO AT II / EURO 486 SX, pp. 45–84",
+  "product.schneider-euro486-20-40.technical.business": "Computerwoche, Schneider erweitert die Business-Linie um 486SX-PC, 08-11-1991"
+}

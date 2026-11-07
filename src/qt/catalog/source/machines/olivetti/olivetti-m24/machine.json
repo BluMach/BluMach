@@ -1,0 +1,143 @@
+{
+  "order": 85,
+  "machine": {
+    "id": "olivetti-m24",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M24",
+    "summary_key": "product.olivetti-m24.summary",
+    "history_key": "product.olivetti-m24.history",
+    "warning_key": "product.olivetti-m24.warning",
+    "status": "research",
+    "period": "1984",
+    "aliases": [],
+    "tags": [
+      "8086",
+      "OGC"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "ogc"
+      ]
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-m24-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Federigo Federighi",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivetti_M24_(1987_-_1988).jpg"
+    },
+    "hardware": {
+      "cpu": "Intel 8086 · 8 MHz",
+      "coprocessor": "Intel 8087",
+      "memory": "128–640 KB",
+      "video": "OGC · 6845 · 32 KB · 640 × 400",
+      "floppy": "5.25″",
+      "interfaces": "RS-232C · Centronics",
+      "expansion": "62-pin + 38-pin · 8 / 16-bit"
+    },
+    "firmware": {
+      "known_sets": [
+        "1.43 · PQBK/PQBL · 2 × 8 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m24.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m24.technical.video"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.olivetti-m24.technical.expansion"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.observed",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m24.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m24.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m24.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m24.technical.source_manual",
+            "url": "https://ftpmirror.your.org/pub/misc/bitsavers/pdf/olivetti/m21_m24/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m24.technical.source_service",
+            "url": "https://www.museotecnologicamente.it/olivetti-m-21-1984/"
+          },
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.olivetti-m24.technical.source_press",
+            "url": "https://www.worldradiohistory.com/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.olivetti-m24.technical.source_bios",
+            "url": "https://archive.org/details/dos_rom_bios_collection"
+          },
+          {
+            "label_key": "technical.label.implementation_lineage",
+            "value_key": "product.olivetti-m24.technical.source_code",
+            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_xt_olivetti.c"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m24.technical.source_history",
+            "url": "https://www.storiaolivetti.it/articolo/65-un-computer-su-ogni-scrivania-la-olivetti-e-i-p/"
+          }
+        ]
+      }
+    ]
+  }
+}

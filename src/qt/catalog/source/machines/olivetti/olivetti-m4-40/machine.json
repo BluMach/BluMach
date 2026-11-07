@@ -1,0 +1,88 @@
+{
+  "order": 10142,
+  "machine": {
+    "id": "olivetti-m4-40",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M4-40",
+    "summary_key": "product.olivetti-m4-40.summary",
+    "history_key": "product.olivetti-m4-40.history",
+    "warning_key": "product.olivetti-m4-40.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel i486SX · 25 MHz",
+      "memory": "4–36 MB",
+      "video": "Cirrus Logic CL-GD5428 · 512 KB–1 MB",
+      "expansion": "2 × ISA 16-bit"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m4-40.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m4-40.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m4-40.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m4-40.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m4-40.service-guide",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m4-40.mc-micro",
+            "url": "https://www.digitanto.it/mc-online/Pages/Indice%20Analitico%20MC%20x%20sito.htm"
+          }
+        ]
+      }
+    ]
+  }
+}

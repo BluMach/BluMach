@@ -1,0 +1,9 @@
+{
+  "product.olivetti-netstrada-5200.summary": "El NetStrada 5200 figura con 21 unidades en el inventario público del Véneto.",
+  "product.olivetti-netstrada-5200.history": "La oficina regional del Véneto de la Agenzia delle Entrate registró el NetStrada 5200 entre los servidores depositados en Marghera.",
+  "product.olivetti-netstrada-5200.warning": "Ficha histórica en investigación.",
+  "product.olivetti-netstrada-5200.architecture": "La configuración de fábrica sigue por identificar. El inventario confirma la denominación, la categoría de servidor y el número de unidades.",
+  "product.olivetti-netstrada-5200.verified": "El inventario confirma el modelo. La validación en BluMach sigue pendiente.",
+  "product.olivetti-netstrada-5200.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-netstrada-5200.veneto-inventory": "Agenzia delle Entrate, Veneto equipment transfer inventory, annex"
+}

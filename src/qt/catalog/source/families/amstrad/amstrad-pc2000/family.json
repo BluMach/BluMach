@@ -1,0 +1,29 @@
+{
+  "order": 116,
+  "family": {
+    "id": "amstrad-pc2000",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PC2000",
+    "description_key": "family.amstrad-pc2000.description",
+    "history_key": "family.amstrad-pc2000.history",
+    "history_references": [
+      {
+        "title": "Amstrad PC2000 Series, April 1989, pp. 3, 5, 7 and back cover",
+        "publisher": "Amstrad, preserved by ACPC",
+        "url": "https://acpc.me/"
+      },
+      {
+        "title": "Amstrad kommt mit PC-Serie 2000, 30 September 1988",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2793331/amstrad-kommt-mit-pc-serie-2000.html"
+      },
+      {
+        "title": "Amstrad Plc, ESAM Volume I, September 1989, report 0004839, pp. 9–10; archive 102723407-05-01",
+        "publisher": "Dataquest, preserved by Computer History Museum",
+        "url": "https://www.computerhistory.org/collections/"
+      }
+    ]
+  }
+}

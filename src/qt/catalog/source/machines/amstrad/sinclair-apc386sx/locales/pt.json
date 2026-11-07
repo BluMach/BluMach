@@ -1,0 +1,11 @@
+{
+  "product.sinclair-apc386sx.summary": "PC de secretária com processador 386SX numa placa amovível e VGA integrada.",
+  "product.sinclair-apc386sx.history": "No painel frontal lê-se «Sinclair APC 386SX by Amstrad». Um exemplar com a etiqueta APC386SX tem um autocolante interno «3386 SX». A caixa e a placa do processador sustentam a identificação como um PC3386SX da Amstrad comercializado com a marca Sinclair.",
+  "product.sinclair-apc386sx.technical.cpu": "A ficha técnica do exemplar APC indica 20 MHz. O folheto do PC3386SX também indica 20 MHz, enquanto a tabela de especificações do manual indica 16 MHz.",
+  "product.sinclair-apc386sx.technical.board": "A placa principal fotografada tem as referências Z70921 e DPA1704. A placa do processador partilha a disposição e a série de circuitos impressos 2600-025P com a MS0196A do PC3386SX. O exemplar APC tem marcas de revisão 2 e 3 em faces opostas. A equivalência elétrica completa das placas continua por verificar.",
+  "product.sinclair-apc386sx.technical.hardware": "No exemplar fotografado veem-se quatro encaixes SIMM, VGA Paradise PVGA1A e um relógio Dallas DS1287. Outro exemplar documentado tem um disco IDE Seagate ST-157A-1. O teclado usa um protocolo próprio da Amstrad.",
+  "product.sinclair-apc386sx.warning": "Falta uma cópia verificada da BIOS de um exemplar identificado. A identidade byte a byte com o PC3386SX continua por confirmar e a criação de uma máquina virtual está desativada.",
+  "product.sinclair-apc386sx.technical.acme": "Ficha e fotografias do exemplar APC386SX no arquivo ACME",
+  "product.sinclair-apc386sx.technical.owner": "Desmontagem de um APC 386SX e observações do proprietário",
+  "product.sinclair-apc386sx.technical.amstrad": "PC3386SX, folheto Generation 3, manual e placa do processador MS0196A"
+}

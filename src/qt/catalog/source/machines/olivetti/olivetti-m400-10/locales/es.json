@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m400-10.summary": "La estación de gama alta M400 con 486SX y opción de i487SX.",
+  "product.olivetti-m400-10.history": "El catálogo profesional de septiembre de 1991 situaba M400-10 (la estación de gama alta M400 con 486SX y opción de i487SX).",
+  "product.olivetti-m400-10.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m400-10.architecture": "La placa determina la combinación de periféricos que hay que contrastar. La guía identifica BA296 / BA297 / BA309 / BA312 / BA313 · 82C452A · AT.",
+  "product.olivetti-m400-10.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra Flash · 1.08 (BA901) / 2.08 (BA301).",
+  "product.olivetti-m400-10.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m400-10.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m400-10.guide": "Olivetti, Personal Computer – Pocket Service Guide, 25-1.",
+  "product.olivetti-m400-10.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

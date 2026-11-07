@@ -1,0 +1,71 @@
+{
+  "order": 10206,
+  "machine": {
+    "id": "olivetti-snx-140-r",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti SNX 140/R Systema",
+    "summary_key": "product.olivetti-snx-140-r.summary",
+    "history_key": "product.olivetti-snx-140-r.history",
+    "warning_key": "product.olivetti-snx-140-r.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 66 MHz",
+      "memory": "16–192 MB",
+      "video": "SVGA",
+      "storage": "SCSI-2",
+      "expansion": "EISA / PCI"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-snx-140-r.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-snx-140-r.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-snx-140-r.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-snx-140-r.service-guide-1",
+            "url": "https://www.elhvb.com/mboards/olivetti/servers1.html"
+          }
+        ]
+      }
+    ]
+  }
+}

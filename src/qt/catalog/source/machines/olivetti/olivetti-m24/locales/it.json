@@ -1,0 +1,17 @@
+{
+  "product.olivetti-m24.summary": "Il desktop che aprì la gamma professionale Olivetti alla compatibilità IBM, con bus a 16 bit e grafica propria a 640 × 400.",
+  "product.olivetti-m24.history": "L’M24 portò Olivetti dall’ambiente proprietario dell’M20 al mercato professionale compatibile IBM. L’Archivio Storico colloca la presentazione a Hannover nel marzo 1984; anche Practical Computing ne documenta l’annuncio in quell’anno. Olivetti sviluppò il computer con il gruppo di Cupertino e utilizzò il canale AT&T per venderlo negli Stati Uniti. L’M21 portò questa architettura in un formato trasportabile. Fonti: Archivio Storico Olivetti e Practical Computing, novembre 1984, p. 55.",
+  "product.olivetti-m24.warning": "Scheda storica in ricerca; nessun profilo di creazione validato. Il BIOS locale 1.43 differisce dalla versione 1.44 richiesta dal caricatore esistente.",
+  "product.olivetti-m24.technical.configuration": "La famiglia prevede diverse espansioni. Olivetti documenta 128 KB iniziali, un massimo di 640 KB e un 8087 opzionale; la capacità sulla scheda dipende dalla revisione. L’M24 SP a 10 MHz è distinto dall’M24 a 8 MHz.",
+  "product.olivetti-m24.technical.video": "Il video amplia le capacità grafiche del PC. Il controller proprietario combina 6845 e 32 KB di RAM: modalità compatibili 320 × 200 e 640 × 200, oltre a 640 × 400 monocromatica. L’espansione grafica opzionale è una scheda distinta.",
+  "product.olivetti-m24.technical.expansion": "L’adattatore di espansione accoglie schede Olivetti e IBM. Il manuale conta sette connettori a 62 contatti e quattro aggiuntivi a 38; questo bus a 16 bit non va confuso con ISA AT. RS-232C e Centronics sono integrati.",
+  "product.olivetti-m24.technical.firmware": "Il BIOS conservato occupa due chip. HIGH e LOW da 8 KiB formano 16 KiB con LOW sui byte pari e HIGH sui dispari; il risultato contiene la stringa 1.43. La guida M24/M21 elenca 1.43H PQBK e 1.43L PQBL. L’avvio non è stato verificato.",
+  "product.olivetti-m24.technical.verified": "BluMach conserva il modello M24 ereditato da 86Box. Il codice macchina e video coincide con la base del fork; carica due ROM 1.44 intercalate a FC000h. Questa verifica del codice non certifica il funzionamento della 1.43 conservata.",
+  "product.olivetti-m24.technical.limitations": "Resta da validare una combinazione precisa di scheda, BIOS e periferiche. La differenza 1.43/1.44 rimane aperta, così come tastiera, orologio, dischi e modalità grafiche; conservare il firmware non rende la macchina validata.",
+  "product.olivetti-m24.technical.source_manual": "Olivetti, M24/M21 Theory of Operation, 11/1984, §§ 1-4, 1-7, 1-12, 2-42, 2-47.",
+  "product.olivetti-m24.technical.source_service": "Olivetti, Personal Computer Pocket Service Guide, vol. I, pp. 1-1–1-2 (PDF 8–9).",
+  "product.olivetti-m24.technical.source_press": "Practical Computing, 11/1984, “Olivetti M-21”, p. 55.",
+  "product.olivetti-m24.technical.source_bios": "DOS ROM BIOS collection, olivetti_m24, 1.43 HIGH/LOW.",
+  "product.olivetti-m24.technical.source_code": "BluMach 88f74ba3 / 86Box 6a43d7973, m_xt_olivetti.c, vid_cga_olivetti.c.",
+  "product.olivetti-m24.technical.source_history": "Archivio Storico Olivetti, Un computer su ogni scrivania: la Olivetti e i primi PC."
+}

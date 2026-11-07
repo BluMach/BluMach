@@ -1,0 +1,9 @@
+{
+  "product.olivetti-echos-24.summary": "O Echos 24 foi apresentado com disco de 340 MB e configuração de impressoras a partir do Windows.",
+  "product.olivetti-echos-24.history": "A Computerwoche registou a apresentação do Echos 24 na CeBIT 1995 dentro da gama de portáteis Olivetti.",
+  "product.olivetti-echos-24.warning": "Ficha histórica em investigação.",
+  "product.olivetti-echos-24.architecture": "A instalação de impressoras usava ficheiros no disco. A publicação cita uma porta paralela melhorada, MS-DOS 6.2 e Windows 3.1.",
+  "product.olivetti-echos-24.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-echos-24.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-echos-24.cebit": "Computerwoche, CeBIT 1995, Power-Notebook von First."
+}

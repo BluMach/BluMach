@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs-p-75-educator.summary": "The PCS P/75 Educator came with Mozart sound as standard.",
+  "product.olivetti-pcs-p-75-educator.history": "Olivetti identified this PCS as Educator in its Pentium offering. The guide distinguishes it by the standard Mozart sound board. The guide identifies TriGem as the maker of the BA2199 board.",
+  "product.olivetti-pcs-p-75-educator.warning": "Historical sheet under research.",
+  "product.olivetti-pcs-p-75-educator.architecture": "Sound was included. The MI2074 board uses the Mozart OTI 605 controller.",
+  "product.olivetti-pcs-p-75-educator.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-pcs-p-75-educator.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-pcs-p-75-educator.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-pcs-p-75-educator.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-pcs-p-75-educator.firmware": "The revision helps identify the service BIOS. The guide lists 1.13."
+}

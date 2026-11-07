@@ -1,0 +1,9 @@
+{
+  "product.schneider-n486slc.summary": "El portátil Schneider que figura como N 486 SLC en la prensa polaca.",
+  "product.schneider-n486slc.history": "Un clasificado polaco de noviembre de 1998 ofrecía de segunda mano el N 486 SLC por 1.200 zł. En noviembre de 1992, Computerwoche había descrito un portátil Schneider con Cyrix 486SLC al informar de su vuelta al mercado de PC.",
+  "product.schneider-n486slc.technical.configuration": "Las dos fuentes dan referencias de procesador distintas. El clasificado añade «486 DX». La noticia de 1992 indica Cyrix 486SLC, discos de 80 o 120 MB y tres opciones de pantalla LCD. Queda por comprobar si describen el mismo equipo.",
+  "product.schneider-n486slc.technical.verified": "La denominación aparece en un anuncio de época. El modelo dedicado y la validación de arranque en BluMach siguen pendientes.",
+  "product.schneider-n486slc.technical.limitations": "Falta cotejar un ejemplar y su placa, obtener una BIOS atribuible y localizar una imagen con derechos de publicación claros.",
+  "product.schneider-n486slc.technical.source_1": "Dziennik Bałtycki, n.º 277 (16436), 26-11-1998, p. 29, Giełda komputerowa",
+  "product.schneider-n486slc.technical.source_2": "Computerwoche, Ein Handwerk mit Tradition, 27-11-1992"
+}

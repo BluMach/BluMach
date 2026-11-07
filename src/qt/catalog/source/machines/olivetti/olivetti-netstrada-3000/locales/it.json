@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-3000.summary": "Il NetStrada con telaio Copper convertibile per montaggio a rack.",
+  "product.olivetti-netstrada-3000.history": "Olivetti documentò il NetStrada 3000 su piattaforma Vulcan con un kit per montare lo stesso telaio in un rack da 19 pollici.",
+  "product.olivetti-netstrada-3000.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-netstrada-3000.architecture": "Il processore e gli slot condividono una scheda. La BA2315 usa Intel 440FX, Socket 8, tre slot PCI e due ISA.",
+  "product.olivetti-netstrada-3000.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-netstrada-3000.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-netstrada-3000.service-guide-9": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 9",
+  "product.olivetti-netstrada-3000.solaris-hcl": "Sun Microsystems, Hardware Compatibility List for Solaris 2.6 Intel Platform Edition"
+}

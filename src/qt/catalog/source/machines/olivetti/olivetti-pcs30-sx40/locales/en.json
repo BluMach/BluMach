@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs30-sx40.summary": "The slim desktop PCS30 with a 40 MHz 386SX.",
+  "product.olivetti-pcs30-sx40.history": "Olivetti included the PCS30 SX/40 in the PCS30–PCS40 line of 386 and 486 systems. It documented this model as a slim desktop configuration.",
+  "product.olivetti-pcs30-sx40.warning": "Historical sheet under research.",
+  "product.olivetti-pcs30-sx40.architecture": "Video and storage used expansion cards. With the standard cards installed, 3 of the 5 AT slots remained free in the standard configuration.",
+  "product.olivetti-pcs30-sx40.firmware": "The board determines which BIOS to look for. The guide documents AMI for WH 386 SX.",
+  "product.olivetti-pcs30-sx40.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-pcs30-sx40.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-pcs30-sx40.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

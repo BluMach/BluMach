@@ -1,0 +1,14 @@
+{
+  "product.amstrad-acl-386sx120.summary": "Il portatile professionale ACL con schermo TFT a colori, trackball integrata e disco rimovibile da 120 MB.",
+  "product.amstrad-acl-386sx120.history": "La configurazione da 120 MB del portatile professionale Amstrad comparve sulla stampa tedesca nel settembre 1991 a circa 13.000 marchi. Nel gennaio 1993 Time Direct la offriva nel Regno Unito a 2.099 sterline. L’esemplare del Centre for Computing History fu fabbricato in Giappone.",
+  "product.amstrad-acl-386sx120.technical.configuration": "Le specifiche cambiarono tra la presentazione e la configurazione da 120 MB. Computerwoche indicò 1 MB di RAM e un disco da 60 MB nel marzo 1991, poi 4 MB e 120 MB a settembre.",
+  "product.amstrad-acl-386sx120.technical.disk": "Il disco rimovibile rendeva più semplice accedere all’unità. Nell’esemplare smontato da santosp era un Conner CP30104 da 120 MB, configurato come tipo 40 nel BIOS.",
+  "product.amstrad-acl-386sx120.technical.firmware": "Secondo lo smontaggio, una sola EPROM contiene il firmware di avvio e quello video. È una 27C1024 da 128 KiB e il controller VGA della scheda è un Chips & Technologies F82C457.",
+  "product.amstrad-acl-386sx120.technical.verified": "La configurazione da 120 MB è stata verificata con la stampa dell’epoca e un esemplare museale. La scheda BluMach è in fase di ricerca.",
+  "product.amstrad-acl-386sx120.technical.limitations": "Restano da acquisire il dump dell’EPROM, da mappare le aree di sistema e video e da convalidare l’avvio in BluMach.",
+  "product.amstrad-acl-386sx120.technical.cebit": "Computerwoche · Amstrad bringt Laptop mit TFT-Display · 22 March 1991",
+  "product.amstrad-acl-386sx120.technical.germany": "Computerwoche · Neue tragbare PCs mit 386SX-Prozessor · 27 September 1991",
+  "product.amstrad-acl-386sx120.technical.shop": "Time Direct · Personal Computer World · January 1993 · p. 62",
+  "product.amstrad-acl-386sx120.technical.museum": "Centre for Computing History · Amstrad ACL-386SX120 · CH6931",
+  "product.amstrad-acl-386sx120.technical.board": "santosp · ACL-386SX motherboard and disk · September 2023"
+}

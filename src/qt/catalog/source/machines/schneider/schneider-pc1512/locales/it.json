@@ -1,0 +1,10 @@
+{
+  "product.schneider-pc1512.summary": "Il primo PC Amstrad che Schneider portò sul mercato tedesco.",
+  "product.schneider-pc1512.history": "Nel 1986 Schneider commercializzò in Germania il PC1512 di Amstrad per la casa e l’ufficio. In ottobre Happy Computer indicò un prezzo di 1.999 marchi con un’unità floppy e un monitor monocromatico. Il PC1640 ampliò la gamma l’anno seguente.",
+  "product.schneider-pc1512.technical.verified": "La commercializzazione con il marchio Schneider è documentata.",
+  "product.schneider-pc1512.technical.limitations": "Serve un BIOS attribuito a un esemplare Schneider per confrontarlo con quello Amstrad e convalidare la variante in BluMach.",
+  "product.schneider-pc1512.technical.source_1": "Heinz Nixdorf MuseumsForum, Das war der Schneider Euro PC, 09-05-2023",
+  "product.schneider-pc1512.technical.source_2": "Computerwoche, Schneider bringt AT mit EGA-Karte, 30-10-1987",
+  "product.schneider-pc1512.technical.detail": "Il monitor alimentava anche l’unità centrale. Due cavi distinti trasportavano il segnale RGB e l’alimentazione.",
+  "product.schneider-pc1512.technical.period_press": "Happy Computer 10/1986 · Schneider PC: die neue Dimension"
+}

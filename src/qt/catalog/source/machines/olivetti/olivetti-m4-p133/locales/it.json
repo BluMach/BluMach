@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-p133.summary": "L’M4-P a 133 MHz nel telaio Tin Box della piattaforma con memoria EDO.",
+  "product.olivetti-m4-p133.history": "Olivetti documentò la gamma professionale M4-Pxx su una piattaforma condivisa con i PCS 51xx e 61xx.",
+  "product.olivetti-m4-p133.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m4-p133.architecture": "Questa versione usa una scheda grafica PCI. La guida identifica la Matrox MGA Millennium e indica 2, 4 o 8 MB di memoria video.",
+  "product.olivetti-m4-p133.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m4-p133.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m4-p133.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-m4-p133.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-p133.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.21."
+}

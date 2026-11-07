@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-650-dp.summary": "La variante dell’M6-650 predisposta per due processori.",
+  "product.olivetti-m6-650-dp.history": "Olivetti raggruppò questo modello con gli M6-650, 670, 680 e 690 nel telaio Tin Box.",
+  "product.olivetti-m6-650-dp.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m6-650-dp.architecture": "La scheda madre determina come si collega il monitor. La BA2189 integra il video e la BA2190 usa una Matrox Impression Plus. Questa configurazione ha 512 KB di cache L2.",
+  "product.olivetti-m6-650-dp.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m6-650-dp.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m6-650-dp.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 14",
+  "product.olivetti-m6-650-dp.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.13."
+}

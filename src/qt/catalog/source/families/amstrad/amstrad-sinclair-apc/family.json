@@ -1,0 +1,29 @@
+{
+  "order": 113,
+  "family": {
+    "id": "amstrad-sinclair-apc",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "Sinclair APC",
+    "description_key": "family.amstrad-sinclair-apc.description",
+    "history_key": "family.amstrad-sinclair-apc.history",
+    "history_references": [
+      {
+        "title": "APC 286 specimen",
+        "publisher": "Allegro Lokalnie, photographs of a surviving unit",
+        "url": "https://allegrolokalnie.pl/oferta/retro-komputer-447-amstrad-sinclair-apc-286-bdq"
+      },
+      {
+        "title": "Sinclair Amstrad APC 386SX",
+        "publisher": "Old Crap Vintage Computing, 2019",
+        "url": "https://oldcrap.org/2019/06/25/sinclair-amstrad-apc-386sx/"
+      },
+      {
+        "title": "PC3386SX, Amstrad Generation 3 leaflet",
+        "publisher": "Amstrad, August 1990",
+        "url": "https://retrotechwiki.com/Amstrad_PC3386SX"
+      }
+    ]
+  }
+}

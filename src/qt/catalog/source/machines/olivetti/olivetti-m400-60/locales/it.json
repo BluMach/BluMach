@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m400-60.summary": "La variante M400 con 486DX2 e supporto ATI 8514 Ultra.",
+  "product.olivetti-m400-60.history": "La guida Olivetti documenta M400-60 (la variante M400 con 486DX2 e supporto ATI 8514 Ultra).",
+  "product.olivetti-m400-60.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m400-60.architecture": "La scheda determina la combinazione di periferiche da verificare. La guida indica BA334 · 82C452A · IDE.",
+  "product.olivetti-m400-60.firmware": "La revisione del BIOS aiuta a identificare la configurazione di servizio. La guida indica Flash · 2.08.",
+  "product.olivetti-m400-60.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-m400-60.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m400-60.guide": "Olivetti, Personal Computer – Pocket Service Guide, 27-1."
+}

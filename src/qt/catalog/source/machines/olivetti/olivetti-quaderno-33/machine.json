@@ -1,0 +1,86 @@
+{
+  "order": 10046,
+  "machine": {
+    "id": "olivetti-quaderno-33",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Quaderno 33",
+    "summary_key": "product.olivetti-quaderno-33.summary",
+    "history_key": "product.olivetti-quaderno-33.history",
+    "warning_key": "product.olivetti-quaderno-33.warning",
+    "status": "research",
+    "aliases": [
+      "PT-AT-60"
+    ],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "386SX · 10 / 20 MHz",
+      "memory": "4 MB",
+      "hard_disk": "60 MB",
+      "video": "LCD"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-quaderno-33.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-quaderno-33.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-quaderno-33.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-quaderno-33.archive",
+            "url": "https://artsandculture.google.com/asset/associazione-archivio-storico-olivetti-computer-portatile-olivetti-quaderno-progettato-da-ugo-carena-design-di-mario-bellini-e-hagai-shvadron/swENYF7nqPxpxg?hl=it"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-quaderno-33.review",
+            "url": "https://www.digitanto.it/Articoli/ArchivioArticoli.htm"
+          }
+        ]
+      }
+    ],
+    "period": "1993",
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-quaderno-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "OnlySoft",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivetti_Quaderno_33.jpg"
+    }
+  }
+}

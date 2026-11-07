@@ -1,0 +1,79 @@
+{
+  "order": 10110,
+  "machine": {
+    "id": "olivetti-m380-c-new",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M380/C New",
+    "summary_key": "product.olivetti-m380-c-new.summary",
+    "history_key": "product.olivetti-m380-c-new.history",
+    "warning_key": "product.olivetti-m380-c-new.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80386 · 16 MHz",
+      "expansion": "3 × 32-bit · 2 × 16-bit · 2 × 8-bit",
+      "video": "GO470 / GO481 · VGA",
+      "storage": "GO723 · ST-506 RLL"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m380-c-new.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m380-c-new.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m380-c-new.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m380-c-new.service",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m380-c-new.museum",
+            "url": "https://www.computinghistory.org.uk/det/11088/Olivetti-M380-C-(Pandora-Project)/"
+          }
+        ]
+      }
+    ],
+    "period": "1988"
+  }
+}

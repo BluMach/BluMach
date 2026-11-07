@@ -1,0 +1,81 @@
+{
+  "order": 10040,
+  "machine": {
+    "id": "olivetti-notebook-a12",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Notebook A12",
+    "summary_key": "product.olivetti-notebook-a12.summary",
+    "history_key": "product.olivetti-notebook-a12.history",
+    "warning_key": "product.olivetti-notebook-a12.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ]
+    },
+    "hardware": {
+      "cpu": "80286 · 16 MHz",
+      "memory": "2–6 MB",
+      "hard_disk": "20 MB",
+      "floppy": "3.5″ · 1.44 MB",
+      "video": "VGA · 640 × 480",
+      "dimensions": "297 × 210 × 52 mm"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-notebook-a12.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-notebook-a12.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-notebook-a12.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-notebook-a12.catalogue",
+            "url": "https://www.ardent-tool.com/Olivetti/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-notebook-a12.archive",
+            "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
+          }
+        ]
+      }
+    ],
+    "period": "1991"
+  }
+}

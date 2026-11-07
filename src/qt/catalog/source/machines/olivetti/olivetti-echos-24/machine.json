@@ -1,0 +1,69 @@
+{
+  "order": 10092,
+  "machine": {
+    "id": "olivetti-echos-24",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Echos 24",
+    "summary_key": "product.olivetti-echos-24.summary",
+    "history_key": "product.olivetti-echos-24.history",
+    "warning_key": "product.olivetti-echos-24.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "80486 · 50 MHz",
+      "hard_disk": "340 MB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-echos-24.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-echos-24.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-echos-24.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-24.cebit",
+            "url": "https://www.computerwoche.de/article/2733211/power-notebook-von-first-auf-der-cebit-95.html"
+          }
+        ]
+      }
+    ],
+    "period": "1995"
+  }
+}

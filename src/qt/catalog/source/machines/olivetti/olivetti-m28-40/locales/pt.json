@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m28-40.summary": "A configuração M28 de 40 MB com disco e monitor monocromático de série.",
+  "product.olivetti-m28-40.history": "O folheto neerlandês situava o M28/40 entre as configurações profissionais da família M28. O conjunto incluía um disco de 40 MB e um monitor monocromático.",
+  "product.olivetti-m28-40.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m28-40.architecture": "A memória de trabalho podia ser ampliada na placa. O folheto indica 512 KB de base e até 1 MB na placa de sistema.",
+  "product.olivetti-m28-40.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m28-40.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m28-40.olivetti-nl": "Olivetti Nederland, Personal Computer M28, Technische specificaties, p. 1"
+}

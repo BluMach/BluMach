@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-620.summary": "La workstation da scrivania che riuniva due canali SCSI ed Ethernet sulla scheda madre.",
+  "product.olivetti-m6-620.history": "La stampa presentò l’M6-620 come workstation Pentium Olivetti. Nell’aprile 1994 ASCII ne riportò l’offerta in Giappone a 998.000 ¥ con 210 MB.",
+  "product.olivetti-m6-620.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m6-620.architecture": "La scheda madre gestisce unità e rete. L’AIC-7770 controlla due canali SCSI e l’Intel 82596DX gestisce Ethernet su EISA.",
+  "product.olivetti-m6-620.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m6-620.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m6-620.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 10",
+  "product.olivetti-m6-620.ascii-1994": "ASCII EXPRESS, April 1994, Japanese market report (archival reproduction)",
+  "product.olivetti-m6-620.mc-micro": "MCmicrocomputer 139, April 1994, pp. 128–129"
+}

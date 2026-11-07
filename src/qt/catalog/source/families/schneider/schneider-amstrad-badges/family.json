@@ -1,0 +1,24 @@
+{
+  "order": 280,
+  "family": {
+    "id": "schneider-amstrad-badges",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "PC1512 / PC1640",
+    "description_key": "family.schneider-amstrad-badges.description",
+    "history_key": "family.schneider-amstrad-badges.history",
+    "history_references": [
+      {
+        "title": "Heinz Nixdorf MuseumsForum, Das war der Schneider Euro PC, 09-05-2023",
+        "publisher": "Heinz Nixdorf MuseumsForum",
+        "url": "https://blog.hnf.de/das-war-der-schneider-euro-pc/"
+      },
+      {
+        "title": "Computerwoche, Schneider bringt AT mit EGA-Karte, 30-10-1987",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2812762/schneider-bringt-at-mit-ega-karte.html"
+      }
+    ]
+  }
+}

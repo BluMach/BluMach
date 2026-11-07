@@ -1,0 +1,62 @@
+{
+  "order": 10243,
+  "machine": {
+    "id": "olivetti-netstrada-1400",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti NetStrada 1400",
+    "summary_key": "product.olivetti-netstrada-1400.summary",
+    "history_key": "product.olivetti-netstrada-1400.history",
+    "warning_key": "product.olivetti-netstrada-1400.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-netstrada-1400.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-netstrada-1400.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-netstrada-1400.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-1400.veneto-inventory",
+            "url": "https://www.istruzionerovigo.it/"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "product.schneider-t38625.summary": "La torre 386 de la gama alemana de diciembre de 1991.",
+  "product.schneider-t38625.history": "En junio de 1991, el T386/25 ya figuraba en la oferta alemana con opciones sin disco y de 68, 159 y 334 MB. Schneider situaba el T386/25 en la gama de torres junto al T486/33. La tarifa alemana de diciembre de 1991 anunciaba el equipo con disco de 334 MB por 11.990 DM netos.",
+  "product.schneider-t38625.warning": "Ficha histórica en investigación.",
+  "product.schneider-t38625.technical.configuration": "El disco de 334 MB identifica la configuración anunciada. La tabla también indica 4 MB de RAM y disquetera de 1,44 MB.",
+  "product.schneider-t38625.technical.verified": "La oferta está documentada. El modelo dedicado y la validación de arranque en BluMach siguen pendientes.",
+  "product.schneider-t38625.technical.limitations": "Queda por cotejar la placa con un ejemplar y conservar una BIOS atribuida. Falta una imagen con derechos de publicación claros.",
+  "product.schneider-t38625.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–3"
+}

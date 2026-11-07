@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m380-xp3.summary": "La configuration de bureau annoncée en avril 1988 avec 2 MB de RAM et un disque de 135 MB.",
+  "product.olivetti-m380-xp3.history": "La documentation présente le M380/XP3 comme la configuration de bureau annoncée en avril 1988 avec 2 MB de RAM et un disque de 135 MB.",
+  "product.olivetti-m380-xp3.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m380-xp3.architecture": "L’organisation de la mémoire détermine les extensions. Le guide identifie BA814. Toute la RAM se trouve sur des cartes d’extension.",
+  "product.olivetti-m380-xp3.firmware": "La révision du BIOS aide à identifier la configuration de maintenance. Le guide indique 2.0 · PBZ6/PBZ7.",
+  "product.olivetti-m380-xp3.verified": "L’identité a été vérifiée dans la documentation Olivetti. La fiche reste en cours de recherche.",
+  "product.olivetti-m380-xp3.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m380-xp3.guide": "Olivetti, Personal Computer – Pocket Service Guide, 8-1–8-2.",
+  "product.olivetti-m380-xp3.press": "Computerwoche, 29.04.1988, Olivetti bringt 80386er auf den Markt."
+}

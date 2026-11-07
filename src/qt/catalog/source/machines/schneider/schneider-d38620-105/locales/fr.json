@@ -1,0 +1,13 @@
+{
+  "product.schneider-d38620-105.summary": "La configuration du D386/20 avec disque de 105 Mo.",
+  "product.schneider-d38620-105.history": "En décembre 1991, la liste allemande plaçait ce D386/20 de 105 Mo dans la gamme Desktop de Schneider à 4 590 DM nets. Cette configuration figure aussi dans la publicité portugaise d’IFS de mai 1992.",
+  "product.schneider-d38620-105.technical.configuration": "Le manuel identifie le disque de 105 Mo sous la référence 52 820 00. Le tableau allemand indique 4 Mo de RAM et un lecteur de disquettes de 1,44 Mo pour cette configuration.",
+  "product.schneider-d38620-105.technical.board": "La carte est commune à l’EuroSX à 20 MHz. Le manuel Schneider identifie la Singleboard I SX 53 456 00, avec VLSI VL82C320/331, BIGJIM en U33 et ATI 28800 en U45.",
+  "product.schneider-d38620-105.technical.firmware": "Deux puces contiennent la ROM de démarrage. Le schéma identifie LOW en U9 et HIGH en U10. Le kit 65 467 00 figure aussi pour l’EuroSX. Le contenu d’usine reste à vérifier à partir des dumps.",
+  "product.schneider-d38620-105.warning": "Fiche historique en cours de recherche.",
+  "product.schneider-d38620-105.technical.verified": "La configuration est documentée. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
+  "product.schneider-d38620-105.technical.limitations": "Il reste à obtenir des dumps attribués, à valider la carte et à trouver une image aux droits de publication clairs.",
+  "product.schneider-d38620-105.technical.manual": "Schneider, Service Manual D 386/20 / D 486/20, PDF pp. 5, 14, 34",
+  "product.schneider-d38620-105.technical.prices": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–2",
+  "product.schneider-d38620-105.technical.press": "IFS, Expresso, 23-05-1992, p. A3"
+}

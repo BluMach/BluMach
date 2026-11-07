@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-3400.summary": "Il NetStrada 3400 indicato separatamente dal 3400 Plus negli elenchi di assistenza della gamma.",
+  "product.olivetti-netstrada-3400.history": "Una copia dell’indice dei driver raggruppa il NetStrada 3400 con il 5400 e dedica una voce separata al 3400 Plus.",
+  "product.olivetti-netstrada-3400.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-netstrada-3400.architecture": "Data Memory Systems offriva memoria con correzione degli errori per questo modello. La scheda indica SDRAM PC100 ECC.",
+  "product.olivetti-netstrada-3400.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-netstrada-3400.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-netstrada-3400.driver-index-copy": "Driver index reproduction, NetStrada 3400/5400 and NetStrada 3400 Plus entries",
+  "product.olivetti-netstrada-3400.dms-memory": "Data Memory Systems, Olivetti Netstrada 3400 memory upgrades"
+}

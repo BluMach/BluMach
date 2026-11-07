@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-d266.summary": "Il PCS40 in formato mini tower con 486DX2 a 66 MHz.",
+  "product.olivetti-pcs40-d266.history": "Olivetti includeva il PCS40 D2/66 nella serie PCS30–PCS40 di sistemi 386 e 486. Il manuale lo presenta in formato mini tower.",
+  "product.olivetti-pcs40-d266.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-pcs40-d266.architecture": "Video e archiviazione utilizzavano schede di espansione. Le schede di serie lasciavano 6 dei 8 slot AT liberi nella configurazione standard.",
+  "product.olivetti-pcs40-d266.firmware": "La scheda determina quale BIOS cercare. La guida indica Harward per 486-VC.",
+  "product.olivetti-pcs40-d266.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-pcs40-d266.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-pcs40-d266.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

@@ -1,0 +1,18 @@
+{
+  "product.amstrad-pc3386sx.summary": "Le sommet de la Generation 3 offrait l’architecture 386SX et un disque dur de série pour les applications professionnelles exigeantes.",
+  "product.amstrad-pc3386sx.history": "Le dépliant d’août 1990 présente le PC3386SX en tête de la Generation 3, au-dessus du PC3286. Amstrad le destinait aux utilisateurs exigeants, en travail individuel comme en réseau, avec un disque dur de série. L’extension de mémoire et l’ajout d’unités internes faisaient partie de cette offre. Le dépliant indique une conception britannique et une fabrication à Taïwan, en Corée ou au Royaume-Uni, sans identifier l’OEM de chaque exemplaire.",
+  "product.amstrad-pc3386sx.warning": "Fiche historique en cours de recherche ; elle ne certifie pas le démarrage dans BluMach.",
+  "product.amstrad-pc3386sx.technical.market": "L’offre s’adaptait au poste de travail. Les dépliants d’août 1990 proposent des moniteurs VGA monochromes de 12 pouces et couleur de 14 pouces, avec MS-DOS 3.3.",
+  "product.amstrad-pc3386sx.technical.configurations": "Le disque dur était de série. Le dépliant indique un disque IDE de 40 Mo et un lecteur de disquettes de 3,5 pouces à 1,44 Mo.",
+  "product.amstrad-pc3386sx.technical.clock": "Les sources divergent sur la fréquence. Le dépliant indique 20 MHz ; le manuel, p. 1-3, indique 16 MHz, mais son exemple DEVICE SPEED de la p. 4-18 utilise 20 MHz. Cela ne suffit pas à confirmer deux variantes commerciales.",
+  "product.amstrad-pc3386sx.technical.memory": "L’extension exigeait quatre SIMM identiques. Le dépliant annonce 1 Mo et des extensions à 4/16 Mo. Le manuel, p. 8-7, commence par un minimum générique de 512 Ko pour les deux AT, mais son tableau limite le PC3386SX à 1/4/16 Mo.",
+  "product.amstrad-pc3386sx.technical.video": "La vidéo intégrée permettait d’utiliser les logiciels des générations précédentes. Les dépliants documentent VGA avec compatibilité EGA, CGA, MDA et Hercules.",
+  "product.amstrad-pc3386sx.technical.expansion": "Les cartes étendaient les fonctions du poste. Dépliant et manuel documentent trois emplacements ISA 16 bits et deux 8 bits ; un de chaque type est demi-longueur.",
+  "product.amstrad-pc3386sx.technical.interfaces": "Imprimante et modem disposaient de connexions dédiées. Le manuel, p. 1-2–1-3, documente les ports parallèle Centronics et série RS-232, tous deux à 25 contacts.",
+  "product.amstrad-pc3386sx.technical.firmware": "Le BIOS reste à identifier localement. Les registres consultés ne contiennent aucune copie attribuable à ce modèle ; la documentation commune avec le PC3286 ne prouve pas que les octets soient identiques.",
+  "product.amstrad-pc3386sx.technical.verified": "La documentation permet de décrire la machine. BluMach 88f74ba3 ne contient pas d’entrée dédiée à ce modèle ; aucun test de démarrage n’a été effectué.",
+  "product.amstrad-pc3386sx.technical.limitations": "Il manque un firmware identifié localement, un modèle dédié et une validation. La fiche reste en recherche, sans profil de création ; l’absence dans les registres consultés ne prouve pas que le BIOS n’existe pas. Une image publiable reste à trouver.",
+  "product.amstrad-pc3386sx.technical.brochure": "Amstrad Generation 3, dépliant du modèle, août 1990, p. 1–2 : public, configurations et caractéristiques ; original conservé.",
+  "product.amstrad-pc3386sx.technical.manual": "User Manual and MS-DOS Guide, 2e édition, 1990, p. 1-2–1-4, 4-18 et 8-7 : caractéristiques, fréquence et extensions de RAM.",
+  "product.amstrad-pc3386sx.technical.source": "BluMach 88f74ba3, machine_table.c et m_amstrad.c : inspection du code conservée ; il ne s’agit pas d’un test de démarrage."
+}

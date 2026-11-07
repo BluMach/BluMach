@@ -1,0 +1,14 @@
+{
+  "product.amstrad-acl-386sx120.summary": "The ACL business laptop with a colour TFT screen, built-in trackball and removable 120 MB drive.",
+  "product.amstrad-acl-386sx120.history": "The 120 MB configuration of Amstrad’s business laptop appeared in the German press in September 1991 at about 13,000 marks. In January 1993, Time Direct offered it in the UK for £2,099. The Centre for Computing History’s specimen was made in Japan.",
+  "product.amstrad-acl-386sx120.technical.configuration": "The specifications changed between the announcement and the 120 MB configuration. Computerwoche listed 1 MB of RAM and a 60 MB drive in March 1991, then 4 MB and 120 MB in September.",
+  "product.amstrad-acl-386sx120.technical.disk": "The removable drive made the storage unit easier to access. In the machine taken apart by santosp, it was a 120 MB Conner CP30104, set to disk type 40 in the BIOS.",
+  "product.amstrad-acl-386sx120.technical.firmware": "A single EPROM holds the boot and video firmware, according to the teardown. It is a 128 KiB 27C1024 and the board’s VGA controller is a Chips & Technologies F82C457.",
+  "product.amstrad-acl-386sx120.technical.verified": "The 120 MB configuration has been checked against contemporary press and a museum specimen. The BluMach sheet is in research.",
+  "product.amstrad-acl-386sx120.technical.limitations": "The EPROM dump, its system and video region map and BluMach boot validation are pending.",
+  "product.amstrad-acl-386sx120.technical.cebit": "Computerwoche · Amstrad bringt Laptop mit TFT-Display · 22 March 1991",
+  "product.amstrad-acl-386sx120.technical.germany": "Computerwoche · Neue tragbare PCs mit 386SX-Prozessor · 27 September 1991",
+  "product.amstrad-acl-386sx120.technical.shop": "Time Direct · Personal Computer World · January 1993 · p. 62",
+  "product.amstrad-acl-386sx120.technical.museum": "Centre for Computing History · Amstrad ACL-386SX120 · CH6931",
+  "product.amstrad-acl-386sx120.technical.board": "santosp · ACL-386SX motherboard and disk · September 2023"
+}

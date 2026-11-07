@@ -1,0 +1,77 @@
+{
+  "order": 10072,
+  "machine": {
+    "id": "olivetti-m70",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti L1 M70",
+    "summary_key": "product.olivetti-m70.summary",
+    "history_key": "product.olivetti-m70.history",
+    "warning_key": "product.olivetti-m70.warning",
+    "status": "research",
+    "aliases": [
+      "M70",
+      "Linea 1 M70"
+    ],
+    "tags": [
+      "Linea 1",
+      "MOS"
+    ],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "1 × Zilog Z8001B · 10 MHz",
+      "expansion": "OLIBUS + SYSTEM BUS"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m70.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m70.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m70.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m70.archive",
+            "url": "https://www.storiaolivetti.it/articolo/57-l1-una-nuova-linea-di-sistemi-informatici/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m70.service",
+            "url": "https://olivrea.de/handbuecher/"
+          }
+        ]
+      }
+    ],
+    "period": "1986"
+  }
+}

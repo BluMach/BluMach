@@ -1,0 +1,10 @@
+{
+  "product.olivetti-modulo-p133-l.summary": "La configuration à 133 MHz du Modulo L sur carte LPX.",
+  "product.olivetti-modulo-p133-l.history": "Olivetti a documenté le Modulo P133 L avec deux autres configurations Pentium dans la gamme de bureau Modulo L.",
+  "product.olivetti-modulo-p133-l.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-modulo-p133-l.architecture": "La mémoire peut s’étendre sur trois banques. La BA2292 possède six logements SIMM EDO ou Fast Page Mode et un support CELP pour 256 Ko de cache L2.",
+  "product.olivetti-modulo-p133-l.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-modulo-p133-l.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-modulo-p133-l.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 9",
+  "product.olivetti-modulo-p133-l.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 1.00.03.CV2 Y."
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs6140.summary": "Le PCS 61xx multimédia à 133 MHz dans le boîtier Tin Box.",
+  "product.olivetti-pcs6140.history": "En mars 1996, Computerwoche a présenté la gamme Olivetti PCS 61xx destinée au multimédia domestique.",
+  "product.olivetti-pcs6140.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-pcs6140.architecture": "Le boîtier détermine le nombre de cartes. Le riser du Tin Box offre 2 ISA, 2 PCI et un emplacement partagé.",
+  "product.olivetti-pcs6140.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-pcs6140.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-pcs6140.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-pcs6140.computerwoche-1996": "Computerwoche, Olivetti baut Modulo-, Suprema- und Systema-PC-Serien aus, 15 March 1996",
+  "product.olivetti-pcs6140.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 1.21."
+}

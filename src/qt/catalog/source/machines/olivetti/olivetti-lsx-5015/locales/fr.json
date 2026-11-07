@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5015.summary": "Le LSX identifié dans Total Hardware 99 par ses cartes de la série BA305.",
+  "product.olivetti-lsx-5015.history": "Le LSX 5015 faisait partie de la gamme professionnelle LSX 5000 d’Olivetti. Total Hardware 99 conserve la désignation et les références des cartes.",
+  "product.olivetti-lsx-5015.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-lsx-5015.architecture": "Le numéro de carte identifie la révision. Le registre indique BA305, BA322, BA360 et BA365 et jusqu’à 64 Mo sur la carte.",
+  "product.olivetti-lsx-5015.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-lsx-5015.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-lsx-5015.th99-board": "Total Hardware 1999, Olivetti LSX 5015 board settings",
+  "product.olivetti-lsx-5015.olivetti-osa": "Olivetti, LSX 5000 System Line in OSA, 1991"
+}

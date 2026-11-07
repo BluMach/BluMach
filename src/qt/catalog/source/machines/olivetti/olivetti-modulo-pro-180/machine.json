@@ -1,0 +1,80 @@
+{
+  "order": 10140,
+  "machine": {
+    "id": "olivetti-modulo-pro-180",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Modulo PRO 180",
+    "summary_key": "product.olivetti-modulo-pro-180.summary",
+    "history_key": "product.olivetti-modulo-pro-180.history",
+    "warning_key": "product.olivetti-modulo-pro-180.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium Pro · 180 MHz",
+      "memory": "16–128 MB",
+      "storage": "IDE · 1.2–2 GB",
+      "expansion": "ISA / PCI"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-modulo-pro-180.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-modulo-pro-180.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-modulo-pro-180.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-modulo-pro-180.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-modulo-pro-180.service-guide",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html"
+          }
+        ]
+      }
+    ]
+  }
+}

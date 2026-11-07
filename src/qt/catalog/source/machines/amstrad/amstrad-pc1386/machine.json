@@ -1,0 +1,122 @@
+{
+  "order": 269,
+  "machine": {
+    "id": "amstrad-pc1386",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc1x86",
+    "name": "Amstrad PC1386",
+    "summary_key": "product.amstrad-pc1386.summary",
+    "history_key": "product.amstrad-pc1386.history",
+    "status": "research",
+    "period": "1989",
+    "tags": [
+      "80386",
+      "VGA"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "video": [
+        "vga"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "monochrome",
+        "color"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386 · 20 MHz",
+      "video": "VGA"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.amstrad-pc1386.technical.storage",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/quest9.htm#Q0385"
+          },
+          {
+            "label_key": "technical.label.setup",
+            "value_key": "product.amstrad-pc1386.technical.setup",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/atpcs.htm#Setup"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc1386.technical.cpu"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc1386.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc1386.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc1386.technical.news",
+            "url": "https://www.retroisle.com/amstrad/pcs/Articles/newsbyte_sep1989.php"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc1386.technical.brochure",
+            "url": "https://www.computinghistory.org.uk/det/23958/Amstrad-PC-1286-PC-1386/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc1386.technical.guide",
+            "url": "https://www.computinghistory.org.uk/det/24988/Amstrad-PC-2000-Series-Business-Product-Guide/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc1386.technical.upgrade",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/atpcs.htm#processor"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc1386.technical.sx",
+            "url": "https://www.retromaniek.pl/amstrad/amstrad-pc/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc1386.technical.cyrix",
+            "url": "https://datasheets.chipdb.org/Cyrix/New%20Folder/faq386up.htm"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-6200.summary": "La version avec SCSI de la plate-forme Olivetti Pentium Pro du guide.",
+  "product.olivetti-m6-6200.history": "Le guide Olivetti le regroupe avec le M6-950, le Modulo PRO 180 et le M6-6200 sur la même plate-forme Pentium Pro. En mars 1996, Computerwoche l’a présenté comme une station Modulo avec 32 MB, une Matrox Millennium et Windows NT.",
+  "product.olivetti-m6-6200.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m6-6200.architecture": "Les trois partagent une carte mère et un support de processeur. La BA2261 utilise le Socket 8 et le Pentium Pro intègre 256 KB de cache L2.",
+  "product.olivetti-m6-6200.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m6-6200.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m6-6200.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 18",
+  "product.olivetti-m6-6200.computerwoche-1996": "Computerwoche, Olivetti baut Modulo-, Suprema- und Systema-PC-Serien aus, March 1996",
+  "product.olivetti-m6-6200.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 1.00.03.CG0."
+}

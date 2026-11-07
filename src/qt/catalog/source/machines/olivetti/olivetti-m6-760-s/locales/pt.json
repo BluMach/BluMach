@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-760-s.summary": "A versão Slim Box do M6 com i486DX2 a 66 MHz.",
+  "product.olivetti-m6-760-s.history": "A caixa Slim Box distingue esta versão da outra M6-760.",
+  "product.olivetti-m6-760-s.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m6-760-s.architecture": "A caixa determina a expansão disponível. A placa riser tem 1 ranhura ISA de tamanho integral, uma PCI curta e uma partilhada ISA/PCI.",
+  "product.olivetti-m6-760-s.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m6-760-s.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m6-760-s.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 5",
+  "product.olivetti-m6-760-s.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia indica 2.03."
+}

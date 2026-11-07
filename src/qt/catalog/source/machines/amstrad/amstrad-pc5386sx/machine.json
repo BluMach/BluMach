@@ -1,0 +1,151 @@
+{
+  "order": 285,
+  "machine": {
+    "id": "amstrad-pc5386sx",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-series-5",
+    "name": "Amstrad PC5386SX",
+    "summary_key": "product.amstrad-pc5386sx.summary",
+    "history_key": "product.amstrad-pc5386sx.history",
+    "warning_key": "product.amstrad-pc5386sx.warning",
+    "status": "research",
+    "period": "1991",
+    "aliases": [
+      "PC5386",
+      "PC 5386",
+      "PC5386SXHD"
+    ],
+    "tags": [
+      "Series 5",
+      "80386SX",
+      "VGA"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80386SX",
+      "memory": "2 MB",
+      "video": "VGA",
+      "floppy": "3.5″ · 1.44 MB",
+      "expansion": "2 × ISA 16-bit"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc5386sx.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.amstrad-pc5386sx.technical.identity"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc5386sx.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-pc5386sx.technical.memory"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.amstrad-pc5386sx.technical.storage"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-pc5386sx.technical.video"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc5386sx.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc5386sx.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc5386sx.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc5386sx.technical.press",
+            "url": "https://archive.org/details/science-et-vie-micro-086"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc5386sx.technical.lawson",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/general.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc5386sx.technical.secondary",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc5386sx.technical.owner1",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/questd.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc5386sx.technical.owner2",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/questg.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc5386sx.technical.source",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

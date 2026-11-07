@@ -1,0 +1,4 @@
+{
+  "family.schneider-tower386sx.description": "Torres 386SX com placa CPU amovível e variantes System 40 e 70.",
+  "family.schneider-tower386sx.history": "Os 386SX continuaram o projeto modular das torres Schneider com uma nova placa de processador. O manual de serviço, com rodapé de 1990, reúne System 40 e System 70 e apresenta a plataforma para DOS e OS/2. A placa de vídeo e E/S mantém ligações aos VGA AT de 286, enquanto CPU, memória e relógio exigem documentação própria."
+}

@@ -1,0 +1,144 @@
+{
+  "order": 350,
+  "machine": {
+    "id": "schneider-euroxt",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-euro-xt",
+    "name": "Schneider EuroXT",
+    "summary_key": "product.schneider-euroxt.summary",
+    "history_key": "product.schneider-euroxt.history",
+    "warning_key": "product.schneider-euroxt.warning",
+    "status": "research",
+    "period": "1989–1990",
+    "aliases": [
+      "Schneider Euro XT"
+    ],
+    "tags": [
+      "Schneider",
+      "Euro",
+      "8088",
+      "PC/XT"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "cga"
+      ],
+      "storage_interface": [
+        "floppy",
+        "xta"
+      ]
+    },
+    "hardware": {
+      "cpu": "8088 · 9.54 MHz",
+      "memory": "768 KB (640 + 128 KB)",
+      "video": "CGA / Hercules",
+      "floppy": "3.5″ · 720 KB",
+      "expansion": "2 × ISA 8-bit",
+      "storage": "XTA · 21 MB"
+    },
+    "firmware": {
+      "known_sets": [
+        "1.01",
+        "1.02",
+        "1.04",
+        "1.05"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-euroxt.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.schneider-euroxt.technical.memory"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.schneider-euroxt.technical.board"
+          },
+          {
+            "label_key": "technical.label.hard_disk",
+            "value_key": "product.schneider-euroxt.technical.detail"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.schneider-euroxt.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-euroxt.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-euroxt.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.schneider-euroxt.technical.manual",
+            "url": "https://oldcrap.org/document-category/schneider/euro-pc/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-euroxt.technical.source_primary",
+            "url": "https://www.mtg-wangen.de/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-euroxt.technical.source_secondary",
+            "url": "https://oldcrap.org/2022/02/12/schneider-euro-xt/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.schneider-euroxt.technical.mame",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/europc.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-euroxt.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

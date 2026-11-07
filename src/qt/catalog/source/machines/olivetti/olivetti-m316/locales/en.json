@@ -1,0 +1,13 @@
+{
+  "product.olivetti-m316.summary": "The professional laptop that could reuse a desktop expansion card.",
+  "product.olivetti-m316.history": "In a 1990 German brochure, Olivetti aimed the M316 at engineers and other professionals who worked away from the office. In July 1991, SCO documented the M316 under the Olivetti and Triumph Adler names.",
+  "product.olivetti-m316.warning": "Historical sheet under research.",
+  "product.olivetti-m316.architecture": "The slot let the laptop use a desktop expansion card. The brochure specifies a half-length 16-bit AT slot with a 6.8 W limit.",
+  "product.olivetti-m316.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m316.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m316.olivetti-brochure": "Olivetti Personal Computer M316, German brochure, 04/145/M/3.90",
+  "product.olivetti-m316.sco-install": "SCO Technical Article 103177, 30 July 1991",
+  "product.olivetti-m316.owner-specimen": "Doomi’s Braindump, Olivetti M316: 386 laptop, 2021",
+  "product.olivetti-m316.owner-teardown": "Doomi’s Braindump, Olivetti M316 teardown, 2021",
+  "product.olivetti-m316.setup": "The disk setting matters for correct reads. In the restored unit, the built-in setup offers types 01, 02 and 03 for 20, 40 and 100 MB."
+}

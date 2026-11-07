@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-770.summary": "La configuración Tin Box de la M6 con DX4 a 100 MHz.",
+  "product.olivetti-m6-770.history": "Olivetti lo presentó en el CeBIT de 1994 dentro de su gama profesional. El chasis Tin Box distingue esta versión de la otra M6-770.",
+  "product.olivetti-m6-770.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m6-770.architecture": "El chasis determina la ampliación disponible. Su riser tiene 3 ranuras ISA de longitud completa, una PCI corta y una compartida ISA/PCI.",
+  "product.olivetti-m6-770.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m6-770.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m6-770.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 5",
+  "product.olivetti-m6-770.mc-micro": "MCmicrocomputer 139, April 1994, pp. 128–129",
+  "product.olivetti-m6-770.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 2.03."
+}

@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m54.summary": "The desktop Linea 1 system that added cache and error-correcting memory.",
+  "product.olivetti-m54.history": "The M54 retained the case and compatibility of the M30 and M34. Olivetti documented a new CPU board and up to three magnetic peripherals.",
+  "product.olivetti-m54.warning": "Historical sheet under research.",
+  "product.olivetti-m54.architecture": "The cache decoupled the CPU from the bus. The manual gives 10 MHz for the UC070 in its introduction and 8 MHz for its Z8001B on the board page.",
+  "product.olivetti-m54.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m54.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m54.service": "Olivetti, M34/M44/M54 Service Manual, §§1 and 4."
+}

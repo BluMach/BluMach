@@ -1,0 +1,65 @@
+{
+  "order": 10242,
+  "machine": {
+    "id": "olivetti-netstrada-9400",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti NetStrada 9400",
+    "summary_key": "product.olivetti-netstrada-9400.summary",
+    "history_key": "product.olivetti-netstrada-9400.history",
+    "warning_key": "product.olivetti-netstrada-9400.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "≤4 × Intel Pentium II Xeon · 400/450 MHz"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-netstrada-9400.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-netstrada-9400.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-netstrada-9400.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-9400.computerwoche-1999",
+            "url": "https://www.computerwoche.de/article/2847158/olivetti-verpasst-pc-servern-schnellere-cpus.html"
+          }
+        ]
+      }
+    ],
+    "period": "1999"
+  }
+}

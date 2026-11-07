@@ -1,0 +1,10 @@
+{
+  "product.olivetti-p800.summary": "El Micro Channel con 386 a 25 MHz, caché de 64 KB y discos ESDI.",
+  "product.olivetti-p800.history": "La guía de servicio de Olivetti documenta P800 (el Micro Channel con 386 a 25 MHz, caché de 64 KB y discos ESDI).",
+  "product.olivetti-p800.warning": "Ficha histórica en investigación.",
+  "product.olivetti-p800.architecture": "La placa determina la combinación de periféricos que hay que contrastar. La guía identifica BA826 · 82C451 · ESDI.",
+  "product.olivetti-p800.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra 1.07.",
+  "product.olivetti-p800.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-p800.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-p800.guide": "Olivetti, Personal Computer – Pocket Service Guide, 12-1."
+}

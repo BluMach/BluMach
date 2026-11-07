@@ -1,0 +1,12 @@
+{
+  "product.olivetti-echos-46-color.summary": "El Echos de la serie 40 que combinaba un DX4 con pantalla en color de matriz pasiva.",
+  "product.olivetti-echos-46-color.history": "El Echos 46 Color formó parte de los portátiles Olivetti de la serie Echos 40. El BOE identifica un ejemplar de ese modelo en una subasta española de agosto de 2000.",
+  "product.olivetti-echos-46-color.warning": "Ficha histórica en investigación.",
+  "product.olivetti-echos-46-color.architecture": "La pantalla distinguía esta variante de los Echos Color Plus. MacDat documenta matriz pasiva y 1000BiT indica VGA a 640 × 480 con 256 colores.",
+  "product.olivetti-echos-46-color.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-echos-46-color.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-echos-46-color.boe": "Boletín Oficial del Estado 189, 8 August 2000, lot 91",
+  "product.olivetti-echos-46-color.collection": "1000BiT, Olivetti Echos 46 Color",
+  "product.olivetti-echos-46-color.macdat": "MacDat, Olivetti Echos 40 Series",
+  "product.olivetti-echos-46-color.specimen": "Permute.it, Echos 46 Color specimen"
+}

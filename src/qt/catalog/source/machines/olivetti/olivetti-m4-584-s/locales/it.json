@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-584-s.summary": "L’M4 PCI con DX4 a 100 MHz nel telaio Slim Tin Box.",
+  "product.olivetti-m4-584-s.history": "Olivetti inserì questo modello nella gamma professionale M4 Modulo. Gli M4-5x4 condividevano la piattaforma con i PCS D4/100 e offrivano due dimensioni di telaio.",
+  "product.olivetti-m4-584-s.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m4-584-s.architecture": "La rete può essere integrata. Le schede BA2197 e BA2205 hanno un controller Ethernet AM79C970. La guida indica 256 KB di cache L2 per questo modello.",
+  "product.olivetti-m4-584-s.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m4-584-s.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m4-584-s.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 13",
+  "product.olivetti-m4-584-s.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-584-s.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.25 · Update 1."
+}

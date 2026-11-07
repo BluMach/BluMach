@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-400.summary": "El M6 que Olivetti comercializó con el nombre PC Green.",
+  "product.olivetti-m6-400.history": "En abril de 1994, ASCII informó de su oferta en Japón a 236.000 ¥ con 170 MB y 271.000 ¥ con 340 MB.",
+  "product.olivetti-m6-400.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m6-400.architecture": "La memoria se amplía con un solo módulo. La placa lleva 4 MB soldados y admite un SIMM de hasta 32 MB.",
+  "product.olivetti-m6-400.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m6-400.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m6-400.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 7",
+  "product.olivetti-m6-400.ascii-1994": "ASCII EXPRESS, April 1994, Japanese market report (archival reproduction)",
+  "product.olivetti-m6-400.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 1.06."
+}

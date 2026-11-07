@@ -1,0 +1,145 @@
+{
+  "order": 275,
+  "machine": {
+    "id": "amstrad-pc5086",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-series-5",
+    "name": "Amstrad PC5086",
+    "summary_key": "product.amstrad-pc5086.summary",
+    "history_key": "product.amstrad-pc5086.history",
+    "warning_key": "product.amstrad-pc5086.warning",
+    "status": "research",
+    "period": "1991",
+    "aliases": [
+      "PC 5086"
+    ],
+    "tags": [
+      "8086",
+      "XT",
+      "8 MHz",
+      "VGA",
+      "desktop"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 8086 · 4.77 / 8 MHz",
+      "memory": "640 KB",
+      "video": "VGA · MDA · CGA · Hercules · EGA · MCGA",
+      "floppy": "1–2 × 3.5″ · 720 KB",
+      "hard_disk": "0 / 40 MB",
+      "expansion": "2 × ISA · 8-bit",
+      "interfaces": "DE-9 · Centronics DB-25"
+    },
+    "firmware": {
+      "known_sets": [
+        "sys_rom.bin · 64 KiB",
+        "c800.bin · 8 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc5086.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.amstrad-pc5086.technical.commercial_configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc5086.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-pc5086.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-pc5086.technical.video"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.amstrad-pc5086.technical.storage"
+          },
+          {
+            "label_key": "technical.label.serial_parallel",
+            "value_key": "product.amstrad-pc5086.technical.interfaces"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc5086.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc5086.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc5086.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.amstrad-pc5086.technical.manual",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.amstrad-pc5086.technical.brochure",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.amstrad-pc5086.technical.firmware_source",
+            "url": "https://github.com/86Box/roms/tree/c4cd8da9034a8557896ff6a975ae58499a83bb80/machines/pc5086"
+          }
+        ]
+      }
+    ]
+  }
+}

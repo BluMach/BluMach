@@ -1,0 +1,136 @@
+{
+  "order": 201,
+  "machine": {
+    "id": "olivetti-m44",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti L1 M44",
+    "summary_key": "product.olivetti-m44.summary",
+    "history_key": "product.olivetti-m44.history",
+    "warning_key": "product.olivetti-m44.warning",
+    "status": "research",
+    "period": "1985",
+    "aliases": [
+      "M44",
+      "L1 M44"
+    ],
+    "tags": [
+      "Z8001B",
+      "Linea 1",
+      "MOS",
+      "OLIBUS"
+    ],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Zilog Z8001B · 8 MHz",
+      "memory": "512 KB–4 MB · RA57",
+      "floppy": "5.25″ / 8″",
+      "interfaces": "RS-232 · MC6850",
+      "expansion": "OLIBUS"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m44.technical.dates"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m44.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m44.technical.memory"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.olivetti-m44.technical.expansion"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m44.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.olivetti-m44.technical.firmware"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m44.technical.media"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m44.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m44.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m44.technical.source_manual",
+            "url": "https://olivrea.de/handbuecher/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m44.technical.source_news",
+            "url": "https://archivio.unita.news/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m44.technical.source_list",
+            "url": "https://en.wikipedia.org/wiki/Olivetti_computers"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m44.technical.source_mame",
+            "url": "https://github.com/mamedev/mame/blob/fc81fbe1caa36d3909ae65288c45d888aad707d4/src/mame/olivetti/m20.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m44.technical.source_forum",
+            "url": "https://forum.vcfed.org/index.php?threads/olivetti-m40-m44-l1-boot-disk.1255906/"
+          }
+        ]
+      }
+    ]
+  }
+}

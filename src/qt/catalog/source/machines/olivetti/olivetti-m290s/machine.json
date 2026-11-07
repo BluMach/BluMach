@@ -1,0 +1,163 @@
+{
+  "order": 198,
+  "machine": {
+    "id": "olivetti-m290s",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M290S",
+    "summary_key": "product.olivetti-m290s.summary",
+    "history_key": "product.olivetti-m290s.history",
+    "warning_key": "product.olivetti-m290s.warning",
+    "status": "research",
+    "period": "1989–1990",
+    "aliases": [
+      "M290 S",
+      "BU290S-XX"
+    ],
+    "tags": [
+      "80286",
+      "M203",
+      "VGA"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-m290s-board.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "dataino.it / The Retro Web",
+      "license": "CC BY-SA 4.0",
+      "source": "https://theretroweb.com/motherboards/s/olivetti-m203"
+    },
+    "hardware": {
+      "cpu": "80286 · 16 MHz / 12 MHz (?)",
+      "memory": "1–5 MB · 17 MB (?)",
+      "chipset": "TI TACT82301 / TACT82302 / TACT82303",
+      "video": "Paradise PVGA1A · VGA",
+      "floppy": "3.5″ · 1.44 MB / 5.25″ · 1.2 MB",
+      "expansion": "3 × ISA · 16-bit",
+      "interfaces": "VGA · RS-232C · Centronics · 2 × PS/2"
+    },
+    "firmware": {
+      "required": true,
+      "known_sets": [
+        "M203 1.29 · LOW + HIGH · 2 × 64 KiB"
+      ]
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m290s.technical.identity"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m290s.technical.memory"
+          },
+          {
+            "label_key": "technical.label.chipset",
+            "value_key": "product.olivetti-m290s.technical.board"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m290s.technical.storage"
+          },
+          {
+            "label_key": "technical.label.jumpers",
+            "value_key": "product.olivetti-m290s.technical.jumpers"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.olivetti-m290s.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m290s.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m290s.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290s.technical.source_brochure",
+            "url": "https://www.vintads.it/file.php?cod=158"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290s.technical.source_ad",
+            "url": "https://www.vintads.it/file.php?cod=1084"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290s.technical.source_manual",
+            "url": "https://minuszerodegrees.net/manuals.htm#Olivetti"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290s.technical.source_museum",
+            "url": "https://www.museodelcalcolatore.it/singolo.php?cod=106"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290s.technical.source_owner",
+            "url": "https://pcrebuilding.altervista.org/403/373/MOTHERBOARD/286/Olivetti%2BM203%2B(M290S)%2B286.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290s.technical.source_board",
+            "url": "https://theretroweb.com/motherboards/s/olivetti-m203"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290s.technical.source_mame",
+            "url": "https://github.com/mamedev/mame/blob/fc81fbe1caa36d3909ae65288c45d888aad707d4/src/mame/pc/at.cpp"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-40.summary": "O M4 com SX de 25 MHz na caixa MicroTower.",
+  "product.olivetti-m4-40.history": "A gama M4 Modulo destinava-se a profissionais e situava-se entre os PCS de uso pessoal e os M6 Suprema de maior desempenho. O guia identifica Scarmagno como local de fabrico da placa BA2034.",
+  "product.olivetti-m4-40.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m4-40.architecture": "A memória pode ser ampliada sem substituir a RAM de base. A placa tem 4 MB soldados, um encaixe SIMM e vídeo CL-GD5428.",
+  "product.olivetti-m4-40.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m4-40.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m4-40.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 2",
+  "product.olivetti-m4-40.mc-micro": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-40.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 2.06."
+}

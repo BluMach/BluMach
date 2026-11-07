@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-680-dp.summary": "The dual-processor variant of the M6-680.",
+  "product.olivetti-m6-680-dp.history": "Olivetti grouped this model with the M6-650, 670, 680 and 690 in the Tin Box chassis.",
+  "product.olivetti-m6-680-dp.warning": "Historical sheet under research.",
+  "product.olivetti-m6-680-dp.architecture": "The board determines how the monitor connects. The BA2189 has onboard video and the BA2190 uses a Matrox Impression Plus. This configuration has 512 KB of L2 cache.",
+  "product.olivetti-m6-680-dp.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m6-680-dp.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m6-680-dp.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 14",
+  "product.olivetti-m6-680-dp.firmware": "The revision helps identify the service BIOS. The guide lists 1.13."
+}

@@ -1,0 +1,163 @@
+{
+  "order": 253,
+  "machine": {
+    "id": "amstrad-pc2386",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc2000",
+    "name": "Amstrad PC2386",
+    "summary_key": "product.amstrad-pc2386.summary",
+    "history_key": "product.amstrad-pc2386.history",
+    "warning_key": "product.amstrad-pc2386.warning",
+    "status": "research",
+    "period": "1988",
+    "aliases": [
+      "PC 2386",
+      "PC2386-65"
+    ],
+    "tags": [
+      "PC2000",
+      "VGA",
+      "80386"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386 · 20 MHz",
+      "memory": "4–16 MB · 64 KB SRAM",
+      "video": "VGA · EGA / CGA / Hercules",
+      "floppy": "3.5″ · 1.44 MB",
+      "coprocessor": "80387",
+      "expansion": "5 × 16-bit / 4 × 16-bit + 1 × 8-bit",
+      "interfaces": "RS-232 · LPT"
+    },
+    "firmware": {
+      "known_sets": [
+        "v1.11 · 40189-2–40192-2 · 4 × 32 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc2386.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.amstrad-pc2386.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-pc2386.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-pc2386.technical.video"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.amstrad-pc2386.technical.expansion"
+          },
+          {
+            "label_key": "technical.label.serial_parallel",
+            "value_key": "product.amstrad-pc2386.technical.interfaces"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc2386.technical.firmware"
+          },
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.amstrad-pc2386.technical.rom_identity"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc2386.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc2386.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.amstrad-pc2386.technical.brochure",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.amstrad-pc2386.technical.prices",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc2386.technical.press",
+            "url": "https://www.computerwoche.de/article/2793331/amstrad-kommt-mit-pc-serie-2000.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc2386.technical.oem",
+            "url": "https://www.computerhistory.org/collections/"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.amstrad-pc2386.technical.manual",
+            "url": "https://archive.org/details/amstrad-pc-2386-service-manual"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.amstrad-pc2386.technical.firmware_source",
+            "url": "https://archive.org/details/pc-2386"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc2386.technical.source",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

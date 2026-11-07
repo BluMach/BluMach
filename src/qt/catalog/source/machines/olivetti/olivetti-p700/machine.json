@@ -1,0 +1,88 @@
+{
+  "order": 10203,
+  "machine": {
+    "id": "olivetti-p700",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti P700",
+    "summary_key": "product.olivetti-p700.summary",
+    "history_key": "product.olivetti-p700.history",
+    "warning_key": "product.olivetti-p700.warning",
+    "status": "research",
+    "aliases": [
+      "P700-100"
+    ],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ],
+      "video": [
+        "vga"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80386DX · 25 MHz",
+      "memory": "≤ 8 MB",
+      "video": "Chips & Technologies 82C451 · VGA",
+      "expansion": "2 × MCA 32-bit · 4 × MCA 16-bit"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-p700.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-p700.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-p700.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-p700.ardent-planar",
+            "url": "https://www.ardent-tool.com/Mitac/MPS3000F.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-p700.ummr-board",
+            "url": "https://ummr.org/x86gen3.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-p700.pc-magazine",
+            "url": "https://www.ardent-tool.com/Mitac/MPS3000F.html"
+          }
+        ]
+      }
+    ]
+  }
+}

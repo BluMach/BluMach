@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5025.summary": "Le LSX à 33 MHz qui a intégré le VGA et ajouté un cache de second niveau.",
+  "product.olivetti-lsx-5025.history": "Olivetti proposait la gamme LSX 5000 aux entreprises moyennes et aux services de grandes organisations dans son architecture OSA. Le prospectus de 1992 proposait le 5025 comme serveur de systèmes ouverts de la gamme LSX 5000.",
+  "product.olivetti-lsx-5025.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-lsx-5025.architecture": "Le stockage pouvait se répartir sur deux canaux. Le contrôleur EFP2 optionnel prend en charge jusqu’à quatorze disques SCSI et la mise en miroir.",
+  "product.olivetti-lsx-5025.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-lsx-5025.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-lsx-5025.olivetti-model": "Olivetti Systems & Networks, LSX 5025 brochure, 1992",
+  "product.olivetti-lsx-5025.olivetti-osa": "Olivetti, LSX 5000 System Line in OSA, 1991"
+}

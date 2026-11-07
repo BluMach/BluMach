@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-760.summary": "La version Tin Box du M6 à i486DX2 de 66 MHz.",
+  "product.olivetti-m6-760.history": "Olivetti l’a présenté au CeBIT 1994 dans sa gamme professionnelle. Le boîtier Tin Box distingue cette version de l’autre M6-760.",
+  "product.olivetti-m6-760.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m6-760.architecture": "Le boîtier détermine les possibilités d’extension. La carte d’extension offre 3 emplacements ISA pleine longueur, un PCI court et un ISA/PCI partagé.",
+  "product.olivetti-m6-760.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m6-760.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m6-760.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 5",
+  "product.olivetti-m6-760.mc-micro": "MCmicrocomputer 139, April 1994, pp. 128–129",
+  "product.olivetti-m6-760.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 2.03."
+}

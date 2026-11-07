@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-7200.summary": "Le NetStrada attesté sous Linux avec un pont PCI Intel Orion.",
+  "product.olivetti-netstrada-7200.history": "En février 2001, un utilisateur du NetStrada 7200 a décrit sa machine sur la liste de diffusion du noyau Linux et indiqué qu’il utilisait Linux 2.2.18.",
+  "product.olivetti-netstrada-7200.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-netstrada-7200.architecture": "Le relevé PCI de cette unité identifie ses contrôleurs. Il comprend des ponts Intel 82454KX/GX et un Adaptec AIC-7880U pour le SCSI.",
+  "product.olivetti-netstrada-7200.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-netstrada-7200.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-netstrada-7200.lkml-owner": "Pierfrancesco Caci, Linux Kernel Mailing List, 9 February 2001",
+  "product.olivetti-netstrada-7200.firmware-listing": "DriverGuide, NetStrada 7200 Family download listing"
+}

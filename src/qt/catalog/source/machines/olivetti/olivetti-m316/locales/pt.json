@@ -1,0 +1,13 @@
+{
+  "product.olivetti-m316.summary": "O portátil profissional que podia reutilizar uma placa de expansão de secretária.",
+  "product.olivetti-m316.history": "Num folheto alemão de 1990, a Olivetti dirigia o M316 a engenheiros e outros profissionais que trabalhavam fora do escritório. Em julho de 1991, a SCO documentou o M316 sob os nomes Olivetti e Triumph Adler.",
+  "product.olivetti-m316.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m316.architecture": "A ranhura permitia usar uma placa de secretária no portátil. O folheto indica uma ranhura AT de 16 bits e meia extensão, limitada a 6,8 W.",
+  "product.olivetti-m316.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m316.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m316.olivetti-brochure": "Olivetti Personal Computer M316, German brochure, 04/145/M/3.90",
+  "product.olivetti-m316.sco-install": "SCO Technical Article 103177, 30 July 1991",
+  "product.olivetti-m316.owner-specimen": "Doomi’s Braindump, Olivetti M316: 386 laptop, 2021",
+  "product.olivetti-m316.owner-teardown": "Doomi’s Braindump, Olivetti M316 teardown, 2021",
+  "product.olivetti-m316.setup": "A definição do disco é importante para uma leitura correta. No exemplar restaurado, a configuração integrada oferece os tipos 01, 02 e 03 para 20, 40 e 100 MB."
+}

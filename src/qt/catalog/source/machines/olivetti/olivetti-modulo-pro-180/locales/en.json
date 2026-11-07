@@ -1,0 +1,10 @@
+{
+  "product.olivetti-modulo-pro-180.summary": "The Modulo variant of the Olivetti Pentium Pro platform in the guide.",
+  "product.olivetti-modulo-pro-180.history": "Olivetti’s guide groups it with the M6-950, Modulo PRO 180 and M6-6200 on the same Pentium Pro platform.",
+  "product.olivetti-modulo-pro-180.warning": "Historical sheet under research.",
+  "product.olivetti-modulo-pro-180.architecture": "All three share a board and processor socket. The BA2261 uses Socket 8 and the Pentium Pro includes 256 KB of L2 cache.",
+  "product.olivetti-modulo-pro-180.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-modulo-pro-180.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-modulo-pro-180.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 18",
+  "product.olivetti-modulo-pro-180.firmware": "The revision helps identify the service BIOS. The guide lists 1.00.03.CG0."
+}

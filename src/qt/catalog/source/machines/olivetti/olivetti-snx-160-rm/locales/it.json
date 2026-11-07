@@ -1,0 +1,9 @@
+{
+  "product.olivetti-snx-160-rm.summary": "Il Systema 160 da rack con scheda Olimpus.",
+  "product.olivetti-snx-160-rm.history": "Olivetti documentò l’SNX 160/RM come variante rack da 19 pollici della piattaforma Olimpus.",
+  "product.olivetti-snx-160-rm.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-snx-160-rm.architecture": "Il rack accettava unità estraibili. La BA2298 poteva ospitare due Pentium e la sostituzione a caldo richiedeva un controller RAID DPT.",
+  "product.olivetti-snx-160-rm.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-snx-160-rm.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-snx-160-rm.service-guide-6": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 6"
+}

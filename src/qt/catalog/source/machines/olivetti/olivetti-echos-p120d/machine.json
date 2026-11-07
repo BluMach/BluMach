@@ -1,0 +1,70 @@
+{
+  "order": 10101,
+  "machine": {
+    "id": "olivetti-echos-p120d",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Echos P120D",
+    "summary_key": "product.olivetti-echos-p120d.summary",
+    "history_key": "product.olivetti-echos-p120d.history",
+    "warning_key": "product.olivetti-echos-p120d.warning",
+    "status": "research",
+    "aliases": [
+      "860T"
+    ],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 120 MHz"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-echos-p120d.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-echos-p120d.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-echos-p120d.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-p120d.museum",
+            "url": "https://www.lanec.eu/nimekiri.php?view=aasta"
+          }
+        ]
+      }
+    ],
+    "period": "1996"
+  }
+}

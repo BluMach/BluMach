@@ -1,0 +1,11 @@
+{
+  "product.olivetti-prodest-pc128s.summary": "O Prodest de origem Acorn com unidade de disco separada e BBC BASIC.",
+  "product.olivetti-prodest-pc128s.history": "A Olivetti comercializou em Itália o BBC Master Compact da Acorn como Prodest PC 128 S, com manual e disco de boas-vindas localizados. O guia italiano data de setembro de 1986. Ampliou a gama doméstica Prodest com a plataforma Acorn e uma unidade de disco separada.",
+  "product.olivetti-prodest-pc128s.warning": "Ficha histórica em investigação.",
+  "product.olivetti-prodest-pc128s.architecture": "O sistema podia carregar o disco Welcome com Shift e Break. O guia documenta este arranque e ADFS. O MAME indica MOS I5.10C em mos510o.ic49 de 64 KiB, com 65SC12 a 2 MHz.",
+  "product.olivetti-prodest-pc128s.verified": "O manual foi comparado com a definição MAME pro128s. Falta a validação no BluMach. O MAME assinala limitações gráficas.",
+  "product.olivetti-prodest-pc128s.limitations": "Faltam a verificação das ROM e os testes de funcionamento.",
+  "product.olivetti-prodest-pc128s.manual": "Olivetti Prodest, Guida all’uso del sistema PC 128 S, DC 5040, v1.0, 09/1986.",
+  "product.olivetti-prodest-pc128s.mame": "MAME ef30ecbf, acorn/bbcmc.cpp, pro128s.",
+  "product.olivetti-prodest-pc128s.museum": "Centre for Computing History, Olivetti Prodest PC 128S."
+}

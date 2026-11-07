@@ -1,0 +1,14 @@
+{
+  "product.schneider-euro486-20-90.summary": "L’option de plus grande capacité de l’annonce de 1991.",
+  "product.schneider-euro486-20-90.history": "En septembre 1991, l’offre Euro486 avec disque de 89 Mo coûtait environ 4 700 DM. Schneider la présentait pour la publication assistée par ordinateur, le graphisme et les postes en réseau. Le manuel répertorie un HD 90 et la publicité portugaise de 1992 le désigne /20–90.",
+  "product.schneider-euro486-20-90.warning": "Fiche historique en cours de recherche.",
+  "product.schneider-euro486-20-90.technical.configuration": "Les sources donnent deux chiffres pour le disque. Computerwoche indique 89 Mo et le manuel répertorie 90 Mo, référence 54 042 00. Le disque monté dans un exemplaire reste à identifier.",
+  "product.schneider-euro486-20-90.technical.board": "La carte intègre la mémoire et la vidéo. Schneider signe le schéma Singleboard 486 de la carte 53 854 00 des HD 40 et HD 90. La liste identifie VLSI VL82C330/331/332, BIGJIM et ATI 28800-5.",
+  "product.schneider-euro486-20-90.technical.firmware": "Une EPROM regroupe le démarrage et la vidéo. Pour la carte 53 854 00, le schéma place le système et le VGA en U16, une 27C010 de 128 Kio, référence 53 891 00. Un dump attribué reste à conserver.",
+  "product.schneider-euro486-20-90.technical.verified": "La configuration est documentée. Le modèle dédié et le démarrage dans BluMach restent à réaliser.",
+  "product.schneider-euro486-20-90.technical.limitations": "Il reste à obtenir un firmware attribué, à valider la cartographie de la carte et à trouver une image aux droits de publication clairs.",
+  "product.schneider-euro486-20-90.technical.press": "Computerwoche, Schneider baut 486SX-PC für unter 5000 Mark, 20-09-1991",
+  "product.schneider-euro486-20-90.technical.range": "IFS, Expresso, 23-05-1992, p. A3",
+  "product.schneider-euro486-20-90.technical.manual": "Schneider, Service Manual EURO AT II / EURO 486 SX, pp. 45–84",
+  "product.schneider-euro486-20-90.technical.business": "Computerwoche, Schneider erweitert die Business-Linie um 486SX-PC, 08-11-1991"
+}

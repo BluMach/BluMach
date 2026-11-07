@@ -1,0 +1,12 @@
+{
+  "product.schneider-l38616-hd80.summary": "The L 386/16 configuration with a 80 MB disk.",
+  "product.schneider-l38616-hd80.history": "Schneider’s manual identifies the L 386/16 HD 80 as a configuration of its desktop with a key lock. It shared the 16 MHz EuroSX CPU board. The 80 MB disk had service part number 54 116 00.",
+  "product.schneider-l38616-hd80.technical.board": "The board was shared with the 16 MHz EuroSX. The parts list gives number 53 110 00 and Schneider’s schematics document the Singleboard I SX logic, with BIGJIM and ATI 28800 video.",
+  "product.schneider-l38616-hd80.technical.firmware": "The service kit narrows the ROM search. The manual gives part number 65 467 00 and LOW U9 and HIGH U10 sockets. The identity of the factory binaries remains to be verified.",
+  "product.schneider-l38616-hd80.technical.configuration": "IFS advertised a LAN Station 386/16 in Portugal in 1992. The 1991 German list confirms that name for the L 386/16. The IFS advertisement leaves the disk unspecified.",
+  "product.schneider-l38616-hd80.warning": "Historical sheet under research.",
+  "product.schneider-l38616-hd80.technical.verified": "The configuration is documented in the manual. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-l38616-hd80.technical.limitations": "Attributed dumps, validation of the board map and an image with clear publication rights are still needed.",
+  "product.schneider-l38616-hd80.technical.manual": "Schneider, Service Manual EURO 386 SX / L 386/16, V12324",
+  "product.schneider-l38616-hd80.technical.press": "IFS, Expresso, 23-05-1992, p. A3"
+}

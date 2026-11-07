@@ -1,0 +1,8 @@
+{
+  "product.schneider-pc2640-2.summary": "La version EGA AT qui portait le PC2640 à 1 Mo de RAM et 60 Mo de disque.",
+  "product.schneider-pc2640-2.history": "Le tarif allemand de juin 1988 proposait le PC2640/2 aux côtés du PC2640 à 5 261 DM nets avec un moniteur monochrome ou 6 139 DM avec un moniteur EGA couleur.",
+  "product.schneider-pc2640-2.technical.configuration": "Le disque et la RAM distinguaient cette configuration. Le tarif conserve le 80286 à 12,5 MHz et porte la RAM de 640 Ko à 1 Mo et le disque de 32 à 60 Mo.",
+  "product.schneider-pc2640-2.technical.verified": "L’offre est documentée. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
+  "product.schneider-pc2640-2.technical.limitations": "Il reste à comparer la carte, à préserver un BIOS attribuable et à trouver une image aux droits de publication clairs.",
+  "product.schneider-pc2640-2.technical.source_1": "CC SELLER / BC, Schneider Computer, 06/1988, p. 2"
+}

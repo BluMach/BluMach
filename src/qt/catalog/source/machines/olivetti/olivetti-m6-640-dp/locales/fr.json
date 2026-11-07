@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-640-dp.summary": "La version du M6-640 à deux Pentium fonctionnant en parallèle.",
+  "product.olivetti-m6-640-dp.history": "Olivetti a documenté le M6-640 DP comme la variante biprocesseur du M6-640.",
+  "product.olivetti-m6-640-dp.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m6-640-dp.architecture": "La carte mère réserve la vidéo à une carte séparée. La BA2173 reçoit deux Pentium à 90 MHz et ne possède pas de contrôleur vidéo intégré.",
+  "product.olivetti-m6-640-dp.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m6-640-dp.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m6-640-dp.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 11",
+  "product.olivetti-m6-640-dp.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 1.16."
+}

@@ -1,0 +1,70 @@
+{
+  "order": 10107,
+  "machine": {
+    "id": "olivetti-echos-pro-150s",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Echos Pro 150S",
+    "summary_key": "product.olivetti-echos-pro-150s.summary",
+    "history_key": "product.olivetti-echos-pro-150s.history",
+    "warning_key": "product.olivetti-echos-pro-150s.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-echos-pro-150s.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-echos-pro-150s.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-echos-pro-150s.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-pro-150s.museum",
+            "url": "https://oldcomputers.ovh/index.php/nav%3DCatalogo.20/Language%3DITA/Livello%3DProduttore/Marca%3D12/Mode%3DDisplay/User%3Dnobody/Letter%3DO"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-pro-150s.battery",
+            "url": "https://vintageapple.org/catalogs/"
+          }
+        ]
+      }
+    ]
+  }
+}

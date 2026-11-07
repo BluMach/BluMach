@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5020.summary": "Le LSX à i486 de 33 MHz avec deux options de carte graphique.",
+  "product.olivetti-lsx-5020.history": "Olivetti proposait la gamme LSX 5000 aux entreprises moyennes et aux services de grandes organisations dans son architecture OSA. Le prospectus allemand présente le 5020 comme serveur LSX de 33 MHz pour environnements multiutilisateurs.",
+  "product.olivetti-lsx-5020.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-lsx-5020.architecture": "La vidéo pouvait être adaptée au poste de travail. Le prospectus propose l’OVC compatible VGA et l’EVC EISA en 1024 × 768.",
+  "product.olivetti-lsx-5020.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-lsx-5020.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-lsx-5020.olivetti-model": "Olivetti Systems & Networks, LSX 5020 brochure, 1991",
+  "product.olivetti-lsx-5020.olivetti-osa": "Olivetti, LSX 5000 System Line in OSA, 1991"
+}

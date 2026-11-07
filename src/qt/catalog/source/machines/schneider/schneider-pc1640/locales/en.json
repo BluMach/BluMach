@@ -1,0 +1,10 @@
+{
+  "product.schneider-pc1640.summary": "The PC1512 successor that brought EGA graphics to Schneider’s Topline range.",
+  "product.schneider-pc1640.history": "In July 1987, Schneider announced Amstrad’s PC1640 in its Topline range for medium-sized and large businesses. Computerwoche quoted about DM 2,700 with one floppy drive and an EGA monitor.",
+  "product.schneider-pc1640.technical.verified": "The Schneider-branded offering is documented.",
+  "product.schneider-pc1640.technical.limitations": "A BIOS attributed to a Schneider unit is needed for comparison with Amstrad’s firmware and validation in BluMach. A photograph of the Schneider model with clear reuse rights is also pending.",
+  "product.schneider-pc1640.technical.source_1": "Heinz Nixdorf MuseumsForum, Das war der Schneider Euro PC, 09-05-2023",
+  "product.schneider-pc1640.technical.source_2": "Schneider PC 1640 Benutzer-Handbuch, 1987",
+  "product.schneider-pc1640.technical.detail": "The monitor determined which graphics modes were available. The German manual documents the PC-ECD for 640 × 350 EGA in 16 colours from a palette of 64.",
+  "product.schneider-pc1640.technical.period_press": "Computerwoche · PC 1640 soll bei Großkunden ankommen · 07/1987"
+}

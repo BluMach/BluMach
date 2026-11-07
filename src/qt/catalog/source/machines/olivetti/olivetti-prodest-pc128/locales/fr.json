@@ -1,0 +1,10 @@
+{
+  "product.olivetti-prodest-pc128.summary": "Le Prodest domestique de Thomson avec cassette intégrée et deux BASIC en ROM.",
+  "product.olivetti-prodest-pc128.history": "Olivetti Prodest a documenté le PC 128 en 1986 pour le marché domestique italien. C’était une adaptation du MO6 fabriquée par Thomson, avec clavier QWERTY et sortie UHF PAL. Elle a ouvert la gamme domestique Prodest, rejointe ensuite par le PC 128 S d’origine Acorn.",
+  "product.olivetti-prodest-pc128.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-prodest-pc128.architecture": "Le manuel décrit deux BASIC résidents pour des programmes de générations différentes. La ROM de 64 KB contient BASIC 128 et BASIC 1.0. MAME identifie pro128.iw01 et basico.iw02, de 32 KiB chacune.",
+  "product.olivetti-prodest-pc128.verified": "Le manuel a été comparé à la définition MAME pro128. La validation dans BluMach reste à faire.",
+  "product.olivetti-prodest-pc128.limitations": "La vérification des ROM et les essais fonctionnels restent à faire.",
+  "product.olivetti-prodest-pc128.manual": "Olivetti Prodest, PC 128 Manuale per l’utente, 1986, pp. 15–17.",
+  "product.olivetti-prodest-pc128.mame": "MAME ef30ecbf, thomson/thomson.cpp, pro128."
+}

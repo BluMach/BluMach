@@ -1,0 +1,18 @@
+{
+  "product.schneider-towerat220.summary": "Le Tower AT qui ajoute un disque dur de 20 Mo à la configuration à disquettes.",
+  "product.schneider-towerat220.history": "Le Tower AT 220 proposait un stockage fixe dans la gamme compacte Schneider de 1988, au-dessus des versions à un ou deux lecteurs. Son disque de 20 Mo et l'ensemble MS-DOS 3.3 / Microsoft Works visaient le travail quotidien. En mai 1989, la presse documenta l'édition 220 Mega, avec davantage de mémoire et une capacité de disquette accrue.",
+  "product.schneider-towerat220.technical.configurations": "Le 220 original et le Mega diffèrent par leur équipement. L'essai du Mega décrit le 220 standard avec 512 Ko et un lecteur de 720 Ko ; le disque de 20 Mo est conservé. La photo montre un System 220 avec écran MM12 et clavier MF2.",
+  "product.schneider-towerat220.technical.firmware": "Des paires de BIOS sont attribuées à un 220. MAME identifie 2.02, 1.06 et 1.01A ; les fichiers conservés occupent deux puces de 32 Kio. Il associe EGA 1.04 à 2.02, 1.02 à 1.06 et 1.00 à 1.01. Les noms de fichiers 1.01 et l'étiquette 1.01A restent signalés comme divergence.",
+  "product.schneider-towerat220.warning": "Fiche historique en recherche ; démarrage dans BluMach non validé.",
+  "product.schneider-towerat220.technical.verified": "Les sources et empreintes des fichiers ont été vérifiées. BluMach a1b0125d n'a pas d'entrée dédiée à ce modèle ; MAME regroupe les Tower AT 2xx comme non fonctionnels. Le démarrage n'a pas été testé.",
+  "product.schneider-towerat220.technical.limitations": "L'ensemble de la machine reste à valider. Il faut identifier carte, paire de BIOS et ROM vidéo, puis vérifier POST, mémoire, clavier, RTC, disques et ports avant d'annoncer une émulation utilisable.",
+  "product.schneider-towerat220.technical.board": "Le processeur et la mémoire occupent une carte séparée. Le manuel 201/202/220 documente Tower CPU286 50229, logique GC101/GC102, RTC DS1287 et contrôleur de clavier 8042/8742 ; il comprend plusieurs révisions des circuits.",
+  "product.schneider-towerat220.technical.memory": "L'extension dépend de la carte installée. Le schéma du manuel indique une base de 512 Ko et des banques DIL/SIMM optionnelles ; il ne prouve pas que tous les exemplaires disposent des connecteurs montés.",
+  "product.schneider-towerat220.technical.video": "La vidéo intégrée laisse des emplacements disponibles. L'essai de 1988 documente EGA et jusqu'à 800 × 600 avec écran multisynchrone et logiciel adapté ; il compte trois emplacements 16 bits et un 8 bits.",
+  "product.schneider-towerat220.technical.manual": "Schneider, Service Manual Tower AT 201/202/220, Ident-Nr. 44657, 03/1989 : couverture et schémas CPU/mémoire examinés ; PDF conservé.",
+  "product.schneider-towerat220.technical.review": "Happy Computer 11/1988, M. Ohnesorg/rz, Rechengiganten zu Niedrigpreisen, p. 97–98 et 101 : essai d'un Tower AT sans disque dur, sans suffixe commercial identifié.",
+  "product.schneider-towerat220.technical.mega": "Happy Computer 05/1989, Sammlerstück, p. 18 : édition 220 Mega, équipement, prix et série annoncée ; scan et transcription conservés.",
+  "product.schneider-towerat220.technical.range": "Jungsi, Schneider VGA AT System 40 : panorama de gamme et chronologie approximative ; ne remplace pas un manuel propre à chaque révision.",
+  "product.schneider-towerat220.technical.mame": "MAME, at.cpp : ensembles towerat2xx, provenance par variante et associations EGA non résolues. Les fichiers sont conservés ; leur présence ne prouve pas une compatibilité universelle.",
+  "product.schneider-towerat220.technical.code": "BluMach a1b0125d, table des machines examinée et conservée : aucune entrée Tower AT dédiée."
+}

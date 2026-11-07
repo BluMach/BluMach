@@ -1,0 +1,78 @@
+{
+  "order": 10066,
+  "machine": {
+    "id": "olivetti-m34",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti L1 M34",
+    "summary_key": "product.olivetti-m34.summary",
+    "history_key": "product.olivetti-m34.history",
+    "warning_key": "product.olivetti-m34.warning",
+    "status": "research",
+    "aliases": [
+      "M34",
+      "Linea 1 M34"
+    ],
+    "tags": [
+      "Linea 1",
+      "MOS"
+    ],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Zilog Z8001B · 8 MHz",
+      "expansion": "OLIBUS",
+      "interfaces": "RS-232 · MC6850"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m34.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m34.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m34.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m34.service",
+            "url": "https://olivrea.de/handbuecher/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m34.press",
+            "url": "https://archivio.unita.news/"
+          }
+        ]
+      }
+    ],
+    "period": "1985"
+  }
+}

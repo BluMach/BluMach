@@ -1,0 +1,9 @@
+{
+  "product.olivetti-snx-160-n.summary": "L’SNX da scrivania predisposto per gestire terminali seriali e traffico Ethernet.",
+  "product.olivetti-snx-160-n.history": "Olivetti mantenne il nome SNX 160/N per le configurazioni a 133 e 166 MHz della piattaforma Uranos.",
+  "product.olivetti-snx-160-n.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-snx-160-n.architecture": "Poteva concentrare le connessioni seriali di più terminali. La scheda ISA Stallion GO2175 supporta fino a 32 canali RS-232D tramite scatole esterne.",
+  "product.olivetti-snx-160-n.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-snx-160-n.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-snx-160-n.service-guide-10": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 10"
+}

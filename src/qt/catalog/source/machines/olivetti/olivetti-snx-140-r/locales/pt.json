@@ -1,0 +1,9 @@
+{
+  "product.olivetti-snx-140-r.summary": "O SNX 140 preparado de fábrica para troca de discos a quente.",
+  "product.olivetti-snx-140-r.history": "A Olivetti vendia o 140/R como variante de alta disponibilidade do SNX 140. O guia regista a sua substituição pelo SNX 160/RS em abril de 1995.",
+  "product.olivetti-snx-140-r.warning": "Ficha histórica em investigação.",
+  "product.olivetti-snx-140-r.architecture": "Os discos podiam ser trocados durante o serviço. A versão R combina a caixa IRON com o controlador SCSI RAID GO2044 para RAID 1 ou 5.",
+  "product.olivetti-snx-140-r.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-snx-140-r.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-snx-140-r.service-guide-1": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 1"
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m300-04.summary": "The 386SX M300 that pairs WD90C11 video with National 87C311 floppy control.",
+  "product.olivetti-m300-04.history": "The M300-04 was part of Olivetti’s 386SX M300 range. Its service chapter distinguishes it from the equally clocked M300-10 by its video and floppy controller.",
+  "product.olivetti-m300-04.warning": "Historical sheet under research.",
+  "product.olivetti-m300-04.architecture": "The guide specifies memory fitted on the board. It lists 3–17 MB and 80 ns access, alongside WD90C11 video and National 87C311 floppy control. The installed capacity is retained as a documentary figure.",
+  "product.olivetti-m300-04.firmware": "The BIOS revision helps identify the service configuration. The guide records 1.04.",
+  "product.olivetti-m300-04.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m300-04.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m300-04.guide": "Olivetti, Personal Computer – Pocket Service Guide, 33-1."
+}

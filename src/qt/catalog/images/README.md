@@ -164,3 +164,116 @@ https://victoriancollections.net.au/items/5ac6fbae21ea6b0ac0af74d5, the Dario
 The reference photographs are not distributed with BluMach. All prompts lock the
 chassis, drives, grille, perspective, lighting and background and permit changes
 only inside the recessed front badge.
+
+Schneider addition, 2026-11-07: `schneider-europc-photo.jpg` is the unmodified
+original photograph by **Buchinger Manó**, dated 17 July 2018, licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Source and licence declaration: [Schneider Euro PC.jpg on Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schneider_Euro_PC.jpg).
+It retains its own licence and was not resized or re-encoded. The original and
+licence-page snapshot are preserved in the official library.
+
+## Additional original photographs, 2026-11-07
+
+The following photographs were acquired from their Commons file pages on
+2026-11-07 and bundled byte-for-byte, with no resizing, cropping, retouching or
+metadata removal. Their originals and licence-page snapshots are preserved in
+the official library. They retain their own licences and are not GPL-covered.
+
+| File | Machine | Author | Licence | Source |
+|---|---|---|---|---|
+| `olivetti-m24-photo.jpg` | Olivetti M24 | Federigo Federighi | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Olivetti M24 (1987 - 1988).jpg](https://commons.wikimedia.org/wiki/File:Olivetti_M24_(1987_-_1988).jpg) |
+| `olivetti-m21-photo.jpg` | Olivetti M21 | tomislav medak | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | [Olivetti M21.jpg](https://commons.wikimedia.org/wiki/File:Olivetti_M21.jpg) |
+| `olivetti-m24sp-photo.jpg` | Olivetti M24 SP, interior | Freakedenough | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | [Olivetti M24SP IO Board.jpg](https://commons.wikimedia.org/wiki/File:Olivetti_M24SP_IO_Board.jpg) |
+
+The dates in the M24 image title describe that museum specimen; the image is
+not evidence of the product's introduction date. The M21 photograph shows an
+exhibited unit with part of its keyboard out of focus; no detail has been
+reconstructed. The M24 SP photograph shows an individual unit with installed
+expansion cards; those cards are not evidence of a standard factory configuration.
+
+## Schneider Tower AT 220 photograph
+
+`schneider-towerat220-photo.jpg` is the unmodified original JPEG by **MarcoTangerino**, dated 29 January 2020, released into the public domain by its author (PD-self).
+[Original photograph and rights declaration](https://commons.wikimedia.org/wiki/File:Schneider-Tower-AT-System-220-MM12-MF2-1.jpg).
+It shows a System 220 with MM12 monitor and MF2 keyboard. The source original and rights-page snapshot are preserved in the official library. It is used only for the 220 card, not as a photograph of other Tower AT variants.
+
+## Original M20 photograph, 2026-11-07
+
+`olivetti-m20-photo.jpg` is the original, unmodified photograph by **OnlySoft**,
+[L1m20ol.jpg](https://commons.wikimedia.org/wiki/File:L1m20ol.jpg), licensed
+under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+It shows an M20 at the Retro Computer museum in Žatec. Downloaded 2026-11-07;
+no resizing, cropping, retouching or metadata removal. Its licence is separate
+from BluMach's GPL. The original and licence-page snapshot are preserved in
+the official library. It is used in both the app and the website export.
+
+## Olivetti M4-454 S photograph
+
+`olivetti-m4-454s-photo.jpg` is the unchanged photograph by **Alessio Sbarbaro
+(Yoggysot)**, dated 6 January 2013, from
+[Olivetti M4 454 S 01](https://commons.wikimedia.org/wiki/File:Olivetti_M4_454_S_01.jpg).
+Used under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+No changes have been made. The photograph retains its own licence; it is not
+covered by BluMach's code licence. It depicts the labelled M4-454 S and is used
+only for that sheet, not as a photograph of other M4 or PCS models.
+Original SHA-256: `dcb0ec315c0c7e33466db965912863b633ef5a5e050ff0661870d8adc21883fe`.
+
+## Olivetti M200 photograph
+
+`olivetti-m200-photo.jpg` is the unchanged photograph by **ValorosoIT / Amedeo
+Valoroso**, dated 9 February 2025, from
+[Olivetti M200 computer, ValorosoIT collection, CRT monitor, keyboard 1](https://commons.wikimedia.org/wiki/File:Olivetti_M200_computer,_ValorosoIT_collection,_CRT_monitor,_keyboard_1.jpg).
+Used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+No changes were made. The photograph retains its own licence, separate from
+BluMach's code. The pictured ANK 27-102 keyboard was not originally bundled
+with the computer, as the author states; this is disclosed in all five locales.
+
+## Olivetti M290S motherboard photograph
+
+`olivetti-m290s-board.jpg` is the unmodified M203 motherboard photograph by
+dataino.it, published by [The Retro Web](https://theretroweb.com/motherboards/s/olivetti-m203)
+under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+It depicts the board, not the complete computer. The source filename contains
+`m320`; the M203 identification follows the source record and corroborating
+board evidence rather than the filename. An exterior photograph remains pending.
+
+| `amstrad-megapc-photo.jpg` | Amstrad Mega PC | Staffan Vilcans (Liftarn), retouched by Ubcule | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) | [Commons file page](https://commons.wikimedia.org/wiki/File:Amstrad_Mega_PC_(5058669424)_(retouched).jpg) |
+
+The unmodified `sinclair-pc200-photo.jpg` photograph is by Marcin Wichary, licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). [Wikimedia Commons source](https://commons.wikimedia.org/wiki/File:Sinclair_PC_200.jpg).
+
+The ALT photographs are distributed unmodified from Wikimedia Commons under
+[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+
+- [alt286-photo.jpg](https://commons.wikimedia.org/wiki/File:Museo_de_Inform%C3%A1tica_Hist%C3%B3rica_de_la_Universidad_de_Zaragoza_10.jpg) — Retroacción. The ALT-286
+  is on the right of the IBM PC at the Museo de Informática Histórica,
+  Universidad de Zaragoza.
+- [alt386sx-photo.png](https://commons.wikimedia.org/wiki/File:Amstrad_ALT-386SX_low-res.png) — MrCauldron, with two
+  frames stitched and edited by DigitalIceAge in the source image.
+
+The unmodified [amstrad-acl-386sx120-photo.jpg](https://commons.wikimedia.org/wiki/File:Amstrad2-og.jpg) photograph is by Oguenther, who dedicated it to the public domain.
+
+## M19 photograph added on 2026-11-07
+
+olivetti-m19-photo.jpg is the unmodified original by Jason Quinn, dated 8 April 2008: [Olivetti M19 front view](https://commons.wikimedia.org/wiki/File:Olivetti_M19_front_view.jpg). It shows the system unit and expansion box, without monitor or keyboard. The author released it into the public domain worldwide, with an unrestricted use grant where such dedication is not legally possible. The original and its rights page are preserved with hashes in the official M19 library record. This file was neither resized nor re-encoded; the earlier resizing note applies to the preceding photograph batch.
+
+quaderno: OnlySoft, CC BY-SA 4.0. Original unchanged. [Photograph and licence](https://commons.wikimedia.org/wiki/File:Olivetti_Quaderno_33.jpg)
+
+prodest-pc128: Povigna, CC BY-SA 4.0. Original unchanged. [Photograph and licence](https://commons.wikimedia.org/wiki/File:Olivetti_Prodest_PC128.png)
+
+prodest-pc128s: José Antonio Ortigueira Amor, CC BY 4.0. Original unchanged. [Photograph and licence](https://commons.wikimedia.org/wiki/File:Olivetti_Prodest_PC128S_plus_disk_unit.jpg)
+
+echos-44-color: Danmarks Tekniske Museum, CC BY 4.0. Original unchanged. [Photograph and licence](https://commons.wikimedia.org/wiki/File:Olivetti_Echos_44_Color.jpg)
+
+| `amstrad-pc1640hd20-photo.jpg` | Amstrad PC1640 HD20 | Ana Mora (photograph), Ismael Olea (Flickr) | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) | [Amstrad PC1640HD20 (1).jpg](https://commons.wikimedia.org/wiki/File:Amstrad_PC1640HD20_(1).jpg) (unmodified) |
+
+philos-44: Bruno Cordioli, CC BY 2.0. Wikimedia-served 1,280 px rendition. [Photograph and licence](https://commons.wikimedia.org/wiki/File:Olivetti_Philos_44_Retrocomputing_on_the_green_(13507012994).jpg)
+
+echos-pro-133-s: Swenja Hoschek / Museumsstiftung Post und Telekommunikation, CC BY-SA 4.0. Original unchanged. [Photograph and licence](https://onlinesammlung.museumsstiftung.de/detail/collection/b82e8797-68c2-4107-b920-e1dc54717e4d)
+
+The Sinclair APC386SX front-panel photograph is the unmodified Commons file
+by 4throck, dedicated to the public domain under CC0 1.0.
+[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SINCLAIR_APC_386SX.jpg)
+
+| `schneider-pc1512-dd-photo.jpg` | Schneider PC1512 DD | KoS | Public domain | [Amstrad 1512 DD.jpg](https://commons.wikimedia.org/wiki/File:Amstrad_1512_DD.jpg) (unchanged) |
+
+envision-p75: Museo8bits, CC BY-SA 4.0. Original unchanged. [Photograph and licence](https://commons.wikimedia.org/wiki/File:Envp75.jpg)

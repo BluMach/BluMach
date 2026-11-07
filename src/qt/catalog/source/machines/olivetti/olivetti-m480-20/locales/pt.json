@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m480-20.summary": "O M480 de barramento AT com i486 a 33 MHz e opções IDE ou SCSI.",
+  "product.olivetti-m480-20.history": "O guia da Olivetti documenta M480-20 (o M480 de barramento AT com i486 a 33 MHz e opções IDE ou SCSI).",
+  "product.olivetti-m480-20.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m480-20.architecture": "A placa determina a combinação de periféricos a verificar. O guia indica BA371 · 82C453 · IDE / SCSI.",
+  "product.olivetti-m480-20.firmware": "A revisão da BIOS ajuda a identificar a configuração de serviço. O guia regista 1.06 / 2.08 (BA371).",
+  "product.olivetti-m480-20.verified": "A identidade foi verificada na documentação da Olivetti. A ficha permanece em investigação.",
+  "product.olivetti-m480-20.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m480-20.guide": "Olivetti, Personal Computer – Pocket Service Guide, 34-1."
+}

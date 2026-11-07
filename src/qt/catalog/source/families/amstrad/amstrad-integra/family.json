@@ -1,0 +1,34 @@
+{
+  "order": 144,
+  "family": {
+    "id": "amstrad-integra",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "Integra PC/TV",
+    "description_key": "family.amstrad-integra.description",
+    "history_key": "family.amstrad-integra.history",
+    "history_references": [
+      {
+        "title": "Computerwoche · Amstrad startet neuen Anlauf im PC-Geschaeft · 15 September 1995",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2751884/amstrad-startet-neuen-anlauf-im-pc-geschaeft.html"
+      },
+      {
+        "title": "Amstrad · Computer Products retrospective",
+        "publisher": "Amstrad",
+        "url": "https://amstrad.com/product-category/computer/page/2/"
+      },
+      {
+        "title": "Amstrad Direct · Integra PC/TV brochure · pp. 2–4",
+        "publisher": "Amstrad Direct",
+        "url": "https://amstrad.com/product-category/computer/page/2/"
+      },
+      {
+        "title": "Centre for Computing History · Amstrad Integra · CH77012",
+        "publisher": "Centre for Computing History",
+        "url": "https://www.computinghistory.org.uk/det/77012/Amstrad-Integra/"
+      }
+    ]
+  }
+}

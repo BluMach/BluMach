@@ -1,0 +1,14 @@
+{
+  "product.schneider-d48620-420.summary": "A referência /20–420 da gama Business no anúncio português da IFS.",
+  "product.schneider-d48620-420.history": "A Schneider apresentou o D486/20 em novembro de 1991 como o seu 486SX da linha Business, com 8 MB de série. A lista alemã de dezembro indicava 5.289 DM líquidos para a configuração base. Em maio de 1992, a IFS anunciava em Portugal a referência /20–420.",
+  "product.schneider-d48620-420.technical.configuration": "As ofertas variavam com o mercado e a data. A lista alemã de 1991 indica discos de 100 e 200 MB para o D486/20. O anúncio português identifica a referência /20–420. Falta verificar o disco correspondente. O manual de assistência lista também SD, HD 120 e HD 200.",
+  "product.schneider-d48620-420.technical.board": "Um exemplar conservado permite identificar a sua placa. As fotografias mostram Schneider Singleboard II 486, conjunto 54 091, e o controlador Intel 82346A. O proprietário documenta 4 MB e um Maxtor de 213 MB. A Computerwoche indicava 8 MB de série.",
+  "product.schneider-d48620-420.technical.firmware": "Os ecrãs de arranque identificam o firmware desse exemplar. Mostram Quadtel 3.05.06, Schneider 1.00a e VGA 3.04. A revisão comercial e os dumps continuam pendentes. O manual documenta a ROM de sistema e VGA em U16, referência 53 891 00. O esquema admite 27C010/20/40 e a lista de peças indica 128 KiB.",
+  "product.schneider-d48620-420.warning": "Ficha histórica em investigação.",
+  "product.schneider-d48620-420.technical.verified": "O BluMach dispõe da ficha documental. O modelo dedicado e o arranque continuam pendentes.",
+  "product.schneider-d48620-420.technical.limitations": "Falta preservar a ROM, confrontar as configurações físicas e validar a placa. A ficha aguarda uma imagem com direitos de publicação claros.",
+  "product.schneider-d48620-420.technical.press": "Computerwoche, Schneider erweitert die Business-Linie um 486SX-PC, 08-11-1991",
+  "product.schneider-d48620-420.technical.range": "IFS, Expresso, 23-05-1992, p. A3",
+  "product.schneider-d48620-420.technical.prices": "CC SELLER / BC, Schneider Computer, 12/1991, p. 3",
+  "product.schneider-d48620-420.technical.owner": "Chip-Monk, Schneider D486/20 Mainboard und Bios (und Fragen), VzEkC, 2024"
+}

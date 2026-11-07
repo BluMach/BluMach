@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m380-xp4.summary": "The 25 MHz M380/XP branch, with seven positions compared with the XP7’s ten.",
+  "product.olivetti-m380-xp4.history": "The documentation places M380/XP4 as the 25 MHz M380/XP branch, with seven positions compared with the XP7’s ten.",
+  "product.olivetti-m380-xp4.warning": "Historical sheet under research.",
+  "product.olivetti-m380-xp4.architecture": "Memory organisation determines expansion options. The guide identifies BA842 / BA829. The board supports 4–8 MB and additional expansion uses memory boards.",
+  "product.olivetti-m380-xp4.firmware": "The BIOS revision helps identify the service configuration. The guide records BA829: 1.05 · PBU5/PBU4 / 1.07 · PBZ1/PBZ0.",
+  "product.olivetti-m380-xp4.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m380-xp4.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m380-xp4.guide": "Olivetti, Personal Computer – Pocket Service Guide, 9-1–9-3."
+}

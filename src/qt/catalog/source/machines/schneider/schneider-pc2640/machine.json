@@ -1,0 +1,133 @@
+{
+  "order": 360,
+  "machine": {
+    "id": "schneider-pc2640",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-at-desktops",
+    "name": "Schneider PC2640",
+    "summary_key": "product.schneider-pc2640.summary",
+    "history_key": "product.schneider-pc2640.history",
+    "warning_key": "product.schneider-pc2640.warning",
+    "status": "research",
+    "period": "1987",
+    "aliases": [
+      "Schneider PC 2640"
+    ],
+    "tags": [
+      "Schneider",
+      "80286",
+      "PC/AT"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "ega"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80286 · 12 MHz",
+      "memory": "640 KB",
+      "chipset": "82C201 · 82C202 · 82A203 · 82A204 · 82A205 · 82C206",
+      "video": "EGA · 640 × 350",
+      "floppy": "3.5″ · 1.44 MB",
+      "storage": "32 MB",
+      "expansion": "2 × ISA"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-pc2640.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-pc2640.technical.board"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.schneider-pc2640.technical.memory"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.schneider-pc2640.technical.video_expansion"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.schneider-pc2640.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-pc2640.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-pc2640.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.schneider-pc2640.technical.manual",
+            "url": "https://archive.org/details/pc-2640-service-manualacme"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-pc2640.technical.primary",
+            "url": "https://www.computerwoche.de/article/2812762/schneider-bringt-at-mit-ega-karte.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-pc2640.technical.secondary",
+            "url": "https://blog.hnf.de/das-war-der-schneider-euro-pc/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-pc2640.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/2fb7451ae38f385bec3d7739d0a76401a6895ced/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

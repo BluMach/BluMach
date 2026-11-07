@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m24-new-p100.summary": "A configuração Pentium de 100 MHz que retomou o nome M24 numa caixa compacta.",
+  "product.olivetti-m24-new-p100.history": "A Olivetti retomou o nome M24 numa gama Pentium baseada nos M4-Pxx e PCS 51xx.",
+  "product.olivetti-m24-new-p100.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m24-new-p100.architecture": "A placa integra vídeo e controlo de discos. O guia indica BA2280 e BA2284 com Trident TGUI9680-1 e duas ligações para unidades Fast IDE.",
+  "product.olivetti-m24-new-p100.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m24-new-p100.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m24-new-p100.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 21",
+  "product.olivetti-m24-new-p100.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 1.21."
+}

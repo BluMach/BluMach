@@ -1,0 +1,155 @@
+{
+  "order": 330,
+  "machine": {
+    "id": "schneider-europc",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-euro-xt",
+    "name": "Schneider EuroPC",
+    "summary_key": "product.schneider-europc.summary",
+    "history_key": "product.schneider-europc.history",
+    "warning_key": "product.schneider-europc.warning",
+    "status": "research",
+    "period": "1988",
+    "aliases": [
+      "Schneider Euro PC"
+    ],
+    "tags": [
+      "Schneider",
+      "Euro",
+      "8088",
+      "PC/XT"
+    ],
+    "facets": {
+      "form_factor": [
+        "all_in_one"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "cga"
+      ],
+      "storage_interface": [
+        "floppy",
+        "xta"
+      ]
+    },
+    "hardware": {
+      "cpu": "8088 · 9.54 MHz",
+      "memory": "512 KB",
+      "video": "CGA / Hercules",
+      "floppy": "3.5″ · 720 KB",
+      "expansion": "1 × ISA 8-bit"
+    },
+    "firmware": {
+      "known_sets": [
+        "2.04",
+        "2.05",
+        "2.06",
+        "2.06B",
+        "2.07",
+        "2.08",
+        "2.08A",
+        "2.08B"
+      ],
+      "required": true
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/schneider-europc-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Buchinger Manó",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Schneider_Euro_PC.jpg"
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-europc.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.schneider-europc.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.schneider-europc.technical.board"
+          },
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.schneider-europc.technical.detail"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.schneider-europc.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-europc.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-europc.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.schneider-europc.technical.manual",
+            "url": "https://oldcrap.org/document-category/schneider/euro-pc/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-europc.technical.source_primary",
+            "url": "https://stcarchiv.de/happy-computer/1988/08/euro-pc"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-europc.technical.source_secondary",
+            "url": "https://blog.hnf.de/das-war-der-schneider-euro-pc/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.schneider-europc.technical.mame",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/europc.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-europc.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

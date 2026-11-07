@@ -1,0 +1,18 @@
+{
+  "product.amstrad-pc3286.summary": "The middle model combined the 286 with expandable memory and five slots to tailor the computer to its work.",
+  "product.amstrad-pc3286.history": "Documented in the August 1990 leaflet, the PC3286 occupied the middle tier of Generation 3 between PC3086 and PC3386SX. Amstrad presented it as an expandable work computer: memory, internal drives and cards could adapt it to new professional needs. A 40 MB disk was optional. The leaflet states UK design and manufacture in Taiwan, Korea or the UK, without identifying the OEM of each unit.",
+  "product.amstrad-pc3286.warning": "Historical card under research; it does not certify booting in BluMach.",
+  "product.amstrad-pc3286.technical.market": "The range could be tailored to the workplace. The August 1990 leaflets offer 12-inch monochrome and 14-inch colour VGA monitors, with MS-DOS 3.3.",
+  "product.amstrad-pc3286.technical.configurations": "The hard disk was optional. The leaflet combines a 3.5-inch 1.44 MB or 5.25-inch 1.2 MB floppy drive with an optional 40 MB IDE disk.",
+  "product.amstrad-pc3286.technical.memory": "Memory could be expanded, but the lists differ. The leaflet starts at 1 MB and lists 2/4/8/10/16 MB; the manual, p. 8-7, tabulates 512/640 KB and 1/2/2.5/4/8/16 MB. Both lists are retained; the 10 MB option has not been physically verified.",
+  "product.amstrad-pc3286.technical.video": "Integrated video supported software from earlier generations. The leaflets document VGA with EGA, CGA, MDA and Hercules compatibility.",
+  "product.amstrad-pc3286.technical.expansion": "Cards expanded the workstation’s functions. Leaflet and manual document three 16-bit ISA slots and two 8-bit slots; one of each type is half-length.",
+  "product.amstrad-pc3286.technical.interfaces": "Printer and modem had dedicated connections. The manual, pp. 1-2–1-3, documents Centronics parallel and RS-232 serial ports, both with 25-pin connectors.",
+  "product.amstrad-pc3286.technical.firmware": "There is a dump report, but no acquired file yet. On 28 March 2016, Phylante reported extracting the BIOS with DEBUG and planned to read the chips; the thread does not establish delivery of that second dump.",
+  "product.amstrad-pc3286.technical.verified": "The documentation supports a description of the machine. BluMach 88f74ba3 has no dedicated registration for this model; no boot test has been performed.",
+  "product.amstrad-pc3286.technical.limitations": "Locally identified firmware, a dedicated model and validation are missing. The card remains under research, without a creation profile; absence from the reviewed records does not prove the BIOS does not exist. A publishable image is pending.",
+  "product.amstrad-pc3286.technical.brochure": "Amstrad Generation 3, model leaflet, August 1990, pp. 1–2: audience, configurations and specifications; original preserved.",
+  "product.amstrad-pc3286.technical.manual": "User Manual and MS-DOS Guide, 2nd edition, 1990, pp. 1-2–1-4, 4-18 and 8-7: specifications, speed and RAM upgrades.",
+  "product.amstrad-pc3286.technical.firmware_source": "Bannister, Amstrad PC3286 Bios dump, posts 104755–104756, 28 March 2016: thread preserved; testimony, not acquired BIOS.",
+  "product.amstrad-pc3286.technical.source": "BluMach 88f74ba3, machine_table.c and m_amstrad.c: preserved source inspection; this is not a boot test."
+}

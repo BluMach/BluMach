@@ -1,0 +1,16 @@
+{
+  "product.schneider-pc2640.summary": "Schneider's own AT preceding EuroAT, with a low case and monochrome or colour EGA monitor options.",
+  "product.schneider-pc2640.history": "Schneider presented PC2640 at Systems 1987 as its own design, distinct from the Amstrad machines it distributed. Computerwoche announced packages at 6,000 DM with a monochrome monitor and 7,000 DM with colour EGA, intended for AT software. Initial manufacture took place abroad, with assembly planned for Türkheim; the report does not identify the contractor. It extended the range above PC1512 and PC1640, while the reviewed sources do not confirm its direct successor.",
+  "product.schneider-pc2640.technical.configurations": "The price covered an equipped package. The October 1987 report includes an MF2 keyboard, Logitech mouse, 32 MB disk, 1.44 MB floppy drive, MS-DOS 3.3, GEM and E-Basic.",
+  "product.schneider-pc2640.technical.board": "The board can be identified even without its BIOS. The manual lists CPU board 40 906 00, an 80286-12 at U63 and controllers 82C201, 82C202, 82A203, 82A204, 82A205 and 82C206.",
+  "product.schneider-pc2640.technical.memory": "The parts inventory allows the described memory to be calculated. It lists two banks of nine 41256 DRAMs and two of nine 4164s: 640 KB of data plus parity; it does not establish a maximum upgrade.",
+  "product.schneider-pc2640.technical.video_expansion": "The case limited expansion. Computerwoche documents room for two AT-compatible cards, two serial ports and one parallel port; the colour version offered 640 × 350 EGA with 16 colours.",
+  "product.schneider-pc2640.technical.firmware": "The manual identifies the ROMs, but their bytes are missing. U44 and U45 are 27128 EPROMs, 16 KiB each; no PC2640-attributed BIOS has been located in the reviewed record. EuroAT ROMs must not replace them by analogy.",
+  "product.schneider-pc2640.technical.verified": "Documentation is available to begin investigation. The manual's integrity and PC2640 identity have been checked; no dedicated entry was found in BluMach 2fb7451a.",
+  "product.schneider-pc2640.technical.limitations": "Emulation still requires firmware and validation. An identified dump and boot/peripheral tests are missing. A publishable photograph and creation profile remain pending.",
+  "product.schneider-pc2640.technical.manual": "Schneider, Service Manual PC2640, Ident-Nr. 36523: CPU board parts list, PDF page 9; original and OCR preserved.",
+  "product.schneider-pc2640.technical.primary": "Computerwoche, Schneider bringt AT mit EGA-Karte, 30 October 1987: announcement, prices, configuration and distinction between design and manufacture.",
+  "product.schneider-pc2640.technical.secondary": "HNF, Das war der Schneider Euro PC, 9 May 2023: corroboration of PC2640's 1987 presentation and in-house design.",
+  "product.schneider-pc2640.warning": "Historical sheet under research; booting in BluMach has not been validated.",
+  "product.schneider-pc2640.technical.code": "BluMach 2fb7451a, machine table: preserved code inspection; no dedicated entry for this model was found."
+}

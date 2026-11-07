@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m400-40.summary": "La variante M400 con 486DX a 33 MHz y coprocesador integrado.",
+  "product.olivetti-m400-40.history": "La guía de servicio de Olivetti documenta M400-40 (la variante M400 con 486DX a 33 MHz y coprocesador integrado).",
+  "product.olivetti-m400-40.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m400-40.architecture": "La placa determina la combinación de periféricos que hay que contrastar. La guía identifica BA314 / BA315 · 82C452A · IDE.",
+  "product.olivetti-m400-40.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra Flash · 2.08.",
+  "product.olivetti-m400-40.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m400-40.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m400-40.guide": "Olivetti, Personal Computer – Pocket Service Guide, 26-1."
+}

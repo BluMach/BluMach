@@ -1,0 +1,29 @@
+{
+  "order": 128,
+  "family": {
+    "id": "amstrad-pc9000",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PC9000 (1994)",
+    "description_key": "family.amstrad-pc9000.description",
+    "history_key": "family.amstrad-pc9000.history",
+    "history_references": [
+      {
+        "title": "Computerwoche · Amstrad steigt wieder in den Profimarkt ein · 14 January 1994",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2761130/amstrad-steigt-wieder-in-den-profimarkt-ein.html"
+      },
+      {
+        "title": "BYTE · Pentium OverDrive-ready PCs · May 1994",
+        "publisher": "BYTE",
+        "url": "https://archive.org/details/eu_BYTE-1994-05_OCR"
+      },
+      {
+        "title": "PC Review 30 · Amstrad PC9000 Multimedia and Amstrad 9486 (66MHz, 486DX2) · April 1994",
+        "publisher": "PC Review",
+        "url": "https://archive.org/details/pc-review-030"
+      }
+    ]
+  }
+}

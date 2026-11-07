@@ -1,0 +1,138 @@
+{
+  "order": 370,
+  "machine": {
+    "id": "schneider-euroat",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-at-desktops",
+    "name": "Schneider EuroAT",
+    "summary_key": "product.schneider-euroat.summary",
+    "history_key": "product.schneider-euroat.history",
+    "warning_key": "product.schneider-euroat.warning",
+    "status": "research",
+    "period": "1989–1990",
+    "aliases": [
+      "Schneider Euro AT"
+    ],
+    "tags": [
+      "Schneider",
+      "80286",
+      "PC/AT"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "ega"
+      ],
+      "storage_interface": [
+        "floppy",
+        "ide"
+      ]
+    },
+    "hardware": {
+      "cpu": "80286 · 12 MHz",
+      "memory": "1 MB",
+      "chipset": "GC101A · 2 × GC102A · JIM TC110G008",
+      "video": "EGA · GC201 · 640 × 350 / 800 × 600",
+      "floppy": "3.5″ · 1.44 MB",
+      "storage": "AT-Bus · 40 MB",
+      "expansion": "2 × ISA"
+    },
+    "firmware": {
+      "known_sets": [
+        "2.01A",
+        "2.03",
+        "EuroVGA 1.02"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-euroat.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-euroat.technical.board"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.schneider-euroat.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.schneider-euroat.technical.video_expansion"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.schneider-euroat.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-euroat.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-euroat.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.schneider-euroat.technical.manual",
+            "url": "https://oldcrap.org/2024/04/28/schneider-euro-at/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-euroat.technical.primary",
+            "url": "https://www.homecomputerworld.at/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.schneider-euroat.technical.secondary",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/at.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-euroat.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/2fb7451ae38f385bec3d7739d0a76401a6895ced/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

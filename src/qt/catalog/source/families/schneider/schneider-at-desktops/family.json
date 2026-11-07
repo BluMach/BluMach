@@ -1,0 +1,29 @@
+{
+  "order": 150,
+  "family": {
+    "id": "schneider-at-desktops",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "PC2640 / EuroAT",
+    "description_key": "family.schneider-at-desktops.description",
+    "history_key": "family.schneider-at-desktops.history",
+    "history_references": [
+      {
+        "title": "Schneider bringt AT mit EGA-Karte (30-10-1987)",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2812762/schneider-bringt-at-mit-ega-karte.html"
+      },
+      {
+        "title": "Happy Computer 02/1990, pp. 32–33",
+        "publisher": "Happy Computer · Homecomputerworld",
+        "url": "https://www.homecomputerworld.at/"
+      },
+      {
+        "title": "Service Manual Euro AT, Ident-Nr. 43490",
+        "publisher": "Schneider · Old Crap",
+        "url": "https://oldcrap.org/2024/04/28/schneider-euro-at/"
+      }
+    ]
+  }
+}

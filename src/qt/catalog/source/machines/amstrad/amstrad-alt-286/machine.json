@@ -1,0 +1,129 @@
+{
+  "order": 299,
+  "machine": {
+    "id": "amstrad-alt-286",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-alt",
+    "name": "Amstrad ALT-286",
+    "summary_key": "product.amstrad-alt-286.summary",
+    "history_key": "product.amstrad-alt-286.history",
+    "status": "research",
+    "period": "1990",
+    "tags": [
+      "LCD",
+      "VGA",
+      "NiCd"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "vga"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
+      "display_color": [
+        "monochrome"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80286 · 16/8 MHz",
+      "memory": "1/2/4 MB",
+      "video": "Cirrus Logic CL-GD610/620 · VGA · LCD 640 × 480",
+      "expansion": "1 × ISA 16-bit",
+      "storage": "20 MB HDD",
+      "floppy": "3.5″ · 1.44 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/alt286-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Retroacción",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Museo_de_Inform%C3%A1tica_Hist%C3%B3rica_de_la_Universidad_de_Zaragoza_10.jpg"
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.amstrad-alt-286.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-alt-286.technical.bios"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-alt-286.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-alt-286.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-alt-286.technical.micro_news",
+            "url": "https://www.abandonware-magazines.org/affiche_mag.php?mag=8&num=990"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-alt-286.technical.computerwoche",
+            "url": "https://www.computerwoche.de/article/2843060/amstrad-schnuert-paket-mit-pcs-und-canon-kleindrucker.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-alt-286.technical.manual",
+            "url": "https://archive.org/details/manual_ALT286_SM_AMSTRAD_EN"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-alt-286.technical.museum",
+            "url": "https://www.computinghistory.org.uk/det/46565/Amstrad-ALT-286-Laptop-Computer/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-alt-286.technical.photo",
+            "url": "https://commons.wikimedia.org/wiki/File:Museo_de_Inform%C3%A1tica_Hist%C3%B3rica_de_la_Universidad_de_Zaragoza_10.jpg"
+          }
+        ]
+      }
+    ]
+  }
+}

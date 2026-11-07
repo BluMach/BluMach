@@ -1,0 +1,9 @@
+{
+  "product.schneider-d486dx33.summary": "The 486DX desktop with accelerated graphics.",
+  "product.schneider-d486dx33.history": "The December 1992 German price list offered this machine for DM 2,762 net without a hard disk. It included MS-DOS 5.0 and Windows 3.1.",
+  "product.schneider-d486dx33.technical.options": "The list also offered a 106 MB hard-disk configuration for DM 3,245 net.",
+  "product.schneider-d486dx33.technical.slots": "The slots accommodate expansion cards. The sales sheet lists 7 16-bit slots and two floppy drives, 1.44 MB and 1.2 MB.",
+  "product.schneider-d486dx33.technical.verified": "The offer is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-d486dx33.technical.limitations": "The board still needs identification, an attributed BIOS needs preservation and an image with clear publication rights remains pending.",
+  "product.schneider-d486dx33.technical.price_list": "CC SELLER / BC, Schneider Computer, 12/1992, pp. 1–3"
+}

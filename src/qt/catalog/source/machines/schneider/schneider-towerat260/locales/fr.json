@@ -1,0 +1,17 @@
+{
+  "product.schneider-towerat260.summary": "Le Tower AT au plus grand disque parmi les 2xx étudiés, avec un exemplaire EGA à 12,5 MHz documenté.",
+  "product.schneider-towerat260.history": "Le Tower AT 260 étendait la gamme compacte avec un disque de 60 Mo, au-dessus des 220 et 240. Le panorama de gamme et le témoignage d'un propriétaire distinguent cette variante des configurations à 10 MHz : un 260 EGA à 12,5 MHz existe. Les sources conservées n'établissent avec certitude ni sa première vente ni son prix initial.",
+  "product.schneider-towerat260.technical.configurations": "La fréquence doit être associée à la variante. Citronalco corrigea sa description initiale de 12 MHz en 12,5 MHz pour son 260 EGA ; Jungsi indique aussi 12,5 MHz, 60 Mo et un lecteur de 1,44 Mo. Cette fréquence n'est pas attribuée à toute la famille.",
+  "product.schneider-towerat260.technical.firmware": "Une piste de dump est liée à un propriétaire du 260. Citronalco publia le BIOS 1.05A dans deux EPROM de 32 Kio. La bibliothèque conserve une paire de cette version provenant de MAME, mais elle n'a pas été comparée au ZIP du forum : téléchargement public refusé, erreur 403.",
+  "product.schneider-towerat260.warning": "Fiche historique en recherche ; démarrage dans BluMach non validé.",
+  "product.schneider-towerat260.technical.verified": "Les sources et empreintes des fichiers ont été vérifiées. BluMach a1b0125d n'a pas d'entrée dédiée à ce modèle ; MAME regroupe les Tower AT 2xx comme non fonctionnels. Le démarrage n'a pas été testé.",
+  "product.schneider-towerat260.technical.limitations": "L'ensemble de la machine reste à valider. Il faut identifier carte, paire de BIOS et ROM vidéo, puis vérifier POST, mémoire, clavier, RTC, disques et ports avant d'annoncer une émulation utilisable.",
+  "product.schneider-towerat260.technical.board": "Un boîtier commun ne garantit pas une carte identique. Le manuel conservé couvre les 201/202/220 ; son architecture guide l'étude, mais les schémas et révisions de cette variante restent à comparer.",
+  "product.schneider-towerat260.technical.manual": "Schneider, Service Manual Tower AT 201/202/220, Ident-Nr. 44657, 03/1989 : couverture et schémas CPU/mémoire examinés ; PDF conservé.",
+  "product.schneider-towerat260.technical.review": "Happy Computer 11/1988, M. Ohnesorg/rz, Rechengiganten zu Niedrigpreisen, p. 97–98 et 101 : essai d'un Tower AT sans disque dur, sans suffixe commercial identifié.",
+  "product.schneider-towerat260.technical.mega": "Happy Computer 05/1989, Sammlerstück, p. 18 : édition 220 Mega, équipement, prix et série annoncée ; scan et transcription conservés.",
+  "product.schneider-towerat260.technical.owner260": "Citronalco, VzEkC, messages 40 et 42 du 26-03-2016 : Tower AT 260 EGA, 12,5 MHz et BIOS 1.05A dans deux EPROM 27256. Pièce jointe localisée ; téléchargement public bloqué.",
+  "product.schneider-towerat260.technical.range": "Jungsi, Schneider VGA AT System 40 : panorama de gamme et chronologie approximative ; ne remplace pas un manuel propre à chaque révision.",
+  "product.schneider-towerat260.technical.mame": "MAME, at.cpp : ensembles towerat2xx, provenance par variante et associations EGA non résolues. Les fichiers sont conservés ; leur présence ne prouve pas une compatibilité universelle.",
+  "product.schneider-towerat260.technical.code": "BluMach a1b0125d, table des machines examinée et conservée : aucune entrée Tower AT dédiée."
+}

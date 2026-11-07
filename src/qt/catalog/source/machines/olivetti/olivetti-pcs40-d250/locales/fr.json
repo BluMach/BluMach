@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-d250.summary": "Le PCS40 mini-tour avec un 486DX2 à 50 MHz.",
+  "product.olivetti-pcs40-d250.history": "Olivetti incluait le PCS40 D2/50 dans la gamme PCS30–PCS40 de systèmes 386 et 486. Le guide le présente comme une configuration mini-tour.",
+  "product.olivetti-pcs40-d250.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-pcs40-d250.architecture": "La vidéo et le stockage utilisaient des cartes d’extension. Les cartes de série laissaient 6 des 8 emplacements AT libres dans la configuration standard.",
+  "product.olivetti-pcs40-d250.firmware": "La carte détermine le BIOS à rechercher. Le guide indique Harward pour 486-VC.",
+  "product.olivetti-pcs40-d250.verified": "L’identité a été vérifiée dans la documentation Olivetti. La fiche reste en cours de recherche.",
+  "product.olivetti-pcs40-d250.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-pcs40-d250.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

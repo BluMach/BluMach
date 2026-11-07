@@ -1,0 +1,29 @@
+{
+  "order": 131,
+  "family": {
+    "id": "amstrad-mega-pc",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "Mega PC",
+    "description_key": "family.amstrad-mega-pc.description",
+    "history_key": "family.amstrad-mega-pc.history",
+    "history_references": [
+      {
+        "title": "Amstrad · MEGAPC3H40 / PC14DSM Service Manual · PDF pp. 2–3",
+        "url": "https://acpc.me/",
+        "publisher": "Amstrad"
+      },
+      {
+        "title": "Admincure · Personal Computer World · January 1993 · p. 493",
+        "url": "https://worldradiohistory.com/UK/Personal-Computer-World/",
+        "publisher": "Admincure"
+      },
+      {
+        "title": "Centre for Computing History · Amstrad Mega PC 386SX · CH2534",
+        "url": "https://www.computinghistory.org.uk/det/2534/Amstrad-Mega-PC-386SX/",
+        "publisher": "Centre for Computing History"
+      }
+    ]
+  }
+}

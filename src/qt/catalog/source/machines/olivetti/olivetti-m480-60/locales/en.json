@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m480-60.summary": "The Micro Channel M480 with ECC memory and 256 KB secondary cache.",
+  "product.olivetti-m480-60.history": "The Olivetti service guide documents M480-60 (the Micro Channel M480 with ECC memory and 256 KB secondary cache).",
+  "product.olivetti-m480-60.warning": "Historical sheet under research.",
+  "product.olivetti-m480-60.architecture": "The board determines which peripheral combination needs verification. The guide identifies BA307 · UC118 · GO2002 · SCSI. IML boot needs a second part of the code on the first hard disk.",
+  "product.olivetti-m480-60.firmware": "The BIOS revision helps identify the service configuration. The guide records EPROM + IML.",
+  "product.olivetti-m480-60.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m480-60.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m480-60.guide": "Olivetti, Personal Computer – Pocket Service Guide, 31-1."
+}

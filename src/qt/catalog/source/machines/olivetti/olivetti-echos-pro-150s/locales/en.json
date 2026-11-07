@@ -1,0 +1,10 @@
+{
+  "product.olivetti-echos-pro-150s.summary": "The Echos Pro 150S appears under its own name in an inventory and battery documentation.",
+  "product.olivetti-echos-pro-150s.history": "The Museo del Computer records an Echos Pro 150S. In 1999, Powerline listed it by name in its battery catalogue alongside the Pro P133.",
+  "product.olivetti-echos-pro-150s.warning": "Historical sheet under research.",
+  "product.olivetti-echos-pro-150s.architecture": "The battery reference helps identify accessories. Powerline lists a 9.6 V, 3,500 mAh NiMH battery for the 150S and Pro P133.",
+  "product.olivetti-echos-pro-150s.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-echos-pro-150s.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-echos-pro-150s.museum": "Museo del Computer, Olivetti collection index.",
+  "product.olivetti-echos-pro-150s.battery": "Powerline 1999 catalogue, notebook batteries."
+}

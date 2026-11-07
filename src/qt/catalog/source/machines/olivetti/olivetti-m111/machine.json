@@ -1,0 +1,92 @@
+{
+  "order": 10075,
+  "machine": {
+    "id": "olivetti-m111",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M111",
+    "summary_key": "product.olivetti-m111.summary",
+    "history_key": "product.olivetti-m111.history",
+    "warning_key": "product.olivetti-m111.warning",
+    "status": "research",
+    "aliases": [
+      "XP1021"
+    ],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ]
+    },
+    "hardware": {
+      "cpu": "NEC V30 · 8 / 10 MHz",
+      "memory": "640 KB",
+      "video": "LCD · 10.5″ · 640 × 200",
+      "floppy": "3.5″ · 720 KB",
+      "hard_disk": "20 MB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m111.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m111.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m111.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m111.archive",
+            "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m111.press",
+            "url": "https://www.computerwoche.de/article/2769751/olivetti-pc-kuenstlich-gebremst.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m111.museum",
+            "url": "https://www.museodelcalcolatore.it/singolo.php?cod=50&ord=5"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m111.olivrea",
+            "url": "https://olivrea.de/olivetti-m111/"
+          }
+        ]
+      }
+    ],
+    "period": "1989"
+  }
+}

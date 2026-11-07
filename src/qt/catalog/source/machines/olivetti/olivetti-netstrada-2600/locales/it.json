@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-2600.summary": "Il NetStrada monoprocessore offerto da ICS con SCSI o RAID su IDE.",
+  "product.olivetti-netstrada-2600.history": "ICS, licenziataria del marchio Olivetti per i PC, annunciò il NetStrada 2600 nel febbraio 2001 in vista del CeBIT. Un bollettino campano del 2002 registra due unità presso l’agenzia regionale per il lavoro.",
+  "product.olivetti-netstrada-2600.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-netstrada-2600.architecture": "Il RAID permetteva di conservare una copia dei dati su un altro disco. Una delle unità censite in Campania usava RAID 1 con due dischi da 18 GB.",
+  "product.olivetti-netstrada-2600.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-netstrada-2600.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-netstrada-2600.ics-announcement": "ICS, CeBIT product announcement, 27 February 2001",
+  "product.olivetti-netstrada-2600.campania-burc": "Regione Campania, Bollettino Ufficiale no. 24, 13 May 2002, section 4.2"
+}

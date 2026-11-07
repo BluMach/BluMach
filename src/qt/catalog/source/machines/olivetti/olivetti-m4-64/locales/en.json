@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-64.summary": "The 33 MHz DX M4 in the 305 Box chassis.",
+  "product.olivetti-m4-64.history": "The M4 Modulo range targeted professionals and sat between the personal-use PCS and the higher-performance M6 Suprema. The guide identifies T.1 boards made in Singapore and Scarmagno.",
+  "product.olivetti-m4-64.warning": "Historical sheet under research.",
+  "product.olivetti-m4-64.architecture": "Memory can grow without replacing the base RAM. The board has 4 MB soldered down, one SIMM socket and CL-GD5428 graphics.",
+  "product.olivetti-m4-64.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m4-64.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m4-64.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 2",
+  "product.olivetti-m4-64.mc-micro": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-64.firmware": "The revision helps identify the service BIOS. The guide lists 2.06."
+}

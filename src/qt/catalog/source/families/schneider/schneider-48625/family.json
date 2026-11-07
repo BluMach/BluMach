@@ -1,0 +1,23 @@
+{
+  "order": 310,
+  "family": {
+    "id": "schneider-48625",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "486 (25 MHz)",
+    "description_key": "family.schneider-48625.description",
+    "history_references": [
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 12/1990, p. 5",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_90.html"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 06/1991, p. 4",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-6_91.html"
+      }
+    ]
+  }
+}

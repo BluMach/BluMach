@@ -1,0 +1,108 @@
+{
+  "order": 308,
+  "machine": {
+    "id": "amstrad-megaplus",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-mega-pc",
+    "name": "Amstrad Mega Plus",
+    "summary_key": "product.amstrad-megaplus.summary",
+    "history_key": "product.amstrad-megaplus.history",
+    "status": "research",
+    "period": "1993",
+    "aliases": [
+      "MegaPC Plus",
+      "Mega Plus PC"
+    ],
+    "tags": [
+      "486SLC",
+      "Mega Drive",
+      "AdLib"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy",
+        "ide"
+      ]
+    },
+    "hardware": {
+      "cpu": "TI 486SLC · 33 MHz / Motorola 68000",
+      "memory": "2 / 4 MB",
+      "video": "SVGA · 512 KB VRAM / Mega Drive",
+      "audio": "AdLib / Mega Drive",
+      "storage": "40 / 100 / 130 MB IDE",
+      "floppy": "3.5″ · 1.44 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.amstrad-megaplus.technical.offers"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.rom_layout",
+            "value_key": "product.amstrad-megaplus.technical.firmware",
+            "url": "https://github.com/mamedev/mame/blob/mame0278/src/mame/pc/at.cpp"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-megaplus.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-megaplus.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-megaplus.technical.april",
+            "url": "https://banjosmods.wordpress.com/2021/03/18/amstrad-mega-plus-pc-print-advert/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-megaplus.technical.october",
+            "url": "https://archive.org/details/amstrad-action-097/page/n46/mode/1up"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-megaplus.technical.owner",
+            "url": "https://forums.bannister.org/ubbthreads.php?ubb=showflat&Number=35634#Post35634"
+          }
+        ]
+      }
+    ]
+  }
+}

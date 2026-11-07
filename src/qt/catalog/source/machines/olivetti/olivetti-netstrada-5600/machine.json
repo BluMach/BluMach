@@ -1,0 +1,75 @@
+{
+  "order": 10250,
+  "machine": {
+    "id": "olivetti-netstrada-5600",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti NetStrada 5600",
+    "summary_key": "product.olivetti-netstrada-5600.summary",
+    "history_key": "product.olivetti-netstrada-5600.history",
+    "warning_key": "product.olivetti-netstrada-5600.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium III · 733 MHz / 2 × Intel Xeon"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-netstrada-5600.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-netstrada-5600.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-netstrada-5600.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-5600.oulx-inventory",
+            "url": "https://comune.oulx.to.it/amm_trasp/bilancio-preventivo-e-consuntivo/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-5600.inpdap-inventory",
+            "url": "https://www.inps.it/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-5600.ocpr-audit",
+            "url": "https://iapconsulta.ocpr.gov.pr/OpenDoc.aspx?id=abc6022d-0d66-4e11-97df-2a956653e054&nombre=TI-07-01"
+          }
+        ]
+      }
+    ],
+    "period": "2000"
+  }
+}

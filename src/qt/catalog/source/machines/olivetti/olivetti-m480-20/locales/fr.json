@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m480-20.summary": "Le M480 à bus AT avec i486 à 33 MHz et options IDE ou SCSI.",
+  "product.olivetti-m480-20.history": "Le guide Olivetti documente M480-20 (le M480 à bus AT avec i486 à 33 MHz et options IDE ou SCSI).",
+  "product.olivetti-m480-20.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m480-20.architecture": "La carte détermine la combinaison de périphériques à vérifier. Le guide indique BA371 · 82C453 · IDE / SCSI.",
+  "product.olivetti-m480-20.firmware": "La révision du BIOS aide à identifier la configuration de maintenance. Le guide indique 1.06 / 2.08 (BA371).",
+  "product.olivetti-m480-20.verified": "L’identité a été vérifiée dans la documentation Olivetti. La fiche reste en cours de recherche.",
+  "product.olivetti-m480-20.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m480-20.guide": "Olivetti, Personal Computer – Pocket Service Guide, 34-1."
+}

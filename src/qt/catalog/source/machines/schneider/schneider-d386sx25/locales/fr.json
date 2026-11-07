@@ -1,0 +1,9 @@
+{
+  "product.schneider-d386sx25.summary": "Le modèle de bureau d’entrée de gamme de 1992.",
+  "product.schneider-d386sx25.history": "Le tarif allemand de décembre 1992 proposait cet ordinateur à 1 315 DM nets sans disque dur. MS-DOS 5.0 et Windows 3.1 étaient inclus.",
+  "product.schneider-d386sx25.technical.options": "Le tarif proposait aussi une configuration avec un disque dur de 42 Mo à 1 622 DM nets.",
+  "product.schneider-d386sx25.technical.slots": "Les connecteurs accueillent les cartes d’extension. La fiche commerciale indique 7 connecteurs 16 bits et deux lecteurs de disquettes, de 1,44 Mo et 1,2 Mo.",
+  "product.schneider-d386sx25.technical.verified": "L’offre est documentée. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
+  "product.schneider-d386sx25.technical.limitations": "Il reste à identifier la carte, à préserver un BIOS attribué et à trouver une image aux droits de publication clairs.",
+  "product.schneider-d386sx25.technical.price_list": "CC SELLER / BC, Schneider Computer, 12/1992, pp. 1–3"
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-554-s.summary": "El M4 PCI con i486DX2 a 50 MHz en chasis Slim Tin Box.",
+  "product.olivetti-m4-554-s.history": "Olivetti incluyó este modelo en la familia profesional M4 Modulo. Los M4-5x4 compartían plataforma con los PCS D4/100 y podían llevar dos tamaños de caja.",
+  "product.olivetti-m4-554-s.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m4-554-s.architecture": "La red puede ir integrada. Las placas BA2197 y BA2205 llevan el controlador Ethernet AM79C970. El M4-554 carece de caché L2.",
+  "product.olivetti-m4-554-s.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m4-554-s.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m4-554-s.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 13",
+  "product.olivetti-m4-554-s.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-554-s.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 1.25 · Update 1."
+}

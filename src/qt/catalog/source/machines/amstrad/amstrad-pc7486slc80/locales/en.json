@@ -1,0 +1,13 @@
+{
+  "product.amstrad-pc7486slc80.summary": "The variant preserved with Quadtel WD7600 firmware and Paradise video, distinct from the documented SLC33.",
+  "product.amstrad-pc7486slc80.history": "The PC7486SLC80 designation is attested by a specimen owned by Dioxaz, who preserves its firmware and reports recovering French Counterpoint from that computer. This is owner testimony, not a contemporary sales catalogue. It retains its own PC7000 card because its firmware differs from the preserved SLC33. Its sales date, price, specific audience, OEM manufacturer and exact commercial relationship to SLC33 remain undocumented in detail.",
+  "product.amstrad-pc7486slc80.technical.market": "The sales configuration remains unresolved. Dioxaz’s testimony distinguishes this specimen from SLC33; the “80” suffix is not interpreted as a CPU clock or disk capacity without a confirming source.",
+  "product.amstrad-pc7486slc80.technical.hardware": "ROM strings guide identification but do not replace a board diagram. The combined file contains “QUADTEL WD7600 486SLC BIOS VERSION V3.07.01” at 0x15B7C and “PARADISE103226-414” from 0x2D. These are file offsets.",
+  "product.amstrad-pc7486slc80.technical.firmware": "Two physical reads exactly reproduce the combined file. LO supplies the even bytes and HI the odd bytes of 128 KiB. Dioxaz corrected the chip identification from AM27C512 to ST M27C512; the older 64 KiB file matches neither half nor lane.",
+  "product.amstrad-pc7486slc80.technical.verified": "Hashes and interleaving were verified without executing firmware. BluMach 88f74ba3 has no dedicated PC7486SLC80 registration; preserving the dump does not establish a successful boot.",
+  "product.amstrad-pc7486slc80.technical.limitations": "Interchangeability with MegaPC or SLC33 is unproven. Keropi reported on VOGONS that this BIOS did not boot on his 386SX board. Physical mapping, verified configuration, malware scanning and dedicated tests remain pending; rights are still unknown.",
+  "product.amstrad-pc7486slc80.warning": "Historical card under research; booting is not validated in BluMach.",
+  "product.amstrad-pc7486slc80.technical.owner": "Dioxaz · Gamopat · 2023-03-22",
+  "product.amstrad-pc7486slc80.technical.forum": "Dioxaz / keropi · VOGONS, Amstrad Mega PC · replies 67, 71 · 2020-08-26–30",
+  "product.amstrad-pc7486slc80.technical.code": "BluMach 88f74ba3 · machine_table.c, m_at_286.c, m_at_386sx.c, vid_cl54xx.c"
+}

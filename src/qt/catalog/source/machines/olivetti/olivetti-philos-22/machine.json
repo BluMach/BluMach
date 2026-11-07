@@ -1,0 +1,80 @@
+{
+  "order": 10081,
+  "machine": {
+    "id": "olivetti-philos-22",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Philos 22",
+    "summary_key": "product.olivetti-philos-22.summary",
+    "history_key": "product.olivetti-philos-22.history",
+    "warning_key": "product.olivetti-philos-22.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "80486 · 25 MHz",
+      "memory": "4 MB",
+      "hard_disk": "85 MB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-philos-22.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-philos-22.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-philos-22.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-22.index",
+            "url": "https://olivrea.de/prospekte-laptop-portable/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-22.giga",
+            "url": "https://www.stone-oakvalley-studios.com/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-22.canada",
+            "url": "https://www.computerhistory.org/collections/"
+          }
+        ]
+      }
+    ],
+    "period": "1994"
+  }
+}

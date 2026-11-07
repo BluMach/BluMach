@@ -1,0 +1,10 @@
+{
+  "product.schneider-euroat-ii.summary": "The 286 in the 1991 Euro Line.",
+  "product.schneider-euroat-ii.history": "The December 1991 German price list offered the 16 MHz Euro AT II with a 42 MB disk for DM 1,732 net, including MS-DOS 5.0 and Windows 3.0. Schneider placed it in the Euro Line alongside the EuroSX and Euro486.",
+  "product.schneider-euroat-ii.warning": "Historical sheet under research.",
+  "product.schneider-euroat-ii.technical.configuration": "The service manual distinguishes two boards. It identifies 53 195 00 for 16 MHz and 53 457 00 for 20 MHz. The parts list specifies a 40 MB disk and the sales list specifies 42 MB.",
+  "product.schneider-euroat-ii.technical.verified": "The offer is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-euroat-ii.technical.limitations": "The board still needs to be checked against a specimen and an attributed BIOS preserved. An image with clear publication rights remains pending.",
+  "product.schneider-euroat-ii.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–3",
+  "product.schneider-euroat-ii.technical.source_2": "Schneider, Service Manual Euro AT II / Euro 486 SX, PDF pp. 3–6"
+}

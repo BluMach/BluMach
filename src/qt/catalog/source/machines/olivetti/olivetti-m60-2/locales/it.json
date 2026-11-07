@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m60-2.summary": "La versione a 2 CPU dell’M60 della Linea 1.",
+  "product.olivetti-m60-2.history": "L’Archivio Storico colloca l’M60 nel 1984 come sistema di fascia alta per organizzazioni con più postazioni. Il museo di Prato include l’M60 nella cronologia del 1982.",
+  "product.olivetti-m60-2.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m60-2.architecture": "CPU e cache occupavano schede separate. Il manuale indica UC040/UC040A, cache UC041 e 2 CPU in questa versione.",
+  "product.olivetti-m60-2.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m60-2.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m60-2.archive": "Associazione Archivio Storico Olivetti, L1: una nuova linea di sistemi informatici.",
+  "product.olivetti-m60-2.service": "Olivetti, M60–M60/2–M60/3 Service Manual, §§1, 2.6, 4.2 and 6.1.",
+  "product.olivetti-m60-2.museum": "Museo del Calcolatore di Prato, Olivetti L1 M40."
+}

@@ -1,0 +1,9 @@
+{
+  "product.schneider-48625.summary": "Il 486 a 25 MHz pubblicizzato con grafica CEG nel 1990.",
+  "product.schneider-48625.history": "Nel dicembre 1990 il listino tedesco proponeva lo Schneider 486 da 200 MB a 17.850 DM netti con monitor monocromatico o a 18.376 DM con monitor a colori. Nel giugno 1991 indicava un 486/25 a partire da 11.990 DM netti senza disco.",
+  "product.schneider-48625.technical.configuration": "I listini descrivono due offerte grafiche. Dicembre 1990 indica CEG a 1024 × 768. Giugno 1991 indica VGA con 512 KB e un disco opzionale da 200 MB. Le schede e i telai delle due offerte restano da confrontare.",
+  "product.schneider-48625.technical.verified": "L’offerta è documentata. Il modello dedicato e la convalida dell’avvio in BluMach restano da realizzare.",
+  "product.schneider-48625.technical.limitations": "Restano da identificare la scheda, conservare un BIOS attribuibile e trovare un’immagine con diritti di pubblicazione chiari.",
+  "product.schneider-48625.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1990, p. 5",
+  "product.schneider-48625.technical.source_2": "CC SELLER / BC, Schneider Computer, 06/1991, p. 4"
+}

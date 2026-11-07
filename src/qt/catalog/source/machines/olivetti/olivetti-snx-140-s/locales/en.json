@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-140-s.summary": "The 1996 entry Systema for small networks with one Pentium.",
+  "product.olivetti-snx-140-s.history": "In March 1996, Computerwoche reported the introduction of the SNX 140/S and 160/S as file and print servers for small and medium-sized businesses.",
+  "product.olivetti-snx-140-s.warning": "Historical sheet under research.",
+  "product.olivetti-snx-140-s.architecture": "The disk controller is on the motherboard. The AIC-7850 Dagger connects Narrow SCSI to PCI and the board carries 256 KB of L2 cache.",
+  "product.olivetti-snx-140-s.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-snx-140-s.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-snx-140-s.service-guide-5": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 5",
+  "product.olivetti-snx-140-s.computerwoche-1996": "Computerwoche, Olivetti baut Modulo-, Suprema- und Systema-PC-Serien aus, 15 March 1996"
+}

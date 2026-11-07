@@ -1,0 +1,73 @@
+{
+  "order": 10239,
+  "machine": {
+    "id": "olivetti-lsx-5025e",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti LSX 5025E",
+    "summary_key": "product.olivetti-lsx-5025e.summary",
+    "history_key": "product.olivetti-lsx-5025e.history",
+    "warning_key": "product.olivetti-lsx-5025e.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel i486DX2 · 66 MHz",
+      "memory": "≤ 256 MB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-lsx-5025e.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-lsx-5025e.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-lsx-5025e.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-lsx-5025e.veneto-inventory",
+            "url": "https://www.istruzionerovigo.it/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-lsx-5025e.th99-board",
+            "url": "https://www.elhvb.com/mobokive/th99/m/M-O/33348.htm"
+          }
+        ]
+      }
+    ]
+  }
+}

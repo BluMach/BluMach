@@ -1,0 +1,29 @@
+{
+  "order": 142,
+  "family": {
+    "id": "amstrad-anb",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "ANB",
+    "description_key": "family.amstrad-anb.description",
+    "history_key": "family.amstrad-anb.history",
+    "history_references": [
+      {
+        "title": "Newsbytes · Steve Gold and Geof Wheelwright · Amstrad Unleashes Three Strike Launch · 13 March 1991",
+        "publisher": "Newsbytes",
+        "url": "https://www.retroisle.com/amstrad/pcs/Articles/newsbyte_mar1991.php"
+      },
+      {
+        "title": "Computerwoche · Neue tragbare PCs mit 386SX-Prozessor · 27 September 1991",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2734074/amstrad-sorgt-beim-laptop-mit-tft-technik-fuer-klare-bilder.html"
+      },
+      {
+        "title": "Amstrad · ANB 386 SX-20 and SX-40 advertisement · PC World España, 1992 · Universidad de Zaragoza exhibition · PDF p. 15",
+        "publisher": "Amstrad",
+        "url": "https://biblioteca.unizar.es/biblioteca-facultad-de-empresa-y-gestion-publica/fegpexposiciones"
+      }
+    ]
+  }
+}

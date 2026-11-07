@@ -1,0 +1,91 @@
+{
+  "order": 10044,
+  "machine": {
+    "id": "olivetti-laptop-d33",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Laptop D33",
+    "summary_key": "product.olivetti-laptop-d33.summary",
+    "history_key": "product.olivetti-laptop-d33.history",
+    "warning_key": "product.olivetti-laptop-d33.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80386DX · 33 MHz",
+      "memory": "4–20 MB",
+      "hard_disk": "40 / 60 MB",
+      "floppy": "3.5″ · 1.44 MB",
+      "video": "VGA · 640 × 480",
+      "dimensions": "386 × 300 × 61 mm"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-laptop-d33.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-laptop-d33.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-laptop-d33.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-laptop-d33.catalogue",
+            "url": "https://www.ardent-tool.com/Olivetti/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-laptop-d33.archive",
+            "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-laptop-d33.museum",
+            "url": "https://www.computinghistory.org.uk/det/43954/Olivetti-D33/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-laptop-d33.exhibit",
+            "url": "https://www.classic-computing.org/classic-computing/"
+          }
+        ]
+      }
+    ],
+    "period": "1991"
+  }
+}

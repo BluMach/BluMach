@@ -1,0 +1,24 @@
+{
+  "order": 125,
+  "family": {
+    "id": "amstrad-pc6000",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PC6000",
+    "description_key": "family.amstrad-pc6000.description",
+    "history_key": "family.amstrad-pc6000.history",
+    "history_references": [
+      {
+        "title": "Amstrad : Quel avenir ?, Tilt 103, June 1992, p. 42",
+        "publisher": "Tilt; preserved by Amigaland",
+        "url": "https://amigaland.com/"
+      },
+      {
+        "title": "Amstrad joue la carte Intel, SVM 97, September 1992, pp. 48–49",
+        "publisher": "Martine Guenzet, Science & Vie Micro; preserved by Internet Archive",
+        "url": "https://archive.org/details/science-et-vie-micro-097"
+      }
+    ]
+  }
+}

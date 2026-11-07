@@ -1,0 +1,88 @@
+{
+  "order": 650,
+  "machine": {
+    "id": "schneider-euroat-ii",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-at-desktops",
+    "name": "Schneider Euro AT II",
+    "summary_key": "product.schneider-euroat-ii.summary",
+    "history_key": "product.schneider-euroat-ii.history",
+    "warning_key": "product.schneider-euroat-ii.warning",
+    "status": "research",
+    "period": "1991",
+    "aliases": [],
+    "tags": [
+      "Schneider"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80286 · 16 / 20 MHz",
+      "memory": "1 MB",
+      "video": "VGA · 256 KB",
+      "floppy": "3.5″ · 1.44 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-euroat-ii.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-euroat-ii.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-euroat-ii.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-euroat-ii.technical.source_1",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_91.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-euroat-ii.technical.source_2",
+            "url": "https://archive.org/details/manual_EUROATII_SM_SCHNEIDER_EN"
+          }
+        ]
+      }
+    ]
+  }
+}

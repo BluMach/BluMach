@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m700-10.summary": "Olivetti portò la sua piattaforma workstation MIPS sul mercato dei PC professionali.",
+  "product.olivetti-m700-10.history": "Olivetti presentò l’M700-10 a Parigi nell’aprile 1992 come personal di fascia alta derivato dalla sua piattaforma PWS 4000 di Cupertino. MCmicrocomputer indicò un prezzo di listino di poco superiore a 14.000 dollari per 16 MB di RAM, un disco da 200 MB e un monitor da 17 pollici.",
+  "product.olivetti-m700-10.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m700-10.architecture": "Il bus di espansione seguiva uno standard dei PC di fascia alta. Il MIPS R4000 a 64 bit era abbinato al bus EISA e a un massimo di 64 MB di memoria.",
+  "product.olivetti-m700-10.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m700-10.limitations": "L’architettura MIPS richiede un modello di processore proprio. Restano da verificare la scheda, il firmware e l’avvio e da trovare una fotografia con diritti chiari.",
+  "product.olivetti-m700-10.mc-micro": "Manlio Cammarata, MCmicrocomputer 118, May 1992, pp. 112–116"
+}

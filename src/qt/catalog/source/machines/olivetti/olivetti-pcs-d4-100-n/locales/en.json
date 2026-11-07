@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs-d4-100-n.summary": "The DX4 PCS in this platform’s Slim Tin Box case.",
+  "product.olivetti-pcs-d4-100-n.history": "Olivetti documented the PCS D4/100 as the PCS counterpart on the M4-5x4 platform. This configuration used the Slim Tin Box case.",
+  "product.olivetti-pcs-d4-100-n.warning": "Historical sheet under research.",
+  "product.olivetti-pcs-d4-100-n.architecture": "The cache helps identify the PCS configuration. The guide lists 128 KB of L2 cache and onboard Trident TGUI9440 AGi graphics.",
+  "product.olivetti-pcs-d4-100-n.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-pcs-d4-100-n.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-pcs-d4-100-n.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 13",
+  "product.olivetti-pcs-d4-100-n.firmware": "The revision helps identify the service BIOS. The guide lists 1.25 · Update 1."
+}

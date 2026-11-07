@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-p100-s.summary": "El M4-P de 100 MHz en chasis Slim Tin Box de la plataforma con memoria EDO.",
+  "product.olivetti-m4-p100-s.history": "Olivetti documentó los M4-Pxx de su gama profesional sobre una plataforma compartida con los PCS 51xx y 61xx.",
+  "product.olivetti-m4-p100-s.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m4-p100-s.architecture": "La caja determina cuántas tarjetas se pueden montar. El riser de la Slim Tin Box tiene 1 ISA, 1 PCI y una ranura compartida.",
+  "product.olivetti-m4-p100-s.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m4-p100-s.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m4-p100-s.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-m4-p100-s.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-p100-s.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 1.21."
+}

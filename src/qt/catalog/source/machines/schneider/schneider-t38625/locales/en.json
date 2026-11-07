@@ -1,0 +1,9 @@
+{
+  "product.schneider-t38625.summary": "The 386 tower in the December 1991 German range.",
+  "product.schneider-t38625.history": "In June 1991, the T386/25 already appeared in the German range with diskless, 68 MB, 159 MB and 334 MB options. Schneider placed the T386/25 in its tower range alongside the T486/33. The December 1991 German price list offered the machine with a 334 MB disk for DM 11,990 net.",
+  "product.schneider-t38625.warning": "Historical sheet under research.",
+  "product.schneider-t38625.technical.configuration": "The 334 MB disk identifies the advertised configuration. The table also lists 4 MB of RAM and a 1.44 MB floppy drive.",
+  "product.schneider-t38625.technical.verified": "The offer is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-t38625.technical.limitations": "The board still needs to be checked against a specimen and an attributed BIOS preserved. An image with clear publication rights remains pending.",
+  "product.schneider-t38625.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–3"
+}

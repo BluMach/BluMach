@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs44-c.summary": "The PCS 44/C was the 486SX model in the MicroTower PCS pair.",
+  "product.olivetti-pcs44-c.history": "Olivetti documented the PCS 44/C alongside the PCS 46/C on the M4-4x service platform. The University of Granada holds a specimen it dates to after 1993.",
+  "product.olivetti-pcs44-c.warning": "Historical sheet under research.",
+  "product.olivetti-pcs44-c.architecture": "The board integrated video and a game port. The guide identifies BA2033 and BA2036, CL-GD5428 and /S BIOS revisions for a single serial port.",
+  "product.olivetti-pcs44-c.verified": "BluMach’s pcs44c identifier loads V032004G.25 at E0000h and selects OTI-077. Its correspondence with the documented boards remains pending.",
+  "product.olivetti-pcs44-c.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-pcs44-c.guide": "Olivetti, Pocket Service Guide, vol. II, §2.",
+  "product.olivetti-pcs44-c.museum": "Universidad de Granada, Ordenador Olivetti PCS 44/C, CPS00003.00.00.",
+  "product.olivetti-pcs44-c.code": "BluMach 88f74ba3, machine_at_pcs44c_init."
+}

@@ -1,0 +1,24 @@
+{
+  "order": 140,
+  "family": {
+    "id": "schneider-euro-xt",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "EuroPC / EuroPC II / EuroXT",
+    "description_key": "family.schneider-euro-xt.description",
+    "history_key": "family.schneider-euro-xt.history",
+    "history_references": [
+      {
+        "title": "Service Manual Euro PC / Euro PC II / Euro XT",
+        "publisher": "Schneider · Old Crap",
+        "url": "https://oldcrap.org/document-category/schneider/euro-pc/"
+      },
+      {
+        "title": "Test Euro PC: Klein, kompakt, komplett (08/1988)",
+        "publisher": "Happy Computer · STCArchiv",
+        "url": "https://stcarchiv.de/happy-computer/1988/08/euro-pc"
+      }
+    ]
+  }
+}

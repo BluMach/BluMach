@@ -1,0 +1,29 @@
+{
+  "order": 118,
+  "family": {
+    "id": "amstrad-series-4",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "Series 4",
+    "description_key": "family.amstrad-series-4.description",
+    "history_key": "family.amstrad-series-4.history",
+    "history_references": [
+      {
+        "title": "Amstrad PC4386SX brochure, March 1991, pp. 2, 4–5",
+        "publisher": "Amstrad, preserved by RetroTechCollection",
+        "url": "https://retrotechwiki.com/Amstrad_PC4386SX"
+      },
+      {
+        "title": "CEBIT: Amstrad unleashes three strike launch, 13 March 1991",
+        "publisher": "Newsbytes (Steve Gold and Geof Wheelwright), preserved by Retro Isle",
+        "url": "https://www.retroisle.com/amstrad/pcs/Articles/newsbyte_mar1991.php"
+      },
+      {
+        "title": "Amstrad bringt Laptop mit TFT-Display, 22 March 1991",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2837011/amstrad-bringt-laptop-mit-tft-display.html"
+      }
+    ]
+  }
+}

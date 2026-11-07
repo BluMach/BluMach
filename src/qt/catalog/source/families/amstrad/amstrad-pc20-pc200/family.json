@@ -1,0 +1,24 @@
+{
+  "order": 132,
+  "family": {
+    "id": "amstrad-pc20-pc200",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PC20 / PC200",
+    "description_key": "family.amstrad-pc20-pc200.description",
+    "history_key": "family.amstrad-pc20-pc200.history",
+    "history_references": [
+      {
+        "title": "Australian Personal Computer · Steve Withers · Amstrad PC20 · issue 100",
+        "publisher": "Australian Personal Computer",
+        "url": "https://messui.polygonal-moogle.com/comp/index.html"
+      },
+      {
+        "title": "Your Sinclair · Phil South · Sinclair PC200 · November 1988",
+        "publisher": "Your Sinclair",
+        "url": "https://rk.nvg.ntnu.no/sinclair/computers/pc200/pc200_ys1188.htm"
+      }
+    ]
+  }
+}

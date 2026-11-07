@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-p100.summary": "The 100 MHz M4-P in the Tin Box case of the EDO memory platform.",
+  "product.olivetti-m4-p100.history": "Olivetti documented the professional M4-Pxx range on a platform shared with the PCS 51xx and 61xx.",
+  "product.olivetti-m4-p100.warning": "Historical sheet under research.",
+  "product.olivetti-m4-p100.architecture": "The case determines how many cards can be installed. The Tin Box riser has 2 ISA, 2 PCI and one shared slot.",
+  "product.olivetti-m4-p100.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m4-p100.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m4-p100.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-m4-p100.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-p100.firmware": "The revision helps identify the service BIOS. The guide lists 1.21."
+}

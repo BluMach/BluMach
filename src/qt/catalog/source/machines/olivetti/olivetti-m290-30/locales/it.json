@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m290-30.summary": "Il 286 di ingresso offerto accanto agli M300 con 386SX.",
+  "product.olivetti-m290-30.history": "Nel catalogo professionale del settembre 1991, Olivetti presentava M290-30 (il 286 di ingresso offerto accanto agli M300 con 386SX).",
+  "product.olivetti-m290-30.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m290-30.architecture": "La scheda determina la combinazione di periferiche da verificare. La guida indica BA278 · WD90C11 · AT.",
+  "product.olivetti-m290-30.firmware": "La revisione del BIOS aiuta a identificare la configurazione di servizio. La guida indica 2.01 · 27C010.",
+  "product.olivetti-m290-30.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-m290-30.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m290-30.guide": "Olivetti, Personal Computer – Pocket Service Guide, 22-1.",
+  "product.olivetti-m290-30.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

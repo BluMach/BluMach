@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-3000.summary": "El NetStrada con caja Copper adaptable a bastidor mediante un kit.",
+  "product.olivetti-netstrada-3000.history": "Olivetti documentó el NetStrada 3000 con plataforma Vulcan y un kit para instalar la misma caja en un bastidor de 19 pulgadas.",
+  "product.olivetti-netstrada-3000.warning": "Ficha histórica en investigación.",
+  "product.olivetti-netstrada-3000.architecture": "El procesador y la ampliación ocupan una sola placa. La BA2315 usa Intel 440FX, Socket 8, tres ranuras PCI y dos ISA.",
+  "product.olivetti-netstrada-3000.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-netstrada-3000.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-netstrada-3000.service-guide-9": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 9",
+  "product.olivetti-netstrada-3000.solaris-hcl": "Sun Microsystems, Hardware Compatibility List for Solaris 2.6 Intel Platform Edition"
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-netstrada-5600.summary": "El NetStrada de ICS Olivetti del que se conservan inventarios de configuraciones Pentium III y Xeon.",
+  "product.olivetti-netstrada-5600.history": "El municipio italiano de Oulx registra un NetStrada 5600 de ICS Olivetti con fecha de octubre de 2000. Una auditoría de 2006 documenta doce unidades en la red de un organismo público de Puerto Rico.",
+  "product.olivetti-netstrada-5600.warning": "Ficha histórica en investigación.",
+  "product.olivetti-netstrada-5600.architecture": "Los inventarios registran configuraciones distintas. Oulx anota un Pentium III de 733 MHz adicional y el INPDAP identifica una unidad con dos Xeon y 2 GB de RAM.",
+  "product.olivetti-netstrada-5600.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-netstrada-5600.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-netstrada-5600.oulx-inventory": "Comune di Oulx, Rendiconto 2017, equipment inventory nos. 185 and 1576",
+  "product.olivetti-netstrada-5600.inpdap-inventory": "INPDAP, technological inventory, tender 597 annex 6, p. 67",
+  "product.olivetti-netstrada-5600.ocpr-audit": "Oficina del Contralor de Puerto Rico, TI-07-01, 31 August 2006, p. 5"
+}

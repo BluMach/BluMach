@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-p133-s.summary": "L’M4-P a 133 MHz nel telaio Slim Tin Box della piattaforma con memoria EDO.",
+  "product.olivetti-m4-p133-s.history": "Olivetti documentò la gamma professionale M4-Pxx su una piattaforma condivisa con i PCS 51xx e 61xx.",
+  "product.olivetti-m4-p133-s.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m4-p133-s.architecture": "Il telaio determina quante schede si possono installare. Il riser del Slim Tin Box ha 1 ISA, 1 PCI e uno slot condiviso.",
+  "product.olivetti-m4-p133-s.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m4-p133-s.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m4-p133-s.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-m4-p133-s.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-p133-s.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.21."
+}

@@ -1,0 +1,17 @@
+{
+  "product.schneider-europc2.summary": "It retains EuroPC's integrated keyboard format but uses a different motherboard and 768 KB of memory.",
+  "product.schneider-europc2.history": "EuroPC II continued Schneider's compact home-computer approach in the late 1980s. Computer, keyboard and floppy drive remained in one case, with a revised motherboard and more memory than EuroPC. MCbx's documented unit dates to 1989; the page gives 1988 as the introduction year, still uncorroborated by contemporary reporting. The manufacturer's manual distinguishes it from both the original EuroPC and the EuroXT with its separate keyboard. No launch price has been confirmed.",
+  "product.schneider-europc2.technical.configurations": "Identification must distinguish introduction from the individual unit. MCbx separates a 1988 introduction from a 1989 unit; MAME leaves the year unspecified. The sheet retains that uncertainty.",
+  "product.schneider-europc2.technical.memory": "The full 768 KB is not conventional DOS memory. The documented configuration separates 640 KB from an additional 128 KB; it must not be described as 768 KB conventional memory.",
+  "product.schneider-europc2.technical.board": "A similar exterior does not mean the same motherboard. The manual, pp. 37 and 60, identifies board 50 841 00 and FE2010A, BIG JIM TC110G008 and PVC4 chips; one short ISA slot remains.",
+  "product.schneider-europc2.technical.detail": "Video retains the home format's options. MCbx's unit provides CGA/Hercules, a 720 KB floppy drive and an XTA connection for an external hard disk.",
+  "product.schneider-europc2.technical.firmware": "A BIOS attributed to this model is available. Revision 3.01 occupies 32 KiB and matches the hash identified by MAME; this does not establish interchangeability with the original EuroPC.",
+  "product.schneider-europc2.technical.verified": "Research has checked the firmware's identity. No dedicated EuroPC II entry was found in BluMach 88f74ba3; the EuroPC entry does not validate this motherboard revision.",
+  "product.schneider-europc2.technical.limitations": "A verified BluMach model is still missing. Booting, memory mapping and peripherals have not been validated; a publishable photograph and creation profile remain pending.",
+  "product.schneider-europc2.technical.source_primary": "MCbx, Schneider Euro PC II: restored unit, configuration and distinction between introduction year and the unit's year.",
+  "product.schneider-europc2.technical.source_secondary": "Schneider manual, pp. 35–37 and 60–61: EuroPC II identification, motherboard and components.",
+  "product.schneider-europc2.warning": "Historical sheet under research; booting in BluMach has not been validated.",
+  "product.schneider-europc2.technical.manual": "Schneider, Service Manual Euro PC / Euro PC II / Euro XT: original preserved; separate parts and boards for each model.",
+  "product.schneider-europc2.technical.code": "BluMach 88f74ba3: preserved inspection of machine_table.c and m_europc.c; this is not a boot test.",
+  "product.schneider-europc2.technical.mame": "MAME, europc.cpp: ROM revision and hash identification; all three models are marked not working in the inspected snapshot."
+}

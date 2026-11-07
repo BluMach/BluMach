@@ -1,0 +1,24 @@
+{
+  "order": 115,
+  "family": {
+    "id": "amstrad-ppc",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PPC",
+    "description_key": "family.amstrad-ppc.description",
+    "history_key": "family.amstrad-ppc.history",
+    "history_references": [
+      {
+        "title": "PPC512/640 Service Manual, pp. 2, 30",
+        "publisher": "Amstrad, preserved by Old Crap",
+        "url": "https://oldcrap.org/2019/09/19/amstrad-ppc-512/"
+      },
+      {
+        "title": "Amstrad PPC advertisement, Personal Computer World, February 1988",
+        "publisher": "Amstrad, preserved by nosher.net",
+        "url": "https://nosher.net/archives/computers/amstrad_ppc512_percw_feb88"
+      }
+    ]
+  }
+}

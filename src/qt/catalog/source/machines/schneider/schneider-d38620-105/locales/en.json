@@ -1,0 +1,13 @@
+{
+  "product.schneider-d38620-105.summary": "The D386/20 configuration with a 105 MB disk.",
+  "product.schneider-d38620-105.history": "In December 1991, the German list placed this 105 MB D386/20 in Schneider’s Desktop range at DM 4,590 net. The configuration also appears in the Portuguese IFS advertisement of May 1992.",
+  "product.schneider-d38620-105.technical.configuration": "The manual identifies the 105 MB disk as part 52 820 00. The German table lists 4 MB of RAM and a 1.44 MB floppy drive for this configuration.",
+  "product.schneider-d38620-105.technical.board": "The board is shared with the 20 MHz EuroSX. Schneider’s manual identifies Singleboard I SX 53 456 00, with VLSI VL82C320/331, BIGJIM at U33 and ATI 28800 at U45.",
+  "product.schneider-d38620-105.technical.firmware": "Two chips hold the boot ROM. The schematic identifies LOW at U9 and HIGH at U10. Kit 65 467 00 is also listed for the EuroSX. The factory contents still need verification through dumps.",
+  "product.schneider-d38620-105.warning": "Historical sheet under research.",
+  "product.schneider-d38620-105.technical.verified": "The configuration is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-d38620-105.technical.limitations": "Attributed dumps, board validation and an image with clear publication rights remain pending.",
+  "product.schneider-d38620-105.technical.manual": "Schneider, Service Manual D 386/20 / D 486/20, PDF pp. 5, 14, 34",
+  "product.schneider-d38620-105.technical.prices": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–2",
+  "product.schneider-d38620-105.technical.press": "IFS, Expresso, 23-05-1992, p. A3"
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m480-40.summary": "El M480 Micro Channel con tarjeta de CPU UC117 y arranque IML.",
+  "product.olivetti-m480-40.history": "La guía de servicio de Olivetti documenta M480-40 (el M480 Micro Channel con tarjeta de CPU UC117 y arranque IML).",
+  "product.olivetti-m480-40.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m480-40.architecture": "La placa determina la combinación de periféricos que hay que contrastar. La guía identifica BA307 · UC117 · GO589 / GO2002 · SCSI. El arranque IML necesita una segunda parte del código en el primer disco duro.",
+  "product.olivetti-m480-40.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra EPROM + IML.",
+  "product.olivetti-m480-40.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m480-40.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m480-40.guide": "Olivetti, Personal Computer – Pocket Service Guide, 30-1."
+}

@@ -1,0 +1,70 @@
+{
+  "order": 10246,
+  "machine": {
+    "id": "olivetti-netstrada-2600",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti NetStrada 2600",
+    "summary_key": "product.olivetti-netstrada-2600.summary",
+    "history_key": "product.olivetti-netstrada-2600.history",
+    "warning_key": "product.olivetti-netstrada-2600.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "storage": "SCSI / IDE RAID"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-netstrada-2600.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-netstrada-2600.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-netstrada-2600.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-2600.ics-announcement",
+            "url": "https://www.marketpress.info/archivio_notiziari/anno%202001/02%20febbraio%20news%202001/27%20febbraio%20MAn%202001/pag%2002%20MEnews.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-2600.campania-burc",
+            "url": "https://sito.regione.campania.it/burc/pdf02/burc24or_02/indexburc24or_02.htm"
+          }
+        ]
+      }
+    ],
+    "period": "2001"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "order": 790,
+  "machine": {
+    "id": "schneider-portable-sx",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-portable-sx",
+    "name": "Schneider Portable SX",
+    "summary_key": "product.schneider-portable-sx.summary",
+    "history_key": "product.schneider-portable-sx.history",
+    "status": "research",
+    "period": "1990–1991",
+    "aliases": [
+      "Schneider SX-Portable"
+    ],
+    "tags": [
+      "Schneider"
+    ],
+    "facets": {
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ],
+      "display_technology": [
+        "plasma"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386SX · 16 MHz",
+      "memory": "1 MB",
+      "video": "VGA · 640 × 480",
+      "floppy": "3.5″ · 1.44 MB",
+      "storage": "42 / 44 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.schneider-portable-sx.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-portable-sx.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-portable-sx.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-portable-sx.technical.source_1",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_90.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-portable-sx.technical.source_2",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-6_91.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-portable-sx.technical.source_3",
+            "url": "https://archive.org/details/MC_microcomputer-101"
+          }
+        ]
+      }
+    ]
+  }
+}

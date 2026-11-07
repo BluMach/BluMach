@@ -1,0 +1,157 @@
+{
+  "order": 203,
+  "machine": {
+    "id": "olivetti-m19",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M19",
+    "summary_key": "product.olivetti-m19.summary",
+    "history_key": "product.olivetti-m19.history",
+    "warning_key": "product.olivetti-m19.warning",
+    "status": "research",
+    "period": "1986",
+    "aliases": [
+      "M19"
+    ],
+    "tags": [
+      "8088",
+      "Plantronics",
+      "SCSI",
+      "DSK 1921"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-m19-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Jason Quinn",
+      "license": "public-domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivetti_M19_front_view.jpg"
+    },
+    "hardware": {
+      "cpu": "8088 · 4.77 / 8 MHz",
+      "memory": "256–640 KB",
+      "video": "CGA · Plantronics · 640 × 400",
+      "floppy": "1–2 × 5.25″ · 360 KB",
+      "hard_disk": "SCSI · 10 / 20 MB",
+      "interfaces": "RS-232C · Centronics",
+      "expansion": "EXB 1940 / EXB 1941"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m19.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m19.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.olivetti-m19.technical.expansion"
+          },
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.olivetti-m19.technical.power"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m19.technical.video"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.olivetti-m19.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m19.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m19.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.olivetti-m19.technical.source_it",
+            "url": "https://www.sba.unipi.it/it/olivetti-m19"
+          },
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.olivetti-m19.technical.source_de",
+            "url": "https://olivrea.de/olivetti-m19/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_press",
+            "url": "https://www.worldradiohistory.com/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_acorn",
+            "url": "https://www.4corn.co.uk/archive/docs/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_code",
+            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_xt_olivetti.c"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_fork",
+            "url": "https://github.com/86Box/86Box/blob/6a43d79734cac1949437ecec1d25245a9b2e8325/src/machine/m_xt_olivetti.c"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_photo",
+            "url": "https://commons.wikimedia.org/wiki/File:Olivetti_M19_front_view.jpg"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-200-rs.summary": "O Systema em torre com capacidade para 2 processadores.",
+  "product.olivetti-snx-200-rs.history": "O SNX 200 fazia parte da gama Systema antes do anúncio do 460 em dezembro de 1995. O guia identifica a variante RS em torre.",
+  "product.olivetti-snx-200-rs.warning": "Ficha histórica em investigação.",
+  "product.olivetti-snx-200-rs.architecture": "Podiam acrescentar-se processadores em placas. O Corollary C-Bus II de 64 bits liga até 2 placas de processador à memória.",
+  "product.olivetti-snx-200-rs.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-snx-200-rs.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-snx-200-rs.service-guide-3": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 3",
+  "product.olivetti-snx-200-rs.computerwoche-1995": "Computerwoche, Olivetti-Server mit Pentium Pro nutzen Platinendesign von Intel, 22 December 1995"
+}

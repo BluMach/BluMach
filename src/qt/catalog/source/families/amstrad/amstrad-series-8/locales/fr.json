@@ -1,0 +1,4 @@
+{
+  "family.amstrad-series-8.description": "L’offre professionnelle de 1992 développée avec Intel, répartie entre ES à bus ISA et LP à bus EISA.",
+  "family.amstrad-series-8.history": "En juin 1992, Tilt présentait la gamme 8000 comme la relève professionnelle de la génération 3000, dans le cadre d’un accord Amstrad–Intel. SVM testait le LP8486 en septembre et situait l’ES8486 comme alternative moins chère. Amstrad apportait son cahier des charges ; SVM attribue à Intel la fabrication irlandaise de l’unité centrale LP, hors moniteur et clavier. L’intégration constituait la principale différence : LP réunissait EISA, SCSI et Ethernet, tandis qu’ES conservait ISA. La publicité britannique de janvier 1993 documente la vente des deux lignes."
+}

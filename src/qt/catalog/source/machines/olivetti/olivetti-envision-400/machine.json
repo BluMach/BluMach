@@ -1,0 +1,94 @@
+{
+  "order": 10151,
+  "machine": {
+    "id": "olivetti-envision-400",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Envision 400",
+    "summary_key": "product.olivetti-envision-400.summary",
+    "history_key": "product.olivetti-envision-400.history",
+    "warning_key": "product.olivetti-envision-400.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel i486DX4 · 100 MHz",
+      "memory": "8–24 MB",
+      "video": "Trident 9470 · 1 MB",
+      "expansion": "ISA / VESA Local Bus"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-envision-400.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-envision-400.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-envision-400.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-envision-400.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-envision-400.service-guide",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-envision-400.mc-micro",
+            "url": "https://www.digitanto.it/mc-online/Pages/Indice%20Analitico%20MC%20x%20sito.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-envision-400.museum",
+            "url": "https://www.museotecnologicamente.it/olivetti-envision-1995/"
+          }
+        ]
+      }
+    ],
+    "period": "1995"
+  }
+}

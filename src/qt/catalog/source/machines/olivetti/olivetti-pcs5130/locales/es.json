@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs5130.summary": "El PCS 51xx multimedia de 100 MHz en caja Slim Tin Box.",
+  "product.olivetti-pcs5130.history": "En marzo de 1996, Computerwoche recogió la gama PCS 51xx de Olivetti para el uso multimedia doméstico.",
+  "product.olivetti-pcs5130.warning": "Ficha histórica en investigación.",
+  "product.olivetti-pcs5130.architecture": "La caja determina cuántas tarjetas se pueden montar. El riser de la Slim Tin Box tiene 1 ISA, 1 PCI y una ranura compartida.",
+  "product.olivetti-pcs5130.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-pcs5130.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-pcs5130.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-pcs5130.computerwoche-1996": "Computerwoche, Olivetti baut Modulo-, Suprema- und Systema-PC-Serien aus, 15 March 1996",
+  "product.olivetti-pcs5130.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 1.21."
+}

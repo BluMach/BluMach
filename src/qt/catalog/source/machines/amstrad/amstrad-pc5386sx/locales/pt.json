@@ -1,0 +1,20 @@
+{
+  "product.amstrad-pc5386sx.summary": "A opção 386SX da série 5, documentada pela Amstrad e por proprietários que a usavam como PC de trabalho.",
+  "product.amstrad-pc5386sx.history": "O PC5386SX alargou a série 5 ao 386SX, ao lado dos PC5086 e PC5286. Em setembro de 1991, a Science & Vie Micro apresentou o PC5386 como uma possível adição de gama alta, ainda sem data de lançamento. Cliff Lawson incluiu-o depois entre os PC da Amstrad. Dois testemunhos de proprietários na Austrália, publicados em 1999 e 2000, documentam máquinas chamadas PC5386SX e PC5386SXHD; uma era usada como estação de trabalho com Windows 3.11.",
+  "product.amstrad-pc5386sx.warning": "Ficha histórica em investigação; não certifica o arranque no BluMach.",
+  "product.amstrad-pc5386sx.technical.market": "O anúncio não fixa o início das vendas. A Science & Vie Micro n.º 86, setembro de 1991, p. 76, situava o PC5386 acima dos PC5086 e PC5286, sem data nem preço.",
+  "product.amstrad-pc5386sx.technical.identity": "Os testemunhos distinguem uma máquina real de um projeto anunciado. Peter Fitzpatrick identificou o seu PC5386SX em 17 de janeiro de 1999; Keith citou um PC5386SXHD em 19 de agosto de 2000. Não estabelecem revisões da placa nem BIOS intercambiáveis.",
+  "product.amstrad-pc5386sx.technical.cpu": "As fontes divergem quanto à frequência. A Science & Vie Micro anunciava um 386SX a 16 MHz; a ficha system-cfg indica 20 MHz. Lawson confirma 80386SX, VGA e arquitetura AT, sem frequência. Não se deduzem duas variantes.",
+  "product.amstrad-pc5386sx.technical.memory": "Memória e expansão contam apenas com uma ficha secundária. A system-cfg indica 2 MB e duas ranhuras ISA de 16 bits; faltam manual e placa para verificar capacidade máxima e disposição.",
+  "product.amstrad-pc5386sx.technical.storage": "O armazenamento necessita de documentação específica. A system-cfg enumera uma unidade de disquetes de 3,5 polegadas e 1,44 MB, disco rígido e portas série/paralela, sem capacidade do disco. Não se herda a geometria do PC5286.",
+  "product.amstrad-pc5386sx.technical.video": "O vídeo integrado está parcialmente identificado. Lawson enumera VGA; Fitzpatrick atribui o controlador à Chips & Technologies sem indicar o chip. A sua pergunta não demonstra que os jumpers do PC5286 sejam válidos aqui.",
+  "product.amstrad-pc5386sx.technical.firmware": "Existe um nome de BIOS, mas não uma extração. Fitzpatrick escreveu «AM53004»; mantém-se como testemunho, sem bytes, tamanho ou hash da ROM que o confirmem. Não é uma cadeia obrigatória para aceitar outra revisão.",
+  "product.amstrad-pc5386sx.technical.verified": "A ficha apoia-se em documentos e testemunhos preservados. Os hashes foram verificados; o BluMach 88f74ba3 não regista um modelo pc5386sx dedicado. Não foi executado firmware.",
+  "product.amstrad-pc5386sx.technical.limitations": "Faltam BIOS atribuível, placa identificada e testes de arranque. Frequência, configuração final e data de venda continuam em aberto; não há imagem com direitos claros de publicação.",
+  "product.amstrad-pc5386sx.technical.press": "L. C., «La gamme 5000 d’Amstrad : trois ordinateurs plus une console de jeu», Science & Vie Micro n.º 86, setembro de 1991, p. 76: anúncio e 16 MHz.",
+  "product.amstrad-pc5386sx.technical.lawson": "Cliff Lawson, General notes on Amstrad PCs: 5386 listado como 80386SX, VGA e AT; cópia arquivada da página.",
+  "product.amstrad-pc5386sx.technical.secondary": "Fabien Neck, system-cfg, ficha Amstrad PC5386 preservada pela ACPC: 20 MHz, 2 MB, VGA e ligações; fonte secundária sem exemplar na sua coleção.",
+  "product.amstrad-pc5386sx.technical.owner1": "Peter Fitzpatrick, arquivo de perguntas de Cliff Lawson, 17 de janeiro de 1999: PC5386SX, AM53004 e vídeo Chips & Technologies.",
+  "product.amstrad-pc5386sx.technical.owner2": "Keith, arquivo de perguntas de Cliff Lawson, 19 de agosto de 2000: PC5386SXHD e avaria da unidade de disquetes.",
+  "product.amstrad-pc5386sx.technical.source": "BluMach 88f74ba3, machine_table.c e m_amstrad.c: inspeção do registo, sem teste de arranque."
+}

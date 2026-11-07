@@ -1,0 +1,20 @@
+{
+  "product.amstrad-pc5386sx.summary": "La opción con 386SX de la serie 5, documentada por Amstrad y por propietarios que la usaban como PC de trabajo.",
+  "product.amstrad-pc5386sx.history": "El PC5386SX amplió hacia el 386SX la serie 5, junto a los PC5086 y PC5286. En septiembre de 1991, Science & Vie Micro presentó el PC5386 como una posible incorporación de gama alta, todavía sin fecha de lanzamiento. Cliff Lawson lo incluyó después entre los PC de Amstrad. Los testimonios de dos propietarios en Australia, publicados en 1999 y 2000, documentan equipos denominados PC5386SX y PC5386SXHD; uno se utilizaba como estación de trabajo con Windows 3.11.",
+  "product.amstrad-pc5386sx.warning": "Ficha histórica en investigación; no certifica el arranque en BluMach.",
+  "product.amstrad-pc5386sx.technical.market": "El anuncio no fija el inicio de las ventas. Science & Vie Micro n.º 86, septiembre de 1991, p. 76, situaba el PC5386 por encima de los PC5086 y PC5286, sin fecha ni precio.",
+  "product.amstrad-pc5386sx.technical.identity": "Los testimonios permiten distinguir un equipo real de un proyecto anunciado. Peter Fitzpatrick identificó su PC5386SX el 17 de enero de 1999; Keith citó un PC5386SXHD el 19 de agosto de 2000. No establecen revisiones de placa ni BIOS intercambiables.",
+  "product.amstrad-pc5386sx.technical.cpu": "Las fuentes discrepan sobre la velocidad. Science & Vie Micro anunciaba un 386SX a 16 MHz; la ficha de system-cfg indica 20 MHz. Lawson confirma 80386SX, VGA y arquitectura AT, pero no la frecuencia. No se deducen dos variantes.",
+  "product.amstrad-pc5386sx.technical.memory": "La memoria y la ampliación solo cuentan con una ficha secundaria. system-cfg indica 2 MB y dos ranuras ISA de 16 bits; faltan manual y placa para contrastar capacidad máxima y distribución.",
+  "product.amstrad-pc5386sx.technical.storage": "El almacenamiento necesita documentación específica. system-cfg enumera disquetera de 3,5 pulgadas y 1,44 MB, disco duro y puertos serie/paralelo, sin capacidad del disco. No se hereda la geometría del PC5286.",
+  "product.amstrad-pc5386sx.technical.video": "El vídeo integrado está identificado de forma parcial. Lawson enumera VGA; Fitzpatrick atribuye el controlador a Chips & Technologies, sin modelo de chip. Su consulta no demuestra que los puentes del PC5286 sean válidos aquí.",
+  "product.amstrad-pc5386sx.technical.firmware": "Hay un nombre de BIOS, pero no un volcado. Fitzpatrick escribió «AM53004»; se conserva como testimonio, sin bytes, tamaño ni hash de ROM que lo confirmen. No es una cadena obligatoria para aceptar otra revisión.",
+  "product.amstrad-pc5386sx.technical.verified": "La ficha se apoya en documentos y testimonios preservados. Se verificaron sus hashes; BluMach 88f74ba3 no registra un modelo pc5386sx dedicado. No se ejecutó firmware.",
+  "product.amstrad-pc5386sx.technical.limitations": "Faltan BIOS atribuible, placa identificada y pruebas de arranque. Frecuencia, configuración final y fecha de venta siguen abiertas; no hay imagen con derechos claros para publicar.",
+  "product.amstrad-pc5386sx.technical.press": "L. C., «La gamme 5000 d’Amstrad : trois ordinateurs plus une console de jeu», Science & Vie Micro n.º 86, septiembre de 1991, p. 76: anuncio y 16 MHz.",
+  "product.amstrad-pc5386sx.technical.lawson": "Cliff Lawson, General notes on Amstrad PCs: lista del 5386 como 80386SX, VGA y AT; copia archivada de la página.",
+  "product.amstrad-pc5386sx.technical.secondary": "Fabien Neck, system-cfg, ficha Amstrad PC5386 preservada por ACPC: 20 MHz, 2 MB, VGA y conexiones; fuente secundaria sin ejemplar en su colección.",
+  "product.amstrad-pc5386sx.technical.owner1": "Peter Fitzpatrick, archivo de consultas de Cliff Lawson, 17 de enero de 1999: PC5386SX, AM53004 y vídeo Chips & Technologies.",
+  "product.amstrad-pc5386sx.technical.owner2": "Keith, archivo de consultas de Cliff Lawson, 19 de agosto de 2000: PC5386SXHD y avería de disquetera.",
+  "product.amstrad-pc5386sx.technical.source": "BluMach 88f74ba3, machine_table.c y m_amstrad.c: inspección del registro, sin prueba de arranque."
+}

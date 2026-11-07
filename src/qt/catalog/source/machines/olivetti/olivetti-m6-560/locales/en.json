@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-560.summary": "The DX2 member of the Micro Channel M6 series.",
+  "product.olivetti-m6-560.history": "Olivetti documented three Micro Channel M6 models. Markings on the BA2096 and BA2097 boards link their manufacture to Reply.",
+  "product.olivetti-m6-560.warning": "Historical sheet under research.",
+  "product.olivetti-m6-560.architecture": "The motherboard handles video and storage. It integrates ATI 68800 graphics and NCR53C700-66 SCSI. The processor occupies the OverDrive socket.",
+  "product.olivetti-m6-560.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m6-560.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m6-560.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 3",
+  "product.olivetti-m6-560.reply-board": "Ardent Tool, Olivetti M6-5x0 board photographs and markings",
+  "product.olivetti-m6-560.firmware": "The revision helps identify the service BIOS. The guide lists R1.47.36."
+}

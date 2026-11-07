@@ -1,0 +1,20 @@
+{
+  "product.schneider-targetpc7640.summary": "The transportable AT that combined a plasma display and hard disk in Schneider's range.",
+  "product.schneider-targetpc7640.history": "The Target PC, identified as PC7640 in Schneider's manual, brought AT compatibility to a transportable format with an integrated display and hard disk. In May 1988, Computerstore advertised it in Germany for DM 5,998; this is a dealer price, not a confirmed launch list price. That same month, Reinhard Schuster offered it with MS-DOS 3.3 alongside the EuroPC and Tower PC desktops: an alternative for moving a workstation between locations.",
+  "product.schneider-targetpc7640.warning": "Historical research sheet; no validated BluMach emulation.",
+  "product.schneider-targetpc7640.technical.oem": "Provenance requires distinguishing boards from the complete computer. The manual shows OKI OM-2 markings; Retro-Computer attributes the design to Ai Electronics. That OEM attribution and equivalence with the Rein 420 SLC still need primary-source comparison.",
+  "product.schneider-targetpc7640.technical.board": "The manual provides a basis for reconstructing the computer. It lists an 80286-8, 82C201/202, 82A203/204/205, MBL8042-144P keyboard controller, HD146818 RTC and WD37C65 floppy controller.",
+  "product.schneider-targetpc7640.technical.video": "The display needs features beyond basic CGA. The ATS-0020 board contains a V6366B-F and 32 KB; research by fuz and Michael Karcher describes 640 × 400 through ports 03DDh/03DEh, unlocked with bit 7 of 03DFh.",
+  "product.schneider-targetpc7640.technical.firmware": "The preserved files do not represent three numbered versions. There are three distinct 32 KiB contents: 129E1 and 129E2 identify as InterLINK 1.29E, and 130 as 1.30. The owner's dump matches 129E1; hashes checked, without a boot test.",
+  "product.schneider-targetpc7640.technical.layout": "The files still need to be mapped to physical chips. The manual lists two 27128 EPROMs; the dumps are 32 KiB images and do not establish chip order on their own.",
+  "product.schneider-targetpc7640.technical.verified": "BluMach holds a research sheet and documentary evidence. The reviewed code has no dedicated PC7640 model; POST and peripherals have not been validated.",
+  "product.schneider-targetpc7640.technical.limitations": "Emulation still requires board and V6366 video modelling and boot validation. The available V6355 does not establish equivalence. An image with clear publication rights and confirmation of BIOS-to-board revision correspondence remain pending. No identified dump of the video board U18 EPROM is available yet.",
+  "product.schneider-targetpc7640.technical.press": "CPC Amstrad International 5/1988: Computerstore advertisement, p. 27, and Reinhard Schuster advertisement, PDF page 60.",
+  "product.schneider-targetpc7640.technical.manual": "Schneider, Service Manual PC7640, Ident-Nr. 36866: components, boards and schematics; two scans preserved.",
+  "product.schneider-targetpc7640.technical.owner": "fuz and Michael Karcher, Retrocomputing Stack Exchange (2020): physical-machine observations and V6366 programming.",
+  "product.schneider-targetpc7640.technical.forum": "Antikythera and contributors, VzEkC (2020–2022): physical specimens, video and problems with SETUP programs from related computers.",
+  "product.schneider-targetpc7640.technical.museum": "Retro-Computer, PC7640 entry: attribution to Ai Electronics and possible rebrands; used as a lead, not proven equivalence.",
+  "product.schneider-targetpc7640.technical.archive": "Schneider PC7640 package on Internet Archive: manual, media and three BIOS files preserved locally.",
+  "product.schneider-targetpc7640.technical.code": "BluMach, revision 76ecca74: machine inventory and V6355 device; evidence of code status, not historical hardware.",
+  "product.schneider-targetpc7640.technical.configurations": "Contemporary advertising identifies the commercial configuration. The May 1988 advertisement lists 640 KB, an advertised upgrade to 2 MB, a 20 MB disk and MS-DOS 3.3; the owner documents a 720 KB floppy drive."
+}

@@ -1,0 +1,12 @@
+{
+  "product.olivetti-philos-44-color.summary": "Le Philos 44 à matrice active intégrait un pavé numérique et un dictaphone.",
+  "product.olivetti-philos-44-color.history": "Le 44C était la version couleur du Philos 44, modèle haut de gamme de la publicité de 1993. BYTE testa une unité à 3 720 dollars américains en mars 1994. Access annonça sa configuration à 5 195 dollars canadiens en mai.",
+  "product.olivetti-philos-44-color.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-philos-44-color.architecture": "Le clavier basculant donnait accès au disque amovible. BYTE testa un 486SL à 25 MHz et Access annonçait un 486 SL-33 (DX) pour la gamme 44.",
+  "product.olivetti-philos-44-color.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-philos-44-color.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-philos-44-color.ad": "Olivetti advertisement, BYTE, December 1993, PDF p. 229.",
+  "product.olivetti-philos-44-color.byte": "BYTE/NSTL Lab Report, March 1994, 46 Powerful Portables Tested.",
+  "product.olivetti-philos-44-color.dealer": "Access Business Centre, The Computer Paper, February 1994.",
+  "product.olivetti-philos-44-color.dealer_color": "Access Business Centre, The Computer Paper, May 1994, p. 54."
+}

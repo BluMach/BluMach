@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m28-40c.summary": "The 40 MB M28 configuration with a tape drive included.",
+  "product.olivetti-m28-40c.history": "The Dutch brochure placed the M28/40C among the M28 professional configurations. The bundle included a 40 MB hard disk and a 20 MB tape drive.",
+  "product.olivetti-m28-40c.warning": "Historical sheet under research.",
+  "product.olivetti-m28-40c.architecture": "Tape provided a backup option. Olivetti’s configuration includes a 20 MB tape drive and a 12-inch monochrome monitor.",
+  "product.olivetti-m28-40c.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m28-40c.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m28-40c.olivetti-nl": "Olivetti Nederland, Personal Computer M28, Technische specificaties, p. 1"
+}

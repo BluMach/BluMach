@@ -1,0 +1,9 @@
+{
+  "product.schneider-n38616-80.summary": "The N386/16 with a 80 MB disk.",
+  "product.schneider-n38616-80.history": "The German offer of December 1991 listed the 80 MB N386/16 notebook at DM 6,132 net and included MS-DOS 5.0 and G-BASIC.",
+  "product.schneider-n38616-80.technical.configuration": "The sales list specifies a 640 × 480 VGA display and 256 KB of video memory.",
+  "product.schneider-n38616-80.warning": "Historical sheet under research.",
+  "product.schneider-n38616-80.technical.verified": "The commercial offer is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-n38616-80.technical.limitations": "The board still needs identification and an attributed BIOS needs preservation. An image with clear publication rights remains pending.",
+  "product.schneider-n38616-80.technical.prices": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–2"
+}

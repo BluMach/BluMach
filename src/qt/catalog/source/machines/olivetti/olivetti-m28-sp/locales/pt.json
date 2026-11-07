@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m28-sp.summary": "A versão do M28 que a Olivetti destinou ao trabalho multiutilizador com XENIX.",
+  "product.olivetti-m28-sp.history": "A Deutsche Olivetti documentou o M28 SP em fevereiro de 1987 como modelo superior da gama 80286. Destinava-o ao trabalho comercial com vários postos e a servir redes locais.",
+  "product.olivetti-m28-sp.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m28-sp.architecture": "O disco de 70 MB aparece em dois formatos. O folheto neerlandês indica uma unidade de tamanho integral e o alemão descreve uma unidade Slim-Line de 28 ms.",
+  "product.olivetti-m28-sp.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m28-sp.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m28-sp.olivetti-nl": "Olivetti Nederland, Personal Computer M28, Technische specificaties, p. 1",
+  "product.olivetti-m28-sp.olivetti-de": "Deutsche Olivetti, Personal Computer M28 SP, Hardware-Informationen, 04/101/M28/2.87"
+}

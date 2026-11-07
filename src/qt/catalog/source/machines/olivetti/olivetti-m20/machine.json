@@ -1,0 +1,154 @@
+{
+  "order": 88,
+  "machine": {
+    "id": "olivetti-m20",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M20",
+    "summary_key": "product.olivetti-m20.summary",
+    "history_key": "product.olivetti-m20.history",
+    "warning_key": "product.olivetti-m20.warning",
+    "status": "research",
+    "period": "1982",
+    "aliases": [
+      "L1 M20",
+      "M20"
+    ],
+    "tags": [
+      "Z8001",
+      "PCOS",
+      "16-bit"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "display_technology": [
+        "crt"
+      ]
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-m20-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "OnlySoft",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:L1m20ol.jpg"
+    },
+    "hardware": {
+      "cpu": "Zilog Z8001 · 4 MHz · 16-bit",
+      "memory": "128–512 KB",
+      "video": "512 × 256 · 16 KB / 32 KB / 64 KB",
+      "floppy": "5.25″",
+      "interfaces": "RS-232C · Centronics",
+      "keyboard": "72",
+      "expansion": "3 × RAM · 2 × I/O"
+    },
+    "firmware": {
+      "known_sets": [
+        "1.0 · 2.0d · 2.0f · 8 KiB",
+        "APB 1086 2.0 · 16 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m20.technical.identity"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m20.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m20.technical.video"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.olivetti-m20.technical.apb"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m20.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m20.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m20.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20.technical.source_history",
+            "url": "https://www.storiaolivetti.it/articolo/65-un-computer-su-ogni-scrivania-la-olivetti-e-i-p/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20.technical.source_review",
+            "url": "https://www.z80ne.com/m20/index.php?argument=sections/press/press.inc"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m20.technical.source_manual",
+            "url": "https://www.z80ne.com/m20/index.php?argument=sections/manuals/manuals.inc"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20.technical.source_database",
+            "url": "https://www.1000bit.it/scheda.asp?id=50"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20.technical.source_mame",
+            "url": "https://github.com/mamedev/mame/blob/f337ad7ea4d2a128579607ed1add6b867f36a317/src/mame/olivetti/m20.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20.technical.source_photo",
+            "url": "https://commons.wikimedia.org/wiki/File:L1m20ol.jpg"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20.technical.source_bios",
+            "url": "https://archive.org/details/Olivetti-M20-L1-bios"
+          }
+        ]
+      }
+    ]
+  }
+}

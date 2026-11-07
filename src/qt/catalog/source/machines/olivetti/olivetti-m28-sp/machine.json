@@ -1,0 +1,82 @@
+{
+  "order": 10231,
+  "machine": {
+    "id": "olivetti-m28-sp",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M28 SP",
+    "summary_key": "product.olivetti-m28-sp.summary",
+    "history_key": "product.olivetti-m28-sp.history",
+    "warning_key": "product.olivetti-m28-sp.warning",
+    "status": "research",
+    "aliases": [
+      "M28SP"
+    ],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80286 · 8 MHz",
+      "memory": "1 MB",
+      "video": "640 × 400 · CRT · 12″",
+      "storage": "HDD · 70 MB · FDD · 1.2 MB",
+      "expansion": "7 × ISA"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m28-sp.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m28-sp.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m28-sp.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m28-sp.olivetti-nl",
+            "url": "https://classic.technology/olivetti-personal-computer-m28/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m28-sp.olivetti-de",
+            "url": "https://olivrea.de/prospekte-personal-computer/"
+          }
+        ]
+      }
+    ],
+    "period": "1987"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-d266.summary": "The minitower PCS40 with a 66 MHz 486DX2.",
+  "product.olivetti-pcs40-d266.history": "Olivetti included the PCS40 D2/66 in the PCS30–PCS40 line of 386 and 486 systems. It documented this model as a minitower configuration.",
+  "product.olivetti-pcs40-d266.warning": "Historical sheet under research.",
+  "product.olivetti-pcs40-d266.architecture": "Video and storage used expansion cards. With the standard cards installed, 6 of the 8 AT slots remained free in the standard configuration.",
+  "product.olivetti-pcs40-d266.firmware": "The board determines which BIOS to look for. The guide documents Harward for 486-VC.",
+  "product.olivetti-pcs40-d266.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-pcs40-d266.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-pcs40-d266.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

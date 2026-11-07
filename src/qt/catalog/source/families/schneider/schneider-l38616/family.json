@@ -1,0 +1,24 @@
+{
+  "order": 210,
+  "family": {
+    "id": "schneider-l38616",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "L 386/16",
+    "description_key": "family.schneider-l38616.description",
+    "history_key": "family.schneider-l38616.history",
+    "history_references": [
+      {
+        "title": "Schneider, Service Manual EURO 386 SX / L 386/16, V12324",
+        "publisher": "Schneider · Internet Archive",
+        "url": "https://archive.org/details/manual_EURO386SX_SM_SCHNEIDER_DE"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 12/1991, p. 3",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_91.html"
+      }
+    ]
+  }
+}

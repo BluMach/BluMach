@@ -1,0 +1,87 @@
+{
+  "order": 10077,
+  "machine": {
+    "id": "olivetti-philos-33",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Philos 33",
+    "summary_key": "product.olivetti-philos-33.summary",
+    "history_key": "product.olivetti-philos-33.history",
+    "warning_key": "product.olivetti-philos-33.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel i386SL · 20 MHz",
+      "memory": "4–32 MB",
+      "video": "LCD · 10″ · 640 × 480",
+      "hard_disk": "84 / 120 / 240 MB",
+      "expansion": "PCMCIA"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-philos-33.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-philos-33.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-philos-33.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-33.archive",
+            "url": "https://www.archiviostoricolivetti.it/prodotto/olivetti-philos/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-33.unita",
+            "url": "https://archivio.unita.news/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-33.ivrea",
+            "url": "https://www.museotecnologicamente.it/olivetti-philos-33-color-1993/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-33.museum",
+            "url": "https://muzeuldecalculatoare.ro/ro/items/olivetti-philos-33-color"
+          }
+        ]
+      }
+    ],
+    "period": "1992–1993"
+  }
+}

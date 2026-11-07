@@ -1,0 +1,9 @@
+{
+  "product.schneider-t48633.summary": "The 486SX tower in the December 1991 German range.",
+  "product.schneider-t48633.history": "The December 1991 German price list placed the T486/33 in the tower range. The diskless configuration cost DM 8,595 net and the 200 MB version cost DM 10,469. It included MS-DOS 5.0 and Windows 3.0.",
+  "product.schneider-t48633.warning": "Historical sheet under research.",
+  "product.schneider-t48633.technical.configuration": "Cache accompanied the 33 MHz 486SX. The price list specifies 64 KB of cache, 8 MB of RAM expandable to 16 MB and 512 KB VGA.",
+  "product.schneider-t48633.technical.verified": "The offer is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-t48633.technical.limitations": "The board still needs to be checked against a specimen and an attributed BIOS preserved. An image with clear publication rights remains pending.",
+  "product.schneider-t48633.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–3"
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-760-s.summary": "La version Slim Box du M6 à i486DX2 de 66 MHz.",
+  "product.olivetti-m6-760-s.history": "Le boîtier Slim Box distingue cette version de l’autre M6-760.",
+  "product.olivetti-m6-760-s.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m6-760-s.architecture": "Le boîtier détermine les possibilités d’extension. La carte d’extension offre 1 emplacement ISA pleine longueur, un PCI court et un ISA/PCI partagé.",
+  "product.olivetti-m6-760-s.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m6-760-s.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m6-760-s.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 5",
+  "product.olivetti-m6-760-s.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 2.03."
+}

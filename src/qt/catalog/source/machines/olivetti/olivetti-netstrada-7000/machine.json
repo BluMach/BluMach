@@ -1,0 +1,73 @@
+{
+  "order": 10224,
+  "machine": {
+    "id": "olivetti-netstrada-7000",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti NetStrada 7000",
+    "summary_key": "product.olivetti-netstrada-7000.summary",
+    "history_key": "product.olivetti-netstrada-7000.history",
+    "warning_key": "product.olivetti-netstrada-7000.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium Pro · 200 MHz",
+      "memory": "32 MB–2 GB ECC",
+      "video": "SVGA · 1 MB",
+      "storage": "Ultra Wide SCSI",
+      "expansion": "EISA / PCI"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-netstrada-7000.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-netstrada-7000.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-netstrada-7000.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-7000.service-guide-8",
+            "url": "https://www.elhvb.com/mboards/olivetti/servers1.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-7000.solaris-hcl",
+            "url": "https://docs.oracle.com/cd/E19504-01/802-5739/6i9fpme62/index.html"
+          }
+        ]
+      }
+    ]
+  }
+}

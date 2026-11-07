@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-460-rm.summary": "El Systema Pentium Pro para bastidor con capacidad para cuatro procesadores.",
+  "product.olivetti-snx-460-rm.history": "Olivetti anunció el SNX 460 en diciembre de 1995 como su primer servidor Pentium Pro y confirmó que la tarjeta de procesadores usaba un diseño de Intel. Computerwoche situó los envíos en el primer trimestre de 1996 desde unos 20.000 marcos alemanes.",
+  "product.olivetti-snx-460-rm.warning": "Ficha histórica en investigación.",
+  "product.olivetti-snx-460-rm.architecture": "La carga podía repartirse entre cuatro procesadores. El chipset Intel Orion conecta dos tarjetas de CPU, con dos Pentium Pro por tarjeta, y dos buses PCI.",
+  "product.olivetti-snx-460-rm.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-snx-460-rm.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-snx-460-rm.service-guide-4": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 4",
+  "product.olivetti-snx-460-rm.computerwoche-1995": "Computerwoche, Olivetti-Server mit Pentium Pro nutzen Platinendesign von Intel, 22 December 1995"
+}

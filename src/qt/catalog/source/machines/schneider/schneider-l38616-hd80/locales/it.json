@@ -1,0 +1,12 @@
+{
+  "product.schneider-l38616-hd80.summary": "La configurazione del L 386/16 con disco da 80 MB.",
+  "product.schneider-l38616-hd80.history": "Il manuale Schneider identifica il L 386/16 HD 80 come una configurazione del suo desktop con serratura. Condivideva la scheda CPU dell’EuroSX a 16 MHz. Il disco da 80 MB aveva il codice di ricambio 54 116 00.",
+  "product.schneider-l38616-hd80.technical.board": "La scheda era condivisa con l’EuroSX a 16 MHz. L’elenco dei ricambi indica il codice 53 110 00 e gli schemi Schneider documentano la logica Singleboard I SX, con BIGJIM e video ATI 28800.",
+  "product.schneider-l38616-hd80.technical.firmware": "Il kit di assistenza orienta la ricerca delle ROM. Il manuale indica il codice 65 467 00 e gli zoccoli LOW U9 e HIGH U10. L’identità dei binari di fabbrica resta da verificare.",
+  "product.schneider-l38616-hd80.technical.configuration": "IFS pubblicizzava un LAN Station 386/16 in Portogallo nel 1992. Il listino tedesco del 1991 conferma il nome per il L 386/16. L’annuncio IFS lascia il disco senza specifica.",
+  "product.schneider-l38616-hd80.warning": "Scheda storica in fase di ricerca.",
+  "product.schneider-l38616-hd80.technical.verified": "Il manuale documenta la configurazione. Il modello dedicato e la convalida dell’avvio in BluMach restano da realizzare.",
+  "product.schneider-l38616-hd80.technical.limitations": "Mancano dump attribuiti, la convalida della mappa della scheda e un’immagine con diritti di pubblicazione chiari.",
+  "product.schneider-l38616-hd80.technical.manual": "Schneider, Service Manual EURO 386 SX / L 386/16, V12324",
+  "product.schneider-l38616-hd80.technical.press": "IFS, Expresso, 23-05-1992, p. A3"
+}

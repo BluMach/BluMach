@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-64.summary": "El M4 con DX a 33 MHz en chasis 305 Box.",
+  "product.olivetti-m4-64.history": "La gama M4 Modulo se dirigía a profesionales y quedaba entre los PCS de uso personal y los M6 Suprema de mayores prestaciones. La guía identifica placas T.1 fabricadas en Singapur y en Scarmagno.",
+  "product.olivetti-m4-64.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m4-64.architecture": "La memoria se amplía sin reemplazar la base. La placa tiene 4 MB soldados, un zócalo SIMM y vídeo CL-GD5428.",
+  "product.olivetti-m4-64.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m4-64.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m4-64.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 2",
+  "product.olivetti-m4-64.mc-micro": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-64.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 2.06."
+}

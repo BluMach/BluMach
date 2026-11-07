@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-690-dp.summary": "A variante do M6-690 preparada para dois processadores.",
+  "product.olivetti-m6-690-dp.history": "A Olivetti agrupou este modelo com os M6-650, 670, 680 e 690 na caixa Tin Box.",
+  "product.olivetti-m6-690-dp.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m6-690-dp.architecture": "A placa principal determina como se liga o monitor. A BA2189 integra vídeo e a BA2190 usa uma Matrox Impression Plus. Esta configuração tem 512 KB de cache L2.",
+  "product.olivetti-m6-690-dp.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m6-690-dp.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m6-690-dp.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 14",
+  "product.olivetti-m6-690-dp.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia indica 1.13."
+}

@@ -1,0 +1,9 @@
+{
+  "product.olivetti-philos-48.summary": "Le Philos 48 de l’extension de gamme annoncée au CeBIT 1994.",
+  "product.olivetti-philos-48.history": "Olivetti étoffa sa gamme de portables professionnels avec les Philos 45, 46 et 48 au CeBIT 1994. MCmicrocomputer cite le 48 parmi les nouveautés.",
+  "product.olivetti-philos-48.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-philos-48.architecture": "Le processeur distingue cette configuration dans l’annonce du CeBIT. MCmicrocomputer indique IntelDX4 · 75 MHz.",
+  "product.olivetti-philos-48.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-philos-48.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-philos-48.cebit": "MCmicrocomputer 139, April 1994, pp. 128–129."
+}

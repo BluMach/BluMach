@@ -1,0 +1,10 @@
+{
+  "product.olivetti-modulo-p120-l.summary": "The 120 MHz Modulo L configuration with an LPX board.",
+  "product.olivetti-modulo-p120-l.history": "Olivetti documented the Modulo P120 L alongside two other Pentium configurations in the Modulo L desktop range.",
+  "product.olivetti-modulo-p120-l.warning": "Historical sheet under research.",
+  "product.olivetti-modulo-p120-l.architecture": "Memory can grow across three banks. The BA2292 has six SIMM sockets for EDO or Fast Page Mode and a CELP socket for 256 KB of L2 cache.",
+  "product.olivetti-modulo-p120-l.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-modulo-p120-l.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-modulo-p120-l.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 9",
+  "product.olivetti-modulo-p120-l.firmware": "The revision helps identify the service BIOS. The guide lists 1.00.03.CV2 Y."
+}

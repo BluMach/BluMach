@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs-p-133-en.summary": "Il PCS da 133 MHz di questa piattaforma nel telaio Tin Box.",
+  "product.olivetti-pcs-p-133-en.history": "Olivetti documentò questa variante nella gamma PCS Pentium, sulla stessa piattaforma degli M4 Modulo di quella generazione. La guida identifica TriGem come produttore della scheda BA2199.",
+  "product.olivetti-pcs-p-133-en.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-pcs-p-133-en.architecture": "Il telaio determina le possibilità di espansione. Il riser del Tin Box offre 3 ISA a lunghezza intera, uno PCI e uno slot condiviso.",
+  "product.olivetti-pcs-p-133-en.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-pcs-p-133-en.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-pcs-p-133-en.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-pcs-p-133-en.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-pcs-p-133-en.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.13."
+}

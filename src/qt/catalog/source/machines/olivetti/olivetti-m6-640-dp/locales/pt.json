@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-640-dp.summary": "A variante do M6-640 com dois Pentium em paralelo.",
+  "product.olivetti-m6-640-dp.history": "A Olivetti documentou o M6-640 DP como a variante de dois processadores do M6-640.",
+  "product.olivetti-m6-640-dp.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m6-640-dp.architecture": "A placa principal deixa o vídeo a cargo de uma placa separada. A BA2173 recebe dois Pentium de 90 MHz e não integra o controlador de vídeo.",
+  "product.olivetti-m6-640-dp.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m6-640-dp.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m6-640-dp.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 11",
+  "product.olivetti-m6-640-dp.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia indica 1.16."
+}

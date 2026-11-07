@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-133-s.summary": "O M4 Modulo de 133 MHz desta plataforma na caixa Slim Tin Box.",
+  "product.olivetti-m4-133-s.history": "A Olivetti colocou o M4 Modulo na gama profissional. Esta geração Pentium partilhava a plataforma com vários PCS de consumo. O guia identifica a TriGem como fabricante da placa BA2199.",
+  "product.olivetti-m4-133-s.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m4-133-s.architecture": "A caixa condiciona a expansão. O riser da Slim Tin Box oferece 1 ISA de tamanho integral, uma PCI e uma ranhura partilhada.",
+  "product.olivetti-m4-133-s.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m4-133-s.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m4-133-s.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-m4-133-s.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-133-s.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 1.13."
+}

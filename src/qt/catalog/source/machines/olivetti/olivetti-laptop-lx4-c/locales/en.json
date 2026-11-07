@@ -1,0 +1,10 @@
+{
+  "product.olivetti-laptop-lx4-c.summary": "The LX4/C put a TFT-equipped 486 at the top of Olivetti 1.",
+  "product.olivetti-laptop-lx4-c.history": "MCmicrocomputer described the LX4/C in 1992 on the D33/C chassis and placed it at the top of Olivetti 1.",
+  "product.olivetti-laptop-lx4-c.warning": "Historical sheet under research.",
+  "product.olivetti-laptop-lx4-c.architecture": "The 1992 reports describe different configurations. MCmicrocomputer listed a 25 MHz 486DX in May and a 50 MHz 486DX2 in November.",
+  "product.olivetti-laptop-lx4-c.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-laptop-lx4-c.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-laptop-lx4-c.spring": "MCmicrocomputer 118, May 1992, p. 112.",
+  "product.olivetti-laptop-lx4-c.autumn": "MCmicrocomputer 123, November 1992, p. 138."
+}

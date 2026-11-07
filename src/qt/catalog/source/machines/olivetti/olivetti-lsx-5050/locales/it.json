@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5050.summary": "L’LSX scelto da Olivetti Canada per la rete del servizio estero canadese.",
+  "product.olivetti-lsx-5050.history": "Nel gennaio 1993 L’Unità riportò che Olivetti Canada avrebbe installato oltre 200 LSX 5050 con Unix per il dipartimento degli Affari esteri canadese.",
+  "product.olivetti-lsx-5050.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-lsx-5050.architecture": "La piattaforma andava selezionata per usare più processori. SCO identifica l’LSX 5050 come opzione multiprocessore nell’installazione di UnixWare 2.",
+  "product.olivetti-lsx-5050.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-lsx-5050.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-lsx-5050.unita-1993": "L’Unità, 27 January 1993, p. 22",
+  "product.olivetti-lsx-5050.sco-psm": "SCO Technical Article 105334, 21 November 1996"
+}

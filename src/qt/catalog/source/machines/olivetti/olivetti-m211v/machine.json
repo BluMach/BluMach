@@ -1,0 +1,146 @@
+{
+  "order": 84,
+  "machine": {
+    "id": "olivetti-m211v",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M211V",
+    "summary_key": "product.olivetti-m211v.summary",
+    "history_key": "product.olivetti-m211v.history",
+    "warning_key": "product.olivetti-m211v.warning",
+    "status": "research",
+    "period": "1990",
+    "aliases": [
+      "XP1023V"
+    ],
+    "tags": [
+      "80C286",
+      "VGA"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "vga"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80C286 · 16 / 8 MHz",
+      "coprocessor": "80C287",
+      "memory": "1 / 2 / 5 MB",
+      "video": "VGA · LCD · 640 × 480",
+      "floppy": "3.5″ · 720 KB / 1.44 MB",
+      "hard_disk": "20 / 40 MB",
+      "expansion": "1 × 16-bit · 6.8 W",
+      "interfaces": "RS-232C · Centronics · PS/2 · VGA",
+      "dimensions": "330 × 364 × 99 mm · 6.8 kg"
+    },
+    "firmware": {
+      "known_sets": [
+        "PNVA 1.03 / PVGA 1.03 · 128 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.olivetti-m211v.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m211v.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m211v.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m211v.technical.video"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.olivetti-m211v.technical.expansion"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.observed",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m211v.technical.firmware"
+          },
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.olivetti-m211v.technical.board"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m211v.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m211v.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.olivetti-m211v.technical.brochure_source",
+            "url": "https://olivrea.de/prospekte-laptop-portable/"
+          },
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.olivetti-m211v.technical.advert_source",
+            "url": "https://www.computerhistory.org/collections/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m211v.technical.museum_source",
+            "url": "https://iser.wisski.data.fau.de/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.olivetti-m211v.technical.firmware_source",
+            "url": "https://archive.org/details/olivetti-m211v-bios-pnva-1-03-pvga-1-03"
+          },
+          {
+            "label_key": "technical.label.implementation_lineage",
+            "value_key": "product.olivetti-m211v.technical.code_source",
+            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_at_olivetti_m211v.c"
+          }
+        ]
+      }
+    ]
+  }
+}
