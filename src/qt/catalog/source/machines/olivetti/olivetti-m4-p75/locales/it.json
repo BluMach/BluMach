@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-p75.summary": "L’M4-P a 75 MHz nel telaio Tin Box della piattaforma con memoria EDO.",
+  "product.olivetti-m4-p75.history": "Olivetti documentò la gamma professionale M4-Pxx su una piattaforma condivisa con i PCS 51xx e 61xx.",
+  "product.olivetti-m4-p75.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m4-p75.architecture": "Il telaio determina quante schede si possono installare. Il riser del Tin Box ha 2 ISA, 2 PCI e uno slot condiviso.",
+  "product.olivetti-m4-p75.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m4-p75.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m4-p75.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-m4-p75.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-p75.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.21."
+}

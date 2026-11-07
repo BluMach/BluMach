@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs5140.summary": "The 133 MHz multimedia PCS 51xx in the Slim Tin Box case.",
+  "product.olivetti-pcs5140.history": "In March 1996, Computerwoche reported Olivetti’s PCS 51xx range for home multimedia.",
+  "product.olivetti-pcs5140.warning": "Historical sheet under research.",
+  "product.olivetti-pcs5140.architecture": "The case determines how many cards can be installed. The Slim Tin Box riser has 1 ISA, 1 PCI and one shared slot.",
+  "product.olivetti-pcs5140.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-pcs5140.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-pcs5140.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-pcs5140.computerwoche-1996": "Computerwoche, Olivetti baut Modulo-, Suprema- und Systema-PC-Serien aus, 15 March 1996",
+  "product.olivetti-pcs5140.firmware": "The revision helps identify the service BIOS. The guide lists 1.21."
+}

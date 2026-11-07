@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs6150.summary": "O PCS 61xx multimédia de 150 MHz na caixa Tin Box.",
+  "product.olivetti-pcs6150.history": "Em março de 1996, a Computerwoche apresentou a gama Olivetti PCS 61xx para multimédia doméstica.",
+  "product.olivetti-pcs6150.warning": "Ficha histórica em investigação.",
+  "product.olivetti-pcs6150.architecture": "A caixa determina quantas placas se podem instalar. A placa riser da Tin Box tem 2 ISA, 2 PCI e uma ranhura partilhada.",
+  "product.olivetti-pcs6150.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-pcs6150.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-pcs6150.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-pcs6150.computerwoche-1996": "Computerwoche, Olivetti baut Modulo-, Suprema- und Systema-PC-Serien aus, 15 March 1996",
+  "product.olivetti-pcs6150.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 1.21."
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs6120.summary": "Il PCS 61xx multimediale da 75 MHz nel telaio Tin Box.",
+  "product.olivetti-pcs6120.history": "Nel marzo 1996 Computerwoche presentò la gamma Olivetti PCS 61xx per il multimediale domestico.",
+  "product.olivetti-pcs6120.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-pcs6120.architecture": "Il telaio determina quante schede si possono installare. Il riser del Tin Box ha 2 ISA, 2 PCI e uno slot condiviso.",
+  "product.olivetti-pcs6120.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-pcs6120.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-pcs6120.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-pcs6120.computerwoche-1996": "Computerwoche, Olivetti baut Modulo-, Suprema- und Systema-PC-Serien aus, 15 March 1996",
+  "product.olivetti-pcs6120.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.21."
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-p100.summary": "O M4-P de 100 MHz na caixa Tin Box da plataforma com memória EDO.",
+  "product.olivetti-m4-p100.history": "A Olivetti documentou a gama profissional M4-Pxx numa plataforma partilhada com os PCS 51xx e 61xx.",
+  "product.olivetti-m4-p100.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m4-p100.architecture": "A caixa determina quantas placas se podem instalar. A placa riser da Tin Box tem 2 ISA, 2 PCI e uma ranhura partilhada.",
+  "product.olivetti-m4-p100.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m4-p100.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m4-p100.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 16",
+  "product.olivetti-m4-p100.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-p100.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 1.21."
+}
