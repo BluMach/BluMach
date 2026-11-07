@@ -102,7 +102,8 @@ class CatalogBuilderTests(unittest.TestCase):
              "schneider-euro486-20-40", "schneider-euro486-20-90", "schneider-euro486-20-105",
              "schneider-d48620-175", "schneider-d48620-320", "schneider-d48620-420",
              "schneider-d38620-52", "schneider-d38620-105", "schneider-d38620-200",
-             "schneider-n38616-40", "schneider-n38616-80", "schneider-n38616-86"},
+             "schneider-n38616-40", "schneider-n38616-80", "schneider-n38616-86",
+             "schneider-euroat-ii"},
             visible_products,
         )
 
