@@ -1,0 +1,10 @@
+{
+  "product.olivetti-notebook-a12.summary": "The entry-level Olivetti 1. notebook with an 80286.",
+  "product.olivetti-notebook-a12.history": "In September 1991 Olivetti offered the Notebook A12 in the Olivetti 1. line. The Historical Archive attributes development of the range to Triumph-Adler with Y-E Data collaboration and locates production in Nuremberg.",
+  "product.olivetti-notebook-a12.warning": "Historical sheet under research.",
+  "product.olivetti-notebook-a12.architecture": "The format explains the differences in weight and expansion. The catalogue specifies 2.5 kg and 297 × 210 × 52 mm, with an integrated mouse and 1.44 MB floppy drive.",
+  "product.olivetti-notebook-a12.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-notebook-a12.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-notebook-a12.catalogue": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91, p. 3.",
+  "product.olivetti-notebook-a12.archive": "Associazione Archivio Storico Olivetti, Lavorare dovunque, Olivetti 1."
+}
