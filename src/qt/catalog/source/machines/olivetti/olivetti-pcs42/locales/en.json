@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs42.summary": "The consumer PCS offered in two sizes with a Microstar motherboard and VESA Local Bus.",
+  "product.olivetti-pcs42.history": "A European Commission notice cites an August 1994 report that included the PCS 42 in Olivetti’s consumer multimedia range. The service guide identifies the motherboard as Microstar.",
+  "product.olivetti-pcs42.warning": "Historical sheet under research.",
+  "product.olivetti-pcs42.architecture": "The case changes the available expansion. The Tin Box offers three shared AT/VESA slots and the Slim Tin Box offers one.",
+  "product.olivetti-pcs42.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-pcs42.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-pcs42.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 8",
+  "product.olivetti-pcs42.eu-notice": "European Commission, Official Journal C 306, 15 October 1996, notice 96/C 306/08, note 10"
+}

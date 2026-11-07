@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-62.summary": "O M4 com SX de 33 MHz na caixa 305 Box.",
+  "product.olivetti-m4-62.history": "A gama M4 Modulo destinava-se a profissionais e situava-se entre os PCS de uso pessoal e os M6 Suprema de maior desempenho. Em fevereiro de 1994, a MCmicrocomputer testou o M4-62 e indicou um preço de 3.000.000 de liras sem IVA com monitor a cores.",
+  "product.olivetti-m4-62.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m4-62.architecture": "A memória pode ser ampliada sem substituir a RAM de base. A placa tem 4 MB soldados, um encaixe SIMM e vídeo CL-GD5428.",
+  "product.olivetti-m4-62.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m4-62.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m4-62.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 2",
+  "product.olivetti-m4-62.mc-micro": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-62.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 2.06."
+}

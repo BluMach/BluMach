@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs52-e.summary": "La versión PCS de la plataforma Pentium del M4-82.",
+  "product.olivetti-pcs52-e.history": "Olivetti documentó el PCS 52 E y el M4-82 como dos nombres de producto de la misma plataforma.",
+  "product.olivetti-pcs52-e.warning": "Ficha histórica en investigación.",
+  "product.olivetti-pcs52-e.architecture": "La placa determina cómo se conecta el disco. La BA2066 admite IDE AT y la BA2121 añade un controlador PCI IDE RZ1000.",
+  "product.olivetti-pcs52-e.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-pcs52-e.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-pcs52-e.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 1",
+  "product.olivetti-pcs52-e.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra BA2066 · 1.00.08 AF1 / BA2121 · 1.00.06 AF2."
+}

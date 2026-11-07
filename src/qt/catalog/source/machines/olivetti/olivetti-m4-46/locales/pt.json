@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-46.summary": "O M4 com DX2 de 50 MHz na caixa MicroTower.",
+  "product.olivetti-m4-46.history": "A gama M4 Modulo destinava-se a profissionais e situava-se entre os PCS de uso pessoal e os M6 Suprema de maior desempenho. O guia identifica placas T.1 fabricadas em Singapura e em Scarmagno.",
+  "product.olivetti-m4-46.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m4-46.architecture": "A memória pode ser ampliada sem substituir a RAM de base. A placa tem 4 MB soldados, um encaixe SIMM e vídeo CL-GD5428.",
+  "product.olivetti-m4-46.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m4-46.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m4-46.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 2",
+  "product.olivetti-m4-46.mc-micro": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-46.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 2.06."
+}

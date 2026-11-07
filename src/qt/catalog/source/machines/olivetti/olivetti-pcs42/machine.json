@@ -1,0 +1,79 @@
+{
+  "order": 10150,
+  "machine": {
+    "id": "olivetti-pcs42",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti PCS 42",
+    "summary_key": "product.olivetti-pcs42.summary",
+    "history_key": "product.olivetti-pcs42.history",
+    "warning_key": "product.olivetti-pcs42.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel i486SX · 25/33 MHz / i486DX · 33 MHz / i486DX2 · 50/66 MHz",
+      "memory": "4–112 MB",
+      "video": "GO2030 / VD-5428 / VGA-542VT",
+      "expansion": "ISA / VESA Local Bus"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-pcs42.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-pcs42.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-pcs42.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs42.service-guide",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs42.eu-notice",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:C:1996:306:TOC"
+          }
+        ]
+      }
+    ],
+    "period": "1994"
+  }
+}

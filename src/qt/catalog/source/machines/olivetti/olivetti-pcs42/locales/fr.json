@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs42.summary": "Le PCS grand public proposé en deux tailles avec carte mère Microstar et bus local VESA.",
+  "product.olivetti-pcs42.history": "Une notice de la Commission européenne cite un article d’août 1994 qui inclut le PCS 42 dans la gamme multimédia grand public d’Olivetti. Le guide de maintenance identifie la carte mère Microstar.",
+  "product.olivetti-pcs42.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-pcs42.architecture": "Le boîtier change les possibilités d’extension. Le Tin Box offre trois emplacements partagés AT/VESA et le Slim Tin Box en offre un.",
+  "product.olivetti-pcs42.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-pcs42.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-pcs42.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 8",
+  "product.olivetti-pcs42.eu-notice": "European Commission, Official Journal C 306, 15 October 1996, notice 96/C 306/08, note 10"
+}
