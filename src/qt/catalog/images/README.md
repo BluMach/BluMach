@@ -164,3 +164,13 @@ https://victoriancollections.net.au/items/5ac6fbae21ea6b0ac0af74d5, the Dario
 The reference photographs are not distributed with BluMach. All prompts lock the
 chassis, drives, grille, perspective, lighting and background and permit changes
 only inside the recessed front badge.
+
+## Olivetti M200 photograph
+
+`olivetti-m200-photo.jpg` is the unchanged photograph by **ValorosoIT / Amedeo
+Valoroso**, dated 9 February 2025, from
+[Olivetti M200 computer, ValorosoIT collection, CRT monitor, keyboard 1](https://commons.wikimedia.org/wiki/File:Olivetti_M200_computer,_ValorosoIT_collection,_CRT_monitor,_keyboard_1.jpg).
+Used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+No changes were made. The photograph retains its own licence, separate from
+BluMach's code. The pictured ANK 27-102 keyboard was not originally bundled
+with the computer, as the author states; this is disclosed in all five locales.
