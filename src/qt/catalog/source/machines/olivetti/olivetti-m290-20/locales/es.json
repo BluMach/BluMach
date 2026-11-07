@@ -1,0 +1,13 @@
+{
+  "product.olivetti-m290-20.summary": "El M290 compacto con dos ranuras ISA en una tarjeta vertical.",
+  "product.olivetti-m290-20.history": "Se conservan dos ejemplares identificados como M290-20. Uno se describe como fabricado en 1993 y el otro conserva una BIOS con fecha de ese año.",
+  "product.olivetti-m290-20.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m290-20.architecture": "La tarjeta vertical reúne la ampliación en la caja compacta. La foto del ejemplar de Clous muestra dos conectores ISA de 16 bits.",
+  "product.olivetti-m290-20.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m290-20.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m290-20.specimen": "Clous, Olivetti M290-20 owner report",
+  "product.olivetti-m290-20.checkit": "Clous, M290-20 CheckIt 2.1 photograph",
+  "product.olivetti-m290-20.riser": "Clous, M290-20 riser photograph",
+  "product.olivetti-m290-20.second-unit": "Aukro, Olivetti M290-20 specimen listing 7014402956",
+  "product.olivetti-m290-20.ports": "Los puertos se pueden identificar en el diagnóstico del ejemplar. CheckIt 2.1 muestra COM1 en 3F8h y LPT1 en 378h."
+}

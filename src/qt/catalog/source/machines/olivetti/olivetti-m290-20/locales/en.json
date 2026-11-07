@@ -1,0 +1,13 @@
+{
+  "product.olivetti-m290-20.summary": "The compact M290 with two ISA slots on a riser.",
+  "product.olivetti-m290-20.history": "Two surviving units are identified as the M290-20. One is reported to have been made in 1993 and the other has a BIOS dated to that year.",
+  "product.olivetti-m290-20.warning": "Historical sheet under research.",
+  "product.olivetti-m290-20.architecture": "The riser fits expansion into the compact case. The photograph of the Clous unit shows two 16-bit ISA connectors.",
+  "product.olivetti-m290-20.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m290-20.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m290-20.specimen": "Clous, Olivetti M290-20 owner report",
+  "product.olivetti-m290-20.checkit": "Clous, M290-20 CheckIt 2.1 photograph",
+  "product.olivetti-m290-20.riser": "Clous, M290-20 riser photograph",
+  "product.olivetti-m290-20.second-unit": "Aukro, Olivetti M290-20 specimen listing 7014402956",
+  "product.olivetti-m290-20.ports": "The specimen’s diagnostic identifies the ports. CheckIt 2.1 shows COM1 at 3F8h and LPT1 at 378h."
+}
