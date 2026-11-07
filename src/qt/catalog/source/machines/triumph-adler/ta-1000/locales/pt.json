@@ -1,0 +1,11 @@
+{
+  "product.ta-1000.summary": "O TA 1000 levou salários e contabilidade a um computador de escritório com processador próprio.",
+  "product.ta-1000.history": "A Triumph-Adler encomendou o desenvolvimento a Otto Müller, da CTM, e iniciou a produção em série em 1973. A BfA instalou-o em clínicas para salários, rendas, contabilidade e inventário. A arquitetura deu origem ao TA 1069 ferroviário.",
+  "product.ta-1000.technical.configuration": "O processador era construído com circuitos lógicos TTL. O barramento de dados era de 8 bits e o de endereços de 16 bits.",
+  "product.ta-1000.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-1000.technical.limitations": "Os manuais e esquemas estão preservados. Faltam o firmware de uma unidade de escritório e um teste de arranque.",
+  "product.ta-1000.technical.source_1": "TA 1000 Service Manual und Mikroinstruktionshandbuch · Ultronics",
+  "product.ta-1000.technical.source_2": "CTM – Aufstieg und Niedergang einer Computerfirma · HNF",
+  "product.ta-1000.technical.source_3": "BfA mit TA 1000 · Computerwoche",
+  "product.ta-1000.technical.source_4": "TA 1000 · Zwieseltal"
+}
