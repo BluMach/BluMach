@@ -1,0 +1,16 @@
+{
+  "product.schneider-tower386sx70.summary": "The 386SX System 70 variant, whose manual distinguishes its disk and controller assembly.",
+  "product.schneider-tower386sx70.history": "The 386SX System 70 shared System 40's modular platform, with a distinct storage assembly in Schneider's 1990 manual. Its parts list adds a separate disk controller and cabling. The commercial name alone does not establish capacity: the manual says 60 MB, while MAME interprets the suffix as disk size. Both references are retained.",
+  "product.schneider-tower386sx70.warning": "Historical sheet under research; firmware preserved, emulation unvalidated.",
+  "product.schneider-tower386sx70.technical.configurations": "The sources disagree about the disk. Schneider's manual, p. 3, says 60 MB and lists controller 50502 and separate cables; MAME associates the System 70 name with 70 MB. Specimens and revisions still need comparison to resolve this without silently correcting either source.",
+  "product.schneider-tower386sx70.technical.board": "Processor and memory form a removable card. The manual documents an 80386SX at 8/16 MHz, C&T CS8281 chipset and 80387SX socket; VGA I/O base board 50925 is distinct from CPU card 52482.",
+  "product.schneider-tower386sx70.technical.firmware": "A BIOS is attributed to a System 70. The 64 KiB version 1.03 file is preserved and matches MAME's recorded SHA-1. That provenance does not guarantee compatibility with every revision or validated booting.",
+  "product.schneider-tower386sx70.technical.verified": "The manual and hashes of five family ROMs have been reviewed. BluMach 7968236c has no dedicated model; MAME marks tower386sx as not working. No POST tests have been performed.",
+  "product.schneider-tower386sx70.technical.limitations": "Complete behaviour still needs validation. Board and ROM correspondence, storage variants, memory, keyboard, RTC, video, disks and ports must be checked in a dedicated implementation.",
+  "product.schneider-tower386sx70.technical.memory": "Memory upgrades follow specific combinations. Pages 41–43 specify 1, 2 or 5 MB using SIMMs; the keyboard controller is an 8742 and the RTC is in the 82C206. The 286 VGA AT's DS1287 is not carried over.",
+  "product.schneider-tower386sx70.technical.video": "Video has firmware separate from the system. Two 32 KiB VGA 1.00 ROMs are preserved and checked against MAME; its notes describe ATI18800-1 and 256 KB. Correspondence with each physical revision and CEG upgrades remains unresolved.",
+  "product.schneider-tower386sx70.technical.manual": "Schneider, Service Manual 386 SX System 40/70, 60195, footer HD60250/4000/36/90: cover, p. 3 and pp. 41–43 reviewed; PDF preserved.",
+  "product.schneider-tower386sx70.technical.mame": "MAME, at.cpp, snapshot of 7 November 2026: BIOS 1.00a/1.03 provenance, VGA ROMs and non-working status; differs from the manual on System 70 disk capacity.",
+  "product.schneider-tower386sx70.technical.archive": "MAME 0.278 merged ROMs, Internet Archive: five files extracted from the previously preserved container, with SHA-1 and SHA-256 verified; unknown rights, local custody.",
+  "product.schneider-tower386sx70.technical.code": "BluMach 7968236c: machine table preserved and inspected, with no dedicated Tower 386SX entry."
+}
