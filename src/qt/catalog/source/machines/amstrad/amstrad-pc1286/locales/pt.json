@@ -1,0 +1,11 @@
+{
+  "product.amstrad-pc1286.summary": "A alternativa económica ao PC2286, com monitor à escolha.",
+  "product.amstrad-pc1286.history": "A Amstrad anunciou o PC1286 em setembro de 1989 como uma versão mais económica do PC2286 para o mercado profissional. No Reino Unido, a unidade base custava a partir de 750 libras, com monitor opcional.",
+  "product.amstrad-pc1286.technical.storage": "A unidade base foi anunciada com uma unidade de disquetes. O artigo indica 2,5 polegadas, uma medida a confirmar na brochura completa ou num exemplar físico.",
+  "product.amstrad-pc1286.technical.setup": "O utilitário SETUP separado permitia recuperar a configuração após o esgotamento da pilha. O apoio da Amstrad inclui este modelo na lista.",
+  "product.amstrad-pc1286.technical.verified": "A identidade do modelo e a oferta comercial estão documentadas. A ficha BluMach está em investigação.",
+  "product.amstrad-pc1286.technical.limitations": "Falta um dump da BIOS atribuível a este modelo para validar o arranque e o vídeo no BluMach.",
+  "product.amstrad-pc1286.technical.news": "Steve Gold · Newsbytes · 19 September 1989",
+  "product.amstrad-pc1286.technical.brochure": "Amstrad PC1286 / PC1386 · CH23958",
+  "product.amstrad-pc1286.technical.guide": "Amstrad PC 2000 Series Business Product Guide · CH24988"
+}

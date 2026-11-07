@@ -1,0 +1,11 @@
+{
+  "order": 121,
+  "family": {
+    "id": "amstrad-pc1x86",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PC1286 / PC1386",
+    "description_key": "family.amstrad-pc1x86.description"
+  }
+}
