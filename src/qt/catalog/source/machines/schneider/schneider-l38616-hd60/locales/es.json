@@ -1,0 +1,12 @@
+{
+  "product.schneider-l38616-hd60.summary": "La configuración del L 386/16 con disco de 60 MB.",
+  "product.schneider-l38616-hd60.history": "El manual de Schneider identifica el L 386/16 HD 60 como una configuración de su sobremesa con cierre por llave. Compartía la placa de CPU del EuroSX de 16 MHz. El disco de 60 MB tenía la referencia de servicio 54 115 00.",
+  "product.schneider-l38616-hd60.technical.board": "La placa era común al EuroSX de 16 MHz. La lista de repuestos da la referencia 53 110 00 y los esquemas Schneider documentan la lógica Singleboard I SX, con BIGJIM y vídeo ATI 28800.",
+  "product.schneider-l38616-hd60.technical.firmware": "El kit de servicio permite acotar la búsqueda de ROM. El manual indica la referencia 65 467 00 y los zócalos LOW U9 y HIGH U10. La identidad de los binarios de fábrica queda por verificar.",
+  "product.schneider-l38616-hd60.technical.configuration": "La denominación de venta requiere cotejo. IFS anunciaba una LAN Station 386/16 en Portugal en 1992. Falta una etiqueta o referencia que la vincule a estas configuraciones.",
+  "product.schneider-l38616-hd60.warning": "Ficha histórica en investigación.",
+  "product.schneider-l38616-hd60.technical.verified": "La configuración está documentada en el manual. El modelo dedicado y la validación de arranque en BluMach siguen pendientes.",
+  "product.schneider-l38616-hd60.technical.limitations": "Faltan volcados atribuidos, validación del mapa de placa y una imagen con derechos de publicación claros.",
+  "product.schneider-l38616-hd60.technical.manual": "Schneider, Service Manual EURO 386 SX / L 386/16, V12324",
+  "product.schneider-l38616-hd60.technical.press": "IFS, Expresso, 23-05-1992, p. A3"
+}
