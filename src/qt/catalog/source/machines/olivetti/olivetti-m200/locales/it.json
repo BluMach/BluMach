@@ -14,7 +14,7 @@
   "product.olivetti-m200.technical.source_ad": "Personal Computer World, febbraio 1989: Piccadilly Micros (pagina 29 del PDF), prezzo e configurazione con disco; Computer Express (pagina 35), V40 a 8 MHz, 640 KB e due floppy. Prezzi di vendita, non di lancio.",
   "product.olivetti-m200.technical.source_cern": "CERN Staff Association, bollettino 49/88, 5 dicembre 1988, p. IV: annuncio della presentazione del nuovo M200 per il 7 dicembre.",
   "product.olivetti-m200.technical.source_owner": "Amedeo Valoroso, «Olivetti M200»: ispezione e restauro di un esemplare BU 200-X; scheda, schermo, memoria, porte, unità e messaggi diagnostici.",
-  "product.olivetti-m200.technical.source_olivrea": "Olivrea, «olivetti M200»: scheda BU 200-X con 1024 KB e floppy da 1,44 MB. Dati di collezione discordanti, non specifiche confermate per ogni esemplare.",
+  "product.olivetti-m200.technical.source_olivrea": "Olivrea, «olivetti M200»: scheda BU 200-X con 1024 KB e floppy da 1,44 MB. Dati di collezione divergenti, da verificare per ciascun esemplare.",
   "product.olivetti-m200.technical.source_photo": "Fotografia di ValorosoIT / Amedeo Valoroso, 9 febbraio 2025, CC BY-SA 4.0, invariata. La tastiera ANK 27-102 visibile non apparteneva alla dotazione originale, secondo l’autore.",
   "product.olivetti-m200.technical.source_museum": "Museo del Calcolatore «Laura Tellini», M200: esemplare di collezione con monitor monocromatico integrato da 12 pollici. La scheda floppy contiene unità incoerenti e non viene usata per determinarne la capacità.",
   "product.olivetti-m200.technical.source_code": "BluMach 88f74ba3: inizializzazione Prodest PC 1 e dispositivo NEC V40; ispezione del codice, non implementazione o validazione M200."
