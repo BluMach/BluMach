@@ -1,0 +1,9 @@
+{
+  "product.olivetti-echos-p120d.summary": "The Echos P120D is documented in an 860T specimen.",
+  "product.olivetti-echos-p120d.history": "Laptopi Muuseum holds a P120D dated 1996. Its inventory distinguishes it from the P100D 860C.",
+  "product.olivetti-echos-p120d.warning": "Historical sheet under research.",
+  "product.olivetti-echos-p120d.architecture": "The type number identifies the specimen. The museum records 860T and a 120 MHz Pentium.",
+  "product.olivetti-echos-p120d.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-echos-p120d.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-echos-p120d.museum": "Laptopi Muuseum, chronological inventory, entries 41 and 199."
+}

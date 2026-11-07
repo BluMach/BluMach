@@ -1,0 +1,9 @@
+{
+  "product.olivetti-echos-p75.summary": "The Echos P75 in the Italian Pentium line with a 10.4-inch display.",
+  "product.olivetti-echos-p75.history": "MCmicrocomputer documented the Echos P75 in December 1995 in Olivetti’s multimedia Echos P line. It listed an Italian price of 5,600,000 lire excluding VAT.",
+  "product.olivetti-echos-p75.warning": "Historical sheet under research.",
+  "product.olivetti-echos-p75.architecture": "The display defined this configuration. The Italian listing specifies DSTN · 10.4″ and a 510 MB disk.",
+  "product.olivetti-echos-p75.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-echos-p75.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-echos-p75.mc": "MCmicrocomputer 157, December 1995, pp. 194–195."
+}

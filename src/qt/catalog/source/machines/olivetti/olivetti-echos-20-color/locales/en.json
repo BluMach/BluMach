@@ -1,0 +1,9 @@
+{
+  "product.olivetti-echos-20-color.summary": "The compact Echos 20-series model with a colour display.",
+  "product.olivetti-echos-20-color.history": "Computer Business Review documented the introduction of the compact monochrome and colour Echos 20 in January 1995. It listed this version at $2,300.",
+  "product.olivetti-echos-20-color.warning": "Historical sheet under research.",
+  "product.olivetti-echos-20-color.architecture": "The local bus connected the graphics. The source lists VESA video, Fast IDE and a Type III PCMCIA slot.",
+  "product.olivetti-echos-20-color.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-echos-20-color.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-echos-20-color.press": "Computer Business Review, 20 January 1995, Olivetti launches Echos 20 notebook."
+}

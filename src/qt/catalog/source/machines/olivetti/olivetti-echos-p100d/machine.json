@@ -1,0 +1,78 @@
+{
+  "order": 10099,
+  "machine": {
+    "id": "olivetti-echos-p100d",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Echos P100D",
+    "summary_key": "product.olivetti-echos-p100d.summary",
+    "history_key": "product.olivetti-echos-p100d.history",
+    "warning_key": "product.olivetti-echos-p100d.warning",
+    "status": "research",
+    "aliases": [
+      "860C"
+    ],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 100 MHz",
+      "memory": "8 MB",
+      "hard_disk": "510 MB",
+      "video": "DSTN · 10.4″"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-echos-p100d.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-echos-p100d.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-echos-p100d.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-p100d.museum",
+            "url": "https://www.lanec.eu/nimekiri.php?view=aasta"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-p100d.dealer",
+            "url": "https://groups.google.com/g/finet.markkinat.kaupalliset/c/_iP5Nk6jQBo"
+          }
+        ]
+      }
+    ],
+    "period": "1996–1997"
+  }
+}

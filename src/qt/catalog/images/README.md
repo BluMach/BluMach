@@ -164,3 +164,5 @@ https://victoriancollections.net.au/items/5ac6fbae21ea6b0ac0af74d5, the Dario
 The reference photographs are not distributed with BluMach. All prompts lock the
 chassis, drives, grille, perspective, lighting and background and permit changes
 only inside the recessed front badge.
+
+echos-pro-133-s: Swenja Hoschek / Museumsstiftung Post und Telekommunikation, CC BY-SA 4.0. Original unchanged. [Photograph and licence](https://onlinesammlung.museumsstiftung.de/detail/collection/b82e8797-68c2-4107-b920-e1dc54717e4d)

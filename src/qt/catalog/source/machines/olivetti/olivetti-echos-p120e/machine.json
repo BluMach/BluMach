@@ -1,0 +1,72 @@
+{
+  "order": 10102,
+  "machine": {
+    "id": "olivetti-echos-p120e",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Echos P120E",
+    "summary_key": "product.olivetti-echos-p120e.summary",
+    "history_key": "product.olivetti-echos-p120e.history",
+    "warning_key": "product.olivetti-echos-p120e.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 120 MHz",
+      "hard_disk": "1.3 GB",
+      "video": "TFT · 11.3″",
+      "cache": "256 KB L2",
+      "expansion": "PCI · 2 × PCMCIA"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-echos-p120e.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-echos-p120e.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-echos-p120e.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-p120e.review",
+            "url": "https://www.kaisernet.org/library/1996/1096/10r05.htm"
+          }
+        ]
+      }
+    ],
+    "period": "1996"
+  }
+}
