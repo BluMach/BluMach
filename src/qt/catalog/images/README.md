@@ -1,5 +1,12 @@
 # BluMach catalog images
 
+Schneider addition, 2026-11-07: `schneider-europc-photo.jpg` is the unmodified
+original photograph by **Buchinger Manó**, dated 17 July 2018, licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Source and licence declaration: [Schneider Euro PC.jpg on Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schneider_Euro_PC.jpg).
+It retains its own licence and was not resized or re-encoded. The original and
+licence-page snapshot are preserved in the official library.
+
 This directory holds two kinds of image:
 
 - **Illustrations** (`*-family-*.jpg`, `*-branded.jpg`, `*-board.jpg`): author and

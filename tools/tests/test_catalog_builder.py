@@ -73,12 +73,12 @@ class CatalogBuilderTests(unittest.TestCase):
             item["id"] for item in catalog["products"] if item.get("visible", False)
         }
 
-        self.assertEqual({"olivetti", "toshiba", "amstrad", "triumph-adler", "trigem"},
+        self.assertEqual({"olivetti", "toshiba", "amstrad", "triumph-adler", "trigem", "schneider"},
                          visible_manufacturers)
         self.assertEqual(
             {"olivetti-pcs", "olivetti-m", "olivetti-prodest",
              "toshiba-t-series", "amstrad-series-5",
-             "triumph-adler-dario", "trigem-sx386"}, visible_families)
+             "triumph-adler-dario", "trigem-sx386", "schneider-euro-xt"}, visible_families)
         self.assertEqual(
             {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx",
              "olivetti-m10", "olivetti-m15", "olivetti-m15-plus", "toshiba-t3200",
@@ -90,7 +90,8 @@ class CatalogBuilderTests(unittest.TestCase):
              "olivetti-m280", "olivetti-m300-if378", "olivetti-m30002",
              "olivetti-m30002f", "olivetti-m30008", "olivetti-m30015",
              "olivetti-m30030", "olivetti-m30030p", "olivetti-pcs11",
-             "olivetti-pcs33", "olivetti-pcs46c", "olivetti-m290sp"},
+             "olivetti-pcs33", "olivetti-pcs46c", "olivetti-m290sp",
+             "schneider-europc", "schneider-europc2", "schneider-euroxt"},
             visible_products,
         )
 

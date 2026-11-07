@@ -1,0 +1,27 @@
+{
+  "order": 25,
+  "manufacturer": {
+    "id": "schneider",
+    "visible": true,
+    "name": "Schneider",
+    "description_key": "manufacturer.schneider.description",
+    "history_key": "manufacturer.schneider.history",
+    "history_references": [
+      {
+        "title": "Das war der Schneider Euro PC",
+        "publisher": "HNF",
+        "url": "https://blog.hnf.de/das-war-der-schneider-euro-pc/"
+      },
+      {
+        "title": "Schneider bringt AT mit EGA-Karte (1987)",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2812762/schneider-bringt-at-mit-ega-karte.html"
+      },
+      {
+        "title": "Schneider erweitert die Business-Linie um 486SX-PC (1991)",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2737186/schneider-erweitert-die-business-linie-um-486sx-pc.html"
+      }
+    ]
+  }
+}
