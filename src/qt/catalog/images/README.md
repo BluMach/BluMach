@@ -164,3 +164,7 @@ https://victoriancollections.net.au/items/5ac6fbae21ea6b0ac0af74d5, the Dario
 The reference photographs are not distributed with BluMach. All prompts lock the
 chassis, drives, grille, perspective, lighting and background and permit changes
 only inside the recessed front badge.
+
+## M19 photograph added on 2026-11-07
+
+olivetti-m19-photo.jpg is the unmodified original by Jason Quinn, dated 8 April 2008: [Olivetti M19 front view](https://commons.wikimedia.org/wiki/File:Olivetti_M19_front_view.jpg). It shows the system unit and expansion box, without monitor or keyboard. The author released it into the public domain worldwide, with an unrestricted use grant where such dedication is not legally possible. The original and its rights page are preserved with hashes in the official M19 library record. This file was neither resized nor re-encoded; the earlier resizing note applies to the preceding photograph batch.
