@@ -1,0 +1,10 @@
+{
+  "product.olivetti-philos-20.summary": "Le Philos 20 est nommé dans une collection et dans l’index logiciel de la famille 20/22.",
+  "product.olivetti-philos-20.history": "Le Museo del Computer conserve un Notebook Philos 20. L’archive de support conservée par DriverGuide le regroupe avec le 22 dans la gamme de portables Philos.",
+  "product.olivetti-philos-20.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-philos-20.architecture": "L’index de support aide à identifier les fichiers de la famille. DriverGuide répertorie SYSBIOS.BIN dans l’archive Phil20_22_261.zip.",
+  "product.olivetti-philos-20.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-philos-20.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-philos-20.museum": "Museo del Computer, Olivetti collection index.",
+  "product.olivetti-philos-20.support": "DriverGuide, Olivetti PHILOS 20 & 22 Family Driver, file index."
+}
