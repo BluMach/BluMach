@@ -38,9 +38,9 @@
     },
     "hardware": {
       "cpu": "Intel 80286 20 MHz",
-      "memory": "1, 3, 5, 9 or 17 MB (2 x 512 KB soldered + SIMM banks)",
+      "memory": "1 / 3 / 5 / 9 / 17 MB · 2 × 512 KB + SIMM",
       "chipset": "VLSI TOPCAT 82C320/82C331",
-      "video": "Integrated Western Digital WD90C11 VGA"
+      "video": "Western Digital WD90C11 · VGA"
     },
     "firmware": {
       "known_sets": [
