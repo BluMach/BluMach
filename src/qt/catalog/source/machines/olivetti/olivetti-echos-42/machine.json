@@ -1,0 +1,78 @@
+{
+  "order": 10049,
+  "machine": {
+    "id": "olivetti-echos-42",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Echos 42",
+    "summary_key": "product.olivetti-echos-42.summary",
+    "history_key": "product.olivetti-echos-42.history",
+    "warning_key": "product.olivetti-echos-42.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel i486SX · 25 MHz",
+      "memory": "4–24 MB",
+      "hard_disk": "120 MB",
+      "video": "LCD · VGA · 9.4″ · 64 GS",
+      "floppy": "3.5″ · 1.44 MB",
+      "expansion": "2 × PCMCIA II / 1 × PCMCIA III"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-echos-42.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-echos-42.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-echos-42.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-42.brochure",
+            "url": "https://classic.technology/olivetti-echos/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-42.market",
+            "url": "https://www.techmonitor.ai/analysis/olivetti_launches_new_range_of_terracotta_notebook_computers/"
+          }
+        ]
+      }
+    ],
+    "period": "1994"
+  }
+}

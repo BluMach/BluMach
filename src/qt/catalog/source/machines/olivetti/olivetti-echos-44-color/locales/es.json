@@ -1,0 +1,11 @@
+{
+  "product.olivetti-echos-44-color.summary": "El Echos de mayor rendimiento del folleto de 1994 se orientaba a aplicaciones gráficas exigentes.",
+  "product.olivetti-echos-44-color.history": "En octubre de 1994, el folleto de Olivetti situaba el Echos 44 Color por encima del 43 Color como opción profesional para trabajos gráficos más exigentes. Computer Business Review publicó un precio británico de 2.100 libras y el comienzo de los envíos en octubre.",
+  "product.olivetti-echos-44-color.warning": "Ficha histórica en investigación.",
+  "product.olivetti-echos-44-color.architecture": "Las tarjetas de expansión podían ampliar la conectividad. El folleto documenta bus local de vídeo VESA y dos tarjetas PCMCIA de tipo II o una de tipo III. El folleto especifica un i486DX2 a 40 MHz, mientras que la ficha de la fotografía del Danmarks Tekniske Museum identifica su NB40 como i486SX a 33 MHz.",
+  "product.olivetti-echos-44-color.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-echos-44-color.limitations": "Quedan pendientes el cotejo del firmware y las pruebas de arranque.",
+  "product.olivetti-echos-44-color.brochure": "Olivetti, Echos Portable Personal Computers, 3994073P-00, 10/1994, pp. 2, 4.",
+  "product.olivetti-echos-44-color.museum": "Danmarks Tekniske Museum, Echos 44 Color NB40 photograph record.",
+  "product.olivetti-echos-44-color.market": "Computer Business Review, 4 October 1994, Olivetti launches new range of terracotta notebook computers."
+}
