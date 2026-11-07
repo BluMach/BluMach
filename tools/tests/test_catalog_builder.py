@@ -58,7 +58,7 @@ class CatalogBuilderTests(unittest.TestCase):
 
         self.assertIn("Q_INIT_RESOURCE(blumach_catalog);", qt_main)
 
-    def test_release_visibility_is_limited_to_selected_alpha_candidates(self) -> None:
+    def test_visibility_matches_selected_profiles_and_historical_entries(self) -> None:
         repository = Path(__file__).resolve().parents[2]
         source = repository / "src" / "qt" / "catalog" / "source"
         catalog, _ = catalog_builder.assemble(source)
@@ -77,14 +77,14 @@ class CatalogBuilderTests(unittest.TestCase):
                          visible_manufacturers)
         self.assertEqual(
             {"olivetti-pcs", "olivetti-m", "olivetti-prodest",
-             "toshiba-t-series", "amstrad-series-5",
+             "toshiba-t-series", "amstrad-series-5", "amstrad-pc6000",
              "triumph-adler-dario", "trigem-sx386"}, visible_families)
         self.assertEqual(
             {"olivetti-pcs86", "olivetti-pcs286", "olivetti-pcs386sx",
              "olivetti-m10", "olivetti-m15", "olivetti-m15-plus", "toshiba-t3200",
              "toshiba-t5100", "toshiba-t5200", "olivetti-pcs286s",
              "olivetti-prodest-pc1", "olivetti-prodest-pc1hd",
-             "olivetti-m28", "amstrad-pc5286",
+             "olivetti-m28", "amstrad-pc5286", "amstrad-pc6486sx",
              "ta-dario286", "ta-dario386sx", "trigem-sx386m",
              "olivetti-m380", "olivetti-m250", "olivetti-m250e",
              "olivetti-m280", "olivetti-m300-if378", "olivetti-m30002",

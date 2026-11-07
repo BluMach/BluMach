@@ -1,0 +1,19 @@
+{
+  "product.amstrad-pc6486sx.summary": "Amstrad’s move to the 486SX for home users, sold with a software bundle for working in Windows.",
+  "product.amstrad-pc6486sx.history": "The PC6486SX appears in the 1992 press as the 486SX renewal of Amstrad’s consumer offering. In June, Tilt presented it as part of a future 6000 range intended to replace the 5000. In September, Science & Vie Micro reported a French price of 13,990 francs including tax, MS-DOS 5, Windows 3 and Works. The magazine attributed manufacture to Southeast Asia without naming the contractor. In January 1993, British dealers were still advertising it with a 105 MB hard disk.",
+  "product.amstrad-pc6486sx.warning": "Historical card under research; the preserved BIOS has no validated BluMach boot yet.",
+  "product.amstrad-pc6486sx.technical.market": "Reports and advertisements establish particular offers, not a launch day. Tilt documents the model in June 1992; SVM gives the French price in September and PCW a British offer in January 1993.",
+  "product.amstrad-pc6486sx.technical.configuration": "The offered configuration varies by source. Computers by Post advertises a 20 MHz 486SX, 4 MB and 105 MB in PCW; owner dekuNukem describes a specimen with a 25 MHz 486SX and 4 MB.",
+  "product.amstrad-pc6486sx.technical.cpu": "Clock speeds differ across sources. Tilt states 16 MHz; SVM and the PCW advertisement, 20 MHz; the owner and his BIOS identifier, 25 MHz. These differences are not treated as proven factory revisions.",
+  "product.amstrad-pc6486sx.technical.board": "The preserved board provides identification clues. The owner calls it CAM33-P2; his photograph shows a Chips & Technologies P82C206 and AMI labels. The BIOS contains CPM25P0,4,5; the complete board revision still needs verification.",
+  "product.amstrad-pc6486sx.technical.video": "Video and connections depend on cards still needing identification. The owner describes a Trident ISA card and an I/O card; the controller model and an attributable video ROM for that specimen are missing.",
+  "product.amstrad-pc6486sx.technical.firmware": "A 64 KiB system BIOS is preserved. The owner reports physically reading a 27C512 with a TL866II Plus; its SHA-256 matches the preserved file. Rights remain unresolved.",
+  "product.amstrad-pc6486sx.technical.identity": "The file identifies itself as Amstrad, which does not certify operation. Offset 0x150 contains “AMSTRAD plc PC6486SX25, 07/10/1992” and 0xF0 contains “CPM25P0,4,5”. These are file offsets; the date is retained literally without inferring a launch date.",
+  "product.amstrad-pc6486sx.technical.verified": "Documents, photograph and bytes were checked without executing firmware. BluMach 88f74ba3 has no dedicated pc6486sx registration; matching hashes establish integrity, not booting.",
+  "product.amstrad-pc6486sx.technical.limitations": "A board map, identified video controller and boot validation are missing. The BIOS remains unscanned for malware; no image has clear publication rights and no complete configuration is validated.",
+  "product.amstrad-pc6486sx.technical.press": "Tilt no. 103, June 1992, p. 42, “Amstrad : Quel avenir ?”: consumer positioning, 6000 range and 16 MHz.",
+  "product.amstrad-pc6486sx.technical.svm": "Martine Guenzet, SVM no. 97, September 1992, pp. 48–49, “Amstrad joue la carte Intel”: French offer, 20 MHz, software and manufacturing region.",
+  "product.amstrad-pc6486sx.technical.advert": "Computers by Post advertisement, Personal Computer World, January 1993, PDF p. 119: 20 MHz, 4 MB and 105 MB disk.",
+  "product.amstrad-pc6486sx.technical.owner": "dekuNukem, Vintage Computer ROM Dumps, revision ca6c8117: specimen description, photograph and BIOS; added to the archive on 22 November 2022, not a launch date.",
+  "product.amstrad-pc6486sx.technical.source": "BluMach 88f74ba3, machine_table.c and m_amstrad.c: machine-registration inspection, without a boot test."
+}
