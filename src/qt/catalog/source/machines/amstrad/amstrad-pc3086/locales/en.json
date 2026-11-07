@@ -1,0 +1,18 @@
+{
+  "product.amstrad-pc3086.summary": "The entry to Generation 3 retained the 8086 and offered floppy-only configurations for home and small business.",
+  "product.amstrad-pc3086.history": "The August 1990 leaflet places the PC3086 at the entry to Generation 3, below the PC3286 and PC3386SX. Amstrad targeted homes and small businesses, for word processing, spreadsheets, databases and accounting. Buyers could start with floppy disks or choose a hard disk. The same leaflet states UK design and manufacture in Taiwan, Korea or the UK, without identifying the OEM of each unit.",
+  "product.amstrad-pc3086.warning": "Historical card under research; it does not certify booting in BluMach.",
+  "product.amstrad-pc3086.technical.market": "The range could be tailored to the workplace. The August 1990 leaflets offer 12-inch monochrome and 14-inch colour VGA monitors, with MS-DOS 3.3.",
+  "product.amstrad-pc3086.technical.configurations": "Storage was an initial choice. The leaflet offers one or two 3.5-inch 720 KB or 5.25-inch 360 KB floppy drives; the hard-disk version combines 30 MB with one floppy drive.",
+  "product.amstrad-pc3086.technical.memory": "RAM expansion required a card. The manual, p. 1-2, documents 640 KB and expansion through expanded memory on an 8-bit ISA card; the leaflet adds an 8087 socket.",
+  "product.amstrad-pc3086.technical.video": "Integrated video supported software from earlier generations. The leaflets document VGA with EGA, CGA, MDA and Hercules compatibility.",
+  "product.amstrad-pc3086.technical.expansion": "There was room for four cards. Leaflet and manual agree on three full-length 8-bit ISA slots and one half-length slot.",
+  "product.amstrad-pc3086.technical.interfaces": "Printer and modem had dedicated connections. The manual, pp. 1-2–1-3, documents Centronics parallel and RS-232 serial ports, both with 25-pin connectors.",
+  "product.amstrad-pc3086.technical.firmware": "Files are preserved for boot research. fc00.bin is 16 KiB and c000.bin 32 KiB; their hashes are verified. A DOS collection supplies disk-controller (8 KiB) and keyboard (2 KiB) candidates. Revision and physical provenance remain unconfirmed.",
+  "product.amstrad-pc3086.technical.verified": "BluMach contains dedicated code. At 88f74ba3, pc3086 and machine_pc3086_init use Paradise PVGA1A video and a WD XT150 XTA controller; this review only inspected the source.",
+  "product.amstrad-pc3086.technical.limitations": "Booting with a reproducible configuration remains unproven. The firmware has not been executed or virus-scanned; its rights remain unclear. The card offers no creation profile. A publishable image is pending.",
+  "product.amstrad-pc3086.technical.brochure": "Amstrad Generation 3, model leaflet, August 1990, pp. 1–2: audience, configurations and specifications; original preserved.",
+  "product.amstrad-pc3086.technical.manual": "User Manual and MS-DOS Guide, 2nd edition, 1990, pp. 1-2–1-4, 4-18 and 8-7: specifications, speed and RAM upgrades.",
+  "product.amstrad-pc3086.technical.firmware_source": "DOS ROM BIOS Collection, Internet Archive: container preserved; disk-controller and keyboard candidates, with no guarantee of a complete set.",
+  "product.amstrad-pc3086.technical.source": "BluMach 88f74ba3, machine_table.c and m_amstrad.c: preserved source inspection; this is not a boot test."
+}

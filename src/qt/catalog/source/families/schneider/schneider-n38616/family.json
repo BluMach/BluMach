@@ -1,0 +1,24 @@
+{
+  "order": 250,
+  "family": {
+    "id": "schneider-n38616",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Notebook 386/16",
+    "description_key": "family.schneider-n38616.description",
+    "history_key": "family.schneider-n38616.history",
+    "history_references": [
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–2",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_91.html"
+      },
+      {
+        "title": "IFS, Expresso, 23-05-1992, p. A3",
+        "publisher": "Expresso",
+        "url": "https://hemerotecadigital.cm-lisboa.pt/"
+      }
+    ]
+  }
+}

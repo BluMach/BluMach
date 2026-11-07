@@ -1,0 +1,158 @@
+{
+  "order": 264,
+  "machine": {
+    "id": "amstrad-pc4386sx",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-series-4",
+    "name": "Amstrad PC4386SX",
+    "summary_key": "product.amstrad-pc4386sx.summary",
+    "history_key": "product.amstrad-pc4386sx.history",
+    "warning_key": "product.amstrad-pc4386sx.warning",
+    "status": "research",
+    "period": "1991",
+    "aliases": [
+      "PC 4386SX",
+      "PC4386 SX"
+    ],
+    "tags": [
+      "Series 4",
+      "VGA",
+      "80386SX"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386SX · 20 MHz",
+      "memory": "4–16 MB",
+      "video": "VGA · EGA / CGA / MDA / Hercules",
+      "floppy": "3.5″ · 1.44 MB",
+      "coprocessor": "80387SX-20",
+      "expansion": "2 × ISA 16-bit",
+      "interfaces": "RS-232C · LPT · VGA",
+      "dimensions": "250 × 70 × 264 mm"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc4386sx.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.amstrad-pc4386sx.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-pc4386sx.technical.memory"
+          },
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.amstrad-pc4386sx.technical.expansion"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.amstrad-pc4386sx.technical.storage"
+          },
+          {
+            "label_key": "technical.label.serial_parallel",
+            "value_key": "product.amstrad-pc4386sx.technical.interfaces"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc4386sx.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc4386sx.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc4386sx.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.amstrad-pc4386sx.technical.brochure",
+            "url": "https://retrotechwiki.com/Amstrad_PC4386SX"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc4386sx.technical.press",
+            "url": "https://www.retroisle.com/amstrad/pcs/Articles/newsbyte_mar1991.php"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc4386sx.technical.press_check",
+            "url": "https://www.computerwoche.de/article/2837011/amstrad-bringt-laptop-mit-tft-display.html"
+          },
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.amstrad-pc4386sx.technical.prices",
+            "url": "https://archive.org/details/AmstradComputerUser84-1191"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc4386sx.technical.secondary",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.amstrad-pc4386sx.technical.media_source",
+            "url": "https://banjosmods.wordpress.com/2019/01/28/amstrad-pc-series-4-system-disks-includes-amstrads-custom-win3-shell/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc4386sx.technical.source",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

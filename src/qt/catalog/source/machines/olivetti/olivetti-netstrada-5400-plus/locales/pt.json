@@ -1,0 +1,9 @@
+{
+  "product.olivetti-netstrada-5400-plus.summary": "A variante Plus do NetStrada 5400 conservada pelo Museo del Computer.",
+  "product.olivetti-netstrada-5400-plus.history": "O Museo del Computer cataloga um servidor Olivetti com o nome NetStrada 5400 Plus.",
+  "product.olivetti-netstrada-5400-plus.warning": "Ficha histórica em investigação.",
+  "product.olivetti-netstrada-5400-plus.architecture": "A ficha do exemplar identifica a variante Plus. Falta confirmar as configurações de fábrica.",
+  "product.olivetti-netstrada-5400-plus.verified": "O exemplar do museu confirma o modelo. Falta a validação no BluMach.",
+  "product.olivetti-netstrada-5400-plus.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-netstrada-5400-plus.museum-specimen": "Museo del Computer, Olivetti Netstrada 5400 PLUS, item 1989"
+}

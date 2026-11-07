@@ -1,0 +1,10 @@
+{
+  "product.olivetti-philos-48-color-plus.summary": "The TFT-equipped Philos 48 Color Plus is documented in an NB1015 specimen.",
+  "product.olivetti-philos-48-color-plus.history": "The Philos 48 was part of Olivetti’s 1994 business range expansion. Olivrea records a specimen from that year named 48 Color Plus.",
+  "product.olivetti-philos-48-color-plus.warning": "Historical sheet under research.",
+  "product.olivetti-philos-48-color-plus.architecture": "The specimen and the range announcement document separate configurations. Olivrea lists its NB1015 with a 25 MHz 486SL. MCmicrocomputer reports a 75 MHz IntelDX4 for the announced Philos 48.",
+  "product.olivetti-philos-48-color-plus.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-philos-48-color-plus.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-philos-48-color-plus.cebit": "MCmicrocomputer 139, April 1994, pp. 128–129.",
+  "product.olivetti-philos-48-color-plus.specimen": "Olivrea, Olivetti Philos 48 Color Plus NB1015."
+}

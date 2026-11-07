@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-750.summary": "La versione Tin Box dell’M6 con i486DX2 a 50 MHz.",
+  "product.olivetti-m6-750.history": "Olivetti lo presentò al CeBIT del 1994 nella gamma professionale. Il telaio Tin Box distingue questa versione dall’altro M6-750.",
+  "product.olivetti-m6-750.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m6-750.architecture": "Il telaio determina l’espansione disponibile. Il riser offre 3 slot ISA a lunghezza intera, uno PCI corto e uno condiviso ISA/PCI.",
+  "product.olivetti-m6-750.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m6-750.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m6-750.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 5",
+  "product.olivetti-m6-750.mc-micro": "MCmicrocomputer 139, April 1994, pp. 128–129",
+  "product.olivetti-m6-750.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 2.03."
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m30.summary": "Le Linea 1 compact pouvait servir le M20.",
+  "product.olivetti-m30.history": "Olivetti annonça la Linea 1 en 1982. Le M30 visait la gestion et le calcul technique ou scientifique. Le M34 conserva son boîtier et la compatibilité MOS.",
+  "product.olivetti-m30.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m30.architecture": "MOS permettait de développer ses propres applications. Olivetti documentait un environnement BASIC commun aux M30 et M40.",
+  "product.olivetti-m30.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m30.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m30.archive": "Associazione Archivio Storico Olivetti, L1: una nuova linea di sistemi informatici.",
+  "product.olivetti-m30.service": "Olivetti, M34/M44/M54 Service Manual, §§1 and 4.",
+  "product.olivetti-m30.basic": "Olivetti, M30/M40 BASIC Language User Guide."
+}

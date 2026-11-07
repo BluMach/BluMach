@@ -1,0 +1,9 @@
+{
+  "product.olivetti-netstrada-9400.summary": "Le NetStrada Xeon au prix d’entrée le plus élevé de la gamme 400 renouvelée en 1999.",
+  "product.olivetti-netstrada-9400.history": "En février 1999, Olivetti Computers Worldwide a renouvelé le NetStrada 9400. Computerwoche a indiqué un prix allemand à partir de 22 000 marks.",
+  "product.olivetti-netstrada-9400.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-netstrada-9400.architecture": "La mise à jour conservait la prise en charge de quatre processeurs au maximum. La presse de l’époque indique un passage des Xeon de 400 à 450 MHz.",
+  "product.olivetti-netstrada-9400.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-netstrada-9400.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-netstrada-9400.computerwoche-1999": "Computerwoche, Olivetti verpaßt PC-Servern schnellere CPUs, 26 February 1999"
+}

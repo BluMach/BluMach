@@ -1,0 +1,39 @@
+{
+  "order": 230,
+  "family": {
+    "id": "schneider-d48620",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Desktop D486/20",
+    "description_key": "family.schneider-d48620.description",
+    "history_key": "family.schneider-d48620.history",
+    "history_references": [
+      {
+        "title": "Computerwoche, Schneider erweitert die Business-Linie um 486SX-PC, 08-11-1991",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2737186/schneider-erweitert-die-business-linie-um-486sx-pc.html"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 12/1991, p. 3",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_91.html"
+      },
+      {
+        "title": "IFS, Expresso, 23-05-1992, p. A3",
+        "publisher": "Expresso",
+        "url": "https://hemerotecadigital.cm-lisboa.pt/"
+      },
+      {
+        "title": "Schneider, Service Manual D 386/20 / D 486/20, PDF pp. 51, 61, 86",
+        "publisher": "Schneider · Internet Archive",
+        "url": "https://archive.org/details/manual_D38620_SM_SCHNEIDER_EN"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 07/1992, pp. 1, 3",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-7_92.html"
+      }
+    ]
+  }
+}

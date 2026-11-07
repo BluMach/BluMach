@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m380-40.summary": "La estación de trabajo de gama alta que Olivetti ofrecía en septiembre de 1991 con bus AT y 386 a 33 MHz.",
+  "product.olivetti-m380-40.history": "La documentación presenta el M380-40 como la estación de trabajo de gama alta que Olivetti ofrecía en septiembre de 1991 con bus AT y 386 a 33 MHz.",
+  "product.olivetti-m380-40.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m380-40.architecture": "La organización de la memoria condiciona las ampliaciones. La guía identifica BA262 / BA281. Integra vídeo 82C452, disquetera 82077 y 64 KB de caché con 82385.",
+  "product.olivetti-m380-40.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra Flash EPROM · 1.09.",
+  "product.olivetti-m380-40.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m380-40.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m380-40.guide": "Olivetti, Personal Computer – Pocket Service Guide, 21-1.",
+  "product.olivetti-m380-40.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m290-25.summary": "The 20 MHz M290 identified by its BA-08 board in Olivetti’s guide.",
+  "product.olivetti-m290-25.history": "Olivetti documented the M290-25 with the BA-08 board and 40, 85 or 120 MB disk configurations.",
+  "product.olivetti-m290-25.warning": "Historical sheet under research.",
+  "product.olivetti-m290-25.architecture": "Expandable memory sits on a card. The BA-08 starts with 1 MB soldered down and supports up to 17 MB using two SIMM banks on the expansion card.",
+  "product.olivetti-m290-25.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m290-25.limitations": "A verified BA-08 dump, the relationship to the M290 SP name and a photograph with clear rights are pending.",
+  "product.olivetti-m290-25.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. I, ch. 32, M290-25",
+  "product.olivetti-m290-25.firmware": "The revision matters for booting. The guide lists 1.04, 2.00 and 2.01 and attributes boot and A20 gate fixes to the update."
+}

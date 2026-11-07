@@ -1,0 +1,112 @@
+{
+  "order": 298,
+  "machine": {
+    "id": "sinclair-pc200",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc20-pc200",
+    "name": "Sinclair PC200",
+    "summary_key": "product.sinclair-pc200.summary",
+    "history_key": "product.sinclair-pc200.history",
+    "status": "research",
+    "period": "1988",
+    "tags": [
+      "CGA",
+      "MDA",
+      "MS-DOS"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "cga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "8086 · 8 MHz",
+      "memory": "512–640 KB",
+      "video": "CGA / MDA · TV RF",
+      "expansion": "2 × ISA 8-bit",
+      "floppy": "3.5″ · 720 KB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/sinclair-pc200-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Marcin Wichary",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sinclair_PC_200.jpg"
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.sinclair-pc200.technical.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.sinclair-pc200.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.sinclair-pc200.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.sinclair-pc200.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.sinclair-pc200.technical.service",
+            "url": "https://www.manualslib.com/manual/4061284/Sinclair-Pc200.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.sinclair-pc200.technical.ys",
+            "url": "https://rk.nvg.ntnu.no/sinclair/computers/pc200/pc200_ys1188.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.sinclair-pc200.technical.museum",
+            "url": "https://www.computinghistory.org.uk/det/3404/Sinclair-PC200/"
+          }
+        ]
+      }
+    ]
+  }
+}

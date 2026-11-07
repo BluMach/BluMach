@@ -1,0 +1,15 @@
+{
+  "product.amstrad-pc1386.summary": "L’alternative économique au PC2386, vendue sans disque dur d’origine.",
+  "product.amstrad-pc1386.history": "Amstrad a annoncé le PC1386 en septembre 1989 comme une version plus économique du PC2386 pour le marché professionnel. Au Royaume-Uni, l’unité centrale coûtait à partir de 1 250 livres, avec moniteur en option.",
+  "product.amstrad-pc1386.technical.storage": "L’acheteur pouvait ajouter un disque dur. Le support Amstrad indique que la machine sortait d’usine sans disque dur et que le type installé dépendait du revendeur.",
+  "product.amstrad-pc1386.technical.setup": "L’utilitaire SETUP séparé permettait de rétablir la configuration après épuisement de la pile. Le support Amstrad mentionne ce modèle.",
+  "product.amstrad-pc1386.technical.verified": "L’identité du modèle et son offre commerciale sont documentées. La fiche BluMach est au stade de la recherche.",
+  "product.amstrad-pc1386.technical.limitations": "Un dump du BIOS attribuable à ce modèle est nécessaire pour valider le démarrage et l’affichage dans BluMach.",
+  "product.amstrad-pc1386.technical.cpu": "La variante exacte du 386 reste à établir. Retro Maniek indique un 386SX. Bob Morris a signalé à Cliff Lawson qu’il avait installé un Cyrix Cx486DRx2, ce qui indique plutôt un 386DX.",
+  "product.amstrad-pc1386.technical.news": "Steve Gold · Newsbytes · 19 September 1989",
+  "product.amstrad-pc1386.technical.brochure": "Amstrad PC1286 / PC1386 · CH23958",
+  "product.amstrad-pc1386.technical.guide": "Amstrad PC 2000 Series Business Product Guide · CH24988",
+  "product.amstrad-pc1386.technical.upgrade": "Bob Morris · Cliff Lawson AT PCs · Upgrading the x386 processor",
+  "product.amstrad-pc1386.technical.sx": "Retro Maniek · Amstrad PC · PC1386",
+  "product.amstrad-pc1386.technical.cyrix": "Cyrix · 386-to-486 Upgrade Processor FAQs"
+}

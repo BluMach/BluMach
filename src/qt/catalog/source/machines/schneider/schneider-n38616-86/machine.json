@@ -1,0 +1,70 @@
+{
+  "order": 640,
+  "machine": {
+    "id": "schneider-n38616-86",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-n38616",
+    "name": "Schneider Notebook 386/16–86",
+    "summary_key": "product.schneider-n38616-86.summary",
+    "history_key": "product.schneider-n38616-86.history",
+    "warning_key": "product.schneider-n38616-86.warning",
+    "status": "research",
+    "period": "1992",
+    "aliases": [],
+    "tags": [
+      "Schneider",
+      "Notebook"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-n38616-86.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-n38616-86.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-n38616-86.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-n38616-86.technical.press",
+            "url": "https://hemerotecadigital.cm-lisboa.pt/"
+          }
+        ]
+      }
+    ]
+  }
+}

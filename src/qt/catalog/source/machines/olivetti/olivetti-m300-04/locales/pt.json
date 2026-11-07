@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m300-04.summary": "O M300 com 386SX que combina vídeo WD90C11 e controlador de disquetes National 87C311.",
+  "product.olivetti-m300-04.history": "O M300-04 fazia parte da gama M300 com 386SX da Olivetti. O capítulo de serviço distingue-o do M300-10 de igual frequência pelo vídeo e pelo controlador de disquetes.",
+  "product.olivetti-m300-04.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m300-04.architecture": "O guia especifica a memória instalada na placa. Indica 3–17 MB e acesso de 80 ns, com vídeo WD90C11 e controlador de disquetes National 87C311. A capacidade instalada é um valor documental.",
+  "product.olivetti-m300-04.firmware": "A revisão da BIOS ajuda a identificar a configuração de serviço. O guia regista 1.04.",
+  "product.olivetti-m300-04.verified": "A identidade foi verificada na documentação da Olivetti. A ficha permanece em investigação.",
+  "product.olivetti-m300-04.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m300-04.guide": "Olivetti, Personal Computer – Pocket Service Guide, 33-1."
+}

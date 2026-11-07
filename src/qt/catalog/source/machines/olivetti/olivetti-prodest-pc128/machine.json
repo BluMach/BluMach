@@ -1,0 +1,85 @@
+{
+  "order": 10047,
+  "machine": {
+    "id": "olivetti-prodest-pc128",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-prodest",
+    "name": "Olivetti Prodest PC 128",
+    "summary_key": "product.olivetti-prodest-pc128.summary",
+    "history_key": "product.olivetti-prodest-pc128.history",
+    "warning_key": "product.olivetti-prodest-pc128.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "6809E · 1 MHz",
+      "memory": "128 KB",
+      "video": "RGB SCART · UHF PAL",
+      "interfaces": "Centronics · DB9 · DIN",
+      "tape": "1200 / 2400 baud"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-prodest-pc128.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-prodest-pc128.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-prodest-pc128.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-prodest-pc128.manual",
+            "url": "https://archive.org/details/olivettiprodestpc128"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-prodest-pc128.mame",
+            "url": "https://github.com/mamedev/mame/blob/ef30ecbfaf68f480158a9c088cbe427f7074a743/src/mame/thomson/thomson.cpp"
+          }
+        ]
+      }
+    ],
+    "period": "1986",
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/olivetti-prodest-pc128-photo.png",
+      "label_key": "media.kind.photograph",
+      "credit": "Povigna",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Olivetti_Prodest_PC128.png"
+    }
+  }
+}

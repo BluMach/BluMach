@@ -1,0 +1,11 @@
+{
+  "product.sinclair-apc386sx.summary": "PC de sobremesa con un 386SX en tarjeta extraíble y vídeo VGA integrado.",
+  "product.sinclair-apc386sx.history": "El frontal dice «Sinclair APC 386SX by Amstrad». Una unidad con etiqueta APC386SX lleva una pegatina interna «3386 SX». El chasis y la tarjeta de CPU respaldan que Amstrad comercializó el diseño del PC3386SX con la marca Sinclair.",
+  "product.sinclair-apc386sx.technical.cpu": "La ficha técnica de la unidad APC cita 20 MHz. El folleto del PC3386SX también indica 20 MHz, mientras que la tabla de especificaciones de su manual indica 16 MHz.",
+  "product.sinclair-apc386sx.technical.board": "La placa base fotografiada lleva las referencias Z70921 y DPA1704. La tarjeta de CPU comparte la disposición y la serie de PCB 2600-025P con la MS0196A del PC3386SX. El ejemplar APC lleva marcas de revisión 2 y 3 en caras opuestas. La equivalencia eléctrica completa de las placas queda por verificar.",
+  "product.sinclair-apc386sx.technical.hardware": "En la unidad fotografiada se ven cuatro zócalos SIMM, VGA Paradise PVGA1A y reloj Dallas DS1287. Otra unidad documentada lleva un disco IDE Seagate ST-157A-1. El teclado usa un protocolo propio de Amstrad.",
+  "product.sinclair-apc386sx.warning": "Falta un volcado de BIOS verificado de una unidad identificada. La identidad binaria con el PC3386SX sigue abierta y la creación de una máquina virtual está deshabilitada.",
+  "product.sinclair-apc386sx.technical.acme": "Ficha y fotografías del ejemplar APC386SX en el archivo ACME",
+  "product.sinclair-apc386sx.technical.owner": "Desmontaje de un APC 386SX y observaciones del propietario",
+  "product.sinclair-apc386sx.technical.amstrad": "PC3386SX, folleto Generation 3, manual y tarjeta de CPU MS0196A"
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-670.summary": "L’M6 da scrivania con un Pentium a 120 MHz della serie 650/670/680/690.",
+  "product.olivetti-m6-670.history": "Olivetti raggruppò questo modello con gli M6-650, 670, 680 e 690 nel telaio Tin Box.",
+  "product.olivetti-m6-670.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m6-670.architecture": "La scheda madre determina come si collega il monitor. La BA2189 integra il video e la BA2190 usa una Matrox Impression Plus. Questa configurazione ha 512 KB di cache L2.",
+  "product.olivetti-m6-670.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m6-670.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m6-670.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 14",
+  "product.olivetti-m6-670.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.13."
+}

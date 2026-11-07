@@ -1,0 +1,9 @@
+{
+  "product.schneider-t38625.summary": "La tour 386 de la gamme allemande de décembre 1991.",
+  "product.schneider-t38625.history": "En juin 1991, le T386/25 figurait déjà dans la gamme allemande avec des options sans disque, de 68, 159 et 334 Mo. Schneider plaçait le T386/25 dans sa gamme de tours aux côtés du T486/33. Le tarif allemand de décembre 1991 proposait la machine avec un disque de 334 Mo pour 11 990 DM nets.",
+  "product.schneider-t38625.warning": "Fiche historique en cours de recherche.",
+  "product.schneider-t38625.technical.configuration": "Le disque de 334 Mo identifie la configuration annoncée. Le tableau indique aussi 4 Mo de RAM et un lecteur de disquettes de 1,44 Mo.",
+  "product.schneider-t38625.technical.verified": "L’offre est documentée. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
+  "product.schneider-t38625.technical.limitations": "Il reste à comparer la carte à un exemplaire et à préserver un BIOS attribué. Une image aux droits de publication clairs reste à trouver.",
+  "product.schneider-t38625.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–3"
+}

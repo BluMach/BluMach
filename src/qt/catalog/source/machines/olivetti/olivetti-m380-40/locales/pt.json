@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m380-40.summary": "A estação de trabalho de topo que a Olivetti oferecia em setembro de 1991 com barramento AT e 386 a 33 MHz.",
+  "product.olivetti-m380-40.history": "A documentação apresenta o M380-40 como a estação de trabalho de topo que a Olivetti oferecia em setembro de 1991 com barramento AT e 386 a 33 MHz.",
+  "product.olivetti-m380-40.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m380-40.architecture": "A organização da memória determina as expansões. O guia identifica BA262 / BA281. Integra vídeo 82C452, controlador de disquetes 82077 e 64 KB de cache com 82385.",
+  "product.olivetti-m380-40.firmware": "A revisão da BIOS ajuda a identificar a configuração de serviço. O guia regista Flash EPROM · 1.09.",
+  "product.olivetti-m380-40.verified": "A identidade foi verificada na documentação da Olivetti. A ficha permanece em investigação.",
+  "product.olivetti-m380-40.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m380-40.guide": "Olivetti, Personal Computer – Pocket Service Guide, 21-1.",
+  "product.olivetti-m380-40.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

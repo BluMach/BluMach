@@ -1,0 +1,12 @@
+{
+  "product.amstrad-anb-386sx40.summary": "La configuración de 40 MB con la que Amstrad presentó su primer notebook.",
+  "product.amstrad-anb-386sx40.history": "Amstrad presentó el SX40 en CeBIT en marzo de 1991 como su primer notebook para el mercado profesional. Newsbytes publicó un precio británico anunciado de 1.999 libras. En 1992, Amstrad lo anunció en España por 279.900 pesetas más IVA.",
+  "product.amstrad-anb-386sx40.technical.memory": "La memoria anunciada cambió entre las ofertas documentadas. Newsbytes citó 1 MB, ampliable a 5 MB, en marzo de 1991. Computerwoche describió 2 MB en la oferta alemana de septiembre.",
+  "product.amstrad-anb-386sx40.technical.video": "La pantalla integrada permitía usar gráficos VGA sin monitor externo. Amstrad anunciaba un LCD retroiluminado con 64 tonos de gris y una salida para monitor VGA en color.",
+  "product.amstrad-anb-386sx40.technical.verified": "La configuración comercial se ha contrastado con publicidad y prensa de época. La ficha está en investigación en BluMach.",
+  "product.amstrad-anb-386sx40.technical.limitations": "Quedan pendientes un volcado de BIOS atribuible, la identificación de la placa y la validación del arranque en BluMach.",
+  "product.amstrad-anb-386sx40.technical.launch": "Newsbytes · Steve Gold and Geof Wheelwright · Amstrad Unleashes Three Strike Launch · 13 March 1991",
+  "product.amstrad-anb-386sx40.technical.germany": "Computerwoche · Neue tragbare PCs mit 386SX-Prozessor · 27 September 1991",
+  "product.amstrad-anb-386sx40.technical.spain": "Amstrad · ANB 386 SX-20 and SX-40 advertisement · PC World España, 1992 · Universidad de Zaragoza exhibition · PDF p. 15",
+  "product.amstrad-anb-386sx40.technical.museum": "Centre for Computing History · ANB-386SX40 · CH16710"
+}

@@ -1,0 +1,12 @@
+{
+  "product.olivetti-laptop-d33.summary": "El portátil de mayor frecuencia en el catálogo Olivetti 1. de septiembre de 1991.",
+  "product.olivetti-laptop-d33.history": "En septiembre de 1991 Olivetti ofrecía el Laptop D33 en la línea Olivetti 1. El Archivo Histórico atribuye el desarrollo de la gama a Triumph-Adler con colaboración de Y-E Data y sitúa su producción en Núremberg.",
+  "product.olivetti-laptop-d33.warning": "Ficha histórica en investigación.",
+  "product.olivetti-laptop-d33.architecture": "El formato explica el peso y la ampliación. Olivetti da 5 kg y disquetera de 1,44 MB. El folleto de 1991 pone 80386SX a 33 MHz. El ejemplar del Centre for Computing History y la ficha de Classic Computing identifican un 386DX, a 33 MHz en la segunda fuente.",
+  "product.olivetti-laptop-d33.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-laptop-d33.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-laptop-d33.catalogue": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91, p. 3.",
+  "product.olivetti-laptop-d33.archive": "Associazione Archivio Storico Olivetti, Lavorare dovunque, Olivetti 1.",
+  "product.olivetti-laptop-d33.museum": "Centre for Computing History, Olivetti D33 specimen.",
+  "product.olivetti-laptop-d33.exhibit": "Classic Computing 2023, Olivetti D33 / Triumph-Adler Walkstation 386DX."
+}

@@ -1,0 +1,11 @@
+{
+  "product.sinclair-pc200.summary": "Il compatto Amstrad che portò il marchio Sinclair nel mercato britannico dei PC compatibili.",
+  "product.sinclair-pc200.history": "Nel 1988 Amstrad vendette il Sinclair PC200 nel Regno Unito come PC domestico per lavorare e giocare. A novembre Your Sinclair indicò 299 £ senza monitor, 399 £ con monitor monocromatico e 499 £ con monitor a colori, IVA esclusa.",
+  "product.sinclair-pc200.technical.architecture": "Un televisore poteva fungere da schermo. Il manuale di servizio specifica un 8086 a 8 MHz, CGA per televisore o monitor e MDA solo per monitor. Il modulatore RF funziona in modalità CGA.",
+  "product.sinclair-pc200.technical.firmware": "Il BIOS conservato identifica la macchina come Sinclair PC200. Due dump da 8 KiB sono interlacciati per formare 16 KiB e il vettore di reset salta a FC00:205B.",
+  "product.sinclair-pc200.technical.verified": "BluMach include il profilo condiviso pc200. Gli hash sono stati verificati e il BIOS è stato esaminato staticamente.",
+  "product.sinclair-pc200.technical.limitations": "Restano da verificare la revisione dei chip su una macchina fisica e da convalidare l’avvio in BluMach.",
+  "product.sinclair-pc200.technical.service": "Amstrad · Sinclair PC200, S-12 and S-14 Service Manual · p. 2",
+  "product.sinclair-pc200.technical.ys": "Your Sinclair · Phil South · Sinclair PC200 · November 1988",
+  "product.sinclair-pc200.technical.museum": "Centre for Computing History · Sinclair PC200 · CH3404"
+}

@@ -1,0 +1,74 @@
+{
+  "order": 10087,
+  "machine": {
+    "id": "olivetti-philos-48-color-plus",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Philos 48 Color Plus",
+    "summary_key": "product.olivetti-philos-48-color-plus.summary",
+    "history_key": "product.olivetti-philos-48-color-plus.history",
+    "warning_key": "product.olivetti-philos-48-color-plus.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "video": "TFT · SVGA",
+      "floppy": "3.5″ · 1.44 MB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-philos-48-color-plus.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-philos-48-color-plus.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-philos-48-color-plus.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-48-color-plus.cebit",
+            "url": "https://www.digitanto.it/mc-online/Pages/Indice%20Analitico%20MC%20x%20sito.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-48-color-plus.specimen",
+            "url": "https://olivrea.de/olivetti-philos-48-color-plus/"
+          }
+        ]
+      }
+    ],
+    "period": "1994"
+  }
+}

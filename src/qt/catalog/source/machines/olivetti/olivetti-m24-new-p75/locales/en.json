@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m24-new-p75.summary": "The 75 MHz Pentium configuration that revived the M24 name in a slim case.",
+  "product.olivetti-m24-new-p75.history": "Olivetti reused the M24 name for a Pentium range based on the M4-Pxx and PCS 51xx.",
+  "product.olivetti-m24-new-p75.warning": "Historical sheet under research.",
+  "product.olivetti-m24-new-p75.architecture": "The board integrates video and disk control. The guide lists BA2280 and BA2284 with Trident TGUI9680-1 and two Fast IDE drive connections.",
+  "product.olivetti-m24-new-p75.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m24-new-p75.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m24-new-p75.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 21",
+  "product.olivetti-m24-new-p75.firmware": "The revision helps identify the service BIOS. The guide lists 1.21."
+}

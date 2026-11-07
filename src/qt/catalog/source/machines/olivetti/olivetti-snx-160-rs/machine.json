@@ -1,0 +1,87 @@
+{
+  "order": 10210,
+  "machine": {
+    "id": "olivetti-snx-160-rs",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti SNX 160/RS Systema",
+    "summary_key": "product.olivetti-snx-160-rs.summary",
+    "history_key": "product.olivetti-snx-160-rs.history",
+    "warning_key": "product.olivetti-snx-160-rs.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 100/133/166/200 MHz",
+      "memory": "16–512 MB",
+      "video": "SVGA",
+      "storage": "Narrow / Wide SCSI",
+      "expansion": "EISA / PCI"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-snx-160-rs.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-snx-160-rs.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-snx-160-rs.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-snx-160-rs.service-guide-2",
+            "url": "https://www.elhvb.com/mboards/olivetti/servers1.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-snx-160-rs.service-guide-6",
+            "url": "https://www.elhvb.com/mboards/olivetti/servers1.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-snx-160-rs.olivetti-brochure-1995",
+            "url": "https://olivrea.de/prospekte-server-workstation/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-snx-160-rs.service-guide-1",
+            "url": "https://www.elhvb.com/mboards/olivetti/servers1.html"
+          }
+        ]
+      }
+    ],
+    "period": "1995"
+  }
+}

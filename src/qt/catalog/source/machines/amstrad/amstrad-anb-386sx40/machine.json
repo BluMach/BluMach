@@ -1,0 +1,108 @@
+{
+  "order": 303,
+  "machine": {
+    "id": "amstrad-anb-386sx40",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-anb",
+    "name": "Amstrad ANB-386SX40",
+    "summary_key": "product.amstrad-anb-386sx40.summary",
+    "history_key": "product.amstrad-anb-386sx40.history",
+    "status": "research",
+    "period": "1991",
+    "tags": [
+      "LCD",
+      "VGA"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
+      ],
+      "video": [
+        "vga"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
+      "display_color": [
+        "monochrome"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80386SX · 20 MHz",
+      "memory": "1/2 MB",
+      "video": "VGA · LCD",
+      "storage": "40 MB HDD",
+      "floppy": "3.5″"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-anb-386sx40.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-anb-386sx40.technical.video"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-anb-386sx40.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-anb-386sx40.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-anb-386sx40.technical.launch",
+            "url": "https://www.retroisle.com/amstrad/pcs/Articles/newsbyte_mar1991.php"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-anb-386sx40.technical.germany",
+            "url": "https://www.computerwoche.de/article/2734074/amstrad-sorgt-beim-laptop-mit-tft-technik-fuer-klare-bilder.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-anb-386sx40.technical.spain",
+            "url": "https://biblioteca.unizar.es/biblioteca-facultad-de-empresa-y-gestion-publica/fegpexposiciones"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-anb-386sx40.technical.museum",
+            "url": "https://www.computinghistory.org.uk/det/16710/Amstrad-ANB-386SX40/"
+          }
+        ]
+      }
+    ]
+  }
+}

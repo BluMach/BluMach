@@ -1,0 +1,140 @@
+{
+  "order": 202,
+  "machine": {
+    "id": "olivetti-m240",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M240",
+    "summary_key": "product.olivetti-m240.summary",
+    "history_key": "product.olivetti-m240.history",
+    "warning_key": "product.olivetti-m240.warning",
+    "status": "research",
+    "period": "1987",
+    "aliases": [
+      "M240"
+    ],
+    "tags": [
+      "8086",
+      "OMEGA 4",
+      "OGC",
+      "Steuerberater"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 8086 · 10 MHz",
+      "memory": "640 KB · 120 ns · 0 WS",
+      "chipset": "BA200 / BA208 · OMEGA 4",
+      "video": "OGC / OEC (EGA) / OVC (VGA)",
+      "floppy": "5.25″ · 360 KB / 3.5″ · 720 KB",
+      "hard_disk": "20 MB",
+      "interfaces": "RS-232-C · Centronics"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m240.technical.variants"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m240.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m240.technical.video"
+          },
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.olivetti-m240.technical.ports"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.olivetti-m240.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m240.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m240.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m240.technical.source_brochure",
+            "url": "https://classic.technology/olivetti-personal-computer-m240/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m240.technical.source_tax",
+            "url": "https://classic.technology/olivetti-m240-steuerberater/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m240.technical.source_service",
+            "url": "https://www.museotecnologicamente.it/olivetti-m-21-1984/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m240.technical.source_code",
+            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_xt_olivetti.c"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m240.technical.source_omega",
+            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_at_olivetti_m240.c"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m240.technical.source_86box",
+            "url": "https://github.com/86Box/86Box/pull/4446"
+          }
+        ]
+      }
+    ]
+  }
+}

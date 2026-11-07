@@ -1,0 +1,129 @@
+{
+  "order": 282,
+  "machine": {
+    "id": "amstrad-pc7386sx",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc7000",
+    "name": "Amstrad PC7386SX",
+    "summary_key": "product.amstrad-pc7386sx.summary",
+    "history_key": "product.amstrad-pc7386sx.history",
+    "warning_key": "product.amstrad-pc7386sx.warning",
+    "status": "research",
+    "period": "1992",
+    "aliases": [
+      "PC 7386SX"
+    ],
+    "tags": [
+      "PC7000",
+      "80386SX"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386SX · 25 MHz",
+      "memory": "1 / 2 MB · ≤16 MB",
+      "hard_disk": "40 / 80 MB",
+      "video": "VGA · 256–512 KB · 1024 × 768",
+      "floppy": "3.5″ · 1.44 MB",
+      "expansion": "2 × ISA 16-bit",
+      "interfaces": "2 × RS-232C · LPT · VGA · PS/2"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc7386sx.technical.market"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc7386sx.technical.hardware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc7386sx.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc7386sx.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc7386sx.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7386sx.technical.press",
+            "url": "https://archive.org/details/pc-review-13"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7386sx.technical.prices",
+            "url": "https://worldradiohistory.com/UK/Personal-Computer-World/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7386sx.technical.service",
+            "url": "https://archive.org/details/manual_PC7386SX_SM_AMSTRAD_EN"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7386sx.technical.megapc",
+            "url": "https://acpc.me/ACME/AMSTRAD_PRO/AMSTRAD_PC/DOCUMENTS_TECHNIQUES/SERVICE_MANUALS/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7386sx.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src"
+          }
+        ]
+      }
+    ]
+  }
+}

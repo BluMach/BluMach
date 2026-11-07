@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-dx33.summary": "Le PCS40 mini-tour avec un 486DX à 33 MHz.",
+  "product.olivetti-pcs40-dx33.history": "Olivetti incluait le PCS40 DX/33 dans la gamme PCS30–PCS40 de systèmes 386 et 486. Le guide le présente comme une configuration mini-tour.",
+  "product.olivetti-pcs40-dx33.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-pcs40-dx33.architecture": "La vidéo et le stockage utilisaient des cartes d’extension. Les cartes de série laissaient 6 des 8 emplacements AT libres dans la configuration standard.",
+  "product.olivetti-pcs40-dx33.firmware": "La carte détermine le BIOS à rechercher. Le guide indique Harward pour 486-VC.",
+  "product.olivetti-pcs40-dx33.verified": "L’identité a été vérifiée dans la documentation Olivetti. La fiche reste en cours de recherche.",
+  "product.olivetti-pcs40-dx33.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-pcs40-dx33.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

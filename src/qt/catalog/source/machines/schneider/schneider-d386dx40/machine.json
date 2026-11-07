@@ -1,0 +1,93 @@
+{
+  "order": 720,
+  "machine": {
+    "id": "schneider-d386dx40",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-desktops-1992",
+    "name": "Schneider D 386DX/40",
+    "summary_key": "product.schneider-d386dx40.summary",
+    "history_key": "product.schneider-d386dx40.history",
+    "status": "research",
+    "period": "1992",
+    "aliases": [],
+    "tags": [
+      "Schneider"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ],
+      "storage_interface": [
+        "floppy"
+      ],
+      "video": [
+        "vga"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386DX · 40 MHz",
+      "memory": "4 MB · ≤ 32 MB",
+      "video": "VGA · 512 KB",
+      "floppy": "3.5″ · 1.44 MB / 5.25″ · 1.2 MB",
+      "storage": "106 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-d386dx40.technical.options"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.schneider-d386dx40.technical.slots"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-d386dx40.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-d386dx40.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-d386dx40.technical.price_list",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_92.html"
+          }
+        ]
+      }
+    ]
+  }
+}

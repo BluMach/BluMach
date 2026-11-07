@@ -1,0 +1,72 @@
+{
+  "order": 10208,
+  "machine": {
+    "id": "olivetti-snx-160e",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti SNX 160E Systema",
+    "summary_key": "product.olivetti-snx-160e.summary",
+    "history_key": "product.olivetti-snx-160e.history",
+    "warning_key": "product.olivetti-snx-160e.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 100 MHz",
+      "memory": "16–256 MB",
+      "video": "SVGA",
+      "storage": "SCSI-2",
+      "expansion": "EISA / PCI"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-snx-160e.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-snx-160e.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-snx-160e.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-snx-160e.service-guide-1",
+            "url": "https://www.elhvb.com/mboards/olivetti/servers1.html"
+          }
+        ]
+      }
+    ],
+    "period": "1995"
+  }
+}

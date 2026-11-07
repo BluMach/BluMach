@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-d250.summary": "El PCS40 de minitorre con 486DX2 a 50 MHz.",
+  "product.olivetti-pcs40-d250.history": "Olivetti incluyó el PCS40 D2/50 en la serie PCS30–PCS40, que reunía equipos 386 y 486. Lo documentó como una de las configuraciones de minitorre.",
+  "product.olivetti-pcs40-d250.warning": "Ficha histórica en investigación.",
+  "product.olivetti-pcs40-d250.architecture": "El vídeo y el almacenamiento usaban tarjetas de expansión. Con las tarjetas de serie quedaban 6 de 8 ranuras AT libres en la configuración estándar.",
+  "product.olivetti-pcs40-d250.firmware": "La placa determina qué BIOS buscar. La guía documenta Harward para 486-VC.",
+  "product.olivetti-pcs40-d250.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-pcs40-d250.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-pcs40-d250.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

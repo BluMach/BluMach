@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-640.summary": "The M6-640 combined a single Pentium with the professional range’s PCI expansion options.",
+  "product.olivetti-m6-640.history": "Olivetti presented it at CeBIT in 1994 as part of its professional range.",
+  "product.olivetti-m6-640.warning": "Historical sheet under research.",
+  "product.olivetti-m6-640.architecture": "The board determines whether a video card is needed. The BA2139 has onboard graphics and the BA2144 leaves it out.",
+  "product.olivetti-m6-640.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m6-640.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m6-640.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 11",
+  "product.olivetti-m6-640.mc-micro": "MCmicrocomputer 139, April 1994, pp. 128–129",
+  "product.olivetti-m6-640.firmware": "The revision helps identify the service BIOS. The guide lists 1.16."
+}

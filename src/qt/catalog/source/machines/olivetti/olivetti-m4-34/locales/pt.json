@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m4-34.summary": "O M4 com um 386SX a 40 MHz e VGA integrada.",
+  "product.olivetti-m4-34.history": "A Olivetti identificava o M4-34 como um sistema AT com 386SX da gama M4. O projeto reunia o controlador VGA e a memória inicial na placa principal BA2012.",
+  "product.olivetti-m4-34.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m4-34.architecture": "Os gráficos podiam ser ampliados com mais memória de vídeo. A Olivetti documenta o kit VGA-MEM/02 de 512 KB e revisões de BIOS específicas para VRAM de 80 ns.",
+  "product.olivetti-m4-34.firmware": "A revisão da BIOS ajuda a identificar a configuração de serviço. O guia regista BA2012 · Rev. 1.01–1.05.",
+  "product.olivetti-m4-34.verified": "A identidade foi verificada na documentação da Olivetti. A ficha permanece em investigação.",
+  "product.olivetti-m4-34.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m4-34.guide": "Olivetti, Personal Computer – Pocket Service Guide, §38, pp. 38-1–38-3."
+}

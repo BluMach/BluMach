@@ -1,0 +1,83 @@
+{
+  "order": 10113,
+  "machine": {
+    "id": "olivetti-laptop-d33-c",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Laptop D33/C",
+    "summary_key": "product.olivetti-laptop-d33-c.summary",
+    "history_key": "product.olivetti-laptop-d33-c.history",
+    "warning_key": "product.olivetti-laptop-d33-c.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80386DX · 33 MHz",
+      "memory": "4–20 MB",
+      "cache": "32 KB",
+      "video": "TFT · VGA · 640 × 480",
+      "hard_disk": "80 MB",
+      "floppy": "3.5″ · 1.44 MB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-laptop-d33-c.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-laptop-d33-c.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-laptop-d33-c.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-laptop-d33-c.spring",
+            "url": "https://www.digitanto.it/mc-online/Pages/Indice%20Analitico%20MC%20x%20sito.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-laptop-d33-c.autumn",
+            "url": "https://archive.org/details/MC_microcomputer-123"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-laptop-d33-c.brochure-index",
+            "url": "https://olivrea.de/prospekte-laptop-portable/"
+          }
+        ]
+      }
+    ],
+    "period": "1991–1992"
+  }
+}

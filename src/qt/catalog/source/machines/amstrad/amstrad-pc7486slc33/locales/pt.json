@@ -1,0 +1,14 @@
+{
+  "product.amstrad-pc7486slc33.summary": "A variante 486SLC com cache e uma oferta documentada de DOS 6 e Windows 3.1.",
+  "product.amstrad-pc7486slc33.history": "O PC7486SLC-33 levou a oferta PC7000 ao processador 486SLC. Os seus manuais descrevem um computador entregue com monitor, teclado KB7(A), rato PS/2, DOS 6 e Windows 3.1. Face aos 7286 e 7386SX anunciados com DOS 5, este conjunto dava maior destaque ao Windows. A documentação preservada permite reconstruir essa oferta, mas ainda não estabelece o dia de lançamento, o preço inicial ou um fabricante OEM.",
+  "product.amstrad-pc7486slc33.technical.market": "O manual prevê várias capacidades de fábrica. Enumera 2 ou 4 MB de RAM e discos de 130 ou 214 MB, sem atribuir aqui uma combinação única a todos os exemplares.",
+  "product.amstrad-pc7486slc33.technical.hardware": "O 486SLC mantém um bus externo de 16 bits. O manual documenta 33 MHz, 1 KB de cache interna e 16 ou 64 KB de cache externa; a RAM chega a 16 MB com SIMM de 30 contactos instalados aos pares.",
+  "product.amstrad-pc7486slc33.technical.firmware": "O dump preserva firmware de sistema e vídeo sem certificar o conjunto físico de chips. PC7486 ocupa 64 KiB e contém «AMSTRAD PC7486SLC V1.0» em 0x81A0. E000.ROM e E800.ROM são idênticos, de 32 KiB: uma única imagem de vídeo, não duas revisões.",
+  "product.amstrad-pc7486slc33.technical.verified": "Foram verificados manuais e hashes sem executar as BIOS. O BluMach 88f74ba3 não regista um PC7486SLC33 dedicado. Banjo identifica CL-GD5420-75QC-B no seu exemplar; essa observação não é alargada ao SLC80.",
+  "product.amstrad-pc7486slc33.technical.limitations": "Faltam o mapa completo da placa e a validação do arranque. Os dumps não passaram por análise antivírus e os direitos continuam por esclarecer; partilhar o nome 486SLC não demonstra compatibilidade com a BIOS do SLC80.",
+  "product.amstrad-pc7486slc33.warning": "Ficha histórica em investigação; arranque não validado no BluMach.",
+  "product.amstrad-pc7486slc33.technical.manuals": "Amstrad PC7486SLC-33 Technical Reference Manual · pp. 3–5, 11, 13; Software Installation Guide · p. 3 · Phipscube / Banjo",
+  "product.amstrad-pc7486slc33.technical.banjo": "Banjo · Amstrad PC7486-SLC33 BIOS Dump · 2021-04-17",
+  "product.amstrad-pc7486slc33.technical.press": "Amstrad / PC Review 13 · November 1992 · PDF pp. 23–24",
+  "product.amstrad-pc7486slc33.technical.code": "BluMach 88f74ba3 · machine_table.c, m_at_286.c, m_at_386sx.c, vid_cl54xx.c"
+}

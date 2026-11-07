@@ -1,0 +1,73 @@
+{
+  "order": 10227,
+  "machine": {
+    "id": "olivetti-m28-20",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M28/20",
+    "summary_key": "product.olivetti-m28-20.summary",
+    "history_key": "product.olivetti-m28-20.history",
+    "warning_key": "product.olivetti-m28-20.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80286 · 8 MHz",
+      "memory": "512 KB–1 MB",
+      "video": "CRT · 12″ · 640 × 400",
+      "storage": "HDD · 20 MB · FDD · 1.2 MB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m28-20.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m28-20.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m28-20.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m28-20.olivetti-nl",
+            "url": "https://classic.technology/olivetti-personal-computer-m28/"
+          }
+        ]
+      }
+    ]
+  }
+}

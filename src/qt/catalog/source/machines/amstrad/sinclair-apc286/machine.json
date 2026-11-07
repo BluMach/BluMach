@@ -1,0 +1,80 @@
+{
+  "order": 114,
+  "machine": {
+    "id": "sinclair-apc286",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-sinclair-apc",
+    "name": "Sinclair APC 286",
+    "summary_key": "product.sinclair-apc286.summary",
+    "history_key": "product.sinclair-apc286.history",
+    "warning_key": "product.sinclair-apc286.warning",
+    "status": "research",
+    "aliases": [
+      "APC286",
+      "APC3286"
+    ],
+    "tags": [
+      "80286",
+      "VGA",
+      "IDE",
+      "desktop"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy",
+        "ide"
+      ]
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.sinclair-apc286.technical.hardware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.sinclair-apc286.warning"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.sources",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.sinclair-apc286.technical.specimen",
+            "url": "https://allegrolokalnie.pl/oferta/retro-komputer-447-amstrad-sinclair-apc-286-bdq"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.sinclair-apc286.technical.amstrad",
+            "url": "https://retrotechwiki.com/Amstrad_PC3286"
+          }
+        ]
+      }
+    ]
+  }
+}

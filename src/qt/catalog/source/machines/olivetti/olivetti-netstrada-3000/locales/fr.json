@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-3000.summary": "Le NetStrada à boîtier Copper convertible pour montage en baie.",
+  "product.olivetti-netstrada-3000.history": "Olivetti a documenté le NetStrada 3000 sur plate-forme Vulcan avec un kit pour monter le même boîtier en baie 19 pouces.",
+  "product.olivetti-netstrada-3000.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-netstrada-3000.architecture": "Le processeur et les emplacements d’extension partagent une seule carte. La BA2315 utilise Intel 440FX, Socket 8, trois emplacements PCI et deux ISA.",
+  "product.olivetti-netstrada-3000.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-netstrada-3000.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-netstrada-3000.service-guide-9": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 9",
+  "product.olivetti-netstrada-3000.solaris-hcl": "Sun Microsystems, Hardware Compatibility List for Solaris 2.6 Intel Platform Edition"
+}

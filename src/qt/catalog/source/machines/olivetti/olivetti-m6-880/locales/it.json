@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-880.summary": "La torre EISA della gamma M6 con Pentium a 60 MHz.",
+  "product.olivetti-m6-880.history": "Olivetti lo incluse tra gli M6 a torre con bus EISA. Nell’aprile 1994 ASCII ne riportò l’offerta in Giappone a 998.000 ¥ con 525 MB e 1.098.000 ¥ con 1 GB.",
+  "product.olivetti-m6-880.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m6-880.architecture": "Il processore è su una scheda dedicata. La scheda si collega alla scheda madre e include 256 KB di cache L2.",
+  "product.olivetti-m6-880.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m6-880.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m6-880.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 6",
+  "product.olivetti-m6-880.ascii-1994": "ASCII EXPRESS, April 1994, Japanese market report (archival reproduction)",
+  "product.olivetti-m6-880.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.2 · rev. 1.2."
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-pxx-i.summary": "La branche M4-Pxx i a adopté une carte Atlantis avec vidéo ATI intégrée.",
+  "product.olivetti-m4-pxx-i.history": "Olivetti a identifié comme M4-Pxx i la branche à carte Atlantis BA2267. La fiche Intel Advanced/AS documente la même famille de BIOS CL0.",
+  "product.olivetti-m4-pxx-i.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m4-pxx-i.architecture": "La vidéo est intégrée à la carte mère. La BA2267 intègre un ATI Mach64-CT et réserve le support CELP avec 256 Ko de cache L2 aux configurations de 133 et 166 MHz.",
+  "product.olivetti-m4-pxx-i.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m4-pxx-i.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m4-pxx-i.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 17",
+  "product.olivetti-m4-pxx-i.intel-advanced-as": "Intel, Advanced/AS Technical Product Specification, order 281836-001",
+  "product.olivetti-m4-pxx-i.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 1.00.04.CL0."
+}

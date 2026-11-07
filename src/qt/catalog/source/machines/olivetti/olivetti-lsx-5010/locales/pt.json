@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5010.summary": "O servidor LSX com i486 a 25 MHz oferecia um encaixe opcional para i860.",
+  "product.olivetti-lsx-5010.history": "A Olivetti oferecia a gama LSX 5000 a médias empresas e departamentos de grandes organizações no âmbito da arquitetura OSA. O folheto do 5010 apresenta-o como servidor de aplicações Unix e de postos gráficos Open Desktop.",
+  "product.olivetti-lsx-5010.warning": "Ficha histórica em investigação.",
+  "product.olivetti-lsx-5010.architecture": "A placa permitia acrescentar capacidade de cálculo. A Olivetti documenta encaixes opcionais para Weitek 4167 e Intel i860.",
+  "product.olivetti-lsx-5010.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-lsx-5010.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-lsx-5010.olivetti-model": "Olivetti Systems & Networks, LSX 5010 brochure, 1991",
+  "product.olivetti-lsx-5010.olivetti-osa": "Olivetti, LSX 5000 System Line in OSA, 1991"
+}

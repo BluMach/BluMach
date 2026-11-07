@@ -1,0 +1,159 @@
+{
+  "order": 480,
+  "machine": {
+    "id": "schneider-targetpc7640",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-target-pc",
+    "name": "Schneider Target PC7640",
+    "summary_key": "product.schneider-targetpc7640.summary",
+    "history_key": "product.schneider-targetpc7640.history",
+    "warning_key": "product.schneider-targetpc7640.warning",
+    "status": "research",
+    "period": "1988",
+    "aliases": [
+      "Schneider Target PC",
+      "Schneider PC 7640"
+    ],
+    "tags": [
+      "Schneider",
+      "Target PC",
+      "PC7640",
+      "80286"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "cga"
+      ],
+      "display_technology": [
+        "plasma"
+      ],
+      "storage_interface": [
+        "floppy",
+        "mfm"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80286 · 8 MHz",
+      "memory": "640 KB",
+      "video": "Yamaha V6366B-F · 32 KB · 640 × 400",
+      "floppy": "3.5″ · 720 KB",
+      "storage": "20 MB · MFM"
+    },
+    "firmware": {
+      "known_sets": [
+        "InterLINK 1.29E (129E1 / 129E2)",
+        "InterLINK 1.30"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-targetpc7640.technical.configurations"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-targetpc7640.technical.oem"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-targetpc7640.technical.board"
+          },
+          {
+            "label_key": "technical.label.video_firmware",
+            "value_key": "product.schneider-targetpc7640.technical.video"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.schneider-targetpc7640.technical.firmware"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-targetpc7640.technical.layout"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-targetpc7640.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-targetpc7640.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-targetpc7640.technical.press",
+            "url": "http://www.homecomputerworld.at/"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.schneider-targetpc7640.technical.manual",
+            "url": "https://archive.org/details/manual_PC7640_SM_SCHNEIDER_EN_DE"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-targetpc7640.technical.owner",
+            "url": "https://retrocomputing.stackexchange.com/questions/13564/how-do-i-configure-a-v6366-graphics-controller-for-640x400-b-w"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-targetpc7640.technical.forum",
+            "url": "https://forum.classic-computing.de/forum/index.php?thread/20634-vorstellung-schneider-laptop-target-pc7640/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-targetpc7640.technical.museum",
+            "url": "https://retro-computer.ru/Lists/ItemList/DispForm.aspx?ID=356"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.schneider-targetpc7640.technical.archive",
+            "url": "https://archive.org/details/schneider-pc-7640"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-targetpc7640.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/76ecca74830547fae586c3de39755789f77d9dae/src"
+          }
+        ]
+      }
+    ]
+  }
+}

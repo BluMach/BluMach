@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-160-s.summary": "Le Systema d’entrée de gamme de 1996 proposé avec deux processeurs.",
+  "product.olivetti-snx-160-s.history": "En mars 1996, Computerwoche a rapporté la présentation des SNX 140/S et 160/S comme serveurs de fichiers et d’impression pour les PME.",
+  "product.olivetti-snx-160-s.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-snx-160-s.architecture": "La carte accepte un deuxième processeur identique. Le SNX 160/S a deux supports ZIF et 512 Ko de cache L2.",
+  "product.olivetti-snx-160-s.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-snx-160-s.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-snx-160-s.service-guide-5": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 5",
+  "product.olivetti-snx-160-s.computerwoche-1996": "Computerwoche, Olivetti baut Modulo-, Suprema- und Systema-PC-Serien aus, 15 March 1996"
+}

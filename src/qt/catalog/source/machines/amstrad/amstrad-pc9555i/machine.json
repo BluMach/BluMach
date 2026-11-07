@@ -1,0 +1,120 @@
+{
+  "order": 295,
+  "machine": {
+    "id": "amstrad-pc9555i",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pci-1995",
+    "name": "Amstrad PC9555i",
+    "summary_key": "product.amstrad-pc9555i.summary",
+    "history_key": "product.amstrad-pc9555i.history",
+    "warning_key": "product.amstrad-pc9555i.warning",
+    "status": "research",
+    "period": "1995",
+    "tags": [
+      "PCI",
+      "Enhanced IDE"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "ide"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 75/90/100 MHz",
+      "memory": "8 MB",
+      "video": "SVGA",
+      "expansion": "AT/PCI",
+      "storage": "2 × Enhanced IDE"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc9555i.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.amstrad-pc9555i.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc9555i.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc9555i.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc9555i.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc9555i.technical.cebit",
+            "url": "https://www.computerwoche.de/article/2738334/pentium-und-486-rechner-vorgestellt-amstrad-will-auch-weiterhin-in-dem-pc-geschaeft-mitmischen.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc9555i.technical.lawson",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/general.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc9555i.technical.times",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc9555i.technical.video",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/quest6.htm#Q0222"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc9555i.technical.board",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/queste.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc9555i.technical.epson",
+            "url": "https://archive.org/details/EpsonFTP"
+          }
+        ]
+      }
+    ]
+  }
+}

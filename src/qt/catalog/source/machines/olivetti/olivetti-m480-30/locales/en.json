@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m480-30.summary": "The M480 server with intelligent MCA disks or GO582 and GO610 SCSI options.",
+  "product.olivetti-m480-30.history": "In September 1991 Olivetti offered M480-30 (the M480 server with intelligent MCA disks or GO582 and GO610 SCSI options).",
+  "product.olivetti-m480-30.warning": "Historical sheet under research.",
+  "product.olivetti-m480-30.architecture": "The board determines which peripheral combination needs verification. The guide identifies BA865 / BA900 / BA952 / BA953 · 82C452 · MCA ESDI / SCSI.",
+  "product.olivetti-m480-30.firmware": "The BIOS revision helps identify the service configuration. The guide records 1.06.",
+  "product.olivetti-m480-30.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m480-30.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m480-30.guide": "Olivetti, Personal Computer – Pocket Service Guide, 24-1.",
+  "product.olivetti-m480-30.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

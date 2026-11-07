@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m380-40.summary": "La workstation di fascia alta offerta da Olivetti nel settembre 1991 con bus AT e 386 a 33 MHz.",
+  "product.olivetti-m380-40.history": "La documentazione presenta M380-40 come la workstation di fascia alta offerta da Olivetti nel settembre 1991 con bus AT e 386 a 33 MHz.",
+  "product.olivetti-m380-40.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m380-40.architecture": "L’organizzazione della memoria determina le espansioni. La guida identifica BA262 / BA281. Integra video 82C452, controller floppy 82077 e 64 KB di cache con 82385.",
+  "product.olivetti-m380-40.firmware": "La revisione del BIOS aiuta a identificare la configurazione di servizio. La guida indica Flash EPROM · 1.09.",
+  "product.olivetti-m380-40.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-m380-40.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m380-40.guide": "Olivetti, Personal Computer – Pocket Service Guide, 21-1.",
+  "product.olivetti-m380-40.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

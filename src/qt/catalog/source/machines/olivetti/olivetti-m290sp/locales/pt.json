@@ -1,6 +1,6 @@
 {
   "product.olivetti-m290sp.summary": "M290 de 1991 com 286 a 20 MHz, chipset VLSI TOPCAT e vídeo WD90C11 integrado.",
-  "product.olivetti-m290sp.history": "A BIOS preservada identifica-se como «M290 SP» e pertence à mesma família de firmware usada depois pelas placas BA013 do M300 e pelos PCS 11/33. Pelo processador, chipset, vídeo e memória coincide com a placa BA-08 do M290-25 descrita no guia de assistência da Olivetti, mas nenhuma fonte primária encontrada até agora liga o nome M290 SP à BA-08. É um modelo diferente do M290 original, que usa outra BIOS, e do M28 SP de 1986.",
+  "product.olivetti-m290sp.history": "A designação M290 SP está documentada numa BIOS da Olivetti datada de 25 de fevereiro de 1991.",
   "product.olivetti-m290sp.creation.cpu": "Intel 80286 a 20 MHz",
   "product.olivetti-m290sp.creation.model": "M290 SP com 286 a 20 MHz, 1 MB, WD90C11 integrado e uma unidade de disquete de 3,5 polegadas e 1,44 MB",
   "product.olivetti-m290sp.creation.memory.1024": "1 MB (perfil de referência)",

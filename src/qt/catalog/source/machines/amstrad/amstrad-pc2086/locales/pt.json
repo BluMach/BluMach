@@ -1,0 +1,19 @@
+{
+  "product.amstrad-pc2086.summary": "A entrada da série PC2000 conservava a arquitetura 8086 e acrescentava VGA integrada ao computador de secretária profissional.",
+  "product.amstrad-pc2086.history": "Anunciado em setembro de 1988, o PC2086 era a entrada da nova gama profissional PC2000, abaixo dos PC2286 e PC2386. A Amstrad propunha-o para trabalho individual ou como posto de rede. A tabela francesa de 1 de novembro de 1988 fixava o PC2086 SD 12 MD, com uma unidade de disquetes e monitor monocromático de 12 polegadas, em 6.590 francos sem IVA. O folheto de abril de 1989 atribui o desenvolvimento ao Reino Unido e a montagem à Coreia, sem identificar o fabricante subcontratado.",
+  "product.amstrad-pc2086.warning": "Ficha histórica em investigação; não permite criar uma máquina validada no BluMach.",
+  "product.amstrad-pc2086.technical.market": "A série destinava-se a utilizadores profissionais. A Computerwoche documentou o anúncio em 30 de setembro de 1988; isso não fixa o primeiro dia de venda em cada país.",
+  "product.amstrad-pc2086.technical.configurations": "A escolha dependia das necessidades de armazenamento. S/SD tinha uma unidade de disquetes, D/DD duas, e /30 um disco rígido de 30 MB acompanhado de uma unidade de 720 KB.",
+  "product.amstrad-pc2086.technical.memory": "Conservava a base dos PC de primeira geração. O folheto e o manual de assistência documentam 8086 a 8 MHz, 640 KB de RAM com paridade e suporte para 8087.",
+  "product.amstrad-pc2086.technical.video": "O ecrã não exigia uma placa adicional. O folheto documenta VGA integrada e compatibilidade com EGA, CGA e Hercules.",
+  "product.amstrad-pc2086.technical.expansion": "As placas permitiam acrescentar funções. O folheto, p. 3 e contracapa, e o manual de assistência, p. 2, indicam três ranhuras de 8 bits, além da ligação para disco rígido.",
+  "product.amstrad-pc2086.technical.interfaces": "Impressoras e comunicações tinham ligações próprias. A documentação enumera porta paralela bidirecional, RS-232 e conector para unidades externas ou fita.",
+  "product.amstrad-pc2086.technical.firmware": "Os ficheiros necessários para estudar o arranque estão preservados. Existem duas ROM de sistema de 8 KiB, 40179/40180, e uma ROM de vídeo de 32 KiB, 40186, com hashes registados. A ordem física dos chips ainda precisa de confirmação.",
+  "product.amstrad-pc2086.technical.verified": "O BluMach já contém código dedicado a este modelo. Na revisão 88f74ba3 aparecem pc2086 e machine_pc2086_init; a revisão desta ficha não testou o arranque.",
+  "product.amstrad-pc2086.technical.limitations": "Falta validar o comportamento do BluMach com uma configuração reproduzível. A ficha permanece em investigação; os resultados do core FPGA não comprovam o funcionamento no BluMach. Uma imagem publicável aguarda direitos claros.",
+  "product.amstrad-pc2086.technical.brochure": "Amstrad PC2000 Series, abril de 1989, pp. 3, 5 e 7 e contracapa: configurações, hardware, montagem e duas descrições diferentes das ranhuras.",
+  "product.amstrad-pc2086.technical.prices": "Tarifs gamme PC2000, 1 de novembro de 1988: preços indicativos franceses sem IVA, com monitor e configuração especificados.",
+  "product.amstrad-pc2086.technical.press": "Computerwoche, Amstrad kommt mit PC-Serie 2000, 30 de setembro de 1988: anúncio e posição de cada modelo.",
+  "product.amstrad-pc2086.technical.manual": "Amstrad PC2086 S/D/30 Service Manual, p. 2: especificações e variantes; cópia preservada com hash.",
+  "product.amstrad-pc2086.technical.source": "Inspeção do código BluMach na revisão 88f74ba3: tabela de máquinas e m_amstrad.c. Documenta a presença de código, não o funcionamento comprovado."
+}

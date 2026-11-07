@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m300-28.summary": "The 486SX M300 documented alongside the PCS44 and provisioned for i487SX or OverDrive.",
+  "product.olivetti-m300-28.history": "The M300-28 brought the M300 range to the 486SX. Olivetti documented this model and the PCS44 in the same service chapter, with the BA362 board.",
+  "product.olivetti-m300-28.warning": "Historical sheet under research.",
+  "product.olivetti-m300-28.architecture": "The board supported processor and RAM upgrades. The guide lists a 25 MHz i487SX or 25/50 MHz OverDrive, 4 MB soldered and 4, 8 or 16 MB SIMMs. Integrated video is OAK OTI-077.",
+  "product.olivetti-m300-28.firmware": "The BIOS revision helps identify the service configuration. The guide records V032004K.25.",
+  "product.olivetti-m300-28.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m300-28.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m300-28.guide": "Olivetti, Personal Computer – Pocket Service Guide, 35-1."
+}

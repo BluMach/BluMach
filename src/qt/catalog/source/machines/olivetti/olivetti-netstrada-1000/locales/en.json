@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-1000.summary": "The entry NetStrada that Olivetti offered to small and medium-sized businesses.",
+  "product.olivetti-netstrada-1000.history": "In March 1997, Olivetti presented the NetStrada 1000 for small and medium-sized businesses. Computerwoche reported a starting price of DM 5,400.",
+  "product.olivetti-netstrada-1000.warning": "Historical sheet under research.",
+  "product.olivetti-netstrada-1000.architecture": "The 200 MHz configuration is independently identified. Sun documented the Pentium Pro 200 M1 and its RAID variant for Solaris 2.6.",
+  "product.olivetti-netstrada-1000.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-netstrada-1000.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-netstrada-1000.computerwoche-1997": "Computerwoche, Olivetti startet mit neuer Führung ins Jahr 1997, 28 March 1997",
+  "product.olivetti-netstrada-1000.solaris-hcl": "Sun Microsystems, Hardware Compatibility List for Solaris 2.6 Intel Platform Edition"
+}

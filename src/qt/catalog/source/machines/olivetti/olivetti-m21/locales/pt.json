@@ -1,0 +1,16 @@
+{
+  "product.olivetti-m21.summary": "A arquitetura do M24 num transportável com ecrã âmbar de 9 polegadas e teclado que fecha a frente.",
+  "product.olivetti-m21.history": "Anunciado em 1984 com o M24, o M21 permitia transportar um computador de escritório completo, com monitor integrado e teclado a servir de tampa. Em novembro, a Practical Computing indicava um preço britânico de 1.545 libras mais IVA para 128 KB e uma unidade de disquetes; o exemplar testado ainda era um protótipo. A revista situa o fabrico em Itália e a distribuição na British Olivetti. O manual técnico comum confirma a relação com o M24. Fontes: Practical Computing, novembro de 1984, p. 55, e Olivetti, Theory of Operation.",
+  "product.olivetti-m21.warning": "Ficha histórica em investigação; sem validação específica do M21 nem perfil de criação.",
+  "product.olivetti-m21.technical.configuration": "O ecrã e as unidades de disquetes ficam dentro da caixa. O teste de 1984 descreve um CRT âmbar de 9 polegadas e uma ou duas unidades de 360 KB. A Olivetti especifica CPU de 8 MHz; o Museo Tecnologicamente indica 4 MHz, discrepância aberta que não comprova outra revisão.",
+  "product.olivetti-m21.technical.video": "O vídeo amplia as capacidades gráficas do PC. O controlador próprio combina 6845 e 32 KB de RAM: modos compatíveis de 320 × 200 e 640 × 200, mais 640 × 400 monocromático. A expansão gráfica opcional é uma placa distinta.",
+  "product.olivetti-m21.technical.expansion": "A caixa transportável deixa menos espaço para placas. O Bus Converter tem três conectores de 62 contactos e um complementar de 38, face a sete e quatro no M24. O guia identifica a placa IF249 para o M21.",
+  "product.olivetti-m21.technical.firmware": "A documentação agrupa as BIOS do M24 e do M21. A tabela inclui 1.43H PQBK e 1.43L PQBL. Os ficheiros locais 1.43 vêm de uma coleção identificada como M24, sem identificação do computador de origem: não são um dump independente de M21.",
+  "product.olivetti-m21.technical.verified": "O código existente menciona M21 como alias do M24. Foram verificados esse registo e a documentação comum, mas não uma configuração nem um arranque específicos do transportável.",
+  "product.olivetti-m21.technical.limitations": "A relação de família não substitui a validação do computador. Continuam por verificar revisão da placa, BIOS instalada, teclado, ecrã integrado, expansão e discos do M21; não há perfil de criação próprio.",
+  "product.olivetti-m21.technical.source_manual": "Olivetti, M24/M21 Theory of Operation, 11/1984, §§ 1-4, 1-7, 1-12, 2-42, 2-47.",
+  "product.olivetti-m21.technical.source_service": "Olivetti, Personal Computer Pocket Service Guide, vol. I, pp. 1-1–1-2 (PDF 8–9).",
+  "product.olivetti-m21.technical.source_press": "Practical Computing, 11/1984, “Olivetti M-21”, p. 55.",
+  "product.olivetti-m21.technical.source_bios": "DOS ROM BIOS collection, olivetti_m24, 1.43 HIGH/LOW.",
+  "product.olivetti-m21.technical.source_code": "BluMach 88f74ba3 / 86Box 6a43d7973, m_xt_olivetti.c, vid_cga_olivetti.c."
+}

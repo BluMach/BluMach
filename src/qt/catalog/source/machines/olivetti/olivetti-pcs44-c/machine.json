@@ -1,0 +1,82 @@
+{
+  "order": 10089,
+  "machine": {
+    "id": "olivetti-pcs44-c",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti PCS 44/C",
+    "summary_key": "product.olivetti-pcs44-c.summary",
+    "history_key": "product.olivetti-pcs44-c.history",
+    "warning_key": "product.olivetti-pcs44-c.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel i486SX · 25 MHz",
+      "memory": "4–36 MB",
+      "video": "Cirrus Logic CL-GD5428 · VGA"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-pcs44-c.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-pcs44-c.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-pcs44-c.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs44-c.guide",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs44-c.museum",
+            "url": "https://basedatospatrimonio.ugr.es/node/49949"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs44-c.code",
+            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_at_socket1.c"
+          }
+        ]
+      }
+    ]
+  }
+}

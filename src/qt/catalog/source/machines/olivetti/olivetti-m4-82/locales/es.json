@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-82.summary": "El M4 Modulo que llevó Pentium y PCI al CeBIT de 1994.",
+  "product.olivetti-m4-82.history": "En el CeBIT de 1994, Olivetti amplió la familia M4 Modulo con el M4-82, un modelo Pentium con bus local PCI.",
+  "product.olivetti-m4-82.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m4-82.architecture": "La placa determina cómo se conecta el disco. La BA2066 admite IDE AT y la BA2121 añade un controlador PCI IDE RZ1000.",
+  "product.olivetti-m4-82.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m4-82.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m4-82.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 1",
+  "product.olivetti-m4-82.mc-micro": "MCmicrocomputer 139, April 1994, pp. 128–129",
+  "product.olivetti-m4-82.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra BA2066 · 1.00.08 AF1 / BA2121 · 1.00.06 AF2."
+}

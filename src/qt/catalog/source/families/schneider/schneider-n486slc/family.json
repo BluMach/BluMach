@@ -1,0 +1,23 @@
+{
+  "order": 290,
+  "family": {
+    "id": "schneider-n486slc",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Notebook N 486 SLC",
+    "description_key": "family.schneider-n486slc.description",
+    "history_references": [
+      {
+        "title": "Dziennik Bałtycki, n.º 277 (16436), 26-11-1998, p. 29, Giełda komputerowa",
+        "publisher": "Bałtycka Biblioteka Cyfrowa",
+        "url": "https://bibliotekacyfrowa.eu/"
+      },
+      {
+        "title": "Computerwoche, Ein Handwerk mit Tradition, 27-11-1992",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2829067/ein-handwerk-mit-tradition-schneider-verkauft-wieder-pcs.html"
+      }
+    ]
+  }
+}

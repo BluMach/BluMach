@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-sx33.summary": "Il PCS40 in formato mini tower con 486SX a 33 MHz.",
+  "product.olivetti-pcs40-sx33.history": "Olivetti includeva il PCS40 SX/33 nella serie PCS30–PCS40 di sistemi 386 e 486. Il manuale lo presenta in formato mini tower.",
+  "product.olivetti-pcs40-sx33.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-pcs40-sx33.architecture": "Video e archiviazione utilizzavano schede di espansione. Le schede di serie lasciavano 6 dei 8 slot AT liberi nella configurazione standard.",
+  "product.olivetti-pcs40-sx33.firmware": "La scheda determina quale BIOS cercare. La guida indica Harward per 486-VC.",
+  "product.olivetti-pcs40-sx33.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-pcs40-sx33.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-pcs40-sx33.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

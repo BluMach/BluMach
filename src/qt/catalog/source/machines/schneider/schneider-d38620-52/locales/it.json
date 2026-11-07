@@ -1,0 +1,13 @@
+{
+  "product.schneider-d38620-52.summary": "La configurazione del D386/20 con disco da 52 MB.",
+  "product.schneider-d38620-52.history": "Nel dicembre 1991 il listino tedesco collocava questo D386/20 da 52 MB nella gamma Desktop Schneider a 3.990 DM netti. La configurazione compare anche nell’annuncio portoghese di IFS del maggio 1992.",
+  "product.schneider-d38620-52.technical.configuration": "Il manuale identifica il disco da 52 MB con il codice 52 787 00. La tabella tedesca indica 1 MB di RAM e un’unità floppy da 1,44 MB per questa configurazione.",
+  "product.schneider-d38620-52.technical.board": "La scheda è condivisa con l’EuroSX a 20 MHz. Il manuale Schneider identifica la Singleboard I SX 53 456 00, con VLSI VL82C320/331, BIGJIM in U33 e ATI 28800 in U45.",
+  "product.schneider-d38620-52.technical.firmware": "Due chip contengono la ROM di avvio. Lo schema identifica LOW in U9 e HIGH in U10. Il kit 65 467 00 compare anche per l’EuroSX. Il contenuto di fabbrica resta da verificare tramite dump.",
+  "product.schneider-d38620-52.warning": "Scheda storica in fase di ricerca.",
+  "product.schneider-d38620-52.technical.verified": "La configurazione è documentata. Il modello dedicato e la convalida dell’avvio in BluMach restano da realizzare.",
+  "product.schneider-d38620-52.technical.limitations": "Restano da ottenere dump attribuiti, convalidare la scheda e trovare un’immagine con diritti di pubblicazione chiari.",
+  "product.schneider-d38620-52.technical.manual": "Schneider, Service Manual D 386/20 / D 486/20, PDF pp. 5, 14, 34",
+  "product.schneider-d38620-52.technical.prices": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–2",
+  "product.schneider-d38620-52.technical.press": "IFS, Expresso, 23-05-1992, p. A3"
+}

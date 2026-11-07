@@ -1,0 +1,12 @@
+{
+  "product.olivetti-m111.summary": "O portátil com NEC V30 que a Olivetti apresentou juntamente com o M211.",
+  "product.olivetti-m111.history": "O Arquivo Histórico e a Computerwoche situam a apresentação do M111 em 1989 com o M211, ampliando a gama portátil. A Olivrea data o seu exemplar XP1021 de 1987 e o museu de Prato data o seu de 1989.",
+  "product.olivetti-m111.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m111.architecture": "O ecrã integrado permitia a utilização sem monitor externo. A Computerwoche descreve um painel Supertwist e o museu de Prato indica 640 × 200 e 10,5 polegadas.",
+  "product.olivetti-m111.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m111.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m111.archive": "Associazione Archivio Storico Olivetti, Lavorare dovunque.",
+  "product.olivetti-m111.press": "Computerwoche, April 1989, Olivetti PC: Künstlich gebremst.",
+  "product.olivetti-m111.museum": "Museo del Calcolatore di Prato, Olivetti M111.",
+  "product.olivetti-m111.olivrea": "Olivrea, Olivetti M111 XP1021."
+}

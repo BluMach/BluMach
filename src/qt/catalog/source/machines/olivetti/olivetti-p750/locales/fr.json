@@ -1,0 +1,11 @@
+{
+  "product.olivetti-p750.summary": "Le serveur Micro Channel à 486 avec disques intelligents raccordés par MI549.",
+  "product.olivetti-p750.history": "En septembre 1991, Olivetti proposait P750 (le serveur Micro Channel à 486 avec disques intelligents raccordés par MI549).",
+  "product.olivetti-p750.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-p750.architecture": "La carte détermine la combinaison de périphériques à vérifier. Le guide indique BA849 / BA858 / BA865 / BA875 · 82C452 · MCA.",
+  "product.olivetti-p750.firmware": "La révision du BIOS aide à identifier la configuration de maintenance. Le guide indique 1.06.",
+  "product.olivetti-p750.verified": "L’identité a été vérifiée dans la documentation Olivetti. La fiche reste en cours de recherche.",
+  "product.olivetti-p750.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-p750.guide": "Olivetti, Personal Computer – Pocket Service Guide, 15-1.",
+  "product.olivetti-p750.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs-p-75-educator.summary": "O PCS P/75 Educator incluía som Mozart de série.",
+  "product.olivetti-pcs-p-75-educator.history": "A Olivetti identificou este PCS como Educator na oferta Pentium. O guia distingue-o pela placa de som Mozart de série. O guia identifica a TriGem como fabricante da placa BA2199.",
+  "product.olivetti-pcs-p-75-educator.warning": "Ficha histórica em investigação.",
+  "product.olivetti-pcs-p-75-educator.architecture": "O som vinha incluído. A placa MI2074 usa o controlador Mozart OTI 605.",
+  "product.olivetti-pcs-p-75-educator.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-pcs-p-75-educator.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-pcs-p-75-educator.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-pcs-p-75-educator.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-pcs-p-75-educator.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 1.13."
+}

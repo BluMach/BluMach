@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-3000.summary": "O NetStrada com caixa Copper convertível para bastidor.",
+  "product.olivetti-netstrada-3000.history": "A Olivetti documentou o NetStrada 3000 na plataforma Vulcan com um kit para montar a mesma caixa num bastidor de 19 polegadas.",
+  "product.olivetti-netstrada-3000.warning": "Ficha histórica em investigação.",
+  "product.olivetti-netstrada-3000.architecture": "O processador e as ranhuras partilham uma placa. A BA2315 usa Intel 440FX, Socket 8, três ranhuras PCI e duas ISA.",
+  "product.olivetti-netstrada-3000.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-netstrada-3000.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-netstrada-3000.service-guide-9": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 9",
+  "product.olivetti-netstrada-3000.solaris-hcl": "Sun Microsystems, Hardware Compatibility List for Solaris 2.6 Intel Platform Edition"
+}

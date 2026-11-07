@@ -1,0 +1,155 @@
+{
+  "order": 394,
+  "machine": {
+    "id": "schneider-towerat220",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-tower-at",
+    "name": "Schneider Tower AT 220",
+    "summary_key": "product.schneider-towerat220.summary",
+    "history_key": "product.schneider-towerat220.history",
+    "warning_key": "product.schneider-towerat220.warning",
+    "status": "research",
+    "period": "1988",
+    "aliases": [
+      "Schneider Tower AT System 220"
+    ],
+    "tags": [
+      "Schneider",
+      "Tower AT",
+      "80286"
+    ],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "ega"
+      ],
+      "storage_interface": [
+        "floppy",
+        "mfm"
+      ]
+    },
+    "hardware": {
+      "cpu": "80286 · 5 / 10 MHz",
+      "video": "EGA",
+      "memory": "512 KB",
+      "floppy": "3.5″ · 720 KB",
+      "storage": "20 MB",
+      "expansion": "3 × ISA 16-bit · 1 × ISA 8-bit"
+    },
+    "firmware": {
+      "known_sets": [
+        "1.01 / 1.01A",
+        "1.06",
+        "2.02"
+      ],
+      "required": true
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/schneider-towerat220-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "MarcoTangerino",
+      "license": "public-domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Schneider-Tower-AT-System-220-MM12-MF2-1.jpg"
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-towerat220.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-towerat220.technical.board"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.schneider-towerat220.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.schneider-towerat220.technical.video"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.schneider-towerat220.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-towerat220.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-towerat220.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.schneider-towerat220.technical.manual",
+            "url": "https://oldcrap.org/document-category/schneider/am-tower-at/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-towerat220.technical.review",
+            "url": "https://stcarchiv.de/happy-computer/1988/11"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-towerat220.technical.mega",
+            "url": "https://stcarchiv.de/happy-computer/1989/05/mega-at"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-towerat220.technical.range",
+            "url": "https://www.jungsi.de/schneider-vga-at-system-40-schneider/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.schneider-towerat220.technical.mame",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/at.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-towerat220.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/a1b0125d0443294d974b2fafcc58d89b01bff988/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

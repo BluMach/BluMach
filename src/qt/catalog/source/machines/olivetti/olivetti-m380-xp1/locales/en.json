@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m380-xp1.summary": "The faster M380/C development announced in April 1988 with 20 MHz and an 80 MB disk.",
+  "product.olivetti-m380-xp1.history": "The documentation places M380/XP1 as the faster M380/C development announced in April 1988 with 20 MHz and an 80 MB disk.",
+  "product.olivetti-m380-xp1.warning": "Historical sheet under research.",
+  "product.olivetti-m380-xp1.architecture": "Memory organisation determines expansion options. The guide identifies BA814. All RAM resides on expansion boards.",
+  "product.olivetti-m380-xp1.firmware": "The BIOS revision helps identify the service configuration. The guide records 2.0 · PBZ6/PBZ7.",
+  "product.olivetti-m380-xp1.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m380-xp1.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m380-xp1.guide": "Olivetti, Personal Computer – Pocket Service Guide, 8-1–8-2.",
+  "product.olivetti-m380-xp1.press": "Computerwoche, 29.04.1988, Olivetti bringt 80386er auf den Markt."
+}

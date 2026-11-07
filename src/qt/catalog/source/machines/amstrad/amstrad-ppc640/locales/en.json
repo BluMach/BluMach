@@ -1,0 +1,19 @@
+{
+  "product.amstrad-ppc640.summary": "The communications-oriented PPC added 640 KB, a built-in modem and Mirror II to the family's transportable design.",
+  "product.amstrad-ppc640.history": "Documented in 1988 advertising, the PPC640 occupied the communications tier of Amstrad's PPC transportables. Compared with the PPC512, it included 640 KB, a built-in modem and Mirror II software for communicating with other computers over the telephone. It retained the full keyboard, LCD and configurations with one or two floppy drives. Amstrad presented it for combining office work with use at home and while travelling.",
+  "product.amstrad-ppc640.warning": "Historical entry under research: firmware is preserved, but this model's boot process has not been validated in BluMach.",
+  "product.amstrad-ppc640.technical.market": "The offer aimed to take work beyond the office. The preserved British advertisement dates from February 1988; it does not establish a single worldwide launch date.",
+  "product.amstrad-ppc640.technical.configurations": "The floppy drives distinguish the S and D variants. Documentation lists one or two 3.5-inch, 720 KB drives, with MS-DOS 3.3.",
+  "product.amstrad-ppc640.technical.cpu": "Processor identification requires distinguishing the sources. The technical manual describes an 8086-2 at 8 MHz; the service parts list specifies CXQ70116P-8 at IC120. Not every board revision has been inspected.",
+  "product.amstrad-ppc640.technical.memory": "Main memory fills the conventional 640 KB address space. The manual maps it from 00000h to 9FFFFh, with parity checking.",
+  "product.amstrad-ppc640.technical.video": "The same computer can use its LCD or an external monitor. The IDA provides CGA/MDA compatibility, using B8000h for CGA and B0000h for MDA. The internal panel has 640 × 200 pixels.",
+  "product.amstrad-ppc640.technical.physical": "The power options allow use away from a socket. The manual documents a mains adapter and ten C cells; the advertised battery life has not been checked here.",
+  "product.amstrad-ppc640.technical.interfaces": "The modem enables communication over a telephone line. The manual documents V.22bis at 2400 bit/s and AT control; its UART uses COM2, 2F8h–2FFh and IRQ3. Telephone connectors vary by market.",
+  "product.amstrad-ppc640.technical.firmware": "Deposits attributed to PPC640 require quality review. Six 8 KiB files are preserved, advertised as revisions 1.8 and 2.1; IC129 from the claimed 2.1 has D3 set in every byte. Originals have not been corrected.",
+  "product.amstrad-ppc640.technical.verified": "BluMach contains an inherited implementation for the family. Code inspection identifies the ppc512 profile and LCD/CGA/MDA video; this is not a boot test of the historical machine.",
+  "product.amstrad-ppc640.technical.limitations": "This entry does not yet offer a runnable configuration. Another dump is needed to resolve the IC129 anomaly, alongside validation of POST, display, floppy drives and modem; firmware rights remain unclear.",
+  "product.amstrad-ppc640.technical.manual": "PPC512/640 service manual: specifications, p. 2; components, p. 30. Preserved copy.",
+  "product.amstrad-ppc640.technical.reference": "PPC technical manual: memory §1.2, display §1.11 and modem §1.16. Preserved transcription.",
+  "product.amstrad-ppc640.technical.advert": "Amstrad advertisement, Personal Computer World, February 1988: range from £399 excluding VAT. Image preserved for research.",
+  "product.amstrad-ppc640.technical.museum": "Centre for Computing History, PPC512D specimen CH24547: S/D variants and 1988 user manual."
+}

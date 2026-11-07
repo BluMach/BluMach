@@ -1,0 +1,13 @@
+{
+  "product.amstrad-alt-286.summary": "Il modello di ingresso della gamma ALT, con lo stesso schermo VGA del 386SX.",
+  "product.amstrad-alt-286.history": "Amstrad presentò l’ALT-286 al CeBIT nel marzo 1990 come il più economico dei suoi due portatili ALT. Micro News annunciò per la Francia un prezzo di 16.770 franchi al netto delle imposte e un’uscita prevista per giugno. Nel luglio 1991 Amstrad Germania lo offriva con la stampante portatile Canon BJ-10e per 4.600 marchi.",
+  "product.amstrad-alt-286.technical.storage": "Le specifiche delle unità variano a seconda della fonte. Il manuale indica un disco rigido da 20 MB e un’unità floppy interna da 1,44 MB. Il Centre for Computing History indica 60 MB e 720 KB per il suo esemplare CH46565.",
+  "product.amstrad-alt-286.technical.bios": "Il manuale identifica i due chip del firmware di avvio. U302 e U303 sono EPROM TMS27C256 con codici Amstrad 270386 e 270387.",
+  "product.amstrad-alt-286.technical.verified": "La configurazione di fabbrica e lo schema della scheda sono stati verificati. La scheda BluMach resta in fase di ricerca.",
+  "product.amstrad-alt-286.technical.limitations": "Restano da acquisire il BIOS di sistema e la ROM video U508 e da convalidare l’avvio e il controllo dello schermo LCD in BluMach.",
+  "product.amstrad-alt-286.technical.photo": "Nella fotografia del museo di Saragozza, l’ALT-286 è a destra dell’IBM PC.",
+  "product.amstrad-alt-286.technical.micro_news": "Micro News no. 33 · Les nouveaux portables Amstrad · April 1990 · p. 16",
+  "product.amstrad-alt-286.technical.computerwoche": "Computerwoche · Amstrad schnürt Paket mit PCs und Canon-Kleindrucker · 12 July 1991",
+  "product.amstrad-alt-286.technical.manual": "Amstrad · ALT286 / ALT386SX Service Manual · pp. 2, 10–11",
+  "product.amstrad-alt-286.technical.museum": "Centre for Computing History · ALT-286 · CH46565"
+}

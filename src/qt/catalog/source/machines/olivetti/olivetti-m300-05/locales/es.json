@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m300-05.summary": "El M300 de entrada que combinaba VGA integrado y opciones de disco y cinta.",
+  "product.olivetti-m300-05.history": "En septiembre de 1991 Olivetti situaba el M300-05 en su oferta de estaciones de trabajo de entrada. El catálogo lo ofrecía con discos de 40 o 120 MB y opciones de cinta.",
+  "product.olivetti-m300-05.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m300-05.architecture": "La expansión depende de la configuración. La guía enumera tres conectores de 16 bits en IN283 y el catálogo de 1991 indica cuatro disponibles. La guía identifica PVGA1B y el controlador de disquetera DP8473.",
+  "product.olivetti-m300-05.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra 1.08.",
+  "product.olivetti-m300-05.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m300-05.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m300-05.guide": "Olivetti, Personal Computer – Pocket Service Guide, 18-1.",
+  "product.olivetti-m300-05.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

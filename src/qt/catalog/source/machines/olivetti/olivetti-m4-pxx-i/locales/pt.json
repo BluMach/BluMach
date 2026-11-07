@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-pxx-i.summary": "A linha M4-Pxx i adotou uma placa Atlantis com vídeo ATI integrado.",
+  "product.olivetti-m4-pxx-i.history": "A Olivetti identificou como M4-Pxx i a linha com placa Atlantis BA2267. A ficha técnica Intel Advanced/AS documenta a mesma família de BIOS CL0.",
+  "product.olivetti-m4-pxx-i.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m4-pxx-i.architecture": "O vídeo está integrado na placa principal. A BA2267 integra ATI Mach64-CT e reserva o encaixe CELP com 256 KB de cache L2 às configurações de 133 e 166 MHz.",
+  "product.olivetti-m4-pxx-i.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m4-pxx-i.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m4-pxx-i.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 17",
+  "product.olivetti-m4-pxx-i.intel-advanced-as": "Intel, Advanced/AS Technical Product Specification, order 281836-001",
+  "product.olivetti-m4-pxx-i.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 1.00.04.CL0."
+}

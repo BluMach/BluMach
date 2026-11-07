@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m20-d.summary": "The M20 offered with two floppy drives in the main unit.",
+  "product.olivetti-m20-d.history": "The Centre for Computing History identifies its specimen as the M20 D and gives a UK price of £2,395 before VAT for the twin-floppy version.",
+  "product.olivetti-m20-d.warning": "Historical sheet under research.",
+  "product.olivetti-m20-d.architecture": "The two drives let the console use two floppy disks. The CH49850 photograph shows both drives built into the console beside the keyboard.",
+  "product.olivetti-m20-d.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m20-d.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m20-d.cambridge-museum": "Centre for Computing History, Olivetti M20 D, CH49850",
+  "product.olivetti-m20-d.cambridge-specimen": "Centre for Computing History, CH49850 front photograph"
+}

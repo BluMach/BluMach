@@ -1,0 +1,13 @@
+{
+  "product.amstrad-alt-386sx.summary": "L’ALT à processeur 386SX avec un disque dur deux fois plus grand dans la configuration initiale.",
+  "product.amstrad-alt-386sx.history": "Amstrad a présenté l’ALT-386SX au CeBIT en mars 1990 comme le modèle supérieur de la gamme ALT. Micro News annonçait pour la France un prix de 20 900 francs hors taxes et une sortie prévue en juin. En juillet 1991, Amstrad Allemagne le proposait avec l’imprimante portable Canon BJ-10e pour 5 550 marks.",
+  "product.amstrad-alt-386sx.technical.storage": "Certains exemplaires avaient un disque de plus grande capacité que celle indiquée dans le manuel. Amstrad indique 40 Mo et Pawel Pieczul a documenté un Sony SRD3080C-50 de 80 Mo configuré en type 24 dans le BIOS.",
+  "product.amstrad-alt-386sx.technical.bios": "Le BIOS conservé s’identifie comme AMSTRAD ALT-386SX et Phoenix 1.10. Il est reconstitué en entrelaçant U302 aux octets pairs et U303 aux octets impairs. Le vecteur de réinitialisation saute à F000:E05B.",
+  "product.amstrad-alt-386sx.technical.verified": "Les empreintes et l’identité du BIOS système ont été vérifiées par analyse statique. La fiche BluMach reste au stade de la recherche.",
+  "product.amstrad-alt-386sx.technical.limitations": "Le relevé provient d’une machine en panne. Il reste à le comparer avec un autre exemplaire, à obtenir la ROM vidéo U508 et à valider le démarrage et le pilotage de l’écran LCD dans BluMach.",
+  "product.amstrad-alt-386sx.technical.micro_news": "Micro News no. 33 · Les nouveaux portables Amstrad · April 1990 · p. 16",
+  "product.amstrad-alt-386sx.technical.computerwoche": "Computerwoche · Amstrad schnürt Paket mit PCs und Canon-Kleindrucker · 12 July 1991",
+  "product.amstrad-alt-386sx.technical.manual": "Amstrad · ALT286 / ALT386SX Service Manual · pp. 2, 10–11",
+  "product.amstrad-alt-386sx.technical.owner": "Pawel Pieczul · Amstrad ALT-386SX · 24 August 2020",
+  "product.amstrad-alt-386sx.technical.rom_source": "Sparcie · ALT386 teardown and U302/U303 dump notes · 2019"
+}

@@ -1,0 +1,13 @@
+{
+  "product.amstrad-pc7486slc80.summary": "La variante conservada con firmware Quadtel WD7600 y vídeo Paradise, diferenciada del SLC33 documentado.",
+  "product.amstrad-pc7486slc80.history": "La denominación PC7486SLC80 está atestiguada por un ejemplar de Dioxaz, quien conserva su firmware y describe haber recuperado Counterpoint en francés de ese ordenador. Es un testimonio de propietario, no un catálogo comercial de época. Se mantiene una ficha propia dentro de PC7000 porque su firmware difiere del SLC33 conservado. Siguen sin documentarse con precisión su fecha de venta, precio, público específico, fabricante OEM y relación comercial exacta con SLC33.",
+  "product.amstrad-pc7486slc80.technical.market": "La configuración comercial sigue abierta. El testimonio de Dioxaz distingue este ejemplar del SLC33; el sufijo «80» no se convierte en una frecuencia de CPU ni en capacidad de disco sin una fuente que lo confirme.",
+  "product.amstrad-pc7486slc80.technical.hardware": "Las cadenas de la ROM orientan la identificación, pero no sustituyen al plano de placa. El archivo combinado contiene «QUADTEL WD7600 486SLC BIOS VERSION V3.07.01» en 0x15B7C y «PARADISE103226-414» desde 0x2D. Son offsets del archivo.",
+  "product.amstrad-pc7486slc80.technical.firmware": "Dos lecturas físicas permiten reconstruir exactamente el archivo combinado. LO aporta los bytes pares y HI los impares de 128 KiB. Dioxaz corrigió la referencia de chips de AM27C512 a ST M27C512; el archivo antiguo de 64 KiB no coincide con ninguna mitad ni vía.",
+  "product.amstrad-pc7486slc80.technical.verified": "Se han verificado hashes y entrelazado, sin ejecutar firmware. BluMach 88f74ba3 no registra un PC7486SLC80 dedicado; la conservación del volcado no acredita un arranque.",
+  "product.amstrad-pc7486slc80.technical.limitations": "No está demostrada la intercambiabilidad con el MegaPC o el SLC33. Keropi comunicó en VOGONS que esta BIOS no arrancaba en su placa 386SX. Faltan mapa físico, configuración contrastada, análisis antivirus y pruebas propias; los derechos siguen desconocidos.",
+  "product.amstrad-pc7486slc80.warning": "Ficha histórica en investigación; arranque no validado en BluMach.",
+  "product.amstrad-pc7486slc80.technical.owner": "Dioxaz · Gamopat · 2023-03-22",
+  "product.amstrad-pc7486slc80.technical.forum": "Dioxaz / keropi · VOGONS, Amstrad Mega PC · replies 67, 71 · 2020-08-26–30",
+  "product.amstrad-pc7486slc80.technical.code": "BluMach 88f74ba3 · machine_table.c, m_at_286.c, m_at_386sx.c, vid_cl54xx.c"
+}

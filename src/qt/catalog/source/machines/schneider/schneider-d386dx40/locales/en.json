@@ -1,0 +1,9 @@
+{
+  "product.schneider-d386dx40.summary": "The 40 MHz 386DX in the desktop range.",
+  "product.schneider-d386dx40.history": "The December 1992 German price list offered this machine for DM 1,622 net without a hard disk. It included MS-DOS 5.0 and Windows 3.1.",
+  "product.schneider-d386dx40.technical.options": "The list also offered a 106 MB hard-disk configuration for DM 2,104 net.",
+  "product.schneider-d386dx40.technical.slots": "The slots accommodate expansion cards. The sales sheet lists 8 16-bit slots and two floppy drives, 1.44 MB and 1.2 MB.",
+  "product.schneider-d386dx40.technical.verified": "The offer is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-d386dx40.technical.limitations": "The board still needs identification, an attributed BIOS needs preservation and an image with clear publication rights remains pending.",
+  "product.schneider-d386dx40.technical.price_list": "CC SELLER / BC, Schneider Computer, 12/1992, pp. 1–3"
+}

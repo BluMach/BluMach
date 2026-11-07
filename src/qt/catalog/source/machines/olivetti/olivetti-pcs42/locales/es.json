@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs42.summary": "El PCS de consumo ofrecido en dos tamaños con placa Microstar y bus local VESA.",
+  "product.olivetti-pcs42.history": "Una nota de la Comisión Europea cita una noticia de agosto de 1994 que incluye el PCS 42 en la oferta multimedia de consumo de Olivetti. La guía de servicio identifica la placa como Microstar.",
+  "product.olivetti-pcs42.warning": "Ficha histórica en investigación.",
+  "product.olivetti-pcs42.architecture": "El chasis cambia las opciones de ampliación. El Tin Box ofrece tres ranuras AT/VESA compartidas y el Slim Tin Box ofrece una.",
+  "product.olivetti-pcs42.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-pcs42.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-pcs42.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 8",
+  "product.olivetti-pcs42.eu-notice": "European Commission, Official Journal C 306, 15 October 1996, notice 96/C 306/08, note 10"
+}

@@ -1,0 +1,9 @@
+{
+  "product.olivetti-snx-160-r.summary": "The high-availability SNX 160 retained the option of a second processor.",
+  "product.olivetti-snx-160-r.history": "Olivetti offered the 160/R as the high-availability SNX 160 variant. The guide records that the SNX 160/RS replaced it in April 1995.",
+  "product.olivetti-snx-160-r.warning": "Historical sheet under research.",
+  "product.olivetti-snx-160-r.architecture": "Drives could be replaced while the server was running. The R version combines the IRON case with the GO2044 SCSI RAID controller for RAID 1 or 5.",
+  "product.olivetti-snx-160-r.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-snx-160-r.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-snx-160-r.service-guide-1": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 1"
+}

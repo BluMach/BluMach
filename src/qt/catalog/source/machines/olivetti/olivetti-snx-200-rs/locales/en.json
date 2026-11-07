@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-200-rs.summary": "The tower Systema with room for 2 processors.",
+  "product.olivetti-snx-200-rs.history": "The SNX 200 was part of Systema before the 460 announcement in December 1995. The guide identifies the RS tower variant.",
+  "product.olivetti-snx-200-rs.warning": "Historical sheet under research.",
+  "product.olivetti-snx-200-rs.architecture": "Processors could be added on cards. The 64-bit Corollary C-Bus II connects up to 2 processor cards to memory.",
+  "product.olivetti-snx-200-rs.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-snx-200-rs.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-snx-200-rs.service-guide-3": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 3",
+  "product.olivetti-snx-200-rs.computerwoche-1995": "Computerwoche, Olivetti-Server mit Pentium Pro nutzen Platinendesign von Intel, 22 December 1995"
+}

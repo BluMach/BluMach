@@ -1,0 +1,111 @@
+{
+  "order": 10202,
+  "machine": {
+    "id": "olivetti-m290-20",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M290-20",
+    "summary_key": "product.olivetti-m290-20.summary",
+    "history_key": "product.olivetti-m290-20.history",
+    "warning_key": "product.olivetti-m290-20.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "vga"
+      ]
+    },
+    "hardware": {
+      "cpu": "AMD 80286 · 16 MHz",
+      "memory": "1 MB + SIMM",
+      "video": "VGA · 256 KB",
+      "expansion": "2 × ISA 16-bit"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m290-20.architecture"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m290-20.memory-limit"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.io_map",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.serial_parallel",
+            "value_key": "product.olivetti-m290-20.ports"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m290-20.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m290-20.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290-20.specimen",
+            "url": "https://www.clous.cz/olivetti-m290-20/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290-20.checkit",
+            "url": "https://www.clous.cz/olivetti-m290-20/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290-20.riser",
+            "url": "https://www.clous.cz/olivetti-m290-20/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290-20.second-unit",
+            "url": "https://aukro.cz/pc-286-olivetti-m290-20-fdd-hdd-40mb-vga-256kb-ram-1mb-od-1-kc-7014402956"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m290-20.board-database",
+            "url": "https://theretroweb.com/motherboards/s/olivetti-m290-20-ba014"
+          }
+        ]
+      }
+    ],
+    "period": "1993"
+  }
+}

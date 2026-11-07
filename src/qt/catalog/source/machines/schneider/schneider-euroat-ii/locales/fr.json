@@ -1,0 +1,10 @@
+{
+  "product.schneider-euroat-ii.summary": "Le 286 de la gamme Euro Line de 1991.",
+  "product.schneider-euroat-ii.history": "Le tarif allemand de décembre 1991 proposait l’Euro AT II à 16 MHz avec un disque de 42 Mo pour 1 732 DM nets, avec MS-DOS 5.0 et Windows 3.0. Schneider le plaçait dans la gamme Euro Line aux côtés de l’EuroSX et de l’Euro486.",
+  "product.schneider-euroat-ii.warning": "Fiche historique en cours de recherche.",
+  "product.schneider-euroat-ii.technical.configuration": "Le manuel de maintenance distingue deux cartes. Il identifie la 53 195 00 pour 16 MHz et la 53 457 00 pour 20 MHz. La liste des pièces indique un disque de 40 Mo et le tarif commercial indique 42 Mo.",
+  "product.schneider-euroat-ii.technical.verified": "L’offre est documentée. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
+  "product.schneider-euroat-ii.technical.limitations": "Il reste à comparer la carte à un exemplaire et à préserver un BIOS attribué. Une image aux droits de publication clairs reste à trouver.",
+  "product.schneider-euroat-ii.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–3",
+  "product.schneider-euroat-ii.technical.source_2": "Schneider, Service Manual Euro AT II / Euro 486 SX, PDF pp. 3–6"
+}

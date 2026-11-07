@@ -1,0 +1,70 @@
+{
+  "order": 10115,
+  "machine": {
+    "id": "olivetti-philos-20",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Philos 20",
+    "summary_key": "product.olivetti-philos-20.summary",
+    "history_key": "product.olivetti-philos-20.history",
+    "warning_key": "product.olivetti-philos-20.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-philos-20.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-philos-20.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-philos-20.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-20.museum",
+            "url": "https://oldcomputers.ovh/index.php/nav%3DCatalogo.20/Language%3DITA/Livello%3DProduttore/Marca%3D12/Mode%3DDisplay/User%3Dnobody/Letter%3DO"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-20.support",
+            "url": "https://www.driverguide.com/driver/detail.php?driverid=1265"
+          }
+        ]
+      }
+    ]
+  }
+}

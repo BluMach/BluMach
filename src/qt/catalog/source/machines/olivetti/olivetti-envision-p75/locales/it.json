@@ -1,0 +1,12 @@
+{
+  "product.olivetti-envision-p75.summary": "La versione Pentium dell’Envision portò l’espansione PCI al PC da salotto Olivetti.",
+  "product.olivetti-envision-p75.history": "Olivetti presentò Envision nel 1995 per l’uso in salotto con un televisore. A dicembre MCmicrocomputer indicò un prezzo di 3.390.000 lire IVA esclusa per la versione da 635 MB con tastiera a infrarossi.",
+  "product.olivetti-envision-p75.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-envision-p75.architecture": "Si poteva usare con il televisore e controllare dal divano. Il video Trident integrato supporta il televisore e la console riceve i segnali della tastiera a infrarossi con trackball.",
+  "product.olivetti-envision-p75.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-envision-p75.limitations": "Restano da verificare il firmware e l’avvio.",
+  "product.olivetti-envision-p75.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 15",
+  "product.olivetti-envision-p75.mc-micro": "Paolo Ciardelli, MCmicrocomputer 157, December 1995, pp. 204–209",
+  "product.olivetti-envision-p75.museum": "Museo Tecnologicamente, Olivetti Envision, 1995",
+  "product.olivetti-envision-p75.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 3.01."
+}

@@ -1,0 +1,29 @@
+{
+  "order": 143,
+  "family": {
+    "id": "amstrad-acl",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "ACL",
+    "description_key": "family.amstrad-acl.description",
+    "history_key": "family.amstrad-acl.history",
+    "history_references": [
+      {
+        "title": "Newsbytes · Steve Gold and Geof Wheelwright · Amstrad Unleashes Three Strike Launch · 13 March 1991",
+        "publisher": "Newsbytes",
+        "url": "https://www.retroisle.com/amstrad/pcs/Articles/newsbyte_mar1991.php"
+      },
+      {
+        "title": "Computerwoche · Amstrad bringt Laptop mit TFT-Display · 22 March 1991",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2837011/amstrad-bringt-laptop-mit-tft-display.html"
+      },
+      {
+        "title": "Computerwoche · Neue tragbare PCs mit 386SX-Prozessor · 27 September 1991",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2734074/amstrad-sorgt-beim-laptop-mit-tft-technik-fuer-klare-bilder.html"
+      }
+    ]
+  }
+}

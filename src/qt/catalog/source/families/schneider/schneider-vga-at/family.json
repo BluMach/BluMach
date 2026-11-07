@@ -1,0 +1,29 @@
+{
+  "order": 170,
+  "family": {
+    "id": "schneider-vga-at",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "VGA AT",
+    "description_key": "family.schneider-vga-at.description",
+    "history_key": "family.schneider-vga-at.history",
+    "history_references": [
+      {
+        "title": "Classic Computing 2022 catalogue, p. 55",
+        "publisher": "ODW.lab · VzEkC",
+        "url": "https://www.classic-computing.de/cc2022-hauptseite/"
+      },
+      {
+        "title": "Schneider VGA AT System 40",
+        "publisher": "Jungsi",
+        "url": "https://www.jungsi.de/schneider-vga-at-system-40-schneider/"
+      },
+      {
+        "title": "Q62098: Windows 3.0 Hardware Compatibility List",
+        "publisher": "Microsoft · KnowledgeBase Archive",
+        "url": "https://www.infania.net/misc/kbarchive/kb/062/Q62098/index.html"
+      }
+    ]
+  }
+}

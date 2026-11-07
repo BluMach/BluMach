@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-140.summary": "O Systema de entrada passou do Pentium 66 para o 75 com o mesmo nome.",
+  "product.olivetti-snx-140.history": "Em 1994, a Olivetti oferecia o SNX 140 como servidor de rede empresarial. Segundo o guia, em setembro de 1995 a configuração de 75 MHz substituiu a de 66 MHz com o mesmo nome.",
+  "product.olivetti-snx-140.warning": "Ficha histórica em investigação.",
+  "product.olivetti-snx-140.architecture": "A frequência identifica duas placas diferentes. A Olivetti documenta Intel Mercury para 66 MHz e Intel Neptune para 75 MHz.",
+  "product.olivetti-snx-140.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-snx-140.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-snx-140.service-guide-1": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 1",
+  "product.olivetti-snx-140.olivetti-brochure-1994": "Olivetti, Server-Reihe SNX Systema, German brochure, 1994"
+}

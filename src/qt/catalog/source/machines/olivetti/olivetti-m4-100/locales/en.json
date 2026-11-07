@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-100.summary": "The 100 MHz M4 Modulo on this platform in the Tin Box case.",
+  "product.olivetti-m4-100.history": "Olivetti placed the M4 Modulo in its professional range. This Pentium generation shared a platform with several consumer PCS models. The guide identifies TriGem as the maker of the BA2199 board.",
+  "product.olivetti-m4-100.warning": "Historical sheet under research.",
+  "product.olivetti-m4-100.architecture": "The case sets the expansion capacity. The Tin Box riser offers 3 full-length ISA, one PCI and one shared slot.",
+  "product.olivetti-m4-100.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m4-100.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m4-100.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-m4-100.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-100.firmware": "The revision helps identify the service BIOS. The guide lists 1.13."
+}

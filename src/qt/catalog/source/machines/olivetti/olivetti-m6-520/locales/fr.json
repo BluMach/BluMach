@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m6-520.summary": "La version SX de la série M6 à bus Micro Channel.",
+  "product.olivetti-m6-520.history": "Olivetti a documenté trois M6 à bus Micro Channel. Le marquage des cartes BA2096 et BA2097 relie leur fabrication à Reply.",
+  "product.olivetti-m6-520.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m6-520.architecture": "La carte mère gère la vidéo et le stockage. Elle intègre un ATI 68800 et le contrôleur SCSI NCR53C700-66. Le SX est soudé, ce qui laisse le support OverDrive libre.",
+  "product.olivetti-m6-520.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m6-520.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m6-520.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 3",
+  "product.olivetti-m6-520.reply-board": "Ardent Tool, Olivetti M6-5x0 board photographs and markings",
+  "product.olivetti-m6-520.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique R1.47.36."
+}

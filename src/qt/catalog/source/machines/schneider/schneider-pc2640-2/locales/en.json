@@ -1,0 +1,8 @@
+{
+  "product.schneider-pc2640-2.summary": "The EGA AT version that expanded the PC2640 to 1 MB RAM and a 60 MB disk.",
+  "product.schneider-pc2640-2.history": "The June 1988 German list offered the PC2640/2 alongside the PC2640 for DM 5,261 net with a monochrome monitor or DM 6,139 with a colour EGA monitor.",
+  "product.schneider-pc2640-2.technical.configuration": "The disk and RAM distinguished this configuration. The list keeps the 12.5 MHz 80286 and raises RAM from 640 KB to 1 MB and disk capacity from 32 to 60 MB.",
+  "product.schneider-pc2640-2.technical.verified": "The offer is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-pc2640-2.technical.limitations": "The board still needs to be matched, an attributable BIOS needs preservation and an image with clear publication rights remains pending.",
+  "product.schneider-pc2640-2.technical.source_1": "CC SELLER / BC, Schneider Computer, 06/1988, p. 2"
+}

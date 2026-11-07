@@ -1,0 +1,12 @@
+{
+  "product.olivetti-m111.summary": "The NEC V30 portable Olivetti introduced alongside the M211.",
+  "product.olivetti-m111.history": "The Historical Archive and Computerwoche place the M111 introduction in 1989 alongside the M211 as Olivetti expanded its portable range. Olivrea dates its XP1021 specimen to 1987 and the Prato museum dates its specimen to 1989.",
+  "product.olivetti-m111.warning": "Historical sheet under research.",
+  "product.olivetti-m111.architecture": "The built-in screen made an external monitor optional. Computerwoche describes a Supertwist panel, and the Prato museum gives 640 × 200 and 10.5 inches.",
+  "product.olivetti-m111.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m111.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m111.archive": "Associazione Archivio Storico Olivetti, Lavorare dovunque.",
+  "product.olivetti-m111.press": "Computerwoche, April 1989, Olivetti PC: Künstlich gebremst.",
+  "product.olivetti-m111.museum": "Museo del Calcolatore di Prato, Olivetti M111.",
+  "product.olivetti-m111.olivrea": "Olivrea, Olivetti M111 XP1021."
+}

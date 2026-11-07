@@ -1,0 +1,17 @@
+{
+  "product.schneider-europc2.summary": "Il conserve le clavier intégré de l'EuroPC, mais reçoit une autre carte mère et 768 Ko de mémoire.",
+  "product.schneider-europc2.history": "EuroPC II prolongea à la fin des années 1980 la proposition domestique compacte de Schneider. Ordinateur, clavier et lecteur restaient dans le même boîtier, avec une carte révisée et davantage de mémoire que l'EuroPC. L'exemplaire documenté par MCbx date de 1989 ; sa page indique une introduction en 1988, encore non recoupée dans la presse contemporaine. Le manuel du fabricant le distingue de l'EuroPC original et de l'EuroXT à clavier séparé. Aucun prix de lancement n'a été confirmé.",
+  "product.schneider-europc2.technical.configurations": "L'identification doit distinguer lancement et exemplaire. MCbx sépare introduction en 1988 et appareil de 1989 ; MAME ne précise pas l'année. La fiche conserve cette incertitude.",
+  "product.schneider-europc2.technical.memory": "Les 768 Ko ne sont pas tous de la mémoire conventionnelle DOS. La configuration documentée distingue 640 Ko et 128 Ko supplémentaires ; il ne faut pas annoncer 768 Ko de mémoire conventionnelle.",
+  "product.schneider-europc2.technical.board": "Une apparence semblable ne signifie pas une carte identique. Le manuel, p. 37 et 60, identifie la carte 50 841 00 et les circuits FE2010A, BIG JIM TC110G008 et PVC4 ; un emplacement ISA court est conservé.",
+  "product.schneider-europc2.technical.detail": "La vidéo conserve les possibilités du format domestique. L'exemplaire décrit par MCbx propose CGA/Hercules, un lecteur de 720 Ko et une connexion XTA pour disque externe.",
+  "product.schneider-europc2.technical.firmware": "Un BIOS est attribué à ce modèle. La révision 3.01 occupe 32 Kio et son empreinte correspond à celle identifiée par MAME ; cela ne démontre pas son interchangeabilité avec l'EuroPC original.",
+  "product.schneider-europc2.technical.verified": "La recherche a vérifié l'identité du firmware. Aucune entrée spécifique EuroPC II n'a été trouvée dans BluMach 88f74ba3 ; l'entrée EuroPC ne valide pas cette révision de carte.",
+  "product.schneider-europc2.technical.limitations": "Un modèle vérifié dans BluMach reste à établir. Démarrage, carte mémoire et périphériques ne sont pas validés ; photographie publiable et profil de création restent à fournir.",
+  "product.schneider-europc2.technical.source_primary": "MCbx, Schneider Euro PC II : exemplaire restauré, configuration et distinction entre année d'introduction et année de l'appareil.",
+  "product.schneider-europc2.technical.source_secondary": "Manuel Schneider, p. 35–37 et 60–61 : identification d'EuroPC II, carte mère et composants.",
+  "product.schneider-europc2.warning": "Fiche historique en cours de recherche ; le démarrage dans BluMach n'est pas validé.",
+  "product.schneider-europc2.technical.manual": "Schneider, Service Manual Euro PC / Euro PC II / Euro XT : original conservé ; pièces et cartes distinguées par modèle.",
+  "product.schneider-europc2.technical.code": "BluMach 88f74ba3 : inspection conservée de machine_table.c et m_europc.c ; elle ne constitue pas un essai de démarrage.",
+  "product.schneider-europc2.technical.mame": "MAME, europc.cpp : identification des révisions et empreintes des ROM ; les trois modèles sont signalés non fonctionnels dans l'instantané consulté."
+}

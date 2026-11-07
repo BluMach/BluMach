@@ -1,0 +1,117 @@
+{
+  "order": 284,
+  "machine": {
+    "id": "amstrad-pc7486slc80",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc7000",
+    "name": "Amstrad PC7486SLC80",
+    "summary_key": "product.amstrad-pc7486slc80.summary",
+    "history_key": "product.amstrad-pc7486slc80.history",
+    "warning_key": "product.amstrad-pc7486slc80.warning",
+    "status": "research",
+    "period": "—",
+    "aliases": [
+      "PC 7486SLC80"
+    ],
+    "tags": [
+      "PC7000",
+      "486SLC"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "486SLC"
+    },
+    "firmware": {
+      "known_sets": [
+        "748680LO.BIN + 748680HI.BIN · 2 × 64 KiB",
+        "748680.BIN · 128 KiB",
+        "7486SL80.BIO · 64 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc7486slc80.technical.market"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc7486slc80.technical.hardware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc7486slc80.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc7486slc80.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc7486slc80.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7486slc80.technical.owner",
+            "url": "https://www.gamopat-forum.com/t103701p30-toujours-a-la-recherche-des-logiciels-preinstalles-de-l-amstrad-mega-pc"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7486slc80.technical.forum",
+            "url": "https://www.vogons.org/viewtopic.php?p=887671#p887671"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc7486slc80.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src"
+          }
+        ]
+      }
+    ]
+  }
+}

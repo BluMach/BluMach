@@ -1,0 +1,13 @@
+{
+  "product.amstrad-pc9486i.summary": "Le 486 à bus PCI présenté par Amstrad aux côtés du PC9555i à processeur Pentium.",
+  "product.amstrad-pc9486i.history": "Au CeBIT 1995, Amstrad a présenté le PC9486i comme son offre 486 aux côtés du PC9555i à processeur Pentium. Le 7 avril, Computerwoche indiquait qu’Amstrad proposait déjà un 486DX2 à 66 MHz et une variante 486 à 100 MHz.",
+  "product.amstrad-pc9486i.technical.cpu": "Le bus PCI permettait d’ajouter des cartes d’extension. Le support Amstrad distingue le PC9486i à bus AT/PCI du PC9486 à bus AT et indique un affichage SVGA.",
+  "product.amstrad-pc9486i.technical.storage": "Deux interfaces Enhanced IDE reliaient les périphériques de stockage. Computerwoche décrit la même configuration pour le PC9555i.",
+  "product.amstrad-pc9486i.warning": "BIOS d’origine et validation du démarrage dans BluMach en attente.",
+  "product.amstrad-pc9486i.technical.firmware": "Le support Amstrad a mentionné un manuel du PC9486i en septembre 1997. Le manuel et le micrologiciel d’origine restent à retrouver.",
+  "product.amstrad-pc9486i.technical.verified": "La presse de l’époque et le support Amstrad confirment l’identité commerciale et le bus. BluMach en est au stade de la recherche.",
+  "product.amstrad-pc9486i.technical.limitations": "Il reste à identifier la carte mère et le contrôleur SVGA, à obtenir un BIOS attribuable au modèle et à valider le démarrage.",
+  "product.amstrad-pc9486i.technical.cebit": "Computerwoche · 7 April 1995 · CeBIT, Pentium- und 486-Rechner vorgestellt",
+  "product.amstrad-pc9486i.technical.lawson": "Cliff Lawson · General notes on Amstrad PCs · 9486, 9486i, 9555i",
+  "product.amstrad-pc9486i.technical.manual": "Cliff Lawson · Amstrad support · Roger Green · 15 September 1997"
+}

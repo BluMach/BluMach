@@ -1,0 +1,11 @@
+{
+  "product.amstrad-megaplus.summary": "Il Mega PC con un 486SLC a 33 MHz e la modalità Sega Mega Drive integrata.",
+  "product.amstrad-megaplus.history": "Nel 1993 Silica Systems offrì nel Regno Unito il Mega Plus, un’evoluzione del Mega PC per chi desiderava un computer e una console nello stesso sistema. La versione da 2 MB e 40 MB fu pubblicizzata a 899 sterline più IVA ad aprile e a 799 sterline più IVA a ottobre.",
+  "product.amstrad-megaplus.technical.offers": "Il disco rigido della versione da 4 MB cambiò tra le offerte. L’annuncio di aprile indicava 100 MB a 999 sterline e quello di ottobre 130 MB a 899 sterline, entrambi più IVA.",
+  "product.amstrad-megaplus.technical.firmware": "Sono disponibili due set di ROM per la ricerca. MAME interlaccia due immagini da 64 KiB in megapcpl e divide un file da 128 KiB in due blocchi in megapcpla.",
+  "product.amstrad-megaplus.technical.verified": "L’offerta commerciale è documentata e gli hash di tre file ROM conservati corrispondono a MAME 0.278.",
+  "product.amstrad-megaplus.technical.limitations": "Restano da confrontare le ROM con schede identificate e da convalidare l’avvio e la modalità Mega Drive in BluMach. Manca una foto del Mega Plus con diritti di riutilizzo chiari.",
+  "product.amstrad-megaplus.technical.april": "Silica Systems · PC Format · April 1993",
+  "product.amstrad-megaplus.technical.october": "Silica Systems · Amstrad Action 97 · October 1993 · p. 47",
+  "product.amstrad-megaplus.technical.owner": "Incog · MESS Dumping Project · 12 November 2007"
+}

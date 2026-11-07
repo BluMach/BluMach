@@ -1,0 +1,94 @@
+{
+  "order": 10225,
+  "machine": {
+    "id": "olivetti-philos-45-color",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Philos 45 Color",
+    "summary_key": "product.olivetti-philos-45-color.summary",
+    "history_key": "product.olivetti-philos-45-color.history",
+    "warning_key": "product.olivetti-philos-45-color.warning",
+    "status": "research",
+    "aliases": [
+      "Philos Color 45",
+      "NB101S"
+    ],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ],
+      "display_technology": [
+        "lcd"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel i486SL · 33 MHz",
+      "memory": "4 MB",
+      "video": "TFT LCD",
+      "storage": "HDD · 240 MB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-philos-45-color.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-philos-45-color.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-philos-45-color.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-45-color.chassis-label",
+            "url": "https://www.ebay.it/itm/286062176333"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-45-color.bottom-label",
+            "url": "https://www.ebay.it/itm/286062176333"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-45-color.audio-ports",
+            "url": "https://www.ebay.it/itm/286062176333"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-45-color.macdat",
+            "url": "https://macdat.net/laptops/olivetti/philos.php"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "order": 141,
+  "family": {
+    "id": "amstrad-alt",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "ALT",
+    "description_key": "family.amstrad-alt.description",
+    "history_key": "family.amstrad-alt.history",
+    "history_references": [
+      {
+        "title": "Micro News no. 33 · Les nouveaux portables Amstrad · April 1990 · p. 16",
+        "publisher": "Micro News",
+        "url": "https://www.abandonware-magazines.org/affiche_mag.php?mag=8&num=990"
+      },
+      {
+        "title": "Amstrad · ALT286 / ALT386SX Service Manual · pp. 2, 10–11",
+        "publisher": "Amstrad plc",
+        "url": "https://archive.org/details/manual_ALT286_SM_AMSTRAD_EN"
+      }
+    ]
+  }
+}

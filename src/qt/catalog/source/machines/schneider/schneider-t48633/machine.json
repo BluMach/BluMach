@@ -1,0 +1,79 @@
+{
+  "order": 670,
+  "machine": {
+    "id": "schneider-t48633",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-towers-1991",
+    "name": "Schneider T486/33",
+    "summary_key": "product.schneider-t48633.summary",
+    "history_key": "product.schneider-t48633.history",
+    "warning_key": "product.schneider-t48633.warning",
+    "status": "research",
+    "period": "1991",
+    "aliases": [],
+    "tags": [
+      "Schneider"
+    ],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ],
+      "video": [
+        "vga"
+      ]
+    },
+    "hardware": {
+      "cpu": "80486SX · 33 MHz",
+      "memory": "8 MB · ≤ 16 MB",
+      "video": "VGA · 512 KB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-t48633.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-t48633.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-t48633.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-t48633.technical.source_1",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_91.html"
+          }
+        ]
+      }
+    ]
+  }
+}

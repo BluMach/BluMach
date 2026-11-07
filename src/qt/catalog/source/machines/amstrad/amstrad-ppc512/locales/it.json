@@ -1,0 +1,19 @@
+{
+  "product.amstrad-ppc512.summary": "Il PPC di ingresso offriva il formato trasportabile della famiglia con 512 KB e senza modem integrato.",
+  "product.amstrad-ppc512.history": "Pubblicizzato nel 1988, il PPC512 era la versione di ingresso dei trasportabili PPC di Amstrad. Proponeva di portare il lavoro tra ufficio, casa e viaggi con schermo e tastiera propri. Condivideva l'impostazione generale del PPC640, ma riduceva la memoria a 512 KB e rinunciava al suo modem e a Mirror II. Era disponibile con una o due unità floppy; l'annuncio britannico di febbraio proponeva la gamma PPC a partire da 399 £ IVA esclusa.",
+  "product.amstrad-ppc512.warning": "Scheda storica in fase di ricerca: il firmware è conservato, ma l'avvio di questo modello non è stato validato in BluMach.",
+  "product.amstrad-ppc512.technical.market": "L'offerta mirava a portare il lavoro fuori dall'ufficio. L'annuncio britannico conservato risale al febbraio 1988; non prova una data unica di lancio mondiale.",
+  "product.amstrad-ppc512.technical.configurations": "Le unità floppy distinguono le varianti S e D. La documentazione indica una o due unità da 3,5 pollici e 720 KB, con MS-DOS 3.3.",
+  "product.amstrad-ppc512.technical.cpu": "L'identificazione del processore richiede di distinguere le fonti. Il manuale tecnico descrive un 8086-2 a 8 MHz; l'elenco ricambi specifica CXQ70116P-8 per IC120. Non sono state ispezionate tutte le revisioni della scheda.",
+  "product.amstrad-ppc512.technical.memory": "La memoria poteva essere aumentata tramite espansione esterna. Il manuale colloca i 512 KB tra 00000h e 7FFFFh e consente di arrivare a 640 KB con blocchi esterni da 32 KB.",
+  "product.amstrad-ppc512.technical.video": "Il computer può usare il proprio LCD o un monitor esterno. L'IDA offre compatibilità CGA/MDA, usando B8000h in CGA e B0000h in MDA. Il pannello interno ha 640 × 200 pixel.",
+  "product.amstrad-ppc512.technical.physical": "L'alimentazione permette l'uso lontano da una presa. Il manuale documenta un adattatore di rete e dieci pile C; l'autonomia dichiarata non è stata verificata qui.",
+  "product.amstrad-ppc512.technical.interfaces": "Si possono collegare periferiche da ufficio. Il manuale documenta RS-232C e Centronics; il PPC512 non dispone del modem integrato del PPC640.",
+  "product.amstrad-ppc512.technical.firmware": "Sono conservati file attribuiti al profilo PPC512. 40107.v2 e 40108.v2 misurano 8 KiB ciascuno; 40109 misura 32 KiB. Gli hash sono verificati, ma la dimensione del file dei caratteri non dimostra la capacità di un chip fisico.",
+  "product.amstrad-ppc512.technical.verified": "BluMach contiene un'implementazione ereditata per la famiglia. L'esame del codice identifica il profilo ppc512 e il video LCD/CGA/MDA; non costituisce una prova di avvio della macchina storica.",
+  "product.amstrad-ppc512.technical.limitations": "La scheda non offre ancora una configurazione eseguibile. Restano da validare POST, tastiera, schermo, unità floppy e temporizzazioni della CPU, oltre alla provenienza fisica e ai diritti del firmware.",
+  "product.amstrad-ppc512.technical.manual": "Manuale di servizio PPC512/640: specifiche, p. 2; componenti, p. 30. Copia conservata.",
+  "product.amstrad-ppc512.technical.reference": "Manuale tecnico PPC: memoria §1.2, schermo §1.11 e modem §1.16. Trascrizione conservata.",
+  "product.amstrad-ppc512.technical.advert": "Annuncio Amstrad, Personal Computer World, febbraio 1988: gamma da 399 £ IVA esclusa. Immagine conservata per la ricerca.",
+  "product.amstrad-ppc512.technical.museum": "Centre for Computing History, esemplare PPC512D CH24547: varianti S/D e manuale utente del 1988."
+}

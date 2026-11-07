@@ -1,0 +1,17 @@
+{
+  "product.schneider-europc.summary": "O modelo original reúne computador, teclado e unidade de disquetes numa só caixa para começar a trabalhar com disquetes.",
+  "product.schneider-europc.history": "Apresentado em 1988 e comercializado nesse verão, o EuroPC foi um projeto próprio da Schneider para entrar no mundo do PC a partir de casa. O teste da Happy Computer de agosto de 1988 anunciava 1.298 DM com monitor monocromático, MS-DOS 3.3, GW-BASIC e Microsoft Works. O formato compacto distinguia-o dos PC1512 e PC1640 de origem Amstrad anteriormente vendidos pela Schneider. A gama continuou com EuroPC II e com a alternativa de secretária EuroXT.",
+  "product.schneider-europc.technical.configurations": "O conjunto incluía o necessário para começar. A Happy Computer documenta monitor, sete disquetes e quatro manuais; o disco rígido externo de 20 MB era uma expansão.",
+  "product.schneider-europc.technical.memory": "A memória e o espaço de expansão eram limitados. O modelo base tinha 512 KB e uma ranhura ISA de 8 bits para uma placa curta; as expansões disputavam esse único espaço.",
+  "product.schneider-europc.technical.board": "O monitor determinava os modos gráficos disponíveis. O vídeo integrado oferecia CGA a cores e Hercules monocromático; o monitor monocromático do conjunto não apresentava os modos CGA.",
+  "product.schneider-europc.technical.detail": "As fontes arredondam as frequências de forma diferente. A Happy Computer publica 4,77/7,15/9,56 MHz; a documentação do controlador MAME usa 4,77/7,16/9,54 MHz. A tabela adota 9,54 MHz como máximo nominal.",
+  "product.schneider-europc.technical.firmware": "Há várias revisões preservadas para comparação. As BIOS 2.04, 2.05, 2.06, 2.06B, 2.07, 2.08, 2.08A e 2.08B ocupam 32 KiB cada; também se preservam ROM de caracteres e teclado. Os hashes foram verificados sem executar o firmware.",
+  "product.schneider-europc.technical.verified": "O BluMach já contém código específico do EuroPC. Em 88f74ba3, machine_europc_init carrega 32 KiB em F8000h e configura JIM em 0250h; esta revisão apenas inspecionou o código.",
+  "product.schneider-europc.technical.limitations": "Falta um teste de utilização reproduzível. POST, teclado, relógio, vídeo e discos não foram validados com os conjuntos preservados; a ficha não acrescenta um perfil de criação.",
+  "product.schneider-europc.technical.source_primary": "Happy Computer 08/1988, Test Euro PC: Klein, kompakt, komplett: teste da época, preço, configuração e limites do monitor.",
+  "product.schneider-europc.technical.source_secondary": "HNF, Das war der Schneider Euro PC, 09-05-2023: projeto próprio e cronologia, confrontados com o teste de 1988.",
+  "product.schneider-europc.warning": "Ficha histórica em investigação; o arranque no BluMach não está validado.",
+  "product.schneider-europc.technical.manual": "Schneider, Service Manual Euro PC / Euro PC II / Euro XT: original preservado; peças e placas diferenciadas por modelo.",
+  "product.schneider-europc.technical.code": "BluMach 88f74ba3: inspeção preservada de machine_table.c e m_europc.c; não equivale a um teste de arranque.",
+  "product.schneider-europc.technical.mame": "MAME, europc.cpp: identificação de revisões e hashes de ROM; os três modelos estão assinalados como não funcionais na cópia consultada."
+}

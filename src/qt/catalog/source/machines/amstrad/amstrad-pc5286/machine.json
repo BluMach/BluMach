@@ -44,15 +44,15 @@
       ]
     },
     "hardware": {
-      "cpu": "Intel 80286, 16 MHz; Intel 80287 socket",
-      "memory": "1 MB standard; documented 2 MB and 4 MB paired-SIMM expansions",
-      "chipset": "C&T F82C235-12 Single Chip AT and F82C710A I/O controller",
-      "video": "Integrated C&T F82C452 with ADV476KP35E RAMDAC and 256 KiB VRAM on the photographed MC0128A board",
-      "floppy": "One 3.5-inch 1.44 MB drive",
-      "hard_disk": "Diskless and 40 MB IDE commercial configurations",
-      "expansion": "Two half-length 16-bit ISA slots; Games Pack sound card occupies one slot",
-      "interfaces": "Serial, parallel, keyboard, mouse; dual analogue joystick port on the Games Pack sound card",
-      "sound": "Optional Amstrad AdLib-compatible card with external stereo speakers in the Games Pack"
+      "cpu": "Intel 80286 · 16 MHz",
+      "memory": "1 / 2 / 4 MB · SIMM · 80 ns",
+      "chipset": "C&T F82C235-12 · F82C710A",
+      "video": "MC0128A: C&T F82C452 · ADV476KP35E · 256 KiB",
+      "floppy": "1 × 3.5″ · 1.44 MB",
+      "hard_disk": "0 / 40 MB · IDE",
+      "expansion": "2 × ISA · 16-bit",
+      "interfaces": "RS-232C · Centronics · VGA · PS/2",
+      "sound": "Games Pack · AdLib"
     },
     "firmware": {
       "known_sets": [
@@ -299,7 +299,7 @@
       },
       {
         "title_key": "technical.section.architecture",
-        "evidence_key": "technical.evidence.documented_and_modeled",
+        "evidence_key": "technical.evidence.documented",
         "entries": [
           {
             "label_key": "technical.label.cpu_bus",
@@ -358,7 +358,7 @@
           {
             "label_key": "technical.label.brochure",
             "value_key": "product.amstrad-pc5286.technical.brochure",
-            "url": "https://acpc.me/"
+            "url": "https://cpcrulez.fr/"
           },
           {
             "label_key": "technical.label.manual",
@@ -373,7 +373,7 @@
           {
             "label_key": "technical.label.source_notes",
             "value_key": "product.amstrad-pc5286.technical.sound_card",
-            "url": "https://www.vogons.org/viewtopic.php?t=47900"
+            "url": "https://www.forosdeelectronica.com/threads/valores-fuente-de-alimentaci%C3%B3n-de-amstrad-pc5286.151834/"
           }
         ]
       }

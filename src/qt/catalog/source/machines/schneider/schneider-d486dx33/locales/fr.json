@@ -1,0 +1,9 @@
+{
+  "product.schneider-d486dx33.summary": "Le modèle de bureau 486DX avec accélération graphique.",
+  "product.schneider-d486dx33.history": "Le tarif allemand de décembre 1992 proposait cet ordinateur à 2 762 DM nets sans disque dur. MS-DOS 5.0 et Windows 3.1 étaient inclus.",
+  "product.schneider-d486dx33.technical.options": "Le tarif proposait aussi une configuration avec un disque dur de 106 Mo à 3 245 DM nets.",
+  "product.schneider-d486dx33.technical.slots": "Les connecteurs accueillent les cartes d’extension. La fiche commerciale indique 7 connecteurs 16 bits et deux lecteurs de disquettes, de 1,44 Mo et 1,2 Mo.",
+  "product.schneider-d486dx33.technical.verified": "L’offre est documentée. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
+  "product.schneider-d486dx33.technical.limitations": "Il reste à identifier la carte, à préserver un BIOS attribué et à trouver une image aux droits de publication clairs.",
+  "product.schneider-d486dx33.technical.price_list": "CC SELLER / BC, Schneider Computer, 12/1992, pp. 1–3"
+}

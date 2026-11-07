@@ -1,0 +1,10 @@
+{
+  "product.olivetti-modulo-p100-l.summary": "La configurazione da 100 MHz del Modulo L con scheda LPX.",
+  "product.olivetti-modulo-p100-l.history": "Olivetti documentò il Modulo P100 L con altre due configurazioni Pentium della gamma Modulo L da scrivania.",
+  "product.olivetti-modulo-p100-l.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-modulo-p100-l.architecture": "La memoria si può espandere su tre banchi. La BA2292 ha sei zoccoli SIMM EDO o Fast Page Mode e uno zoccolo CELP per 256 KB di cache L2.",
+  "product.olivetti-modulo-p100-l.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-modulo-p100-l.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-modulo-p100-l.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 9",
+  "product.olivetti-modulo-p100-l.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.00.03.CV2 Y."
+}

@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m300-04.summary": "Le M300 à 386SX qui associe le WD90C11 au contrôleur de disquettes National 87C311.",
+  "product.olivetti-m300-04.history": "Le M300-04 faisait partie de la gamme M300 à 386SX d’Olivetti. Le chapitre de maintenance le distingue du M300-10 de même fréquence par la vidéo et le contrôleur de disquettes.",
+  "product.olivetti-m300-04.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m300-04.architecture": "Le guide indique la mémoire installée sur la carte. Il donne 3–17 MB et un accès de 80 ns, ainsi que le WD90C11 et le contrôleur de disquettes National 87C311. La capacité installée reste une donnée documentaire.",
+  "product.olivetti-m300-04.firmware": "La révision du BIOS aide à identifier la configuration de maintenance. Le guide indique 1.04.",
+  "product.olivetti-m300-04.verified": "L’identité a été vérifiée dans la documentation Olivetti. La fiche reste en cours de recherche.",
+  "product.olivetti-m300-04.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m300-04.guide": "Olivetti, Personal Computer – Pocket Service Guide, 33-1."
+}

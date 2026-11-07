@@ -1,0 +1,17 @@
+{
+  "product.schneider-europc2.summary": "Mantiene la tastiera integrata dell'EuroPC, ma adotta un'altra scheda madre e 768 KB di memoria.",
+  "product.schneider-europc2.history": "EuroPC II proseguì alla fine degli anni Ottanta la proposta domestica compatta di Schneider. Computer, tastiera e unità floppy restavano nello stesso involucro, con una scheda rivista e più memoria dell'EuroPC. L'esemplare documentato da MCbx risale al 1989; la pagina indica il 1988 come introduzione, data ancora non riscontrata nella stampa dell'epoca. Il manuale del produttore lo distingue dall'EuroPC originale e dall'EuroXT con tastiera separata. Non è stato confermato un prezzo di lancio.",
+  "product.schneider-europc2.technical.configurations": "L'identificazione deve distinguere lancio ed esemplare. MCbx separa introduzione nel 1988 e unità del 1989; MAME non precisa l'anno. La scheda mantiene questa incertezza.",
+  "product.schneider-europc2.technical.memory": "I 768 KB non sono tutti memoria convenzionale DOS. La configurazione documentata distingue 640 KB e altri 128 KB; non vanno presentati come 768 KB convenzionali.",
+  "product.schneider-europc2.technical.board": "L'aspetto simile non implica la stessa scheda madre. Il manuale, pp. 37 e 60, identifica la scheda 50 841 00 e i circuiti FE2010A, BIG JIM TC110G008 e PVC4; rimane uno slot ISA corto.",
+  "product.schneider-europc2.technical.detail": "Il video conserva le possibilità del formato domestico. L'esemplare descritto da MCbx offre CGA/Hercules, unità floppy da 720 KB e connessione XTA per disco esterno.",
+  "product.schneider-europc2.technical.firmware": "Esiste un BIOS attribuito a questo modello. La revisione 3.01 occupa 32 KiB e il suo hash coincide con quello identificato da MAME; ciò non dimostra l'intercambiabilità con l'EuroPC originale.",
+  "product.schneider-europc2.technical.verified": "La ricerca ha verificato l'identità del firmware. In BluMach 88f74ba3 non è stata individuata una voce specifica EuroPC II; la voce EuroPC non valida questa revisione della scheda.",
+  "product.schneider-europc2.technical.limitations": "Manca un modello verificato in BluMach. Avvio, mappa della memoria e periferiche non sono validati; fotografia pubblicabile e profilo di creazione restano da completare.",
+  "product.schneider-europc2.technical.source_primary": "MCbx, Schneider Euro PC II: esemplare restaurato, configurazione e distinzione tra anno d'introduzione e anno dell'unità.",
+  "product.schneider-europc2.technical.source_secondary": "Manuale Schneider, pp. 35–37 e 60–61: identificazione EuroPC II, scheda madre e componenti.",
+  "product.schneider-europc2.warning": "Scheda storica in fase di ricerca; l'avvio in BluMach non è validato.",
+  "product.schneider-europc2.technical.manual": "Schneider, Service Manual Euro PC / Euro PC II / Euro XT: originale conservato; componenti e schede distinti per modello.",
+  "product.schneider-europc2.technical.code": "BluMach 88f74ba3: ispezione conservata di machine_table.c e m_europc.c; non costituisce una prova di avvio.",
+  "product.schneider-europc2.technical.mame": "MAME, europc.cpp: identificazione di revisioni e hash delle ROM; i tre modelli risultano non funzionanti nella copia consultata."
+}

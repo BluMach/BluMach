@@ -1,0 +1,156 @@
+{
+  "order": 257,
+  "machine": {
+    "id": "amstrad-ppc640",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-ppc",
+    "name": "Amstrad PPC640",
+    "summary_key": "product.amstrad-ppc640.summary",
+    "history_key": "product.amstrad-ppc640.history",
+    "warning_key": "product.amstrad-ppc640.warning",
+    "status": "research",
+    "period": "1988",
+    "aliases": [
+      "PPC 640",
+      "PPC640S",
+      "PPC640D"
+    ],
+    "tags": [
+      "PPC",
+      "8 MHz",
+      "LCD",
+      "CGA",
+      "MDA",
+      "portable"
+    ],
+    "facets": {
+      "form_factor": [
+        "luggable"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "cga"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "CXQ70116P-8 · 8 MHz",
+      "memory": "640 KB",
+      "video": "IDA · CGA / MDA · LCD 640 × 200",
+      "floppy": "1–2 × 3.5″ · 720 KB",
+      "rtc": "MC146818P",
+      "coprocessor": "8087-2",
+      "interfaces": "RS-232C · Centronics · V.22bis 2400 bit/s"
+    },
+    "firmware": {
+      "known_sets": [
+        "IC129 + IC132 · 2 × 8 KiB",
+        "IC159 · 8 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-ppc640.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.amstrad-ppc640.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-ppc640.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-ppc640.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-ppc640.technical.video"
+          },
+          {
+            "label_key": "technical.label.physical",
+            "value_key": "product.amstrad-ppc640.technical.physical"
+          },
+          {
+            "label_key": "technical.label.serial_parallel",
+            "value_key": "product.amstrad-ppc640.technical.interfaces"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-ppc640.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-ppc640.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-ppc640.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.amstrad-ppc640.technical.manual",
+            "url": "https://oldcrap.org/2019/09/19/amstrad-ppc-512/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-ppc640.technical.reference",
+            "url": "https://www.seasip.info/AmstradXT/ppctech/section1.html"
+          },
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.amstrad-ppc640.technical.advert",
+            "url": "https://nosher.net/archives/computers/amstrad_ppc512_percw_feb88"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-ppc640.technical.museum",
+            "url": "https://www.computinghistory.org.uk/det/24547/Amstrad-PPC-512D/"
+          }
+        ]
+      }
+    ]
+  }
+}

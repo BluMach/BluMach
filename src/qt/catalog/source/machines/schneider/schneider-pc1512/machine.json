@@ -1,0 +1,115 @@
+{
+  "order": 690,
+  "machine": {
+    "id": "schneider-pc1512",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-amstrad-badges",
+    "name": "Schneider PC1512",
+    "summary_key": "product.schneider-pc1512.summary",
+    "history_key": "product.schneider-pc1512.history",
+    "status": "research",
+    "period": "1986",
+    "aliases": [],
+    "tags": [
+      "Schneider",
+      "Amstrad"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "cga"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "monochrome",
+        "color"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 8086 · 8 MHz",
+      "memory": "512–640 KB",
+      "video": "CGA",
+      "storage": "10 / 20 MB HDD",
+      "floppy": "1–2 × FDD"
+    },
+    "relationships": {
+      "badge_equivalent": [
+        "amstrad-pc1512"
+      ]
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.schneider-pc1512.technical.detail",
+            "url": "https://stcarchiv.de/happy-computer/1986/10/schneider-pc"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-pc1512.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-pc1512.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-pc1512.technical.source_1",
+            "url": "https://blog.hnf.de/das-war-der-schneider-euro-pc/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-pc1512.technical.source_2",
+            "url": "https://www.computerwoche.de/article/2812762/schneider-bringt-at-mit-ega-karte.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-pc1512.technical.period_press",
+            "url": "https://stcarchiv.de/happy-computer/1986/10/schneider-pc"
+          }
+        ]
+      }
+    ],
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/schneider-pc1512-dd-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "KoS",
+      "license": "public-domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Amstrad_1512_DD.jpg"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    }
+  }
+}

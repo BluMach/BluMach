@@ -1,0 +1,76 @@
+{
+  "order": 10232,
+  "machine": {
+    "id": "olivetti-m20-st",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M20 ST",
+    "summary_key": "product.olivetti-m20-st.summary",
+    "history_key": "product.olivetti-m20-st.history",
+    "warning_key": "product.olivetti-m20-st.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Zilog Z8001 · 4 MHz",
+      "memory": "128–224 KB",
+      "video": "CRT · 12″ · 512 × 256",
+      "storage": "5.25″ FDD · 286 KB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m20-st.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m20-st.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m20-st.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20-st.pixel-1982",
+            "url": "https://archividigitaliolivetti.archiviostoricolivetti.it/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m20-st.prato-museum",
+            "url": "https://www.museodelcalcolatore.it/singolo.php?cod=28&ord=5"
+          }
+        ]
+      }
+    ],
+    "period": "1982"
+  }
+}

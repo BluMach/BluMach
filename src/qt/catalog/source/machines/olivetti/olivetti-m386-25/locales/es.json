@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m386-25.summary": "Una estación de gama alta con caché de 32 KB y vídeo integrado.",
+  "product.olivetti-m386-25.history": "El catálogo profesional de septiembre de 1991 situaba M386/25 (una estación de gama alta con caché de 32 KB y vídeo integrado).",
+  "product.olivetti-m386-25.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m386-25.architecture": "La placa determina la combinación de periféricos que hay que contrastar. La guía identifica BA247 / BA255 / BA263 · 82C452 · AT.",
+  "product.olivetti-m386-25.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra 1.09 · PEQS (L, U65) / PEQR (H, U66).",
+  "product.olivetti-m386-25.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m386-25.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m386-25.guide": "Olivetti, Personal Computer – Pocket Service Guide, 14-1.",
+  "product.olivetti-m386-25.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

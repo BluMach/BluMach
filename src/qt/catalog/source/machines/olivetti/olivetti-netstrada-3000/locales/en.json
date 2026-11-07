@@ -1,0 +1,10 @@
+{
+  "product.olivetti-netstrada-3000.summary": "The NetStrada with a Copper case that could be converted to rackmount.",
+  "product.olivetti-netstrada-3000.history": "Olivetti documented the NetStrada 3000 on the Vulcan platform with a kit to mount the same case in a 19-inch rack.",
+  "product.olivetti-netstrada-3000.warning": "Historical sheet under research.",
+  "product.olivetti-netstrada-3000.architecture": "The CPU and expansion slots share one board. The BA2315 uses Intel 440FX, Socket 8, three PCI slots and two ISA slots.",
+  "product.olivetti-netstrada-3000.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-netstrada-3000.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-netstrada-3000.service-guide-9": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 9",
+  "product.olivetti-netstrada-3000.solaris-hcl": "Sun Microsystems, Hardware Compatibility List for Solaris 2.6 Intel Platform Edition"
+}

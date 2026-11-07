@@ -1,0 +1,24 @@
+{
+  "order": 180,
+  "family": {
+    "id": "schneider-tower386sx",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Tower 386SX",
+    "description_key": "family.schneider-tower386sx.description",
+    "history_key": "family.schneider-tower386sx.history",
+    "history_references": [
+      {
+        "title": "Service Manual 386 SX System 40/70, 60195",
+        "publisher": "Schneider · Internet Archive",
+        "url": "https://archive.org/details/manual_386SXSYSTEM4070_SM_SCHNEIDER_EN"
+      },
+      {
+        "title": "Tower 386SX physical-machine and ROM notes",
+        "publisher": "MAME",
+        "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/at.cpp"
+      }
+    ]
+  }
+}

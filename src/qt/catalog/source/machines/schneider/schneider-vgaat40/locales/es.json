@@ -1,0 +1,16 @@
+{
+  "product.schneider-vgaat40.summary": "El 286 de la gama Tower con VGA integrado y disco de 40 MB.",
+  "product.schneider-vgaat40.history": "El VGA AT System 40 figura como modelo de 1989 en el catálogo de Classic Computing 2022. Continuaba la línea Tower AT de Schneider con VGA y una caja modular ampliable mediante unidades externas. El ejemplar restaurado por Jungsi documenta su uso para redactar una tesis hacia 1993, una muestra concreta de su empleo como ordenador de trabajo.",
+  "product.schneider-vgaat40.warning": "Ficha histórica en investigación; emulación en BluMach pendiente.",
+  "product.schneider-vgaat40.technical.configurations": "El ejemplar conservado permite concretar la configuración. Jungsi documenta 1 MB, disquetera de 1,44 MB y disco Seagate ST157-A de 40 MB; su FD1200T externo de 1,2 MB es un módulo añadido, no equipamiento universal.",
+  "product.schneider-vgaat40.technical.board": "La tarjeta de CPU permite separar estas torres de los 386SX. Las fotos del 40 muestran un Siemens 80286 y GC102; Jungsi identifica la placa de E/S VGA 50925. MAME describe vídeo ATI18800-1 con 256 KB y señala electrónica de E/S compartida, sin demostrar compatibilidad de las BIOS de sistema.",
+  "product.schneider-vgaat40.technical.firmware": "Hay etiquetas de BIOS identificadas, pero falta el volcado. La fotografía muestra LOW/HIGH V2.00a, ID 50444/50445; la mención de 2.03 en el artículo es otra pista sin archivo adquirido. Las ROM de los Tower AT EGA no se atribuyen automáticamente a este modelo.",
+  "product.schneider-vgaat40.technical.verified": "Se han contrastado documentos y fotografías de propietarios. BluMach 7968236c no tiene una entrada específica VGA AT; no se ha ejecutado ni validado este equipo.",
+  "product.schneider-vgaat40.technical.limitations": "La emulación completa sigue pendiente. Faltan BIOS de sistema atribuida, revisión de placa y validación de POST, memoria, vídeo, RTC, discos y puertos.",
+  "product.schneider-vgaat40.technical.clock": "Las fuentes no coinciden en la velocidad. La tabla de Jungsi indica 10 MHz y su texto 12 MHz; la foto del SETUP de su System 40 muestra CPU/bus a 12,5/6,25 MHz. MAME también describe una tarjeta de 12,5 MHz para los VGA System 40/70. No es una medición nuestra.",
+  "product.schneider-vgaat40.technical.owner": "Jungsi, Schneider VGA AT System 40, 2024, actualizado 2026: restauración, fotografías de placa y SETUP; cifras de reloj discrepantes conservadas.",
+  "product.schneider-vgaat40.technical.cc": "ODW.lab, catálogo Classic Computing 2022, p. 55: ficha del ejemplar VGA AT System 40, fecha 1989 y memoria; PDF preservado.",
+  "product.schneider-vgaat40.technical.hcl": "Microsoft Q62098, Windows 3.0 Hardware Compatibility List, copia archivada: enumera VGA AT System 40 y 70; no establece su fecha de lanzamiento.",
+  "product.schneider-vgaat40.technical.mame": "MAME, at.cpp, instantánea del 07-11-2026: notas físicas sobre Tower VGA 286 y 386SX, placa de E/S compartida y límites de atribución.",
+  "product.schneider-vgaat40.technical.code": "BluMach 7968236c: tabla de máquinas conservada e inspeccionada, sin entrada VGA AT específica."
+}

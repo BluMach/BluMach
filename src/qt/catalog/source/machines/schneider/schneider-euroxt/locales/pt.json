@@ -1,0 +1,17 @@
+{
+  "product.schneider-euroxt.summary": "Leva a proposta Euro para uma caixa de secretária com teclado separado e disco rígido interno.",
+  "product.schneider-euroxt.history": "O EuroXT ofereceu uma alternativa de secretária aos EuroPC com teclado integrado. Manteve a classe PC/XT, mas alojava o disco rígido dentro da caixa e separava o teclado. Um anúncio da Büroma no Guckloch 1/1990 oferecia-o por 1.998 DM com 640 KB, disco RAM de 128 KB, disco rígido de 21 MB e monitor monocromático MM12. Esse preço corresponde a uma oferta de revendedor, não a um lançamento confirmado. O manual Schneider trata-o como modelo distinto do EuroPC II.",
+  "product.schneider-euroxt.technical.configurations": "A oferta combinava disco rígido e monitor. O anúncio da Büroma, p. 18, documenta 21 MB e MM12; não demonstra o mesmo conjunto para todos os mercados.",
+  "product.schneider-euroxt.technical.memory": "Parte da memória servia de disco RAM. A publicidade separa 640 KB para o sistema e 128 KB de RAM Disc nos 768 KB físicos.",
+  "product.schneider-euroxt.technical.board": "A caixa oferece mais possibilidades de expansão. O manual, p. 65, identifica placa CPU 51 424 00, placa de ranhuras 51 427 00 e teclado separado; o MAME descreve duas ranhuras ISA de 8 bits.",
+  "product.schneider-euroxt.technical.detail": "As fontes descrevem a capacidade do disco de forma diferente. O anúncio de 1990 indica 21 MB e o MAME resume 20 MB XTA; mantêm-se ambos os valores sem inferir duas revisões de hardware.",
+  "product.schneider-euroxt.technical.firmware": "Preservam-se quatro BIOS de sistema. As revisões 1.01, 1.02, 1.04 e 1.05 ocupam 32 KiB cada e os hashes estão verificados. O MAME regista ausência de imagem com 1.04 e 1.05; não é um resultado testado no BluMach.",
+  "product.schneider-euroxt.technical.verified": "Há firmware para investigar o modelo. Não foi localizada uma entrada específica EuroXT no BluMach 88f74ba3; pertencer à família EuroPC não comprova a sua emulação.",
+  "product.schneider-euroxt.technical.limitations": "Falta verificar placa e armazenamento no BluMach. Arranque, teclado e disco XTA não foram validados; fotografia publicável e perfil de criação continuam pendentes.",
+  "product.schneider-euroxt.technical.source_primary": "Büroma, anúncio EuroXT no Guckloch 1/1990, p. 18: oferta de 1.998 DM e configuração verificadas na digitalização.",
+  "product.schneider-euroxt.technical.source_secondary": "Old Crap, Schneider Euro XT, 12-02-2022: fotografias de exemplares, placas revisões 3 e 4 e ecrãs da BIOS.",
+  "product.schneider-euroxt.warning": "Ficha histórica em investigação; o arranque no BluMach não está validado.",
+  "product.schneider-euroxt.technical.manual": "Schneider, Service Manual Euro PC / Euro PC II / Euro XT: original preservado; peças e placas diferenciadas por modelo.",
+  "product.schneider-euroxt.technical.code": "BluMach 88f74ba3: inspeção preservada de machine_table.c e m_europc.c; não equivale a um teste de arranque.",
+  "product.schneider-euroxt.technical.mame": "MAME, europc.cpp: identificação de revisões e hashes de ROM; os três modelos estão assinalados como não funcionais na cópia consultada."
+}

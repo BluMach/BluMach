@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m20-d.summary": "El M20 que se ofrecía con dos disqueteras en la unidad principal.",
+  "product.olivetti-m20-d.history": "El Centre for Computing History identifica su ejemplar como M20 D y recoge un precio británico de 2.395 libras sin IVA para la versión de dos disqueteras.",
+  "product.olivetti-m20-d.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m20-d.architecture": "Las dos unidades permitían usar dos disquetes en la misma consola. La foto del ejemplar CH49850 muestra ambas disqueteras integradas junto al teclado.",
+  "product.olivetti-m20-d.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m20-d.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m20-d.cambridge-museum": "Centre for Computing History, Olivetti M20 D, CH49850",
+  "product.olivetti-m20-d.cambridge-specimen": "Centre for Computing History, CH49850 front photograph"
+}

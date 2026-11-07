@@ -1,0 +1,10 @@
+{
+  "product.olivetti-modulo-p100-l.summary": "The 100 MHz Modulo L configuration with an LPX board.",
+  "product.olivetti-modulo-p100-l.history": "Olivetti documented the Modulo P100 L alongside two other Pentium configurations in the Modulo L desktop range.",
+  "product.olivetti-modulo-p100-l.warning": "Historical sheet under research.",
+  "product.olivetti-modulo-p100-l.architecture": "Memory can grow across three banks. The BA2292 has six SIMM sockets for EDO or Fast Page Mode and a CELP socket for 256 KB of L2 cache.",
+  "product.olivetti-modulo-p100-l.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-modulo-p100-l.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-modulo-p100-l.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 9",
+  "product.olivetti-modulo-p100-l.firmware": "The revision helps identify the service BIOS. The guide lists 1.00.03.CV2 Y."
+}

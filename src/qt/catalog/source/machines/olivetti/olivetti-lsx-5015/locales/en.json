@@ -1,0 +1,10 @@
+{
+  "product.olivetti-lsx-5015.summary": "The LSX identified in Total Hardware 99 by its BA305-series boards.",
+  "product.olivetti-lsx-5015.history": "The LSX 5015 belonged to Olivetti’s professional LSX 5000 range. Total Hardware 99 preserves the designation and its board references.",
+  "product.olivetti-lsx-5015.warning": "Historical sheet under research.",
+  "product.olivetti-lsx-5015.architecture": "The board number identifies the revision. The record lists BA305, BA322, BA360 and BA365, and up to 64 MB on the board.",
+  "product.olivetti-lsx-5015.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-lsx-5015.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-lsx-5015.th99-board": "Total Hardware 1999, Olivetti LSX 5015 board settings",
+  "product.olivetti-lsx-5015.olivetti-osa": "Olivetti, LSX 5000 System Line in OSA, 1991"
+}

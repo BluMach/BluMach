@@ -1,0 +1,24 @@
+{
+  "order": 260,
+  "family": {
+    "id": "schneider-towers-1991",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Tower PC (1991)",
+    "description_key": "family.schneider-towers-1991.description",
+    "history_key": "family.schneider-towers-1991.history",
+    "history_references": [
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 12/1991, pp. 1–3",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_91.html"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 06/1991, p. 3",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-6_91.html"
+      }
+    ]
+  }
+}

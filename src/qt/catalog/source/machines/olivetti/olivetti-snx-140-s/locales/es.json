@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-140-s.summary": "El Systema de entrada de 1996 para redes pequeñas con un solo Pentium.",
+  "product.olivetti-snx-140-s.history": "En marzo de 1996, Computerwoche recogió la presentación de los SNX 140/S y 160/S como servidores de archivos e impresión para pequeñas y medianas empresas.",
+  "product.olivetti-snx-140-s.warning": "Ficha histórica en investigación.",
+  "product.olivetti-snx-140-s.architecture": "El controlador de disco va en la placa. El AIC-7850 Dagger enlaza SCSI Narrow con PCI y la placa lleva 256 KB de caché L2.",
+  "product.olivetti-snx-140-s.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-snx-140-s.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-snx-140-s.service-guide-5": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 5",
+  "product.olivetti-snx-140-s.computerwoche-1996": "Computerwoche, Olivetti baut Modulo-, Suprema- und Systema-PC-Serien aus, 15 March 1996"
+}

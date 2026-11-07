@@ -1,0 +1,12 @@
+{
+  "product.olivetti-m40.summary": "Le Linea 1 départemental pouvait recevoir des armoires de stockage.",
+  "product.olivetti-m40.history": "Olivetti annonça la Linea 1 en 1982. Le M40 couvrait la gestion, le calcul technique et le traitement de données. Le M44 conserva son boîtier et la possibilité d’ajouter des armoires externes.",
+  "product.olivetti-m40.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m40.architecture": "Le boîtier modulaire acceptait plusieurs capacités. L’exemplaire de Prato possède un Z8001 à 4 MHz, 256 Ko de RAM, un lecteur 8″ et un disque de 18 Mo.",
+  "product.olivetti-m40.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m40.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m40.archive": "Associazione Archivio Storico Olivetti, L1: una nuova linea di sistemi informatici.",
+  "product.olivetti-m40.service": "Olivetti, M34/M44/M54 Service Manual, §§1 and 4.",
+  "product.olivetti-m40.basic": "Olivetti, M30/M40 BASIC Language User Guide.",
+  "product.olivetti-m40.museum": "Museo del Calcolatore di Prato, Olivetti L1 M40."
+}

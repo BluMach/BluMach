@@ -1,0 +1,29 @@
+{
+  "order": 220,
+  "family": {
+    "id": "schneider-euro486",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Euro486",
+    "description_key": "family.schneider-euro486.description",
+    "history_key": "family.schneider-euro486.history",
+    "history_references": [
+      {
+        "title": "Computerwoche, Schneider baut 486SX-PC für unter 5000 Mark, 20-09-1991",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2733237/schneider-baut-486sx-pc-fuer-unter-5000-mark.html"
+      },
+      {
+        "title": "IFS, Expresso, 23-05-1992, p. A3",
+        "publisher": "Expresso",
+        "url": "https://hemerotecadigital.cm-lisboa.pt/"
+      },
+      {
+        "title": "Schneider, Service Manual EURO AT II / EURO 486 SX, pp. 45–84",
+        "publisher": "Schneider",
+        "url": "https://archive.org/details/manual_486SXEURO_SM_SCHNEIDER_EN"
+      }
+    ]
+  }
+}

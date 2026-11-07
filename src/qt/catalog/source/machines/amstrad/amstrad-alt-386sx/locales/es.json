@@ -1,0 +1,13 @@
+{
+  "product.amstrad-alt-386sx.summary": "El ALT con 386SX y el doble de disco duro en la configuración inicial.",
+  "product.amstrad-alt-386sx.history": "Amstrad presentó el ALT-386SX en CeBIT en marzo de 1990 como el modelo superior de la gama ALT. Micro News anunció para Francia un precio de 20.900 francos sin impuestos y una salida prevista en junio. En julio de 1991, Amstrad Alemania lo ofrecía con la impresora portátil Canon BJ-10e por 5.550 marcos.",
+  "product.amstrad-alt-386sx.technical.storage": "Hubo ejemplares con más almacenamiento que el descrito en el manual. Amstrad especificó 40 MB y Pawel Pieczul documentó un disco Sony SRD3080C-50 de 80 MB, configurado como tipo 24 en la BIOS.",
+  "product.amstrad-alt-386sx.technical.bios": "La BIOS preservada se identifica como AMSTRAD ALT-386SX y Phoenix 1.10. Se recompone intercalando U302 en los bytes pares y U303 en los impares. El vector de reinicio salta a F000:E05B.",
+  "product.amstrad-alt-386sx.technical.verified": "Se han comprobado los hashes y la identificación de la BIOS de sistema mediante lectura estática. BluMach mantiene la ficha en investigación.",
+  "product.amstrad-alt-386sx.technical.limitations": "El volcado procede de un equipo averiado. Queda por contrastarlo con otro ejemplar, obtener la ROM de vídeo U508 y validar el arranque y el control de la pantalla LCD en BluMach.",
+  "product.amstrad-alt-386sx.technical.micro_news": "Micro News no. 33 · Les nouveaux portables Amstrad · April 1990 · p. 16",
+  "product.amstrad-alt-386sx.technical.computerwoche": "Computerwoche · Amstrad schnürt Paket mit PCs und Canon-Kleindrucker · 12 July 1991",
+  "product.amstrad-alt-386sx.technical.manual": "Amstrad · ALT286 / ALT386SX Service Manual · pp. 2, 10–11",
+  "product.amstrad-alt-386sx.technical.owner": "Pawel Pieczul · Amstrad ALT-386SX · 24 August 2020",
+  "product.amstrad-alt-386sx.technical.rom_source": "Sparcie · ALT386 teardown and U302/U303 dump notes · 2019"
+}

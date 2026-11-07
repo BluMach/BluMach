@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m290-25.summary": "O M290 de 20 MHz que o guia da Olivetti identifica pela placa BA-08.",
+  "product.olivetti-m290-25.history": "A Olivetti documentou o M290-25 com a placa BA-08 e configurações de disco de 40, 85 ou 120 MB.",
+  "product.olivetti-m290-25.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m290-25.architecture": "A memória de expansão fica numa placa. A BA-08 parte de 1 MB soldado e admite até 17 MB com dois bancos SIMM na placa de expansão.",
+  "product.olivetti-m290-25.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m290-25.limitations": "Faltam um dump BA-08 verificado, a relação com o nome M290 SP e uma fotografia com direitos claros.",
+  "product.olivetti-m290-25.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. I, ch. 32, M290-25",
+  "product.olivetti-m290-25.firmware": "A revisão é importante para o arranque. O guia indica 1.04, 2.00 e 2.01 e atribui à atualização correções no arranque e na porta A20."
+}

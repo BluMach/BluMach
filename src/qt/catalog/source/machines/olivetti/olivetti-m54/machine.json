@@ -1,0 +1,73 @@
+{
+  "order": 10067,
+  "machine": {
+    "id": "olivetti-m54",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti L1 M54",
+    "summary_key": "product.olivetti-m54.summary",
+    "history_key": "product.olivetti-m54.history",
+    "warning_key": "product.olivetti-m54.warning",
+    "status": "research",
+    "aliases": [
+      "M54",
+      "Linea 1 M54"
+    ],
+    "tags": [
+      "Linea 1",
+      "MOS"
+    ],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Zilog Z8001B",
+      "memory": "ECC",
+      "cache": "4 KB",
+      "expansion": "OLIBUS"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m54.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m54.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m54.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m54.service",
+            "url": "https://olivrea.de/handbuecher/"
+          }
+        ]
+      }
+    ]
+  }
+}

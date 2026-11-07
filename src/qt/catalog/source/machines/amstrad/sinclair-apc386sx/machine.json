@@ -1,0 +1,101 @@
+{
+  "order": 115,
+  "machine": {
+    "id": "sinclair-apc386sx",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-sinclair-apc",
+    "name": "Sinclair APC386SX",
+    "summary_key": "product.sinclair-apc386sx.summary",
+    "history_key": "product.sinclair-apc386sx.history",
+    "warning_key": "product.sinclair-apc386sx.warning",
+    "status": "research",
+    "aliases": [
+      "Sinclair APC 386SX",
+      "APC 386SX by Amstrad"
+    ],
+    "tags": [
+      "80386SX",
+      "VGA",
+      "IDE",
+      "desktop"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy",
+        "ide"
+      ]
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/sinclair-apc386sx-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "4throck",
+      "license": "CC0 1.0",
+      "source": "https://commons.wikimedia.org/wiki/File:SINCLAIR_APC_386SX.jpg"
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.sinclair-apc386sx.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.sinclair-apc386sx.technical.board"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.sinclair-apc386sx.technical.hardware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.sinclair-apc386sx.warning"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.sources",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.sinclair-apc386sx.technical.acme",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.sinclair-apc386sx.technical.owner",
+            "url": "https://oldcrap.org/2019/06/25/sinclair-amstrad-apc-386sx/"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.sinclair-apc386sx.technical.amstrad",
+            "url": "https://retrotechwiki.com/Amstrad_PC3386SX"
+          }
+        ]
+      }
+    ]
+  }
+}

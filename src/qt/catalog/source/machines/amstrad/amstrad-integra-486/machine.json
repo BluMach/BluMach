@@ -1,0 +1,97 @@
+{
+  "order": 305,
+  "machine": {
+    "id": "amstrad-integra-486",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-integra",
+    "name": "Amstrad Integra PC/TV 486",
+    "summary_key": "product.amstrad-integra-486.summary",
+    "history_key": "product.amstrad-integra-486.history",
+    "status": "research",
+    "period": "1996",
+    "tags": [
+      "TV",
+      "Fastext",
+      "PCI"
+    ],
+    "facets": {
+      "form_factor": [
+        "all_in_one"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "video": [
+        "vga"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "color"
+      ],
+      "storage_interface": [
+        "floppy",
+        "ide"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ]
+    },
+    "hardware": {
+      "cpu": "486DX2 · 80 MHz",
+      "memory": "4/8 MB",
+      "video": "SVGA · CRT · TV",
+      "storage": "540 MB EIDE · CD-ROM 4×",
+      "expansion": "PCI",
+      "floppy": "3.5″ · 1.44 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.amstrad-integra-486.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-integra-486.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-integra-486.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-integra-486.technical.brochure",
+            "url": "https://amstrad.com/product-category/computer/page/2/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-integra-486.technical.pcw",
+            "url": "https://www.worldradiohistory.com/Personal_Computer_World.htm"
+          }
+        ]
+      }
+    ]
+  }
+}

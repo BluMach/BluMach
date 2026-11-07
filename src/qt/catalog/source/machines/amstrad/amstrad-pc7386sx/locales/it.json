@@ -1,0 +1,15 @@
+{
+  "product.amstrad-pc7386sx.summary": "La fascia Super VGA dei PC7000, la cui unità principale fu usata anche nel MegaPC.",
+  "product.amstrad-pc7386sx.history": "Documentato da un manuale di servizio dell’ottobre 1992 e da un annuncio di novembre, il PC7386SX affiancava il PC7286 nell’offerta Amstrad per principianti. Aggiungeva un 386SX e Super VGA, con dischi da 40 o 80 MB. Amstrad forniva DOS 5, Desktop e Lotus Works 3.0. La sua unità principale fu ripresa nel MegaPC: il manuale di quest’ultimo rimanda espressamente a quello del PC7386SX per questa parte. Ciò non rende i due prodotti la stessa macchina. Nel gennaio 1993 Computers by Post pubblicizzava la versione da 1 MB e 40 MB con monitor a colori a 609 sterline IVA esclusa; è un prezzo del rivenditore, non di lancio.",
+  "product.amstrad-pc7386sx.technical.market": "Esistevano due configurazioni iniziali. Il manuale abbina 1 MB a un disco da 40 MB e 2 MB a un disco da 80 MB; entrambe usano un 386SX a 25 MHz. Il prezzo iniziale dell’annuncio dell’intera serie non viene attribuito a questo modello. L’annuncio PCW del gennaio 1993 cita Counterpoint, mentre Amstrad e PC Review citano Desktop; entrambe le attribuzioni sono mantenute senza dedurre revisioni.",
+  "product.amstrad-pc7386sx.technical.hardware": "Le espansioni sono documentate nel manuale. Quattro zoccoli SIMM consentono fino a 16 MB; la memoria video parte da 256 KB ed è espandibile a 512 KB. Sono presenti due slot ISA a 16 bit, due RS-232C, una parallela e connessioni PS/2 per tastiera e mouse.",
+  "product.amstrad-pc7386sx.technical.firmware": "Manca ancora un dump attribuibile al PC7386SX. Il disegno della scheda nel manuale indica BIOS LOW e BIOS HIGH su due 27C512; le ROM conservate del MegaPC non vengono riclassificate come firmware proprio di questo modello.",
+  "product.amstrad-pc7386sx.technical.verified": "L’alias interno non convalida questo computer. BluMach 88f74ba3 registra «Amstrad PC7386» come alias di megapc e usa ROM del MegaPC; non ha una voce pc7386sx indipendente.",
+  "product.amstrad-pc7386sx.technical.limitations": "Per convalidare il modello servono le sue ROM e prove specifiche. Il rapporto documentato con il MegaPC non dimostra BIOS identici; restano il confronto delle revisioni e l’avvio in BluMach.",
+  "product.amstrad-pc7386sx.warning": "Scheda storica in ricerca; avvio non convalidato in BluMach.",
+  "product.amstrad-pc7386sx.technical.press": "Amstrad / PC Review 13 · November 1992 · PDF pp. 23–24",
+  "product.amstrad-pc7386sx.technical.prices": "Computers by Post / Personal Computer World · January 1993 · PDF p. 119",
+  "product.amstrad-pc7386sx.technical.service": "Amstrad PC7386SX Service Manual · October 1992 · pp. 2–3",
+  "product.amstrad-pc7386sx.technical.megapc": "Amstrad MegaPC3H40 / PC14DSM Service Manual · PDF p. 3",
+  "product.amstrad-pc7386sx.technical.code": "BluMach 88f74ba3 · machine_table.c, m_at_286.c, m_at_386sx.c, vid_cl54xx.c"
+}

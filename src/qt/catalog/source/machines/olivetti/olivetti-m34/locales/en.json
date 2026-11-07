@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m34.summary": "The M30 successor kept the case and sped up the processor.",
+  "product.olivetti-m34.history": "L’Unità documented the M34 and M44 in June 1985. The M34 continued the M30 desktop line with the same case and MOS compatibility.",
+  "product.olivetti-m34.warning": "Historical sheet under research.",
+  "product.olivetti-m34.architecture": "Diagnostics and initial loading lived on the CPU board. The UC048/A carried two EPROMs, a Z8010B MMU and an MC6850 for RS-232.",
+  "product.olivetti-m34.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m34.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m34.service": "Olivetti, M34/M44/M54 Service Manual, §§1 and 4.",
+  "product.olivetti-m34.press": "L’Unità, 13 June 1985, p. 10."
+}

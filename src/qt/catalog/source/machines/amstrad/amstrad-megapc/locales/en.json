@@ -1,0 +1,15 @@
+{
+  "product.amstrad-megapc.summary": "A home PC that switched between DOS and Mega Drive cartridges using its front cover.",
+  "product.amstrad-megapc.history": "Amstrad combined the PC7386SX main unit with a games card under licence from Sega. The Mega PC was aimed at households that wanted a computer for work and a console for games on the same monitor. In January 1993, UK dealer Admincure advertised the complete system for £699 excluding VAT.",
+  "product.amstrad-megapc.technical.video": "The sliding front cover selected PC or Mega Drive mode. The dual-sync monitor accepted the two modes at 31 and 15 kHz respectively.",
+  "product.amstrad-megapc.technical.audio": "The manual distinguishes AdLib audio in PC mode from stereo in Mega Drive mode. The games card provided access to Sega cartridges and controllers.",
+  "product.amstrad-megapc.warning": "Inherited PC profile. Boot and Mega Drive validation pending.",
+  "product.amstrad-megapc.technical.firmware": "The preserved PC firmware uses two 64 KiB ROMs, U18 and U19. Interleaving yields 32 KiB of video firmware from offset 0 and 64 KiB of system firmware from offset 0x8000 in each chip.",
+  "product.amstrad-megapc.technical.verified": "Static analysis confirmed the checksums and the AMSTRAD PC7386SX string in the system block. The BluMach code includes the PC profile with WD76C10 and WD90C11 graphics.",
+  "product.amstrad-megapc.technical.limitations": "PC boot and peripherals remain to be validated. The current profile covers the PC side. The Mega Drive card and video and audio switching require dedicated work.",
+  "product.amstrad-megapc.technical.manual": "Amstrad · MEGAPC3H40 / PC14DSM Service Manual · PDF pp. 2–3",
+  "product.amstrad-megapc.technical.advert": "Admincure · Personal Computer World · January 1993 · p. 493",
+  "product.amstrad-megapc.technical.museum": "Centre for Computing History · Amstrad Mega PC 386SX · CH2534",
+  "product.amstrad-megapc.technical.pcem": "PCem · machine list and Mega Drive coverage note",
+  "product.amstrad-megapc.technical.loader": "BluMach 88f74ba3 · m_at_386sx.c · Mega PC loader"
+}

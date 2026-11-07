@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-400-rm.summary": "O Systema para bastidor com capacidade para 4 processadores.",
+  "product.olivetti-snx-400-rm.history": "O SNX 400 fazia parte da gama Systema antes do anúncio do 460 em dezembro de 1995. O guia identifica a variante RM para bastidor.",
+  "product.olivetti-snx-400-rm.warning": "Ficha histórica em investigação.",
+  "product.olivetti-snx-400-rm.architecture": "Podiam acrescentar-se processadores em placas. O Corollary C-Bus II de 64 bits liga até 4 placas de processador à memória.",
+  "product.olivetti-snx-400-rm.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-snx-400-rm.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-snx-400-rm.service-guide-3": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 3",
+  "product.olivetti-snx-400-rm.computerwoche-1995": "Computerwoche, Olivetti-Server mit Pentium Pro nutzen Platinendesign von Intel, 22 December 1995"
+}

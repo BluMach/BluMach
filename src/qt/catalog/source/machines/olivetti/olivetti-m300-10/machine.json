@@ -1,0 +1,86 @@
+{
+  "order": 10002,
+  "machine": {
+    "id": "olivetti-m300-10",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M300-10",
+    "summary_key": "product.olivetti-m300-10.summary",
+    "history_key": "product.olivetti-m300-10.history",
+    "warning_key": "product.olivetti-m300-10.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386SX · 20 MHz",
+      "memory": "2–12 MB",
+      "video": "PVGA1B",
+      "chipset": "BA250 / BA275 / BA279 / BA289 / BA303"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m300-10.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m300-10.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m300-10.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m300-10.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m300-10.guide",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html"
+          },
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.olivetti-m300-10.market",
+            "url": "https://www.ardent-tool.com/Olivetti/"
+          }
+        ]
+      }
+    ],
+    "period": "1991"
+  }
+}

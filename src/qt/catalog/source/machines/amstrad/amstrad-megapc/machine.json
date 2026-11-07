@@ -1,0 +1,133 @@
+{
+  "order": 296,
+  "machine": {
+    "id": "amstrad-megapc",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-mega-pc",
+    "name": "Amstrad Mega PC",
+    "summary_key": "product.amstrad-megapc.summary",
+    "history_key": "product.amstrad-megapc.history",
+    "warning_key": "product.amstrad-megapc.warning",
+    "status": "research",
+    "period": "1993",
+    "aliases": [
+      "MegaPC",
+      "MEGAPC3H40"
+    ],
+    "tags": [
+      "Mega Drive",
+      "ISA",
+      "AdLib"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy",
+        "ide"
+      ]
+    },
+    "media": {
+      "kind": "photograph",
+      "resource": ":/blumach/catalog/images/amstrad-megapc-photo.jpg",
+      "label_key": "media.kind.photograph",
+      "credit": "Staffan Vilcans (Liftarn), retouched by Ubcule",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amstrad_Mega_PC_(5058669424)_(retouched).jpg"
+    },
+    "hardware": {
+      "cpu": "80386SX · 25 MHz / 68000 · 8 MHz",
+      "memory": "1 MB · ≤16 MB",
+      "video": "SVGA · 256–512 KB / Mega Drive",
+      "audio": "AdLib / Mega Drive",
+      "expansion": "2 × ISA 16-bit",
+      "storage": "40 MB HDD · 3.5″ 1.44 MB FDD"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-megapc.technical.video"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-megapc.technical.audio"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-megapc.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-megapc.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-megapc.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-megapc.technical.manual",
+            "url": "https://acpc.me/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-megapc.technical.advert",
+            "url": "https://worldradiohistory.com/UK/Personal-Computer-World/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-megapc.technical.museum",
+            "url": "https://www.computinghistory.org.uk/det/2534/Amstrad-Mega-PC-386SX/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-megapc.technical.pcem",
+            "url": "https://github.com/sarah-walker-pcem/pcem/blob/dev/README.md"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-megapc.technical.loader",
+            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_at_386sx.c#L788"
+          }
+        ]
+      }
+    ]
+  }
+}

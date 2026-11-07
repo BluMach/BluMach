@@ -1,0 +1,11 @@
+{
+  "product.amstrad-pc1286.summary": "The lower-cost alternative to the PC2286, with a choice of monitor.",
+  "product.amstrad-pc1286.history": "Amstrad announced the PC1286 in September 1989 as a lower-cost version of the PC2286 for the business market. In the United Kingdom the base unit started at £750, with a monitor sold separately.",
+  "product.amstrad-pc1286.technical.storage": "The base unit was announced with one floppy drive. The report gives 2.5 inches, a size that still needs checking against the full brochure or a physical unit.",
+  "product.amstrad-pc1286.technical.setup": "The separate SETUP utility let users restore settings after the battery ran flat. Amstrad support lists this model.",
+  "product.amstrad-pc1286.technical.verified": "The model identity and commercial offer are documented. The BluMach entry is in research.",
+  "product.amstrad-pc1286.technical.limitations": "A BIOS dump attributable to this model is needed to validate boot and video in BluMach.",
+  "product.amstrad-pc1286.technical.news": "Steve Gold · Newsbytes · 19 September 1989",
+  "product.amstrad-pc1286.technical.brochure": "Amstrad PC1286 / PC1386 · CH23958",
+  "product.amstrad-pc1286.technical.guide": "Amstrad PC 2000 Series Business Product Guide · CH24988"
+}

@@ -1,0 +1,11 @@
+{
+  "order": 11,
+  "family": {
+    "id": "amstrad-pc1640",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "parent_family_id": "",
+    "name": "PC1640",
+    "description_key": "family.amstrad-pc1640.description"
+  }
+}

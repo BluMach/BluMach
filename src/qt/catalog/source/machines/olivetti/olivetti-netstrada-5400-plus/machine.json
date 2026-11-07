@@ -1,0 +1,62 @@
+{
+  "order": 10248,
+  "machine": {
+    "id": "olivetti-netstrada-5400-plus",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti NetStrada 5400 Plus",
+    "summary_key": "product.olivetti-netstrada-5400-plus.summary",
+    "history_key": "product.olivetti-netstrada-5400-plus.history",
+    "warning_key": "product.olivetti-netstrada-5400-plus.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-netstrada-5400-plus.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-netstrada-5400-plus.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-netstrada-5400-plus.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-netstrada-5400-plus.museum-specimen",
+            "url": "https://oldcomputers.ovh/index.php/nav%3DCatalogo.20/Language%3DITA/Livello%3DMacchina/Letter%3DR/Marca%3D12/Mode%3DDisplay/Item%3D1989/Pagina%3DScheda"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "order": 320,
+  "family": {
+    "id": "schneider-386-professional",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "386 Systems / Professional",
+    "description_key": "family.schneider-386-professional.description",
+    "history_key": "family.schneider-386-professional.history",
+    "history_references": [
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 06/1989, p. 1",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-6_89.html"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 12/1989, pp. 2–3",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_89.html"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 04/1990, pp. 1, 4–5",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-4_90.html"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 12/1990, pp. 4–5",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_90.html"
+      },
+      {
+        "title": "CC SELLER / BC, Schneider Computer, 06/1991, p. 3",
+        "publisher": "CC Computerarchiv",
+        "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-6_91.html"
+      }
+    ]
+  }
+}

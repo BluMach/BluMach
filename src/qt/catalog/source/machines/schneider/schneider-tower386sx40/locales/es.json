@@ -1,0 +1,16 @@
+{
+  "product.schneider-tower386sx40.summary": "La configuración de 40 MB de la torre modular 386SX de Schneider.",
+  "product.schneider-tower386sx40.history": "El 386SX System 40 trasladó la torre modular Schneider a la generación 386SX. El manual de servicio conservado, con pie de 1990, lo presenta junto al System 70 y documenta un disco de 40 MB. La tarjeta de CPU extraíble facilitaba mantenimiento y ampliaciones; el fabricante orientaba la plataforma al trabajo con DOS y OS/2. La fecha del manual no acredita el inicio de ventas.",
+  "product.schneider-tower386sx40.warning": "Ficha histórica en investigación; firmware conservado, emulación sin validar.",
+  "product.schneider-tower386sx40.technical.configurations": "El almacenamiento identifica la configuración comercial. El manual, p. 3, enumera un disco de 40 MB junto a la tarjeta CPU 52482 y la placa VGA I/O 50925; no se convierte la dotación de otro ejemplar en equipamiento de serie.",
+  "product.schneider-tower386sx40.technical.board": "El procesador y la memoria forman una tarjeta extraíble. El manual documenta 80386SX a 8/16 MHz, chipset C&T CS8281 y zócalo 80387SX; la base VGA I/O 50925 se distingue de la tarjeta CPU 52482.",
+  "product.schneider-tower386sx40.technical.firmware": "La BIOS de sistema está conservada y verificada por hash. Son dos archivos de 32 KiB, etiquetados 1.00a; MAME los agrupa bajo el selector V1.00. Su carga asigna U16 a bytes pares y U15 a impares. No se ha ejecutado el firmware.",
+  "product.schneider-tower386sx40.technical.verified": "Se han revisado el manual y los hashes de cinco ROM de la familia. BluMach 7968236c no tiene un modelo dedicado; MAME marca tower386sx como no funcional. No se han realizado pruebas de POST.",
+  "product.schneider-tower386sx40.technical.limitations": "Falta validar el comportamiento completo. Hay que cotejar placa y ROM, resolver las variantes de almacenamiento y comprobar memoria, teclado, RTC, vídeo, discos y puertos en una implementación específica.",
+  "product.schneider-tower386sx40.technical.memory": "Las ampliaciones siguen combinaciones concretas. El manual, pp. 41–43, especifica 1, 2 o 5 MB mediante SIMM; sitúa el controlador de teclado en un 8742 y el RTC en el 82C206. No se hereda el DS1287 del VGA AT de 286.",
+  "product.schneider-tower386sx40.technical.video": "El vídeo tiene firmware independiente del sistema. Se conservan dos ROM VGA 1.00 de 32 KiB, cotejadas con MAME; sus notas describen ATI18800-1 y 256 KB. La correspondencia con cada revisión física y las ampliaciones CEG sigue pendiente.",
+  "product.schneider-tower386sx40.technical.manual": "Schneider, Service Manual 386 SX System 40/70, 60195, pie HD60250/4000/36/90: portada, p. 3 y pp. 41–43 revisadas; PDF preservado.",
+  "product.schneider-tower386sx40.technical.mame": "MAME, at.cpp, instantánea del 07-11-2026: procedencia de BIOS 1.00a/1.03, ROM VGA y estado no funcional; discrepa con el manual en el disco del System 70.",
+  "product.schneider-tower386sx40.technical.archive": "MAME 0.278 merged ROMs, Internet Archive: cinco archivos extraídos del contenedor ya conservado, con SHA-1 y SHA-256 verificados; derechos desconocidos, custodia local.",
+  "product.schneider-tower386sx40.technical.code": "BluMach 7968236c: tabla de máquinas conservada e inspeccionada, sin entrada Tower 386SX específica."
+}

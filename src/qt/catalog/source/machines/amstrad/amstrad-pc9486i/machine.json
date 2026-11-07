@@ -1,0 +1,107 @@
+{
+  "order": 294,
+  "machine": {
+    "id": "amstrad-pc9486i",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pci-1995",
+    "name": "Amstrad PC9486i",
+    "summary_key": "product.amstrad-pc9486i.summary",
+    "history_key": "product.amstrad-pc9486i.history",
+    "warning_key": "product.amstrad-pc9486i.warning",
+    "status": "research",
+    "period": "1995",
+    "tags": [
+      "PCI",
+      "Enhanced IDE"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "ide"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ]
+    },
+    "hardware": {
+      "cpu": "486DX2 · 66 MHz / 486 · 100 MHz",
+      "video": "SVGA",
+      "expansion": "AT/PCI",
+      "storage": "2 × Enhanced IDE"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc9486i.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.amstrad-pc9486i.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc9486i.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc9486i.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc9486i.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc9486i.technical.cebit",
+            "url": "https://www.computerwoche.de/article/2738334/pentium-und-486-rechner-vorgestellt-amstrad-will-auch-weiterhin-in-dem-pc-geschaeft-mitmischen.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc9486i.technical.lawson",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/general.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc9486i.technical.manual",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/quest5.htm"
+          }
+        ]
+      }
+    ]
+  }
+}

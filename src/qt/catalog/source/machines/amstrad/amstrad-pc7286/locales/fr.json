@@ -1,0 +1,14 @@
+{
+  "product.amstrad-pc7286.summary": "L’option 286 de la gamme PC7000, également vendue en Family Pack avec son et jeux.",
+  "product.amstrad-pc7286.history": "Le PC7286 appartenait à la série PC7000 annoncée par Amstrad en novembre 1992 pour les débutants en informatique. MS-DOS 5, Amstrad Desktop avec tutoriel et Lotus Works 3.0 étaient préinstallés. Ce mois-là, PC Review présentait le Family Pack à 799,99 livres TTC : moniteur, son compatible AdLib, enceintes, joystick et six jeux. Il prolongeait ainsi les offres domestiques des PC5286 et PC4386SX ; le PC7386SX occupait le niveau supérieur de la même gamme.",
+  "product.amstrad-pc7286.technical.market": "Le prix dépend du lot. Les 799,99 livres concernent le Family Pack dans PC Review, novembre 1992, p. 24 ; la publicité générale indique un prix de départ sans détail par modèle. La publicité PCW de janvier 1993 cite Counterpoint, tandis qu’Amstrad et PC Review citent Desktop ; les deux attributions sont conservées sans en déduire des révisions.",
+  "product.amstrad-pc7286.technical.hardware": "La publicité identifie la configuration de base. Elle documente un 286 à 16 MHz, 1 Mo, un disque de 40 Mo, le VGA et un lecteur de disquettes 3,5 pouces de 1,44 Mo ; clavier et souris accompagnaient l’ordinateur.",
+  "product.amstrad-pc7286.technical.firmware": "Un fichier de 128 Kio attribué au PC7286 par la collection 86Box est conservé. Il contient « AMSTRAD PC7286 » à 0x16964 et « PhoenixVIEW » à 0x2D ; son empreinte est vérifiée, mais la provenance du relevé physique reste à établir.",
+  "product.amstrad-pc7286.technical.verified": "BluMach possède déjà un modèle hérité, sans validation du démarrage lors de cette révision. Dans 88f74ba3, pc7286 charge 128 Kio à 0xE0000 et utilise SCAMP, VL82C113 et DW90C50 ; cela décrit le code, pas une preuve du matériel réel.",
+  "product.amstrad-pc7286.technical.limitations": "Le chemin vidéo doit être vérifié avant de déclarer l’ensemble complet. Le périphérique GD5401 intégré charge une ROM du dossier drsm35286, alors que le fichier PC7286 contient du texte de BIOS VGA. Comparaison des octets, cartographie physique, analyse antivirus et démarrage restent à faire.",
+  "product.amstrad-pc7286.warning": "Fiche historique en recherche ; démarrage non validé dans BluMach.",
+  "product.amstrad-pc7286.technical.press": "Amstrad / PC Review 13 · November 1992 · PDF pp. 23–24",
+  "product.amstrad-pc7286.technical.prices": "Computers by Post / Personal Computer World · January 1993 · PDF p. 119",
+  "product.amstrad-pc7286.technical.roms": "86Box ROM collection · c4cd8da9 · pc7286",
+  "product.amstrad-pc7286.technical.code": "BluMach 88f74ba3 · machine_table.c, m_at_286.c, m_at_386sx.c, vid_cl54xx.c"
+}

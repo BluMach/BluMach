@@ -1,0 +1,9 @@
+{
+  "product.schneider-d486dx33.summary": "El 486DX con gráfica acelerada de la gama de sobremesa.",
+  "product.schneider-d486dx33.history": "La tarifa alemana de diciembre de 1992 ofrecía este equipo por 2.762 DM netos sin disco duro. Incluía MS-DOS 5.0 y Windows 3.1.",
+  "product.schneider-d486dx33.technical.options": "La tarifa también ofrecía una configuración con disco de 106 MB por 3.245 DM netos.",
+  "product.schneider-d486dx33.technical.slots": "Las ranuras permiten añadir tarjetas de expansión. La ficha de venta indica 7 ranuras de 16 bits y dos disqueteras, de 1,44 MB y 1,2 MB.",
+  "product.schneider-d486dx33.technical.verified": "La oferta está documentada. El modelo dedicado y la validación de arranque en BluMach siguen pendientes.",
+  "product.schneider-d486dx33.technical.limitations": "Falta identificar la placa, preservar una BIOS atribuida y localizar una imagen con derechos de publicación claros.",
+  "product.schneider-d486dx33.technical.price_list": "CC SELLER / BC, Schneider Computer, 12/1992, pp. 1–3"
+}

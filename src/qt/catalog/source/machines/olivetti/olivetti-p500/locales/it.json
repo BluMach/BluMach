@@ -1,0 +1,10 @@
+{
+  "product.olivetti-p500.summary": "Il sistema Micro Channel con 386SX e controller alternativi ST-506 ed ESDI.",
+  "product.olivetti-p500.history": "La guida Olivetti documenta P500 (il sistema Micro Channel con 386SX e controller alternativi ST-506 ed ESDI).",
+  "product.olivetti-p500.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-p500.architecture": "La scheda determina la combinazione di periferiche da verificare. La guida indica BA823 / BA827 / BA242 / BA243 · PVGA1 · ST-506 / ESDI.",
+  "product.olivetti-p500.firmware": "La revisione del BIOS aiuta a identificare la configurazione di servizio. La guida indica 1.18.",
+  "product.olivetti-p500.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-p500.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-p500.guide": "Olivetti, Personal Computer – Pocket Service Guide, 11-1."
+}

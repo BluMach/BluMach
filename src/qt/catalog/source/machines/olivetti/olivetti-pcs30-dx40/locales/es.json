@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs30-dx40.summary": "El PCS30 de sobremesa estrecho con 386DX a 40 MHz.",
+  "product.olivetti-pcs30-dx40.history": "Olivetti incluyó el PCS30 DX/40 en la serie PCS30–PCS40, que reunía equipos 386 y 486. Lo documentó como una de las configuraciones de sobremesa estrecho.",
+  "product.olivetti-pcs30-dx40.warning": "Ficha histórica en investigación.",
+  "product.olivetti-pcs30-dx40.architecture": "El vídeo y el almacenamiento usaban tarjetas de expansión. Con las tarjetas de serie quedaban 3 de 5 ranuras AT libres en la configuración estándar.",
+  "product.olivetti-pcs30-dx40.firmware": "La placa determina qué BIOS buscar. La guía documenta Harward para 4386-VC-HD.",
+  "product.olivetti-pcs30-dx40.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-pcs30-dx40.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-pcs30-dx40.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

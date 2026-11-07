@@ -1,0 +1,76 @@
+{
+  "order": 780,
+  "machine": {
+    "id": "schneider-n486slc",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-n486slc",
+    "name": "Schneider N 486 SLC",
+    "summary_key": "product.schneider-n486slc.summary",
+    "history_key": "product.schneider-n486slc.history",
+    "status": "research",
+    "period": "1998",
+    "aliases": [
+      "Schneider N486SLC"
+    ],
+    "tags": [
+      "Schneider",
+      "Notebook"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.schneider-n486slc.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-n486slc.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-n486slc.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-n486slc.technical.source_1",
+            "url": "https://bibliotekacyfrowa.eu/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-n486slc.technical.source_2",
+            "url": "https://www.computerwoche.de/article/2829067/ein-handwerk-mit-tradition-schneider-verkauft-wieder-pcs.html"
+          }
+        ]
+      }
+    ]
+  }
+}

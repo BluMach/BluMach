@@ -1,0 +1,11 @@
+{
+  "product.olivetti-p700.summary": "The P700 brought MiTAC’s Micro Channel platform to Olivetti.",
+  "product.olivetti-p700.history": "Olivetti sold the P700 on the MiTAC MPS3000F platform. The same board is also documented in the Memorex Telex 7270.",
+  "product.olivetti-p700.warning": "Historical sheet under research.",
+  "product.olivetti-p700.architecture": "The board can be identified by its Micro Channel codes. Ardent Tool records ID FEFF and the F8/0D pair for the P700-100.",
+  "product.olivetti-p700.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-p700.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-p700.ardent-planar": "Ardent Tool, Mitac MPS3000F, Memorex Telex 7270 and Olivetti P700",
+  "product.olivetti-p700.ummr-board": "UMMR, 386 boards, PWA-386PS photograph",
+  "product.olivetti-p700.pc-magazine": "PC Magazine, Cashing In on the Micro Channel, 30 October 1990"
+}

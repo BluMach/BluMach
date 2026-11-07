@@ -1,0 +1,77 @@
+{
+  "order": 10104,
+  "machine": {
+    "id": "olivetti-echos-p133s",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Echos P133S",
+    "summary_key": "product.olivetti-echos-p133s.summary",
+    "history_key": "product.olivetti-echos-p133s.history",
+    "warning_key": "product.olivetti-echos-p133s.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 133 MHz",
+      "hard_disk": "1.3 GB",
+      "video": "TFT · 11.8″",
+      "cache": "256 KB L2",
+      "expansion": "PCI · 2 × PCMCIA"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-echos-p133s.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-echos-p133s.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-echos-p133s.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-p133s.review",
+            "url": "https://www.kaisernet.org/library/1996/1096/10r05.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-p133s.pcworld",
+            "url": "https://osp.ru/pcworld/1996/10/156594"
+          }
+        ]
+      }
+    ],
+    "period": "1996"
+  }
+}

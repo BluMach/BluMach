@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs42.summary": "Il PCS per il pubblico offerto in due formati con scheda madre Microstar e bus locale VESA.",
+  "product.olivetti-pcs42.history": "Un avviso della Commissione europea cita una notizia dell’agosto 1994 che include il PCS 42 nella gamma multimediale Olivetti per il pubblico. La guida di servizio identifica la scheda madre Microstar.",
+  "product.olivetti-pcs42.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-pcs42.architecture": "Il telaio cambia le opzioni di espansione. Il Tin Box offre tre slot AT/VESA condivisi e lo Slim Tin Box ne offre uno.",
+  "product.olivetti-pcs42.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-pcs42.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-pcs42.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 8",
+  "product.olivetti-pcs42.eu-notice": "European Commission, Official Journal C 306, 15 October 1996, notice 96/C 306/08, note 10"
+}

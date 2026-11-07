@@ -1,0 +1,11 @@
+{
+  "product.schneider-386-professional-60.summary": "The 25 MHz Professional with the 60 sales designation.",
+  "product.schneider-386-professional-60.history": "The June 1989 German list advertised the 386-60/25 for DM 11,990 net.",
+  "product.schneider-386-professional-60.technical.configuration": "Disk capacity changed between lists. It appeared with 60 MB in 1989 and 68 MB in 1990. Advertised RAM rises from 2 MB to 4 MB in the December 1990 detailed entry.",
+  "product.schneider-386-professional-60.technical.verified": "The offer is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-386-professional-60.technical.limitations": "The board still needs to be matched, an attributable BIOS needs preservation and an image with clear publication rights remains pending.",
+  "product.schneider-386-professional-60.technical.source_1": "CC SELLER / BC, Schneider Computer, 06/1989, p. 1",
+  "product.schneider-386-professional-60.technical.source_2": "CC SELLER / BC, Schneider Computer, 12/1989, pp. 2–3",
+  "product.schneider-386-professional-60.technical.source_3": "CC SELLER / BC, Schneider Computer, 04/1990, pp. 1, 4–5",
+  "product.schneider-386-professional-60.technical.source_4": "CC SELLER / BC, Schneider Computer, 12/1990, pp. 4–5"
+}

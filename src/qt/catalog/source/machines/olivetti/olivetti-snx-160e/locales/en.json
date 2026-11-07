@@ -1,0 +1,9 @@
+{
+  "product.olivetti-snx-160e.summary": "The SNX 160’s replacement retained the dual-processor option.",
+  "product.olivetti-snx-160e.history": "Olivetti’s guide dates the replacement of the SNX 160 by the SNX 160E to April 1995.",
+  "product.olivetti-snx-160e.warning": "Historical sheet under research.",
+  "product.olivetti-snx-160e.architecture": "The processor card lets the system expand. The GO2063 and GO2079-100 have a documented second socket for a 100 MHz Pentium.",
+  "product.olivetti-snx-160e.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-snx-160e.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-snx-160e.service-guide-1": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 1"
+}

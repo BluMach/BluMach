@@ -1,0 +1,139 @@
+{
+  "order": 430,
+  "machine": {
+    "id": "schneider-towerat260",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-tower-at",
+    "name": "Schneider Tower AT 260",
+    "summary_key": "product.schneider-towerat260.summary",
+    "history_key": "product.schneider-towerat260.history",
+    "warning_key": "product.schneider-towerat260.warning",
+    "status": "research",
+    "period": "198?",
+    "aliases": [
+      "Schneider Tower AT System 260"
+    ],
+    "tags": [
+      "Schneider",
+      "Tower AT",
+      "80286"
+    ],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "ega"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80286 · 12.5 MHz",
+      "video": "EGA",
+      "floppy": "3.5″ · 1.44 MB",
+      "storage": "60 MB"
+    },
+    "firmware": {
+      "known_sets": [
+        "1.05A (MAME)"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-towerat260.technical.configurations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-towerat260.technical.board"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.schneider-towerat260.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-towerat260.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-towerat260.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.schneider-towerat260.technical.manual",
+            "url": "https://oldcrap.org/document-category/schneider/am-tower-at/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-towerat260.technical.review",
+            "url": "https://stcarchiv.de/happy-computer/1988/11"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-towerat260.technical.mega",
+            "url": "https://stcarchiv.de/happy-computer/1989/05/mega-at"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-towerat260.technical.owner260",
+            "url": "https://forum.classic-computing.de/forum/index.php?postID=84481&thread/8386-pc-s-von-schneider-und-amstrad/="
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-towerat260.technical.range",
+            "url": "https://www.jungsi.de/schneider-vga-at-system-40-schneider/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.schneider-towerat260.technical.mame",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/at.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-towerat260.technical.code",
+            "url": "https://github.com/BluMach/BluMach/tree/a1b0125d0443294d974b2fafcc58d89b01bff988/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

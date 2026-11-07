@@ -1,0 +1,146 @@
+{
+  "order": 286,
+  "machine": {
+    "id": "amstrad-pc6486sx",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-pc6000",
+    "name": "Amstrad PC6486SX",
+    "summary_key": "product.amstrad-pc6486sx.summary",
+    "history_key": "product.amstrad-pc6486sx.history",
+    "warning_key": "product.amstrad-pc6486sx.warning",
+    "status": "research",
+    "period": "1992",
+    "aliases": [
+      "PC 6486SX",
+      "PC6486SX25"
+    ],
+    "tags": [
+      "PC6000",
+      "486SX",
+      "ISA"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 486SX",
+      "memory": "4 MB",
+      "hard_disk": "105 MB",
+      "video": "Trident · ISA"
+    },
+    "firmware": {
+      "known_sets": [
+        "amstrad_PC6486sx_27C512_DIP28.BIN · 64 KiB"
+      ],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.amstrad-pc6486sx.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.amstrad-pc6486sx.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.amstrad-pc6486sx.technical.cpu"
+          },
+          {
+            "label_key": "technical.label.chipset",
+            "value_key": "product.amstrad-pc6486sx.technical.board"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-pc6486sx.technical.video"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.amstrad-pc6486sx.technical.firmware"
+          },
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.amstrad-pc6486sx.technical.identity"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-pc6486sx.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-pc6486sx.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc6486sx.technical.press",
+            "url": "https://amigaland.com/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc6486sx.technical.svm",
+            "url": "https://archive.org/details/science-et-vie-micro-097"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc6486sx.technical.advert",
+            "url": "https://worldradiohistory.com/UK/Personal-Computer-World/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc6486sx.technical.owner",
+            "url": "https://github.com/dekuNukem/Vintage_Computer_ROM_Dumps/tree/ca6c811796a028179e766da04799c83cdf5622ff"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-pc6486sx.technical.source",
+            "url": "https://github.com/BluMach/BluMach/tree/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "product.amstrad-pc3386sx.summary": "The top of Generation 3 offered 386SX architecture and a standard hard disk for demanding professional applications.",
+  "product.amstrad-pc3386sx.history": "The August 1990 leaflet presents the PC3386SX as the top of Generation 3, above the PC3286. Amstrad targeted demanding users, working individually or on a network, and offered a hard disk as standard. Memory and internal-drive expansion were part of that proposition. The leaflet states UK design and manufacture in Taiwan, Korea or the UK, without identifying the OEM of each unit.",
+  "product.amstrad-pc3386sx.warning": "Historical card under research; it does not certify booting in BluMach.",
+  "product.amstrad-pc3386sx.technical.market": "The range could be tailored to the workplace. The August 1990 leaflets offer 12-inch monochrome and 14-inch colour VGA monitors, with MS-DOS 3.3.",
+  "product.amstrad-pc3386sx.technical.configurations": "The hard disk was standard. The leaflet specifies a 40 MB IDE disk alongside a 3.5-inch 1.44 MB floppy drive.",
+  "product.amstrad-pc3386sx.technical.clock": "The sources disagree on speed. The leaflet states 20 MHz; the manual, p. 1-3, states 16 MHz, although its DEVICE SPEED example on p. 4-18 uses 20 MHz. This is insufficient to confirm two commercial variants.",
+  "product.amstrad-pc3386sx.technical.memory": "Expansion required four identical SIMMs. The leaflet advertises 1 MB and upgrades to 4/16 MB. The manual, p. 8-7, opens with a generic 512 KB minimum for both ATs, but its table limits the PC3386SX to 1/4/16 MB.",
+  "product.amstrad-pc3386sx.technical.video": "Integrated video supported software from earlier generations. The leaflets document VGA with EGA, CGA, MDA and Hercules compatibility.",
+  "product.amstrad-pc3386sx.technical.expansion": "Cards expanded the workstation’s functions. Leaflet and manual document three 16-bit ISA slots and two 8-bit slots; one of each type is half-length.",
+  "product.amstrad-pc3386sx.technical.interfaces": "Printer and modem had dedicated connections. The manual, pp. 1-2–1-3, documents Centronics parallel and RS-232 serial ports, both with 25-pin connectors.",
+  "product.amstrad-pc3386sx.technical.firmware": "The BIOS still awaits local identification. The reviewed records contain no dump attributable to this model; shared documentation with PC3286 does not establish identical bytes.",
+  "product.amstrad-pc3386sx.technical.verified": "The documentation supports a description of the machine. BluMach 88f74ba3 has no dedicated registration for this model; no boot test has been performed.",
+  "product.amstrad-pc3386sx.technical.limitations": "Locally identified firmware, a dedicated model and validation are missing. The card remains under research, without a creation profile; absence from the reviewed records does not prove the BIOS does not exist. A publishable image is pending.",
+  "product.amstrad-pc3386sx.technical.brochure": "Amstrad Generation 3, model leaflet, August 1990, pp. 1–2: audience, configurations and specifications; original preserved.",
+  "product.amstrad-pc3386sx.technical.manual": "User Manual and MS-DOS Guide, 2nd edition, 1990, pp. 1-2–1-4, 4-18 and 8-7: specifications, speed and RAM upgrades.",
+  "product.amstrad-pc3386sx.technical.source": "BluMach 88f74ba3, machine_table.c and m_amstrad.c: preserved source inspection; this is not a boot test."
+}

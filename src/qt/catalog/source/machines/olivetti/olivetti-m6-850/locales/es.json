@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m6-850.summary": "La torre EISA de la gama M6 con i486DX2 a 50 MHz.",
+  "product.olivetti-m6-850.history": "Olivetti lo incluyó entre los M6 en torre con bus EISA.",
+  "product.olivetti-m6-850.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m6-850.architecture": "El procesador se monta en una tarjeta dedicada. La tarjeta se conecta a la placa base e incorpora 256 KB de caché L2.",
+  "product.olivetti-m6-850.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m6-850.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m6-850.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 6",
+  "product.olivetti-m6-850.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 1.2 · rev. 2.3."
+}

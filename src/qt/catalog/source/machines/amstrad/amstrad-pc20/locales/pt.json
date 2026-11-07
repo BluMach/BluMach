@@ -1,0 +1,10 @@
+{
+  "product.amstrad-pc20.summary": "A versão Amstrad do PC doméstico compacto vendido no Reino Unido como Sinclair PC200.",
+  "product.amstrad-pc20.history": "A Amstrad destinou o PC20 a quem comprava o primeiro PC para casa. Para o Natal australiano de 1988, o Sunday Times anunciou 899 dólares australianos sem monitor e 1 199 com monitor a cores. No Reino Unido, a Amstrad vendeu o modelo como Sinclair PC200.",
+  "product.amstrad-pc20.technical.architecture": "As fontes indicam frequências diferentes para o 8086. O Sunday Times anunciou 8 MHz, enquanto a APC indicou 10 MHz num teste anterior à comercialização.",
+  "product.amstrad-pc20.technical.firmware": "A BIOS do perfil partilhado ajuda a estudar a relação entre os dois modelos. Dois ficheiros de 8 KiB formam uma imagem de 16 KiB que se identifica como Sinclair PC200, a marca que a APC viu ao ligar o seu PC20 de pré-produção.",
+  "product.amstrad-pc20.technical.verified": "O BluMach inclui o perfil partilhado pc200. As somas de verificação foram confirmadas e a BIOS foi analisada estaticamente.",
+  "product.amstrad-pc20.technical.limitations": "Falta comparar o firmware de um PC20 de série e validar o arranque no BluMach.",
+  "product.amstrad-pc20.technical.sunday": "Sunday Times · New PC · 11 December 1988 · p. 117",
+  "product.amstrad-pc20.technical.apc": "Australian Personal Computer · Steve Withers · Amstrad PC20 · issue 100"
+}

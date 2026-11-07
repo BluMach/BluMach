@@ -1,0 +1,93 @@
+{
+  "order": 620,
+  "machine": {
+    "id": "schneider-n38616-40",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-n38616",
+    "name": "Schneider Notebook N386/16 (40 MB)",
+    "summary_key": "product.schneider-n38616-40.summary",
+    "history_key": "product.schneider-n38616-40.history",
+    "warning_key": "product.schneider-n38616-40.warning",
+    "status": "research",
+    "period": "1991",
+    "aliases": [],
+    "tags": [
+      "Schneider",
+      "Notebook"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
+      ],
+      "video": [
+        "vga"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386SX · 16 MHz",
+      "memory": "1 MB",
+      "video": "VGA · 256 KB · LCD · 640 × 480",
+      "floppy": "3.5″ · 1.44 MB",
+      "storage": "40 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.board_control",
+            "value_key": "product.schneider-n38616-40.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-n38616-40.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-n38616-40.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-n38616-40.technical.prices",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_91.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-n38616-40.technical.owner",
+            "url": "https://forum.classic-computing.de/forum/index.php?thread/3077-mein-neuestes-etwas/&postID=284035#post284035"
+          }
+        ]
+      }
+    ]
+  }
+}

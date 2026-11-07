@@ -1,0 +1,12 @@
+{
+  "product.olivetti-snx-160-rs.summary": "El Systema 160 de alta disponibilidad que pasó de Eagle a Olimpus bajo el mismo nombre.",
+  "product.olivetti-snx-160-rs.history": "Olivetti anunció el SNX 160/RS en marzo de 1995. En abril lo situó como relevo de los SNX 140/R y 160/R y conservó su nombre en la revisión Olimpus.",
+  "product.olivetti-snx-160-rs.warning": "Ficha histórica en investigación.",
+  "product.olivetti-snx-160-rs.architecture": "La placa permite distinguir las revisiones. Eagle usa la BA2155 y documenta cajas SCSI Narrow y Wide. Olimpus usa la BA2298 con Wide SCSI y hasta 512 MB de memoria ECC.",
+  "product.olivetti-snx-160-rs.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-snx-160-rs.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-snx-160-rs.service-guide-2": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 2",
+  "product.olivetti-snx-160-rs.service-guide-6": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 6",
+  "product.olivetti-snx-160-rs.olivetti-brochure-1995": "Olivetti, SNX 160/RS Systema, 3922083Y-00, March 1995",
+  "product.olivetti-snx-160-rs.service-guide-1": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 1"
+}

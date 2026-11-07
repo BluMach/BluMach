@@ -1,0 +1,12 @@
+{
+  "product.schneider-l38616-hd80.summary": "A configuração do L 386/16 com disco de 80 MB.",
+  "product.schneider-l38616-hd80.history": "O manual da Schneider identifica o L 386/16 HD 80 como uma configuração do seu computador de secretária com fechadura. Partilhava a placa CPU do EuroSX de 16 MHz. O disco de 80 MB tinha a referência de assistência 54 116 00.",
+  "product.schneider-l38616-hd80.technical.board": "A placa era partilhada com o EuroSX de 16 MHz. A lista de peças indica a referência 53 110 00 e os esquemas Schneider documentam a lógica Singleboard I SX, com BIGJIM e vídeo ATI 28800.",
+  "product.schneider-l38616-hd80.technical.firmware": "O kit de assistência orienta a procura de ROM. O manual indica a referência 65 467 00 e os suportes LOW U9 e HIGH U10. A identidade dos binários de fábrica está por verificar.",
+  "product.schneider-l38616-hd80.technical.configuration": "A IFS anunciava uma LAN Station 386/16 em Portugal em 1992. A lista alemã de 1991 confirma esse nome para o L 386/16. O anúncio da IFS deixa o disco por especificar.",
+  "product.schneider-l38616-hd80.warning": "Ficha histórica em investigação.",
+  "product.schneider-l38616-hd80.technical.verified": "A configuração está documentada no manual. O modelo dedicado e a validação do arranque no BluMach continuam pendentes.",
+  "product.schneider-l38616-hd80.technical.limitations": "Faltam dumps atribuídos, a validação do mapa da placa e uma imagem com direitos de publicação claros.",
+  "product.schneider-l38616-hd80.technical.manual": "Schneider, Service Manual EURO 386 SX / L 386/16, V12324",
+  "product.schneider-l38616-hd80.technical.press": "IFS, Expresso, 23-05-1992, p. A3"
+}

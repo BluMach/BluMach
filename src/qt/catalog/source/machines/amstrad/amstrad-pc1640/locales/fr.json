@@ -1,0 +1,11 @@
+{
+  "product.amstrad-pc1640.summary": "Le successeur du PC1512 qui a introduit les graphismes EGA.",
+  "product.amstrad-pc1640.history": "En 1987, Amstrad a élargi sa gamme de compatibles PC avec le PC1640, une évolution du PC1512 pour les utilisateurs qui avaient besoin d’une résolution graphique supérieure. En septembre 1987, Personal Computer World indiquait un prix britannique de 799 livres hors TVA avec un moniteur EGA et un lecteur de disquettes. Il a été commercialisé aux États-Unis sous le nom de PC6400.",
+  "product.amstrad-pc1640.technical.video": "Le moniteur déterminait les modes d’affichage disponibles. Avec le PC-ECD, l’IGA Paradise et ses 256 Ko de mémoire vidéo pouvaient afficher le mode EGA 640 × 350 en 16 couleurs.",
+  "product.amstrad-pc1640.technical.memory": "Les micrologiciels de démarrage et d’affichage occupent des zones distinctes. Le manuel situe la ROM système à FC000h–FFFFFh, avec des miroirs à F0000h–FBFFFh, et la ROM IGA à C0000h–C7FFFh.",
+  "product.amstrad-pc1640.technical.verified": "BluMach comprend le profil pc1640. Les empreintes des trois fichiers ROM correspondent au manifeste de la bibliothèque.",
+  "product.amstrad-pc1640.technical.limitations": "Le démarrage et les modes d’affichage avec ces ROM restent à valider dans BluMach.",
+  "product.amstrad-pc1640.technical.pcw": "Personal Computer World · September 1987 · pp. 106–107",
+  "product.amstrad-pc1640.technical.manual": "Amstrad PC1640 Technical Reference Manual · §1.1, §1.2, §1.11",
+  "product.amstrad-pc1640.technical.regional": "Amstrad Q&A · Cliff Lawson archive · PC6400DD"
+}

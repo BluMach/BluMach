@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs-d4-100-n.summary": "Il PCS con DX4 nel telaio Slim Tin Box di questa piattaforma.",
+  "product.olivetti-pcs-d4-100-n.history": "Olivetti documentò il PCS D4/100 come il modello PCS della piattaforma M4-5x4. Questa configurazione usava il telaio Slim Tin Box.",
+  "product.olivetti-pcs-d4-100-n.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-pcs-d4-100-n.architecture": "La cache aiuta a identificare la configurazione PCS. La guida indica 128 KB di cache L2 e video Trident TGUI9440 AGi integrato.",
+  "product.olivetti-pcs-d4-100-n.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-pcs-d4-100-n.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-pcs-d4-100-n.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 13",
+  "product.olivetti-pcs-d4-100-n.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.25 · Update 1."
+}

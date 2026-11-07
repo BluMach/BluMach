@@ -1,0 +1,12 @@
+{
+  "product.olivetti-echos-46-color.summary": "The Echos 40-series model that paired a DX4 with a passive-matrix colour display.",
+  "product.olivetti-echos-46-color.history": "The Echos 46 Color was part of Olivetti’s Echos 40 notebook range. Spain’s official gazette identifies a unit of that model in an August 2000 auction.",
+  "product.olivetti-echos-46-color.warning": "Historical sheet under research.",
+  "product.olivetti-echos-46-color.architecture": "The screen distinguished this variant from the Echos Color Plus models. MacDat records a passive-matrix panel and 1000BiT lists 640 × 480 VGA with 256 colours.",
+  "product.olivetti-echos-46-color.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-echos-46-color.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-echos-46-color.boe": "Boletín Oficial del Estado 189, 8 August 2000, lot 91",
+  "product.olivetti-echos-46-color.collection": "1000BiT, Olivetti Echos 46 Color",
+  "product.olivetti-echos-46-color.macdat": "MacDat, Olivetti Echos 40 Series",
+  "product.olivetti-echos-46-color.specimen": "Permute.it, Echos 46 Color specimen"
+}

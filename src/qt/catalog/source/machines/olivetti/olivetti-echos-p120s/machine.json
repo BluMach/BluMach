@@ -1,0 +1,71 @@
+{
+  "order": 10103,
+  "machine": {
+    "id": "olivetti-echos-p120s",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Echos P120S",
+    "summary_key": "product.olivetti-echos-p120s.summary",
+    "history_key": "product.olivetti-echos-p120s.history",
+    "warning_key": "product.olivetti-echos-p120s.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-echos-p120s.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-echos-p120s.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-echos-p120s.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-p120s.owner",
+            "url": "https://www.engadget.com/2004-09-29-gear-eye-the-sager-3790-laptop.html/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-echos-p120s.owner-notes",
+            "url": "https://rene.seindal.dk/post-archive/linux-on-olivetti-echos-laptops/"
+          }
+        ]
+      }
+    ],
+    "period": "c. 1996"
+  }
+}

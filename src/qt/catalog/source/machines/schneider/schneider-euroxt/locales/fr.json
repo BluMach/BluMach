@@ -1,0 +1,17 @@
+{
+  "product.schneider-euroxt.summary": "Il transpose la proposition Euro dans un boîtier de bureau avec clavier séparé et disque dur interne.",
+  "product.schneider-euroxt.history": "EuroXT proposait une alternative de bureau aux EuroPC à clavier intégré. Il restait de classe PC/XT, mais logeait le disque dur dans le boîtier et séparait le clavier. Une publicité Büroma dans Guckloch 1/1990 l'offrait à 1 998 DM avec 640 Ko, un disque RAM de 128 Ko, un disque dur de 21 Mo et un écran monochrome MM12. Ce prix correspond à une offre de revendeur, pas à un lancement confirmé. Le manuel Schneider le traite comme un modèle distinct d'EuroPC II.",
+  "product.schneider-euroxt.technical.configurations": "L'offre associait disque dur et écran. La publicité Büroma, p. 18, documente 21 Mo et MM12 ; elle n'établit pas ce même ensemble pour tous les marchés.",
+  "product.schneider-euroxt.technical.memory": "Une partie de la mémoire servait de disque RAM. La publicité distingue 640 Ko pour le système et 128 Ko de RAM Disc dans les 768 Ko physiques.",
+  "product.schneider-euroxt.technical.board": "Le boîtier offre davantage de possibilités d'extension. Le manuel, p. 65, identifie carte CPU 51 424 00, carte de connecteurs 51 427 00 et clavier séparé ; MAME décrit deux emplacements ISA 8 bits.",
+  "product.schneider-euroxt.technical.detail": "Les sources décrivent différemment la capacité du disque. La publicité de 1990 indique 21 Mo et MAME résume 20 Mo XTA ; les deux valeurs sont conservées sans déduire deux révisions matérielles.",
+  "product.schneider-euroxt.technical.firmware": "Quatre BIOS système sont conservés. Les révisions 1.01, 1.02, 1.04 et 1.05 occupent chacune 32 Kio et leurs empreintes ont été vérifiées. MAME signale une absence d'image avec 1.04 et 1.05 ; ce résultat n'a pas été testé dans BluMach.",
+  "product.schneider-euroxt.technical.verified": "Le firmware permet d'étudier le modèle. Aucune entrée spécifique EuroXT n'a été trouvée dans BluMach 88f74ba3 ; l'appartenance à la famille EuroPC ne démontre pas son émulation.",
+  "product.schneider-euroxt.technical.limitations": "Carte mère et stockage restent à vérifier dans BluMach. Démarrage, clavier et disque XTA ne sont pas validés ; photographie publiable et profil de création restent à fournir.",
+  "product.schneider-euroxt.technical.source_primary": "Büroma, publicité EuroXT dans Guckloch 1/1990, p. 18 : offre de 1 998 DM et configuration vérifiées sur le document numérisé.",
+  "product.schneider-euroxt.technical.source_secondary": "Old Crap, Schneider Euro XT, 12-02-2022 : photographies d'exemplaires, cartes révisions 3 et 4 et écrans du BIOS.",
+  "product.schneider-euroxt.warning": "Fiche historique en cours de recherche ; le démarrage dans BluMach n'est pas validé.",
+  "product.schneider-euroxt.technical.manual": "Schneider, Service Manual Euro PC / Euro PC II / Euro XT : original conservé ; pièces et cartes distinguées par modèle.",
+  "product.schneider-euroxt.technical.code": "BluMach 88f74ba3 : inspection conservée de machine_table.c et m_europc.c ; elle ne constitue pas un essai de démarrage.",
+  "product.schneider-euroxt.technical.mame": "MAME, europc.cpp : identification des révisions et empreintes des ROM ; les trois modèles sont signalés non fonctionnels dans l'instantané consulté."
+}

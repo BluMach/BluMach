@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m60.summary": "The 1-CPU version of the Linea 1 M60.",
+  "product.olivetti-m60.history": "The Historical Archive dates the M60 to 1984 as a high-end system for organisations with more workstations. The Prato museum includes the M60 in its 1982 chronology.",
+  "product.olivetti-m60.warning": "Historical sheet under research.",
+  "product.olivetti-m60.architecture": "CPU and cache used separate boards. The manual documents UC040/UC040A, UC041 cache and 1 CPU in this version.",
+  "product.olivetti-m60.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m60.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m60.archive": "Associazione Archivio Storico Olivetti, L1: una nuova linea di sistemi informatici.",
+  "product.olivetti-m60.service": "Olivetti, M60–M60/2–M60/3 Service Manual, §§1, 2.6, 4.2 and 6.1.",
+  "product.olivetti-m60.museum": "Museo del Calcolatore di Prato, Olivetti L1 M40."
+}

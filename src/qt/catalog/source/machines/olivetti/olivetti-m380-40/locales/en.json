@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m380-40.summary": "The high-end workstation Olivetti offered in September 1991 with an AT bus and a 33 MHz 386.",
+  "product.olivetti-m380-40.history": "The documentation places M380-40 as the high-end workstation Olivetti offered in September 1991 with an AT bus and a 33 MHz 386.",
+  "product.olivetti-m380-40.warning": "Historical sheet under research.",
+  "product.olivetti-m380-40.architecture": "Memory organisation determines expansion options. The guide identifies BA262 / BA281. It integrates 82C452 video, 82077 floppy control and 64 KB of cache with an 82385.",
+  "product.olivetti-m380-40.firmware": "The BIOS revision helps identify the service configuration. The guide records Flash EPROM · 1.09.",
+  "product.olivetti-m380-40.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m380-40.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m380-40.guide": "Olivetti, Personal Computer – Pocket Service Guide, 21-1.",
+  "product.olivetti-m380-40.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

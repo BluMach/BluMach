@@ -1,0 +1,11 @@
+{
+  "product.olivetti-philos-44.summary": "The business Philos with a monochrome display and disk access under the keyboard.",
+  "product.olivetti-philos-44.history": "Olivetti placed the 44 at the top of the Philos line in December 1993. Access advertised the monochrome version at C$2,649 in February 1994.",
+  "product.olivetti-philos-44.warning": "Historical sheet under research.",
+  "product.olivetti-philos-44.architecture": "The hinged keyboard made the removable disk accessible. BYTE tested a 25 MHz 486SL, and Access advertised a 486 SL-33 (DX) for the 44 line.",
+  "product.olivetti-philos-44.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-philos-44.limitations": "Firmware comparison and boot tests are pending.",
+  "product.olivetti-philos-44.ad": "Olivetti advertisement, BYTE, December 1993, PDF p. 229.",
+  "product.olivetti-philos-44.byte": "BYTE/NSTL Lab Report, March 1994, 46 Powerful Portables Tested.",
+  "product.olivetti-philos-44.dealer": "Access Business Centre, The Computer Paper, February 1994."
+}

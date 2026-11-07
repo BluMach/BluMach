@@ -1,0 +1,10 @@
+{
+  "product.olivetti-m380-c-new.summary": "A revisão compacta de serviço passou para VGA e um controlador RLL combinado.",
+  "product.olivetti-m380-c-new.history": "O guia da Olivetti distingue o M380 C New na gama compacta. O M380/C de 1988 do Centre for Computing History tem as placas associadas à revisão e foi usado no projeto Pandora.",
+  "product.olivetti-m380-c-new.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m380-c-new.architecture": "O controlador reunia disco rígido e disquetes. O guia indica GO723 com ST-506 RLL e VGA GO470/GO481 para o C New.",
+  "product.olivetti-m380-c-new.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m380-c-new.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m380-c-new.service": "Olivetti, Pocket Service Guide, vol. I, §7.",
+  "product.olivetti-m380-c-new.museum": "Centre for Computing History, Olivetti M380/C (Pandora Project)."
+}

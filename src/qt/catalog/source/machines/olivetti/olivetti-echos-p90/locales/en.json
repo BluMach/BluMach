@@ -1,0 +1,9 @@
+{
+  "product.olivetti-echos-p90.summary": "The Echos P90 in the Italian Pentium line with a 10.4-inch display.",
+  "product.olivetti-echos-p90.history": "MCmicrocomputer documented the Echos P90 in December 1995 in Olivetti’s multimedia Echos P line. It listed an Italian price of 7,900,000 lire excluding VAT.",
+  "product.olivetti-echos-p90.warning": "Historical sheet under research.",
+  "product.olivetti-echos-p90.architecture": "The display defined this configuration. The Italian listing specifies TFT · 10.4″ and a 810 MB disk.",
+  "product.olivetti-echos-p90.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-echos-p90.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-echos-p90.mc": "MCmicrocomputer 157, December 1995, pp. 194–195."
+}

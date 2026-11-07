@@ -1,0 +1,8 @@
+{
+  "product.sinclair-apc286.summary": "PC da tavolo Sinclair APC basato sul progetto Amstrad PC3286.",
+  "product.sinclair-apc286.history": "Un esemplare conserva la scritta «Sinclair APC 286 by Amstrad» sul frontale e l’etichetta di fabbrica «SINCLAIR MODEL APC3286». Il telaio e la scheda estraibile del processore corrispondono al progetto del PC3286 Generation 3. I 16 MHz sono documentati per il PC3286. La sigla sulla CPU di questo esemplare resta da leggere.",
+  "product.sinclair-apc286.technical.hardware": "L’esemplare fotografato ha quattro SIMM, un’uscita VGA, un’unità a dischetti e un disco IDE Seagate ST-157A-1. L’esatta equivalenza delle schede e la configurazione originale di vendita restano da verificare.",
+  "product.sinclair-apc286.warning": "La schermata di avvio mostra «AMSTRAD PC3286 (v2.3)», 640 KB di memoria di base e 384 KB di EMS. Serve un dump verificato per stabilire l’identità binaria. La creazione di una macchina virtuale è disabilitata.",
+  "product.sinclair-apc286.technical.specimen": "Esemplare APC 286 con fotografie del frontale, dell’etichetta APC3286, dell’interno e della schermata di avvio",
+  "product.sinclair-apc286.technical.amstrad": "PC3286, dépliant Generation 3 e manuale Amstrad"
+}

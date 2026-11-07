@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m386-25.summary": "A high-end workstation with 32 KB cache and integrated video.",
+  "product.olivetti-m386-25.history": "The September 1991 professional catalogue listed M386/25 (a high-end workstation with 32 KB cache and integrated video).",
+  "product.olivetti-m386-25.warning": "Historical sheet under research.",
+  "product.olivetti-m386-25.architecture": "The board determines which peripheral combination needs verification. The guide identifies BA247 / BA255 / BA263 · 82C452 · AT.",
+  "product.olivetti-m386-25.firmware": "The BIOS revision helps identify the service configuration. The guide records 1.09 · PEQS (L, U65) / PEQR (H, U66).",
+  "product.olivetti-m386-25.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m386-25.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m386-25.guide": "Olivetti, Personal Computer – Pocket Service Guide, 14-1.",
+  "product.olivetti-m386-25.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

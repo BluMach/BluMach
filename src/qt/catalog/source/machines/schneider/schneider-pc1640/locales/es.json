@@ -1,0 +1,10 @@
+{
+  "product.schneider-pc1640.summary": "El sucesor del PC1512 que llevó los gráficos EGA a la gama Topline de Schneider.",
+  "product.schneider-pc1640.history": "Schneider anunció en julio de 1987 el PC1640 de Amstrad dentro de su gama Topline para medianas y grandes empresas. Computerwoche citó unos 2.700 marcos con una disquetera y monitor EGA.",
+  "product.schneider-pc1640.technical.verified": "La comercialización bajo la marca Schneider está documentada.",
+  "product.schneider-pc1640.technical.limitations": "Falta una BIOS atribuida a un ejemplar Schneider para cotejarla con la de Amstrad y validar la variante en BluMach. Falta también una foto del modelo Schneider con derechos claros.",
+  "product.schneider-pc1640.technical.source_1": "Heinz Nixdorf MuseumsForum, Das war der Schneider Euro PC, 09-05-2023",
+  "product.schneider-pc1640.technical.source_2": "Schneider PC 1640 Benutzer-Handbuch, 1987",
+  "product.schneider-pc1640.technical.detail": "El monitor determinaba qué modos gráficos podían usarse. El manual alemán documenta el PC-ECD para EGA a 640 × 350 con 16 colores de una paleta de 64.",
+  "product.schneider-pc1640.technical.period_press": "Computerwoche · PC 1640 soll bei Großkunden ankommen · 07/1987"
+}

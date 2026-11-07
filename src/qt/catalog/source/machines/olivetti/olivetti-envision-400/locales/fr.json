@@ -1,0 +1,12 @@
+{
+  "product.olivetti-envision-400.summary": "Le PC de salon de la gamme Envision dans sa configuration 486.",
+  "product.olivetti-envision-400.history": "Olivetti a présenté l’Envision en 1995 pour une utilisation au salon avec un téléviseur. En décembre, MCmicrocomputer a indiqué un prix de 2 990 000 lires hors TVA pour la version de 420 Mo avec clavier infrarouge.",
+  "product.olivetti-envision-400.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-envision-400.architecture": "Il pouvait utiliser un téléviseur et se piloter depuis le canapé. La vidéo Trident intégrée prend en charge le téléviseur et la console reçoit les signaux du clavier infrarouge à boule de commande.",
+  "product.olivetti-envision-400.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-envision-400.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-envision-400.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 15",
+  "product.olivetti-envision-400.mc-micro": "Paolo Ciardelli, MCmicrocomputer 157, December 1995, pp. 204–209",
+  "product.olivetti-envision-400.museum": "Museo Tecnologicamente, Olivetti Envision, 1995",
+  "product.olivetti-envision-400.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 2.06."
+}

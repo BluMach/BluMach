@@ -1,0 +1,86 @@
+{
+  "order": 10080,
+  "machine": {
+    "id": "olivetti-philos-44-color",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti Philos 44 Color",
+    "summary_key": "product.olivetti-philos-44-color.summary",
+    "history_key": "product.olivetti-philos-44-color.history",
+    "warning_key": "product.olivetti-philos-44-color.warning",
+    "status": "research",
+    "aliases": [
+      "Philos 44C"
+    ],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel i486SL · 25 MHz",
+      "video": "TFT LCD · 8.5″"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-philos-44-color.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-philos-44-color.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-philos-44-color.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-44-color.ad",
+            "url": "https://vintageapple.org/byte/index_year.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-44-color.byte",
+            "url": "https://vintageapple.org/byte/index_year.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-44-color.dealer",
+            "url": "https://www.computerhistory.org/collections/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-philos-44-color.dealer_color",
+            "url": "https://www.computerhistory.org/collections/"
+          }
+        ]
+      }
+    ],
+    "period": "1993–1994"
+  }
+}

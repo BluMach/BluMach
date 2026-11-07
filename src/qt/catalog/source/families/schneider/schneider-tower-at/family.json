@@ -1,0 +1,29 @@
+{
+  "order": 160,
+  "family": {
+    "id": "schneider-tower-at",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "parent_family_id": "",
+    "name": "Tower AT 2xx",
+    "description_key": "family.schneider-tower-at.description",
+    "history_key": "family.schneider-tower-at.history",
+    "history_references": [
+      {
+        "title": "Service Manual Tower AT 201/202/220, 44657",
+        "publisher": "Schneider · Old Crap",
+        "url": "https://oldcrap.org/document-category/schneider/am-tower-at/"
+      },
+      {
+        "title": "Happy Computer 11/1988, pp. 97–98, 101",
+        "publisher": "Happy Computer · STCArchiv",
+        "url": "https://stcarchiv.de/happy-computer/1988/11"
+      },
+      {
+        "title": "Sammlerstück (05/1989), p. 18",
+        "publisher": "Happy Computer · STCArchiv",
+        "url": "https://stcarchiv.de/happy-computer/1989/05/mega-at"
+      }
+    ]
+  }
+}

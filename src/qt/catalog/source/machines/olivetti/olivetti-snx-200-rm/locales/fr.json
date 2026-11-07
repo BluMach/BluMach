@@ -1,0 +1,10 @@
+{
+  "product.olivetti-snx-200-rm.summary": "Le Systema en baie pouvant accueillir 2 processeurs.",
+  "product.olivetti-snx-200-rm.history": "Le SNX 200 faisait partie de Systema avant l’annonce du 460 en décembre 1995. Le guide identifie la version RM en baie.",
+  "product.olivetti-snx-200-rm.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-snx-200-rm.architecture": "Les processeurs pouvaient être ajoutés sur des cartes. Le Corollary C-Bus II 64 bits relie jusqu’à 2 cartes processeur à la mémoire.",
+  "product.olivetti-snx-200-rm.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-snx-200-rm.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-snx-200-rm.service-guide-3": "Olivetti, SNX / NetStrada – Pocket Service Guide, ch. 3",
+  "product.olivetti-snx-200-rm.computerwoche-1995": "Computerwoche, Olivetti-Server mit Pentium Pro nutzen Platinendesign von Intel, 22 December 1995"
+}

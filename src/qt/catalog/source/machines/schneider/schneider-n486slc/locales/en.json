@@ -1,0 +1,9 @@
+{
+  "product.schneider-n486slc.summary": "The Schneider notebook listed as N 486 SLC in the Polish press.",
+  "product.schneider-n486slc.history": "A Polish classified advertisement in November 1998 offered a used N 486 SLC for PLN 1,200. In November 1992, Computerwoche had described a Schneider notebook with a Cyrix 486SLC in its report on the company’s return to the PC market.",
+  "product.schneider-n486slc.technical.configuration": "The two sources give different processor references. The classified ad adds “486 DX”. The 1992 report specifies a Cyrix 486SLC, 80 or 120 MB disks and three LCD options. Whether they describe the same computer remains to be verified.",
+  "product.schneider-n486slc.technical.verified": "The name appears in a period advertisement. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-n486slc.technical.limitations": "A specimen and its board still need examination. An attributable BIOS and an image with clear publication rights remain pending.",
+  "product.schneider-n486slc.technical.source_1": "Dziennik Bałtycki, n.º 277 (16436), 26-11-1998, p. 29, Giełda komputerowa",
+  "product.schneider-n486slc.technical.source_2": "Computerwoche, Ein Handwerk mit Tradition, 27-11-1992"
+}

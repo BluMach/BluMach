@@ -1,0 +1,10 @@
+{
+  "product.olivetti-pcs40-d266.summary": "O PCS40 em formato minitorre com 486DX2 a 66 MHz.",
+  "product.olivetti-pcs40-d266.history": "A Olivetti incluía o PCS40 D2/66 na gama PCS30–PCS40 de sistemas 386 e 486. O guia apresenta-o em formato minitorre.",
+  "product.olivetti-pcs40-d266.warning": "Ficha histórica em investigação.",
+  "product.olivetti-pcs40-d266.architecture": "O vídeo e o armazenamento usavam placas de expansão. As placas de série deixavam 6 das 8 ranhuras AT livres na configuração padrão.",
+  "product.olivetti-pcs40-d266.firmware": "A placa determina qual a BIOS a procurar. O guia indica Harward para 486-VC.",
+  "product.olivetti-pcs40-d266.verified": "A identidade foi verificada na documentação da Olivetti. A ficha permanece em investigação.",
+  "product.olivetti-pcs40-d266.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-pcs40-d266.guide": "Olivetti, Personal Computer – Pocket Service Guide, §39, pp. 39-1–39-3."
+}

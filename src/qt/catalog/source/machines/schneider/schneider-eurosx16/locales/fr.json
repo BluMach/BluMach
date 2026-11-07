@@ -1,0 +1,14 @@
+{
+  "product.schneider-eurosx16.summary": "La configuration à 16 MHz de l’EuroSX de bureau.",
+  "product.schneider-eurosx16.history": "En mai 1991, Micromineiro annonçait au Portugal un EuroSX à 16 MHz à 260 000 escudos, écran et TVA en sus. L’offre présentait le 386SX comme une porte d’entrée dans le 32 bits. En mai 1992, IFS annonçait la configuration /16–40.",
+  "product.schneider-eurosx16.warning": "Fiche historique en cours de recherche.",
+  "product.schneider-eurosx16.technical.configurations": "Le disque varie selon la documentation commerciale. Le manuel indique 40 Mo, l’annonce de 1991 spécifie 42 Mo pour son EuroSX à 16 MHz et celle de 1992 utilise la désignation /16–40.",
+  "product.schneider-eurosx16.technical.board": "La carte intègre la logique mémoire et la vidéo. Le manuel montre un VLSI VL82C331, BIGJIM en U33 et ATI 28800 en U45. Il distingue les cartes à 16 et à 20 MHz.",
+  "product.schneider-eurosx16.technical.firmware": "La ROM se répartit sur deux puces. Le manuel identifie LOW et HIGH en U9 et U10. Une photo de démarrage d’un EuroSX montre le BIOS système 1.05 et le VGA 3.01a. Il reste à rattacher ces versions à une configuration précise et à conserver les dumps.",
+  "product.schneider-eurosx16.technical.verified": "BluMach dispose de la fiche documentaire. Le modèle dédié et la validation du démarrage restent à réaliser.",
+  "product.schneider-eurosx16.technical.limitations": "Les dumps système et vidéo et la vérification de la cartographie de la carte sont en attente. Une photo publiable reste à trouver.",
+  "product.schneider-eurosx16.technical.press91": "Correio do Ribatejo 5224, 31-05-1991, p. 8 — Micromineiro",
+  "product.schneider-eurosx16.technical.press92": "Expresso, 23-05-1992, p. A3 — IFS",
+  "product.schneider-eurosx16.technical.manual": "Schneider, Service Manual EURO 386 SX / L 386/16",
+  "product.schneider-eurosx16.technical.post": "Pingaloka, Schneider Euro SX 80386 BIOS config Help Needed (2019)"
+}
