@@ -1,0 +1,10 @@
+{
+  "product.schneider-portable-sx.summary": "Le portable 386SX de Schneider à écran plasma.",
+  "product.schneider-portable-sx.history": "Executive Service l’a annoncé en Italie sous le nom de SX-Portable en novembre 1990. Le tarif allemand proposait le Portable SX à 6 997 DM nets en décembre 1990 et à 5 490 DM en juin 1991, où il figurait aux côtés du N386/16.",
+  "product.schneider-portable-sx.technical.configuration": "Le détail du tarif allemand indique un écran plasma VGA de 640 × 480. La publicité italienne indique un disque de 42 Mo et MS-DOS 3.3. Les tarifs allemands indiquent 44 Mo.",
+  "product.schneider-portable-sx.technical.verified": "L’offre est documentée. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
+  "product.schneider-portable-sx.technical.limitations": "Il reste à identifier la carte, à préserver un BIOS attribuable et à trouver une image aux droits de publication clairs.",
+  "product.schneider-portable-sx.technical.source_1": "CC SELLER / BC, Schneider Computer, 12/1990, p. 1",
+  "product.schneider-portable-sx.technical.source_2": "CC SELLER / BC, Schneider Computer, 06/1991, p. 1",
+  "product.schneider-portable-sx.technical.source_3": "Executive Service, MCmicrocomputer n. 101, 11/1990, PDF p. 111"
+}
