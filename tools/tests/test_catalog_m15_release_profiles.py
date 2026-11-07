@@ -23,7 +23,7 @@ class M15ReleaseProfileTests(unittest.TestCase):
                           'olivetti-m300-if378', 'olivetti-m30002', 'olivetti-m30002f',
                           'olivetti-m30008', 'olivetti-m30015', 'olivetti-m30030',
                           'olivetti-m30030p', 'olivetti-m290sp',
-                          'olivetti-m24', 'olivetti-m21'}, visible)
+                          'olivetti-m24', 'olivetti-m21', 'olivetti-m24sp'}, visible)
         for model in ('olivetti-m15', 'olivetti-m15-plus'):
             self.assertEqual('experimental', self.products[model]['status'])
 

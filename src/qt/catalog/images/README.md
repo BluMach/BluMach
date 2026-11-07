@@ -75,11 +75,13 @@ the official library. They retain their own licences and are not GPL-covered.
 |---|---|---|---|---|
 | `olivetti-m24-photo.jpg` | Olivetti M24 | Federigo Federighi | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Olivetti M24 (1987 - 1988).jpg](https://commons.wikimedia.org/wiki/File:Olivetti_M24_(1987_-_1988).jpg) |
 | `olivetti-m21-photo.jpg` | Olivetti M21 | tomislav medak | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | [Olivetti M21.jpg](https://commons.wikimedia.org/wiki/File:Olivetti_M21.jpg) |
+| `olivetti-m24sp-photo.jpg` | Olivetti M24 SP, interior | Freakedenough | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | [Olivetti M24SP IO Board.jpg](https://commons.wikimedia.org/wiki/File:Olivetti_M24SP_IO_Board.jpg) |
 
 The dates in the M24 image title describe that museum specimen; the image is
 not evidence of the product's introduction date. The M21 photograph shows an
 exhibited unit with part of its keyboard out of focus; no detail has been
-reconstructed.
+reconstructed. The M24 SP photograph shows an individual unit with installed
+expansion cards; those cards are not evidence of a standard factory configuration.
 
 ## Illustrations
 
