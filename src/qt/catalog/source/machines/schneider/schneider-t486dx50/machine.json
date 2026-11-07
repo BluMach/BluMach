@@ -1,0 +1,82 @@
+{
+  "order": 680,
+  "machine": {
+    "id": "schneider-t486dx50",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-towers-1992",
+    "name": "Schneider T486DX50",
+    "summary_key": "product.schneider-t486dx50.summary",
+    "history_key": "product.schneider-t486dx50.history",
+    "warning_key": "product.schneider-t486dx50.warning",
+    "status": "research",
+    "period": "1992",
+    "aliases": [
+      "Schneider T 486DX/50"
+    ],
+    "tags": [
+      "Schneider"
+    ],
+    "facets": {
+      "form_factor": [
+        "tower"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ]
+    },
+    "hardware": {
+      "cpu": "80486DX · 50 MHz",
+      "memory": "8 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-t486dx50.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-t486dx50.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-t486dx50.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-t486dx50.technical.source_1",
+            "url": "https://www.computerwoche.de/article/2829067/ein-handwerk-mit-tradition-schneider-verkauft-wieder-pcs.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-t486dx50.technical.source_2",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_92.html"
+          }
+        ]
+      }
+    ]
+  }
+}

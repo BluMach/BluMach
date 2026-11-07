@@ -1,0 +1,10 @@
+{
+  "product.schneider-t486dx50.summary": "The 50 MHz tower in Schneider’s 1992 range.",
+  "product.schneider-t486dx50.history": "In November 1992, Computerwoche presented the T486DX50 at the top of Schneider’s new PC range. The December German price list listed the T 486DX/50 from DM 3,508 net without a hard disk.",
+  "product.schneider-t486dx50.warning": "Historical sheet under research.",
+  "product.schneider-t486dx50.technical.configuration": "The sources describe different disk offerings. Computerwoche cites 245 MB and the December price list lists diskless, 211 MB and 340 MB versions.",
+  "product.schneider-t486dx50.technical.verified": "The offer is documented. A dedicated model and boot validation in BluMach remain pending.",
+  "product.schneider-t486dx50.technical.limitations": "The board still needs to be checked against a specimen and an attributed BIOS preserved. An image with clear publication rights remains pending.",
+  "product.schneider-t486dx50.technical.source_1": "Computerwoche, Ein Handwerk mit Tradition, 27-11-1992",
+  "product.schneider-t486dx50.technical.source_2": "CC SELLER / BC, Schneider Computer, 12/1992, pp. 1–3"
+}
