@@ -3,7 +3,7 @@
   "product.schneider-l38616-hd80.history": "Le manuel Schneider identifie le L 386/16 HD 80 comme une configuration de son ordinateur de bureau à verrou. Il partageait la carte CPU de l’EuroSX à 16 MHz. Le disque de 80 Mo portait la référence de maintenance 54 116 00.",
   "product.schneider-l38616-hd80.technical.board": "La carte était commune à l’EuroSX à 16 MHz. La liste des pièces indique la référence 53 110 00 et les schémas Schneider documentent la logique Singleboard I SX, avec BIGJIM et la vidéo ATI 28800.",
   "product.schneider-l38616-hd80.technical.firmware": "Le kit de maintenance oriente la recherche des ROM. Le manuel indique la référence 65 467 00 et les supports LOW U9 et HIGH U10. L’identité des binaires d’usine reste à vérifier.",
-  "product.schneider-l38616-hd80.technical.configuration": "La dénomination commerciale reste à rapprocher du modèle. IFS annonçait un LAN Station 386/16 au Portugal en 1992. Il manque une étiquette ou une référence qui le relie à ces configurations.",
+  "product.schneider-l38616-hd80.technical.configuration": "IFS annonçait un LAN Station 386/16 au Portugal en 1992. La liste allemande de 1991 confirme ce nom pour le L 386/16. La publicité IFS ne précise pas le disque.",
   "product.schneider-l38616-hd80.warning": "Fiche historique en cours de recherche.",
   "product.schneider-l38616-hd80.technical.verified": "Le manuel documente cette configuration. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
   "product.schneider-l38616-hd80.technical.limitations": "Il manque des dumps attribués, la validation de la cartographie de la carte et une image aux droits de publication clairs.",
