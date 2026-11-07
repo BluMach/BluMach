@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-90-s.summary": "El M4 Modulo de 90 MHz de esta plataforma con caja Slim Tin Box.",
+  "product.olivetti-m4-90-s.history": "Olivetti situó los M4 Modulo en su gama profesional. Esta generación Pentium compartía plataforma con varios PCS de consumo. La guía identifica a TriGem como fabricante de la placa BA2199.",
+  "product.olivetti-m4-90-s.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m4-90-s.architecture": "La caja condiciona las ampliaciones. El riser de la Slim Tin Box ofrece 1 ISA de longitud completa, una PCI y una ranura compartida.",
+  "product.olivetti-m4-90-s.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-m4-90-s.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m4-90-s.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-m4-90-s.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-90-s.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 1.13."
+}

@@ -1,0 +1,85 @@
+{
+  "order": 10175,
+  "machine": {
+    "id": "olivetti-pcs-p-133-en",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti PCS P/133 En",
+    "summary_key": "product.olivetti-pcs-p-133-en.summary",
+    "history_key": "product.olivetti-pcs-p-133-en.history",
+    "warning_key": "product.olivetti-pcs-p-133-en.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 133 MHz",
+      "memory": "8–128 MB",
+      "video": "Trident TGUI9660XGi / TGUI9680XGi · 1–2 MB",
+      "expansion": "ISA / PCI"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-pcs-p-133-en.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-pcs-p-133-en.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-pcs-p-133-en.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-pcs-p-133-en.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs-p-133-en.service-guide",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-pcs-p-133-en.mc-modulo",
+            "url": "https://www.digitanto.it/mc-online/Pages/Indice%20Analitico%20MC%20x%20sito.htm"
+          }
+        ]
+      }
+    ]
+  }
+}

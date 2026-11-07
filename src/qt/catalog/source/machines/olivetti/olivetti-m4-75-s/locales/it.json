@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m4-75-s.summary": "Il M4 Modulo da 75 MHz di questa piattaforma nel telaio Slim Tin Box.",
+  "product.olivetti-m4-75-s.history": "Olivetti collocò l’M4 Modulo nella gamma professionale. Questa generazione Pentium condivideva la piattaforma con diversi PCS per il pubblico. La guida identifica TriGem come produttore della scheda BA2199.",
+  "product.olivetti-m4-75-s.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m4-75-s.architecture": "Il telaio determina le possibilità di espansione. Il riser del Slim Tin Box offre 1 ISA a lunghezza intera, uno PCI e uno slot condiviso.",
+  "product.olivetti-m4-75-s.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-m4-75-s.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m4-75-s.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-m4-75-s.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-75-s.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.13."
+}

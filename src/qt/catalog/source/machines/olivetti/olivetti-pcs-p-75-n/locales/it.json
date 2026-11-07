@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs-p-75-n.summary": "Il PCS da 75 MHz di questa piattaforma nel telaio Slim Tin Box.",
+  "product.olivetti-pcs-p-75-n.history": "Olivetti documentò questa variante nella gamma PCS Pentium, sulla stessa piattaforma degli M4 Modulo di quella generazione. La guida identifica TriGem come produttore della scheda BA2199.",
+  "product.olivetti-pcs-p-75-n.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-pcs-p-75-n.architecture": "Il telaio determina le possibilità di espansione. Il riser del Slim Tin Box offre 1 ISA a lunghezza intera, uno PCI e uno slot condiviso.",
+  "product.olivetti-pcs-p-75-n.verified": "La configurazione è stata verificata nelle fonti citate. La validazione in BluMach resta da fare.",
+  "product.olivetti-pcs-p-75-n.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-pcs-p-75-n.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-pcs-p-75-n.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-pcs-p-75-n.firmware": "La revisione aiuta a identificare il BIOS di servizio. La guida indica 1.13."
+}

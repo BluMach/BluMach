@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs-p-100-n.summary": "O PCS de 100 MHz desta plataforma na caixa Slim Tin Box.",
+  "product.olivetti-pcs-p-100-n.history": "A Olivetti documentou esta variante na gama PCS Pentium, na mesma plataforma dos M4 Modulo dessa geração. O guia identifica a TriGem como fabricante da placa BA2199.",
+  "product.olivetti-pcs-p-100-n.warning": "Ficha histórica em investigação.",
+  "product.olivetti-pcs-p-100-n.architecture": "A caixa condiciona a expansão. O riser da Slim Tin Box oferece 1 ISA de tamanho integral, uma PCI e uma ranhura partilhada.",
+  "product.olivetti-pcs-p-100-n.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-pcs-p-100-n.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-pcs-p-100-n.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-pcs-p-100-n.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-pcs-p-100-n.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 1.13."
+}

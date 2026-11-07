@@ -1,0 +1,12 @@
+{
+  "product.olivetti-m4-75.summary": "O M4 Modulo de 75 MHz desta plataforma na caixa Tin Box.",
+  "product.olivetti-m4-75.history": "A Olivetti colocou o M4 Modulo na gama profissional. Esta geração Pentium partilhava a plataforma com vários PCS de consumo. O fornecedor I-O Data listou a versão CD na sua tabela de compatibilidade japonesa. O guia identifica a TriGem como fabricante da placa BA2199.",
+  "product.olivetti-m4-75.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m4-75.architecture": "A caixa condiciona a expansão. O riser da Tin Box oferece 3 ISA de tamanho integral, uma PCI e uma ranhura partilhada.",
+  "product.olivetti-m4-75.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-m4-75.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m4-75.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-m4-75.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-m4-75.io-data": "I-O Data, Getronics Olivetti desktop memory compatibility table",
+  "product.olivetti-m4-75.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 1.13."
+}

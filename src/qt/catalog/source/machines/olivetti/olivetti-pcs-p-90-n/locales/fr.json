@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs-p-90-n.summary": "Le PCS à 90 MHz de cette plate-forme dans le boîtier Slim Tin Box.",
+  "product.olivetti-pcs-p-90-n.history": "Olivetti a documenté cette version dans sa gamme PCS à Pentium, sur la même plate-forme que les M4 Modulo de cette génération. Le guide identifie TriGem comme fabricant de la carte BA2199.",
+  "product.olivetti-pcs-p-90-n.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-pcs-p-90-n.architecture": "Le boîtier conditionne les extensions. La carte d’extension du Slim Tin Box offre 1 ISA pleine longueur, un PCI et un emplacement partagé.",
+  "product.olivetti-pcs-p-90-n.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-pcs-p-90-n.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-pcs-p-90-n.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-pcs-p-90-n.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-pcs-p-90-n.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 1.13."
+}

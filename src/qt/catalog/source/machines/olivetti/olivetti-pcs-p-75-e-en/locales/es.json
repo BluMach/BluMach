@@ -1,0 +1,11 @@
+{
+  "product.olivetti-pcs-p-75-e-en.summary": "El PCS de 75 MHz de esta plataforma con caja Tin Box.",
+  "product.olivetti-pcs-p-75-e-en.history": "Olivetti documentó esta variante dentro de sus PCS Pentium, que compartían plataforma con los M4 Modulo de la misma generación. La guía identifica a TriGem como fabricante de la placa BA2199.",
+  "product.olivetti-pcs-p-75-e-en.warning": "Ficha histórica en investigación.",
+  "product.olivetti-pcs-p-75-e-en.architecture": "La caja condiciona las ampliaciones. El riser de la Tin Box ofrece 3 ISA de longitud completa, una PCI y una ranura compartida.",
+  "product.olivetti-pcs-p-75-e-en.verified": "Se ha cotejado la configuración con las fuentes citadas. La validación de BluMach sigue pendiente.",
+  "product.olivetti-pcs-p-75-e-en.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-pcs-p-75-e-en.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 12",
+  "product.olivetti-pcs-p-75-e-en.mc-modulo": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
+  "product.olivetti-pcs-p-75-e-en.firmware": "La revisión ayuda a identificar la BIOS de servicio. La guía registra 1.13."
+}
