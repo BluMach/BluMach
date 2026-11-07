@@ -1,0 +1,21 @@
+{
+  "product.amstrad-pc4386sx.summary": "A compact professional desktop with a 10-inch monitor and Amstrad Manager over Windows to save office space.",
+  "product.amstrad-pc4386sx.history": "Amstrad presented the PC4386SX at CeBIT in March 1991, alongside its new ANB-386SX and ACL-386SX portables. It was the Series 4 offering for offices needing a complete PC in limited space. The March brochure shows a compact system with a small monitor and states manufacture in Korea, without identifying the OEM contractor. The November 1991 Amstrad Computer User advertisement gave UK prices valid on 1 September: £1,499 plus VAT with a monochrome monitor and £1,699 plus VAT with colour.",
+  "product.amstrad-pc4386sx.warning": "Historical card under research; it does not certify booting in BluMach.",
+  "product.amstrad-pc4386sx.technical.market": "Presentation and delivery were separate events. On 13 March 1991, Newsbytes reported planned European distribution from early summer; Computerwoche confirmed the presentation on 22 March.",
+  "product.amstrad-pc4386sx.technical.configurations": "The monitor defined the two main options. The brochure offers 10-inch VGA screens: flat monochrome or colour with a 0.26 mm Sony Trinitron tube.",
+  "product.amstrad-pc4386sx.technical.memory": "Memory could grow with the applications. The brochure documents 4 MB with parity, expandable to 16 MB, and 64 KB of cache. The system-cfg sheet, p. 3 of the preserved PDF, says “4086 Ko”; the difference is retained without inferring a separate configuration.",
+  "product.amstrad-pc4386sx.technical.expansion": "The small size limited cards but still allowed expansion. The brochure documents two half-length 16-bit ISA slots and a socket for adding an 80387SX-20; it does not advertise the coprocessor as standard equipment.",
+  "product.amstrad-pc4386sx.technical.storage": "The hard disk was part of the system. The brochure specifies 80 MB and 19 ms access, alongside a 3.5-inch 1.44 MB floppy drive.",
+  "product.amstrad-pc4386sx.technical.interfaces": "Peripherals connected directly to the computer. The brochure documents VGA compatible with EGA, CGA, MDA and Hercules, RS-232C, bidirectional parallel and Amstrad keyboard/mouse connectors.",
+  "product.amstrad-pc4386sx.technical.firmware": "The preserved floppy disks do not replace the BIOS. Five OEM images and a modified version of the first disk are held, but a ROM dump attributable to PC4386SX is missing. “PC4386SX DEVICE V3.00” occurs inside DEVICE.COM; it does not establish a BIOS version.",
+  "product.amstrad-pc4386sx.technical.verified": "The research supports a description of the machine. Hashes were checked and documents/files read without executing the media; BluMach 88f74ba3 has no dedicated pc4386sx registration.",
+  "product.amstrad-pc4386sx.technical.limitations": "An attributable BIOS, dedicated model and boot tests are missing. The package’s PCem profile uses MegaPC as an approximation, not proof of ROM compatibility. The media remain unscanned for viruses; a publishable image awaits clear rights.",
+  "product.amstrad-pc4386sx.technical.brochure": "Amstrad PC4386SX, March 1991, pp. 2 and 4–5: format, specifications and manufacture in Korea.",
+  "product.amstrad-pc4386sx.technical.press": "Newsbytes, 13 March 1991, Steve Gold and Geof Wheelwright: presentation and planned availability.",
+  "product.amstrad-pc4386sx.technical.press_check": "Computerwoche, 22 March 1991, Amstrad bringt Laptop mit TFT-Display: PC4386SX presentation and equipment.",
+  "product.amstrad-pc4386sx.technical.prices": "Amstrad advertisement, Amstrad Computer User, November 1991, p. 57: UK prices as of 1 September, plus VAT.",
+  "product.amstrad-pc4386sx.technical.secondary": "system-cfg.com, Fabien Neck, p. 3 of the preserved copy: description and “4086 Ko” RAM figure, differing from the brochure.",
+  "product.amstrad-pc4386sx.technical.media_source": "Banjo’s Mods, 28 January 2019, and the package’s 2018 README: Series 4 disks and the use of the MegaPC profile as an approximation.",
+  "product.amstrad-pc4386sx.technical.source": "BluMach 88f74ba3, machine_table.c and m_amstrad.c: inspection of machine registration, with no boot test."
+}

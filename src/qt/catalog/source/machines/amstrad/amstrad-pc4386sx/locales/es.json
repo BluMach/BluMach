@@ -1,0 +1,21 @@
+{
+  "product.amstrad-pc4386sx.summary": "Un sobremesa profesional compacto, con monitor de 10 pulgadas y Amstrad Manager sobre Windows para ahorrar espacio en la oficina.",
+  "product.amstrad-pc4386sx.history": "Amstrad presentó el PC4386SX en CeBIT en marzo de 1991, junto a sus nuevos portátiles ANB-386SX y ACL-386SX. Era la propuesta de la serie 4 para oficinas que necesitaban un PC completo en poco espacio. El folleto de marzo muestra un equipo compacto con monitor pequeño y declara fabricación en Corea, sin identificar al contratista OEM. El anuncio de Amstrad Computer User de noviembre de 1991 fijaba precios británicos vigentes el 1 de septiembre: 1.499 £ más IVA con monitor monocromo y 1.699 £ más IVA en color.",
+  "product.amstrad-pc4386sx.warning": "Ficha histórica en investigación; no certifica el arranque en BluMach.",
+  "product.amstrad-pc4386sx.technical.market": "La presentación y la entrega eran momentos distintos. Newsbytes, el 13 de marzo de 1991, anunció distribución europea prevista para principios de verano; Computerwoche confirmó la presentación el 22 de marzo.",
+  "product.amstrad-pc4386sx.technical.configurations": "El monitor definía las dos opciones principales. El folleto ofrece pantallas VGA de 10 pulgadas: monocroma plana o en color con tubo Sony Trinitron de 0,26 mm.",
+  "product.amstrad-pc4386sx.technical.memory": "La memoria podía crecer con las aplicaciones. El folleto documenta 4 MB con paridad, ampliables a 16 MB, y 64 KB de caché. La ficha de system-cfg, p. 3 del PDF preservado, escribe «4086 Ko»; se conserva la diferencia sin atribuirle una configuración distinta.",
+  "product.amstrad-pc4386sx.technical.expansion": "El tamaño reducido limitaba las tarjetas, pero permitía ampliar el equipo. El folleto documenta dos ranuras ISA de 16 bits de media longitud y un zócalo para añadir un 80387SX-20; no lo anuncia instalado de serie.",
+  "product.amstrad-pc4386sx.technical.storage": "El disco duro formaba parte del equipo. El folleto especifica 80 MB y 19 ms de acceso, junto a una disquetera de 3,5 pulgadas y 1,44 MB.",
+  "product.amstrad-pc4386sx.technical.interfaces": "Los periféricos se conectaban al propio ordenador. El folleto documenta VGA compatible con EGA, CGA, MDA y Hercules, RS-232C, paralelo bidireccional y conectores Amstrad para teclado y ratón.",
+  "product.amstrad-pc4386sx.technical.firmware": "Los disquetes conservados no sustituyen a la BIOS. Hay cinco imágenes OEM y una versión modificada del primer disco, pero falta un volcado de ROM atribuible al PC4386SX. «PC4386SX DEVICE V3.00» se observa dentro de DEVICE.COM; no acredita una versión de BIOS.",
+  "product.amstrad-pc4386sx.technical.verified": "La investigación permite describir la máquina. Se comprobaron los hashes y se leyeron documentos y archivos sin ejecutar los medios; BluMach 88f74ba3 no registra un modelo pc4386sx dedicado.",
+  "product.amstrad-pc4386sx.technical.limitations": "Faltan BIOS propia, modelo dedicado y pruebas de arranque. El perfil PCem del paquete usa MegaPC como aproximación, no demuestra compatibilidad de ROM. Los medios siguen sin análisis antivirus; imagen publicable pendiente de derechos claros.",
+  "product.amstrad-pc4386sx.technical.brochure": "Amstrad PC4386SX, marzo de 1991, pp. 2 y 4–5: formato, especificaciones y fabricación en Corea.",
+  "product.amstrad-pc4386sx.technical.press": "Newsbytes, 13 de marzo de 1991, Steve Gold y Geof Wheelwright: presentación y disponibilidad prevista.",
+  "product.amstrad-pc4386sx.technical.press_check": "Computerwoche, 22 de marzo de 1991, Amstrad bringt Laptop mit TFT-Display: presentación y equipamiento del PC4386SX.",
+  "product.amstrad-pc4386sx.technical.prices": "Anuncio de Amstrad, Amstrad Computer User, noviembre de 1991, p. 57: precios británicos del 1 de septiembre, más IVA.",
+  "product.amstrad-pc4386sx.technical.secondary": "system-cfg.com, Fabien Neck, p. 3 de la copia preservada: descripción y cifra de RAM «4086 Ko», diferente del folleto.",
+  "product.amstrad-pc4386sx.technical.media_source": "Banjo’s Mods, 28 de enero de 2019, y README del paquete de 2018: disquetes Series 4 y uso del perfil MegaPC como aproximación.",
+  "product.amstrad-pc4386sx.technical.source": "BluMach 88f74ba3, machine_table.c y m_amstrad.c: inspección del registro de máquinas, sin ensayo de arranque."
+}
