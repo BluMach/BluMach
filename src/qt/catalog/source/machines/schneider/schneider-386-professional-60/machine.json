@@ -1,0 +1,97 @@
+{
+  "order": 820,
+  "machine": {
+    "id": "schneider-386-professional-60",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-386-professional",
+    "name": "Schneider 80386-60 Professional (25/60)",
+    "summary_key": "product.schneider-386-professional-60.summary",
+    "history_key": "product.schneider-386-professional-60.history",
+    "status": "research",
+    "period": "1989–1990",
+    "aliases": [
+      "Schneider 386-60/25"
+    ],
+    "tags": [
+      "Schneider"
+    ],
+    "facets": {
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "80386 · 25 MHz",
+      "memory": "2 / 4 MB",
+      "video": "VGA · 1024 × 768",
+      "floppy": "3.5″ · 1.44 MB / 5.25″ · 1.2 MB",
+      "storage": "60 / 68 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.schneider-386-professional-60.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-386-professional-60.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-386-professional-60.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-386-professional-60.technical.source_1",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-6_89.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-386-professional-60.technical.source_2",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_89.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-386-professional-60.technical.source_3",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-4_90.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-386-professional-60.technical.source_4",
+            "url": "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/gb-schn-12_90.html"
+          }
+        ]
+      }
+    ]
+  }
+}

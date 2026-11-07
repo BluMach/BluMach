@@ -1,0 +1,11 @@
+{
+  "product.schneider-386-professional-160.summary": "Il Professional a 25 MHz con riferimento commerciale 160.",
+  "product.schneider-386-professional-160.history": "Il listino tedesco del giugno 1989 proponeva il 386-160/25 a 14.990 DM netti.",
+  "product.schneider-386-professional-160.technical.configuration": "La capacità del disco varia tra i listini. Giugno 1989 indica 160 MB e il dettaglio del dicembre 1989 indica 158 MB con SCSI.",
+  "product.schneider-386-professional-160.technical.verified": "L’offerta è documentata. Il modello dedicato e la convalida dell’avvio in BluMach restano da realizzare.",
+  "product.schneider-386-professional-160.technical.limitations": "Restano da confrontare la scheda, conservare un BIOS attribuibile e trovare un’immagine con diritti di pubblicazione chiari.",
+  "product.schneider-386-professional-160.technical.source_1": "CC SELLER / BC, Schneider Computer, 06/1989, p. 1",
+  "product.schneider-386-professional-160.technical.source_2": "CC SELLER / BC, Schneider Computer, 12/1989, pp. 2–3",
+  "product.schneider-386-professional-160.technical.source_3": "CC SELLER / BC, Schneider Computer, 04/1990, pp. 1, 4–5",
+  "product.schneider-386-professional-160.technical.source_4": "CC SELLER / BC, Schneider Computer, 12/1990, pp. 4–5"
+}

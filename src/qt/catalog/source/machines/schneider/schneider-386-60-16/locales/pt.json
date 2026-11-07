@@ -1,0 +1,11 @@
+{
+  "product.schneider-386-60-16.summary": "O 80386 de 16 MHz da gama alemã de 1989.",
+  "product.schneider-386-60-16.history": "A tabela alemã de junho de 1989 apresentava o 386-60/16 por 7.990 DM líquidos.",
+  "product.schneider-386-60-16.technical.configuration": "A capacidade do disco variava entre tabelas. Figurava com 60 MB em 1989 e 68 MB em abril de 1990. A tabela de junho de 1989 indica 2 MB de RAM e o detalhe de dezembro indica 1 MB.",
+  "product.schneider-386-60-16.technical.verified": "A oferta está documentada. O modelo dedicado e a validação do arranque no BluMach continuam pendentes.",
+  "product.schneider-386-60-16.technical.limitations": "Falta comparar a placa, preservar um BIOS atribuível e encontrar uma imagem com direitos de publicação claros.",
+  "product.schneider-386-60-16.technical.source_1": "CC SELLER / BC, Schneider Computer, 06/1989, p. 1",
+  "product.schneider-386-60-16.technical.source_2": "CC SELLER / BC, Schneider Computer, 12/1989, pp. 2–3",
+  "product.schneider-386-60-16.technical.source_3": "CC SELLER / BC, Schneider Computer, 04/1990, pp. 1, 4–5",
+  "product.schneider-386-60-16.technical.source_4": "CC SELLER / BC, Schneider Computer, 12/1990, pp. 4–5"
+}

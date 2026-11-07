@@ -1,0 +1,11 @@
+{
+  "product.schneider-386-professional-340.summary": "Le Professional à 25 MHz de référence commerciale 340.",
+  "product.schneider-386-professional-340.history": "Le tarif allemand de juin 1989 annonçait le 386-340/25 à 19 990 DM nets.",
+  "product.schneider-386-professional-340.technical.configuration": "La capacité du disque varie selon le tarif. Juin 1989 indique 319 Mo, décembre 1989 indique 333 Mo et décembre 1990 indique 334 Mo. Les deux descriptions de décembre indiquent le SCSI.",
+  "product.schneider-386-professional-340.technical.verified": "L’offre est documentée. Le modèle dédié et la validation du démarrage dans BluMach restent à réaliser.",
+  "product.schneider-386-professional-340.technical.limitations": "Il reste à comparer la carte, à préserver un BIOS attribuable et à trouver une image aux droits de publication clairs.",
+  "product.schneider-386-professional-340.technical.source_1": "CC SELLER / BC, Schneider Computer, 06/1989, p. 1",
+  "product.schneider-386-professional-340.technical.source_2": "CC SELLER / BC, Schneider Computer, 12/1989, pp. 2–3",
+  "product.schneider-386-professional-340.technical.source_3": "CC SELLER / BC, Schneider Computer, 04/1990, pp. 1, 4–5",
+  "product.schneider-386-professional-340.technical.source_4": "CC SELLER / BC, Schneider Computer, 12/1990, pp. 4–5"
+}
