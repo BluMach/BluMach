@@ -75,6 +75,11 @@
             "label_key": "technical.label.manual",
             "value_key": "product.olivetti-m6-420.guide",
             "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m6-420.mc-micro-1994",
+            "url": "https://www.digitanto.it/mc-online/Pages/Indice%20Analitico%20MC%20x%20sito.htm"
           }
         ]
       }

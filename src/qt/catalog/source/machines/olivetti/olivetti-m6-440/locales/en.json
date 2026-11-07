@@ -1,10 +1,11 @@
 {
   "product.olivetti-m6-440.summary": "The 33 MHz DX configuration in the first M6 family covered by the guide.",
-  "product.olivetti-m6-440.history": "Olivetti’s guide places the M6-440 in a line of four AT configurations. Its 33 MHz DX variant belonged to the same family as the M6-420.",
+  "product.olivetti-m6-440.history": "In April 1994, MCmicrocomputer placed the M6-4xx in Olivetti’s professional workstation range. The M6-440 offered a 486DX within the same series.",
   "product.olivetti-m6-440.warning": "Historical sheet under research.",
   "product.olivetti-m6-440.architecture": "Memory could grow without replacing the board. The guide records 4 MB soldered and three sequential SIMM sockets. The documented board is BA2001.",
   "product.olivetti-m6-440.firmware": "The BIOS revision helps identify the service configuration. The guide records Flash EPROM · Rev. 1.20.",
   "product.olivetti-m6-440.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
   "product.olivetti-m6-440.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
-  "product.olivetti-m6-440.guide": "Olivetti, Personal Computer – Pocket Service Guide, §37, pp. 37-1–37-3."
+  "product.olivetti-m6-440.guide": "Olivetti, Personal Computer – Pocket Service Guide, §37, pp. 37-1–37-3.",
+  "product.olivetti-m6-440.mc-micro-1994": "MCmicrocomputer 139, April 1994, pp. 128–129"
 }

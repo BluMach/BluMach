@@ -1,10 +1,11 @@
 {
   "product.olivetti-m6-460.summary": "El M6 con DX2 a 66 MHz en la primera familia M6 documentada en la guía.",
-  "product.olivetti-m6-460.history": "La guía de Olivetti sitúa el M6-460 en una serie de cuatro configuraciones de arquitectura AT. Su variante con DX2 a 66 MHz se ofrecía dentro de la misma familia que el M6-450.",
+  "product.olivetti-m6-460.history": "En abril de 1994, MCmicrocomputer situó los M6-4xx en la oferta de estaciones profesionales de Olivetti. El M6-460 era el más rápido de los dos DX2 de la serie.",
   "product.olivetti-m6-460.warning": "Ficha histórica en investigación.",
   "product.olivetti-m6-460.architecture": "La memoria podía crecer sin sustituir la placa. La guía registra 4 MB soldados y tres zócalos SIMM consecutivos. La placa documentada es BA2002.",
   "product.olivetti-m6-460.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra Flash EPROM · Rev. 1.20.",
   "product.olivetti-m6-460.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
   "product.olivetti-m6-460.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
-  "product.olivetti-m6-460.guide": "Olivetti, Personal Computer – Pocket Service Guide, §37, pp. 37-1–37-3."
+  "product.olivetti-m6-460.guide": "Olivetti, Personal Computer – Pocket Service Guide, §37, pp. 37-1–37-3.",
+  "product.olivetti-m6-460.mc-micro-1994": "MCmicrocomputer 139, April 1994, pp. 128–129"
 }
