@@ -186,6 +186,9 @@ extern void   ide_atapi_attach(ide_t *dev);
 
 extern void *ide_xtide_init(void);
 extern void  ide_xtide_close(void);
+/* For an XTIDE transport behind a machine-owned expansion endpoint. */
+extern void *ide_xtide_init_board(int board);
+extern void  ide_xtide_close_board(int board);
 extern void  ide_xtide_set_is_jride(int is_jride);
 extern uint8_t *ide_get_pio_buffer(void *priv);
 extern void  ide_complete_pio_buffer_read(void *priv);

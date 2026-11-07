@@ -12,8 +12,9 @@
 static void    *common_priv;
 static uint16_t io_base, io_size;
 static uint32_t mapping_base, mapping_size, mapping_flags;
-static unsigned  irq_mask;
-static int       irq_set;
+static int io_removed, mapping_disabled;
+static unsigned irq_mask;
+static int irq_set;
 
 void *device_get_common_priv(void) { return common_priv; }
 void io_sethandler(uint16_t base, uint16_t size,
@@ -29,6 +30,18 @@ void io_sethandler(uint16_t base, uint16_t size,
     io_base = base;
     io_size = size;
 }
+void io_removehandler(uint16_t base, uint16_t size,
+                      uint8_t (*inb)(uint16_t, void *),
+                      uint16_t (*inw)(uint16_t, void *),
+                      uint32_t (*inl)(uint16_t, void *),
+                      void (*outb)(uint16_t, uint8_t, void *),
+                      void (*outw)(uint16_t, uint16_t, void *),
+                      void (*outl)(uint16_t, uint32_t, void *), void *priv)
+{
+    (void) base; (void) size; (void) inb; (void) inw; (void) inl;
+    (void) outb; (void) outw; (void) outl; (void) priv;
+    io_removed++;
+}
 void mem_mapping_add(mem_mapping_t *mapping, uint32_t base, uint32_t size,
                      uint8_t (*read_b)(uint32_t, void *),
                      uint16_t (*read_w)(uint32_t, void *),
@@ -43,6 +56,11 @@ void mem_mapping_add(mem_mapping_t *mapping, uint32_t base, uint32_t size,
     mapping_base = base;
     mapping_size = size;
     mapping_flags = flags;
+}
+void mem_mapping_disable(mem_mapping_t *mapping)
+{
+    (void) mapping;
+    mapping_disabled++;
 }
 void picint_common(uint16_t num, int level, int set, uint8_t *irq_state)
 {
@@ -90,12 +108,17 @@ main(void)
     assert(toshiba_aform_slot_set_io_handler(slot, 0x300, 0x10, test_in,
                                               test_out, NULL));
     assert(io_base == 0x300 && io_size == 0x10);
+    assert(toshiba_aform_slot_remove_io_handler(slot, 0x300, 0x10, test_in,
+                                                 test_out, NULL));
+    assert(io_removed == 1);
     assert(toshiba_aform_slot_add_mapping(slot, &mapping, 0xc8000, 0x2000,
                                           test_read, NULL, NULL,
                                           MEM_MAPPING_ROM, NULL));
     assert(mapping_base == 0xc8000 && mapping_size == 0x2000);
     assert(mapping_flags & MEM_MAPPING_EXTERNAL);
     assert(mapping_flags & MEM_MAPPING_IS_ROM);
+    assert(toshiba_aform_slot_remove_mapping(slot, &mapping));
+    assert(mapping_disabled == 1);
     assert(toshiba_aform_slot_set_irq(slot, 5, 1));
     assert(irq_mask == (1u << 5) && irq_set);
     assert(toshiba_aform_slot_set_irq(slot, 5, 0));
