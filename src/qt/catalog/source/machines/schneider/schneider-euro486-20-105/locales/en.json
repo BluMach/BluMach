@@ -1,0 +1,14 @@
+{
+  "product.schneider-euro486-20-105.summary": "The Euro486 configuration advertised as /20–105 in Portugal.",
+  "product.schneider-euro486-20-105.history": "IFS advertised the Euro486 /20–105 in Portugal in May 1992 alongside the /20–40 and /20–90. It belonged to the Euro range that Schneider presented for desktop publishing, graphics and network workstations.",
+  "product.schneider-euro486-20-105.warning": "Historical sheet under research.",
+  "product.schneider-euro486-20-105.technical.configuration": "The advertisement uses the designation /20–105. Its disk drive and board revision still need to be checked against a physical specimen.",
+  "product.schneider-euro486-20-105.technical.board": "The board integrates memory and video. Schneider signs the Singleboard 486 schematic for board 53 854 00 in the HD 40 and HD 90. The parts list identifies VLSI VL82C330/331/332, BIGJIM and ATI 28800-5.",
+  "product.schneider-euro486-20-105.technical.firmware": "One EPROM combines boot and video firmware. For board 53 854 00, the schematic places system and VGA in U16, a 128 KiB 27C010, part 53 891 00. An attributed dump remains to be preserved.",
+  "product.schneider-euro486-20-105.technical.verified": "The configuration is documented. A dedicated model and boot in BluMach remain pending.",
+  "product.schneider-euro486-20-105.technical.limitations": "Attributed firmware, validation of the board map and an image with clear publication rights are still needed.",
+  "product.schneider-euro486-20-105.technical.press": "Computerwoche, Schneider baut 486SX-PC für unter 5000 Mark, 20-09-1991",
+  "product.schneider-euro486-20-105.technical.range": "IFS, Expresso, 23-05-1992, p. A3",
+  "product.schneider-euro486-20-105.technical.manual": "Schneider, Service Manual EURO AT II / EURO 486 SX, pp. 45–84",
+  "product.schneider-euro486-20-105.technical.business": "Computerwoche, Schneider erweitert die Business-Linie um 486SX-PC, 08-11-1991"
+}
