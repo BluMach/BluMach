@@ -15,6 +15,12 @@
     ],
     "tags": [],
     "facets": {
+      "display_technology": [
+        "crt"
+      ],
+      "storage_interface": [
+        "floppy"
+      ],
       "form_factor": [
         "desktop"
       ],

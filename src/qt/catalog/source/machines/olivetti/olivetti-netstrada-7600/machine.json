@@ -13,6 +13,12 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "cpu_generation": [
+        "x86_pentium_iii"
+      ],
+      "storage_interface": [
+        "scsi"
+      ],
       "mobility": [
         "stationary"
       ]

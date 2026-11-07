@@ -13,6 +13,9 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "cpu_generation": [
+        "mips_r4000"
+      ],
       "form_factor": [
         "desktop"
       ],

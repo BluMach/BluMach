@@ -16,6 +16,9 @@
       "PCI"
     ],
     "facets": {
+      "cpu_generation": [
+        "x86_pentium"
+      ],
       "form_factor": [
         "all_in_one"
       ],

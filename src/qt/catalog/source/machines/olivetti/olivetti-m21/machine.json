@@ -17,6 +17,12 @@
       "OGC"
     ],
     "facets": {
+      "display_technology": [
+        "crt"
+      ],
+      "storage_interface": [
+        "floppy"
+      ],
       "form_factor": [
         "luggable"
       ],

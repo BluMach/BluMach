@@ -64,6 +64,7 @@ constexpr auto FormFactorRole   = Qt::UserRole + 6;
 constexpr auto CountRole        = Qt::UserRole + 7;
 constexpr auto BrandMarkRole    = Qt::UserRole + 8;
 constexpr auto BrandMarkBackgroundRole = Qt::UserRole + 9;
+constexpr auto HideResearchFilter = "hide_research";
 
 QColor
 blendColor(const QColor &background, const QColor &foreground, const qreal amount)
@@ -732,6 +733,7 @@ void BluMachCollectionWidget::reloadLanguage()
     const QSignalBlocker blocker(m_statusFilter);
     m_statusFilter->clear();
     m_statusFilter->addItem(m_catalog.text(QStringLiteral("collection.all_states")), QString());
+    m_statusFilter->addItem(m_catalog.text(QStringLiteral("collection.hide_research")), QString::fromLatin1(HideResearchFilter));
     for (const auto &status : { QStringLiteral("validated"), QStringLiteral("partial"), QStringLiteral("experimental"), QStringLiteral("research"), QStringLiteral("not_bootable") }) {
         if (availableStatuses.contains(status))
             m_statusFilter->addItem(m_catalog.statusText(status), status);
@@ -1398,6 +1400,7 @@ void BluMachCollectionWidget::applyFilter()
     updateAdvancedFiltersButton();
     const QString needle = m_search->text().trimmed();
     const QString status = m_statusFilter->currentData().toString();
+    const bool hideResearch = status == QString::fromLatin1(HideResearchFilter);
     bool hasAdvancedSelection = !status.isEmpty();
     for (const auto *filter : m_facetFilters)
         hasAdvancedSelection |= !filter->currentData().toString().isEmpty();
@@ -1435,7 +1438,8 @@ void BluMachCollectionWidget::applyFilter()
                                     platform ? platform->architecture : QString() }).join(' ')
                     : QString();
                 const bool visible = product
-                    && (status.isEmpty() || product->status == status)
+                    && (hideResearch ? product->status != QStringLiteral("research")
+                                     : status.isEmpty() || product->status == status)
                     && matchesFacetFilters(*product)
                     && (needle.isEmpty() || haystack.contains(needle, Qt::CaseInsensitive));
                 productItem->setHidden(!visible);

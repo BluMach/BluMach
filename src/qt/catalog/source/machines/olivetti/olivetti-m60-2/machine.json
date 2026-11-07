@@ -19,6 +19,9 @@
       "MOS"
     ],
     "facets": {
+      "cpu_generation": [
+        "zilog_z8000"
+      ],
       "mobility": [
         "stationary"
       ]
