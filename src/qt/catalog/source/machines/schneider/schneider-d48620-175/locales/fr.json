@@ -1,0 +1,14 @@
+{
+  "product.schneider-d48620-175.summary": "La référence /20–175 de la gamme Business dans la publicité portugaise d’IFS.",
+  "product.schneider-d48620-175.history": "Schneider a présenté le D486/20 en novembre 1991 comme son 486SX de la gamme Business, avec 8 Mo de série. La liste allemande de décembre indiquait 5 289 DM nets pour la configuration de base. En mai 1992, IFS annonçait la référence /20–175 au Portugal.",
+  "product.schneider-d48620-175.technical.configuration": "Les offres variaient selon le marché et la date. La liste allemande de 1991 indique des disques de 100 et 200 Mo pour le D486/20. La publicité portugaise identifie la référence /20–175. Le disque correspondant reste à vérifier.",
+  "product.schneider-d48620-175.technical.board": "Un exemplaire conservé permet d’identifier sa carte. Les photos montrent Schneider Singleboard II 486, ensemble 54 091, et le contrôleur Intel 82346A. Le propriétaire documente 4 Mo et un Maxtor de 213 Mo. Computerwoche indiquait 8 Mo de série.",
+  "product.schneider-d48620-175.technical.firmware": "Les écrans de démarrage identifient le firmware de cet exemplaire. Ils montrent Quadtel 3.05.06, Schneider 1.00a et VGA 3.04. La révision commerciale et les dumps restent à déterminer.",
+  "product.schneider-d48620-175.warning": "Fiche historique en cours de recherche.",
+  "product.schneider-d48620-175.technical.verified": "BluMach dispose de la fiche documentaire. Le modèle dédié et le démarrage restent à réaliser.",
+  "product.schneider-d48620-175.technical.limitations": "Il reste à préserver la ROM, à comparer les configurations physiques et à valider la carte. Une image aux droits de publication clairs reste à trouver.",
+  "product.schneider-d48620-175.technical.press": "Computerwoche, Schneider erweitert die Business-Linie um 486SX-PC, 08-11-1991",
+  "product.schneider-d48620-175.technical.range": "IFS, Expresso, 23-05-1992, p. A3",
+  "product.schneider-d48620-175.technical.prices": "CC SELLER / BC, Schneider Computer, 12/1991, p. 3",
+  "product.schneider-d48620-175.technical.owner": "Chip-Monk, Schneider D486/20 Mainboard und Bios (und Fragen), VzEkC, 2024"
+}

@@ -1,0 +1,14 @@
+{
+  "product.schneider-d48620-420.summary": "The /20–420 designation in the Portuguese IFS advertisement for the Business range.",
+  "product.schneider-d48620-420.history": "Schneider introduced the D486/20 in November 1991 as its Business-line 486SX, with 8 MB as standard. The December German list quoted DM 5,289 net for the basic configuration. In May 1992, IFS advertised the /20–420 designation in Portugal.",
+  "product.schneider-d48620-420.technical.configuration": "Offers varied by market and date. The 1991 German list shows 100 and 200 MB disks for the D486/20. The Portuguese advertisement identifies the /20–420 designation. The corresponding drive still needs verification.",
+  "product.schneider-d48620-420.technical.board": "A surviving unit identifies its board. The photographs show Schneider Singleboard II 486, assembly 54 091, and the Intel 82346A controller. The owner documents 4 MB and a 213 MB Maxtor. Computerwoche reported 8 MB as standard.",
+  "product.schneider-d48620-420.technical.firmware": "Boot screens identify the firmware of that specimen. They show Quadtel 3.05.06, Schneider 1.00a and VGA 3.04. The commercial revision and dumps remain pending.",
+  "product.schneider-d48620-420.warning": "Historical sheet under research.",
+  "product.schneider-d48620-420.technical.verified": "BluMach has the documentary sheet. A dedicated model and boot remain pending.",
+  "product.schneider-d48620-420.technical.limitations": "ROM preservation, comparison of physical configurations and board validation remain pending. The sheet awaits an image with clear publication rights.",
+  "product.schneider-d48620-420.technical.press": "Computerwoche, Schneider erweitert die Business-Linie um 486SX-PC, 08-11-1991",
+  "product.schneider-d48620-420.technical.range": "IFS, Expresso, 23-05-1992, p. A3",
+  "product.schneider-d48620-420.technical.prices": "CC SELLER / BC, Schneider Computer, 12/1991, p. 3",
+  "product.schneider-d48620-420.technical.owner": "Chip-Monk, Schneider D486/20 Mainboard und Bios (und Fragen), VzEkC, 2024"
+}
