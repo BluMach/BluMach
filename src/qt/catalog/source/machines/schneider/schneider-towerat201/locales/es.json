@@ -1,0 +1,18 @@
+{
+  "product.schneider-towerat201.summary": "La entrada a la gama Tower AT, con una disquetera y sin disco duro de serie.",
+  "product.schneider-towerat201.history": "El Tower AT 201 era la configuración de acceso de la gama compacta Schneider, documentada en 1988. Compartía diseño con los 202 y 220, pero se apoyaba en una sola disquetera. La propuesta se orientaba al trabajo con DOS y software incluido, en una caja que también podía colocarse horizontalmente. El manual identifica electrónica Schneider; no acredita un contratista OEM externo.",
+  "product.schneider-towerat201.technical.configurations": "La configuración base evita confundirlo con el 220. El 201 se identifica con una disquetera de 720 KB. Happy Computer ensayó en 1988 un Tower sin disco por unos 2.500 DM, pero no indicó el sufijo: no es un precio de lanzamiento confirmado del 201.",
+  "product.schneider-towerat201.technical.firmware": "Las ROM de familia no son un volcado confirmado del 201. El expediente histórico llamado towerat201 contiene juegos towerat2xx; algunas procedencias se identifican como 220 o 240 Mega. Falta una atribución física específica al 201.",
+  "product.schneider-towerat201.warning": "Ficha histórica en investigación; arranque en BluMach pendiente de validación.",
+  "product.schneider-towerat201.technical.verified": "Se han comprobado fuentes y hashes de los archivos. BluMach a1b0125d no tiene una entrada específica de este modelo; MAME agrupa los Tower AT 2xx como no funcionales. No se ha probado el arranque.",
+  "product.schneider-towerat201.technical.limitations": "Falta validar el equipo completo. Hay que identificar placa, pareja de BIOS y ROM de vídeo, y comprobar POST, memoria, teclado, RTC, discos y puertos antes de declarar emulación utilizable.",
+  "product.schneider-towerat201.technical.board": "La CPU y la memoria están en una tarjeta separada. El manual 201/202/220 documenta la Tower CPU286 50229, lógica GC101/GC102, RTC DS1287 y teclado 8042/8742; incluye distintas revisiones de circuito.",
+  "product.schneider-towerat201.technical.memory": "La ampliación depende de la placa instalada. El esquema del manual muestra 512 KB de base y bancos opcionales DIL/SIMM; no demuestra que todas las unidades tengan los conectores montados.",
+  "product.schneider-towerat201.technical.video": "El vídeo integrado deja libres ranuras de expansión. La prueba de 1988 documenta EGA y hasta 800 × 600 con monitor multisíncrono y software adecuado; cuenta tres ranuras de 16 bits y una de 8 bits.",
+  "product.schneider-towerat201.technical.manual": "Schneider, Service Manual Tower AT 201/202/220, Ident-Nr. 44657, 03/1989: portada y esquemas de CPU/memoria revisados; PDF preservado.",
+  "product.schneider-towerat201.technical.review": "Happy Computer 11/1988, M. Ohnesorg/rz, Rechengiganten zu Niedrigpreisen, pp. 97–98 y 101: prueba de un Tower AT sin disco duro, sin identificar el sufijo comercial.",
+  "product.schneider-towerat201.technical.mega": "Happy Computer 05/1989, Sammlerstück, p. 18: edición 220 Mega, equipamiento, precios y tirada anunciada; escaneo y transcripción preservados.",
+  "product.schneider-towerat201.technical.range": "Jungsi, Schneider VGA AT System 40: recopilación de la gama y cronología aproximada; no sustituye a un manual específico de cada revisión.",
+  "product.schneider-towerat201.technical.mame": "MAME, at.cpp: juegos towerat2xx, procedencias por variante y emparejamientos EGA pendientes. Los archivos se conservan en biblioteca; su presencia no prueba compatibilidad universal.",
+  "product.schneider-towerat201.technical.code": "BluMach a1b0125d, tabla de máquinas inspeccionada y conservada: sin entrada Tower AT específica."
+}

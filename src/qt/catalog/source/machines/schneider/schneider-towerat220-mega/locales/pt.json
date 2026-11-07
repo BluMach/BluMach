@@ -1,0 +1,16 @@
+{
+  "product.schneider-towerat220-mega.summary": "A edição limitada do 220 que duplica a memória e adota disquetes de alta densidade.",
+  "product.schneider-towerat220-mega.history": "A Happy Computer apresentou o Tower AT 220 Mega em maio de 1989 como série anunciada de 2.000 unidades. Custava perto de 3.800 DM com monitor monocromático, cerca de 300 DM acima do 220 normal. Mantinha o disco de 20 MB e aumentava memória e capacidade de disquete, atualizando a mesma proposta de trabalho com DOS e Works.",
+  "product.schneider-towerat220-mega.technical.configurations": "Memória e disquete distinguem a edição. A revista documenta 1 MB e 1,44 MB contra 512 KB e 720 KB do 220 normal; cita também cerca de 4.600 DM com EGA e quase 5.300 DM com monitor multissíncrono. A tiragem é anunciada, não um total de produção verificado.",
+  "product.schneider-towerat220-mega.technical.firmware": "A designação Mega não identifica uma BIOS única. Não há um par atribuído especificamente ao 220 Mega nos registos revistos; a BIOS 1.07 citada pelo MAME vem de um 240 Mega, outro modelo.",
+  "product.schneider-towerat220-mega.warning": "Ficha histórica em investigação; arranque no BluMach não validado.",
+  "product.schneider-towerat220-mega.technical.verified": "Foram verificadas fontes e hashes dos ficheiros. O BluMach a1b0125d não tem uma entrada específica para este modelo; o MAME agrupa os Tower AT 2xx como não funcionais. O arranque não foi testado.",
+  "product.schneider-towerat220-mega.technical.limitations": "Falta validar o equipamento completo. É preciso identificar placa, par de BIOS e ROM de vídeo e testar POST, memória, teclado, RTC, discos e portas antes de declarar a emulação utilizável.",
+  "product.schneider-towerat220-mega.technical.board": "Uma caixa comum não garante a mesma placa. O manual preservado cobre 201/202/220; a arquitetura orienta o estudo, mas esquemas e revisões desta variante continuam por comparar.",
+  "product.schneider-towerat220-mega.technical.manual": "Schneider, Service Manual Tower AT 201/202/220, Ident-Nr. 44657, 03/1989: capa e esquemas CPU/memória revistos; PDF preservado.",
+  "product.schneider-towerat220-mega.technical.review": "Happy Computer 11/1988, M. Ohnesorg/rz, Rechengiganten zu Niedrigpreisen, pp. 97–98 e 101: teste de um Tower AT sem disco rígido, sem identificar o sufixo comercial.",
+  "product.schneider-towerat220-mega.technical.mega": "Happy Computer 05/1989, Sammlerstück, p. 18: edição 220 Mega, equipamento, preços e tiragem anunciada; digitalização e transcrição preservadas.",
+  "product.schneider-towerat220-mega.technical.range": "Jungsi, Schneider VGA AT System 40: panorama da gama e cronologia aproximada; não substitui um manual de cada revisão.",
+  "product.schneider-towerat220-mega.technical.mame": "MAME, at.cpp: conjuntos towerat2xx, proveniência por variante e associações EGA por resolver. Os ficheiros estão preservados; a sua presença não prova compatibilidade universal.",
+  "product.schneider-towerat220-mega.technical.code": "BluMach a1b0125d, tabela de máquinas inspecionada e preservada: sem entrada Tower AT específica."
+}

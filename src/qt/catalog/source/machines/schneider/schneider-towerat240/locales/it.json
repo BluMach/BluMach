@@ -1,0 +1,17 @@
+{
+  "product.schneider-towerat240.summary": "La variante Tower AT con disco da 40 MB, documentata anche in configurazioni Mega.",
+  "product.schneider-towerat240.history": "Il System 240 ampliava a 40 MB l'archiviazione Tower AT. La cronologia richiede di distinguere modello ed esemplare: Jungsi colloca i primi 240 nel 1988, mentre Rüdiger Patommel data la sua unità al 1990. Quell'esemplare ha 1 MB e floppy ad alta densità; non dimostra che tutti i 240 uscissero così equipaggiati.",
+  "product.schneider-towerat240.technical.configurations": "Le configurazioni conservate non sono uniformi. MAME descrive una base 2xx da 512 KB e 720 KB e cita un 240 Mega; il proprietario documenta 1 MB, 1,44 MB e disco da 40 MB. Entrambe le fonti restano distinte, senza creare una specifica unica.",
+  "product.schneider-towerat240.technical.firmware": "L'attribuzione del BIOS è più precisa del nome 240. MAME segnala 1.07 su un 240 Mega e i due file da 32 KiB sono conservati. L'abbinamento EGA esatto resta da stabilire; la coppia non è attribuita a tutti i 240.",
+  "product.schneider-towerat240.warning": "Scheda storica in ricerca; avvio in BluMach non validato.",
+  "product.schneider-towerat240.technical.verified": "Fonti e hash dei file sono stati verificati. BluMach a1b0125d non ha una voce specifica per questo modello; MAME raggruppa i Tower AT 2xx come non funzionanti. L'avvio non è stato provato.",
+  "product.schneider-towerat240.technical.limitations": "Occorre validare la macchina completa. Vanno identificati scheda, coppia BIOS e ROM video, poi verificati POST, memoria, tastiera, RTC, dischi e porte prima di dichiarare l'emulazione utilizzabile.",
+  "product.schneider-towerat240.technical.board": "Un case comune non garantisce la stessa scheda. Il manuale conservato copre 201/202/220; l'architettura orienta lo studio, ma schemi e revisioni di questa variante restano da confrontare.",
+  "product.schneider-towerat240.technical.manual": "Schneider, Service Manual Tower AT 201/202/220, Ident-Nr. 44657, 03/1989: copertina e schemi CPU/memoria esaminati; PDF conservato.",
+  "product.schneider-towerat240.technical.review": "Happy Computer 11/1988, M. Ohnesorg/rz, Rechengiganten zu Niedrigpreisen, pp. 97–98 e 101: prova di un Tower AT senza disco rigido, senza suffisso commerciale identificato.",
+  "product.schneider-towerat240.technical.mega": "Happy Computer 05/1989, Sammlerstück, p. 18: edizione 220 Mega, dotazione, prezzi e tiratura annunciata; scansione e trascrizione conservate.",
+  "product.schneider-towerat240.technical.owner240": "Rüdiger Patommel, foto e descrizione di un System 240, 23-04-2013: attribuzione al 1990, 10 MHz, 1 MB, disco da 40 MB e floppy da 1,44 MB. Tutti i diritti riservati.",
+  "product.schneider-towerat240.technical.range": "Jungsi, Schneider VGA AT System 40: panoramica della gamma e cronologia approssimativa; non sostituisce un manuale per ogni revisione.",
+  "product.schneider-towerat240.technical.mame": "MAME, at.cpp: set towerat2xx, provenienza per variante e abbinamenti EGA irrisolti. I file sono conservati in biblioteca; la loro presenza non prova compatibilità universale.",
+  "product.schneider-towerat240.technical.code": "BluMach a1b0125d, tabella macchine esaminata e conservata: nessuna voce Tower AT specifica."
+}
