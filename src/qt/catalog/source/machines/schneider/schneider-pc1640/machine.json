@@ -1,0 +1,103 @@
+{
+  "order": 700,
+  "machine": {
+    "id": "schneider-pc1640",
+    "visible": true,
+    "manufacturer_id": "schneider",
+    "family_id": "schneider-amstrad-badges",
+    "name": "Schneider PC1640",
+    "summary_key": "product.schneider-pc1640.summary",
+    "history_key": "product.schneider-pc1640.history",
+    "status": "research",
+    "period": "1987",
+    "aliases": [],
+    "tags": [
+      "Schneider",
+      "Amstrad"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "video": [
+        "cga",
+        "ega"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "monochrome",
+        "color"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "8086",
+      "memory": "640 KB",
+      "video": "CGA / EGA / Hercules",
+      "storage": "20 MB HDD",
+      "floppy": "1–2 × FDD"
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.schneider-pc1640.technical.detail",
+            "url": "https://archive.org/details/schneider_pc-1640_benutzer-handbuch_1987"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.schneider-pc1640.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.schneider-pc1640.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-pc1640.technical.source_1",
+            "url": "https://blog.hnf.de/das-war-der-schneider-euro-pc/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-pc1640.technical.source_2",
+            "url": "https://archive.org/details/schneider_pc-1640_benutzer-handbuch_1987"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.schneider-pc1640.technical.period_press",
+            "url": "https://www.computerwoche.de/article/2806932/pc-1640-soll-bei-grosskunden-ankommen.html"
+          }
+        ]
+      }
+    ],
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    }
+  }
+}
