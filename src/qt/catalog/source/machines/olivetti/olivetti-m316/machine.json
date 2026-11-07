@@ -1,0 +1,106 @@
+{
+  "order": 10200,
+  "machine": {
+    "id": "olivetti-m316",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M316",
+    "summary_key": "product.olivetti-m316.summary",
+    "history_key": "product.olivetti-m316.history",
+    "warning_key": "product.olivetti-m316.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
+      ],
+      "video": [
+        "vga"
+      ],
+      "display_technology": [
+        "lcd"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80386SX · 16/8 MHz",
+      "memory": "1–5 MB",
+      "video": "VGA · STN LCD · 640 × 480",
+      "expansion": "1 × ISA 16-bit",
+      "storage": "3.5″ FDD · 720 KB / 1.44 MB · HDD 20/40 MB"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m316.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.setup",
+            "value_key": "product.olivetti-m316.setup"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m316.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m316.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m316.olivetti-brochure",
+            "url": "https://olivrea.de/prospekte-laptop-portable/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m316.sco-install",
+            "url": "https://www.scosales.com/ta/kb/103177.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m316.owner-specimen",
+            "url": "https://www.doomi.ch/olivetti-m316/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m316.owner-teardown",
+            "url": "https://www.doomi.ch/olivetti-m316-teardown/"
+          }
+        ]
+      }
+    ],
+    "period": "1990"
+  }
+}
