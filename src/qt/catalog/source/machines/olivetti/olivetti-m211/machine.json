@@ -1,0 +1,131 @@
+{
+  "order": 83,
+  "machine": {
+    "id": "olivetti-m211",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M211",
+    "summary_key": "product.olivetti-m211.summary",
+    "history_key": "product.olivetti-m211.history",
+    "warning_key": "product.olivetti-m211.warning",
+    "status": "research",
+    "period": "1989",
+    "aliases": [
+      "M211 EGA"
+    ],
+    "tags": [
+      "80C286",
+      "EGA"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_286"
+      ],
+      "video": [
+        "ega"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80C286 · 16 MHz",
+      "memory": "1 MB",
+      "video": "EGA · LCD · 640 × 400",
+      "hard_disk": "Conner CP3022 · 20 MB / CP3044 · 40 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.olivetti-m211.technical.market"
+          },
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m211.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m211.technical.video"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m211.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m211.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m211.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m211.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.market",
+            "value_key": "product.olivetti-m211.technical.history_source",
+            "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m211.technical.press_source",
+            "url": "https://www.computerwoche.de/article/2769751/olivetti-pc-kuenstlich-gebremst.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m211.technical.study_source",
+            "url": "https://kinedoc.org/"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m211.technical.manual_source",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html"
+          },
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.olivetti-m211.technical.image_source",
+            "url": "https://www.vintads.it/file.php?cod=3474"
+          }
+        ]
+      }
+    ]
+  }
+}
