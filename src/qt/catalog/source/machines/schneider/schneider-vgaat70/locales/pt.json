@@ -8,7 +8,7 @@
   "product.schneider-vgaat70.technical.verified": "Foram comparados documentos e fotografias de proprietários. O BluMach 7968236c não tem uma entrada VGA AT específica; este equipamento não foi executado nem validado.",
   "product.schneider-vgaat70.technical.limitations": "A emulação completa continua pendente. Faltam BIOS de sistema atribuída, revisão da placa e validação de POST, memória, vídeo, RTC, discos e portas.",
   "product.schneider-vgaat70.technical.clock": "As fontes divergem na velocidade. A tabela de Jungsi indica 10 MHz e o texto 12 MHz; a foto do SETUP do seu System 40 mostra CPU/bus a 12,5/6,25 MHz. O MAME também descreve uma placa de 12,5 MHz para os VGA System 40/70. Não é uma medição nossa.",
-  "product.schneider-vgaat70.technical.owner": "Jungsi, Schneider VGA AT System 40, 2024, atualizado em 2026: restauro, fotos da placa e do SETUP; frequências discordantes preservadas.",
+  "product.schneider-vgaat70.technical.owner": "Jungsi, Schneider VGA AT System 40, 2024, atualizado em 2026: restauro, fotos da placa e do SETUP; frequências divergentes preservadas.",
   "product.schneider-vgaat70.technical.cc": "ODW.lab, catálogo Classic Computing 2022, p. 55: exemplar VGA AT System 40, data 1989 e memória; PDF preservado.",
   "product.schneider-vgaat70.technical.hcl": "Microsoft Q62098, Windows 3.0 Hardware Compatibility List, cópia arquivada: enumera VGA AT System 40 e 70 sem estabelecer a data de lançamento.",
   "product.schneider-vgaat70.technical.mame": "MAME, at.cpp, cópia de 07-11-2026: observações físicas dos Tower VGA 286 e 386SX, placa de E/S comum e limites de atribuição.",
