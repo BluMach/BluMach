@@ -164,3 +164,12 @@ https://victoriancollections.net.au/items/5ac6fbae21ea6b0ac0af74d5, the Dario
 The reference photographs are not distributed with BluMach. All prompts lock the
 chassis, drives, grille, perspective, lighting and background and permit changes
 only inside the recessed front badge.
+
+## Olivetti M290S motherboard photograph
+
+`olivetti-m290s-board.jpg` is the unmodified M203 motherboard photograph by
+dataino.it, published by [The Retro Web](https://theretroweb.com/motherboards/s/olivetti-m203)
+under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+It depicts the board, not the complete computer. The source filename contains
+`m320`; the M203 identification follows the source record and corroborating
+board evidence rather than the filename. An exterior photograph remains pending.
