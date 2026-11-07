@@ -1,0 +1,11 @@
+{
+  "product.ta-10-1.summary": "Le TA 10/1 ajoutait les calculs de facturation à un poste équipé d’une machine à écrire.",
+  "product.ta-10-1.history": "C’était la facturière de la gamme présentée par Triumph-Adler en 1971 pour les petites et moyennes entreprises. L’électronique se trouvait dans une mallette séparée du clavier et du mécanisme d’impression.",
+  "product.ta-10-1.technical.configuration": "Le programme était fixe dans la mallette. Un exemplaire conserve des cartes à matrices de diodes. Le manuel de programmation décrit aussi une configuration à PROM.",
+  "product.ta-10-1.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-10-1.technical.limitations": "Le programme d’un exemplaire identifié et un essai de fonctionnement restent à obtenir.",
+  "product.ta-10-1.technical.source_1": "Bedienungshandbuch TA 10/1 · Triumph-Adler",
+  "product.ta-10-1.technical.source_2": "TA 10 System- und Programmierhandbuch · Triumph-Adler",
+  "product.ta-10-1.technical.source_3": "Geniestreich von TA Triumph-Adler · 2011",
+  "product.ta-10-1.technical.source_4": "TA 10/1 · ejemplar de Rainer Horniger"
+}

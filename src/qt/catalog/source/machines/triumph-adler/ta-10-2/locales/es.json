@@ -1,0 +1,10 @@
+{
+  "product.ta-10-2.summary": "El TA 10/2 permitía cambiar el programa sin abrir el armario de la electrónica.",
+  "product.ta-10-2.history": "Triumph-Adler lo situaba en la gama TA 10 como máquina contable. Reunía en un escritorio el mecanismo de escritura, un teclado numérico separado y una cassette de programa reemplazable.",
+  "product.ta-10-2.technical.configuration": "El cambio de tarea se hacía sustituyendo la cassette. El manual ubica el módulo detrás de una tapa con llave en el lado izquierdo del escritorio.",
+  "product.ta-10-2.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-10-2.technical.limitations": "Queda pendiente recuperar el programa de una unidad identificada y comprobar su funcionamiento.",
+  "product.ta-10-2.technical.source_1": "Bedienungshandbuch TA 10/2 · Triumph-Adler",
+  "product.ta-10-2.technical.source_2": "TA 10 System- und Programmierhandbuch · Triumph-Adler",
+  "product.ta-10-2.technical.source_3": "Geniestreich von TA Triumph-Adler · 2011"
+}
