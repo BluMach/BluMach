@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m300-25.summary": "The entry-level M300 that adopted Micro Channel.",
+  "product.olivetti-m300-25.history": "Olivetti offered the M300-25 in September 1991 as an entry-level Micro Channel workstation alongside the AT-bus M300 models. The service guide includes a network configuration without magnetic drives.",
+  "product.olivetti-m300-25.warning": "Historical sheet under research.",
+  "product.olivetti-m300-25.architecture": "Memory expansion required modules of the same capacity. The guide documents two banks, 1 or 4 MB modules and 82C452 video. The catalogue classifies the bus as MCA and the guide also uses the label “AT expansion slots” in its table.",
+  "product.olivetti-m300-25.firmware": "The BIOS revision helps identify the service configuration. The guide records 1.03.",
+  "product.olivetti-m300-25.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m300-25.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m300-25.guide": "Olivetti, Personal Computer – Pocket Service Guide, 23-1.",
+  "product.olivetti-m300-25.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

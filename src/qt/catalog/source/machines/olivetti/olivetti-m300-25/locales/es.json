@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m300-25.summary": "El M300 de entrada que adoptó el bus Micro Channel.",
+  "product.olivetti-m300-25.history": "Olivetti ofrecía el M300-25 en septiembre de 1991 como estación de entrada con Micro Channel, en paralelo a los M300 de bus AT. La guía de servicio incluye una configuración de red sin unidades magnéticas.",
+  "product.olivetti-m300-25.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m300-25.architecture": "Las ampliaciones de memoria debían usar módulos de igual capacidad. La guía documenta dos bancos, módulos de 1 o 4 MB y vídeo 82C452. El catálogo clasifica el bus como MCA y la guía también usa la etiqueta «AT expansion slots» en su tabla.",
+  "product.olivetti-m300-25.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra 1.03.",
+  "product.olivetti-m300-25.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m300-25.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m300-25.guide": "Olivetti, Personal Computer – Pocket Service Guide, 23-1.",
+  "product.olivetti-m300-25.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

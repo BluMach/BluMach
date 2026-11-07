@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m300-05.summary": "The entry-level M300 with integrated VGA and disk and tape options.",
+  "product.olivetti-m300-05.history": "In September 1991 Olivetti placed the M300-05 in its entry-level workstation range. The catalogue offered 40 or 120 MB disks and tape options.",
+  "product.olivetti-m300-05.warning": "Historical sheet under research.",
+  "product.olivetti-m300-05.architecture": "Expansion depends on the configuration. The guide lists three 16-bit connectors on IN283 and the 1991 catalogue lists four available. The guide identifies PVGA1B and the DP8473 floppy controller.",
+  "product.olivetti-m300-05.firmware": "The BIOS revision helps identify the service configuration. The guide records 1.08.",
+  "product.olivetti-m300-05.verified": "The identity was checked in Olivetti documentation. The sheet remains under research.",
+  "product.olivetti-m300-05.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m300-05.guide": "Olivetti, Personal Computer – Pocket Service Guide, 18-1.",
+  "product.olivetti-m300-05.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

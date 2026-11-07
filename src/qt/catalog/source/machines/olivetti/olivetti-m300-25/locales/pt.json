@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m300-25.summary": "O M300 de entrada que adotou o barramento Micro Channel.",
+  "product.olivetti-m300-25.history": "A Olivetti oferecia o M300-25 em setembro de 1991 como estação Micro Channel de entrada, em paralelo com os M300 de barramento AT. O guia inclui uma configuração de rede sem unidades magnéticas.",
+  "product.olivetti-m300-25.warning": "Ficha histórica em investigação.",
+  "product.olivetti-m300-25.architecture": "A expansão de memória exigia módulos da mesma capacidade. O guia documenta dois bancos, módulos de 1 ou 4 MB e vídeo 82C452. O catálogo classifica o barramento como MCA e o guia também usa «AT expansion slots» na tabela.",
+  "product.olivetti-m300-25.firmware": "A revisão da BIOS ajuda a identificar a configuração de serviço. O guia regista 1.03.",
+  "product.olivetti-m300-25.verified": "A identidade foi verificada na documentação da Olivetti. A ficha permanece em investigação.",
+  "product.olivetti-m300-25.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-m300-25.guide": "Olivetti, Personal Computer – Pocket Service Guide, 23-1.",
+  "product.olivetti-m300-25.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

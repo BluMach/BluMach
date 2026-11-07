@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m300-01.summary": "La estación de red de entrada de la gama M300, con opciones Ethernet y Token Ring.",
+  "product.olivetti-m300-01.history": "El catálogo profesional de septiembre de 1991 presentaba el M300-01 como estación de red de entrada. Ofrecía Ethernet o Token Ring y dejaba el disco duro como opción.",
+  "product.olivetti-m300-01.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m300-01.architecture": "Las tarjetas de red podían iniciar el equipo a distancia. La guía registra NCU 9142 con RPL 3C503 1.5 y NCU 9172 con TRR 9209 1.03.",
+  "product.olivetti-m300-01.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra 1.08.",
+  "product.olivetti-m300-01.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m300-01.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m300-01.guide": "Olivetti, Personal Computer – Pocket Service Guide, 20-1.",
+  "product.olivetti-m300-01.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

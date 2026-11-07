@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m300-10.summary": "El M300 de entrada con caché externa para el 386SX a 20 MHz.",
+  "product.olivetti-m300-10.history": "El catálogo de septiembre de 1991 situaba el M300-10 en la gama de entrada, por encima de los M300 de 16 MHz en frecuencia y capacidad de disco anunciada.",
+  "product.olivetti-m300-10.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m300-10.architecture": "La caché reducía los accesos a la RAM. La guía especifica 16 KB con controlador 82385 y admite 386SX de Intel o AMD. La guía indica 2–12 MB en placa y el catálogo enumera 2/4–16 MB.",
+  "product.olivetti-m300-10.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra BA250 → 1.00 · BA275 → 1.02 · BA279 → 1.04 · BA289/BA303 → 1.06.",
+  "product.olivetti-m300-10.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m300-10.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m300-10.guide": "Olivetti, Personal Computer – Pocket Service Guide, 19-1.",
+  "product.olivetti-m300-10.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}
