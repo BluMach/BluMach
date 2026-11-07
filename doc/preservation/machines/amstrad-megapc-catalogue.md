@@ -13,7 +13,7 @@ translations.
 | Existing PC profile and limits | [BluMach loader](https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_at_386sx.c#L788) and the WD90C11 video loader. [PCem’s README](https://github.com/sarah-walker-pcem/pcem/blob/dev/README.md) explicitly scopes its Mega PC support to the PC side. BluMach boot and peripheral validation are pending. The games card and video/audio switching need separate work. |
 
 The catalogue photograph is Staffan Vilcans’s photograph from Retrogathering
-2010, retouched by Ubcule. It is included at the original Commons file size
+2010, retouched by Ubcule. A catalogue-size copy is included
 under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/).
 [Photograph and modification history](https://commons.wikimedia.org/wiki/File:Amstrad_Mega_PC_(5058669424)_(retouched).jpg).
 

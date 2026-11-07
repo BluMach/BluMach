@@ -1,5 +1,37 @@
 # BluMach catalog images
 
+## Catalogue renditions
+
+The table identifies the bundled files resized for the catalogue. Their original
+source images, credits and licences are described below. Statements below about
+unmodified files or original dimensions apply to the source original for these
+entries. The bundled copies retain those same licences. Each rendition preserves
+the full image, with orientation applied and JPEG encoding for the package.
+
+| Bundled file | Dimensions | Original SHA-256 | Bundled SHA-256 |
+| --- | --- | --- | --- |
+| `alt286-photo.jpg` | 1280x718 | `2380860f9008e4aa2378f9261c496f72b8f28c6875829332b7369417114d14b5` | `0ec5f1d03f4bb3f6860c4e127f63ee56c47f7feb030a31983a1a6ffea8da7462` |
+| `amstrad-megapc-photo.jpg` | 1280x544 | `97ca99768545f491024cfd2ff7c4432a76d710744b2c850bb1e1db0a5e5ef367` | `c5bbb014c78c3b2785aaefaf65ab4fe04b5569635b5583d659fb1599c9c06794` |
+| `amstrad-pc1640hd20-photo.jpg` | 1280x853 | `6a59ac3b544b81c5340de244a8bd36065d567154d9e2b82e5b75bf390602e3ea` | `cadfc92ec5c1b92b2ca4fdca5ada77a9bd7bbcd855a9ba3cfb7308cff664caa3` |
+| `olivetti-echos-pro-133-s-photo.jpg` | 1280x1196 | `44930c7b00a9fd8659b3b8d3d53b03c14d382aa47a1e80d34f5954bee764a297` | `01b100a536bd7e4c9877d8c9bd0b5b6cfe0a0cb275df9b60344bd16c1a5fd1a8` |
+| `olivetti-envision-p75-photo.jpg` | 559x465 | `54aa6967b6b85456148ea0fe90328d9e13a08950b70a2027ee883438017b53ce` | `85c96252f6e3236ad229a6fa863086452993d7fab50ddfdee0af6519be47e3f8` |
+| `olivetti-m19-photo.jpg` | 1280x960 | `e108adc6edfaa73f665e52eb7287b6b807078755eb5d2de927cdb8c878d5a4f4` | `2c40f215d96d6d3f29cf16693f895f8fa03427de376f0ddadcd339bec616d2c8` |
+| `olivetti-m20-photo.jpg` | 1280x711 | `e95e890b5f5aa8f02a78591335dce6038f906c5bd01e2c79b9e1d2188e762822` | `58491c7e6fc6861bfeb025b60803889f9d22684502bc7b6b4172eb7424c18a0c` |
+| `olivetti-m200-photo.jpg` | 720x1280 | `3a98ee023b648f639bb2d4d72de93ba91949bbdafe6f3a87096270ddba529faf` | `31e267642705133aba67e35d9ddb0694f27b691f4df3cadc55a557758acbe945` |
+| `olivetti-m21-photo.jpg` | 1280x960 | `3681caf786cc01eb567b3521b9ef38e4d9b023bfe1178b7e6258beee78411640` | `d93db9f8ac1995b831afb0aaadb76ad3a9a4d8b4c64bbc429ebf319beddc5677` |
+| `olivetti-m24-photo.jpg` | 1280x960 | `c45f65afd29e088846ca16139347fc84db15cd2ed74cbc3182632e1720bc6401` | `ce38f42c9cab9c2e53feff5f14d5c9be65a8126587a6b9c6c0f0d8b12becd706` |
+| `olivetti-m24sp-photo.jpg` | 1120x840 | `c9a13820fdf02a698027360de16569d9789a5a831c71609cdb649324771dbf46` | `59a04405ef916c2ebdf205f4c02cf867e894a4e4334f3807208a8554630c8cbd` |
+| `olivetti-m290s-board.jpg` | 741x1120 | `f76857b6f5c285436f518c4ed89df36976555f3c4186ef97e00a49ee3dba60a8` | `69565b54200330aa734ca853ba9c147e2b7e4cc102c8d4b3cfd84225cae56f84` |
+| `olivetti-m4-454s-photo.jpg` | 1280x960 | `dcb0ec315c0c7e33466db965912863b633ef5a5e050ff0661870d8adc21883fe` | `fa59ebb67cffc2d64db5ede2da4af7474444c8c8c8d54ee5b197c3ba6e637cc7` |
+| `olivetti-philos-44-photo.jpg` | 1280x853 | `d0a5e47cd4e16f5c40262b1a2dfa31fa2ecc909960a3faa9ef5af6f18ec81174` | `87a47fbe31e82cb7351dbc716c4b28ef255aa9f1172286f643ad670ecc3cfbcc` |
+| `olivetti-prodest-pc128s-photo.jpg` | 1280x1038 | `4b55cecdb5da6e38d4e2be9d4a23a1690b9ce2986f26a043ec3b1c6619208c60` | `de8d1ae1654d806641a1f7a87fe4948398fbdbe6422383098e15e09e02eb6a8b` |
+| `olivetti-quaderno-photo.jpg` | 1280x1280 | `76fbbb5093747fa0e0f85966ddaa2fc505616ca451f68513561112bca280f68c` | `c672ddbf4e9b140bcd80bed4334d5a8193dd650d051d49d5343ff55c0f24b6e0` |
+| `schneider-europc-photo.jpg` | 1280x575 | `cf93774c77d6271fd1446d713ce862ffc53225dba7a423d77766020a38f6ab0e` | `3c954ccb94fd234dd3f3099dadd80d5b9dad7eccbf136677c301ca24df883dfb` |
+| `schneider-pc1512-dd-photo.jpg` | 1144x1280 | `3cf28ca7d46edc82446efc4445a41c3a7cbb2267277733924d3f92d0b9a60853` | `756d87646a2051c333f9e1c02e0f643f746bda69931a7ef6360f1450ef24efc4` |
+| `schneider-towerat220-photo.jpg` | 1280x739 | `09a0782d500f4e0d2c171cf3c579513247c5f735755837e38c5887e507526160` | `aac6206df7df2631034eda6522150c7c03eab70914fd15c206f6e6edec5c8cac` |
+| `sinclair-apc386sx-photo.jpg` | 1280x393 | `33a80c0f48b96ff4225f738c599e197010ccf793a587ed7d7ffc9019b750ad08` | `52d84e88b6779a90f8773970db63a6a9f922181ff35fd23eb9042c6f40ef78a2` |
+| `sinclair-pc200-photo.jpg` | 1280x960 | `e23a28d20108a4ff93fb6cea054bea9a989a986d224742c66674bd2a1955d009` | `eab1eee00062a933ac4a6cc0a865ef8fc16ce976e95dee318a33b3bd88d28f8c` |
+
 This directory holds two kinds of image:
 
 - **Illustrations** (`*-family-*.jpg`, `*-branded.jpg`, `*-board.jpg`): author and
