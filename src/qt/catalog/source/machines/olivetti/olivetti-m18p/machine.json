@@ -1,0 +1,149 @@
+{
+  "order": 199,
+  "machine": {
+    "id": "olivetti-m18p",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M18P",
+    "summary_key": "product.olivetti-m18p.summary",
+    "history_key": "product.olivetti-m18p.history",
+    "warning_key": "product.olivetti-m18p.warning",
+    "status": "research",
+    "period": "1984",
+    "aliases": [
+      "M18 P",
+      "M18 P-1",
+      "Olivetti M18-P"
+    ],
+    "tags": [
+      "8088",
+      "Corona",
+      "MS-DOS"
+    ],
+    "facets": {
+      "form_factor": [
+        "luggable"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "monochrome"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "8088",
+      "memory": "128–512 KB (?)",
+      "video": "CRT",
+      "floppy": "FDD"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.commercial",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.commercial_configurations",
+            "value_key": "product.olivetti-m18p.technical.identity"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.memory_map",
+            "value_key": "product.olivetti-m18p.technical.memory"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m18p.technical.video"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m18p.technical.storage"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_identity",
+            "value_key": "product.olivetti-m18p.technical.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m18p.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m18p.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m18p.technical.source_ad",
+            "url": "https://colorcomputerarchive.com/repo/Documents/Magazines/Compute/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m18p.technical.source_report",
+            "url": "https://gq.mines.gouv.qc.ca/documentation/informations-complementaires/fonds-documentaire-examine/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m18p.technical.source_oem",
+            "url": "https://classictech.wordpress.com/computer-companies/corona-data-systems-westlake-village-calif/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m18p.technical.source_board",
+            "url": "https://theretroweb.com/motherboards/s/corona-data-systems-ppc-400"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m18p.technical.source_th99",
+            "url": "https://www.elhvb.com/mobokive/th99/m/M-O/33867.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m18p.technical.source_mame",
+            "url": "https://github.com/mamedev/mame/blob/fc81fbe1caa36d3909ae65288c45d888aad707d4/src/mame/pc/pc.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m18p.technical.source_owner",
+            "url": "https://forum.classic-computing.de/forum/index.php?postID=102163&thread%2F3077-mein-neuestes-etwas%2F="
+          }
+        ]
+      }
+    ]
+  }
+}
