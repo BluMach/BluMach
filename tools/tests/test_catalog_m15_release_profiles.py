@@ -22,7 +22,7 @@ class M15ReleaseProfileTests(unittest.TestCase):
                           'olivetti-m250', 'olivetti-m250e', 'olivetti-m280',
                           'olivetti-m300-if378', 'olivetti-m30002', 'olivetti-m30002f',
                           'olivetti-m30008', 'olivetti-m30015', 'olivetti-m30030',
-                          'olivetti-m30030p', 'olivetti-m290sp', 'olivetti-echos-20', 'olivetti-echos-20-color', 'olivetti-echos-24', 'olivetti-echos-24c', 'olivetti-echos-48-color-plus', 'olivetti-echos-p75', 'olivetti-echos-p90', 'olivetti-echos-p90s', 'olivetti-echos-p100c', 'olivetti-echos-p100e', 'olivetti-echos-p120e', 'olivetti-echos-p133s', 'olivetti-echos-p100d', 'olivetti-echos-p120d', 'olivetti-echos-p133c', 'olivetti-echos-pro-133-s', 'olivetti-echos-pro-166xm', 'olivetti-echos-p120s', 'olivetti-echos-pro-150s'}, visible)
+                          'olivetti-m30030p', 'olivetti-m290sp', 'olivetti-echos-26c', 'olivetti-echos-20', 'olivetti-echos-20-color', 'olivetti-echos-24', 'olivetti-echos-24c', 'olivetti-echos-48-color-plus', 'olivetti-echos-p75', 'olivetti-echos-p90', 'olivetti-echos-p90s', 'olivetti-echos-p100c', 'olivetti-echos-p100e', 'olivetti-echos-p120e', 'olivetti-echos-p133s', 'olivetti-echos-p100d', 'olivetti-echos-p120d', 'olivetti-echos-p133c', 'olivetti-echos-pro-133-s', 'olivetti-echos-pro-166xm', 'olivetti-echos-p120s', 'olivetti-echos-pro-150s'}, visible)
         for model in ('olivetti-m15', 'olivetti-m15-plus'):
             self.assertEqual('experimental', self.products[model]['status'])
 
