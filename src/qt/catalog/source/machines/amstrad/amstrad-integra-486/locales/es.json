@@ -1,0 +1,9 @@
+{
+  "product.amstrad-integra-486.summary": "El Integra de entrada con 486, vendido también como Premier con software adicional.",
+  "product.amstrad-integra-486.history": "Amstrad situó el 486 como la puerta de entrada al Integra doméstico. Su folleto británico de 1996 ofrecía el PC/TV por 899 libras y el Premier con aplicaciones y juegos por 949 libras, ambos más IVA.",
+  "product.amstrad-integra-486.technical.configuration": "La dotación de memoria varió entre ofertas. Personal Computer World citó 4 MB en febrero de 1996 y el folleto de Amstrad Direct anunció después 8 MB para los dos paquetes 486.",
+  "product.amstrad-integra-486.technical.verified": "La configuración se ha contrastado con fuentes de época. La ficha está en investigación en BluMach.",
+  "product.amstrad-integra-486.technical.limitations": "Faltan la BIOS de sistema atribuible, la identificación de la placa y la validación del arranque, del sintonizador y del mando.",
+  "product.amstrad-integra-486.technical.brochure": "Amstrad Direct · Integra PC/TV brochure · pp. 2–4",
+  "product.amstrad-integra-486.technical.pcw": "Personal Computer World · Ben Tisdall · February 1996 · p. 18"
+}

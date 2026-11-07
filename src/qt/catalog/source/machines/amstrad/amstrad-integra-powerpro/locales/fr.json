@@ -1,0 +1,10 @@
+{
+  "product.amstrad-integra-powerpro.summary": "L’Integra haut de gamme, avec MPEG de série pour lire les Video CD.",
+  "product.amstrad-integra-powerpro.history": "Personal Computer World a testé le PowerPro 90 en mars 1996 à 1 599 livres. Amstrad Direct a présenté le P100 comme son successeur et l’a annoncé à 1 299 livres hors TVA pour le marché domestique britannique.",
+  "product.amstrad-integra-powerpro.technical.configuration": "Integravision permettait de regarder la télévision dans une fenêtre et de capturer des images fixes. Le P90 testé utilisait un Cirrus Logic GD5434 et un disque de 520 Mo. La brochure du P100 indique 540 Mo.",
+  "product.amstrad-integra-powerpro.technical.verified": "La configuration a été vérifiée à partir de sources de l’époque. La fiche BluMach est au stade de la recherche.",
+  "product.amstrad-integra-powerpro.technical.limitations": "Il reste à obtenir un BIOS système attribuable, à identifier la carte mère et à valider le démarrage, le tuner TV et la télécommande.",
+  "product.amstrad-integra-powerpro.technical.recovery": "Le paquet de restauration permet de rétablir les fonctions multimédias sous Windows 95. La copie conservée pour l’Integra Pentium contient des logiciels TV et MPEG.",
+  "product.amstrad-integra-powerpro.technical.brochure": "Amstrad Direct · Integra PC/TV brochure · pp. 2–4",
+  "product.amstrad-integra-powerpro.technical.pcw": "Personal Computer World · Ken McMahon · Zenith Z-Station LC vs Amstrad Integra PowerPro 90 · March 1996 · pp. 60, 64"
+}

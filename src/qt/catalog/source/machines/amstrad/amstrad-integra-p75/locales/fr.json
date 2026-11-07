@@ -1,0 +1,9 @@
+{
+  "product.amstrad-integra-p75.summary": "Le premier Pentium du catalogue britannique Integra, entre le Premier 486 et le Power Pro.",
+  "product.amstrad-integra-p75.history": "Amstrad Direct proposait le Premier P75 à 1 149 livres hors TVA dans sa brochure britannique de 1996. Il conservait les applications et jeux du Premier et occupait le milieu de la gamme familiale.",
+  "product.amstrad-integra-p75.technical.configuration": "La télécommande permettait de piloter le téléviseur intégré. La brochure indique Fastext, un disque EIDE de 540 Mo et un lecteur CD-ROM 4×. La carte MPEG était en option.",
+  "product.amstrad-integra-p75.technical.verified": "La configuration a été vérifiée à partir de sources de l’époque. La fiche BluMach est au stade de la recherche.",
+  "product.amstrad-integra-p75.technical.limitations": "Il reste à obtenir un BIOS système attribuable, à identifier la carte mère et à valider le démarrage, le tuner TV et la télécommande.",
+  "product.amstrad-integra-p75.technical.recovery": "Le paquet de restauration permet de rétablir les fonctions multimédias sous Windows 95. La copie conservée pour l’Integra Pentium contient des logiciels TV et MPEG.",
+  "product.amstrad-integra-p75.technical.brochure": "Amstrad Direct · Integra PC/TV brochure · pp. 2–4"
+}

@@ -1,0 +1,94 @@
+{
+  "order": 306,
+  "machine": {
+    "id": "amstrad-integra-p75",
+    "visible": true,
+    "manufacturer_id": "amstrad",
+    "family_id": "amstrad-integra",
+    "name": "Amstrad Integra Premier P75",
+    "summary_key": "product.amstrad-integra-p75.summary",
+    "history_key": "product.amstrad-integra-p75.history",
+    "status": "research",
+    "period": "1996",
+    "tags": [
+      "TV",
+      "Fastext",
+      "PCI"
+    ],
+    "facets": {
+      "form_factor": [
+        "all_in_one"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "video": [
+        "vga"
+      ],
+      "display_technology": [
+        "crt"
+      ],
+      "display_color": [
+        "color"
+      ],
+      "storage_interface": [
+        "floppy",
+        "ide"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel Pentium · 75 MHz",
+      "memory": "8 MB · L2 256 KB",
+      "video": "SVGA · CRT · TV",
+      "storage": "540 MB EIDE · CD-ROM 4×",
+      "expansion": "PCI",
+      "floppy": "3.5″ · 1.44 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.amstrad-integra-p75.technical.configuration"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.amstrad-integra-p75.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.amstrad-integra-p75.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-integra-p75.technical.recovery",
+            "url": "https://www.freetimeweb.nl/home/computer/alt/lawsons-amstrad-computer_site/web.ukonline.co.uk/cliff.lawson/newpcs.htm#software"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.amstrad-integra-p75.technical.brochure",
+            "url": "https://amstrad.com/product-category/computer/page/2/"
+          }
+        ]
+      }
+    ]
+  }
+}
