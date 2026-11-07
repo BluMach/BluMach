@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m28-40.summary": "La configuration M28 de 40 Mo avec disque et moniteur monochrome de série.",
+  "product.olivetti-m28-40.history": "Le prospectus néerlandais situait le M28/40 parmi les configurations professionnelles de la famille M28. L’ensemble comprenait un disque de 40 Mo et un moniteur monochrome.",
+  "product.olivetti-m28-40.warning": "Fiche historique en cours de recherche.",
+  "product.olivetti-m28-40.architecture": "La mémoire de travail pouvait être étendue sur la carte. Le prospectus indique 512 Ko de base et jusqu’à 1 Mo sur la carte système.",
+  "product.olivetti-m28-40.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
+  "product.olivetti-m28-40.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
+  "product.olivetti-m28-40.olivetti-nl": "Olivetti Nederland, Personal Computer M28, Technische specificaties, p. 1"
+}

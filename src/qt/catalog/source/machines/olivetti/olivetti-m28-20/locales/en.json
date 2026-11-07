@@ -1,0 +1,9 @@
+{
+  "product.olivetti-m28-20.summary": "The 20 MB M28 configuration with a hard disk and monochrome monitor as standard.",
+  "product.olivetti-m28-20.history": "The Dutch brochure placed the M28/20 among the M28 professional configurations. The bundle included a 20 MB hard disk and a monochrome monitor.",
+  "product.olivetti-m28-20.warning": "Historical sheet under research.",
+  "product.olivetti-m28-20.architecture": "Working memory could be expanded on the board. The brochure specifies 512 KB base memory and up to 1 MB on the system board.",
+  "product.olivetti-m28-20.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-m28-20.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-m28-20.olivetti-nl": "Olivetti Nederland, Personal Computer M28, Technische specificaties, p. 1"
+}
