@@ -1,0 +1,10 @@
+{
+  "product.olivetti-cp486.summary": "La plataforma EISA con 486 que preveía un procesador i860 opcional.",
+  "product.olivetti-cp486.history": "La guía de servicio de Olivetti documenta CP486 (la plataforma EISA con 486 que preveía un procesador i860 opcional).",
+  "product.olivetti-cp486.warning": "Ficha histórica en investigación.",
+  "product.olivetti-cp486.architecture": "La placa determina la combinación de periféricos que hay que contrastar. La guía identifica BA847 / BA867 · GO734 / GO739 · SCSI.",
+  "product.olivetti-cp486.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra 2.03.",
+  "product.olivetti-cp486.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-cp486.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-cp486.guide": "Olivetti, Personal Computer – Pocket Service Guide, 13-1."
+}
