@@ -1,0 +1,12 @@
+{
+  "product.olivetti-envision-400.summary": "The Envision living-room PC in its 486 configuration.",
+  "product.olivetti-envision-400.history": "Olivetti introduced Envision in 1995 for use with a television in the living room. In December, MCmicrocomputer listed the 420 MB version with an infrared keyboard at 2,990,000 lire before VAT.",
+  "product.olivetti-envision-400.warning": "Historical sheet under research.",
+  "product.olivetti-envision-400.architecture": "It could use a television and be controlled from the sofa. The onboard Trident video supports a TV and the console receives signals from the infrared keyboard with a trackball.",
+  "product.olivetti-envision-400.verified": "The configuration was checked against the cited sources. BluMach validation is pending.",
+  "product.olivetti-envision-400.limitations": "Firmware verification, boot tests and a photograph with clear publication rights are pending.",
+  "product.olivetti-envision-400.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 15",
+  "product.olivetti-envision-400.mc-micro": "Paolo Ciardelli, MCmicrocomputer 157, December 1995, pp. 204–209",
+  "product.olivetti-envision-400.museum": "Museo Tecnologicamente, Olivetti Envision, 1995",
+  "product.olivetti-envision-400.firmware": "The revision helps identify the service BIOS. The guide lists 2.06."
+}

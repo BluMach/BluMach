@@ -1,0 +1,12 @@
+{
+  "product.olivetti-envision-400.summary": "O PC de sala da gama Envision na configuração 486.",
+  "product.olivetti-envision-400.history": "A Olivetti apresentou o Envision em 1995 para utilização na sala com um televisor. Em dezembro, a MCmicrocomputer indicou o preço de 2.990.000 liras sem IVA para a versão de 420 MB com teclado de infravermelhos.",
+  "product.olivetti-envision-400.warning": "Ficha histórica em investigação.",
+  "product.olivetti-envision-400.architecture": "Podia usar um televisor e ser controlado a partir do sofá. O vídeo Trident integrado suporta o televisor e a consola recebe os sinais do teclado de infravermelhos com trackball.",
+  "product.olivetti-envision-400.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
+  "product.olivetti-envision-400.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
+  "product.olivetti-envision-400.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 15",
+  "product.olivetti-envision-400.mc-micro": "Paolo Ciardelli, MCmicrocomputer 157, December 1995, pp. 204–209",
+  "product.olivetti-envision-400.museum": "Museo Tecnologicamente, Olivetti Envision, 1995",
+  "product.olivetti-envision-400.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 2.06."
+}
