@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m486-esdi.summary": "L’M486 EISA con dischi ESDI e controller combinato WD1009-SE2.",
+  "product.olivetti-m486-esdi.history": "Il catalogo professionale del settembre 1991 collocava l’M486 tra i server EISA. La guida documenta M486 ESDI (l’M486 EISA con dischi ESDI e controller combinato WD1009-SE2).",
+  "product.olivetti-m486-esdi.warning": "Scheda storica in fase di ricerca.",
+  "product.olivetti-m486-esdi.architecture": "La scheda determina la combinazione di periferiche da verificare. La guida indica BA859 / BA860 / BA868 / BA869 · GO739 / GO481 · ESDI.",
+  "product.olivetti-m486-esdi.firmware": "La revisione del BIOS aiuta a identificare la configurazione di servizio. La guida indica 2.03.",
+  "product.olivetti-m486-esdi.verified": "L’identità è stata verificata nella documentazione Olivetti. La scheda resta in fase di ricerca.",
+  "product.olivetti-m486-esdi.limitations": "Restano da verificare il firmware e l’avvio e da reperire una fotografia con diritti di pubblicazione chiari.",
+  "product.olivetti-m486-esdi.guide": "Olivetti, Personal Computer – Pocket Service Guide, 17-1.",
+  "product.olivetti-m486-esdi.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

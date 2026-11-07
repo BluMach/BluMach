@@ -1,0 +1,11 @@
+{
+  "product.olivetti-m486-scsi.summary": "El M486 EISA con controlador SCSI ESC-1 GO740.",
+  "product.olivetti-m486-scsi.history": "El catálogo profesional de septiembre de 1991 situaba al M486 en su gama de servidores EISA. La guía documenta M486 SCSI (el M486 EISA con controlador SCSI ESC-1 GO740).",
+  "product.olivetti-m486-scsi.warning": "Ficha histórica en investigación.",
+  "product.olivetti-m486-scsi.architecture": "La placa determina la combinación de periféricos que hay que contrastar. La guía identifica BA859 / BA860 / BA868 / BA869 / BA882 · GO739 · SCSI.",
+  "product.olivetti-m486-scsi.firmware": "La revisión de BIOS permite identificar la configuración de servicio. La guía registra 2.03.",
+  "product.olivetti-m486-scsi.verified": "Se ha comprobado la identidad en la documentación de Olivetti. La ficha queda en investigación.",
+  "product.olivetti-m486-scsi.limitations": "Quedan pendientes el cotejo del firmware, las pruebas de arranque y una foto con derechos de publicación claros.",
+  "product.olivetti-m486-scsi.guide": "Olivetti, Personal Computer – Pocket Service Guide, 16-1.",
+  "product.olivetti-m486-scsi.market": "Olivetti, La gamma dei personal computer professionali, 3905621C-00, 9/91."
+}

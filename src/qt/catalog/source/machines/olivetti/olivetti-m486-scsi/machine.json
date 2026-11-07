@@ -1,0 +1,90 @@
+{
+  "order": 10030,
+  "machine": {
+    "id": "olivetti-m486-scsi",
+    "visible": true,
+    "manufacturer_id": "olivetti",
+    "family_id": "olivetti-m",
+    "name": "Olivetti M486 SCSI",
+    "summary_key": "product.olivetti-m486-scsi.summary",
+    "history_key": "product.olivetti-m486-scsi.history",
+    "warning_key": "product.olivetti-m486-scsi.warning",
+    "status": "research",
+    "aliases": [],
+    "tags": [],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_486"
+      ]
+    },
+    "hardware": {
+      "cpu": "i486 · 25 MHz",
+      "memory": "2 / 4 / 8 MB",
+      "video": "GO739",
+      "hard_disk": "SCSI",
+      "expansion": "EISA"
+    },
+    "firmware": {
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.cpu_bus",
+            "value_key": "product.olivetti-m486-scsi.architecture"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.firmware",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.bios_revision",
+            "value_key": "product.olivetti-m486-scsi.firmware"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.olivetti-m486-scsi.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.olivetti-m486-scsi.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.olivetti-m486-scsi.guide",
+            "url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html"
+          },
+          {
+            "label_key": "technical.label.brochure",
+            "value_key": "product.olivetti-m486-scsi.market",
+            "url": "https://www.ardent-tool.com/Olivetti/"
+          }
+        ]
+      }
+    ],
+    "period": "1991"
+  }
+}
