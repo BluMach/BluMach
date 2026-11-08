@@ -245,6 +245,16 @@
       "mame"
     ]
   },
+  "ta-1520": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-1540": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-alphatronic-pc16": {
     "documentation": "documented",
     "firmware_custody": "partial",

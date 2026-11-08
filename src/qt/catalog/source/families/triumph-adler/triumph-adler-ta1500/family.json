@@ -1,0 +1,24 @@
+{
+  "order": 2010,
+  "family": {
+    "id": "triumph-adler-ta1500",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "TA 1500",
+    "description_key": "family.triumph-adler-ta1500.description",
+    "history_key": "family.triumph-adler-ta1500.history",
+    "history_references": [
+      {
+        "title": "Triumph-Adler setzt weiterhin auf den Fachhändler",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2872184/triumph-adler-setzt-weiterhin-auf-den-fachhaendler.html"
+      },
+      {
+        "title": "Vertrieb der TA 1520/1540",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2874117/nixdorf-gibt-folgende-personalveraenderungen-bekannt-die-position-des-geschaeftsstellenleiters-in-dortmund-wurde-am-1-april-1979-von-peter-hildebrand-bisher-verkaufsleiter-im-dv-bereich-der-geschaefts.html"
+      }
+    ]
+  }
+}
