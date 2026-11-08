@@ -173,6 +173,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "schneider-towers-1992", "schneider-vga-at", "toshiba-t-series", "trigem-sx386",
                 "triumph-adler-alphatronic-p",
                 "triumph-adler-alphatronic-pc",
+                "triumph-adler-ta100",
                 "triumph-adler-dario",
             }, visible_families)
         self.assertEqual(
@@ -300,6 +301,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "ta-alphatronic-p2l", "ta-alphatronic-p2s", "ta-alphatronic-p2u",
                 "ta-alphatronic-p3", "ta-alphatronic-p4", "ta-alphatronic-p30", "ta-alphatronic-p40",
                 "ta-alphatronic-pc", "ta-alphatronic-pc16",
+                "ta-100-2",
                 "ta-dario286", "ta-dario386sx", "toshiba-t3200", "toshiba-t5100",
                 "toshiba-t5200", "trigem-sx386m",
             },
