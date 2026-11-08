@@ -59,6 +59,86 @@
         "olivetti-pcs6150",
         "olivetti-pcs6160"
       ]
+    },
+    {
+      "id": "olivetti-pcs-pxx-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti PCS P/xx",
+      "summary_key": "collection.variants.olivetti-pcs-pxx-range.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-pcs-p-75-e-en",
+        "olivetti-pcs-p-75-n",
+        "olivetti-pcs-p-90-e-en",
+        "olivetti-pcs-p-90-n",
+        "olivetti-pcs-p-100-en",
+        "olivetti-pcs-p-100-n",
+        "olivetti-pcs-p-133-en",
+        "olivetti-pcs-p-133-n"
+      ]
+    },
+    {
+      "id": "olivetti-pcs-d4-100-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti PCS D4/100",
+      "summary_key": "collection.variants.olivetti-pcs-d4-100-range.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-pcs-d4-100-en",
+        "olivetti-pcs-d4-100-n"
+      ]
+    },
+    {
+      "id": "olivetti-echos-p-1995-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti Echos P · 75 / 90",
+      "summary_key": "collection.variants.olivetti-echos-p-1995-range.summary",
+      "source_url": "https://www.digitanto.it/mc-online/Pages/Indice%20Analitico%20MC%20x%20sito.htm",
+      "variants": [
+        "olivetti-echos-p75",
+        "olivetti-echos-p90",
+        "olivetti-echos-p90s"
+      ]
+    },
+    {
+      "id": "olivetti-echos-p-us-1996-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti Echos P · USA 1996",
+      "summary_key": "collection.variants.olivetti-echos-p-us-1996-range.summary",
+      "source_url": "https://www.kaisernet.org/library/1996/1096/10r05.htm",
+      "variants": [
+        "olivetti-echos-p100c",
+        "olivetti-echos-p100e",
+        "olivetti-echos-p120e",
+        "olivetti-echos-p133s"
+      ]
+    },
+    {
+      "id": "olivetti-m6-640-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M6-640 · 640 / 640 DP",
+      "summary_key": "collection.variants.olivetti-m6-640-range.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m6-640",
+        "olivetti-m6-640-dp"
+      ]
+    },
+    {
+      "id": "olivetti-m6-650-690-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M6 · 650 / 670 / 680 / 690",
+      "summary_key": "collection.variants.olivetti-m6-650-690-range.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m6-650",
+        "olivetti-m6-650-dp",
+        "olivetti-m6-670",
+        "olivetti-m6-680",
+        "olivetti-m6-680-dp",
+        "olivetti-m6-690",
+        "olivetti-m6-690-dp"
+      ]
     }
   ]
 }

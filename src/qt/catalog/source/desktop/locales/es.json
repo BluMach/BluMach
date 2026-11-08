@@ -2,5 +2,11 @@
   "collection.variants.olivetti-m4-75-133-range.summary": "La guía de servicio de Olivetti recoge ocho configuraciones M4 con Pentium de 75 a 133 MHz. El sufijo S identifica la caja Slim Tin frente a la Tin estándar.",
   "collection.variants.olivetti-m4-pxx-range.summary": "La serie M4-Pxx reúne siete configuraciones ISA/PCI en cajas Tin y Slim Tin. La guía de servicio distingue placas Socket 5 y Socket 7.",
   "collection.variants.olivetti-pcs-51xx-range.summary": "Los PCS 5120, 5130 y 5140 llevan de fábrica un Pentium de 75, 100 y 133 MHz, respectivamente, en caja Slim Tin.",
-  "collection.variants.olivetti-pcs-61xx-range.summary": "Los PCS 6120 a 6160 se vendieron en caja Tin con cinco configuraciones Pentium de fábrica, de 75 a 166 MHz."
+  "collection.variants.olivetti-pcs-61xx-range.summary": "Los PCS 6120 a 6160 se vendieron en caja Tin con cinco configuraciones Pentium de fábrica, de 75 a 166 MHz.",
+  "collection.variants.olivetti-pcs-pxx-range.summary": "Olivetti documentó ocho configuraciones Pentium de 75 a 133 MHz. Las referencias E/En llevan caja Tin y las n, Slim Tin.",
+  "collection.variants.olivetti-pcs-d4-100-range.summary": "Las dos versiones llevan un DX4 a 100 MHz y 128 KB de caché L2. La En usa caja Tin y la n, Slim Tin.",
+  "collection.variants.olivetti-echos-p-1995-range.summary": "La gama que recogió MCmicrocomputer en 1995 combinaba un Pentium de 75 MHz con pantalla DSTN o uno de 90 MHz con pantalla TFT de 10,4 o 11,8 pulgadas.",
+  "collection.variants.olivetti-echos-p-us-1996-range.summary": "La gama estadounidense de 1996 reunió cuatro portátiles Pentium de 100 a 133 MHz. Variaban el procesador y la pantalla y compartían una bahía modular.",
+  "collection.variants.olivetti-m6-640-range.summary": "La guía distingue el M6-640 con un Pentium a 90 o 100 MHz y el M6-640 DP con dos Pentium a 90 MHz.",
+  "collection.variants.olivetti-m6-650-690-range.summary": "La guía reúne siete configuraciones Pentium de 100 a 166 MHz en caja Tin. Las variantes DP salían de fábrica con dos procesadores."
 }

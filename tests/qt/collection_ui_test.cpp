@@ -644,6 +644,9 @@ private slots:
             { "olivetti-m4-4x-microtower", 2 }, { "olivetti-m4-6x-m305", 5 }, { "olivetti-m6-850-860", 2 },
             { "olivetti-m4-75-133-range", 8 }, { "olivetti-m4-pxx-range", 7 },
             { "olivetti-pcs-51xx-range", 3 }, { "olivetti-pcs-61xx-range", 5 },
+            { "olivetti-pcs-pxx-range", 8 }, { "olivetti-pcs-d4-100-range", 2 },
+            { "olivetti-echos-p-1995-range", 3 }, { "olivetti-echos-p-us-1996-range", 4 },
+            { "olivetti-m6-640-range", 2 }, { "olivetti-m6-650-690-range", 7 },
         };
         int references = 0;
         for (auto it = groups.cbegin(); it != groups.cend(); ++it) {
@@ -663,9 +666,22 @@ private slots:
             }
             search->clear();
         }
-        QCOMPARE(references, 88);
+        QCOMPARE(references, 114);
         auto *m4Atlantis = catalogueItem(tree, QStringLiteral("olivetti-m4-pxx-i"));
         QVERIFY(m4Atlantis && m4Atlantis->parent() == catalogueItem(tree, QStringLiteral("olivetti-m")));
+        tree->setCurrentItem(m4Atlantis);
+        auto *m4Group = catalogueItem(tree, QStringLiteral("olivetti-m4-pxx-range"));
+        for (const auto &query : { "M4-Pxx", "Olivetti M4-Pxx", "olivetti-m4-pxx-range" }) {
+            search->setText(QString::fromLatin1(query));
+            QCOMPARE(tree->currentItem(), m4Group);
+            QCOMPARE(title->text(), QStringLiteral("Olivetti M4-Pxx"));
+            QCOMPARE(widget.findChildren<QToolButton *>("blumachFactoryVariant").size(), 7);
+        }
+        search->setText(QStringLiteral("Olivetti M4-P75"));
+        QCOMPARE(tree->currentItem(), catalogueItem(tree, QStringLiteral("olivetti-m4-p75")));
+        search->clear();
+        auto *pcsEducator = catalogueItem(tree, QStringLiteral("olivetti-pcs-p-75-educator"));
+        QVERIFY(pcsEducator && pcsEducator->parent() == catalogueItem(tree, QStringLiteral("olivetti-m")));
         auto *m6Pentium = catalogueItem(tree, QStringLiteral("olivetti-m6-880"));
         QVERIFY(m6Pentium && m6Pentium->parent() == catalogueItem(tree, QStringLiteral("olivetti-m")));
         auto *m6 = catalogueItem(tree, QStringLiteral("olivetti-m6-5x0"));
