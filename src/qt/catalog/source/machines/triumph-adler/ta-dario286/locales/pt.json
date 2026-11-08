@@ -1,6 +1,6 @@
 {
   "product.ta-dario286.summary": "Desktop 80286 documentado a 12 MHz, equivalente ao Olivetti PCS 286",
-  "product.ta-dario286.history": "A Triumph-Adler, propriedade da Olivetti desde 1986, comercializou esta plataforma como Dario 286 e P35, enquanto a mesma placa era vendida como Olivetti PCS 286. Não está documentado se foi um projeto da Triumph-Adler adotado pela Olivetti, uma encomenda da Olivetti ou um mesmo produto vendido com duas marcas. O manual técnico de junho de 1990 descreve placas, chipset, relógios, memória, jumpers, CMOS e diagnósticos.",
+  "product.ta-dario286.history": "A Triumph-Adler vendeu este computador de secretária compacto como Dario 286 e P35 durante o período Olivetti. O manual de 1989 descreve uma configuração de escritório com disco rígido opcional. A documentação da placa coincide com a do Olivetti PCS 286 e a autoria original continua por apurar.",
   "product.ta-dario286.technical.cpu_bus": "Intel 80286 a 12 MHz com um estado de espera; Extended Setup F7 alterna memória e E/S entre 12 e 6 MHz. Intel 80287 opcional.",
   "product.ta-dario286.technical.chipset": "O manual identifica G2 GC101A/GC102 e o IOC proprietário. O BluMach usa o núcleo GC10x com o comportamento IOC02 validado do PCS 286.",
   "product.ta-dario286.technical.memory": "As placas CSAA03/06/09 e as suas combinações de SIMM permitem 512 KB, 640 KB, 1 MB, 2 MB ou 4 MB. A configuração padrão de 1 MB combina 512 KB soldados e dois SIMM de 256 KB. Tal como no PCS 286, o reflexo de 60000h em 80000h com que a BIOS deteta os chips de 256 Kbit só aparece com 1 MB instalado.",
@@ -8,7 +8,7 @@
   "product.ta-dario286.technical.jumpers": "A11 ativa a palavra-passe; B07/B08 selecionam floppy DD ou HD; X04 seleciona o banco SIMM ou o da placa.",
   "product.ta-dario286.technical.cmos": "O DS1287 oferece 128 bytes CMOS. O manual documenta floppy 10h, disco 12h/19h/1Ah, equipamento 14h, memória 15h–18h e 30h–31h, idioma 1Bh, vídeo 1Ch, palavra-passe 37h–3Fh e checksums 2Eh/2Fh e 7Eh/7Fh.",
   "product.ta-dario286.technical.diagnostics": "Resident Diagnostics corre no arranque. Customer Test está no CSFA12, inicia com CUSTOMER e o teste de floppy escreve no disco 1.",
-  "product.ta-dario286.technical.identity": "Dario e PCS 286 são a mesma plataforma fabricada pela TA. Sem dump marcado Dario, o BluMach usa deliberadamente as BIOS PCS 286 1.37/1.42.",
+  "product.ta-dario286.technical.identity": "A documentação da placa identifica uma plataforma partilhada com o PCS 286. O BluMach usa as BIOS 1.37 e 1.42 do PCS 286 como substitutas enquanto se procura um ficheiro de ROM com identificação Dario.",
   "product.ta-dario286.technical.verified": "Partilha a implementação arrancada do PCS 286: BIOS 1.42, Setup, diagnósticos, MS-DOS, teste GC101/102 e IDE 20/40 MB.",
   "product.ta-dario286.technical.limitations": "O firmware original do controlador de teclado não está preservado e é representado pelo comportamento KBC compatível Olivetti. Um dump BIOS Dario continua desejável para arquivo. Tal como no PCS 286, a frequência RAM/IO do Setup é aplicada de forma aproximada; o bloqueio do teclado por palavra-passe não é emulado e a velocidade de repetição do teclado segue a do computador anfitrião.",
   "product.ta-dario286.document.technical": "Manual de formação técnica TA Dario 286 DK000.00000.BA025, junho de 1990, 46 páginas",
@@ -39,5 +39,6 @@
   "product.ta-dario286.creation.storage.one-144-hdd20": "Comercial: uma unidade de 1,44 MB + disco IDE de 20 MB",
   "product.ta-dario286.creation.storage.one-144-hdd40": "Comercial: uma unidade de 1,44 MB + disco IDE de 40 MB",
   "product.ta-dario286.creation.storage.two-144": "Comercial: duas unidades de 3,5 polegadas e 1,44 MB",
-  "product.ta-dario286.creation.upgrades_note": "A Paradise PVGA1A integrada utiliza o BIOS da placa-mãe; não é necessária uma ROM VGA separada. Estão disponíveis 1, 2 e 4 MB de RAM. As placas de som são expansões do utilizador, não configurações comerciais Triumph-Adler documentadas. A compatibilidade ISA é inferida do barramento e dos dispositivos do emulador; o áudio e os diagnósticos com RAM expandida aguardam validação neste perfil."
+  "product.ta-dario286.creation.upgrades_note": "A Paradise PVGA1A integrada utiliza o BIOS da placa-mãe; não é necessária uma ROM VGA separada. Estão disponíveis 1, 2 e 4 MB de RAM. As placas de som são expansões do utilizador, não configurações comerciais Triumph-Adler documentadas. A compatibilidade ISA é inferida do barramento e dos dispositivos do emulador; o áudio e os diagnósticos com RAM expandida aguardam validação neste perfil.",
+  "product.ta-dario286.technical.interfaces": "Os conectores permitem ligar duas portas série, uma porta paralela, um rato e um teclado AT."
 }

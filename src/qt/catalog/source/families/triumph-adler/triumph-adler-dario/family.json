@@ -10,14 +10,19 @@
     "history_key": "family.triumph-adler-dario.history",
     "history_references": [
       {
-        "title": "Triumph-Adler",
-        "publisher": "Wikipedia (de)",
-        "url": "https://de.wikipedia.org/wiki/Triumph-Adler"
+        "title": "TA Dario 286 · Installations- und Bedienungshandbuch",
+        "publisher": "Triumph-Adler / VzEkC",
+        "url": "https://forum.classic-computing.de/forum/index.php?thread/32586-wer-kennt-sich-mit-ta-dario-286-aus/"
       },
       {
-        "title": "Triumph-Adler",
-        "publisher": "Wikipedia (en)",
-        "url": "https://en.wikipedia.org/wiki/Triumph-Adler"
+        "title": "TA-PCs aus rein deutscher Fertigung · 9. November 1990",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2760939/ta-pcs-aus-rein-deutscher-fertigung.html"
+      },
+      {
+        "title": "P92 · Besitzerbericht zum Olivetti M386-25",
+        "publisher": "VzEkC",
+        "url": "https://forum.classic-computing.de/forum/index.php?postID=266576&thread/3077-mein-neuestes-etwas/="
       }
     ],
     "comparison_table": {
@@ -75,7 +80,7 @@
           "id": "dario386sx",
           "cells": [
             {
-              "value": "1991"
+              "value": "1990"
             },
             {
               "value": "Dario 386SX (P45)"
@@ -95,7 +100,7 @@
           "id": "p92",
           "cells": [
             {
-              "value_key": "family.triumph-adler-dario.period.unknown"
+              "value": "1990"
             },
             {
               "value": "P92"
@@ -121,7 +126,7 @@
               "value": "P100"
             },
             {
-              "value": "Intel 80386 · 33 MHz"
+              "value": "—"
             },
             {
               "value_key": "family.triumph-adler-dario.equivalent.p100"

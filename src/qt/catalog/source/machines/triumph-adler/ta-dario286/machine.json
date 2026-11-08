@@ -48,14 +48,14 @@
       "label_key": "media.kind.concept_illustration"
     },
     "hardware": {
-      "cpu": "Intel 80286 12/6 MHz, 1 wait state",
-      "memory": "1 MB standard; board configurations from 512 KB to 4 MB",
-      "chipset": "G2 GC101A + GC102 with IOC",
-      "video": "Paradise VGA integrated",
-      "floppy": "3.5 in, 1.44 MB",
-      "rtc": "Dallas DS1287, 128-byte CMOS",
-      "coprocessor": "Intel 80287 optional",
-      "interfaces": "Two serial ports, parallel port, mouse and AT keyboard"
+      "cpu": "Intel 80286 · 12 / 6 MHz · 1 WS",
+      "memory": "512 KB–4 MB",
+      "chipset": "G2 GC101A + GC102 + IOC",
+      "video": "Paradise VGA",
+      "floppy": "3.5″ · 1.44 MB",
+      "rtc": "Dallas DS1287 · 128 B CMOS",
+      "coprocessor": "Intel 80287",
+      "interfaces": "2 × COM · LPT · AT"
     },
     "firmware": {
       "known_sets": [
@@ -400,6 +400,10 @@
           {
             "label_key": "technical.label.storage",
             "value_key": "product.ta-dario286.technical.storage"
+          },
+          {
+            "label_key": "hardware.interfaces",
+            "value_key": "product.ta-dario286.technical.interfaces"
           }
         ]
       },

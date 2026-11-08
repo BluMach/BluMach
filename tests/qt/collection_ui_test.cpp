@@ -396,6 +396,39 @@ private slots:
         QVERIFY(!pc1512->isHidden());
     }
 
+    void alphatronicProcessorFilters()
+    {
+        testSettings.clear();
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        QVERIFY(tree);
+        QComboBox *processor = nullptr;
+        for (auto *combo : widget.findChildren<QComboBox *>()) {
+            if (combo->findData(QStringLiteral("i8085")) >= 0)
+                processor = combo;
+        }
+        QVERIFY(processor);
+
+        const QStringList models = { "p1", "p2", "p2s", "p2u", "p2l", "p3", "p4", "p30", "p40" };
+        processor->setCurrentIndex(processor->findData(QStringLiteral("i8085")));
+        for (const auto &id : models) {
+            auto *model = catalogueItem(tree, QStringLiteral("ta-alphatronic-%1").arg(id));
+            QVERIFY(model && !model->isHidden());
+        }
+
+        processor->setCurrentIndex(processor->findData(QStringLiteral("x86_8086")));
+        for (const auto &id : models) {
+            auto *model = catalogueItem(tree, QStringLiteral("ta-alphatronic-%1").arg(id));
+            QCOMPARE(model->isHidden(), id != QStringLiteral("p30") && id != QStringLiteral("p40"));
+        }
+
+        processor->setCurrentIndex(processor->findData(QStringLiteral("x86_386")));
+        auto *p92 = catalogueItem(tree, QStringLiteral("ta-alphatronic-p92"));
+        auto *x86 = catalogueItem(tree, QStringLiteral("triumph-adler-alphatronic-x86"));
+        QVERIFY(p92 && x86 && !p92->isHidden());
+        QCOMPARE(p92->parent(), x86);
+    }
+
     void walkstationProcessorFilters()
     {
         testSettings.clear();
