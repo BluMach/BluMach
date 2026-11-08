@@ -1,0 +1,9 @@
+{
+  "product.ta-1900-base.summary": "Cette version proposait le TA 1900 aux installations décentralisées dans une configuration d’entrée de gamme à disquettes.",
+  "product.ta-1900-base.history": "Triumph-Adler l’a présentée à Hanovre en 1983 pour la collecte de données, la consultation d’informations et le travail autonome sur des projets.",
+  "product.ta-1900-base.technical.configuration": "Une liaison de données permettait l’intégration aux réseaux existants. La configuration annoncée comprenait un écran, une imprimante, 128 Ko de mémoire et deux lecteurs de 1 Mo.",
+  "product.ta-1900-base.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-1900-base.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-1900-base.technical.source_1": "Computerwoche · Alphatronic ist Teletext-fähig · 6 May 1983",
+  "product.ta-1900-base.technical.source_2": "Triumph-Adler workshop notes · Hamburg · May 1980"
+}

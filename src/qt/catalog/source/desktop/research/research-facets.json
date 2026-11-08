@@ -68,6 +68,11 @@
     "firmware_custody": "not_found",
     "test_destinations": []
   },
+  "ta-1900-base": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-alphatronic-p2u": {
     "documentation": "documented",
     "firmware_custody": "partial",

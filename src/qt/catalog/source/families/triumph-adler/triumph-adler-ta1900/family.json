@@ -1,0 +1,24 @@
+{
+  "order": 2020,
+  "family": {
+    "id": "triumph-adler-ta1900",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "TA 1900",
+    "description_key": "family.triumph-adler-ta1900.description",
+    "history_key": "family.triumph-adler-ta1900.history",
+    "history_references": [
+      {
+        "title": "TA 1900 workshop notes, May 1980",
+        "publisher": "Triumph-Adler / VzEkC",
+        "url": "https://forum.classic-computing.de/forum/index.php?postID=260641&thread/21644-die-alphatronic-story/="
+      },
+      {
+        "title": "Alphatronic ist Teletext-fähig, May 1983",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2849115/alphatronic-ist-teletext-faehig.html"
+      }
+    ]
+  }
+}
