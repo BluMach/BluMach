@@ -21,6 +21,12 @@
       "16-bit"
     ],
     "facets": {
+      "cpu_generation": [
+        "zilog_z8000"
+      ],
+      "storage_interface": [
+        "floppy"
+      ],
       "form_factor": [
         "desktop"
       ],

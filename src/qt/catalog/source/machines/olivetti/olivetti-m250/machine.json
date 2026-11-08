@@ -21,6 +21,10 @@
       "desktop"
     ],
     "facets": {
+      "storage_interface": [
+        "floppy",
+        "ide"
+      ],
       "form_factor": [
         "desktop"
       ],

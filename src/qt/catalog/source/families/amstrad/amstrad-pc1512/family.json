@@ -2,6 +2,7 @@
   "order": 10,
   "family": {
     "id": "amstrad-pc1512",
+    "visible": true,
     "manufacturer_id": "amstrad",
     "parent_family_id": "",
     "name": "PC1512",

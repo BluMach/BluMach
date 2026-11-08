@@ -20,6 +20,9 @@
       "AdLib"
     ],
     "facets": {
+      "cpu_generation": [
+        "x86_486"
+      ],
       "form_factor": [
         "desktop"
       ],

@@ -318,7 +318,6 @@ private slots:
             auto *tree = widget.findChild<QTreeWidget *>();
             QVERIFY(tree);
             QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
-            QVERIFY(!catalogueItem(tree, QStringLiteral("amstrad-pc1512")));
             for (int i = 0; i < 5; ++i) {
                 auto *item = catalogueItem(tree, QString::fromLatin1(products[i]));
                 QVERIFY(item);
@@ -361,6 +360,42 @@ private slots:
         QCOMPARE(catalogueItem(tree, QStringLiteral("olivetti"))->data(0, Qt::UserRole + 8).toString(), resource);
         testSettings.clear();
     }
+    void researchAndProcessorFilters()
+    {
+        testSettings.clear();
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        QVERIFY(tree);
+        auto *m10 = catalogueItem(tree, QStringLiteral("olivetti-m10"));
+        auto *research = catalogueItem(tree, QStringLiteral("olivetti-netstrada-7400"));
+        auto *pc1512Family = catalogueItem(tree, QStringLiteral("amstrad-pc1512"));
+        QVERIFY(m10 && research && pc1512Family);
+        QCOMPARE(pc1512Family->childCount(), 1);
+        auto *pc1512 = pc1512Family->child(0);
+        QCOMPARE(pc1512->data(0, Qt::UserRole).toString(), QString("amstrad-pc1512"));
+        QVERIFY(!pc1512->isHidden());
+
+        QComboBox *state = nullptr;
+        QComboBox *processor = nullptr;
+        for (auto *combo : widget.findChildren<QComboBox *>()) {
+            if (combo->findData(QStringLiteral("hide_research")) >= 0)
+                state = combo;
+            if (combo->findData(QStringLiteral("i8085")) >= 0)
+                processor = combo;
+        }
+        QVERIFY(state && processor);
+        QVERIFY(!research->isHidden());
+        state->setCurrentIndex(state->findData(QStringLiteral("hide_research")));
+        QVERIFY(research->isHidden());
+        QVERIFY(!pc1512->isHidden());
+        processor->setCurrentIndex(processor->findData(QStringLiteral("i8085")));
+        QVERIFY(!m10->isHidden());
+        QVERIFY(pc1512->isHidden());
+        widget.findChild<QToolButton *>("blumachClearFiltersButton")->click();
+        QVERIFY(!research->isHidden());
+        QVERIFY(!pc1512->isHidden());
+    }
+
     void catalogue_data()
     {
         QTest::addColumn<bool>("dark");
@@ -427,8 +462,7 @@ private slots:
         auto *brand = catalogueItem(tree, QStringLiteral("olivetti"));
         auto *family = catalogueItem(tree, QStringLiteral("olivetti-pcs"));
         QVERIFY(family && family->parent() == brand);
-        const int pcsCount = family->childCount();
-        QVERIFY(pcsCount >= 4);
+        QCOMPARE(family->data(0, Qt::UserRole + 7).toInt(), expectedPcsCount);
         QVERIFY(contrast(tree->palette().color(QPalette::PlaceholderText), pal.color(QPalette::Base)) >= 4.5);
         QVERIFY(!clear->isVisible());
         search->setText("Olivetti PCS 386SX");

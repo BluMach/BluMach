@@ -69,6 +69,46 @@
         {
           "id": "x86_486",
           "label_key": "filter.cpu_generation.x86_486"
+        },
+        {
+          "id": "i8085",
+          "label_key": "filter.cpu_generation.i8085"
+        },
+        {
+          "id": "mos_65c02",
+          "label_key": "filter.cpu_generation.mos_65c02"
+        },
+        {
+          "id": "motorola_6809",
+          "label_key": "filter.cpu_generation.motorola_6809"
+        },
+        {
+          "id": "zilog_z8000",
+          "label_key": "filter.cpu_generation.zilog_z8000"
+        },
+        {
+          "id": "x86_386sl",
+          "label_key": "filter.cpu_generation.x86_386sl"
+        },
+        {
+          "id": "x86_pentium",
+          "label_key": "filter.cpu_generation.x86_pentium"
+        },
+        {
+          "id": "x86_pentium_pro",
+          "label_key": "filter.cpu_generation.x86_pentium_pro"
+        },
+        {
+          "id": "x86_pentium_ii",
+          "label_key": "filter.cpu_generation.x86_pentium_ii"
+        },
+        {
+          "id": "x86_pentium_iii",
+          "label_key": "filter.cpu_generation.x86_pentium_iii"
+        },
+        {
+          "id": "mips_r4000",
+          "label_key": "filter.cpu_generation.mips_r4000"
         }
       ]
     },
@@ -91,6 +131,10 @@
         {
           "id": "vga",
           "label_key": "filter.video.vga"
+        },
+        {
+          "id": "svga",
+          "label_key": "filter.video.svga"
         }
       ]
     },
@@ -153,6 +197,14 @@
         {
           "id": "ide",
           "label_key": "filter.storage_interface.ide"
+        },
+        {
+          "id": "scsi",
+          "label_key": "filter.storage_interface.scsi"
+        },
+        {
+          "id": "esdi",
+          "label_key": "filter.storage_interface.esdi"
         }
       ]
     }

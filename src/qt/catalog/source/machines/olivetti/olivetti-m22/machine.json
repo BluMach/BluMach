@@ -13,6 +13,9 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "display_technology": [
+        "lcd"
+      ],
       "form_factor": [
         "laptop"
       ],

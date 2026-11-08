@@ -15,6 +15,12 @@
     ],
     "tags": [],
     "facets": {
+      "display_technology": [
+        "lcd"
+      ],
+      "storage_interface": [
+        "floppy"
+      ],
       "form_factor": [
         "laptop"
       ],

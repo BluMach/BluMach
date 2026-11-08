@@ -15,6 +15,9 @@
       "VGA"
     ],
     "facets": {
+      "cpu_generation": [
+        "x86_386"
+      ],
       "form_factor": [
         "desktop"
       ],

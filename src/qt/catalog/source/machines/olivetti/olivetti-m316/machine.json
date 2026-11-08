@@ -13,6 +13,9 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "storage_interface": [
+        "floppy"
+      ],
       "form_factor": [
         "laptop"
       ],

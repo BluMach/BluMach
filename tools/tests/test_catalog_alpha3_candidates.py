@@ -20,7 +20,7 @@ class Alpha3CandidateTests(unittest.TestCase):
         return {s["section"]: s["values"]
                 for s in product["creation"]["configuration"]}
 
-    def test_selected_five_visible_but_pc1512_stays_out(self):
+    def test_selected_profiles_and_pc1512_are_visible(self):
         selected = {"olivetti-pcs286s", "olivetti-prodest-pc1",
                     "olivetti-prodest-pc1hd", "olivetti-m28",
                     "amstrad-pc5286"}
@@ -28,7 +28,7 @@ class Alpha3CandidateTests(unittest.TestCase):
             with self.subTest(product=product_id):
                 self.assertTrue(self.products[product_id].get("visible", False))
                 self.assertTrue(self.products[product_id]["creation"])
-        self.assertFalse(self.products["amstrad-pc1512"].get("visible", False))
+        self.assertTrue(self.products["amstrad-pc1512"]["visible"])
         self.assertFalse(self.products["olivetti-pcs286s-16"].get("visible", False))
 
     def test_m28_commercial_floppy_is_525_inch_1200kb(self):
