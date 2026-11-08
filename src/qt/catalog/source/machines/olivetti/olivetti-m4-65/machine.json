@@ -5,11 +5,13 @@
     "visible": true,
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-m",
+    "platform_id": "olivetti-m4-65-platform",
     "name": "Olivetti M4-65 Modulo",
     "summary_key": "product.olivetti-m4-65.summary",
     "history_key": "product.olivetti-m4-65.history",
     "warning_key": "product.olivetti-m4-65.warning",
-    "status": "research",
+    "status": "partial",
+    "blumach_emulation": "implemented",
     "period": "1994",
     "aliases": [
       "M4-65",
@@ -55,6 +57,128 @@
         "R2.03 A4BF · 128 KiB · OVC 1.09"
       ],
       "required": true
+    },
+    "creation": {
+      "status": "experimental",
+      "directory_prefix": "olivetti-m4-65",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m4-65.creation.cpu"
+        }
+      ],
+      "fields": [
+        {
+          "id": "memory",
+          "label_key": "creation.label.memory",
+          "default": "4096",
+          "choices": [
+            {
+              "id": "4096",
+              "label_key": "product.olivetti-m4-65.creation.memory.4096",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 4096
+                }
+              ]
+            },
+            {
+              "id": "8192",
+              "label_key": "product.olivetti-m4-65.creation.memory.8192",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 8192
+                }
+              ]
+            },
+            {
+              "id": "12288",
+              "label_key": "product.olivetti-m4-65.creation.memory.12288",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 12288
+                }
+              ]
+            },
+            {
+              "id": "20480",
+              "label_key": "product.olivetti-m4-65.creation.memory.20480",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 20480
+                }
+              ]
+            },
+            {
+              "id": "36864",
+              "label_key": "product.olivetti-m4-65.creation.memory.36864",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 36864
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m4-65.creation.note"
+      ],
+      "configuration": [
+        {
+          "section": "General",
+          "values": {
+            "vid_renderer": "qt_software",
+            "time_sync": "disabled"
+          }
+        },
+        {
+          "section": "Machine",
+          "values": {
+            "cpu_family": "i486dx2",
+            "cpu_speed": 50000000,
+            "cpu_multi": 2,
+            "cpu_use_dynarec": 0,
+            "mem_size": 4096
+          }
+        },
+        {
+          "section": "Video",
+          "values": {
+            "gfxcard": "internal"
+          }
+        },
+        {
+          "section": "Input devices",
+          "values": {
+            "keyboard_type": "keyboard_at",
+            "mouse_type": "none"
+          }
+        },
+        {
+          "section": "Floppy and CD-ROM drives",
+          "values": {
+            "fdd_01_type": "35_2hd",
+            "fdd_02_type": "none"
+          }
+        }
+      ],
+      "generated_files": []
     },
     "technical": [
       {
@@ -145,5 +269,11 @@
         ]
       }
     ]
+  },
+  "platform_order": 235,
+  "platform": {
+    "id": "olivetti-m4-65-platform",
+    "emulator_machine_id": "olivetti_m4_65",
+    "architecture": "i486DX2"
   }
 }
