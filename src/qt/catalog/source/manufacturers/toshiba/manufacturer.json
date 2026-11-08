@@ -4,6 +4,11 @@
     "id": "toshiba",
     "visible": true,
     "name": "Toshiba",
+    "brand_mark": {
+      "resource": ":/blumach/brand-marks/toshiba.png",
+      "background": "#ffffff"
+    },
+    "trademark_notice_key": "manufacturer.toshiba.trademark_notice",
     "description_key": "manufacturer.toshiba.description",
     "history_key": "manufacturer.toshiba.history",
     "history_references": [

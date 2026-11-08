@@ -4,6 +4,11 @@
     "id": "schneider",
     "visible": true,
     "name": "Schneider",
+    "brand_mark": {
+      "resource": ":/blumach/brand-marks/schneider-computer-division.png",
+      "background": "#ffffff"
+    },
+    "trademark_notice_key": "manufacturer.schneider.trademark_notice",
     "description_key": "manufacturer.schneider.description",
     "history_key": "manufacturer.schneider.history",
     "history_references": [

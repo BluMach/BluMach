@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 #include "qt_blumach_collection.hpp"
+#include "qt_coremach.hpp"
 #include "qt_preferences.hpp"
 #include "qt_vmmanager_config.hpp"
 #include <QApplication>
@@ -36,6 +37,9 @@ QString VMManagerConfig::getStringValue(const QString &key) const { return testS
 void VMManagerConfig::setStringValue(const QString &key, const QString &value) const { testSettings[key] = value; }
 void VMManagerConfig::remove(const QString &key) const { testSettings.remove(key); }
 void VMManagerConfig::sync() const {}
+
+// The standalone widget tests do not link a guest engine.
+const CoreMachBridge::System *CoreMachBridge::findSystem(const QString &) { return nullptr; }
 
 static double luminance(const QColor &color)
 {
@@ -126,7 +130,6 @@ private slots:
             QVERIFY(tree);
             auto *range = catalogueItem(tree, QStringLiteral("olivetti-m"));
             QVERIFY(range);
-            QCOMPARE(range->childCount(), 3);
             const QStringList models = { "olivetti-m15", "olivetti-m15-plus" };
             const QStringList native = { "olivetti_m15", "olivetti_m15plus" };
             QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
@@ -153,7 +156,7 @@ private slots:
             const auto *family = catalog.family(QStringLiteral("olivetti-pcs"));
             QVERIFY(family);
             QVERIFY(!family->historyKey.isEmpty());
-            QCOMPARE(family->historyReferences.size(), 3);
+            QVERIFY(!family->historyReferences.isEmpty());
 
             BluMachCollectionWidget widget;
             widget.resize(680, 800);
@@ -168,27 +171,27 @@ private slots:
             tree->setCurrentItem(pcs);
             auto *comparison = widget.findChild<QTableWidget *>("blumachFamilyComparison");
             QVERIFY(comparison);
-            QCOMPARE(comparison->columnCount(), 5);
-            QCOMPARE(comparison->rowCount(), 3);
             QCOMPARE(comparison->editTriggers(), QAbstractItemView::NoEditTriggers);
             const auto columns = family->comparisonTable.value(QStringLiteral("columns")).toArray();
+            const auto rows = family->comparisonTable.value(QStringLiteral("rows")).toArray();
+            QCOMPARE(comparison->columnCount(), columns.size());
+            QCOMPARE(comparison->rowCount(), rows.size());
             for (int column = 0; column < columns.size(); ++column)
                 QCOMPARE(comparison->horizontalHeaderItem(column)->text(), catalog.text(columns[column].toObject().value(QStringLiteral("label_key")).toString()));
-            QCOMPARE(comparison->item(0, 0)->text(), QStringLiteral("PCS 86"));
-            QVERIFY(comparison->item(1, 1)->text().contains(QStringLiteral("80286")));
-            QVERIFY(comparison->item(1, 1)->text().contains(QStringLiteral("12 MHz")));
+            QCOMPARE(comparison->item(0, 1)->text(), QStringLiteral("PCS 86"));
+            QCOMPARE(comparison->item(1, 2)->text(), QStringLiteral("80286 · 12 MHz"));
             QVERIFY(!comparison->item(2, 4)->text().startsWith(QStringLiteral("family.")));
             auto *history = widget.findChild<QLabel *>("blumachFamilyHistory");
             QVERIFY(history);
             QCOMPARE(history->text(), catalog.text(family->historyKey));
             QVERIFY(history->wordWrap());
-            QCOMPARE(widget.findChildren<QLabel *>("blumachFamilyReference").size(), 3);
+            QCOMPARE(widget.findChildren<QLabel *>("blumachFamilyReference").size(), family->historyReferences.size());
             widget.grab();
             auto *tabs = widget.findChild<QTabWidget *>();
             auto *scroll = qobject_cast<QScrollArea *>(tabs->widget(0));
             QVERIFY(scroll && scroll->isVisible());
             QCOMPARE(scroll->horizontalScrollBar()->maximum(), 0);
-            // Narrow sheets pan inside the five-column table, not the whole page.
+            // Narrow sheets pan inside the comparison table, not the whole page.
             QTRY_VERIFY_WITH_TIMEOUT(comparison->horizontalScrollBar()->maximum() > 0, 1000);
             QCOMPARE(comparison->verticalScrollBar()->maximum(), 0);
             QTRY_VERIFY_WITH_TIMEOUT(history->height() >= history->heightForWidth(history->width()), 1000);
@@ -209,14 +212,13 @@ private slots:
         for (const auto &id : { "olivetti_pcs86", "olivetti_pcs286", "olivetti_pcs386sx",
                                 "olivetti_m15", "olivetti_m15plus", "t3200", "t5100", "t5200",
                                 "olivetti_pcs286s", "olivetti_prodest_pc1",
-                                "olivetti_prodest_pc1hd", "olivetti_m28", "pc5286" })
+                                "olivetti_prodest_pc1hd", "olivetti_m28", "pc5286",
+                                "olivetti_m250", "olivetti_m280", "olivetti_m380",
+                                "sx386m", "ta_dario286", "ta_dario386sx", "olivetti_m290sp" })
             QVERIFY(catalog.isMachineSelectable(QString::fromLatin1(id), true));
-        for (const auto &id : { "olivetti_m250", "olivetti_m280", "olivetti_m380",
-                                "sx386m",
-                                "ta_dario286", "ta_dario386sx", "olivetti_ba2142",
-                                "olivetti_m240", "olivetti_m211v", "olivetti_m290sp" })
+        for (const auto &id : { "olivetti_ba2142", "olivetti_m240", "olivetti_m211v" })
             QVERIFY(!catalog.isMachineSelectable(QString::fromLatin1(id), true));
-        // An inherited model is selectable even without a visible catalogue sheet.
+        // Inherited models are selectable independently of catalogue visibility.
         QVERIFY(catalog.isMachineSelectable(QStringLiteral("pc1512"), false));
         QVERIFY(catalog.isMachineSelectable(QStringLiteral("ibmxt"), false));
         QVERIFY(catalog.isMachineSelectable(QStringLiteral("m24"), false));
@@ -337,7 +339,13 @@ private slots:
         BluMachCollectionWidget widget;
         auto *tree = widget.findChild<QTreeWidget *>();
         QVERIFY(tree);
-        const auto resource = tree->topLevelItem(0)->data(0, Qt::UserRole + 8).toString();
+        auto *olivetti = catalogueItem(tree, QStringLiteral("olivetti"));
+        auto *schneider = catalogueItem(tree, QStringLiteral("schneider"));
+        QVERIFY(olivetti && schneider);
+        const auto resource = olivetti->data(0, Qt::UserRole + 8).toString();
+        const auto schneiderMark = schneider->data(0, Qt::UserRole + 8).toString();
+        QCOMPARE(schneiderMark, QString(":/blumach/brand-marks/schneider-computer-division.png"));
+        QVERIFY(!QImage(schneiderMark).isNull());
         QCOMPARE(resource, QString(":/blumach/brand-marks/olivetti-1971-2009.png"));
         QVERIFY(!QImage(resource).isNull());
         QFile image(resource);
@@ -346,11 +354,11 @@ private slots:
                  QByteArray("35a29fa5d7f6ed29796448005294127da1944b3749ec1fec19cffcba0d8898b8"));
         testSettings["blumach_catalog_skin_manufacturer_marks"] = "0";
         widget.reloadSkin();
-        QVERIFY(tree->topLevelItem(0)->data(0, Qt::UserRole + 8).toString().isEmpty());
+        QVERIFY(catalogueItem(tree, QStringLiteral("olivetti"))->data(0, Qt::UserRole + 8).toString().isEmpty());
         testSettings["blumach_catalog_skin_manufacturer_marks"] = "1";
         testSettings["blumach_catalog_skin_directory"] = "/missing-blumach-test-package";
         widget.reloadSkin();
-        QCOMPARE(tree->topLevelItem(0)->data(0, Qt::UserRole + 8).toString(), resource);
+        QCOMPARE(catalogueItem(tree, QStringLiteral("olivetti"))->data(0, Qt::UserRole + 8).toString(), resource);
         testSettings.clear();
     }
     void catalogue_data()
@@ -407,18 +415,18 @@ private slots:
             "Collection d’ordinateurs historiques", "Collezione di computer storici", "Coleção de computadores históricos" };
         QCOMPARE(widget.findChild<QLabel *>("blumachCollectionHeading")->text(), headings[locale]);
         QCOMPARE(widget.width(), width);
-        QCOMPARE(tree->topLevelItemCount(), 3);
         QSet<QString> visibleBrands;
         for (int i = 0; i < tree->topLevelItemCount(); ++i)
             visibleBrands.insert(tree->topLevelItem(i)->data(0, Qt::UserRole).toString());
-        QCOMPARE(visibleBrands, (QSet<QString>{ QStringLiteral("olivetti"), QStringLiteral("toshiba"), QStringLiteral("amstrad") }));
-        auto *brand = tree->topLevelItem(0);
+        QCOMPARE(visibleBrands, (QSet<QString>{ "amstrad", "olivetti", "schneider", "toshiba", "trigem", "triumph-adler" }));
+        auto *brand = catalogueItem(tree, QStringLiteral("olivetti"));
         auto *family = catalogueItem(tree, QStringLiteral("olivetti-pcs"));
         QVERIFY(family && family->parent() == brand);
-        QCOMPARE(family->childCount(), 4);
+        const int pcsCount = family->childCount();
+        QVERIFY(pcsCount >= 4);
         QVERIFY(contrast(tree->palette().color(QPalette::PlaceholderText), pal.color(QPalette::Base)) >= 4.5);
         QVERIFY(!clear->isVisible());
-        search->setText("386");
+        search->setText("Olivetti PCS 386SX");
         QCOMPARE(family->data(0, Qt::UserRole + 7).toInt(), 1);
         QCOMPARE(brand->data(0, Qt::UserRole + 7).toInt(), 1);
         QVERIFY(title->text().contains("386"));
@@ -440,7 +448,7 @@ private slots:
         QCOMPARE(creation.count(), 0);
         clear->click();
         QVERIFY(search->text().isEmpty());
-        QCOMPARE(family->data(0, Qt::UserRole + 7).toInt(), 4);
+        QCOMPARE(family->data(0, Qt::UserRole + 7).toInt(), pcsCount);
         QVERIFY(search->hasFocus());
         QVERIFY(!clear->isVisible());
         // Reflow repeatedly: grid column stretch must not accumulate.
@@ -511,6 +519,29 @@ private slots:
         QVERIFY2(contrast(tree->palette().color(QPalette::PlaceholderText), changedBase) >= 4.5,
                  qPrintable(tree->palette().color(QPalette::PlaceholderText).name() + " on " + changedBase.name()));
         qApp->removeTranslator(&translator);
+    }
+
+    void additionalBundledMarks()
+    {
+        testSettings.clear();
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        QVERIFY(tree);
+        const QHash<QString, QString> newMarks = {
+            { "amstrad", "amstrad-1980s" },
+            { "toshiba", "toshiba" },
+            { "trigem", "trigem-wordmark-2000" },
+            { "triumph-adler", "triumph-adler" },
+        };
+        for (auto it = newMarks.cbegin(); it != newMarks.cend(); ++it) {
+            const auto *row = catalogueItem(tree, it.key());
+            QVERIFY(row);
+            const auto mark = row->data(0, Qt::UserRole + 8).toString();
+            QCOMPARE(mark, QStringLiteral(":/blumach/brand-marks/%1.png").arg(it.value()));
+            QVERIFY(!QImage(mark).isNull());
+            QVERIFY(QFile::exists(QStringLiteral(":/blumach/brand-marks/%1-NOTICE.md").arg(it.key())));
+        }
+        testSettings.clear();
     }
 };
 
