@@ -396,6 +396,46 @@ private slots:
         QVERIFY(!pc1512->isHidden());
     }
 
+    void preservationAndDestinationFilters()
+    {
+        testSettings.clear();
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        QVERIFY(tree);
+        auto *p30 = catalogueItem(tree, QStringLiteral("ta-alphatronic-p30"));
+        auto *ta1100c = catalogueItem(tree, QStringLiteral("ta-1100c"));
+        auto *dario286 = catalogueItem(tree, QStringLiteral("ta-dario286"));
+        QVERIFY(p30 && ta1100c && dario286);
+
+        QComboBox *documentation = nullptr;
+        QComboBox *firmware = nullptr;
+        QComboBox *destination = nullptr;
+        for (auto *combo : widget.findChildren<QComboBox *>()) {
+            if (combo->findData(QStringLiteral("documented")) >= 0)
+                documentation = combo;
+            if (combo->findData(QStringLiteral("not_found")) >= 0)
+                firmware = combo;
+            if (combo->findData(QStringLiteral("mame_preliminary")) >= 0)
+                destination = combo;
+        }
+        QVERIFY(documentation && firmware && destination);
+        documentation->setCurrentIndex(documentation->findData(QStringLiteral("documented")));
+        firmware->setCurrentIndex(firmware->findData(QStringLiteral("partial")));
+        destination->setCurrentIndex(destination->findData(QStringLiteral("mame_preliminary")));
+        QVERIFY(!p30->isHidden());
+        QVERIFY(ta1100c->isHidden());
+        QVERIFY(dario286->isHidden());
+
+        firmware->setCurrentIndex(firmware->findData(QStringLiteral("substitute")));
+        destination->setCurrentIndex(destination->findData(QStringLiteral("blumach")));
+        QVERIFY(p30->isHidden());
+        QVERIFY(!dario286->isHidden());
+        QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
+        tree->setCurrentItem(dario286);
+        widget.createSelectedMachine();
+        QCOMPARE(creation.count(), 1);
+    }
+
     void catalogue_data()
     {
         QTest::addColumn<bool>("dark");
