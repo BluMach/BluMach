@@ -2,5 +2,11 @@
   "collection.variants.olivetti-m4-75-133-range.summary": "La guida di assistenza Olivetti elenca otto configurazioni M4 con processori Pentium da 75 a 133 MHz. Il suffisso S indica il telaio Slim Tin al posto del Tin standard.",
   "collection.variants.olivetti-m4-pxx-range.summary": "La serie M4-Pxx comprende sette configurazioni ISA/PCI in telai Tin e Slim Tin. La guida di assistenza distingue le schede madri Socket 5 e Socket 7.",
   "collection.variants.olivetti-pcs-51xx-range.summary": "I PCS 5120, 5130 e 5140 erano forniti in telaio Slim Tin con un Pentium rispettivamente da 75, 100 e 133 MHz.",
-  "collection.variants.olivetti-pcs-61xx-range.summary": "I PCS dal 6120 al 6160 erano venduti in telaio Tin con cinque configurazioni Pentium di fabbrica, da 75 a 166 MHz."
+  "collection.variants.olivetti-pcs-61xx-range.summary": "I PCS dal 6120 al 6160 erano venduti in telaio Tin con cinque configurazioni Pentium di fabbrica, da 75 a 166 MHz.",
+  "collection.variants.olivetti-pcs-pxx-range.summary": "Olivetti documentò otto configurazioni Pentium da 75 a 133 MHz. I modelli E/En usano il telaio Tin e i modelli n il telaio Slim Tin.",
+  "collection.variants.olivetti-pcs-d4-100-range.summary": "Entrambe le versioni hanno un DX4 da 100 MHz e 128 KB di cache L2. La En usa il telaio Tin e la n il telaio Slim Tin.",
+  "collection.variants.olivetti-echos-p-1995-range.summary": "La gamma presentata da MCmicrocomputer nel 1995 abbinava un Pentium da 75 MHz a un display DSTN, oppure un Pentium da 90 MHz a un display TFT da 10,4 o 11,8 pollici.",
+  "collection.variants.olivetti-echos-p-us-1996-range.summary": "La gamma statunitense del 1996 comprendeva quattro portatili Pentium da 100 a 133 MHz. Processore e display variavano e tutti condividevano un vano modulare.",
+  "collection.variants.olivetti-m6-640-range.summary": "La guida distingue l’M6-640 con un Pentium da 90 o 100 MHz e l’M6-640 DP con due Pentium da 90 MHz.",
+  "collection.variants.olivetti-m6-650-690-range.summary": "La guida elenca sette configurazioni Pentium da 100 a 166 MHz in telaio Tin. Le varianti DP erano fornite con due processori."
 }

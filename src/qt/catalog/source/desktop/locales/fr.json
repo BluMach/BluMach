@@ -2,5 +2,11 @@
   "collection.variants.olivetti-m4-75-133-range.summary": "Le guide de maintenance Olivetti recense huit configurations M4 à processeur Pentium de 75 à 133 MHz. Le suffixe S désigne le boîtier Slim Tin par opposition au boîtier Tin standard.",
   "collection.variants.olivetti-m4-pxx-range.summary": "La série M4-Pxx réunit sept configurations ISA/PCI en boîtiers Tin et Slim Tin. Le guide de maintenance distingue les cartes mères Socket 5 et Socket 7.",
   "collection.variants.olivetti-pcs-51xx-range.summary": "Les PCS 5120, 5130 et 5140 étaient livrés en boîtier Slim Tin avec un Pentium cadencé respectivement à 75, 100 et 133 MHz.",
-  "collection.variants.olivetti-pcs-61xx-range.summary": "Les PCS 6120 à 6160 étaient vendus en boîtier Tin avec cinq configurations Pentium d’origine, de 75 à 166 MHz."
+  "collection.variants.olivetti-pcs-61xx-range.summary": "Les PCS 6120 à 6160 étaient vendus en boîtier Tin avec cinq configurations Pentium d’origine, de 75 à 166 MHz.",
+  "collection.variants.olivetti-pcs-pxx-range.summary": "Olivetti a documenté huit configurations Pentium de 75 à 133 MHz. Les références E/En sont en boîtier Tin et les n en boîtier Slim Tin.",
+  "collection.variants.olivetti-pcs-d4-100-range.summary": "Les deux versions disposent d’un DX4 à 100 MHz et de 128 KB de cache L2. La version En utilise un boîtier Tin et la n un boîtier Slim Tin.",
+  "collection.variants.olivetti-echos-p-1995-range.summary": "La gamme présentée par MCmicrocomputer en 1995 associait un Pentium à 75 MHz à un écran DSTN, ou un Pentium à 90 MHz à un écran TFT de 10,4 ou 11,8 pouces.",
+  "collection.variants.olivetti-echos-p-us-1996-range.summary": "La gamme américaine de 1996 comprenait quatre portables Pentium de 100 à 133 MHz. Le processeur et l’écran variaient, et les quatre partageaient une baie modulaire.",
+  "collection.variants.olivetti-m6-640-range.summary": "Le guide distingue le M6-640 à un Pentium de 90 ou 100 MHz et le M6-640 DP à deux Pentium de 90 MHz.",
+  "collection.variants.olivetti-m6-650-690-range.summary": "Le guide recense sept configurations Pentium de 100 à 166 MHz en boîtier Tin. Les versions DP étaient livrées avec deux processeurs."
 }

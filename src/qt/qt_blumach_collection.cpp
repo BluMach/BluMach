@@ -1511,14 +1511,22 @@ void BluMachCollectionWidget::applyFilter()
     }
     int visibleProducts = 0;
     QTreeWidgetItem *exactVariant = nullptr;
+    QTreeWidgetItem *exactGroup = nullptr;
     for (int mi = 0; mi < m_tree->topLevelItemCount(); ++mi) {
         auto *manufacturerItem = m_tree->topLevelItem(mi);
         int manufacturerMatches = 0;
         const auto *manufacturer = m_catalog.manufacturer(manufacturerItem->data(0, IdRole).toString());
+        const QString brandPrefix = manufacturer ? manufacturer->name + QLatin1Char(' ') : QString();
         std::function<int(QTreeWidgetItem *)> filterFamily;
         filterFamily = [&](QTreeWidgetItem *familyItem) -> int {
             int familyMatches = 0;
             const bool variantGroup = familyItem->data(0, TypeRole).toInt() == VariantGroupItem;
+            const QString groupLabel = variantGroup ? familyItem->text(0) : QString();
+            const bool groupMatches = variantGroup && !needle.isEmpty()
+                && (needle.compare(groupLabel, Qt::CaseInsensitive) == 0
+                    || needle.compare(familyItem->data(0, IdRole).toString(), Qt::CaseInsensitive) == 0
+                    || (!brandPrefix.isEmpty() && groupLabel.startsWith(brandPrefix, Qt::CaseInsensitive)
+                        && needle.compare(groupLabel.mid(brandPrefix.size()), Qt::CaseInsensitive) == 0));
             const auto *familyNode = variantGroup ? familyItem->parent() : familyItem;
             const auto *family = m_catalog.family(familyNode->data(0, IdRole).toString());
             for (int pi = 0; pi < familyItem->childCount(); ++pi) {
@@ -1541,9 +1549,7 @@ void BluMachCollectionWidget::applyFilter()
                     && (hideResearch ? product->status != QStringLiteral("research")
                                      : status.isEmpty() || product->status == status)
                     && matchesFacetFilters(*product)
-                    && (needle.isEmpty() || haystack.contains(needle, Qt::CaseInsensitive)
-                        || (variantGroup && (needle.compare(familyItem->text(0), Qt::CaseInsensitive) == 0
-                            || needle.compare(familyItem->data(0, IdRole).toString(), Qt::CaseInsensitive) == 0)));
+                    && (needle.isEmpty() || groupMatches || haystack.contains(needle, Qt::CaseInsensitive));
                 productItem->setHidden(!visible);
                 if (visible && variantGroup && !needle.isEmpty()
                     && (needle.compare(product->name, Qt::CaseInsensitive) == 0
@@ -1554,6 +1560,8 @@ void BluMachCollectionWidget::applyFilter()
                 familyMatches += visible ? 1 : 0;
                 visibleProducts += visible ? 1 : 0;
             }
+            if (groupMatches && familyMatches > 0)
+                exactGroup = familyItem;
             familyItem->setData(0, CountRole, familyMatches);
             familyItem->setHidden(familyMatches == 0);
             if (revealMatches && familyMatches > 0) {
@@ -1584,9 +1592,12 @@ void BluMachCollectionWidget::applyFilter()
         }
         return true;
     };
-    if (exactVariant) {
-        m_tree->setCurrentItem(exactVariant);
-        m_tree->scrollToItem(exactVariant);
+    if (auto *exactMatch = exactVariant ? exactVariant : exactGroup) {
+        if (m_tree->currentItem() == exactMatch)
+            updateDetails(exactMatch);
+        else
+            m_tree->setCurrentItem(exactMatch);
+        m_tree->scrollToItem(exactMatch);
         return;
     }
     if (auto *current = m_tree->currentItem(); current && itemIsVisible(current)) {
