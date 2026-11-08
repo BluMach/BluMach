@@ -13,6 +13,12 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "scsi"
+      ],
       "mobility": [
         "stationary"
       ],

@@ -16,6 +16,12 @@
     ],
     "tags": [],
     "facets": {
+      "cpu_generation": [
+        "x86_pentium"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
       "form_factor": [
         "laptop"
       ],

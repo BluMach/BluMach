@@ -17,6 +17,9 @@
       "OGC"
     ],
     "facets": {
+      "storage_interface": [
+        "floppy"
+      ],
       "form_factor": [
         "desktop"
       ],

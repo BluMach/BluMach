@@ -13,6 +13,12 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "st506"
+      ],
       "form_factor": [
         "desktop"
       ],

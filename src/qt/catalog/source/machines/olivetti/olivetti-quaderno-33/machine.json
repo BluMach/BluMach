@@ -15,6 +15,12 @@
     ],
     "tags": [],
     "facets": {
+      "cpu_generation": [
+        "x86_386sx"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
       "form_factor": [
         "laptop"
       ],

@@ -16,6 +16,9 @@
       "Enhanced IDE"
     ],
     "facets": {
+      "cpu_generation": [
+        "x86_pentium"
+      ],
       "form_factor": [
         "desktop"
       ],

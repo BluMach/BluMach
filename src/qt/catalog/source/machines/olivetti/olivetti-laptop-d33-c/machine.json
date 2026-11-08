@@ -13,6 +13,18 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "cpu_generation": [
+        "x86_386"
+      ],
+      "video": [
+        "vga"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
+      "storage_interface": [
+        "floppy"
+      ],
       "form_factor": [
         "laptop"
       ],

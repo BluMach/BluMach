@@ -13,6 +13,12 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "cpu_generation": [
+        "x86_386sl"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
       "form_factor": [
         "laptop"
       ],

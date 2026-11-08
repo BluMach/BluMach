@@ -13,6 +13,12 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "cpu_generation": [
+        "mos_65c02"
+      ],
+      "storage_interface": [
+        "floppy"
+      ],
       "form_factor": [
         "desktop"
       ],

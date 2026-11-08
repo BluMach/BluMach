@@ -2,6 +2,7 @@
   "order": 10,
   "machine": {
     "id": "amstrad-pc1512",
+    "visible": true,
     "manufacturer_id": "amstrad",
     "family_id": "amstrad-pc1512",
     "platform_id": "amstrad-pc1512-platform",

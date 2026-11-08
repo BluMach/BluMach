@@ -13,6 +13,12 @@
     "aliases": [],
     "tags": [],
     "facets": {
+      "cpu_generation": [
+        "x86_pentium_pro"
+      ],
+      "storage_interface": [
+        "scsi"
+      ],
       "form_factor": [
         "tower"
       ],

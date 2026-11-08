@@ -15,6 +15,15 @@
     ],
     "tags": [],
     "facets": {
+      "cpu_generation": [
+        "x86_486"
+      ],
+      "video": [
+        "vga"
+      ],
+      "display_technology": [
+        "lcd"
+      ],
       "form_factor": [
         "laptop"
       ],
