@@ -1,0 +1,9 @@
+{
+  "product.ta-m32.summary": "Le System M32 proposait le travail de bureau multiutilisateur sur un poste modulaire sous TANIX.",
+  "product.ta-m32.history": "ISER conserve un M32 de 1985 et attribue son développement à Triumph-Adler avec l’aide de Microlab. Le musée le présente comme le successeur du système de traitement de texte BITSY.",
+  "product.ta-m32.technical.configuration": "TANIX prenait en charge plusieurs postes et tâches. Le manuel le décrit comme une extension de XENIX 3.0 et énumère les options de disque, de bande et de réseau Ergonet.",
+  "product.ta-m32.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-m32.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-m32.technical.source_1": "Benutzerhandbuch System M32 · §§1, 4, 9",
+  "product.ta-m32.technical.source_2": "ISER / FAU · System M32 · I1977"
+}
