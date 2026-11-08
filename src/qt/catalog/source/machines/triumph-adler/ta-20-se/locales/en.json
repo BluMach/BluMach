@@ -1,0 +1,10 @@
+{
+  "product.ta-20-se.summary": "The TA 20-SE was the office model with a single-element printer.",
+  "product.ta-20-se.history": "Triumph-Adler offered it for office work alongside the dot-matrix TA 20-NP. The SE model sheet lists 8 KiB of RAM and an MBKE 2 cassette drive.",
+  "product.ta-20-se.technical.configuration": "The cassette loaded office programs. The service manual describes BAB 02 or 04 boards and 3 or 8 KiB configurations.",
+  "product.ta-20-se.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-20-se.technical.limitations": "Firmware from an identified unit and program media are still needed to check operation.",
+  "product.ta-20-se.technical.source_1": "TA 20–22 Technical Description · 04001002 · Triumph-Adler",
+  "product.ta-20-se.technical.source_2": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-20-se.technical.source_3": "Bedienungsanleitung TA 20-SE · Triumph-Adler"
+}

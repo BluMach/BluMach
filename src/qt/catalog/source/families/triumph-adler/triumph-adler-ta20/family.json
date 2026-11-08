@@ -1,0 +1,29 @@
+{
+  "order": 1940,
+  "family": {
+    "id": "triumph-adler-ta20",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "TA 20 / 21 / 22",
+    "description_key": "family.triumph-adler-ta20.description",
+    "history_key": "family.triumph-adler-ta20.history",
+    "history_references": [
+      {
+        "title": "TA20 Modellfamilie",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA20/Ordner1/"
+      },
+      {
+        "title": "TA 20–22 Technical Description · 04001002",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA20/TA20%20-%2022%20%20Technical%20Description%20(Art.%20No.%2004001002)/"
+      },
+      {
+        "title": "Das Terminalsystem TA22",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA22/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "order": 1943,
+  "machine": {
+    "id": "ta-20-compact",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-ta20",
+    "name": "Triumph-Adler TA 20 Compact",
+    "summary_key": "product.ta-20-compact.summary",
+    "history_key": "product.ta-20-compact.history",
+    "status": "research",
+    "period": "1980",
+    "aliases": [
+      "TA20 Compact",
+      "TA20C"
+    ],
+    "tags": [
+      "TA 20 / 21 / 22"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "memory": "3 KiB RAM · 5 KiB PROM"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.rom_layout",
+            "value_key": "product.ta-20-compact.technical.configuration",
+            "url": "https://archiv.computeum.org/TriumphAdler/TA20/Ordner1/"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-20-compact.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-20-compact.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-20-compact.technical.source_1",
+            "url": "https://archiv.computeum.org/TriumphAdler/TA20/Ordner1/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-20-compact.technical.source_2",
+            "url": "https://calaix.gencat.cat/handle/10687/129874"
+          }
+        ]
+      }
+    ]
+  }
+}

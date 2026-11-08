@@ -1,0 +1,10 @@
+{
+  "product.ta-22.summary": "The TA 22 combined diskette data entry with local processing and data exchange with a data centre.",
+  "product.ta-22.history": "Triumph-Adler offered it as an office terminal that prepared data and invoices at the workstation. Computerwoche documented a configuration with an IBM-compatible diskette in 1979.",
+  "product.ta-22.technical.configuration": "The diskette held programs and data. The brochure gives 249 KB per disk and Computerwoche reports 242 KB. The brochure lists a display and cassette drive as options.",
+  "product.ta-22.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-22.technical.limitations": "Firmware from an identified unit and program media are still needed to check operation.",
+  "product.ta-22.technical.source_1": "Das Terminalsystem TA22 · pp. 2, 10; Ergänzungen · p. 4",
+  "product.ta-22.technical.source_2": "TA sucht Jedermann-Computer neue Vertriebswege · Computerwoche · 1979",
+  "product.ta-22.technical.source_3": "TA 20–22 Technical Description · 04001002 · Triumph-Adler"
+}

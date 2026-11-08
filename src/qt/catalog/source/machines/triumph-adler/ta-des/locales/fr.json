@@ -1,0 +1,11 @@
+{
+  "product.ta-des.summary": "Le TA DES permettait aux cabinets membres de DATEV d’enregistrer leurs données sur cassette sans connexion au centre de calcul.",
+  "product.ta-des.history": "Triumph-Adler et DATEV l’ont développé pour les cabinets traitant peu d’écritures. DATEV situe son lancement en 1976 à 11 900 DM, en dessous du TA 1000 connecté, proposé à partir de 20 935 DM.",
+  "product.ta-des.technical.configuration": "La cassette transportait les données pour un traitement ultérieur. Le prospectus présente une configuration avec 3 Kio de RAM et une cassette ECMA 34.",
+  "product.ta-des.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-des.technical.limitations": "Le micrologiciel d’un exemplaire identifié et un support de programme restent à retrouver pour vérifier le fonctionnement.",
+  "product.ta-des.technical.source_1": "Das TRIUMPH-ADLER Datenerfassungssystem · pp. 2–3",
+  "product.ta-des.technical.source_2": "DES & DSD für Ihr Büro · DATEV Unternehmensarchiv",
+  "product.ta-des.technical.source_3": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-des.technical.source_4": "TA 20–22 Technical Description · 04001002 · Triumph-Adler"
+}

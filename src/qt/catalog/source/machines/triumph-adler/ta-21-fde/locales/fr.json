@@ -1,0 +1,9 @@
+{
+  "product.ta-21-fde.summary": "Le TA 21/FDE a introduit la disquette dans la gamme de saisie TA 21.",
+  "product.ta-21-fde.history": "Triumph-Adler le proposait aux côtés du TA 21/MBKE à cassette. La fiche de gamme distingue les deux configurations d’usine.",
+  "product.ta-21-fde.technical.configuration": "La disquette enregistrait les données saisies au poste. La fiche de gamme indique un lecteur FDE compatible IBM associé à 8 Kio de RAM.",
+  "product.ta-21-fde.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-21-fde.technical.limitations": "Le micrologiciel d’un exemplaire identifié et un support de programme restent à retrouver pour vérifier le fonctionnement.",
+  "product.ta-21-fde.technical.source_1": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-21-fde.technical.source_2": "TA 20–22 Technical Description · 04001002 · Triumph-Adler"
+}

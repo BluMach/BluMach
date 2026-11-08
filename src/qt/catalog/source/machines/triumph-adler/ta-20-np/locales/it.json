@@ -1,0 +1,10 @@
+{
+  "product.ta-20-np.summary": "Il TA 20-NP si distingueva per la stampante ad aghi e l’alimentazione dei moduli continui.",
+  "product.ta-20-np.history": "Triumph-Adler proponeva l’NP accanto al SE per automatizzare il lavoro d’ufficio. La scheda di gamma lo mostra con 8 KiB, un’unità a cassette MBKE 2 e un alimentatore EFE 61.",
+  "product.ta-20-np.technical.configuration": "La carta continua facilitava la stampa di moduli in serie. La scheda elenca l’unità per schede contabili magnetiche MKE 6 come espansione.",
+  "product.ta-20-np.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
+  "product.ta-20-np.technical.limitations": "Per verificare il funzionamento mancano il firmware di un esemplare identificato e un supporto di programma.",
+  "product.ta-20-np.technical.source_1": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-20-np.technical.source_2": "TA 20–22 Technical Description · 04001002 · Triumph-Adler",
+  "product.ta-20-np.technical.source_3": "Bedienungsanleitung TA 20-NP · Triumph-Adler"
+}

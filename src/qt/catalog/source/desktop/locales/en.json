@@ -8,5 +8,8 @@
   "collection.variants.olivetti-echos-p-1995-range.summary": "The range covered by MCmicrocomputer in 1995 paired a 75 MHz Pentium with a DSTN display or a 90 MHz Pentium with a 10.4- or 11.8-inch TFT display.",
   "collection.variants.olivetti-echos-p-us-1996-range.summary": "The 1996 US range comprised four Pentium notebooks from 100 to 133 MHz. The processor and display varied, and all four shared a modular bay.",
   "collection.variants.olivetti-m6-640-range.summary": "The guide distinguishes the M6-640 with one 90 or 100 MHz Pentium and the M6-640 DP with two 90 MHz Pentiums.",
-  "collection.variants.olivetti-m6-650-690-range.summary": "The guide lists seven Pentium configurations from 100 to 166 MHz in Tin cases. The DP variants shipped with two processors."
+  "collection.variants.olivetti-m6-650-690-range.summary": "The guide lists seven Pentium configurations from 100 to 166 MHz in Tin cases. The DP variants shipped with two processors.",
+  "collection.variants.ta20-printer-variants.summary": "Office configurations with single-element or dot-matrix printing.",
+  "collection.variants.ta21-storage-variants.summary": "Data-entry configurations with magnetic cassette or diskette.",
+  "collection.variants.ta22-drive-variants.summary": "Office terminals with one diskette drive or two in the B variant."
 }

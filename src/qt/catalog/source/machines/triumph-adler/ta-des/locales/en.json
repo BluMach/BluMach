@@ -1,0 +1,11 @@
+{
+  "product.ta-des.summary": "The TA DES let DATEV practices record data on cassette while offline from the data centre.",
+  "product.ta-des.history": "Triumph-Adler and DATEV developed it for practices with low accounting volumes. DATEV records its 1976 launch at DM 11,900, below the online TA 1000, which started at DM 20,935.",
+  "product.ta-des.technical.configuration": "The cassette carried data for later processing. The brochure shows a configuration with 3 KiB of RAM and an ECMA 34 cassette.",
+  "product.ta-des.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-des.technical.limitations": "Firmware from an identified unit and program media are still needed to check operation.",
+  "product.ta-des.technical.source_1": "Das TRIUMPH-ADLER Datenerfassungssystem · pp. 2–3",
+  "product.ta-des.technical.source_2": "DES & DSD für Ihr Büro · DATEV Unternehmensarchiv",
+  "product.ta-des.technical.source_3": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-des.technical.source_4": "TA 20–22 Technical Description · 04001002 · Triumph-Adler"
+}

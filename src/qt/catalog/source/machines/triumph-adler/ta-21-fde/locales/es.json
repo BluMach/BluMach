@@ -1,0 +1,9 @@
+{
+  "product.ta-21-fde.summary": "El TA 21/FDE llevaba la captura de datos de la serie TA 21 al disquete.",
+  "product.ta-21-fde.history": "Triumph-Adler lo ofrecía como configuración de captura junto al TA 21/MBKE con casete. La hoja de gama distingue ambas dotaciones de fábrica.",
+  "product.ta-21-fde.technical.configuration": "El disquete permitía guardar los datos recogidos en el puesto. La hoja de gama identifica la unidad FDE como compatible con IBM y la combina con 8 KiB de RAM.",
+  "product.ta-21-fde.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-21-fde.technical.limitations": "Faltan el firmware de una unidad identificada y un soporte de programa para comprobar su funcionamiento.",
+  "product.ta-21-fde.technical.source_1": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-21-fde.technical.source_2": "TA 20–22 Technical Description · 04001002 · Triumph-Adler"
+}

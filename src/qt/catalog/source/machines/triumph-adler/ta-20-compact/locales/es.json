@@ -1,0 +1,9 @@
+{
+  "product.ta-20-compact.summary": "El TA 20 Compact reunía escritura, cálculo y facturación en una máquina de sobremesa.",
+  "product.ta-20-compact.history": "Un anuncio español de 1980 lo ofrecía a pequeñas y medianas empresas para facturar, llevar la contabilidad y preparar correspondencia. Dentro de la gama TA 20 era el equipo de sobremesa.",
+  "product.ta-20-compact.technical.configuration": "La memoria fija guardaba los programas integrados. La hoja de familia distingue 5 KiB de PROM y 3 KiB de RAM.",
+  "product.ta-20-compact.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-20-compact.technical.limitations": "Falta volcar la PROM e identificar su placa para comprobar el arranque.",
+  "product.ta-20-compact.technical.source_1": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-20-compact.technical.source_2": "Los Sitios de Gerona · 11-05-1980 · p. 24"
+}

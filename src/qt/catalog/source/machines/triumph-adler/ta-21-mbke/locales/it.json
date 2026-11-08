@@ -1,0 +1,10 @@
+{
+  "product.ta-21-mbke.summary": "Il TA 21/MBKE registrava dati su cassetta magnetica per la successiva elaborazione.",
+  "product.ta-21-mbke.history": "Triumph-Adler lo incluse nella gamma di acquisizione dati accanto al TA 21/FDE a dischetti.",
+  "product.ta-21-mbke.technical.configuration": "La cassetta caricava anche i programmi della postazione. Il manuale descrive l’operazione con l’unità MBKE 1.",
+  "product.ta-21-mbke.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
+  "product.ta-21-mbke.technical.limitations": "Per verificare il funzionamento mancano il firmware di un esemplare identificato e un supporto di programma.",
+  "product.ta-21-mbke.technical.source_1": "Bedienungsanleitung TA 21 · Triumph-Adler · §3",
+  "product.ta-21-mbke.technical.source_2": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-21-mbke.technical.source_3": "TA 20–22 Technical Description · 04001002 · Triumph-Adler"
+}

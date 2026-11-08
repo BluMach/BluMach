@@ -1,0 +1,9 @@
+{
+  "product.ta-20-compact.summary": "O TA 20 Compact reunia escrita, cálculo e faturação numa máquina de secretária.",
+  "product.ta-20-compact.history": "Um anúncio espanhol de 1980 propunha-o às pequenas e médias empresas para faturação, contabilidade e correspondência. Era o modelo de secretária da gama TA 20.",
+  "product.ta-20-compact.technical.configuration": "A memória fixa guardava os programas integrados. A ficha de gama distingue 5 KiB de PROM e 3 KiB de RAM.",
+  "product.ta-20-compact.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-20-compact.technical.limitations": "Falta ler a PROM e identificar a placa para verificar o arranque.",
+  "product.ta-20-compact.technical.source_1": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-20-compact.technical.source_2": "Los Sitios de Gerona · 11-05-1980 · p. 24"
+}

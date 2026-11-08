@@ -1,0 +1,9 @@
+{
+  "product.ta-22b.summary": "The TA 22 B put a second diskette drive in the cassette drive bay.",
+  "product.ta-22b.history": "It was the twin-drive version of the TA 22 office terminal. Triumph-Adler’s documentation distinguishes it with the letter B.",
+  "product.ta-22b.technical.configuration": "The two drives let operators use two diskettes at the same workstation. The technical description assigns 16 KiB of RAM and a BAB 06 board to the TA 22 B.",
+  "product.ta-22b.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-22b.technical.limitations": "Firmware from an identified unit and program media are still needed to check operation.",
+  "product.ta-22b.technical.source_1": "TA 20–22 Technical Description · 04001002 · Triumph-Adler",
+  "product.ta-22b.technical.source_2": "Das Terminalsystem TA22 · Triumph-Adler"
+}
