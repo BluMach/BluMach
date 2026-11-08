@@ -1,0 +1,8 @@
+{
+  "product.ta-bss-200.summary": "Le BSS 200 était un système de rédaction disposant de sa propre documentation de service dans la gamme BSS.",
+  "product.ta-bss-200.history": "Triumph-Adler le répertorie séparément dans son catalogue technique de 1993.",
+  "product.ta-bss-200.technical.configuration": "Les références permettent d’identifier sa documentation de service. Le catalogue indique BS102 en allemand et BS103 en anglais.",
+  "product.ta-bss-200.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-bss-200.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-bss-200.technical.source_1": "Triumph-Adler · Druckschriftenverzeichnis 1993 · BS"
+}

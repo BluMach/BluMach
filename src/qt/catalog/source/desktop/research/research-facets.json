@@ -29,6 +29,16 @@
     "firmware_custody": "not_found",
     "test_destinations": []
   },
+  "ta-bss-200": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-bss-300": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-1069": {
     "documentation": "documented",
     "firmware_custody": "partial",
