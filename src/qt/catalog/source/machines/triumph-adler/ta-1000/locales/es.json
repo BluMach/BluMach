@@ -1,0 +1,11 @@
+{
+  "product.ta-1000.summary": "El TA 1000 llevó tareas como nóminas y contabilidad a un ordenador de oficina con procesador propio.",
+  "product.ta-1000.history": "Triumph-Adler encargó su desarrollo a Otto Müller, de CTM, y lo produjo en serie desde 1973. La BfA lo instaló en clínicas para gestionar nóminas, alquileres, contabilidad e inventario. Su arquitectura dio lugar al TA 1069 ferroviario.",
+  "product.ta-1000.technical.configuration": "El procesador se construía con circuitos lógicos TTL. Su bus de datos era de 8 bits y el de direcciones de 16 bits.",
+  "product.ta-1000.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-1000.technical.limitations": "Se conservan manuales y esquemas. Quedan pendientes el firmware de una unidad de oficina y una prueba de arranque.",
+  "product.ta-1000.technical.source_1": "TA 1000 Service Manual und Mikroinstruktionshandbuch · Ultronics",
+  "product.ta-1000.technical.source_2": "CTM – Aufstieg und Niedergang einer Computerfirma · HNF",
+  "product.ta-1000.technical.source_3": "BfA mit TA 1000 · Computerwoche",
+  "product.ta-1000.technical.source_4": "TA 1000 · Zwieseltal"
+}

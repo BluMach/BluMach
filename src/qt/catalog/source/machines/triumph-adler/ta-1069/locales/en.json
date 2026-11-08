@@ -1,0 +1,11 @@
+{
+  "product.ta-1069.summary": "The TA 1069 adapted the TA 1000 for German railway workstations.",
+  "product.ta-1069.history": "Triumph-Adler built the station for Deutsche Bundesbahn. The TA 1000 variant was integrated into the ITS transport management system. A June 1980 trial in Gremberg documents its use in recording freight wagons.",
+  "product.ta-1069.technical.configuration": "The station could send data to the central computer. The railway museum documents a screen, light pen, dot-matrix printer and floppy drive.",
+  "product.ta-1069.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-1069.technical.limitations": "A 32 KiB image attributed to Udo Lechner’s dump is preserved from the SmallCircuits project. The original source and boot remain to be verified.",
+  "product.ta-1069.technical.source_1": "Datenstation · Museum Kleinkummerfeld",
+  "product.ta-1069.technical.source_2": "TA 1069 · Gremberg 06/1980 · Drehscheibe",
+  "product.ta-1069.technical.source_3": "TA 1069 · Udo Lechner · Ultronics",
+  "product.ta-1069.technical.source_4": "TA 1000 · SmallCircuits · Zwieseltal"
+}

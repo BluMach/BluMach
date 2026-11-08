@@ -1,0 +1,11 @@
+{
+  "product.ta-1069.summary": "O TA 1069 adaptou o TA 1000 aos postos de trabalho dos caminhos de ferro alemães.",
+  "product.ta-1069.history": "A Triumph-Adler fabricou a estação para a Deutsche Bundesbahn. A variante do TA 1000 integrava-se no sistema de gestão de transportes ITS. Um ensaio de junho de 1980 em Gremberg documenta o seu uso no registo de vagões de mercadorias.",
+  "product.ta-1069.technical.configuration": "A estação podia enviar dados ao computador central. O museu ferroviário documenta ecrã, caneta ótica, impressora matricial e unidade de disquetes.",
+  "product.ta-1069.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-1069.technical.limitations": "Está preservada uma imagem de 32 KiB atribuída ao dump de Udo Lechner, recuperada do projeto SmallCircuits. Falta verificar a fonte original e o arranque.",
+  "product.ta-1069.technical.source_1": "Datenstation · Museum Kleinkummerfeld",
+  "product.ta-1069.technical.source_2": "TA 1069 · Gremberg 06/1980 · Drehscheibe",
+  "product.ta-1069.technical.source_3": "TA 1069 · Udo Lechner · Ultronics",
+  "product.ta-1069.technical.source_4": "TA 1000 · SmallCircuits · Zwieseltal"
+}
