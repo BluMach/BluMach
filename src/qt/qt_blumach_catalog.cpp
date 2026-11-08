@@ -245,6 +245,22 @@ BluMachCatalog::load(QString *errorMessage)
         m_products.append(product);
     }
 
+    m_variantGroups.clear();
+    const auto variants = readJson(QStringLiteral(":/blumach/catalog/variant-groups.json"), nullptr);
+    for (const auto &entry : variants.object().value(QStringLiteral("groups")).toArray()) {
+        const auto group = entry.toObject();
+        QStringList ids;
+        for (const auto &variant : group.value(QStringLiteral("variants")).toArray())
+            ids.append(variant.toString());
+        m_variantGroups.append({ group.value(QStringLiteral("id")).toString(),
+                                 group.value(QStringLiteral("family_id")).toString(),
+                                 group.value(QStringLiteral("name")).toString(),
+                                 group.value(QStringLiteral("summary_key")).toString(),
+                                 group.value(QStringLiteral("upgrades_key")).toString(),
+                                 group.value(QStringLiteral("firmware_key")).toString(),
+                                 group.value(QStringLiteral("source_url")).toString(), ids });
+    }
+
     reloadLocale();
     return true;
 }
@@ -282,6 +298,15 @@ BluMachCatalog::loadLocale(const QString &locale, QHash<QString, QString> *targe
 const QVector<BluMachManufacturer> &BluMachCatalog::manufacturers() const { return m_manufacturers; }
 const QVector<BluMachFamily> &BluMachCatalog::families() const { return m_families; }
 const QVector<BluMachPlatform> &BluMachCatalog::platforms() const { return m_platforms; }
+const BluMachVariantGroup *BluMachCatalog::variantGroup(const QString &id) const
+{
+    for (const auto &group : m_variantGroups) {
+        if (group.id == id)
+            return &group;
+    }
+    return nullptr;
+}
+
 const QVector<BluMachProduct> &BluMachCatalog::products() const { return m_products; }
 const QVector<BluMachFilterFacet> &BluMachCatalog::filterFacets() const { return m_filterFacets; }
 

@@ -54,7 +54,7 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
 
 private:
-    enum ItemType { ManufacturerItem = 1, FamilyItem, ProductItem };
+    enum ItemType { ManufacturerItem = 1, FamilyItem, ProductItem, VariantGroupItem };
 
     void rebuildTree();
     void rebuildFacetFilters();
@@ -70,6 +70,7 @@ private:
     bool matchesFacetFilters(const BluMachProduct &product) const;
     bool matchesFacetFilters(const QJsonObject &commonFacets, const QJsonObject &profileFacets) const;
     void setDetailTabsAvailable(bool researchAvailable, bool engineeringAvailable, bool sourcesAvailable);
+    void populateVariantGroup(QTreeWidgetItem *item);
     void populateOverview(const BluMachProduct &product);
     void populateTechnicalPage(const BluMachProduct &product, bool sourcesPage);
     void populateEngineeringPage(const BluMachProduct &product);

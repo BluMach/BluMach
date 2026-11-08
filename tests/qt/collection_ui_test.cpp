@@ -377,6 +377,11 @@ private slots:
         QFETCH(bool, dark);
         QFETCH(int, locale);
         QFETCH(int, width);
+        BluMachCatalog catalog;
+        QVERIFY(catalog.load());
+        int expectedPcsCount = 0;
+        for (const auto &product : catalog.products())
+            expectedPcsCount += product.familyId == QStringLiteral("olivetti-pcs") ? 1 : 0;
         testSettings.clear();
         lang_id = locale;
         Preferences::CustomTranslator translator;
@@ -448,7 +453,7 @@ private slots:
         QCOMPARE(creation.count(), 0);
         clear->click();
         QVERIFY(search->text().isEmpty());
-        QCOMPARE(family->data(0, Qt::UserRole + 7).toInt(), pcsCount);
+        QCOMPARE(family->data(0, Qt::UserRole + 7).toInt(), expectedPcsCount);
         QVERIFY(search->hasFocus());
         QVERIFY(!clear->isVisible());
         // Reflow repeatedly: grid column stretch must not accumulate.
@@ -471,7 +476,10 @@ private slots:
         QTest::keyClick(advanced, Qt::Key_Escape);
         QCOMPARE(status->currentIndex(), 0);
         QVERIFY(!clear->isVisible());
-        tree->setCurrentItem(family->child(0));
+        auto *pcs86 = catalogueItem(tree, QStringLiteral("olivetti-pcs86"));
+        auto *pcs286 = catalogueItem(tree, QStringLiteral("olivetti-pcs286"));
+        QVERIFY(pcs86 && pcs286);
+        tree->setCurrentItem(pcs86);
         tree->setFocus();
         QTest::qWait(5);
         const auto output = qEnvironmentVariable("BLUMACH_UI_SCREENSHOTS");
@@ -498,13 +506,13 @@ private slots:
             if (label->wordWrap() && label->isVisible())
                 QTRY_VERIFY_WITH_TIMEOUT(label->height() >= label->heightForWidth(label->width()), 1000);
         }
-        tree->setCurrentItem(family->child(0));
+        tree->setCurrentItem(pcs86);
         widget.grab();
         auto *scroll = qobject_cast<QScrollArea *>(tabs->widget(0));
         QVERIFY(scroll);
         QCOMPARE(scroll->horizontalScrollBar()->maximum(), 0);
         scroll->verticalScrollBar()->setValue(scroll->verticalScrollBar()->maximum());
-        tree->setCurrentItem(family->child(1));
+        tree->setCurrentItem(pcs286);
         QCOMPARE(scroll->verticalScrollBar()->value(), 0);
         // A live theme update must restyle existing controls as well.
         auto changedPalette = pal;
@@ -541,6 +549,71 @@ private slots:
             QVERIFY(!QImage(mark).isNull());
             QVERIFY(QFile::exists(QStringLiteral(":/blumach/brand-marks/%1-NOTICE.md").arg(it.key())));
         }
+        testSettings.clear();
+    }
+
+    void olivettiFactoryVariants()
+    {
+        testSettings.clear();
+        lang_id = 1;
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        auto *search = widget.findChild<QLineEdit *>();
+        auto *title = widget.findChild<QLabel *>("blumachProductTitle");
+        QVERIFY(tree && search && title);
+        const QHash<QString, int> groups = {
+            { "olivetti-m6-5x0", 3 }, { "olivetti-m6-7x0", 6 },
+            { "olivetti-m4-4xx-entry", 6 }, { "olivetti-m4-4xx-enhanced", 10 },
+            { "olivetti-pcs42p-entry", 6 }, { "olivetti-pcs42p-enhanced", 4 },
+            { "olivetti-modulo-l", 3 }, { "olivetti-pcs40-range", 5 },
+            { "olivetti-m6-4x0", 4 }, { "olivetti-m4-5x4", 6 }, { "olivetti-m24-new", 3 },
+        };
+        int references = 0;
+        for (auto it = groups.cbegin(); it != groups.cend(); ++it) {
+            auto *group = catalogueItem(tree, it.key());
+            QVERIFY(group);
+            QCOMPARE(group->childCount(), it.value());
+            QVERIFY(!group->isExpanded());
+            tree->setCurrentItem(group);
+            QCOMPARE(widget.findChildren<QToolButton *>("blumachFactoryVariant").size(), it.value());
+            for (int i = 0; i < group->childCount(); ++i) {
+                auto *reference = group->child(i);
+                search->setText(reference->text(0));
+                QCOMPARE(tree->currentItem(), reference);
+                QCOMPARE(title->text(), reference->text(0));
+                QVERIFY(!reference->isHidden());
+                ++references;
+            }
+            search->clear();
+        }
+        QCOMPARE(references, 56);
+        auto *m6 = catalogueItem(tree, QStringLiteral("olivetti-m6-5x0"));
+        tree->setCurrentItem(m6);
+        const auto *upgrades = widget.findChild<QLabel *>("blumachVariantUpgrades");
+        QVERIFY(upgrades && upgrades->text().contains(QStringLiteral("i487SX")));
+        for (auto *button : widget.findChildren<QToolButton *>("blumachFactoryVariant"))
+            QVERIFY(!button->text().contains(QStringLiteral("i487SX")));
+        search->setText(QStringLiteral("540"));
+        QCOMPARE(tree->currentItem(), m6);
+        const auto buttons = widget.findChildren<QToolButton *>("blumachFactoryVariant");
+        QCOMPARE(buttons.size(), 1);
+        QVERIFY(buttons.first()->text().contains(QStringLiteral("M6-540")));
+        buttons.first()->click();
+        QTRY_COMPARE(tree->currentItem()->parent(), m6);
+        QCOMPARE(search->text(), QStringLiteral("540"));
+        QTRY_VERIFY(!widget.findChild<QLabel *>("blumachVariantUpgrades"));
+        search->clear();
+
+        QComboBox *processor = nullptr;
+        for (auto *combo : widget.findChildren<QComboBox *>()) {
+            if (combo->findData(QStringLiteral("x86_486")) >= 0)
+                processor = combo;
+        }
+        QVERIFY(processor);
+        processor->setCurrentIndex(processor->findData(QStringLiteral("x86_486")));
+        QVERIFY(!m6->isHidden());
+        QVERIFY(catalogueItem(tree, QStringLiteral("olivetti-modulo-l"))->isHidden());
+        lang_id = 0;
         testSettings.clear();
     }
 };

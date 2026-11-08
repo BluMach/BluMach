@@ -65,6 +65,7 @@ constexpr auto CountRole        = Qt::UserRole + 7;
 constexpr auto BrandMarkRole    = Qt::UserRole + 8;
 constexpr auto BrandMarkBackgroundRole = Qt::UserRole + 9;
 
+
 QColor
 blendColor(const QColor &background, const QColor &foreground, const qreal amount)
 {
@@ -953,10 +954,26 @@ void BluMachCollectionWidget::rebuildTree()
             familyItem->setData(0, TypeRole, FamilyItem);
             familyItem->setExpanded(expand);
             int familyCount = 0;
+            QHash<QString, QTreeWidgetItem *> variantParents;
+            for (const auto &group : m_catalog.variantGroups()) {
+                if (group.familyId != family.id)
+                    continue;
+                QTreeWidgetItem *groupItem = nullptr;
+                for (const auto &id : group.variants) {
+                    if (!m_catalog.product(id))
+                        continue;
+                    if (!groupItem) {
+                        groupItem = new QTreeWidgetItem(familyItem, { group.name });
+                        groupItem->setData(0, IdRole, group.id);
+                        groupItem->setData(0, TypeRole, VariantGroupItem);
+                    }
+                    variantParents.insert(id, groupItem);
+                }
+            }
             for (const auto &product : m_catalog.products()) {
                 if (product.familyId != family.id)
                     continue;
-                auto *productItem = new QTreeWidgetItem(familyItem, { product.name });
+                auto *productItem = new QTreeWidgetItem(variantParents.value(product.id, familyItem), { product.name });
                 productItem->setData(0, IdRole, product.id);
                 productItem->setData(0, TypeRole, ProductItem);
                 productItem->setData(0, PeriodRole, m_catalog.periodText(product));
@@ -994,7 +1011,8 @@ void BluMachCollectionWidget::rebuildTree()
         restoreTreeExpansion(m_savedExpandedIds);
     bool restoredSelection = false;
     for (auto iterator = QTreeWidgetItemIterator(m_tree); *iterator; ++iterator) {
-        if ((*iterator)->data(0, TypeRole).toInt() == ProductItem) {
+        const int type = (*iterator)->data(0, TypeRole).toInt();
+        if (type == ProductItem || type == VariantGroupItem) {
             if ((*iterator)->data(0, IdRole).toString() == m_selectedProductId) {
                 m_tree->setCurrentItem(*iterator);
                 restoredSelection = true;
@@ -1117,6 +1135,13 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
         emit selectionContextChanged({}, {}, false);
         return;
     }
+    if (type == VariantGroupItem) {
+        m_selectedProductId = id;
+        saveUiState();
+        populateVariantGroup(item);
+        emit selectionContextChanged({}, {}, false);
+        return;
+    }
     if (type == FamilyItem) {
         if (const auto *family = m_catalog.family(id)) {
             m_title->setText(family->name);
@@ -1215,6 +1240,73 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
         populateTechnicalPage(*product, true);
     setDetailTabsAvailable(hasResearch, hasEngineering, hasSources);
     emit selectionContextChanged(product->id, product->name, canCreateProduct(*product));
+}
+
+void BluMachCollectionWidget::populateVariantGroup(QTreeWidgetItem *item)
+{
+    const auto *group = m_catalog.variantGroup(item->data(0, IdRole).toString());
+    if (!group)
+        return;
+    m_title->setText(item->text(0));
+    m_subtitle->setText(m_catalog.text(QStringLiteral("collection.family")));
+    m_summary->setText(m_catalog.text(group->summaryKey));
+    m_overviewLayout->addWidget(makeSectionHeading(
+        m_catalog.text(QStringLiteral("technical.label.commercial_configurations")), m_overviewScroll));
+
+    auto *frame = new QFrame(m_overviewScroll);
+    frame->setObjectName(QStringLiteral("blumachDetailSection"));
+    auto *grid = new QGridLayout(frame);
+    grid->setContentsMargins(14, 12, 14, 12);
+    grid->setColumnStretch(1, 1);
+    for (int row = 0; row < item->childCount(); ++row) {
+        auto *variant = item->child(row);
+        const auto *product = m_catalog.product(variant->data(0, IdRole).toString());
+        if (!product || variant->isHidden())
+            continue;
+        auto *button = new QToolButton(frame);
+        button->setObjectName(QStringLiteral("blumachFactoryVariant"));
+        button->setText(product->name);
+        button->setAutoRaise(true);
+        connect(button, &QToolButton::clicked, this, [this, variantId = product->id] {
+            for (QTreeWidgetItemIterator it(m_tree); *it; ++it) {
+                auto *target = *it;
+                if (target->data(0, IdRole).toString() != variantId)
+                    continue;
+                if (target->isHidden() || target->parent()->isHidden())
+                    break;
+                target->parent()->setExpanded(true);
+                m_tree->setCurrentItem(target);
+                m_tree->scrollToItem(target);
+                break;
+            }
+        }, Qt::QueuedConnection);
+        grid->addWidget(button, row, 0, Qt::AlignLeft);
+        grid->addWidget(makeWrappedLabel(jsonValueText(product->hardware.value(QStringLiteral("cpu"))),
+                                        frame), row, 1);
+    }
+    m_overviewLayout->addWidget(frame);
+
+    if (!group->upgradesKey.isEmpty()) {
+        m_overviewLayout->addWidget(makeSectionHeading(
+            m_catalog.text(QStringLiteral("collection.variants.upgrades")), m_overviewScroll));
+        auto *upgrades = makeWrappedLabel(m_catalog.text(group->upgradesKey), m_overviewScroll);
+        upgrades->setObjectName(QStringLiteral("blumachVariantUpgrades"));
+        m_overviewLayout->addWidget(upgrades);
+    }
+    if (!group->firmwareKey.isEmpty()) {
+        m_overviewLayout->addWidget(makeSectionHeading(
+            m_catalog.text(QStringLiteral("technical.section.firmware")), m_overviewScroll));
+        m_overviewLayout->addWidget(makeWrappedLabel(m_catalog.text(group->firmwareKey),
+                                                    m_overviewScroll));
+    }
+    auto *source = new QToolButton(m_overviewScroll);
+    source->setText(m_catalog.text(QStringLiteral("technical.label.manual")));
+    source->setAutoRaise(true);
+    connect(source, &QToolButton::clicked, this, [this, url = group->sourceUrl] {
+        openTechnicalLink(QUrl(url));
+    });
+    m_overviewLayout->addWidget(source, 0, Qt::AlignLeft);
+    m_overviewLayout->addStretch(1);
 }
 
 void BluMachCollectionWidget::populateOverview(const BluMachProduct &product)
@@ -1411,6 +1503,7 @@ void BluMachCollectionWidget::applyFilter()
         m_expandedBeforeFilter.clear();
     }
     int visibleProducts = 0;
+    QTreeWidgetItem *exactVariant = nullptr;
     for (int mi = 0; mi < m_tree->topLevelItemCount(); ++mi) {
         auto *manufacturerItem = m_tree->topLevelItem(mi);
         int manufacturerMatches = 0;
@@ -1418,10 +1511,12 @@ void BluMachCollectionWidget::applyFilter()
         std::function<int(QTreeWidgetItem *)> filterFamily;
         filterFamily = [&](QTreeWidgetItem *familyItem) -> int {
             int familyMatches = 0;
-            const auto *family = m_catalog.family(familyItem->data(0, IdRole).toString());
+            const bool variantGroup = familyItem->data(0, TypeRole).toInt() == VariantGroupItem;
+            const auto *familyNode = variantGroup ? familyItem->parent() : familyItem;
+            const auto *family = m_catalog.family(familyNode->data(0, IdRole).toString());
             for (int pi = 0; pi < familyItem->childCount(); ++pi) {
                 auto *productItem = familyItem->child(pi);
-                if (productItem->data(0, TypeRole).toInt() == FamilyItem) {
+                if (productItem->data(0, TypeRole).toInt() != ProductItem) {
                     familyMatches += filterFamily(productItem);
                     continue;
                 }
@@ -1432,20 +1527,34 @@ void BluMachCollectionWidget::applyFilter()
                                     m_catalog.periodText(*product), m_catalog.text(product->summaryKey),
                                     manufacturer ? manufacturer->name : QString(),
                                     family ? family->name : QString(),
-                                    platform ? platform->architecture : QString() }).join(' ')
+                                    platform ? platform->architecture : QString(),
+                                    product->id, jsonValueText(product->hardware.value(QStringLiteral("cpu"))) }).join(' ')
                     : QString();
                 const bool visible = product
                     && (status.isEmpty() || product->status == status)
                     && matchesFacetFilters(*product)
-                    && (needle.isEmpty() || haystack.contains(needle, Qt::CaseInsensitive));
+                    && (needle.isEmpty() || haystack.contains(needle, Qt::CaseInsensitive)
+                        || (variantGroup && (needle.compare(familyItem->text(0), Qt::CaseInsensitive) == 0
+                            || needle.compare(familyItem->data(0, IdRole).toString(), Qt::CaseInsensitive) == 0)));
                 productItem->setHidden(!visible);
+                if (visible && variantGroup && !needle.isEmpty()
+                    && (needle.compare(product->name, Qt::CaseInsensitive) == 0
+                        || needle.compare(product->id, Qt::CaseInsensitive) == 0
+                        || needle.compare(product->id.mid(product->manufacturerId.size() + 1), Qt::CaseInsensitive) == 0
+                        || product->aliases.contains(needle, Qt::CaseInsensitive)))
+                    exactVariant = productItem;
                 familyMatches += visible ? 1 : 0;
                 visibleProducts += visible ? 1 : 0;
             }
             familyItem->setData(0, CountRole, familyMatches);
             familyItem->setHidden(familyMatches == 0);
-            if (revealMatches && familyMatches > 0)
-                familyItem->setExpanded(true);
+            if (revealMatches && familyMatches > 0) {
+                if (variantGroup)
+                    familyItem->setExpanded(familyMatches < familyItem->childCount()
+                                            || (exactVariant && exactVariant->parent() == familyItem));
+                else
+                    familyItem->setExpanded(true);
+            }
             return familyMatches;
         };
         for (int fi = 0; fi < manufacturerItem->childCount(); ++fi)
@@ -1467,11 +1576,20 @@ void BluMachCollectionWidget::applyFilter()
         }
         return true;
     };
-    if (auto *current = m_tree->currentItem(); current && itemIsVisible(current))
+    if (exactVariant) {
+        m_tree->setCurrentItem(exactVariant);
+        m_tree->scrollToItem(exactVariant);
         return;
+    }
+    if (auto *current = m_tree->currentItem(); current && itemIsVisible(current)) {
+        if (current->data(0, TypeRole).toInt() == VariantGroupItem)
+            updateDetails(current);
+        return;
+    }
     for (auto iterator = QTreeWidgetItemIterator(m_tree); *iterator; ++iterator) {
         auto *candidate = *iterator;
-        if (candidate->data(0, TypeRole).toInt() == ProductItem && itemIsVisible(candidate)) {
+        const int type = candidate->data(0, TypeRole).toInt();
+        if ((type == ProductItem || type == VariantGroupItem) && itemIsVisible(candidate)) {
             m_tree->setCurrentItem(candidate);
             m_tree->scrollToItem(candidate);
             return;

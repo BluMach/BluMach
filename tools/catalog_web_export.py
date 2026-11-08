@@ -36,6 +36,9 @@ RESOURCE_PREFIX = ":/blumach/catalog/images/"
 PRIVATE_PRODUCT_FIELDS = ("creation", "filter_profiles", "platform_id", "development")
 # Fixed timestamp so the same catalogue always gives the same archive bytes.
 ZIP_TIMESTAMP = (2000, 1, 1, 0, 0, 0)
+# The archive's HTTPS equivalents could not be verified. Keep the translated
+# issue/page citations in the public catalogue and the original links in BluMach.
+LEGACY_SCHNEIDER_PRESS = "http://www.cc-computerarchiv.de/CC-Archiv/bc-alt/gb-schn/"
 
 
 def image_files(resource_file: Path) -> dict[str, Path]:
@@ -84,6 +87,10 @@ def public_product(
         name = resource[len(RESOURCE_PREFIX):]
         images.add(name)
         media["resource"] = f"images/{name}"
+    for section in result.get("technical", []):
+        for entry in section["entries"]:
+            if entry.get("url", "").startswith(LEGACY_SCHNEIDER_PRESS):
+                del entry["url"]
     implementation = result.get("implementation")
     if isinstance(implementation, dict):
         implementation["url"] = f"{REPOSITORY}/blob/{tag}/doc/machines/{implementation['document']}"
@@ -133,6 +140,9 @@ def export(
                 del product["relationships"]
 
     files: dict[str, bytes] = {}
+    variant_groups = catalog_builder.load_variant_groups(source_dir, catalog, translations)
+    if variant_groups["groups"]:
+        files[catalog_builder.VARIANT_GROUPS_FILE] = encode(variant_groups)
     image_paths = image_files(resource_file)
     for name in sorted(images):
         path = image_paths.get(name)

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+import json
 from pathlib import Path
+import tempfile
 import sys
 import unittest
 
@@ -37,6 +39,26 @@ class CatalogBuilderTests(unittest.TestCase):
         self.assertIn(
             'alias="documents/toshiba-t5100-implementation.md"', qrc
         )
+
+    def test_variant_groups_reject_hidden_and_repeated_members(self) -> None:
+        maker = {"id": "example", "visible": True}
+        family = {"id": "range", "manufacturer_id": "example", "visible": True}
+        first = {"id": "model-a", "family_id": "range", "visible": True}
+        hidden = {"id": "model-b", "family_id": "range", "visible": False}
+        catalog = {"manufacturers": [maker], "families": [family], "products": [first, hidden]}
+        group = {"id": "variants", "name": "Variants", "family_id": "range",
+                 "summary_key": "group.summary", "source_url": "https://example.com/archive"}
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory)
+            (source / "common").mkdir()
+            for members, message in ((["model-a", "model-b"], "must be visible"),
+                                     (["model-a", "model-a"], "more than one position")):
+                group["variants"] = members
+                (source / "common/variant-groups.json").write_text(json.dumps({
+                    "schema": catalog_builder.VARIANT_GROUPS_SCHEMA, "groups": [group],
+                }), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, message):
+                    catalog_builder.load_variant_groups(source, catalog, {"en": {"group.summary": "Summary"}})
 
     def test_implementation_documents_are_deduplicated(self) -> None:
         catalog = {
