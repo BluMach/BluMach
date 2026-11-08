@@ -1,0 +1,163 @@
+{
+  "schema": "blumach-variant-groups-v1",
+  "groups": [
+    {
+      "id": "olivetti-m6-5x0",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M6 Suprema 520 / 540 / 560",
+      "summary_key": "collection.variants.olivetti-m6-5x0.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m6-520",
+        "olivetti-m6-540",
+        "olivetti-m6-560"
+      ],
+      "upgrades_key": "collection.variants.olivetti-m6-5x0.upgrades",
+      "firmware_key": "collection.variants.olivetti-m6-5x0.firmware"
+    },
+    {
+      "id": "olivetti-m6-7x0",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M6 Suprema 750 / 760 / 770",
+      "summary_key": "collection.variants.olivetti-m6-7x0.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m6-750",
+        "olivetti-m6-750-s",
+        "olivetti-m6-760",
+        "olivetti-m6-760-s",
+        "olivetti-m6-770",
+        "olivetti-m6-770-s"
+      ],
+      "upgrades_key": "collection.variants.olivetti-m6-7x0.upgrades"
+    },
+    {
+      "id": "olivetti-m4-4xx-entry",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M4-4xx Modulo · Entry",
+      "summary_key": "collection.variants.olivetti-m4-4xx-entry.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m4-422",
+        "olivetti-m4-422s",
+        "olivetti-m4-432",
+        "olivetti-m4-432s",
+        "olivetti-m4-452",
+        "olivetti-m4-452s"
+      ]
+    },
+    {
+      "id": "olivetti-m4-4xx-enhanced",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M4-4xx Modulo · Enhanced",
+      "summary_key": "collection.variants.olivetti-m4-4xx-enhanced.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m4-424",
+        "olivetti-m4-424s",
+        "olivetti-m4-434",
+        "olivetti-m4-434s",
+        "olivetti-m4-454",
+        "olivetti-m4-454s",
+        "olivetti-m4-464",
+        "olivetti-m4-464s",
+        "olivetti-m4-484",
+        "olivetti-m4-484s"
+      ]
+    },
+    {
+      "id": "olivetti-pcs42p-entry",
+      "family_id": "olivetti-pcs",
+      "name": "Olivetti PCS42P · Entry",
+      "summary_key": "collection.variants.olivetti-pcs42p-entry.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-pcs42p-sx-25",
+        "olivetti-pcs42p-sx-25-e",
+        "olivetti-pcs42p-sx-33",
+        "olivetti-pcs42p-sx-33-e",
+        "olivetti-pcs42p-s2-50",
+        "olivetti-pcs42p-s2-50-e"
+      ]
+    },
+    {
+      "id": "olivetti-pcs42p-enhanced",
+      "family_id": "olivetti-pcs",
+      "name": "Olivetti PCS42P · Enhanced",
+      "summary_key": "collection.variants.olivetti-pcs42p-enhanced.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-pcs42p-d2-50",
+        "olivetti-pcs42p-d2-50-e",
+        "olivetti-pcs42p-d2-66",
+        "olivetti-pcs42p-d2-66-e"
+      ]
+    },
+    {
+      "id": "olivetti-modulo-l",
+      "family_id": "olivetti-m",
+      "name": "Olivetti Modulo L · P100 / P120 / P133",
+      "summary_key": "collection.variants.olivetti-modulo-l.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-modulo-p100-l",
+        "olivetti-modulo-p120-l",
+        "olivetti-modulo-p133-l"
+      ]
+    },
+    {
+      "id": "olivetti-pcs40-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti PCS40",
+      "summary_key": "collection.variants.olivetti-pcs40-range.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html",
+      "variants": [
+        "olivetti-pcs40-sx25",
+        "olivetti-pcs40-sx33",
+        "olivetti-pcs40-dx33",
+        "olivetti-pcs40-d250",
+        "olivetti-pcs40-d266"
+      ]
+    },
+    {
+      "id": "olivetti-m6-4x0",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M6 Suprema 420 / 440 / 450 / 460",
+      "summary_key": "collection.variants.olivetti-m6-4x0.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems1.html",
+      "variants": [
+        "olivetti-m6-420",
+        "olivetti-m6-440",
+        "olivetti-m6-450",
+        "olivetti-m6-460"
+      ]
+    },
+    {
+      "id": "olivetti-m4-5x4",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M4-5x4",
+      "summary_key": "collection.variants.olivetti-m4-5x4.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m4-554",
+        "olivetti-m4-554-s",
+        "olivetti-m4-564",
+        "olivetti-m4-564-s",
+        "olivetti-m4-584",
+        "olivetti-m4-584-s"
+      ]
+    },
+    {
+      "id": "olivetti-m24-new",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M24 new · P75 / P100 / P133",
+      "summary_key": "collection.variants.olivetti-m24-new.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m24-new-p75",
+        "olivetti-m24-new-p100",
+        "olivetti-m24-new-p133"
+      ]
+    }
+  ]
+}

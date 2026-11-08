@@ -93,6 +93,36 @@ class CatalogWebExportTests(unittest.TestCase):
         self.assertEqual("coremach", m10["engine"])
         self.assertEqual("80C85", m10["architecture"])
 
+    def test_variant_groups_keep_every_visible_reference(self) -> None:
+        self.assertNotIn("variant-groups.json", self.files)
+        preview = catalog_web_export.export(
+            ROOT / "src/qt/catalog/source", ROOT / "src/qt_resources.qrc",
+            "1.2.3-test", "0" * 40, include_variant_groups=True)
+        presentation = json.loads(preview.pop("variant-groups.json"))
+        self.assertEqual(self.files, preview)
+        self.assertEqual("blumach-variant-groups-v1", presentation["schema"])
+        products = {p["id"]: p for p in self.catalog["products"]}
+        variants = [variant for group in presentation["groups"] for variant in group["variants"]]
+        self.assertEqual(11, len(presentation["groups"]))
+        self.assertEqual(56, len(variants))
+        self.assertEqual(len(variants), len(set(variants)))
+        for group in presentation["groups"]:
+            for variant in group["variants"]:
+                self.assertEqual(group["family_id"], products[variant]["family_id"])
+        self.assertNotIn("groups", self.catalog)
+
+    def test_legacy_press_keeps_citation_text_in_the_web_export(self) -> None:
+        source, _ = catalog_web_export.catalog_builder.assemble(ROOT / "src/qt/catalog/source")
+        original = next(p for p in source["products"] if p["id"] == "schneider-386-professional-340")
+        product = next(p for p in self.catalog["products"] if p["id"] == original["id"])
+        entries = {e["value_key"]: e for s in product["technical"] for e in s["entries"]}
+        legacy = [e for s in original["technical"] for e in s["entries"]
+                  if e.get("url", "").startswith(catalog_web_export.LEGACY_SCHNEIDER_PRESS)]
+        self.assertTrue(legacy)
+        for entry in legacy:
+            self.assertNotIn("url", entries[entry["value_key"]])
+            self.assertIn(entry["value_key"], json.loads(self.files["locales/es.json"]))
+
     def test_archive_bytes_are_reproducible(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             first, second = Path(directory) / "a.zip", Path(directory) / "b.zip"

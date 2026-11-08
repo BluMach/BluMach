@@ -5,9 +5,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 import sys
 from typing import Any
+from urllib.parse import urlsplit
 
 import catalog_audit
 
@@ -177,6 +179,58 @@ def assemble(source_dir: Path) -> tuple[dict[str, Any], dict[str, dict[str, str]
     return catalog, translations
 
 
+VARIANT_GROUPS_FILE = "variant-groups.json"
+VARIANT_GROUPS_SCHEMA = "blumach-variant-groups-v1"
+
+
+def load_variant_groups(
+    source_dir: Path, catalog: dict[str, Any], translations: dict[str, dict[str, str]]
+) -> dict[str, Any]:
+    path = source_dir / "common" / VARIANT_GROUPS_FILE
+    document = read_json(path) if path.is_file() else {"schema": VARIANT_GROUPS_SCHEMA, "groups": []}
+    if (not isinstance(document, dict) or document.get("schema") != VARIANT_GROUPS_SCHEMA
+            or not isinstance(document.get("groups"), list)):
+        raise ValueError(f"{path}: invalid variant groups document")
+    products = {item["id"]: item for item in catalog["products"]}
+    visible_makers = {item["id"] for item in catalog["manufacturers"] if item.get("visible") is True}
+    visible_families = {item["id"] for item in catalog["families"]
+                        if item.get("visible") is True and item["manufacturer_id"] in visible_makers}
+    used_ids = set(products) | {item["id"] for kind in ("manufacturers", "families") for item in catalog[kind]}
+    grouped: set[str] = set()
+    for group in document["groups"]:
+        if not isinstance(group, dict):
+            raise ValueError(f"{path}: each group must be an object")
+        group_id = group.get("id")
+        if not isinstance(group_id, str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]*", group_id) or group_id in used_ids:
+            raise ValueError(f"{path}: invalid or duplicate group id {group_id!r}")
+        used_ids.add(group_id)
+        label = group.get("name")
+        family = group.get("family_id")
+        if not isinstance(label, str) or not label.strip() or not isinstance(family, str) or family not in visible_families:
+            raise ValueError(f"{path}: {group_id}: name and visible family are required")
+        for field in ("summary_key", "upgrades_key", "firmware_key"):
+            if field != "summary_key" and field not in group:
+                continue
+            key = group.get(field)
+            if not isinstance(key, str) or any(not pack.get(key, "").strip() for pack in translations.values()):
+                raise ValueError(f"{path}: {group_id}: {field} requires text in all locales")
+        url = group.get("source_url")
+        if (not isinstance(url, str) or urlsplit(url).scheme != "https" or not urlsplit(url).hostname
+                or catalog_audit.links_to_third_party_file(url)):
+            raise ValueError(f"{path}: {group_id}: source_url must be an HTTPS source page")
+        variants = group.get("variants")
+        if not isinstance(variants, list) or len(variants) < 2:
+            raise ValueError(f"{path}: {group_id}: at least two variants are required")
+        for variant in variants:
+            product = products.get(variant) if isinstance(variant, str) else None
+            if product is None or product.get("visible") is not True or product.get("family_id") != family:
+                raise ValueError(f"{path}: {group_id}: variant {variant!r} must be visible and belong to {family}")
+            if variant in grouped:
+                raise ValueError(f"{path}: {group_id}: variant {variant!r} occurs in more than one position")
+            grouped.add(variant)
+    return document
+
+
 def implementation_documents(catalog: dict[str, Any]) -> list[str]:
     documents = set()
     for product in catalog.get("products", []):
@@ -205,7 +259,7 @@ def validate(
 
 
 def render_qrc(locales: list[str], documents: list[str] | None = None) -> str:
-    files = ["    <file alias=\"catalog.json\">catalog.json</file>"]
+    files = [f'    <file alias="{name}">{name}</file>' for name in ("catalog.json", VARIANT_GROUPS_FILE)]
     files.extend(
         f"    <file alias=\"locales/{locale}.json\">locales/{locale}.json</file>"
         for locale in locales
@@ -224,7 +278,9 @@ def build(source_dir: Path, output_dir: Path, documents_dir: Path) -> None:
     errors = validate(catalog, translations, documents_dir)
     if errors:
         raise ValueError("catalogue validation failed:\n  - " + "\n  - ".join(errors))
+    variant_groups = load_variant_groups(source_dir, catalog, translations)
     write_json(output_dir / "catalog.json", catalog)
+    write_json(output_dir / VARIANT_GROUPS_FILE, variant_groups)
     for locale, localized in sorted(translations.items()):
         write_json(output_dir / "locales" / f"{locale}.json", localized)
     documents = implementation_documents(catalog)
@@ -260,6 +316,7 @@ def main() -> int:
             errors = validate(catalog, translations, documents_dir)
             if errors:
                 raise ValueError("catalogue validation failed:\n  - " + "\n  - ".join(errors))
+            load_variant_groups(args.source.resolve(), catalog, translations)
             print(
                 f"BluMach catalogue source passed: {len(catalog['products'])} machines, "
                 f"{len(translations)} locales"

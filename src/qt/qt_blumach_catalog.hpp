@@ -68,6 +68,17 @@ struct BluMachFilterFacet {
     QVector<BluMachFacetValue> values;
 };
 
+struct BluMachVariantGroup {
+    QString id;
+    QString familyId;
+    QString name;
+    QString summaryKey;
+    QString upgradesKey;
+    QString firmwareKey;
+    QString sourceUrl;
+    QStringList variants;
+};
+
 struct BluMachProduct {
     QString     id;
     QString     manufacturerId;
@@ -112,6 +123,9 @@ public:
     const QVector<BluMachProduct>      &products() const;
     const QVector<BluMachFilterFacet>  &filterFacets() const;
 
+    const QVector<BluMachVariantGroup> &variantGroups() const { return m_variantGroups; }
+    const BluMachVariantGroup *variantGroup(const QString &id) const;
+
     QString text(const QString &key) const;
     QString periodText(const BluMachProduct &product) const;
     QString localeCode() const;
@@ -132,6 +146,7 @@ private:
     QVector<BluMachFamily>       m_families;
     QVector<BluMachPlatform>     m_platforms;
     QVector<BluMachProduct>      m_products;
+    QVector<BluMachVariantGroup> m_variantGroups;
     QVector<BluMachFilterFacet>  m_filterFacets;
     QHash<QString, QString>      m_english;
     QHash<QString, QString>      m_localized;
