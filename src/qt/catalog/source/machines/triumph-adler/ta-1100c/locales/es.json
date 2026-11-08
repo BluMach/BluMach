@@ -1,0 +1,10 @@
+{
+  "product.ta-1100c.summary": "El TA 1100 C integraba dos disqueteras en un puesto más compacto que el TA 1100.",
+  "product.ta-1100c.history": "Triumph-Adler lo ofreció a pequeñas y medianas empresas. Computerwoche recogió una oferta de 36.000 DM en 1979. El museo de la UPV fecha su comercialización en 1981.",
+  "product.ta-1100c.technical.configuration": "La pantalla mostraba el trabajo de oficina. El folleto de fábrica indica 48 columnas por 22 filas. El museo de la UPV indica 44 por 24.",
+  "product.ta-1100c.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-1100c.technical.limitations": "Queda pendiente volcar los 24 KB de MOS-PROM que documenta el folleto y recuperar un disquete de sistema.",
+  "product.ta-1100c.technical.source_1": "TA 1100 C · Bedienungsanleitung und Produktprospekt · Triumph-Adler",
+  "product.ta-1100c.technical.source_2": "TA sucht Jedermann-Computer neue Vertriebswege · Computerwoche, 1979",
+  "product.ta-1100c.technical.source_3": "Triumph Adler TA 1100 C · Museu d’Informàtica UPV"
+}

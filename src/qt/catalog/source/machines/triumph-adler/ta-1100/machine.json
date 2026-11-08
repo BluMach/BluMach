@@ -1,0 +1,81 @@
+{
+  "order": 1930,
+  "machine": {
+    "id": "ta-1100",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-ta1100",
+    "name": "Triumph-Adler TA 1100",
+    "summary_key": "product.ta-1100.summary",
+    "history_key": "product.ta-1100.history",
+    "status": "research",
+    "period": "1980",
+    "aliases": [
+      "TA1100"
+    ],
+    "tags": [
+      "TA 1100"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.floppy",
+            "value_key": "product.ta-1100.technical.configuration",
+            "url": "https://archiv.computeum.org/TriumphAdler/TA1100/"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-1100.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-1100.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-1100.technical.source_1",
+            "url": "https://archiv.computeum.org/TriumphAdler/TA1100/"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-1100.technical.source_2",
+            "url": "https://archiv.computeum.org/TriumphAdler/TA1100C/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-1100.technical.source_3",
+            "url": "https://www.computerwoche.de/article/2868194/schneller-durch-die-luft-verfrachtet.html"
+          }
+        ]
+      }
+    ]
+  }
+}
