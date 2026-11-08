@@ -1,0 +1,77 @@
+{
+  "order": 2012,
+  "machine": {
+    "id": "ta-1540",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-ta1500",
+    "name": "Triumph-Adler TA 1540",
+    "summary_key": "product.ta-1540.summary",
+    "history_key": "product.ta-1540.history",
+    "status": "research",
+    "period": "1978",
+    "aliases": [
+      "TA1540",
+      "Triumph-Adler 1540"
+    ],
+    "tags": [
+      "TA 1500"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.ta-1540.technical.configuration",
+            "url": "https://www.computerwoche.de/article/2872184/triumph-adler-setzt-weiterhin-auf-den-fachhaendler.html"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-1540.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-1540.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-1540.technical.source_1",
+            "url": "https://www.computerwoche.de/article/2872184/triumph-adler-setzt-weiterhin-auf-den-fachhaendler.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-1540.technical.source_2",
+            "url": "https://www.computerwoche.de/article/2874117/nixdorf-gibt-folgende-personalveraenderungen-bekannt-die-position-des-geschaeftsstellenleiters-in-dortmund-wurde-am-1-april-1979-von-peter-hildebrand-bisher-verkaufsleiter-im-dv-bereich-der-geschaefts.html"
+          }
+        ]
+      }
+    ]
+  }
+}

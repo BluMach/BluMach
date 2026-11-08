@@ -1,0 +1,9 @@
+{
+  "product.ta-1520.summary": "The TA 1520 brought floppy disks to the TA 1540 data capture and preparation range.",
+  "product.ta-1520.history": "Triumph-Adler presented it in Hanover in 1979 as a companion to the TA 1540.",
+  "product.ta-1520.technical.configuration": "Floppy disks provided a medium for file-based work. The trade press describes the system as floppy-oriented.",
+  "product.ta-1520.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-1520.technical.limitations": "Model-specific firmware and startup verification remain pending.",
+  "product.ta-1520.technical.source_1": "Computerwoche · Triumph-Adler setzt weiterhin auf den Fachhändler (1979)",
+  "product.ta-1520.technical.source_2": "Computerwoche · Vertrieb der TA 1520/1540 (1979)"
+}
