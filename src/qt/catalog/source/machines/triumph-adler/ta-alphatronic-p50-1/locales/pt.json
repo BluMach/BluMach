@@ -1,0 +1,9 @@
+{
+  "product.ta-alphatronic-p50-1.summary": "O P50-1 combinava duas unidades de disquetes na gama de escritório Alphatronic.",
+  "product.ta-alphatronic-p50-1.history": "A Datamation documentou esta configuração de fábrica em 1985 a par das outras variantes P50 e P60.",
+  "product.ta-alphatronic-p50-1.technical.configuration": "As duas unidades permitiam usar uma disquete de programa e outra de trabalho. A Datamation indica duas unidades de 360 KiB.",
+  "product.ta-alphatronic-p50-1.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p50-1.technical.limitations": "Falta recuperar o firmware próprio e verificar o arranque.",
+  "product.ta-alphatronic-p50-1.technical.source_1": "Datamation · 01-07-1985 · p. 88-14",
+  "product.ta-alphatronic-p50-1.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler"
+}

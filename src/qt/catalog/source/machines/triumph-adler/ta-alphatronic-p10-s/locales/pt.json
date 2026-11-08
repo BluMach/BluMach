@@ -1,0 +1,8 @@
+{
+  "product.ta-alphatronic-p10-s.summary": "O Alphatronic P10-S era fornecido com duas unidades de disquetes e MS-DOS 2.11.",
+  "product.ta-alphatronic-p10-s.history": "A Triumph-Adler documentou o P10-S em agosto de 1986 com páginas de substituição para o manual do P10. Destinava-se ao trabalho de escritório com programas em disquete.",
+  "product.ta-alphatronic-p10-s.technical.configuration": "O disco rígido ampliava o espaço de trabalho. O manual apresenta a unidade Winchester externa de 20 MB e o controlador como opção.",
+  "product.ta-alphatronic-p10-s.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p10-s.technical.limitations": "Falta recuperar o firmware próprio e verificar o arranque.",
+  "product.ta-alphatronic-p10-s.technical.source_1": "Austauschseiten für Bedienhandbuch Alphatronic P10 nach P10-S · 08/1986"
+}

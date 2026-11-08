@@ -1,0 +1,9 @@
+{
+  "product.ta-1700pc.summary": "The TA 1700-PC was introduced as a computer for tax advisory practices.",
+  "product.ta-1700pc.history": "Volkswagen’s 1984 report records that Triumph-Adler introduced the 1700-PC for that market alongside the general-range Alphatronic P50.",
+  "product.ta-1700pc.technical.configuration": "The system ROM is split between even and odd bytes. MAME documents two 16 KiB chips and interleaves their bytes in the BIOS region.",
+  "product.ta-1700pc.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-1700pc.technical.limitations": "The system ROMs are preserved and hash-checked. Original media and startup verification in BluMach remain pending.",
+  "product.ta-1700pc.technical.source_1": "MAME · src/mame/pc/pc.cpp",
+  "product.ta-1700pc.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler"
+}

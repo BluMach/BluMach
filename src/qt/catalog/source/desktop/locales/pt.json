@@ -2,6 +2,8 @@
   "collection.variants.olivetti-m4-75-133-range.summary": "O guia de assistência da Olivetti indica oito configurações M4 com processadores Pentium de 75 a 133 MHz. O sufixo S identifica a caixa Slim Tin em vez da Tin normal.",
   "collection.variants.olivetti-m4-pxx-range.summary": "A série M4-Pxx reúne sete configurações ISA/PCI em caixas Tin e Slim Tin. O guia de assistência distingue placas Socket 5 e Socket 7.",
   "collection.variants.olivetti-pcs-51xx-range.summary": "Os PCS 5120, 5130 e 5140 eram fornecidos em caixas Slim Tin com processadores Pentium de 75, 100 e 133 MHz, respetivamente.",
+  "collection.variants.alphatronic-p10-range.summary": "O P10-S tem um suplemento próprio ao manual do P10.",
+  "collection.variants.alphatronic-p50-p60-range.summary": "Quatro configurações de fábrica com diferentes unidades e armazenamento.",
   "collection.variants.olivetti-pcs-61xx-range.summary": "Os PCS 6120 a 6160 foram vendidos em caixas Tin com cinco configurações Pentium de fábrica, de 75 a 166 MHz.",
   "collection.variants.olivetti-pcs-pxx-range.summary": "A Olivetti documentou oito configurações Pentium de 75 a 133 MHz. As referências E/En usam a caixa Tin e as n, a Slim Tin.",
   "collection.variants.olivetti-pcs-d4-100-range.summary": "As duas versões têm um DX4 a 100 MHz e 128 KB de cache L2. A En usa a caixa Tin e a n, a Slim Tin.",

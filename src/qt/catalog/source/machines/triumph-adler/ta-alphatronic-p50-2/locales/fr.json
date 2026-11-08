@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p50-2.summary": "Le P50-2 associait deux lecteurs de disquettes dans la gamme de bureau Alphatronic.",
+  "product.ta-alphatronic-p50-2.history": "Datamation a documenté cette configuration d’usine en 1985 aux côtés des autres variantes P50 et P60.",
+  "product.ta-alphatronic-p50-2.technical.configuration": "La variante -2 permettait de lire les disquettes des Alphatronic antérieurs. Datamation indique 800 Ko et cite la compatibilité avec les P3 et P4. Le commentaire du pilote MAME décrit ces lecteurs comme des modèles DSQD de 720 Ko.",
+  "product.ta-alphatronic-p50-2.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-alphatronic-p50-2.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-alphatronic-p50-2.technical.source_1": "Datamation · 01-07-1985 · p. 88-14",
+  "product.ta-alphatronic-p50-2.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler",
+  "product.ta-alphatronic-p50-2.technical.source_3": "MAME · pc.cpp · Alphatronic P50 driver notes"
+}

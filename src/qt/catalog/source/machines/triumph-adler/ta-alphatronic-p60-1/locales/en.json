@@ -1,0 +1,9 @@
+{
+  "product.ta-alphatronic-p60-1.summary": "The P60-1 paired a diskette drive with a hard disk in the Alphatronic office range.",
+  "product.ta-alphatronic-p60-1.history": "Datamation documented this factory configuration in 1985 alongside the other P50 and P60 variants.",
+  "product.ta-alphatronic-p60-1.technical.configuration": "The hard disk let programs stay installed on the workstation. Datamation documents a 12.5 MB Winchester and one 360 KiB drive.",
+  "product.ta-alphatronic-p60-1.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-alphatronic-p60-1.technical.limitations": "Model-specific firmware and startup verification remain pending.",
+  "product.ta-alphatronic-p60-1.technical.source_1": "Datamation · 01-07-1985 · p. 88-14",
+  "product.ta-alphatronic-p60-1.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler"
+}

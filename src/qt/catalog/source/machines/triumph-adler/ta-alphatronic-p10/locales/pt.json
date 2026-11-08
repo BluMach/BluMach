@@ -1,0 +1,9 @@
+{
+  "product.ta-alphatronic-p10.summary": "O Alphatronic P10 foi o modelo de partida do ramo P10-S.",
+  "product.ta-alphatronic-p10.history": "A Triumph-Adler incluiu-o na gama de escritório e reutilizou o seu manual como base para o P10-S em 1986.",
+  "product.ta-alphatronic-p10.technical.configuration": "A ROM de sistema divide-se em dois blocos de 16 KiB. O MAME carrega-os consecutivamente nas posições 0x8000 e 0xC000 da sua região BIOS.",
+  "product.ta-alphatronic-p10.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p10.technical.limitations": "As ROM de sistema estão preservadas e verificadas por hash. Falta obter um suporte original e verificar o arranque no BluMach.",
+  "product.ta-alphatronic-p10.technical.source_1": "MAME · src/mame/pc/pc.cpp",
+  "product.ta-alphatronic-p10.technical.source_2": "Austauschseiten für Bedienhandbuch Alphatronic P10 nach P10-S · 08/1986"
+}

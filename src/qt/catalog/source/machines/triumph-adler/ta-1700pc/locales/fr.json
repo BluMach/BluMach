@@ -1,0 +1,9 @@
+{
+  "product.ta-1700pc.summary": "Le TA 1700-PC a été présenté comme ordinateur pour les cabinets de conseil fiscal.",
+  "product.ta-1700pc.history": "Le rapport Volkswagen de 1984 indique que Triumph-Adler a présenté le 1700-PC pour ce marché aux côtés de l’Alphatronic P50 de la gamme générale.",
+  "product.ta-1700pc.technical.configuration": "La ROM système est répartie entre octets pairs et impairs. MAME indique deux puces de 16 Kio et entrelace leurs octets dans la région BIOS.",
+  "product.ta-1700pc.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-1700pc.technical.limitations": "Les ROM système sont conservées et vérifiées par empreinte. Il reste à obtenir un support original et à vérifier le démarrage dans BluMach.",
+  "product.ta-1700pc.technical.source_1": "MAME · src/mame/pc/pc.cpp",
+  "product.ta-1700pc.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler"
+}

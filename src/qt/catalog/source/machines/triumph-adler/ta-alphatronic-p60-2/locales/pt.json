@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p60-2.summary": "O P60-2 combinava uma unidade de disquetes com disco rígido na gama de escritório Alphatronic.",
+  "product.ta-alphatronic-p60-2.history": "A Datamation documentou esta configuração de fábrica em 1985 a par das outras variantes P50 e P60.",
+  "product.ta-alphatronic-p60-2.technical.configuration": "A variante -2 mantinha o acesso a disquetes dos Alphatronic anteriores. A Datamation indica 800 KB e refere compatibilidade com P3 e P4. O comentário do controlador do MAME descreve essas unidades como DSQD de 720 KB.",
+  "product.ta-alphatronic-p60-2.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p60-2.technical.limitations": "Falta recuperar o firmware próprio e verificar o arranque.",
+  "product.ta-alphatronic-p60-2.technical.source_1": "Datamation · 01-07-1985 · p. 88-14",
+  "product.ta-alphatronic-p60-2.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler",
+  "product.ta-alphatronic-p60-2.technical.source_3": "MAME · pc.cpp · Alphatronic P50 driver notes"
+}
