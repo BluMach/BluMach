@@ -1,0 +1,24 @@
+{
+  "order": 1920,
+  "family": {
+    "id": "triumph-adler-ta10",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "TA 10",
+    "description_key": "family.triumph-adler-ta10.description",
+    "history_key": "family.triumph-adler-ta10.history",
+    "history_references": [
+      {
+        "title": "Geniestreich von TA Triumph-Adler",
+        "publisher": "Triumph-Adler",
+        "url": "https://www.firmenpresse.de/pressinfo360101-geniestreich-von-ta-triumph-adler.html"
+      },
+      {
+        "title": "Bedienungshandbücher TA 10/1–/4",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA10/Ordner1/"
+      }
+    ]
+  }
+}

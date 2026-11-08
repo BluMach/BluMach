@@ -1,0 +1,11 @@
+{
+  "product.ta-10-4.summary": "El TA 10/4 guardaba los datos contables en fichas magnéticas.",
+  "product.ta-10-4.history": "Triumph-Adler lo destinó a la contabilidad con fichas magnéticas. El suplemento de programación de 1975 documenta la configuración KAN 2.",
+  "product.ta-10-4.technical.configuration": "Dos módulos PROM podían reunir 1024 palabras de programa. El manual asigna las palabras 1–512 al módulo derecho y 513–1024 al izquierdo.",
+  "product.ta-10-4.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-10-4.technical.limitations": "Queda pendiente recuperar el programa de una unidad identificada y comprobar su funcionamiento.",
+  "product.ta-10-4.technical.source_1": "Bedienungshandbuch TA 10/4 · Triumph-Adler",
+  "product.ta-10-4.technical.source_2": "TA 10 System- und Programmierhandbuch · Triumph-Adler",
+  "product.ta-10-4.technical.source_3": "Geniestreich von TA Triumph-Adler · 2011",
+  "product.ta-10-4.technical.source_4": "TA 10/4 Nachtrag zum Programmierhandbuch · Triumph-Adler"
+}
