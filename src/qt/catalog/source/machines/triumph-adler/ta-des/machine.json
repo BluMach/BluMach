@@ -9,7 +9,7 @@
     "summary_key": "product.ta-des.summary",
     "history_key": "product.ta-des.history",
     "status": "research",
-    "period": "1976",
+    "period": "1970s",
     "aliases": [
       "DATEV DES",
       "TA DES"
@@ -69,9 +69,9 @@
             "url": "https://archiv.computeum.org/TriumphAdler/Datev%20DES/"
           },
           {
-            "label_key": "technical.label.source_notes",
+            "label_key": "technical.label.manual",
             "value_key": "product.ta-des.technical.source_2",
-            "url": "https://www.datev-magazin.de/?p=3892"
+            "url": "https://archiv.computeum.org/TriumphAdler/Datev%20DES/"
           },
           {
             "label_key": "technical.label.manual",
