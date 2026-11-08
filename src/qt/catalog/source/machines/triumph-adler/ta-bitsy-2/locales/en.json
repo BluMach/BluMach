@@ -1,0 +1,8 @@
+{
+  "product.ta-bitsy-2.summary": "The BITSY 2 was a word-processing workstation with an external dual drive.",
+  "product.ta-bitsy-2.history": "ISER holds an example labelled BITSY 2. According to the museum, the workstation, drive and software together cost about DM 25,000.",
+  "product.ta-bitsy-2.technical.configuration": "The dual unit could handle two disks. The ISER example has two 8-inch drives rated at 1,340 KB each.",
+  "product.ta-bitsy-2.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-bitsy-2.technical.limitations": "The boot ROM and a working-system test remain pending.",
+  "product.ta-bitsy-2.technical.source_1": "ISER / FAU · Objekt des Monats · BITSY 2"
+}

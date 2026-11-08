@@ -4,6 +4,26 @@
     "firmware_custody": "not_found",
     "test_destinations": []
   },
+  "ta-bitsy-2": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-bitsy-10": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-bitsy-20": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-bitsy-30": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-10-2": {
     "documentation": "documented",
     "firmware_custody": "not_found",

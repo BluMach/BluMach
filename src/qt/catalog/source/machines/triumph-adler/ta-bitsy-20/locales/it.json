@@ -1,0 +1,8 @@
+{
+  "product.ta-bitsy-20.summary": "Il BITSY 20 poteva passare da una singola postazione a quattro.",
+  "product.ta-bitsy-20.history": "Il manuale del 1982 lo colloca tra BITSY 10 e 30. La configurazione monoposto con unità standard costava 23.070 DM, più 2.000 DM per il software.",
+  "product.ta-bitsy-20.technical.configuration": "Il dischetto standard offriva più spazio per i documenti. Il manuale indica 1.340 KB per unità da 8 pollici.",
+  "product.ta-bitsy-20.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
+  "product.ta-bitsy-20.technical.limitations": "Restano da recuperare la ROM di avvio e da verificare il funzionamento.",
+  "product.ta-bitsy-20.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30"
+}

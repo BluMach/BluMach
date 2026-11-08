@@ -1,0 +1,10 @@
+{
+  "product.ta-bitsy-10.summary": "The BITSY 10 was the entry-level single-user system with mini floppy disks.",
+  "product.ta-bitsy-10.history": "The 1982 handbook lists a base configuration at DM 13,850 and software at DM 1,000. Stuttgart holds a 1984 example.",
+  "product.ta-bitsy-10.technical.configuration": "A second drive could be added. The handbook lists 360 KB per 5-inch mini floppy disk.",
+  "product.ta-bitsy-10.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-bitsy-10.technical.limitations": "Two disk images of the single-user system are preserved. The ROM and startup testing remain pending.",
+  "product.ta-bitsy-10.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30",
+  "product.ta-bitsy-10.technical.source_2": "Computermuseum Stuttgart · BITSY 10",
+  "product.ta-bitsy-10.technical.source_3": "Computermuseum Stuttgart · BITSY disk images"
+}

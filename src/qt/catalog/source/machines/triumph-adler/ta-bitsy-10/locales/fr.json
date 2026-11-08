@@ -1,0 +1,10 @@
+{
+  "product.ta-bitsy-10.summary": "Le BITSY 10 était le poste individuel d’entrée de gamme à minidisquettes.",
+  "product.ta-bitsy-10.history": "Le manuel de 1982 indique une configuration de base à 13 850 DM et un logiciel à 1 000 DM. Stuttgart conserve un exemplaire de 1984.",
+  "product.ta-bitsy-10.technical.configuration": "Un deuxième lecteur pouvait être ajouté. Le manuel indique 360 Ko par minidisquette de 5 pouces.",
+  "product.ta-bitsy-10.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-bitsy-10.technical.limitations": "Deux images disque du système monoposte sont conservées. La ROM et l’essai de démarrage restent à vérifier.",
+  "product.ta-bitsy-10.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30",
+  "product.ta-bitsy-10.technical.source_2": "Computermuseum Stuttgart · BITSY 10",
+  "product.ta-bitsy-10.technical.source_3": "Computermuseum Stuttgart · BITSY disk images"
+}

@@ -1,0 +1,29 @@
+{
+  "order": 2000,
+  "family": {
+    "id": "triumph-adler-bitsy",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "BITSY",
+    "description_key": "family.triumph-adler-bitsy.description",
+    "history_key": "family.triumph-adler-bitsy.history",
+    "history_references": [
+      {
+        "title": "Handbuch der Textsysteme (1982)",
+        "publisher": "Computermuseum Stuttgart",
+        "url": "https://computermuseum.informatik.uni-stuttgart.de/dev/bitsy10/bitsy10_1.html"
+      },
+      {
+        "title": "BITSY DDS-1",
+        "publisher": "Computermuseum Stuttgart",
+        "url": "https://computermuseum.informatik.uni-stuttgart.de/dev/dds1/"
+      },
+      {
+        "title": "Objekt des Monats Juni 2019 · BITSY 2",
+        "publisher": "ISER / FAU",
+        "url": "https://www.iser.fau.de/2019/06/13/objekt-des-monats-juni/"
+      }
+    ]
+  }
+}
