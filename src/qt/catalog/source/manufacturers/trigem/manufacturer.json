@@ -3,6 +3,11 @@
   "manufacturer": {
     "id": "trigem",
     "name": "TriGem",
+    "brand_mark": {
+      "resource": ":/blumach/brand-marks/trigem-wordmark-2000.png",
+      "background": "#ffffff"
+    },
+    "trademark_notice_key": "manufacturer.trigem.trademark_notice",
     "description_key": "manufacturer.trigem.description",
     "history_key": "manufacturer.trigem.history",
     "history_references": [

@@ -337,7 +337,13 @@ private slots:
         BluMachCollectionWidget widget;
         auto *tree = widget.findChild<QTreeWidget *>();
         QVERIFY(tree);
-        const auto resource = tree->topLevelItem(0)->data(0, Qt::UserRole + 8).toString();
+        auto *olivetti = catalogueItem(tree, QStringLiteral("olivetti"));
+        auto *schneider = catalogueItem(tree, QStringLiteral("schneider"));
+        QVERIFY(olivetti && schneider);
+        const auto resource = olivetti->data(0, Qt::UserRole + 8).toString();
+        const auto schneiderMark = schneider->data(0, Qt::UserRole + 8).toString();
+        QCOMPARE(schneiderMark, QString(":/blumach/brand-marks/schneider-computer-division.png"));
+        QVERIFY(!QImage(schneiderMark).isNull());
         QCOMPARE(resource, QString(":/blumach/brand-marks/olivetti-1971-2009.png"));
         QVERIFY(!QImage(resource).isNull());
         QFile image(resource);
@@ -346,11 +352,11 @@ private slots:
                  QByteArray("35a29fa5d7f6ed29796448005294127da1944b3749ec1fec19cffcba0d8898b8"));
         testSettings["blumach_catalog_skin_manufacturer_marks"] = "0";
         widget.reloadSkin();
-        QVERIFY(tree->topLevelItem(0)->data(0, Qt::UserRole + 8).toString().isEmpty());
+        QVERIFY(catalogueItem(tree, QStringLiteral("olivetti"))->data(0, Qt::UserRole + 8).toString().isEmpty());
         testSettings["blumach_catalog_skin_manufacturer_marks"] = "1";
         testSettings["blumach_catalog_skin_directory"] = "/missing-blumach-test-package";
         widget.reloadSkin();
-        QCOMPARE(tree->topLevelItem(0)->data(0, Qt::UserRole + 8).toString(), resource);
+        QCOMPARE(catalogueItem(tree, QStringLiteral("olivetti"))->data(0, Qt::UserRole + 8).toString(), resource);
         testSettings.clear();
     }
     void catalogue_data()
@@ -411,8 +417,8 @@ private slots:
         QSet<QString> visibleBrands;
         for (int i = 0; i < tree->topLevelItemCount(); ++i)
             visibleBrands.insert(tree->topLevelItem(i)->data(0, Qt::UserRole).toString());
-        QCOMPARE(visibleBrands, (QSet<QString>{ QStringLiteral("olivetti"), QStringLiteral("toshiba"), QStringLiteral("amstrad") }));
-        auto *brand = tree->topLevelItem(0);
+        QCOMPARE(visibleBrands, (QSet<QString>{ "amstrad", "olivetti", "schneider", "toshiba", "trigem", "triumph-adler" }));
+        auto *brand = catalogueItem(tree, QStringLiteral("olivetti"));
         auto *family = catalogueItem(tree, QStringLiteral("olivetti-pcs"));
         QVERIFY(family && family->parent() == brand);
         QCOMPARE(family->childCount(), 4);
@@ -511,6 +517,29 @@ private slots:
         QVERIFY2(contrast(tree->palette().color(QPalette::PlaceholderText), changedBase) >= 4.5,
                  qPrintable(tree->palette().color(QPalette::PlaceholderText).name() + " on " + changedBase.name()));
         qApp->removeTranslator(&translator);
+    }
+
+    void additionalBundledMarks()
+    {
+        testSettings.clear();
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        QVERIFY(tree);
+        const QHash<QString, QString> newMarks = {
+            { "amstrad", "amstrad-1980s" },
+            { "toshiba", "toshiba" },
+            { "trigem", "trigem-wordmark-2000" },
+            { "triumph-adler", "triumph-adler" },
+        };
+        for (auto it = newMarks.cbegin(); it != newMarks.cend(); ++it) {
+            const auto *row = catalogueItem(tree, it.key());
+            QVERIFY(row);
+            const auto mark = row->data(0, Qt::UserRole + 8).toString();
+            QCOMPARE(mark, QStringLiteral(":/blumach/brand-marks/%1.png").arg(it.value()));
+            QVERIFY(!QImage(mark).isNull());
+            QVERIFY(QFile::exists(QStringLiteral(":/blumach/brand-marks/%1-NOTICE.md").arg(it.key())));
+        }
+        testSettings.clear();
     }
 };
 

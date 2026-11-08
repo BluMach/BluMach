@@ -1,6 +1,15 @@
 <RCC>
   <qresource prefix="/blumach/brand-marks">
+    <file alias="amstrad-1980s.png">source/manufacturers/amstrad/assets/amstrad-1980s-h224.png</file>
+    <file alias="amstrad-NOTICE.md">source/manufacturers/amstrad/assets/NOTICE.md</file>
+    <file alias="toshiba.png">source/manufacturers/toshiba/assets/toshiba-h224.png</file>
+    <file alias="toshiba-NOTICE.md">source/manufacturers/toshiba/assets/NOTICE.md</file>
+    <file alias="trigem-wordmark-2000.png">source/manufacturers/trigem/assets/trigem-wordmark-2000-h224.png</file>
+    <file alias="trigem-NOTICE.md">source/manufacturers/trigem/assets/NOTICE.md</file>
+    <file alias="triumph-adler.png">source/manufacturers/triumph-adler/assets/triumph-adler-h224.png</file>
+    <file alias="triumph-adler-NOTICE.md">source/manufacturers/triumph-adler/assets/NOTICE.md</file>
     <file alias="olivetti-1971-2009.png">source/manufacturers/olivetti/assets/olivetti-logo-1971-2009-h224.png</file>
     <file alias="NOTICE.md">source/manufacturers/olivetti/assets/NOTICE.md</file>
+    <file alias="schneider-computer-division.png">source/manufacturers/schneider/assets/schneider-computer-division-h224.png</file>
   </qresource>
 </RCC>
