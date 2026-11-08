@@ -1,0 +1,8 @@
+{
+  "product.ta-bitsy-20.summary": "El BITSY 20 podía pasar de un puesto individual a una instalación de cuatro puestos.",
+  "product.ta-bitsy-20.history": "El manual de 1982 lo sitúa entre el BITSY 10 y el 30. La configuración individual con una unidad estándar figuraba a 23.070 DM, más 2.000 DM de software.",
+  "product.ta-bitsy-20.technical.configuration": "El disquete estándar ampliaba el espacio para documentos. El manual indica 1.340 KB por unidad de 8″.",
+  "product.ta-bitsy-20.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-bitsy-20.technical.limitations": "Quedan pendientes la ROM de arranque y una comprobación de funcionamiento.",
+  "product.ta-bitsy-20.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30"
+}

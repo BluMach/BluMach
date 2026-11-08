@@ -1,0 +1,8 @@
+{
+  "product.ta-bitsy-2.summary": "El BITSY 2 era un puesto de tratamiento de textos con una unidad doble externa.",
+  "product.ta-bitsy-2.history": "ISER conserva un ejemplar con la placa BITSY 2. El equipo, la unidad y el software costaban en conjunto unos 25.000 DM, según el museo.",
+  "product.ta-bitsy-2.technical.configuration": "La unidad doble permitía usar dos disquetes. El ejemplar de ISER equipa dos mecanismos de 8″ de 1.340 KB cada uno.",
+  "product.ta-bitsy-2.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-bitsy-2.technical.limitations": "Quedan pendientes la ROM de arranque y una comprobación de funcionamiento.",
+  "product.ta-bitsy-2.technical.source_1": "ISER / FAU · Objekt des Monats · BITSY 2"
+}

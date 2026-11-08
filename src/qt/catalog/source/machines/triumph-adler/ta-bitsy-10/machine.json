@@ -1,0 +1,91 @@
+{
+  "order": 2002,
+  "machine": {
+    "id": "ta-bitsy-10",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-bitsy",
+    "name": "Triumph-Adler BITSY 10",
+    "summary_key": "product.ta-bitsy-10.summary",
+    "history_key": "product.ta-bitsy-10.history",
+    "status": "research",
+    "period": "1982",
+    "aliases": [
+      "TA BITSY 10",
+      "Bitsy-10"
+    ],
+    "tags": [
+      "BITSY"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Texas Instruments TMS9900",
+      "memory": "96–128 KiB",
+      "storage": "1–2 × 5¼″ · 360 KB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.ta-bitsy-10.technical.configuration",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/dev/bitsy10/bitsy10_1.html"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-bitsy-10.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-bitsy-10.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-bitsy-10.technical.source_1",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/dev/bitsy10/bitsy10_1.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-bitsy-10.technical.source_2",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/dev/bitsy10/bitsy10.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-bitsy-10.technical.source_3",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/bitsy/sw/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-bitsy-10.technical.imd_geometry",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/bitsy/sw/"
+          }
+        ]
+      }
+    ]
+  }
+}

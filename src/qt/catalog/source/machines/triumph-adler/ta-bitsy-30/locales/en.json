@@ -1,0 +1,8 @@
+{
+  "product.ta-bitsy-30.summary": "The BITSY 30 was the multi-station option with higher-capacity magnetic disks.",
+  "product.ta-bitsy-30.history": "The 1982 handbook places it at the expandable end of the word-processing range and lists up to 16 screen stations and printers.",
+  "product.ta-bitsy-30.technical.configuration": "Fixed and removable disks expanded shared storage. The handbook describes 2 × 8 MB and 2 × 16 MB options.",
+  "product.ta-bitsy-30.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-bitsy-30.technical.limitations": "The boot ROM and a working-system test remain pending.",
+  "product.ta-bitsy-30.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30"
+}

@@ -1,0 +1,11 @@
+{
+  "product.ta-bitsy-10.summary": "Il BITSY 10 era la postazione singola di base con minidischetti.",
+  "product.ta-bitsy-10.history": "Il manuale del 1982 indica 13.850 DM per la configurazione base e 1.000 DM per il software. Stoccarda conserva un esemplare del 1984.",
+  "product.ta-bitsy-10.technical.configuration": "Si poteva aggiungere una seconda unità. Il manuale indica 360 KB per minidischetto da 5 pollici.",
+  "product.ta-bitsy-10.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
+  "product.ta-bitsy-10.technical.limitations": "Sono conservate due immagini disco del sistema monoposto. Restano da recuperare la ROM e da verificare l’avvio.",
+  "product.ta-bitsy-10.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30",
+  "product.ta-bitsy-10.technical.source_2": "Computermuseum Stuttgart · BITSY 10",
+  "product.ta-bitsy-10.technical.source_3": "Computermuseum Stuttgart · BITSY disk images",
+  "product.ta-bitsy-10.technical.imd_geometry": "I due dischetti conservati aiutano a identificare il formato in uso. Ogni immagine IMD contiene 160 facce di traccia da 10 settori di 512 B, per un totale di 800 KiB di dati. Il manuale indica 360 KB per minidischetto."
+}

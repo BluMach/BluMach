@@ -1,0 +1,8 @@
+{
+  "product.ta-bitsy-30.summary": "El BITSY 30 era la opción de varios puestos con discos magnéticos de mayor capacidad.",
+  "product.ta-bitsy-30.history": "El manual de 1982 lo sitúa en el extremo ampliable de la gama de tratamiento de textos y contempla hasta 16 puestos de pantalla e impresoras.",
+  "product.ta-bitsy-30.technical.configuration": "Las unidades fija y extraíble ampliaban el espacio compartido. El manual describe opciones de 2 × 8 MB y 2 × 16 MB.",
+  "product.ta-bitsy-30.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-bitsy-30.technical.limitations": "Quedan pendientes la ROM de arranque y una comprobación de funcionamiento.",
+  "product.ta-bitsy-30.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30"
+}

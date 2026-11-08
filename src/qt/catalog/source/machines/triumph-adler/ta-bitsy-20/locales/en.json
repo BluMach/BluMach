@@ -1,0 +1,8 @@
+{
+  "product.ta-bitsy-20.summary": "The BITSY 20 could grow from a single workstation into a four-station installation.",
+  "product.ta-bitsy-20.history": "The 1982 handbook places it between the BITSY 10 and 30. A single-station configuration with one standard drive was listed at DM 23,070, plus DM 2,000 for software.",
+  "product.ta-bitsy-20.technical.configuration": "The standard disk provided more room for documents. The handbook specifies 1,340 KB per 8-inch drive.",
+  "product.ta-bitsy-20.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-bitsy-20.technical.limitations": "The boot ROM and a working-system test remain pending.",
+  "product.ta-bitsy-20.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30"
+}

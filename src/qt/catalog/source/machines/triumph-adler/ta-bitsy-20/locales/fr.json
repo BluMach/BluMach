@@ -1,0 +1,8 @@
+{
+  "product.ta-bitsy-20.summary": "Le BITSY 20 pouvait évoluer d’un poste individuel vers une installation à quatre postes.",
+  "product.ta-bitsy-20.history": "Le manuel de 1982 le situe entre les BITSY 10 et 30. La configuration monoposte à lecteur standard était proposée à 23 070 DM, plus 2 000 DM de logiciel.",
+  "product.ta-bitsy-20.technical.configuration": "La disquette standard offrait plus de place pour les documents. Le manuel indique 1 340 Ko par lecteur 8 pouces.",
+  "product.ta-bitsy-20.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-bitsy-20.technical.limitations": "La ROM de démarrage et un essai de fonctionnement restent à vérifier.",
+  "product.ta-bitsy-20.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30"
+}
