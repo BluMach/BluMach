@@ -158,6 +158,47 @@
         "olivetti-m24-new-p100",
         "olivetti-m24-new-p133"
       ]
+    },
+    {
+      "id": "olivetti-m4-4x-microtower",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M4 MicroTower · 40 / 46",
+      "summary_key": "collection.variants.olivetti-m4-4x-microtower.summary",
+      "upgrades_key": "collection.variants.olivetti-m4-4x-microtower.upgrades",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m4-40",
+        "olivetti-m4-46"
+      ]
+    },
+    {
+      "id": "olivetti-m4-6x-m305",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M4 M305 · 60 / 62 / 64 / 65 / 66",
+      "summary_key": "collection.variants.olivetti-m4-6x-m305.summary",
+      "upgrades_key": "collection.variants.olivetti-m4-6x-m305.upgrades",
+      "firmware_key": "collection.variants.olivetti-m4-6x-m305.firmware",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m4-60",
+        "olivetti-m4-62",
+        "olivetti-m4-64",
+        "olivetti-m4-65",
+        "olivetti-m4-66"
+      ]
+    },
+    {
+      "id": "olivetti-m6-850-860",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M6 EISA · 850 / 860",
+      "summary_key": "collection.variants.olivetti-m6-850-860.summary",
+      "upgrades_key": "collection.variants.olivetti-m6-850-860.upgrades",
+      "firmware_key": "collection.variants.olivetti-m6-850-860.firmware",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m6-850",
+        "olivetti-m6-860"
+      ]
     }
   ]
 }
