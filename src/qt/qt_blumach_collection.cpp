@@ -1015,6 +1015,10 @@ void BluMachCollectionWidget::rebuildTree()
 
 bool BluMachCollectionWidget::matchesFacetFilters(const BluMachProduct &product) const
 {
+    const auto *destination = m_facetFilters.value(QStringLiteral("test_destinations"));
+    if (destination && destination->currentData().toString() == QStringLiteral("blumach")
+        && !canCreateProduct(product))
+        return false;
     if (product.filterProfiles.isEmpty())
         return matchesFacetFilters(product.facets, {});
     for (const auto &profileValue : product.filterProfiles) {

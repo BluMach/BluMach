@@ -155,6 +155,116 @@
           "label_key": "filter.storage_interface.ide"
         }
       ]
+    },
+    {
+      "id": "documentation",
+      "label_key": "filter.facet.documentation",
+      "values": [
+        {
+          "id": "identified",
+          "label_key": "filter.documentation.identified"
+        },
+        {
+          "id": "documented",
+          "label_key": "filter.documentation.documented"
+        },
+        {
+          "id": "unreviewed",
+          "label_key": "filter.documentation.unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "firmware_custody",
+      "label_key": "filter.facet.firmware_custody",
+      "values": [
+        {
+          "id": "not_found",
+          "label_key": "filter.firmware_custody.not_found"
+        },
+        {
+          "id": "located",
+          "label_key": "filter.firmware_custody.located"
+        },
+        {
+          "id": "partial",
+          "label_key": "filter.firmware_custody.partial"
+        },
+        {
+          "id": "complete",
+          "label_key": "filter.firmware_custody.complete"
+        },
+        {
+          "id": "substitute",
+          "label_key": "filter.firmware_custody.substitute"
+        },
+        {
+          "id": "unreviewed",
+          "label_key": "filter.firmware_custody.unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "test_destinations",
+      "label_key": "filter.facet.test_destinations",
+      "values": [
+        {
+          "id": "blumach",
+          "label_key": "filter.test_destinations.blumach"
+        },
+        {
+          "id": "pcem",
+          "label_key": "filter.test_destinations.pcem"
+        },
+        {
+          "id": "86box",
+          "label_key": "filter.test_destinations.86box"
+        },
+        {
+          "id": "mame",
+          "label_key": "filter.test_destinations.mame"
+        },
+        {
+          "id": "mame_preliminary",
+          "label_key": "filter.test_destinations.mame_preliminary"
+        },
+        {
+          "id": "other_emulator",
+          "label_key": "filter.test_destinations.other_emulator"
+        },
+        {
+          "id": "external_preliminary",
+          "label_key": "filter.test_destinations.external_preliminary"
+        },
+        {
+          "id": "fpga",
+          "label_key": "filter.test_destinations.fpga"
+        },
+        {
+          "id": "fpga_mister",
+          "label_key": "filter.test_destinations.fpga_mister"
+        },
+        {
+          "id": "fpga_mist",
+          "label_key": "filter.test_destinations.fpga_mist"
+        },
+        {
+          "id": "fpga_sidi",
+          "label_key": "filter.test_destinations.fpga_sidi"
+        },
+        {
+          "id": "fpga_sidi128",
+          "label_key": "filter.test_destinations.fpga_sidi128"
+        },
+        {
+          "id": "none_known",
+          "label_key": "filter.test_destinations.none_known"
+        },
+        {
+          "id": "unreviewed",
+          "label_key": "filter.test_destinations.unreviewed"
+        }
+      ]
     }
   ]
 }

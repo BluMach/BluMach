@@ -136,6 +136,8 @@ def assemble(source_dir: Path) -> tuple[dict[str, Any], dict[str, dict[str, str]
     manufacturer_bundles = load_bundles(source_dir, "manufacturers", locale_names)
     family_bundles = load_bundles(source_dir, "families", locale_names)
     machine_bundles = load_bundles(source_dir, "machines", locale_names)
+    research_path = common_path.with_name("research-facets.json")
+    research = load_research_facets(research_path, facets) if research_path.exists() else None
 
     manufacturers = []
     families = []
@@ -163,6 +165,8 @@ def assemble(source_dir: Path) -> tuple[dict[str, Any], dict[str, dict[str, str]
             raise ValueError(
                 f"machine {wrapper['machine']['id']!r}: platform metadata is missing"
             )
+        if research is not None:
+            apply_research_facets(wrapper["machine"], platform, research.get(wrapper["machine"]["id"]))
         merge_translations(translations, localized, source_dir / "machines")
 
     platforms = [item[2] for item in sorted(ordered_platforms, key=lambda item: (item[0], item[1]))]
@@ -175,6 +179,45 @@ def assemble(source_dir: Path) -> tuple[dict[str, Any], dict[str, dict[str, str]
         "products": products,
     }
     return catalog, translations
+
+
+def apply_research_facets(
+    machine: dict[str, Any], platform: dict[str, Any] | None, review: dict[str, Any] | None,
+) -> None:
+    """Keep preservation metadata independent of the release status and visibility."""
+    facets = machine.setdefault("facets", {})
+    for facet_id in ("documentation", "firmware_custody"):
+        facets[facet_id] = [review[facet_id] if review is not None else "unreviewed"]
+
+    destinations = list(review["test_destinations"]) if review is not None else []
+    if any(value.startswith("fpga_") for value in destinations) and "fpga" not in destinations:
+        destinations.insert(0, "fpga")
+    if (platform and machine.get("status") not in {"research", "not_bootable"}
+            and (platform.get("emulator_machine_id") or platform.get("coremach_system_id"))):
+        destinations.insert(0, "blumach")
+    facets["test_destinations"] = destinations or ["none_known" if review is not None else "unreviewed"]
+
+
+def load_research_facets(path: Path, facets: list[dict[str, Any]]) -> dict[str, Any]:
+    # Entries can precede their machine bundles when catalogue PRs merge separately.
+    # Check all rows, including the ones that will only be applied after those merges.
+    fields = ("documentation", "firmware_custody", "test_destinations")
+    allowed = {facet["id"]: {value["id"] for value in facet["values"]} for facet in facets}
+    reviews = read_json(path)
+    if not isinstance(reviews, dict):
+        raise ValueError(f"{path}: expected an object keyed by product id")
+    for product_id, row in reviews.items():
+        if not catalog_audit.ENTITY_ID.fullmatch(product_id) or not isinstance(row, dict) or set(row) != set(fields):
+            raise ValueError(f"{path}: invalid review for {product_id!r}")
+        for field in fields:
+            values = row[field] if field == "test_destinations" else [row[field]]
+            if not isinstance(values, list) or any(
+                not isinstance(value, str) or value not in allowed.get(field, ()) for value in values
+            ) or len(set(values)) != len(values):
+                raise ValueError(f"{path}: invalid {field} for {product_id!r}")
+        if {"blumach", "none_known"} & set(row["test_destinations"]):
+            raise ValueError(f"{path}: derived destinations are not allowed in {product_id!r}")
+    return reviews
 
 
 def implementation_documents(catalog: dict[str, Any]) -> list[str]:
