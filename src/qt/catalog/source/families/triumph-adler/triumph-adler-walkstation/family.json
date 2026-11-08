@@ -1,0 +1,24 @@
+{
+  "order": 1970,
+  "family": {
+    "id": "triumph-adler-walkstation",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "L21 / Walkstation",
+    "description_key": "family.triumph-adler-walkstation.description",
+    "history_key": "family.triumph-adler-walkstation.history",
+    "history_references": [
+      {
+        "title": "Konvolut Schreiber · L21 und Walkstation 386SX",
+        "publisher": "ISER / FAU",
+        "url": "https://www.iser.fau.de/2022/07/19/1671/"
+      },
+      {
+        "title": "Olivetti D33 · Walkstation System 386/33",
+        "publisher": "Centre for Computing History",
+        "url": "https://www.computinghistory.org.uk/det/43954/Olivetti-D33/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "product.ta-walkstation-386sx.summary": "A Walkstation 386SX combinava um portátil compacto com uma base de expansão.",
+  "product.ta-walkstation-386sx.history": "A ISER conserva um exemplar de 1991 e identifica-o como equivalente ao Olivetti S20. A base permitia usar periféricos de secretária.",
+  "product.ta-walkstation-386sx.technical.configuration": "A base acrescentava portas para teclado e rato e espaço para uma unidade adicional. O museu documenta esta configuração separadamente do portátil.",
+  "product.ta-walkstation-386sx.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-walkstation-386sx.technical.limitations": "A ROM de sistema está preservada e verificada. O MAME indica um perfil preliminar e faltam dois firmwares de microcontrolador.",
+  "product.ta-walkstation-386sx.technical.source_1": "ISER / FAU · Konvolut Schreiber · Walkstation 386SX",
+  "product.ta-walkstation-386sx.technical.source_2": "MAME · walk386sx"
+}

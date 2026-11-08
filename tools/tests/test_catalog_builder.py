@@ -175,6 +175,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "triumph-adler-alphatronic-pc",
                 "triumph-adler-ta100",
                 "triumph-adler-dario",
+                "triumph-adler-walkstation",
             }, visible_families)
         self.assertEqual(
             {
@@ -303,6 +304,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "ta-alphatronic-pc", "ta-alphatronic-pc16",
                 "ta-100-2",
                 "ta-dario286", "ta-dario386sx", "toshiba-t3200", "toshiba-t5100",
+                "ta-l21", "ta-walkstation-386sx", "ta-walkstation-386dx",
                 "toshiba-t5200", "trigem-sx386m",
             },
             visible_products,

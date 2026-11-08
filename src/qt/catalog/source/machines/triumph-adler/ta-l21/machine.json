@@ -1,0 +1,79 @@
+{
+  "order": 1971,
+  "machine": {
+    "id": "ta-l21",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-walkstation",
+    "name": "Triumph-Adler L21",
+    "summary_key": "product.ta-l21.summary",
+    "history_key": "product.ta-l21.history",
+    "status": "research",
+    "period": "1989",
+    "aliases": [
+      "TA L21"
+    ],
+    "tags": [
+      "L21 / Walkstation"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "memory": "1 MiB",
+      "video": "LCD · 640 × 400",
+      "floppy": "3.5″ · 720 KiB / 1.44 MiB",
+      "hard_disk": "20 MB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.ta-l21.technical.configuration",
+            "url": "https://www.iser.fau.de/2022/07/19/1671/"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-l21.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-l21.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-l21.technical.source_1",
+            "url": "https://www.iser.fau.de/2022/07/19/1671/"
+          }
+        ]
+      }
+    ]
+  }
+}

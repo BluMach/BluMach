@@ -1,0 +1,10 @@
+{
+  "product.ta-walkstation-386dx.summary": "La Walkstation 386DX era el portátil de 33 MHz de la gama, con teclado extraíble.",
+  "product.ta-walkstation-386dx.history": "El Centre for Computing History fecha el Olivetti D33 en 1991 y documenta su comercialización como Walkstation System 386/33. Classic Computing sitúa su desarrollo y fabricación en Triumph-Adler, Núremberg.",
+  "product.ta-walkstation-386dx.technical.configuration": "La ROM reunía el código de sistema y de vídeo. MAME documenta una imagen de 128 KiB que incluye la BIOS VGA Cirrus Logic.",
+  "product.ta-walkstation-386dx.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-walkstation-386dx.technical.limitations": "Se conserva la ROM de sistema cotejada. El perfil preliminar de MAME indica pantalla en negro y el arranque queda por verificar.",
+  "product.ta-walkstation-386dx.technical.source_1": "MAME · walk386dx",
+  "product.ta-walkstation-386dx.technical.source_2": "Centre for Computing History · Olivetti D33",
+  "product.ta-walkstation-386dx.technical.source_3": "Classic Computing 2023 · D33 / TA Walkstation 386DX"
+}

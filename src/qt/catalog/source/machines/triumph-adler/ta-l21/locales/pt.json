@@ -1,0 +1,8 @@
+{
+  "product.ta-l21.summary": "O L21 reunia ecrã, teclado e uma ranhura ISA num computador portátil.",
+  "product.ta-l21.history": "A coleção ISER conserva um L21 de 1989 com o manual e a mala de transporte. A ficha descreve essa configuração.",
+  "product.ta-l21.technical.configuration": "A ranhura aceitava placas ISA de meia extensão. A transcrição da ISER refere um 80C286 a 16 MHz e um NEC V30. Falta confirmar o processador.",
+  "product.ta-l21.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-l21.technical.limitations": "Falta recuperar o firmware próprio e verificar o arranque.",
+  "product.ta-l21.technical.source_1": "ISER / FAU · Konvolut Schreiber · L21"
+}
