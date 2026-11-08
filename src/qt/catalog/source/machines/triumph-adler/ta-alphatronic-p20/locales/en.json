@@ -1,0 +1,8 @@
+{
+  "product.ta-alphatronic-p20.summary": "The P20 appears under its own model name in Triumph-Adler’s technical index.",
+  "product.ta-alphatronic-p20.history": "The manufacturer identifies it in its 1993 documentation catalogue.",
+  "product.ta-alphatronic-p20.technical.configuration": "The identifiers help locate the exact documentation. The index gives BA016 and shares an entry with P10.",
+  "product.ta-alphatronic-p20.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-alphatronic-p20.technical.limitations": "The full technical documentation, board configuration and ROM remain pending.",
+  "product.ta-alphatronic-p20.technical.source_1": "Triumph-Adler · Druckschriftenverzeichnis 1993 · BA/MF"
+}

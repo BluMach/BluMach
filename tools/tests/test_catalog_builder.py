@@ -235,6 +235,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "olivetti-m380-c", "olivetti-m380-c-new", "olivetti-m380-xp1", "olivetti-m380-xp3",
                 "olivetti-m380-xp4", "olivetti-m380-xp5", "olivetti-m380-xp7", "olivetti-m380-xp9",
                 "olivetti-m380t", "olivetti-m386-25", "olivetti-m4-100", "olivetti-m4-100-s",
+                "ta-alphatronic-p92",
                 "olivetti-m4-133", "olivetti-m4-133-s", "olivetti-m4-34", "olivetti-m4-40",
                 "olivetti-m4-422", "olivetti-m4-422s", "olivetti-m4-424", "olivetti-m4-424s",
                 "ta-msx-3220", "ta-msx-3230", "ta-msx-3240",

@@ -268,6 +268,56 @@
     "firmware_custody": "not_found",
     "test_destinations": []
   },
+  "ta-alphatronic-p10-2": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p20": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p65": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p67": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p85": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p85s": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p90": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p90s": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p92": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p100": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-alphatronic-pc": {
     "documentation": "documented",
     "firmware_custody": "partial",
