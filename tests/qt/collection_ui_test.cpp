@@ -568,6 +568,8 @@ private slots:
             { "olivetti-modulo-l", 3 }, { "olivetti-pcs40-range", 5 },
             { "olivetti-m6-4x0", 4 }, { "olivetti-m4-5x4", 6 }, { "olivetti-m24-new", 3 },
             { "olivetti-m4-4x-microtower", 2 }, { "olivetti-m4-6x-m305", 5 }, { "olivetti-m6-850-860", 2 },
+            { "olivetti-m4-75-133-range", 8 }, { "olivetti-m4-pxx-range", 7 },
+            { "olivetti-pcs-51xx-range", 3 }, { "olivetti-pcs-61xx-range", 5 },
         };
         int references = 0;
         for (auto it = groups.cbegin(); it != groups.cend(); ++it) {
@@ -587,7 +589,9 @@ private slots:
             }
             search->clear();
         }
-        QCOMPARE(references, 65);
+        QCOMPARE(references, 88);
+        auto *m4Atlantis = catalogueItem(tree, QStringLiteral("olivetti-m4-pxx-i"));
+        QVERIFY(m4Atlantis && m4Atlantis->parent() == catalogueItem(tree, QStringLiteral("olivetti-m")));
         auto *m6Pentium = catalogueItem(tree, QStringLiteral("olivetti-m6-880"));
         QVERIFY(m6Pentium && m6Pentium->parent() == catalogueItem(tree, QStringLiteral("olivetti-m")));
         auto *m6 = catalogueItem(tree, QStringLiteral("olivetti-m6-5x0"));

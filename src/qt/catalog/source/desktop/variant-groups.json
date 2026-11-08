@@ -1,0 +1,64 @@
+{
+  "schema": "blumach-variant-groups-v1",
+  "groups": [
+    {
+      "id": "olivetti-m4-75-133-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M4 · 75 / 90 / 100 / 133",
+      "summary_key": "collection.variants.olivetti-m4-75-133-range.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m4-75",
+        "olivetti-m4-75-s",
+        "olivetti-m4-90",
+        "olivetti-m4-90-s",
+        "olivetti-m4-100",
+        "olivetti-m4-100-s",
+        "olivetti-m4-133",
+        "olivetti-m4-133-s"
+      ]
+    },
+    {
+      "id": "olivetti-m4-pxx-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti M4-Pxx",
+      "summary_key": "collection.variants.olivetti-m4-pxx-range.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-m4-p75",
+        "olivetti-m4-p75-s",
+        "olivetti-m4-p90-s",
+        "olivetti-m4-p100",
+        "olivetti-m4-p100-s",
+        "olivetti-m4-p133",
+        "olivetti-m4-p133-s"
+      ]
+    },
+    {
+      "id": "olivetti-pcs-51xx-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti PCS 51xx",
+      "summary_key": "collection.variants.olivetti-pcs-51xx-range.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-pcs5120",
+        "olivetti-pcs5130",
+        "olivetti-pcs5140"
+      ]
+    },
+    {
+      "id": "olivetti-pcs-61xx-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti PCS 61xx",
+      "summary_key": "collection.variants.olivetti-pcs-61xx-range.summary",
+      "source_url": "https://www.ardent-tool.com/Olivetti/Docs/service_guide/systems2.html",
+      "variants": [
+        "olivetti-pcs6120",
+        "olivetti-pcs6130",
+        "olivetti-pcs6140",
+        "olivetti-pcs6150",
+        "olivetti-pcs6160"
+      ]
+    }
+  ]
+}

@@ -183,21 +183,37 @@ VARIANT_GROUPS_FILE = "variant-groups.json"
 VARIANT_GROUPS_SCHEMA = "blumach-variant-groups-v1"
 
 
-def load_variant_groups(
-    source_dir: Path, catalog: dict[str, Any], translations: dict[str, dict[str, str]]
-) -> dict[str, Any]:
-    path = source_dir / "common" / VARIANT_GROUPS_FILE
-    document = read_json(path) if path.is_file() else {"schema": VARIANT_GROUPS_SCHEMA, "groups": []}
+def read_variant_group_list(path: Path) -> list[Any]:
+    document = read_json(path)
     if (not isinstance(document, dict) or document.get("schema") != VARIANT_GROUPS_SCHEMA
             or not isinstance(document.get("groups"), list)):
         raise ValueError(f"{path}: invalid variant groups document")
+    return document["groups"]
+
+
+def load_variant_groups(
+    source_dir: Path,
+    catalog: dict[str, Any],
+    translations: dict[str, dict[str, str]],
+    *,
+    desktop: bool = False,
+) -> dict[str, Any]:
+    common_path = source_dir / "common" / VARIANT_GROUPS_FILE
+    paths = [common_path] if common_path.is_file() else []
+    # Include application-only groups and their locale keys in Qt resources.
+    desktop_dir = source_dir / "desktop"
+    if desktop and desktop_dir.exists():
+        paths.append(desktop_dir / VARIANT_GROUPS_FILE)
+        desktop_locales = load_locale_directory(desktop_dir / "locales", set(translations))
+        merge_translations(translations, desktop_locales, desktop_dir)
+    groups = [(path, group) for path in paths for group in read_variant_group_list(path)]
     products = {item["id"]: item for item in catalog["products"]}
     visible_makers = {item["id"] for item in catalog["manufacturers"] if item.get("visible") is True}
     visible_families = {item["id"] for item in catalog["families"]
                         if item.get("visible") is True and item["manufacturer_id"] in visible_makers}
     used_ids = set(products) | {item["id"] for kind in ("manufacturers", "families") for item in catalog[kind]}
     grouped: set[str] = set()
-    for group in document["groups"]:
+    for path, group in groups:
         if not isinstance(group, dict):
             raise ValueError(f"{path}: each group must be an object")
         group_id = group.get("id")
@@ -228,7 +244,7 @@ def load_variant_groups(
             if variant in grouped:
                 raise ValueError(f"{path}: {group_id}: variant {variant!r} occurs in more than one position")
             grouped.add(variant)
-    return document
+    return {"schema": VARIANT_GROUPS_SCHEMA, "groups": [group for _, group in groups]}
 
 
 def implementation_documents(catalog: dict[str, Any]) -> list[str]:
@@ -278,7 +294,7 @@ def build(source_dir: Path, output_dir: Path, documents_dir: Path) -> None:
     errors = validate(catalog, translations, documents_dir)
     if errors:
         raise ValueError("catalogue validation failed:\n  - " + "\n  - ".join(errors))
-    variant_groups = load_variant_groups(source_dir, catalog, translations)
+    variant_groups = load_variant_groups(source_dir, catalog, translations, desktop=True)
     write_json(output_dir / "catalog.json", catalog)
     write_json(output_dir / VARIANT_GROUPS_FILE, variant_groups)
     for locale, localized in sorted(translations.items()):
@@ -316,7 +332,7 @@ def main() -> int:
             errors = validate(catalog, translations, documents_dir)
             if errors:
                 raise ValueError("catalogue validation failed:\n  - " + "\n  - ".join(errors))
-            load_variant_groups(args.source.resolve(), catalog, translations)
+            load_variant_groups(args.source.resolve(), catalog, translations, desktop=True)
             print(
                 f"BluMach catalogue source passed: {len(catalog['products'])} machines, "
                 f"{len(translations)} locales"
