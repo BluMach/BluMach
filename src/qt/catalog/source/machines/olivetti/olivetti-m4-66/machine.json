@@ -5,13 +5,19 @@
     "visible": true,
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-m",
+    "platform_id": "olivetti-m4-66-platform",
     "name": "Olivetti M4-66",
     "summary_key": "product.olivetti-m4-66.summary",
     "history_key": "product.olivetti-m4-66.history",
     "warning_key": "product.olivetti-m4-66.warning",
-    "status": "research",
+    "status": "partial",
     "aliases": [],
-    "tags": [],
+    "tags": [
+      "i486DX2",
+      "ETEQ ET6000",
+      "CL-GD5428",
+      "ISA"
+    ],
     "facets": {
       "form_factor": [
         "desktop"
@@ -38,7 +44,200 @@
       "hard_disk": "IDE · 170/240/540 MB"
     },
     "firmware": {
-      "required": true
+      "required": true,
+      "known_sets": [
+        "R2.03 A4BF · 128 KiB · OVC 1.09"
+      ]
+    },
+    "blumach_emulation": "implemented",
+    "creation": {
+      "status": "experimental",
+      "directory_prefix": "olivetti-m4-66",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m4-66.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.commercial_model",
+          "value_key": "product.olivetti-m4-66.creation.offer"
+        }
+      ],
+      "fields": [
+        {
+          "id": "memory",
+          "label_key": "creation.label.memory",
+          "default": "4096",
+          "choices": [
+            {
+              "id": "4096",
+              "label_key": "product.olivetti-m4-66.creation.memory.4096",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 4096
+                }
+              ]
+            },
+            {
+              "id": "8192",
+              "label_key": "product.olivetti-m4-66.creation.memory.8192",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 8192
+                }
+              ]
+            },
+            {
+              "id": "12288",
+              "label_key": "product.olivetti-m4-66.creation.memory.12288",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 12288
+                }
+              ]
+            },
+            {
+              "id": "20480",
+              "label_key": "product.olivetti-m4-66.creation.memory.20480",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 20480
+                }
+              ]
+            },
+            {
+              "id": "36864",
+              "label_key": "product.olivetti-m4-66.creation.memory.36864",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 36864
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "floppy",
+          "label_key": "creation.label.floppy_drives",
+          "default": "single",
+          "choices": [
+            {
+              "id": "single",
+              "label_key": "product.olivetti-m4-66.creation.floppy.single",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "id": "with-525",
+              "label_key": "product.olivetti-m4-66.creation.floppy.with_525",
+              "status": "documented",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "525_2hd"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-m4-66.creation.storage.none",
+              "status": "partial",
+              "set": []
+            },
+            {
+              "id": "ide-170",
+              "label_key": "product.olivetti-m4-66.creation.storage.170",
+              "status": "unavailable",
+              "set": []
+            },
+            {
+              "id": "ide-240",
+              "label_key": "product.olivetti-m4-66.creation.storage.240",
+              "status": "unavailable",
+              "set": []
+            },
+            {
+              "id": "ide-540",
+              "label_key": "product.olivetti-m4-66.creation.storage.540",
+              "status": "unavailable",
+              "set": []
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m4-66.creation.note",
+        "product.olivetti-m4-66.creation.storage.note"
+      ],
+      "configuration": [
+        {
+          "section": "General",
+          "values": {
+            "vid_renderer": "qt_software",
+            "time_sync": "disabled"
+          }
+        },
+        {
+          "section": "Machine",
+          "values": {
+            "cpu_family": "i486dx2",
+            "cpu_speed": 66666666,
+            "cpu_multi": 2,
+            "cpu_use_dynarec": 0,
+            "mem_size": 4096
+          }
+        },
+        {
+          "section": "Video",
+          "values": {
+            "gfxcard": "internal"
+          }
+        },
+        {
+          "section": "Input devices",
+          "values": {
+            "keyboard_type": "keyboard_at",
+            "mouse_type": "none"
+          }
+        },
+        {
+          "section": "Floppy and CD-ROM drives",
+          "values": {
+            "fdd_01_type": "35_2hd",
+            "fdd_02_type": "none"
+          }
+        }
+      ],
+      "generated_files": []
     },
     "technical": [
       {
@@ -93,9 +292,20 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-m4-66.source-brochure",
             "url": "https://olivrea.de/prospekte-personal-computer/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.olivetti-m4-66.source-bios",
+            "url": "https://archive.org/details/olivetti-m4-65-r2_03-a4bf"
           }
         ]
       }
     ]
+  },
+  "platform_order": 236,
+  "platform": {
+    "id": "olivetti-m4-66-platform",
+    "emulator_machine_id": "olivetti_m4_66",
+    "architecture": "i486DX2"
   }
 }
