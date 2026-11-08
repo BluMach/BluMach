@@ -21,13 +21,21 @@
       ],
       "cpu_generation": [
         "x86_486"
+      ],
+      "video": [
+        "vga"
+      ],
+      "storage_interface": [
+        "floppy",
+        "ide"
       ]
     },
     "hardware": {
       "cpu": "Intel i486DX2 · 66 MHz",
       "memory": "4–36 MB",
-      "video": "Cirrus Logic CL-GD5428 · 512 KB–1 MB",
-      "expansion": "4 × ISA 16-bit"
+      "video": "Cirrus Logic CL-GD5428 · 1 MB",
+      "expansion": "4 × ISA 16-bit",
+      "hard_disk": "IDE · 170/240/540 MB"
     },
     "firmware": {
       "required": true
@@ -80,6 +88,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-m4-66.mc-micro",
             "url": "https://www.digitanto.it/mc-online/Pages/Indice%20Analitico%20MC%20x%20sito.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m4-66.source-brochure",
+            "url": "https://olivrea.de/prospekte-personal-computer/"
           }
         ]
       }

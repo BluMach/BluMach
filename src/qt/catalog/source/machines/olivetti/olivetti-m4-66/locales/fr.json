@@ -2,10 +2,11 @@
   "product.olivetti-m4-66.summary": "Le M4 à DX2 de 66 MHz dans le boîtier 305 Box.",
   "product.olivetti-m4-66.history": "La gamme M4 Modulo visait les professionnels et se plaçait entre les PCS à usage personnel et les M6 Suprema plus performants. Le guide identifie des cartes T.1 fabriquées à Singapour et à Scarmagno.",
   "product.olivetti-m4-66.warning": "Fiche historique en cours de recherche.",
-  "product.olivetti-m4-66.architecture": "La mémoire peut être étendue sans remplacer la RAM de base. La carte intègre 4 MB soudés, un logement SIMM et un CL-GD5428.",
+  "product.olivetti-m4-66.architecture": "La brochure allemande proposait le M4-66 avec 4 Mo de RAM, 1 Mo de mémoire vidéo et des disques IDE de 170/240/540 Mo. Le guide décrit les révisions T.1 et T.1.5, dont la BA2077 commune aux autres Modulo de la série. L’OverDrive était une mise à niveau.",
   "product.olivetti-m4-66.verified": "La configuration a été vérifiée dans les sources citées. La validation dans BluMach reste à faire.",
   "product.olivetti-m4-66.limitations": "La vérification du firmware, les essais de démarrage et une photo aux droits de publication clairs restent à faire.",
   "product.olivetti-m4-66.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 2",
   "product.olivetti-m4-66.mc-micro": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
-  "product.olivetti-m4-66.firmware": "La révision aide à identifier le BIOS de maintenance. Le guide indique 2.06."
+  "product.olivetti-m4-66.firmware": "Le guide indique le BIOS 2.06 comme dernière révision de service pour la BA2077. Il reste à confirmer un dump pour ce modèle et à le tester à sa fréquence d’origine.",
+  "product.olivetti-m4-66.source-brochure": "Olivetti GmbH, M4-60/62/64/65/66 Modulo · Drucknummer 12129 · p. 2"
 }

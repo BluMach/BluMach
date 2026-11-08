@@ -2,10 +2,11 @@
   "product.olivetti-m4-64.summary": "O M4 com DX de 33 MHz na caixa 305 Box.",
   "product.olivetti-m4-64.history": "A gama M4 Modulo destinava-se a profissionais e situava-se entre os PCS de uso pessoal e os M6 Suprema de maior desempenho. O guia identifica placas T.1 fabricadas em Singapura e em Scarmagno.",
   "product.olivetti-m4-64.warning": "Ficha histórica em investigação.",
-  "product.olivetti-m4-64.architecture": "A memória pode ser ampliada sem substituir a RAM de base. A placa tem 4 MB soldados, um encaixe SIMM e vídeo CL-GD5428.",
+  "product.olivetti-m4-64.architecture": "O folheto alemão oferecia o M4-64 com 4 MB de RAM, 512 KB de memória de vídeo e discos IDE de 85/170/240 MB. O guia documenta as revisões T.1 e T.1.5, incluindo a BA2077 partilhada com os outros Modulo da série. O OverDrive era uma opção de atualização.",
   "product.olivetti-m4-64.verified": "A configuração foi verificada nas fontes citadas. Falta a validação no BluMach.",
   "product.olivetti-m4-64.limitations": "Faltam a verificação do firmware, os testes de arranque e uma fotografia com direitos de publicação claros.",
   "product.olivetti-m4-64.service-guide": "Olivetti, Personal Computer – Pocket Service Guide, vol. II, ch. 2",
   "product.olivetti-m4-64.mc-micro": "Paolo Ciardelli, MCmicrocomputer 137, February 1994, pp. 176–181",
-  "product.olivetti-m4-64.firmware": "A revisão ajuda a identificar a BIOS de serviço. O guia regista 2.06."
+  "product.olivetti-m4-64.firmware": "O guia indica a BIOS 2.06 como a última revisão de serviço da BA2077. Falta confirmar um volcado para este modelo e testá-lo à frequência de fábrica.",
+  "product.olivetti-m4-64.source-brochure": "Olivetti GmbH, M4-60/62/64/65/66 Modulo · Drucknummer 12129 · p. 2"
 }

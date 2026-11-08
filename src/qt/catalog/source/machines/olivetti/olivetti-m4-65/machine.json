@@ -50,7 +50,8 @@
       "floppy": "3.5″ · 1.44 MB / 5.25″ · 1.2 MB",
       "interfaces": "2 × RS-232C · Centronics · PS/2 · IDE",
       "keyboard": "101/102",
-      "expansion": "4 × ISA · 16-bit"
+      "expansion": "4 × ISA · 16-bit",
+      "hard_disk": "IDE · 170/240/540 MB"
     },
     "firmware": {
       "known_sets": [
@@ -65,6 +66,10 @@
         {
           "label_key": "creation.label.cpu",
           "value_key": "product.olivetti-m4-65.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.commercial_model",
+          "value_key": "product.olivetti-m4-65.creation.offer"
         }
       ],
       "fields": [
@@ -124,7 +129,7 @@
             {
               "id": "36864",
               "label_key": "product.olivetti-m4-65.creation.memory.36864",
-              "status": "experimental",
+              "status": "partial",
               "set": [
                 {
                   "section": "Machine",
@@ -134,10 +139,73 @@
               ]
             }
           ]
+        },
+        {
+          "id": "floppy",
+          "label_key": "creation.label.floppy_drives",
+          "default": "single",
+          "choices": [
+            {
+              "id": "single",
+              "label_key": "product.olivetti-m4-65.creation.floppy.single",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "id": "with-525",
+              "label_key": "product.olivetti-m4-65.creation.floppy.with_525",
+              "status": "documented",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "525_2hd"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-m4-65.creation.storage.none",
+              "status": "partial",
+              "set": []
+            },
+            {
+              "id": "ide-170",
+              "label_key": "product.olivetti-m4-65.creation.storage.170",
+              "status": "unavailable",
+              "set": []
+            },
+            {
+              "id": "ide-240",
+              "label_key": "product.olivetti-m4-65.creation.storage.240",
+              "status": "unavailable",
+              "set": []
+            },
+            {
+              "id": "ide-540",
+              "label_key": "product.olivetti-m4-65.creation.storage.540",
+              "status": "unavailable",
+              "set": []
+            }
+          ]
         }
       ],
       "note_keys": [
-        "product.olivetti-m4-65.creation.note"
+        "product.olivetti-m4-65.creation.note",
+        "product.olivetti-m4-65.creation.storage.note"
       ],
       "configuration": [
         {
