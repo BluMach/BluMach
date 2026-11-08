@@ -1,0 +1,9 @@
+{
+  "product.ta-1600-30.summary": "O TA 1600/30 separava o armário central dos postos com ecrã e teclado.",
+  "product.ta-1600-30.history": "A Triumph-Adler posicionava-o na gama de escritório TA 1600 para instalações com vários postos. O manual descreve a operação a partir de um posto local ou remoto.",
+  "product.ta-1600-30.technical.configuration": "O TAXO permitia trabalhar a partir dos postos do sistema. O manual de hardware descreve o seu carregamento e distingue as unidades de disco SMD e CMD conforme a configuração.",
+  "product.ta-1600-30.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-1600-30.technical.limitations": "Falta recuperar o firmware próprio e verificar o arranque.",
+  "product.ta-1600-30.technical.source_1": "TA 1600/30 · Bedienungshandbuch der Hardware · §§1, 3–4",
+  "product.ta-1600-30.technical.source_2": "Computerwoche · 15-04-1983"
+}

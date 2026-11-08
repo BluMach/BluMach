@@ -1,0 +1,9 @@
+{
+  "product.ta-1600-20-3.summary": "El TA 1600/20-3 combinaba un disco fijo con otro extraíble en una sola unidad.",
+  "product.ta-1600-20-3.history": "Triumph-Adler presentó esta variante del /20 en 1982. En 1983 la ofrecía a empresas medianas que necesitaban más capacidad y flexibilidad de almacenamiento.",
+  "product.ta-1600-20-3.technical.configuration": "El disco extraíble permitía retirar el soporte del sistema. La oferta citaba dos volúmenes de 8 MB brutos y una ampliación de RAM hasta 1 MiB mediante un módulo nuevo.",
+  "product.ta-1600-20-3.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-1600-20-3.technical.limitations": "Quedan pendientes el firmware propio y la comprobación del arranque.",
+  "product.ta-1600-20-3.technical.source_1": "Computerwoche · Anwendungslösungen auf der 1600-Familie · 1983",
+  "product.ta-1600-20-3.technical.source_2": "Computerwoche · Produktangebot sinnvoll abgerundet · 1982"
+}

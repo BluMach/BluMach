@@ -1,0 +1,9 @@
+{
+  "product.ta-1600-20.summary": "The TA 1600/20 combined the central unit with the first display workstation.",
+  "product.ta-1600-20.history": "Triumph-Adler offered it as a multipurpose office computer. Configuration I in the manual combined the central unit, display and keyboard, with separate diskette drives and printer.",
+  "product.ta-1600-20.technical.configuration": "The FDE unit supported two diskettes. The manual shows the twin unit in the minimum configuration of variant I.",
+  "product.ta-1600-20.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-1600-20.technical.limitations": "Model-specific firmware and startup verification remain pending.",
+  "product.ta-1600-20.technical.source_1": "TA 1600/20 · Bedienungshandbuch der Hardware · fig. 1, §4.1",
+  "product.ta-1600-20.technical.source_2": "Computerwoche · 15-04-1983"
+}

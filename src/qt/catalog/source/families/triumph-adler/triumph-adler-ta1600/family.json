@@ -1,0 +1,29 @@
+{
+  "order": 1950,
+  "family": {
+    "id": "triumph-adler-ta1600",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "TA 1600",
+    "description_key": "family.triumph-adler-ta1600.description",
+    "history_key": "family.triumph-adler-ta1600.history",
+    "history_references": [
+      {
+        "title": "TA 1600/20 · Bedienungshandbuch der Hardware",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA1600/"
+      },
+      {
+        "title": "TA 1600/30 · Bedienungshandbuch der Hardware",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA1600/"
+      },
+      {
+        "title": "Anwendungslösungen auf der 1600-Familie",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2848499/anwendungsloesungen-auf-der-1600-familie.html"
+      }
+    ]
+  }
+}

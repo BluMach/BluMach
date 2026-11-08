@@ -1,0 +1,9 @@
+{
+  "product.ta-1600-20.summary": "Le TA 1600/20 réunissait l’unité centrale et le premier poste avec écran.",
+  "product.ta-1600-20.history": "Triumph-Adler le proposait comme ordinateur de bureau multifonction. La configuration I du manuel réunissait unité centrale, écran et clavier, avec des lecteurs de disquettes et une imprimante séparés.",
+  "product.ta-1600-20.technical.configuration": "L’unité FDE acceptait deux disquettes. Le manuel montre ce double lecteur dans la configuration minimale de la variante I.",
+  "product.ta-1600-20.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-1600-20.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-1600-20.technical.source_1": "TA 1600/20 · Bedienungshandbuch der Hardware · fig. 1, §4.1",
+  "product.ta-1600-20.technical.source_2": "Computerwoche · 15-04-1983"
+}
