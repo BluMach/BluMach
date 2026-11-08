@@ -128,6 +128,11 @@
     "firmware_custody": "not_found",
     "test_destinations": []
   },
+  "ta-m32": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-alphatronic-p2s": {
     "documentation": "documented",
     "firmware_custody": "not_found",

@@ -1,0 +1,81 @@
+{
+  "order": 1981,
+  "machine": {
+    "id": "ta-m32",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-m32",
+    "name": "Triumph-Adler System M32",
+    "summary_key": "product.ta-m32.summary",
+    "history_key": "product.ta-m32.history",
+    "status": "research",
+    "period": "1985",
+    "aliases": [
+      "M32",
+      "TA M32",
+      "M 32"
+    ],
+    "tags": [
+      "System M32"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "cpu": "Motorola MC68000 · 8 MHz",
+      "memory": "512 KiB–4 MiB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.ta-m32.technical.configuration",
+            "url": "https://archiv.computeum.org/TriumphAdler/M32/"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-m32.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-m32.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-m32.technical.source_1",
+            "url": "https://archiv.computeum.org/TriumphAdler/M32/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-m32.technical.source_2",
+            "url": "https://iser.wisski.data.fau.de/wisski/navigate/9367/view"
+          }
+        ]
+      }
+    ]
+  }
+}

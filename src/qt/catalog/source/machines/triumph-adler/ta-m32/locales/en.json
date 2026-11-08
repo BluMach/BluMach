@@ -1,0 +1,9 @@
+{
+  "product.ta-m32.summary": "System M32 brought multiuser office work to a modular workstation running TANIX.",
+  "product.ta-m32.history": "ISER holds a 1985 M32 and attributes its development to Triumph-Adler with help from Microlab. It identifies it as a successor to the BITSY word processor.",
+  "product.ta-m32.technical.configuration": "TANIX supported multiple workstations and tasks. The manual describes it as an extension of XENIX 3.0 and lists disk, tape and Ergonet networking options.",
+  "product.ta-m32.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-m32.technical.limitations": "Model-specific firmware and startup verification remain pending.",
+  "product.ta-m32.technical.source_1": "Benutzerhandbuch System M32 · §§1, 4, 9",
+  "product.ta-m32.technical.source_2": "ISER / FAU · System M32 · I1977"
+}

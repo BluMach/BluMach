@@ -1,0 +1,24 @@
+{
+  "order": 1980,
+  "family": {
+    "id": "triumph-adler-m32",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "System M32",
+    "description_key": "family.triumph-adler-m32.description",
+    "history_key": "family.triumph-adler-m32.history",
+    "history_references": [
+      {
+        "title": "Benutzerhandbuch System M32",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/M32/"
+      },
+      {
+        "title": "I1977 · Triumph-Adler System M32",
+        "publisher": "ISER / FAU",
+        "url": "https://iser.wisski.data.fau.de/wisski/navigate/9367/view"
+      }
+    ]
+  }
+}
