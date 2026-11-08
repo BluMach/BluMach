@@ -1,0 +1,8 @@
+{
+  "product.ta-l21.summary": "The L21 combined a screen, keyboard and ISA slot in a portable computer.",
+  "product.ta-l21.history": "The ISER collection holds a 1989 L21 with its manual and carrying bag. This sheet describes that configuration.",
+  "product.ta-l21.technical.configuration": "The slot accepted half-length ISA cards. ISER’s transcription gives both a 16 MHz 80C286 and an NEC V30. The processor remains to be checked.",
+  "product.ta-l21.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-l21.technical.limitations": "Model-specific firmware and startup verification remain pending.",
+  "product.ta-l21.technical.source_1": "ISER / FAU · Konvolut Schreiber · L21"
+}

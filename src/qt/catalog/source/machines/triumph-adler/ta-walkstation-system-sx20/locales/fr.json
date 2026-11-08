@@ -1,0 +1,9 @@
+{
+  "product.ta-walkstation-system-sx20.summary": "Le System SX20 était le grand portable à 20 MHz doté d’un clavier amovible.",
+  "product.ta-walkstation-system-sx20.history": "Triumph-Adler a développé pour Olivetti cette gamme, fabriquée à Nuremberg. Ce portable a été présenté en 1991 sous les noms Walkstation System SX20 et Olivetti Laptop S20. Il partageait le format du System 386/33.",
+  "product.ta-walkstation-system-sx20.technical.configuration": "Le clavier amovible permettait de travailler à distance de l’écran. La presse décrit un clavier compatible PS/2, un écran interchangeable et 16 Kio de cache.",
+  "product.ta-walkstation-system-sx20.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-walkstation-system-sx20.technical.limitations": "Le firmware propre au modèle et une disquette de démarrage restent à conserver pour vérification.",
+  "product.ta-walkstation-system-sx20.technical.source_1": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991",
+  "product.ta-walkstation-system-sx20.technical.oem_source": "Storia Olivetti · Lavorare dovunque: i computer portatili Olivetti"
+}

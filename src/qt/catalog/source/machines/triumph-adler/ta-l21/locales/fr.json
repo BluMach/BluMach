@@ -1,0 +1,8 @@
+{
+  "product.ta-l21.summary": "Le L21 réunissait écran, clavier et emplacement ISA dans un ordinateur portable.",
+  "product.ta-l21.history": "La collection ISER conserve un L21 de 1989 avec son manuel et sa sacoche. Cette fiche décrit cette configuration.",
+  "product.ta-l21.technical.configuration": "L’emplacement acceptait des cartes ISA de demi-longueur. La transcription d’ISER cite un 80C286 à 16 MHz et un NEC V30. Le processeur reste à vérifier.",
+  "product.ta-l21.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-l21.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-l21.technical.source_1": "ISER / FAU · Konvolut Schreiber · L21"
+}

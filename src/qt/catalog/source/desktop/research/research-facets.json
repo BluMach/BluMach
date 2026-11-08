@@ -183,6 +183,40 @@
     "firmware_custody": "substitute",
     "test_destinations": []
   },
+  "ta-l21": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-walkstation-386sx": {
+    "documentation": "documented",
+    "firmware_custody": "partial",
+    "test_destinations": [
+      "mame_preliminary"
+    ]
+  },
+  "ta-walkstation-386dx": {
+    "documentation": "documented",
+    "firmware_custody": "partial",
+    "test_destinations": [
+      "mame_preliminary"
+    ]
+  },
+  "ta-walkstation-286c": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-walkstation-286v": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-walkstation-system-sx20": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-dario286s": {
     "documentation": "identified",
     "firmware_custody": "unreviewed",

@@ -1,0 +1,11 @@
+{
+  "product.ta-walkstation-386sx.summary": "La Walkstation 386SX abbinava un portatile compatto a una base di espansione.",
+  "product.ta-walkstation-386sx.history": "Il 386SX era il portatile compatto di punta della gamma del 1991, sviluppata da Triumph-Adler per Olivetti e prodotta a Norimberga. L’ISER identifica il proprio esemplare con l’Olivetti Notebook S20.",
+  "product.ta-walkstation-386sx.technical.configuration": "La base permetteva di collegare tastiera e mouse. L’ISER documenta un 386SX da 20 MHz e 1 MiB espandibile a 5 MiB. Computerwoche distingue questo compatto dal System SX20 con tastiera staccabile.",
+  "product.ta-walkstation-386sx.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
+  "product.ta-walkstation-386sx.technical.limitations": "Una ROM corrisponde all’hash del profilo preliminare di MAME. Restano da confrontarla con una scheda identificata e da recuperare due firmware di microcontrollore. MAME usa un profilo AT generico da 16 MHz.",
+  "product.ta-walkstation-386sx.technical.source_1": "ISER / FAU · Konvolut Schreiber · Walkstation 386SX",
+  "product.ta-walkstation-386sx.technical.source_2": "MAME · walk386sx",
+  "product.ta-walkstation-386sx.technical.market_1991": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991",
+  "product.ta-walkstation-386sx.technical.oem_source": "Storia Olivetti · Lavorare dovunque: i computer portatili Olivetti"
+}

@@ -137,6 +137,12 @@ def assemble(
         raise ValueError(f"{source_dir / 'common/locales'}: en.json is required")
     locale_names = set(translations)
 
+    hardware_locales = source_dir / "desktop" / "hardware-locales"
+    if desktop and hardware_locales.is_dir():
+        merge_translations(
+            translations, load_locale_directory(hardware_locales, locale_names), hardware_locales
+        )
+
     manufacturer_bundles = load_bundles(source_dir, "manufacturers", locale_names)
     family_bundles = load_bundles(source_dir, "families", locale_names)
     machine_bundles = load_bundles(source_dir, "machines", locale_names)

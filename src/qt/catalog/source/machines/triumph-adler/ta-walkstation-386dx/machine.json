@@ -1,0 +1,93 @@
+{
+  "order": 1973,
+  "machine": {
+    "id": "ta-walkstation-386dx",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-walkstation",
+    "name": "Triumph-Adler Walkstation 386DX",
+    "summary_key": "product.ta-walkstation-386dx.summary",
+    "history_key": "product.ta-walkstation-386dx.history",
+    "status": "research",
+    "period": "1991",
+    "aliases": [
+      "Walkstation 386/33",
+      "Walkstation System 386/33"
+    ],
+    "tags": [
+      "L21 / Walkstation"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "cpu_generation": [
+        "x86_386"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80386DX · 33 MHz",
+      "video": "LCD · VGA 640 × 480"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.rom_layout",
+            "value_key": "product.ta-walkstation-386dx.technical.configuration",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/at.cpp"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-walkstation-386dx.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-walkstation-386dx.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.ta-walkstation-386dx.technical.source_1",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/at.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-walkstation-386dx.technical.source_2",
+            "url": "https://www.computinghistory.org.uk/det/43954/Olivetti-D33/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-walkstation-386dx.technical.source_3",
+            "url": "https://www.classic-computing.org/cc2023-hauptseite/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-walkstation-386dx.technical.market_1991",
+            "url": "https://www.computerwoche.de/article/2835712/olivetti-und-ta-setzen-mit-laptops-auf-die-europaeische-karte.html"
+          }
+        ]
+      }
+    ]
+  }
+}

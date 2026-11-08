@@ -1,0 +1,9 @@
+{
+  "product.ta-walkstation-286c.summary": "The 286C was the entry notebook in the 1991 Walkstation range.",
+  "product.ta-walkstation-286c.history": "Triumph-Adler developed this range of portables for Olivetti and manufactured it in Nuremberg. The entry model was introduced in 1991 as the Walkstation 286C and Notebook A12. German availability was planned for May.",
+  "product.ta-walkstation-286c.technical.configuration": "The backlit display was EGA compatible according to the German announcement. It specifies 1 MiB of RAM, expandable to 5 MiB.",
+  "product.ta-walkstation-286c.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-walkstation-286c.technical.limitations": "The model-specific firmware and a boot disk remain to be preserved for verification.",
+  "product.ta-walkstation-286c.technical.source_1": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991",
+  "product.ta-walkstation-286c.technical.oem_source": "Storia Olivetti · Lavorare dovunque: i computer portatili Olivetti"
+}
