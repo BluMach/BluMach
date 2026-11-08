@@ -6,5 +6,6 @@
   "product.ta-bitsy-10.technical.limitations": "Two disk images of the single-user system are preserved. The ROM and startup testing remain pending.",
   "product.ta-bitsy-10.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30",
   "product.ta-bitsy-10.technical.source_2": "Computermuseum Stuttgart · BITSY 10",
-  "product.ta-bitsy-10.technical.source_3": "Computermuseum Stuttgart · BITSY disk images"
+  "product.ta-bitsy-10.technical.source_3": "Computermuseum Stuttgart · BITSY disk images",
+  "product.ta-bitsy-10.technical.imd_geometry": "The two preserved disks help identify the format in use. Each IMD image contains 160 track sides with ten 512 B sectors, totalling 800 KiB of data. The handbook lists 360 KB per mini floppy."
 }

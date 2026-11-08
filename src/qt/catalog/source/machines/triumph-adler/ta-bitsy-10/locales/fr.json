@@ -6,5 +6,6 @@
   "product.ta-bitsy-10.technical.limitations": "Deux images disque du système monoposte sont conservées. La ROM et l’essai de démarrage restent à vérifier.",
   "product.ta-bitsy-10.technical.source_1": "Handbuch der Textsysteme (1982) · BITSY 10/20/30",
   "product.ta-bitsy-10.technical.source_2": "Computermuseum Stuttgart · BITSY 10",
-  "product.ta-bitsy-10.technical.source_3": "Computermuseum Stuttgart · BITSY disk images"
+  "product.ta-bitsy-10.technical.source_3": "Computermuseum Stuttgart · BITSY disk images",
+  "product.ta-bitsy-10.technical.imd_geometry": "Les deux disquettes conservées aident à identifier le format utilisé. Chaque image IMD contient 160 faces de piste de 10 secteurs de 512 o, soit 800 Kio de données. Le manuel indique 360 Ko par minidisquette."
 }

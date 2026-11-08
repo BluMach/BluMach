@@ -78,6 +78,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.ta-bitsy-10.technical.source_3",
             "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/bitsy/sw/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-bitsy-10.technical.imd_geometry",
+            "url": "https://computermuseum.informatik.uni-stuttgart.de/ftp/bitsy/sw/"
           }
         ]
       }
