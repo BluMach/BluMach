@@ -567,6 +567,7 @@ private slots:
             { "olivetti-pcs42p-entry", 6 }, { "olivetti-pcs42p-enhanced", 4 },
             { "olivetti-modulo-l", 3 }, { "olivetti-pcs40-range", 5 },
             { "olivetti-m6-4x0", 4 }, { "olivetti-m4-5x4", 6 }, { "olivetti-m24-new", 3 },
+            { "olivetti-m4-4x-microtower", 2 }, { "olivetti-m4-6x-m305", 5 }, { "olivetti-m6-850-860", 2 },
         };
         int references = 0;
         for (auto it = groups.cbegin(); it != groups.cend(); ++it) {
@@ -586,7 +587,9 @@ private slots:
             }
             search->clear();
         }
-        QCOMPARE(references, 56);
+        QCOMPARE(references, 65);
+        auto *m6Pentium = catalogueItem(tree, QStringLiteral("olivetti-m6-880"));
+        QVERIFY(m6Pentium && m6Pentium->parent() == catalogueItem(tree, QStringLiteral("olivetti-m")));
         auto *m6 = catalogueItem(tree, QStringLiteral("olivetti-m6-5x0"));
         tree->setCurrentItem(m6);
         const auto *upgrades = widget.findChild<QLabel *>("blumachVariantUpgrades");

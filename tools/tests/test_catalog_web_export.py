@@ -103,9 +103,10 @@ class CatalogWebExportTests(unittest.TestCase):
         self.assertEqual("blumach-variant-groups-v1", presentation["schema"])
         products = {p["id"]: p for p in self.catalog["products"]}
         variants = [variant for group in presentation["groups"] for variant in group["variants"]]
-        self.assertEqual(11, len(presentation["groups"]))
-        self.assertEqual(56, len(variants))
+        self.assertEqual(14, len(presentation["groups"]))
+        self.assertEqual(65, len(variants))
         self.assertEqual(len(variants), len(set(variants)))
+        self.assertNotIn("olivetti-m6-880", variants)
         for group in presentation["groups"]:
             for variant in group["variants"]:
                 self.assertEqual(group["family_id"], products[variant]["family_id"])
