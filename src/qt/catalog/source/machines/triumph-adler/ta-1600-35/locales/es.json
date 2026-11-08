@@ -1,0 +1,9 @@
+{
+  "product.ta-1600-35.summary": "El TA 1600/35 era uno de los tres modelos anunciados para la automatización de oficinas en Italia en 1984.",
+  "product.ta-1600-35.history": "Triumph-Adler lo anunció en julio y agosto de 1984 junto a los otros dos TA 1600 de la campaña. La oferta se dirigía a empresas que necesitaban gestión y aplicaciones fiscales.",
+  "product.ta-1600-35.technical.configuration": "La referencia ayuda a localizar el software de sistema de esta variante. El inventario de VzEkC registra TAXO Bedienungshandbuch II TA1600-35-38.",
+  "product.ta-1600-35.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-1600-35.technical.limitations": "Quedan por cotejar la configuración exacta y por preservar el firmware y los medios de arranque.",
+  "product.ta-1600-35.technical.source_1": "TAXO Bedienungshandbuch II TA1600-35-38 · VzEkC inventory",
+  "product.ta-1600-35.technical.source_2": "Triumph-Adler · Sperimentare, July/August 1984 · PDF p. 8"
+}

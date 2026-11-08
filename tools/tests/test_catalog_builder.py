@@ -208,6 +208,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "olivetti-m24", "olivetti-m24-new-p100", "olivetti-m24-new-p133",
                 "ta-10-1", "ta-10-2", "ta-10-3", "ta-10-4",
                 "ta-1600-20", "ta-1600-20-3", "ta-1600-30",
+                "ta-1600-25", "ta-1600-35", "ta-1600-38",
                 "olivetti-m24-new-p75", "olivetti-m240", "olivetti-m24sp", "olivetti-m250",
                 "olivetti-m250e", "olivetti-m28", "olivetti-m28-20", "olivetti-m28-20c",
                 "olivetti-m28-40", "olivetti-m28-40c", "olivetti-m28-sp", "olivetti-m280",
