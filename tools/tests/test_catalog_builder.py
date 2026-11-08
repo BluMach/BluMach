@@ -60,6 +60,61 @@ class CatalogBuilderTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, message):
                     catalog_builder.load_variant_groups(source, catalog, {"en": {"group.summary": "Summary"}})
 
+    def test_desktop_groups_and_locales_require_opt_in(self) -> None:
+        catalog = {
+            "manufacturers": [{"id": "example", "visible": True}],
+            "families": [{"id": "range", "manufacturer_id": "example", "visible": True}],
+            "products": [
+                {"id": model, "family_id": "range", "visible": True}
+                for model in ("model-a", "model-b", "model-c")
+            ],
+        }
+        desktop_group = {
+            "id": "desktop-variants",
+            "name": "Desktop variants",
+            "family_id": "range",
+            "summary_key": "desktop.summary",
+            "source_url": "https://example.com/archive",
+            "variants": ["model-a", "model-b"],
+        }
+        common_group = {
+            **desktop_group,
+            "id": "common-variants",
+            "summary_key": "common.summary",
+            "variants": ["model-b", "model-c"],
+        }
+        translations = {"en": {"common.summary": "Common summary"}}
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory)
+            desktop = source / "desktop"
+            (desktop / "locales").mkdir(parents=True)
+            catalog_builder.write_json(
+                desktop / "locales/en.json", {"desktop.summary": "Desktop summary"}
+            )
+            catalog_builder.write_json(
+                desktop / catalog_builder.VARIANT_GROUPS_FILE,
+                {"schema": catalog_builder.VARIANT_GROUPS_SCHEMA, "groups": [desktop_group]},
+            )
+            self.assertEqual(
+                catalog_builder.load_variant_groups(source, catalog, translations)["groups"], []
+            )
+            self.assertNotIn("desktop.summary", translations["en"])
+
+            desktop_translations = {"en": dict(translations["en"])}
+            self.assertEqual(
+                catalog_builder.load_variant_groups(
+                    source, catalog, desktop_translations, desktop=True
+                )["groups"], [desktop_group]
+            )
+            self.assertEqual(desktop_translations["en"]["desktop.summary"], "Desktop summary")
+
+            catalog_builder.write_json(
+                source / "common" / catalog_builder.VARIANT_GROUPS_FILE,
+                {"schema": catalog_builder.VARIANT_GROUPS_SCHEMA, "groups": [common_group]},
+            )
+            with self.assertRaisesRegex(ValueError, "model-b.*more than one position"):
+                catalog_builder.load_variant_groups(source, catalog, translations, desktop=True)
+
     def test_implementation_documents_are_deduplicated(self) -> None:
         catalog = {
             "products": [
