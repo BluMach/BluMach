@@ -1,0 +1,8 @@
+{
+  "product.ta-msx-3230.summary": "The MSX 3230 was one of the three 32-bit models announced for the MSX 3200 family.",
+  "product.ta-msx-3230.history": "Triumph-Adler offered it in March 1988 as part of the Unix range above System M32.",
+  "product.ta-msx-3230.technical.configuration": "TANIX V was the range’s operating system. The contemporary trade press describes a Motorola 68020 multiprocessor platform.",
+  "product.ta-msx-3230.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-msx-3230.technical.limitations": "The exact configuration of this model, its ROM and boot media remain pending.",
+  "product.ta-msx-3230.technical.source_1": "Computerwoche · Neuer Unix-Mini MSX 3200 · 25 Mar 1988"
+}

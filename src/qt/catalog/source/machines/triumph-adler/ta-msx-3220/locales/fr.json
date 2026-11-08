@@ -1,0 +1,8 @@
+{
+  "product.ta-msx-3220.summary": "Le MSX 3220 était l’un des trois modèles 32 bits annoncés dans la famille MSX 3200.",
+  "product.ta-msx-3220.history": "Triumph-Adler le proposait en mars 1988 dans la gamme Unix au-dessus du System M32.",
+  "product.ta-msx-3220.technical.configuration": "TANIX V était le système d’exploitation de la gamme. La presse de l’époque décrit une plate-forme multiprocesseur Motorola 68020.",
+  "product.ta-msx-3220.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-msx-3220.technical.limitations": "La configuration exacte de ce modèle, sa ROM et ses supports de démarrage restent à retrouver.",
+  "product.ta-msx-3220.technical.source_1": "Computerwoche · Neuer Unix-Mini MSX 3200 · 25 Mar 1988"
+}

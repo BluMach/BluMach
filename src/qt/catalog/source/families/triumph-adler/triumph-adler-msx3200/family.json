@@ -1,0 +1,19 @@
+{
+  "order": 2040,
+  "family": {
+    "id": "triumph-adler-msx3200",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "MSX 3200",
+    "description_key": "family.triumph-adler-msx3200.description",
+    "history_key": "family.triumph-adler-msx3200.history",
+    "history_references": [
+      {
+        "title": "Neuer Unix-Mini MSX 3200 (March 1988)",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2785983/neuer-unix-mini-msx-3200.html"
+      }
+    ]
+  }
+}

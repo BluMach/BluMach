@@ -1,0 +1,8 @@
+{
+  "product.ta-msx-3240.summary": "L’MSX 3240 era uno dei tre modelli a 32 bit annunciati per la famiglia MSX 3200.",
+  "product.ta-msx-3240.history": "Triumph-Adler lo offriva nel marzo 1988 nella gamma Unix al di sopra del System M32.",
+  "product.ta-msx-3240.technical.configuration": "TANIX V era il sistema operativo della gamma. La stampa dell’epoca descrive una piattaforma multiprocessore Motorola 68020.",
+  "product.ta-msx-3240.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
+  "product.ta-msx-3240.technical.limitations": "Restano da verificare la configurazione esatta del modello, la ROM e i supporti di avvio.",
+  "product.ta-msx-3240.technical.source_1": "Computerwoche · Neuer Unix-Mini MSX 3200 · 25 Mar 1988"
+}

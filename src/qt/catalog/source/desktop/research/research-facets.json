@@ -226,6 +226,21 @@
       "mame_preliminary"
     ]
   },
+  "ta-msx-3220": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-msx-3230": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-msx-3240": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-alphatronic-p30": {
     "documentation": "documented",
     "firmware_custody": "partial",
