@@ -94,7 +94,12 @@ class CatalogWebExportTests(unittest.TestCase):
         self.assertEqual("80C85", m10["architecture"])
 
     def test_variant_groups_keep_every_visible_reference(self) -> None:
-        presentation = json.loads(self.files["variant-groups.json"])
+        self.assertNotIn("variant-groups.json", self.files)
+        preview = catalog_web_export.export(
+            ROOT / "src/qt/catalog/source", ROOT / "src/qt_resources.qrc",
+            "1.2.3-test", "0" * 40, include_variant_groups=True)
+        presentation = json.loads(preview.pop("variant-groups.json"))
+        self.assertEqual(self.files, preview)
         self.assertEqual("blumach-variant-groups-v1", presentation["schema"])
         products = {p["id"]: p for p in self.catalog["products"]}
         variants = [variant for group in presentation["groups"] for variant in group["variants"]]

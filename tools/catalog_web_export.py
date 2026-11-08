@@ -102,6 +102,8 @@ def export(
     resource_file: Path,
     version: str,
     commit: str,
+    *,
+    include_variant_groups: bool = False,
 ) -> dict[str, bytes]:
     catalog, translations = catalog_builder.assemble(source_dir)
     errors = catalog_builder.validate(catalog, translations)
@@ -141,7 +143,7 @@ def export(
 
     files: dict[str, bytes] = {}
     variant_groups = catalog_builder.load_variant_groups(source_dir, catalog, translations)
-    if variant_groups["groups"]:
+    if include_variant_groups and variant_groups["groups"]:
         files[catalog_builder.VARIANT_GROUPS_FILE] = encode(variant_groups)
     image_paths = image_files(resource_file)
     for name in sorted(images):
@@ -194,9 +196,12 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True, help="ZIP file to write")
     parser.add_argument("--source", type=Path, default=root / "src/qt/catalog/source")
     parser.add_argument("--resources", type=Path, default=root / "src/qt_resources.qrc")
+    parser.add_argument("--include-variant-groups", action="store_true",
+                        help="include presentation data for an importer that supports variant groups")
     arguments = parser.parse_args()
     try:
-        files = export(arguments.source, arguments.resources, arguments.version, arguments.commit)
+        files = export(arguments.source, arguments.resources, arguments.version, arguments.commit,
+                       include_variant_groups=arguments.include_variant_groups)
     except ValueError as exc:
         print(exc, file=sys.stderr)
         return 1
