@@ -1,0 +1,73 @@
+{
+  "order": 1992,
+  "machine": {
+    "id": "ta-dsd",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-dialog-terminals",
+    "name": "Triumph-Adler TA DSD",
+    "summary_key": "product.ta-dsd.summary",
+    "history_key": "product.ta-dsd.history",
+    "status": "research",
+    "aliases": [
+      "DATEV DSD",
+      "Dialog-System-DATEV"
+    ],
+    "tags": [
+      "TA 80 / DATEV DSD"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {
+      "video": "CRT · 80 × 24"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.ta-dsd.technical.configuration",
+            "url": "https://archiv.computeum.org/TriumphAdler/Datev%20DSD/"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-dsd.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-dsd.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-dsd.technical.source_1",
+            "url": "https://archiv.computeum.org/TriumphAdler/Datev%20DSD/"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "order": 1990,
+  "family": {
+    "id": "triumph-adler-dialog-terminals",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "TA 80 / DATEV DSD",
+    "description_key": "family.triumph-adler-dialog-terminals.description",
+    "history_key": "family.triumph-adler-dialog-terminals.history",
+    "history_references": [
+      {
+        "title": "Technische Beschreibung TA 80",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA80/"
+      },
+      {
+        "title": "Bedienungsanleitung DSD · Dialog-System-DATEV",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/Datev%20DSD/"
+      }
+    ]
+  }
+}

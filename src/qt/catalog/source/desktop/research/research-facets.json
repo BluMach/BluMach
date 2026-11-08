@@ -198,6 +198,16 @@
       "mame_preliminary"
     ]
   },
+  "ta-80": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-dsd": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-alphatronic-p4": {
     "documentation": "documented",
     "firmware_custody": "not_found",
