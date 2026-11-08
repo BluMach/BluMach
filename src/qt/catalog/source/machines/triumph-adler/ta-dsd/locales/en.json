@@ -1,0 +1,8 @@
+{
+  "product.ta-dsd.summary": "The TA DSD was a terminal for accessing DATEV applications with an identification card.",
+  "product.ta-dsd.history": "Triumph-Adler supplied it for users of interactive DATEV applications. Queries could be displayed on screen or recorded on paper.",
+  "product.ta-dsd.technical.configuration": "The magnetic card enabled access. The manual specifies a built-in electrosensitive printer rated at 2,200 characters per second.",
+  "product.ta-dsd.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-dsd.technical.limitations": "Model-specific firmware and startup verification remain pending.",
+  "product.ta-dsd.technical.source_1": "Bedienungsanleitung DSD · Dialog-System-DATEV · §§1–3"
+}

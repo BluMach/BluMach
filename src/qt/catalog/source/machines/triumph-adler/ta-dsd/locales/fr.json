@@ -1,0 +1,8 @@
+{
+  "product.ta-dsd.summary": "Le TA DSD était un terminal permettant de consulter les applications DATEV avec une carte d’identification.",
+  "product.ta-dsd.history": "Triumph-Adler le fournissait aux utilisateurs des applications interactives DATEV. Les consultations pouvaient être affichées à l’écran ou consignées sur papier.",
+  "product.ta-dsd.technical.configuration": "La carte magnétique autorisait l’accès. Le manuel décrit une imprimante électrosensible intégrée de 2 200 caractères par seconde.",
+  "product.ta-dsd.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-dsd.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-dsd.technical.source_1": "Bedienungsanleitung DSD · Dialog-System-DATEV · §§1–3"
+}

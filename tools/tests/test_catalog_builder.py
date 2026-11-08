@@ -174,6 +174,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "triumph-adler-alphatronic-p",
                 "triumph-adler-alphatronic-pc",
                 "triumph-adler-ta100",
+                "triumph-adler-dialog-terminals",
                 "triumph-adler-dario",
             }, visible_families)
         self.assertEqual(
@@ -299,6 +300,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "schneider-vgaat40", "schneider-vgaat70", "sinclair-apc286", "sinclair-apc386sx",
                 "sinclair-pc200", "ta-alphatronic-p1", "ta-alphatronic-p2",
                 "ta-alphatronic-p2l", "ta-alphatronic-p2s", "ta-alphatronic-p2u",
+                "ta-80", "ta-dsd",
                 "ta-alphatronic-p3", "ta-alphatronic-p4", "ta-alphatronic-p30", "ta-alphatronic-p40",
                 "ta-alphatronic-pc", "ta-alphatronic-pc16",
                 "ta-100-2",

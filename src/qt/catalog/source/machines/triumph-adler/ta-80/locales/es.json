@@ -1,0 +1,9 @@
+{
+  "product.ta-80.summary": "El TA 80 reunía la consulta de bases de datos y la impresión en un terminal de sobremesa.",
+  "product.ta-80.history": "Triumph-Adler lo ofrecía para acceder a información en un ordenador central. La pantalla y la impresora rápida compartían el mismo mueble, con teclado separado.",
+  "product.ta-80.technical.configuration": "El lector magnético identificaba al usuario. El manual sitúa el lector en el lateral y la impresora rotativa en la parte delantera.",
+  "product.ta-80.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-80.technical.limitations": "Quedan pendientes el firmware propio y la comprobación del arranque.",
+  "product.ta-80.technical.source_1": "Technische Beschreibung TA 80 · §§1–2",
+  "product.ta-80.technical.source_2": "TA 80 intelligentes Bildschirm-Dialog-Terminal · folleto"
+}
