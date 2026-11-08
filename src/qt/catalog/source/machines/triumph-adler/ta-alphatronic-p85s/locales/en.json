@@ -1,0 +1,8 @@
+{
+  "product.ta-alphatronic-p85s.summary": "The P85S appears under its own model name in Triumph-Adler’s technical index.",
+  "product.ta-alphatronic-p85s.history": "The manufacturer identifies it in its 1993 documentation catalogue.",
+  "product.ta-alphatronic-p85s.technical.configuration": "The identifiers help locate the exact documentation. The index gives BA021 / BA022 and shares an entry with TA 1800.",
+  "product.ta-alphatronic-p85s.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-alphatronic-p85s.technical.limitations": "The full technical documentation, board configuration and ROM remain pending.",
+  "product.ta-alphatronic-p85s.technical.source_1": "Triumph-Adler · Druckschriftenverzeichnis 1993 · BA/MF"
+}

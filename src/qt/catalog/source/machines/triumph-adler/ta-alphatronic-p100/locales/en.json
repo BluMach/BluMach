@@ -1,0 +1,8 @@
+{
+  "product.ta-alphatronic-p100.summary": "The P100 appears under its own model name in Triumph-Adler’s technical index.",
+  "product.ta-alphatronic-p100.history": "The manufacturer identifies it in its 1993 documentation catalogue.",
+  "product.ta-alphatronic-p100.technical.configuration": "The identifiers help locate the exact documentation. The index gives BA036 / BA037.",
+  "product.ta-alphatronic-p100.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-alphatronic-p100.technical.limitations": "The full technical documentation, board configuration and ROM remain pending.",
+  "product.ta-alphatronic-p100.technical.source_1": "Triumph-Adler · Druckschriftenverzeichnis 1993 · BA/MF"
+}

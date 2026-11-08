@@ -1,0 +1,8 @@
+{
+  "product.ta-alphatronic-p90.summary": "El P90 figura como modelo propio en el índice técnico de Triumph-Adler.",
+  "product.ta-alphatronic-p90.history": "El fabricante lo identifica en su catálogo de documentación de 1993.",
+  "product.ta-alphatronic-p90.technical.configuration": "Las referencias permiten buscar la documentación exacta. El índice da BA017 / BA018 · MF000.00070.52721 y comparte una entrada con P85.",
+  "product.ta-alphatronic-p90.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-alphatronic-p90.technical.limitations": "Quedan pendientes la documentación técnica completa, la configuración de placa y la ROM.",
+  "product.ta-alphatronic-p90.technical.source_1": "Triumph-Adler · Druckschriftenverzeichnis 1993 · BA/MF"
+}
