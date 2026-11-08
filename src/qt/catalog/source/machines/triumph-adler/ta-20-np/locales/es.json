@@ -1,0 +1,10 @@
+{
+  "product.ta-20-np.summary": "El TA 20-NP distinguía su puesto de oficina por la impresora matricial y la alimentación de formularios continuos.",
+  "product.ta-20-np.history": "Triumph-Adler ofrecía el NP junto al SE para automatizar el trabajo de oficina. La hoja de gama lo muestra con 8 KiB, casete MBKE 2 y alimentador EFE 61.",
+  "product.ta-20-np.technical.configuration": "El papel continuo facilitaba la impresión de formularios en serie. La hoja enumera la unidad de fichas magnéticas MKE 6 como ampliación.",
+  "product.ta-20-np.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-20-np.technical.limitations": "Faltan el firmware de una unidad identificada y un soporte de programa para comprobar su funcionamiento.",
+  "product.ta-20-np.technical.source_1": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-20-np.technical.source_2": "TA 20–22 Technical Description · 04001002 · Triumph-Adler",
+  "product.ta-20-np.technical.source_3": "Bedienungsanleitung TA 20-NP · Triumph-Adler"
+}

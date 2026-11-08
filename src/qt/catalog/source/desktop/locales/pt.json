@@ -8,5 +8,8 @@
   "collection.variants.olivetti-echos-p-1995-range.summary": "A gama apresentada pela MCmicrocomputer em 1995 combinava um Pentium de 75 MHz com um ecrã DSTN, ou um Pentium de 90 MHz com um ecrã TFT de 10,4 ou 11,8 polegadas.",
   "collection.variants.olivetti-echos-p-us-1996-range.summary": "A gama norte-americana de 1996 reunia quatro portáteis Pentium de 100 a 133 MHz. O processador e o ecrã variavam e os quatro partilhavam um compartimento modular.",
   "collection.variants.olivetti-m6-640-range.summary": "O guia distingue o M6-640 com um Pentium de 90 ou 100 MHz e o M6-640 DP com dois Pentium de 90 MHz.",
-  "collection.variants.olivetti-m6-650-690-range.summary": "O guia lista sete configurações Pentium de 100 a 166 MHz em caixas Tin. As variantes DP saíam de fábrica com dois processadores."
+  "collection.variants.olivetti-m6-650-690-range.summary": "O guia lista sete configurações Pentium de 100 a 166 MHz em caixas Tin. As variantes DP saíam de fábrica com dois processadores.",
+  "collection.variants.ta20-printer-variants.summary": "Configurações de escritório com impressora de elemento único ou matricial.",
+  "collection.variants.ta21-storage-variants.summary": "Configurações de recolha com cassete magnética ou disquete.",
+  "collection.variants.ta22-drive-variants.summary": "Terminais de escritório com uma unidade de disquetes ou duas na variante B."
 }

@@ -1,0 +1,9 @@
+{
+  "product.ta-22b.summary": "Le TA 22 B logeait un second lecteur de disquettes à la place du lecteur de cassettes.",
+  "product.ta-22b.history": "C’était la variante à deux lecteurs du terminal de bureau TA 22. La documentation de Triumph-Adler la distingue par la lettre B.",
+  "product.ta-22b.technical.configuration": "Les deux lecteurs permettaient d’utiliser deux disquettes au même poste. La description technique attribue 16 Kio de RAM et une carte BAB 06 au TA 22 B.",
+  "product.ta-22b.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-22b.technical.limitations": "Le micrologiciel d’un exemplaire identifié et un support de programme restent à retrouver pour vérifier le fonctionnement.",
+  "product.ta-22b.technical.source_1": "TA 20–22 Technical Description · 04001002 · Triumph-Adler",
+  "product.ta-22b.technical.source_2": "Das Terminalsystem TA22 · Triumph-Adler"
+}

@@ -1,0 +1,11 @@
+{
+  "product.ta-des.summary": "Le TA DES permettait aux cabinets membres de DATEV d’enregistrer leurs données sur cassette sans connexion au centre de calcul.",
+  "product.ta-des.history": "Triumph-Adler le proposait aux membres de DATEV ayant peu d’écritures comptables. Le manuel d’octobre 1979 décrit un poste qui enregistrait les données sur cassette pour un traitement ultérieur.",
+  "product.ta-des.technical.configuration": "La cassette transportait les données pour un traitement ultérieur. Le prospectus présente une configuration avec 3 Kio de RAM et une cassette ECMA 34.",
+  "product.ta-des.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-des.technical.limitations": "Le micrologiciel d’un exemplaire identifié et un support de programme restent à retrouver pour vérifier le fonctionnement.",
+  "product.ta-des.technical.source_1": "Das TRIUMPH-ADLER Datenerfassungssystem · pp. 2–3",
+  "product.ta-des.technical.source_2": "Bedienungsanleitung DES · BH/DES/107911/d/W · Oktober 1979",
+  "product.ta-des.technical.source_3": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-des.technical.source_4": "TA 20–22 Technical Description · 04001002 · Triumph-Adler"
+}

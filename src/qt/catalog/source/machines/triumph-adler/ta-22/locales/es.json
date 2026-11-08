@@ -1,0 +1,10 @@
+{
+  "product.ta-22.summary": "El TA 22 combinaba la captura en disquete con el procesamiento local y el intercambio de datos con un centro de cálculo.",
+  "product.ta-22.history": "Triumph-Adler lo ofrecía como terminal de oficina capaz de preparar datos y facturas en el puesto de trabajo. Computerwoche documentó en 1979 una configuración con disquete compatible con IBM.",
+  "product.ta-22.technical.configuration": "El disquete guardaba programas y datos. El folleto anuncia 249 KB por disco y Computerwoche publica 242 KB. El folleto ofrece pantalla y casete como opciones.",
+  "product.ta-22.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-22.technical.limitations": "Faltan el firmware de una unidad identificada y un soporte de programa para comprobar su funcionamiento.",
+  "product.ta-22.technical.source_1": "Das Terminalsystem TA22 · pp. 2, 10; Ergänzungen · p. 4",
+  "product.ta-22.technical.source_2": "TA sucht Jedermann-Computer neue Vertriebswege · Computerwoche · 1979",
+  "product.ta-22.technical.source_3": "TA 20–22 Technical Description · 04001002 · Triumph-Adler"
+}

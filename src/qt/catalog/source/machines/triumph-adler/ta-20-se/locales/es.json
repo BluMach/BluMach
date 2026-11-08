@@ -1,0 +1,10 @@
+{
+  "product.ta-20-se.summary": "El TA 20-SE era la versión de oficina con impresora de elemento único.",
+  "product.ta-20-se.history": "Triumph-Adler lo ofrecía para tareas de oficina junto al TA 20-NP, equipado con impresora matricial. La hoja de gama del SE enumera 8 KiB de RAM y una unidad de casete MBKE 2.",
+  "product.ta-20-se.technical.configuration": "El casete servía para cargar programas de oficina. El manual de servicio describe placas BAB 02 o 04 y configuraciones de 3 u 8 KiB.",
+  "product.ta-20-se.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-20-se.technical.limitations": "Faltan el firmware de una unidad identificada y un soporte de programa para comprobar su funcionamiento.",
+  "product.ta-20-se.technical.source_1": "TA 20–22 Technical Description · 04001002 · Triumph-Adler",
+  "product.ta-20-se.technical.source_2": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-20-se.technical.source_3": "Bedienungsanleitung TA 20-SE · Triumph-Adler"
+}

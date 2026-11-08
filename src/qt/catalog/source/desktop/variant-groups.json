@@ -139,6 +139,39 @@
         "olivetti-m6-690",
         "olivetti-m6-690-dp"
       ]
+    },
+    {
+      "id": "ta20-printer-variants",
+      "family_id": "triumph-adler-ta20",
+      "name": "Triumph-Adler TA 20 · SE / NP",
+      "summary_key": "collection.variants.ta20-printer-variants.summary",
+      "source_url": "https://archiv.computeum.org/TriumphAdler/TA20/Ordner1/",
+      "variants": [
+        "ta-20-se",
+        "ta-20-np"
+      ]
+    },
+    {
+      "id": "ta21-storage-variants",
+      "family_id": "triumph-adler-ta20",
+      "name": "Triumph-Adler TA 21 · MBKE / FDE",
+      "summary_key": "collection.variants.ta21-storage-variants.summary",
+      "source_url": "https://archiv.computeum.org/TriumphAdler/TA20/Ordner1/",
+      "variants": [
+        "ta-21-mbke",
+        "ta-21-fde"
+      ]
+    },
+    {
+      "id": "ta22-drive-variants",
+      "family_id": "triumph-adler-ta20",
+      "name": "Triumph-Adler TA 22 / 22 B",
+      "summary_key": "collection.variants.ta22-drive-variants.summary",
+      "source_url": "https://archiv.computeum.org/TriumphAdler/TA20/TA20%20-%2022%20%20Technical%20Description%20(Art.%20No.%2004001002)/",
+      "variants": [
+        "ta-22",
+        "ta-22b"
+      ]
     }
   ]
 }

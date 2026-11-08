@@ -1,0 +1,10 @@
+{
+  "product.ta-21-mbke.summary": "The TA 21/MBKE collected data on magnetic cassette for later processing.",
+  "product.ta-21-mbke.history": "Triumph-Adler included it in its data-entry range alongside the diskette-based TA 21/FDE.",
+  "product.ta-21-mbke.technical.configuration": "The cassette also loaded workstation programs. The manual describes this operation with the MBKE 1 drive.",
+  "product.ta-21-mbke.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-21-mbke.technical.limitations": "Firmware from an identified unit and program media are still needed to check operation.",
+  "product.ta-21-mbke.technical.source_1": "Bedienungsanleitung TA 21 · Triumph-Adler · §3",
+  "product.ta-21-mbke.technical.source_2": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-21-mbke.technical.source_3": "TA 20–22 Technical Description · 04001002 · Triumph-Adler"
+}

@@ -1,0 +1,10 @@
+{
+  "product.ta-20-se.summary": "Le TA 20-SE était le modèle de bureau à imprimante à élément unique.",
+  "product.ta-20-se.history": "Triumph-Adler le proposait pour les travaux de bureau aux côtés du TA 20-NP à imprimante matricielle. La fiche du SE indique 8 Kio de RAM et un lecteur de cassettes MBKE 2.",
+  "product.ta-20-se.technical.configuration": "La cassette servait à charger les programmes de bureau. Le manuel de maintenance décrit les cartes BAB 02 ou 04 et les configurations à 3 ou 8 Kio.",
+  "product.ta-20-se.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-20-se.technical.limitations": "Le micrologiciel d’un exemplaire identifié et un support de programme restent à retrouver pour vérifier le fonctionnement.",
+  "product.ta-20-se.technical.source_1": "TA 20–22 Technical Description · 04001002 · Triumph-Adler",
+  "product.ta-20-se.technical.source_2": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-20-se.technical.source_3": "Bedienungsanleitung TA 20-SE · Triumph-Adler"
+}

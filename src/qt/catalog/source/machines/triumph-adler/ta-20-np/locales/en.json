@@ -1,0 +1,10 @@
+{
+  "product.ta-20-np.summary": "The TA 20-NP distinguished its office workstation with a dot-matrix printer and continuous-form feed.",
+  "product.ta-20-np.history": "Triumph-Adler offered the NP alongside the SE to automate office work. The model sheet shows it with 8 KiB, an MBKE 2 cassette drive and an EFE 61 feeder.",
+  "product.ta-20-np.technical.configuration": "Continuous paper made it easier to print forms in batches. The model sheet lists the MKE 6 magnetic ledger-card unit as an upgrade.",
+  "product.ta-20-np.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-20-np.technical.limitations": "Firmware from an identified unit and program media are still needed to check operation.",
+  "product.ta-20-np.technical.source_1": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-20-np.technical.source_2": "TA 20–22 Technical Description · 04001002 · Triumph-Adler",
+  "product.ta-20-np.technical.source_3": "Bedienungsanleitung TA 20-NP · Triumph-Adler"
+}

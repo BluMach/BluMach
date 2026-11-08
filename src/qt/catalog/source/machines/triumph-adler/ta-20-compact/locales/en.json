@@ -1,0 +1,9 @@
+{
+  "product.ta-20-compact.summary": "The TA 20 Compact brought typing, calculation and invoicing together in a desktop machine.",
+  "product.ta-20-compact.history": "A Spanish advertisement in 1980 offered it to small and medium-sized businesses for invoicing, accounting and correspondence. It was the desktop model in the TA 20 range.",
+  "product.ta-20-compact.technical.configuration": "Fixed memory held the built-in programs. The family sheet distinguishes 5 KiB of PROM and 3 KiB of RAM.",
+  "product.ta-20-compact.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-20-compact.technical.limitations": "The PROM and board identification are needed to verify startup.",
+  "product.ta-20-compact.technical.source_1": "TA20 Modellfamilie · Triumph-Adler",
+  "product.ta-20-compact.technical.source_2": "Los Sitios de Gerona · 11-05-1980 · p. 24"
+}

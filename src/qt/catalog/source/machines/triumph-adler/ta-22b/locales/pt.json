@@ -1,0 +1,9 @@
+{
+  "product.ta-22b.summary": "O TA 22 B alojava uma segunda unidade de disquetes no espaço da unidade de cassetes.",
+  "product.ta-22b.history": "Era a variante de duas unidades do terminal de escritório TA 22. A documentação da Triumph-Adler distingue-a com a letra B.",
+  "product.ta-22b.technical.configuration": "As duas unidades permitiam usar duas disquetes no mesmo posto. A descrição técnica atribui 16 KiB de RAM e uma placa BAB 06 ao TA 22 B.",
+  "product.ta-22b.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-22b.technical.limitations": "Faltam o firmware de um exemplar identificado e um suporte de programa para verificar o funcionamento.",
+  "product.ta-22b.technical.source_1": "TA 20–22 Technical Description · 04001002 · Triumph-Adler",
+  "product.ta-22b.technical.source_2": "Das Terminalsystem TA22 · Triumph-Adler"
+}
