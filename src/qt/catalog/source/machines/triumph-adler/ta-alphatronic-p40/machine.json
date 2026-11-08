@@ -23,6 +23,10 @@
       ],
       "mobility": [
         "stationary"
+      ],
+      "cpu_generation": [
+        "i8085",
+        "x86_8086"
       ]
     },
     "hardware": {

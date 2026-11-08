@@ -13,14 +13,49 @@
     "history_key": "manufacturer.triumph-adler.history",
     "history_references": [
       {
-        "title": "Our History",
-        "publisher": "TA Triumph-Adler GmbH",
-        "url": "https://www.triumph-adler.com/resource/blob/18288/94911497d9a5c4ed3c64a7cb8cd6fbde/ta-historie-e_2022-09-08.pdf"
-      },
-      {
-        "title": "The Company",
+        "title": "The Company · Milestones in our history",
         "publisher": "TA Triumph-Adler GmbH",
         "url": "https://www.triumph-adler.com/ta-en-de/the-company"
+      },
+      {
+        "title": "Deutsche Triumph Fahrradwerke AG",
+        "publisher": "VDE",
+        "url": "https://www.vde.com/de/geschichte/karte/bayern/deutsche-triumph-fahrradwerke-ag"
+      },
+      {
+        "title": "Technik · Adlerwerke",
+        "publisher": "Historisches Museum Frankfurt",
+        "url": "https://historisches-museum-frankfurt.de/de/ueber-das-museum/sammlung/technik"
+      },
+      {
+        "title": "TA 10 · Herstellerunterlagen",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA10/Ordner1/"
+      },
+      {
+        "title": "Handbuch der Textsysteme · BITSY",
+        "publisher": "Computermuseum Stuttgart",
+        "url": "https://computermuseum.informatik.uni-stuttgart.de/dev/bitsy10/bitsy10_1.html"
+      },
+      {
+        "title": "Anwendungslösungen auf der 1600-Familie",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2848499/anwendungsloesungen-auf-der-1600-familie.html"
+      },
+      {
+        "title": "Neuer Unix-Mini MSX 3200",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2785983/neuer-unix-mini-msx-3200.html"
+      },
+      {
+        "title": "Lavorare dovunque: i computer portatili Olivetti",
+        "publisher": "Storia Olivetti",
+        "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
+      },
+      {
+        "title": "Neue Portables werden in Nürnberg hergestellt",
+        "publisher": "Computerwoche",
+        "url": "https://www.computerwoche.de/article/2835712/olivetti-und-ta-setzen-mit-laptops-auf-die-europaeische-karte.html"
       }
     ]
   }

@@ -32,6 +32,9 @@
       ],
       "storage_interface": [
         "floppy"
+      ],
+      "cpu_generation": [
+        "i8085"
       ]
     },
     "hardware": {

@@ -1,5 +1,6 @@
 {
   "hardware.storage": "Almacenamiento",
   "hardware.hard_disk": "Disco duro",
-  "hardware.cache": "Caché"
+  "hardware.cache": "Caché",
+  "hardware.chipset": "Chipset"
 }

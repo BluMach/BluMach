@@ -11,7 +11,7 @@
     "history_key": "product.ta-dario386sx.history",
     "status": "partial",
     "blumach_emulation": "implemented",
-    "period": "1991",
+    "period": "1990",
     "aliases": [
       "TA Dario 386SX",
       "P45"
@@ -48,12 +48,12 @@
       "label_key": "media.kind.concept_illustration"
     },
     "hardware": {
-      "cpu": "Intel 80386SX 16 MHz",
-      "memory": "1 MB standard; up to 8 MB on-board; LIM 4.0/EMS",
-      "chipset": "Headland HT101SX + HT113 + GC102-PC with IOC02",
-      "video": "Paradise PVGA1A, 256 KB, embedded OVC 1.06",
-      "floppy": "3.5 in, 1.44 MB",
-      "coprocessor": "Intel 80387SX optional"
+      "cpu": "Intel 80386SX · 16 MHz",
+      "memory": "1–8 MB · LIM 4.0 / EMS",
+      "chipset": "Headland HT101SX + HT113 + GC102-PC + IOC02",
+      "video": "Paradise PVGA1A · 256 KB · OVC 1.06",
+      "floppy": "3.5″ · 1.44 MB",
+      "coprocessor": "Intel 80387SX"
     },
     "firmware": {
       "known_sets": [
@@ -592,6 +592,11 @@
           {
             "label_key": "technical.label.firmware_evidence",
             "value_key": "product.ta-dario386sx.document.firmware"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-dario386sx.document.market_1990",
+            "url": "https://www.computerwoche.de/article/2760939/ta-pcs-aus-rein-deutscher-fertigung.html"
           }
         ]
       }
