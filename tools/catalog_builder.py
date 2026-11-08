@@ -120,7 +120,9 @@ def load_bundles(
     return sorted(bundles, key=lambda item: (item[0], item[1]))
 
 
-def assemble(source_dir: Path) -> tuple[dict[str, Any], dict[str, dict[str, str]]]:
+def assemble(
+    source_dir: Path, *, desktop: bool = False,
+) -> tuple[dict[str, Any], dict[str, dict[str, str]]]:
     common_path = source_dir / "common" / "catalog.json"
     common = read_json(common_path)
     if not isinstance(common, dict) or common.get("source_schema") != SOURCE_SCHEMA:
@@ -138,6 +140,20 @@ def assemble(source_dir: Path) -> tuple[dict[str, Any], dict[str, dict[str, str]
     manufacturer_bundles = load_bundles(source_dir, "manufacturers", locale_names)
     family_bundles = load_bundles(source_dir, "families", locale_names)
     machine_bundles = load_bundles(source_dir, "machines", locale_names)
+    research = None
+    research_dir = source_dir / "desktop" / "research"
+    if desktop and research_dir.exists():
+        facet_path = research_dir / "filter-facets.json"
+        research_definitions = read_json(facet_path)
+        errors: list[str] = []
+        catalog_audit.validate_facets({"filter_facets": research_definitions}, {}, errors)
+        if errors:
+            raise ValueError(f"{facet_path}: " + "\n".join(errors))
+        research = load_research_facets(research_dir / "research-facets.json", research_definitions)
+        facets.extend(research_definitions)
+        merge_translations(
+            translations, load_locale_directory(research_dir / "locales", locale_names), research_dir
+        )
 
     manufacturers = []
     families = []
@@ -165,6 +181,8 @@ def assemble(source_dir: Path) -> tuple[dict[str, Any], dict[str, dict[str, str]
             raise ValueError(
                 f"machine {wrapper['machine']['id']!r}: platform metadata is missing"
             )
+        if research is not None:
+            apply_research_facets(wrapper["machine"], platform, research.get(wrapper["machine"]["id"]))
         merge_translations(translations, localized, source_dir / "machines")
 
     platforms = [item[2] for item in sorted(ordered_platforms, key=lambda item: (item[0], item[1]))]
@@ -247,6 +265,45 @@ def load_variant_groups(
     return {"schema": VARIANT_GROUPS_SCHEMA, "groups": [group for _, group in groups]}
 
 
+def apply_research_facets(
+    machine: dict[str, Any], platform: dict[str, Any] | None, review: dict[str, Any] | None,
+) -> None:
+    """Keep preservation metadata independent of the release status and visibility."""
+    facets = machine.setdefault("facets", {})
+    for facet_id in ("documentation", "firmware_custody"):
+        facets[facet_id] = [review[facet_id] if review is not None else "unreviewed"]
+
+    destinations = list(review["test_destinations"]) if review is not None else []
+    if any(value.startswith("fpga_") for value in destinations) and "fpga" not in destinations:
+        destinations.insert(0, "fpga")
+    if (platform and machine.get("status") not in {"research", "not_bootable"}
+            and (platform.get("emulator_machine_id") or platform.get("coremach_system_id"))):
+        destinations.insert(0, "blumach")
+    facets["test_destinations"] = destinations or ["none_known" if review is not None else "unreviewed"]
+
+
+def load_research_facets(path: Path, facets: list[dict[str, Any]]) -> dict[str, Any]:
+    # Entries can precede their machine bundles when catalogue PRs merge separately.
+    # Check all rows, including the ones that will only be applied after those merges.
+    fields = ("documentation", "firmware_custody", "test_destinations")
+    allowed = {facet["id"]: {value["id"] for value in facet["values"]} for facet in facets}
+    reviews = read_json(path)
+    if not isinstance(reviews, dict):
+        raise ValueError(f"{path}: expected an object keyed by product id")
+    for product_id, row in reviews.items():
+        if not catalog_audit.ENTITY_ID.fullmatch(product_id) or not isinstance(row, dict) or set(row) != set(fields):
+            raise ValueError(f"{path}: invalid review for {product_id!r}")
+        for field in fields:
+            values = row[field] if field == "test_destinations" else [row[field]]
+            if not isinstance(values, list) or any(
+                not isinstance(value, str) or value not in allowed.get(field, ()) for value in values
+            ) or len(set(values)) != len(values):
+                raise ValueError(f"{path}: invalid {field} for {product_id!r}")
+        if {"blumach", "none_known"} & set(row["test_destinations"]):
+            raise ValueError(f"{path}: derived destinations are not allowed in {product_id!r}")
+    return reviews
+
+
 def implementation_documents(catalog: dict[str, Any]) -> list[str]:
     documents = set()
     for product in catalog.get("products", []):
@@ -290,7 +347,7 @@ def render_qrc(locales: list[str], documents: list[str] | None = None) -> str:
 
 
 def build(source_dir: Path, output_dir: Path, documents_dir: Path) -> None:
-    catalog, translations = assemble(source_dir)
+    catalog, translations = assemble(source_dir, desktop=True)
     errors = validate(catalog, translations, documents_dir)
     if errors:
         raise ValueError("catalogue validation failed:\n  - " + "\n  - ".join(errors))
@@ -328,7 +385,7 @@ def main() -> int:
     args = parser.parse_args()
     try:
         if args.command == "check":
-            catalog, translations = assemble(args.source.resolve())
+            catalog, translations = assemble(args.source.resolve(), desktop=True)
             errors = validate(catalog, translations, documents_dir)
             if errors:
                 raise ValueError("catalogue validation failed:\n  - " + "\n  - ".join(errors))
