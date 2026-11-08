@@ -1,0 +1,24 @@
+{
+  "order": 1930,
+  "family": {
+    "id": "triumph-adler-ta1100",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "TA 1100",
+    "description_key": "family.triumph-adler-ta1100.description",
+    "history_key": "family.triumph-adler-ta1100.history",
+    "history_references": [
+      {
+        "title": "System TA 1100 · Bedienungsanleitungen",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA1100/"
+      },
+      {
+        "title": "TA 1100 C · Produktprospekt",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/TA1100C/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "product.ta-1100c.summary": "The TA 1100 C built two floppy drives into a more compact workstation than the TA 1100.",
+  "product.ta-1100c.history": "Triumph-Adler offered it to small and medium-sized businesses. Computerwoche reported a DM 36,000 offer in 1979. The UPV museum dates its commercial introduction to 1981.",
+  "product.ta-1100c.technical.configuration": "The screen displayed office work. The factory brochure specifies 48 columns by 22 rows. The UPV museum reports 44 by 24.",
+  "product.ta-1100c.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-1100c.technical.limitations": "The 24 KB of MOS PROM documented in the brochure and a system disk remain to be recovered.",
+  "product.ta-1100c.technical.source_1": "TA 1100 C · Bedienungsanleitung und Produktprospekt · Triumph-Adler",
+  "product.ta-1100c.technical.source_2": "TA sucht Jedermann-Computer neue Vertriebswege · Computerwoche, 1979",
+  "product.ta-1100c.technical.source_3": "Triumph Adler TA 1100 C · Museu d’Informàtica UPV"
+}

@@ -1,0 +1,10 @@
+{
+  "product.ta-1100.summary": "The TA 1100 adapted storage to each office through external units.",
+  "product.ta-1100.history": "Triumph-Adler designed it for office administration. In 1980, seven branches of the air cargo company J. H. Bachmann used the TA 1100 with floppy drives.",
+  "product.ta-1100.technical.configuration": "Magnetic media held programs and data. The manual describes up to three separate cassette units. The FDE unit could accommodate up to four floppy drives.",
+  "product.ta-1100.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-1100.technical.limitations": "Firmware and system media from an identified installation remain to be recovered.",
+  "product.ta-1100.technical.source_1": "TA 1100 · FDE, MPE, DR 12 · Triumph-Adler",
+  "product.ta-1100.technical.source_2": "TA 1100 / TA 1100 C · Triumph-Adler",
+  "product.ta-1100.technical.source_3": "Schneller durch die Luft verfrachtet · Computerwoche, 1980"
+}
