@@ -2,6 +2,17 @@
   "schema": "blumach-variant-groups-v1",
   "groups": [
     {
+      "id": "ta1600-20-range",
+      "family_id": "triumph-adler-ta1600",
+      "name": "Triumph-Adler TA 1600 · /20 + /20-3",
+      "source_url": "https://www.computerwoche.de/article/2848499/anwendungsloesungen-auf-der-1600-familie.html",
+      "summary_key": "collection.variants.ta1600-20-range.summary",
+      "variants": [
+        "ta-1600-20",
+        "ta-1600-20-3"
+      ]
+    },
+    {
       "id": "olivetti-m4-75-133-range",
       "family_id": "olivetti-m",
       "name": "Olivetti M4 · 75 / 90 / 100 / 133",

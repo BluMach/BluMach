@@ -626,6 +626,25 @@ private slots:
         testSettings.clear();
     }
 
+    void ta1600GroupAndMachineSearch()
+    {
+        testSettings.clear();
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        auto *search = widget.findChild<QLineEdit *>();
+        QVERIFY(tree && search);
+        auto *group = catalogueItem(tree, QStringLiteral("ta1600-20-range"));
+        auto *model = catalogueItem(tree, QStringLiteral("ta-1600-20"));
+        QVERIFY(group && model);
+        QCOMPARE(model->parent(), group);
+
+        search->setText(group->text(0));
+        QCOMPARE(tree->currentItem(), group);
+        QCOMPARE(widget.findChildren<QToolButton *>("blumachFactoryVariant").size(), 2);
+        search->setText(model->text(0));
+        QCOMPARE(tree->currentItem(), model);
+    }
+
     void olivettiFactoryVariants()
     {
         testSettings.clear();

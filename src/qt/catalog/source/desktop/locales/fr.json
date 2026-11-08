@@ -1,4 +1,5 @@
 {
+  "collection.variants.ta1600-20-range.summary": "La configuration /20-3 ajoutait une unité à disques fixe et amovible à la gamme /20.",
   "collection.variants.olivetti-m4-75-133-range.summary": "Le guide de maintenance Olivetti recense huit configurations M4 à processeur Pentium de 75 à 133 MHz. Le suffixe S désigne le boîtier Slim Tin par opposition au boîtier Tin standard.",
   "collection.variants.olivetti-m4-pxx-range.summary": "La série M4-Pxx réunit sept configurations ISA/PCI en boîtiers Tin et Slim Tin. Le guide de maintenance distingue les cartes mères Socket 5 et Socket 7.",
   "collection.variants.olivetti-pcs-51xx-range.summary": "Les PCS 5120, 5130 et 5140 étaient livrés en boîtier Slim Tin avec un Pentium cadencé respectivement à 75, 100 et 133 MHz.",

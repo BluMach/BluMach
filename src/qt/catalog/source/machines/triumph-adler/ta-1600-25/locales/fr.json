@@ -1,0 +1,9 @@
+{
+  "product.ta-1600-25.summary": "Le TA 1600/25 était l’un des trois modèles proposés en Italie pour la bureautique en 1984.",
+  "product.ta-1600-25.history": "Triumph-Adler l’a annoncé en juillet et août 1984 avec les deux autres TA 1600 de la campagne. Il visait les entreprises qui avaient besoin d’applications de gestion et de fiscalité.",
+  "product.ta-1600-25.technical.configuration": "La référence aide à retrouver le logiciel système de cette variante. L’inventaire du VzEkC répertorie TASO Fehlerhandbuch TA1600-10-20-25 (1984).",
+  "product.ta-1600-25.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-1600-25.technical.limitations": "La configuration exacte reste à vérifier et le micrologiciel et les supports de démarrage restent à conserver.",
+  "product.ta-1600-25.technical.source_1": "TASO Fehlerhandbuch TA1600-10-20-25 (1984) · VzEkC inventory",
+  "product.ta-1600-25.technical.source_2": "Triumph-Adler · Sperimentare, July/August 1984 · PDF p. 8"
+}

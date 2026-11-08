@@ -1,0 +1,9 @@
+{
+  "product.ta-1600-38.summary": "O TA 1600/38 era um dos três modelos anunciados para automatização de escritórios em Itália em 1984.",
+  "product.ta-1600-38.history": "A Triumph-Adler anunciou-o em julho e agosto de 1984 com os outros dois TA 1600 da campanha. Destinava-se a empresas que precisavam de aplicações de gestão e fiscalidade.",
+  "product.ta-1600-38.technical.configuration": "A referência ajuda a localizar o software de sistema desta variante. O inventário do VzEkC regista TAXO Bedienungshandbuch II TA1600-35-38.",
+  "product.ta-1600-38.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-1600-38.technical.limitations": "Falta confirmar a configuração exata e preservar o firmware e os suportes de arranque.",
+  "product.ta-1600-38.technical.source_1": "TAXO Bedienungshandbuch II TA1600-35-38 · VzEkC inventory",
+  "product.ta-1600-38.technical.source_2": "Triumph-Adler · Sperimentare, July/August 1984 · PDF p. 8"
+}

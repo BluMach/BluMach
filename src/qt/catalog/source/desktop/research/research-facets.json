@@ -34,6 +34,36 @@
     "firmware_custody": "partial",
     "test_destinations": []
   },
+  "ta-1600-20": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-1600-20-3": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-1600-30": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-1600-25": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-1600-35": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-1600-38": {
+    "documentation": "identified",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-1100": {
     "documentation": "documented",
     "firmware_custody": "not_found",

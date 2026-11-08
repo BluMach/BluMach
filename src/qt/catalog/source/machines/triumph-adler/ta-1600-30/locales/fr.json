@@ -1,0 +1,9 @@
+{
+  "product.ta-1600-30.summary": "Le TA 1600/30 séparait l’armoire centrale des postes avec écran et clavier.",
+  "product.ta-1600-30.history": "Triumph-Adler le proposait dans la gamme de bureau TA 1600 pour les installations à plusieurs postes. Le manuel décrit l’utilisation depuis un poste local ou distant.",
+  "product.ta-1600-30.technical.configuration": "TAXO permettait de travailler depuis les postes du système. Le manuel de matériel décrit son chargement et distingue les unités de disque SMD et CMD selon la configuration.",
+  "product.ta-1600-30.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-1600-30.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-1600-30.technical.source_1": "TA 1600/30 · Bedienungshandbuch der Hardware · §§1, 3–4",
+  "product.ta-1600-30.technical.source_2": "Computerwoche · 15-04-1983"
+}
