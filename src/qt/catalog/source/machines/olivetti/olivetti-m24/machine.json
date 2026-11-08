@@ -9,7 +9,7 @@
     "summary_key": "product.olivetti-m24.summary",
     "history_key": "product.olivetti-m24.history",
     "warning_key": "product.olivetti-m24.warning",
-    "status": "research",
+    "status": "partial",
     "period": "1984",
     "aliases": [],
     "tags": [
@@ -52,9 +52,18 @@
     },
     "firmware": {
       "known_sets": [
-        "1.43 · PQBK/PQBL · 2 × 8 KiB"
+        "1.21 · 2 × 8 KiB",
+        "1.36 · 2 × 8 KiB",
+        "1.43 · PQBK/PQBL · 2 × 8 KiB",
+        "1.44 · 2 × 8 KiB"
       ],
-      "required": true
+      "required": true,
+      "required_files": [
+        "machines/m24/olivetti_m24_bios_version_1.44_low_even.bin",
+        "machines/m24/olivetti_m24_bios_version_1.44_high_odd.bin",
+        "hdd/st506/wd1002a_wx1-62-000094-032.bin",
+        "video/ogc/ogc graphics board go380 258 pqbq.bin"
+      ]
     },
     "technical": [
       {
@@ -130,6 +139,21 @@
             "url": "https://archive.org/details/dos_rom_bios_collection"
           },
           {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.olivetti-m24.technical.source_bios_revisions",
+            "url": "https://www.dosdays.co.uk/computers/Olivetti%20M24/software/download.php"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.olivetti-m24.technical.source_bios_144",
+            "url": "https://forum.vcfed.org/index.php?threads/olivetti-m21-m24-with-bios-version-1-44.72815/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.olivetti-m24.technical.source_bios_144_mirror",
+            "url": "https://www.retrospace.net/infoseiten/download.php?action=get&dlid=71"
+          },
+          {
             "label_key": "technical.label.implementation_lineage",
             "value_key": "product.olivetti-m24.technical.source_code",
             "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_xt_olivetti.c"
@@ -141,6 +165,85 @@
           }
         ]
       }
-    ]
+    ],
+    "platform_id": "olivetti-m24-platform",
+    "blumach_emulation": "inherited",
+    "creation": {
+      "status": "partial",
+      "directory_prefix": "olivetti-m24",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m24.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.memory",
+          "value_key": "product.olivetti-m24.creation.memory"
+        },
+        {
+          "label_key": "creation.label.firmware",
+          "value_key": "product.olivetti-m24.creation.firmware"
+        },
+        {
+          "label_key": "creation.label.floppy_drives",
+          "value_key": "product.olivetti-m24.creation.floppy"
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m24.creation.note"
+      ],
+      "configuration": [
+        {
+          "section": "General",
+          "values": {
+            "vid_renderer": "qt_software"
+          }
+        },
+        {
+          "section": "Machine",
+          "values": {
+            "cpu_family": "8086",
+            "cpu_speed": 8000000,
+            "cpu_multi": 1,
+            "cpu_use_dynarec": 0,
+            "fpu_type": "none",
+            "mem_size": 640
+          }
+        },
+        {
+          "section": "Video",
+          "values": {
+            "gfxcard": "internal"
+          }
+        },
+        {
+          "section": "Input devices",
+          "values": {
+            "keyboard_type": "internal",
+            "mouse_type": "none"
+          }
+        },
+        {
+          "section": "Floppy and CD-ROM drives",
+          "values": {
+            "fdd_01_type": "525_2dd",
+            "fdd_02_type": "none"
+          }
+        },
+        {
+          "section": "Storage controllers",
+          "values": {
+            "fdc": "internal",
+            "hdc_1": "internal"
+          }
+        }
+      ]
+    }
+  },
+  "platform_order": 136,
+  "platform": {
+    "id": "olivetti-m24-platform",
+    "emulator_machine_id": "m24",
+    "architecture": "8086"
   }
 }
