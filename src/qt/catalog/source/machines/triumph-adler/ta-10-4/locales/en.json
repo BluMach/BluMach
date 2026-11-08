@@ -1,0 +1,11 @@
+{
+  "product.ta-10-4.summary": "The TA 10/4 stored accounting data on magnetic ledger cards.",
+  "product.ta-10-4.history": "Triumph-Adler designed it for magnetic-card accounting. The 1975 programming supplement documents the KAN 2 configuration.",
+  "product.ta-10-4.technical.configuration": "Two PROM modules could hold 1024 program words. The manual assigns words 1–512 to the right module and 513–1024 to the left.",
+  "product.ta-10-4.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-10-4.technical.limitations": "The program from an identified unit and an operating test remain pending.",
+  "product.ta-10-4.technical.source_1": "Bedienungshandbuch TA 10/4 · Triumph-Adler",
+  "product.ta-10-4.technical.source_2": "TA 10 System- und Programmierhandbuch · Triumph-Adler",
+  "product.ta-10-4.technical.source_3": "Geniestreich von TA Triumph-Adler · 2011",
+  "product.ta-10-4.technical.source_4": "TA 10/4 Nachtrag zum Programmierhandbuch · Triumph-Adler"
+}
