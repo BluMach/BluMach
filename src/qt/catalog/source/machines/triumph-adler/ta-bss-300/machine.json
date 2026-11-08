@@ -1,0 +1,76 @@
+{
+  "order": 2032,
+  "machine": {
+    "id": "ta-bss-300",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-bss",
+    "name": "Triumph-Adler BSS 300",
+    "summary_key": "product.ta-bss-300.summary",
+    "history_key": "product.ta-bss-300.history",
+    "status": "research",
+    "aliases": [
+      "TA BSS 300",
+      "BSS300"
+    ],
+    "tags": [
+      "BSS"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.ta-bss-300.technical.configuration",
+            "url": "https://forum.classic-computing.de/forum/index.php?postID=433052&thread/30688-triumpf-adler-ta500-800-kennt-jemand-diesen-computer-mit-2-z80-cpus/="
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-bss-300.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-bss-300.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-bss-300.technical.source_1",
+            "url": "https://forum.classic-computing.de/forum/index.php?postID=433052&thread/30688-triumpf-adler-ta500-800-kennt-jemand-diesen-computer-mit-2-z80-cpus/="
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-bss-300.technical.source_2",
+            "url": "https://archiv.computeum.org/TriumphAdler/"
+          }
+        ]
+      }
+    ]
+  }
+}
