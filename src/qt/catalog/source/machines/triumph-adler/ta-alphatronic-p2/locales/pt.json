@@ -1,0 +1,16 @@
+{
+  "product.ta-alphatronic-p2.summary": "O P2 podia usar uma disquete de programa e outra de dados sem as trocar na mesma unidade.",
+  "product.ta-alphatronic-p2.history": "Anunciado com o P1 na Systems de 1979, o P2 chegou ao mercado em 1980 como a configuração de escritório superior da gama derivada do KISS da SKS. Foi anunciado por 4 995 DM antes de IVA, com o monitor vendido à parte. O Homecomputermuseum atribui o fabrico à SKS. O HNF identifica a Diehl Datensysteme como fabricante do P1 e deixa em aberto o caso do P2.",
+  "product.ta-alphatronic-p2.technical.configuration": "O monitor MOS prepara a máquina para carregar programas a partir de disquete. O manual documenta 6 KiB de ROM e 1 KiB de RAM de trabalho. O interpretador BASIC é carregado a partir de disquete.",
+  "product.ta-alphatronic-p2.technical.verified": "O P2 não tem um perfil executável no BluMach.",
+  "product.ta-alphatronic-p2.technical.limitations": "Faltam o gerador de caracteres da variante espanhola e um teste de arranque.",
+  "product.ta-alphatronic-p2.technical.source_1": "Alphatronic – Das neue modulare Microcomputer-System · Systems 1979 · pp. 2, 4, 6",
+  "product.ta-alphatronic-p2.technical.source_2": "Es begann mit einem KISS · Heinz Nixdorf MuseumsForum",
+  "product.ta-alphatronic-p2.technical.source_3": "Alphatronic P2 · Homecomputermuseum",
+  "product.ta-alphatronic-p2.technical.source_4": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 47, 53–57",
+  "product.ta-alphatronic-p2.technical.source_5": "Alphatronic P1 / P2 / P2U · MAME",
+  "product.ta-alphatronic-p2.technical.source_6": "Helmut Wiertalla · Alphatronic P2 · MOS",
+  "product.ta-alphatronic-p2.technical.firmware_identity": "O MOS publicado pelo seu criador como P2 coincide por SHA-1 com os três chips que o MAME atribui ao P2U. O MAME assinala o P2 como não funcional.",
+  "product.ta-alphatronic-p2.technical.owner_report": "rfka01 · Triumph-Adler alphatronic P3 (+ P1, P2 and P4) · Bannister",
+  "product.ta-alphatronic-p2.technical.preserved": "A biblioteca preserva três conjuntos MOS do P2 verificados por SHA-1, dois alemães e um espanhol. Também preserva duas ROM de caracteres e uma ROM de teclado."
+}

@@ -1,0 +1,14 @@
+{
+  "product.ta-alphatronic-p1.summary": "Il modello di ingresso della famiglia P poteva essere ampliato man mano che crescevano le esigenze dell’ufficio.",
+  "product.ta-alphatronic-p1.history": "Triumph-Adler e Diehl Datensysteme presentarono il P1 a Systems 1979, a Monaco di Baviera. Era il modello professionale di ingresso, derivato dal KISS di SKS. Fu annunciato a 3.595 DM IVA esclusa, con il monitor venduto a parte. L’HNF colloca la produzione presso Diehl Datensysteme a Norimberga. L’Homecomputermuseum la attribuisce a SKS.",
+  "product.ta-alphatronic-p1.technical.configuration": "La memoria del P1 poteva essere ampliata per eseguire programmi più grandi. Il prospetto del 1979 annunciava 16 KiB e il manuale successivo indica 32 KiB di base, espandibili a 48 KiB.",
+  "product.ta-alphatronic-p1.technical.verified": "Il P1 non dispone di un profilo eseguibile in BluMach.",
+  "product.ta-alphatronic-p1.technical.limitations": "Restano da ottenere la ROM della tastiera 1702 e una prova di avvio. MAME elenca il P1 e lo indica come non funzionante.",
+  "product.ta-alphatronic-p1.technical.source_1": "Alphatronic – Das neue modulare Microcomputer-System · Systems 1979 · pp. 2, 4, 6",
+  "product.ta-alphatronic-p1.technical.source_2": "Es begann mit einem KISS · Heinz Nixdorf MuseumsForum",
+  "product.ta-alphatronic-p1.technical.source_3": "Alphatronic P2 · Homecomputermuseum",
+  "product.ta-alphatronic-p1.technical.source_4": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 47, 53–57",
+  "product.ta-alphatronic-p1.technical.source_5": "Alphatronic P1 / P2 / P2U · MAME",
+  "product.ta-alphatronic-p1.technical.owner_report": "rfka01 · Triumph-Adler alphatronic P3 (+ P1, P2 and P4) · Bannister",
+  "product.ta-alphatronic-p1.technical.preserved": "Il MOS e la ROM dei caratteri dell’esemplare 00001 sono conservati e le impronte coincidono con MAME. L’autore del dump indica che potrebbe trattarsi di un esemplare di preserie."
+}

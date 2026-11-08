@@ -1,0 +1,9 @@
+{
+  "product.ta-alphatronic-p2l.summary": "O P2L concentrou o computador numa só placa e conservou a capacidade do P2U.",
+  "product.ta-alphatronic-p2l.history": "O manual da Triumph-Adler arquivado com data de junho de 1983 inclui o P2L na família de escritório Alphatronic P2. Partilhava a configuração de memória e unidades do P2U num desenho de placa única.",
+  "product.ta-alphatronic-p2l.technical.configuration": "A placa única reduzia a modularidade do sistema. O manual exclui para o P2L as opções de relógio de tempo real e barramento IEC.",
+  "product.ta-alphatronic-p2l.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p2l.technical.limitations": "Falta preservar o firmware específico e uma disquete de arranque para verificação.",
+  "product.ta-alphatronic-p2l.technical.source_1": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 53–54",
+  "product.ta-alphatronic-p2l.technical.source_2": "P2L · UCSD p-System · VzEkC"
+}

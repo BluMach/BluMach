@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p4.summary": "O P4 deu ao Alphatronic de escritório um disco fixo ao lado da unidade de disquetes.",
+  "product.ta-alphatronic-p4.history": "O P4 surgiu em 1982 juntamente com o P3. Era a opção de escritório com armazenamento fixo e conservava o CP/M fornecido em disquete. Em 1984, a Triumph-Adler mostrou o disco de 12,5 MB para o P4 e o P40.",
+  "product.ta-alphatronic-p4.technical.configuration": "O disco fixo aumentava o espaço para programas e dados. O manual de 1984 indica 360 pistas por superfície, quatro superfícies e 17 setores de 512 bytes por pista.",
+  "product.ta-alphatronic-p4.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p4.technical.limitations": "Falta preservar o firmware específico e uma disquete de arranque para verificação.",
+  "product.ta-alphatronic-p4.technical.source_1": "Bedienungsanleitung P3/P4 · Triumph-Adler 08841d · pp. 2–4, 14–15, 63–64",
+  "product.ta-alphatronic-p4.technical.source_2": "Es begann mit einem KISS · HNF",
+  "product.ta-alphatronic-p4.technical.source_3": "Mehr Leistung für die Alphatronic · Computerwoche · 06.04.1984"
+}

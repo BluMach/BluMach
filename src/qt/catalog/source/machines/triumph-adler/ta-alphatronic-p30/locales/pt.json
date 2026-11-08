@@ -1,0 +1,11 @@
+{
+  "product.ta-alphatronic-p30.summary": "O P30 acrescentou um segundo processador para conservar os programas de 8 bits e executar outros de 16 bits.",
+  "product.ta-alphatronic-p30.history": "A Triumph-Adler mostrou o P30 em Hanôver em 1983. Derivava do P3 e a empresa oferecia a instalação do segundo processador nos equipamentos já em uso. O CP/M-86 estava previsto e o MS-DOS encontrava-se em preparação.",
+  "product.ta-alphatronic-p30.technical.configuration": "A placa adicional alargava os programas que o equipamento podia utilizar. O 8085 do P3 servia o ambiente de 8 bits e a placa incluía um Intel 8088 para o de 16 bits.",
+  "product.ta-alphatronic-p30.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p30.technical.limitations": "Estão preservados e verificados por hash o MOS, o firmware de teclado e a ROM da placa 8088. O MAME assinala o P30 como não funcional e deixa por completar a emulação da placa para arrancar o DOS.",
+  "product.ta-alphatronic-p30.technical.source_1": "alphatronic Teletex- und Btx-fähig · Computerwoche · 15.04.1983",
+  "product.ta-alphatronic-p30.technical.source_2": "Mehr Leistung für die Alphatronic · Computerwoche · 06.04.1984",
+  "product.ta-alphatronic-p30.technical.source_3": "alphatronic P30 · MAME",
+  "product.ta-alphatronic-p30.technical.svm_france": "Triumph Adler P 30 et P 40 · Science & Vie Micro n° 9 · 09/1984 · p. 82"
+}
