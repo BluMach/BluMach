@@ -1,8 +1,9 @@
 {
-  "product.ta-alphatronic-p92.summary": "Le P92 figure sous son propre nom dans l’index technique de Triumph-Adler.",
-  "product.ta-alphatronic-p92.history": "Le fabricant l’identifie dans son catalogue documentaire de 1993.",
-  "product.ta-alphatronic-p92.technical.configuration": "Les références facilitent la recherche de la documentation exacte. L’index indique BA042 / BA043.",
+  "product.ta-alphatronic-p92.summary": "Le P92 était le 386 à 25 MHz proposé par Triumph-Adler aux côtés du Dario 386SX.",
+  "product.ta-alphatronic-p92.history": "En novembre 1990, une configuration de base était annoncée à environ 15 500 DM. La presse professionnelle le situait au-dessus du Dario 386SX par le prix et les options.",
+  "product.ta-alphatronic-p92.technical.configuration": "Le système pouvait être étendu pour les applications graphiques. La configuration de base comprenait 2 Mio de RAM et un disque de 100 Mo, avec un adaptateur compatible TIGA en option.",
   "product.ta-alphatronic-p92.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
   "product.ta-alphatronic-p92.technical.limitations": "La documentation technique complète, la configuration de la carte et la ROM restent à retrouver.",
-  "product.ta-alphatronic-p92.technical.source_1": "Triumph-Adler · Druckschriftenverzeichnis 1993 · BA/MF"
+  "product.ta-alphatronic-p92.technical.source_1": "Triumph-Adler · Druckschriftenverzeichnis 1993 · BA/MF",
+  "product.ta-alphatronic-p92.technical.market_1990": "Computerwoche · TA-PCs aus rein deutscher Fertigung · 9 November 1990"
 }

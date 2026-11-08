@@ -24,7 +24,11 @@
         "stationary"
       ]
     },
-    "hardware": {},
+    "hardware": {
+      "cpu": "Intel 80386 · 25 MHz",
+      "memory": "2 MiB",
+      "hard_disk": "100 MB"
+    },
     "firmware": {
       "known_sets": [],
       "required": true
@@ -37,7 +41,7 @@
           {
             "label_key": "technical.label.expansion_options",
             "value_key": "product.ta-alphatronic-p92.technical.configuration",
-            "url": "https://archiv.computeum.org/TriumphAdler/"
+            "url": "https://www.computerwoche.de/article/2760939/ta-pcs-aus-rein-deutscher-fertigung.html"
           }
         ]
       },
@@ -63,9 +67,15 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.ta-alphatronic-p92.technical.source_1",
             "url": "https://archiv.computeum.org/TriumphAdler/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-p92.technical.market_1990",
+            "url": "https://www.computerwoche.de/article/2760939/ta-pcs-aus-rein-deutscher-fertigung.html"
           }
         ]
       }
-    ]
+    ],
+    "period": "1990"
   }
 }
