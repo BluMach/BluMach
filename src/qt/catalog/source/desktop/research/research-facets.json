@@ -140,6 +140,45 @@
       "mame_preliminary"
     ]
   },
+  "ta-alphatronic-p10": {
+    "documentation": "documented",
+    "firmware_custody": "partial",
+    "test_destinations": [
+      "mame"
+    ]
+  },
+  "ta-alphatronic-p10-s": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p50-1": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p50-2": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p60-1": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-alphatronic-p60-2": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-1700pc": {
+    "documentation": "documented",
+    "firmware_custody": "partial",
+    "test_destinations": [
+      "mame"
+    ]
+  },
   "ta-alphatronic-p3": {
     "documentation": "documented",
     "firmware_custody": "partial",

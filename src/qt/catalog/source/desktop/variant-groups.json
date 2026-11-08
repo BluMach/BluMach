@@ -58,6 +58,30 @@
       ]
     },
     {
+      "id": "alphatronic-p10-range",
+      "family_id": "triumph-adler-alphatronic-x86",
+      "name": "Triumph-Adler Alphatronic P10 / P10-S",
+      "source_url": "https://archiv.computeum.org/TriumphAdler/Alphatronic%20P10,P10-S/",
+      "summary_key": "collection.variants.alphatronic-p10-range.summary",
+      "variants": [
+        "ta-alphatronic-p10",
+        "ta-alphatronic-p10-s"
+      ]
+    },
+    {
+      "id": "alphatronic-p50-p60-range",
+      "family_id": "triumph-adler-alphatronic-x86",
+      "name": "Triumph-Adler Alphatronic P50 / P60",
+      "source_url": "https://ftpmirror.your.org/pub/misc/bitsavers/magazines/Datamation/",
+      "summary_key": "collection.variants.alphatronic-p50-p60-range.summary",
+      "variants": [
+        "ta-alphatronic-p50-1",
+        "ta-alphatronic-p50-2",
+        "ta-alphatronic-p60-1",
+        "ta-alphatronic-p60-2"
+      ]
+    },
+    {
       "id": "olivetti-pcs-61xx-range",
       "family_id": "olivetti-m",
       "name": "Olivetti PCS 61xx",

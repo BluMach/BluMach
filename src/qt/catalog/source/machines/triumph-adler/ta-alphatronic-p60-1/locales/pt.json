@@ -1,0 +1,9 @@
+{
+  "product.ta-alphatronic-p60-1.summary": "O P60-1 combinava uma unidade de disquetes com disco rígido na gama de escritório Alphatronic.",
+  "product.ta-alphatronic-p60-1.history": "A Datamation documentou esta configuração de fábrica em 1985 a par das outras variantes P50 e P60.",
+  "product.ta-alphatronic-p60-1.technical.configuration": "O disco rígido permitia manter os programas instalados no posto. A Datamation documenta 12,5 MB Winchester e uma unidade de 360 KiB.",
+  "product.ta-alphatronic-p60-1.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p60-1.technical.limitations": "Falta recuperar o firmware próprio e verificar o arranque.",
+  "product.ta-alphatronic-p60-1.technical.source_1": "Datamation · 01-07-1985 · p. 88-14",
+  "product.ta-alphatronic-p60-1.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler"
+}

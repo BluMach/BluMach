@@ -1,0 +1,76 @@
+{
+  "order": 1961,
+  "machine": {
+    "id": "ta-alphatronic-p10",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-alphatronic-x86",
+    "name": "Triumph-Adler Alphatronic P10",
+    "summary_key": "product.ta-alphatronic-p10.summary",
+    "history_key": "product.ta-alphatronic-p10.history",
+    "status": "research",
+    "aliases": [
+      "P10",
+      "P10"
+    ],
+    "tags": [
+      "Alphatronic x86"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ]
+    },
+    "hardware": {},
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.rom_layout",
+            "value_key": "product.ta-alphatronic-p10.technical.configuration",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/pc.cpp"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-alphatronic-p10.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-alphatronic-p10.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.ta-alphatronic-p10.technical.source_1",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/pc.cpp"
+          },
+          {
+            "label_key": "technical.label.manual",
+            "value_key": "product.ta-alphatronic-p10.technical.source_2",
+            "url": "https://archiv.computeum.org/TriumphAdler/Alphatronic%20P10,P10-S/"
+          }
+        ]
+      }
+    ]
+  }
+}

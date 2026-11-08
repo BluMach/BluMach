@@ -3,6 +3,8 @@
   "collection.variants.olivetti-m4-75-133-range.summary": "Olivetti’s service guide lists eight M4 configurations with Pentium processors from 75 to 133 MHz. The S suffix denotes the Slim Tin case instead of the standard Tin case.",
   "collection.variants.olivetti-m4-pxx-range.summary": "The M4-Pxx series comprises seven ISA/PCI configurations in Tin and Slim Tin cases. The service guide distinguishes Socket 5 and Socket 7 boards.",
   "collection.variants.olivetti-pcs-51xx-range.summary": "The PCS 5120, 5130 and 5140 shipped in Slim Tin cases with 75, 100 and 133 MHz Pentium processors, respectively.",
+  "collection.variants.alphatronic-p10-range.summary": "The P10-S has its own supplement to the P10 manual.",
+  "collection.variants.alphatronic-p50-p60-range.summary": "Four factory configurations with different drive and storage arrangements.",
   "collection.variants.olivetti-pcs-61xx-range.summary": "The PCS 6120 through 6160 were sold in Tin cases with five factory Pentium configurations from 75 to 166 MHz.",
   "collection.variants.olivetti-pcs-pxx-range.summary": "Olivetti documented eight Pentium configurations from 75 to 133 MHz. E/En models came in Tin cases and n models in Slim Tin cases.",
   "collection.variants.olivetti-pcs-d4-100-range.summary": "Both versions have a 100 MHz DX4 and 128 KB of L2 cache. The En uses a Tin case and the n uses a Slim Tin case.",

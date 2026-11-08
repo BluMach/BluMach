@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p60-2.summary": "The P60-2 paired a diskette drive with a hard disk in the Alphatronic office range.",
+  "product.ta-alphatronic-p60-2.history": "Datamation documented this factory configuration in 1985 alongside the other P50 and P60 variants.",
+  "product.ta-alphatronic-p60-2.technical.configuration": "The -2 variant retained access to diskettes from earlier Alphatronic systems. Datamation gives 800 KB and cites P3 and P4 compatibility. The MAME driver comment describes those drives as 720 KB DSQD.",
+  "product.ta-alphatronic-p60-2.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-alphatronic-p60-2.technical.limitations": "Model-specific firmware and startup verification remain pending.",
+  "product.ta-alphatronic-p60-2.technical.source_1": "Datamation · 01-07-1985 · p. 88-14",
+  "product.ta-alphatronic-p60-2.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler",
+  "product.ta-alphatronic-p60-2.technical.source_3": "MAME · pc.cpp · Alphatronic P50 driver notes"
+}

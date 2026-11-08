@@ -1,0 +1,9 @@
+{
+  "product.ta-alphatronic-p60-1.summary": "Le P60-1 associait un lecteur de disquettes à un disque dur dans la gamme de bureau Alphatronic.",
+  "product.ta-alphatronic-p60-1.history": "Datamation a documenté cette configuration d’usine en 1985 aux côtés des autres variantes P50 et P60.",
+  "product.ta-alphatronic-p60-1.technical.configuration": "Le disque dur permettait de garder les programmes installés sur le poste. Datamation décrit un Winchester de 12,5 Mo et un lecteur de 360 Kio.",
+  "product.ta-alphatronic-p60-1.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-alphatronic-p60-1.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-alphatronic-p60-1.technical.source_1": "Datamation · 01-07-1985 · p. 88-14",
+  "product.ta-alphatronic-p60-1.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler"
+}

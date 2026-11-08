@@ -1,0 +1,29 @@
+{
+  "order": 1960,
+  "family": {
+    "id": "triumph-adler-alphatronic-x86",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "parent_family_id": "",
+    "name": "Alphatronic x86",
+    "description_key": "family.triumph-adler-alphatronic-x86.description",
+    "history_key": "family.triumph-adler-alphatronic-x86.history",
+    "history_references": [
+      {
+        "title": "Austauschseiten für Bedienhandbuch Alphatronic P10 nach P10-S · 08/1986",
+        "publisher": "Triumph-Adler / Computeum",
+        "url": "https://archiv.computeum.org/TriumphAdler/Alphatronic%20P10,P10-S/"
+      },
+      {
+        "title": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler",
+        "publisher": "Volkswagenwerk",
+        "url": "https://www.volkswagen-group.com/de/publikationen/unternehmensberichte/geschaeftsbericht-1984-2302"
+      },
+      {
+        "title": "Datamation · 01-07-1985 · p. 88-14",
+        "publisher": "Datamation",
+        "url": "https://ftpmirror.your.org/pub/misc/bitsavers/magazines/Datamation/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "order": 1966,
+  "machine": {
+    "id": "ta-alphatronic-p60-2",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-alphatronic-x86",
+    "name": "Triumph-Adler Alphatronic P60-2",
+    "summary_key": "product.ta-alphatronic-p60-2.summary",
+    "history_key": "product.ta-alphatronic-p60-2.history",
+    "status": "research",
+    "period": "1985",
+    "aliases": [
+      "P60-2",
+      "P60-2"
+    ],
+    "tags": [
+      "Alphatronic x86"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "storage_interface": [
+        "floppy"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80186",
+      "memory": "256–512 KiB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.floppy",
+            "value_key": "product.ta-alphatronic-p60-2.technical.configuration",
+            "url": "https://ftpmirror.your.org/pub/misc/bitsavers/magazines/Datamation/"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-alphatronic-p60-2.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-alphatronic-p60-2.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-p60-2.technical.source_1",
+            "url": "https://ftpmirror.your.org/pub/misc/bitsavers/magazines/Datamation/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-p60-2.technical.source_2",
+            "url": "https://www.volkswagen-group.com/de/publikationen/unternehmensberichte/geschaeftsbericht-1984-2302"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-p60-2.technical.source_3",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/pc.cpp"
+          }
+        ]
+      }
+    ]
+  }
+}

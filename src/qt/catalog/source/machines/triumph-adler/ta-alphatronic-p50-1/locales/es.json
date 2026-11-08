@@ -1,0 +1,9 @@
+{
+  "product.ta-alphatronic-p50-1.summary": "El P50-1 llevaba dos disqueteras en la gama Alphatronic de oficina.",
+  "product.ta-alphatronic-p50-1.history": "Datamation documentó esta configuración de fábrica en 1985, junto a las otras variantes P50 y P60.",
+  "product.ta-alphatronic-p50-1.technical.configuration": "Las dos unidades permitían usar un disco de programa y otro de trabajo. Datamation especifica dos disqueteras de 360 KiB.",
+  "product.ta-alphatronic-p50-1.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-alphatronic-p50-1.technical.limitations": "Quedan pendientes el firmware propio y la comprobación del arranque.",
+  "product.ta-alphatronic-p50-1.technical.source_1": "Datamation · 01-07-1985 · p. 88-14",
+  "product.ta-alphatronic-p50-1.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler"
+}

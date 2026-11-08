@@ -1,0 +1,9 @@
+{
+  "product.ta-alphatronic-p50-1.summary": "Le P50-1 associait deux lecteurs de disquettes dans la gamme de bureau Alphatronic.",
+  "product.ta-alphatronic-p50-1.history": "Datamation a documenté cette configuration d’usine en 1985 aux côtés des autres variantes P50 et P60.",
+  "product.ta-alphatronic-p50-1.technical.configuration": "Les deux lecteurs permettaient d’utiliser une disquette de programme et une autre de travail. Datamation indique deux lecteurs de 360 Kio.",
+  "product.ta-alphatronic-p50-1.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-alphatronic-p50-1.technical.limitations": "Le micrologiciel propre au modèle et la vérification du démarrage restent à faire.",
+  "product.ta-alphatronic-p50-1.technical.source_1": "Datamation · 01-07-1985 · p. 88-14",
+  "product.ta-alphatronic-p50-1.technical.source_2": "Volkswagenwerk · Geschäftsbericht 1984 · Triumph-Adler"
+}
