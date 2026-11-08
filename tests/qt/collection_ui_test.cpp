@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 #include "qt_blumach_collection.hpp"
+#include "qt_coremach.hpp"
 #include "qt_preferences.hpp"
 #include "qt_vmmanager_config.hpp"
 #include <QApplication>
@@ -36,6 +37,9 @@ QString VMManagerConfig::getStringValue(const QString &key) const { return testS
 void VMManagerConfig::setStringValue(const QString &key, const QString &value) const { testSettings[key] = value; }
 void VMManagerConfig::remove(const QString &key) const { testSettings.remove(key); }
 void VMManagerConfig::sync() const {}
+
+// The standalone widget tests do not link a guest engine.
+const CoreMachBridge::System *CoreMachBridge::findSystem(const QString &) { return nullptr; }
 
 static double luminance(const QColor &color)
 {
