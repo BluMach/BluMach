@@ -30,8 +30,6 @@
 #include <86box/port_92.h>
 #include <86box/chipset.h>
 
-#define INDEX (dev->index - 0x10)
-
 typedef struct et6000_t {
     uint8_t index;
     uint8_t regs[256];
@@ -72,33 +70,33 @@ et6000_write(uint16_t addr, uint8_t val, void *priv)
             dev->index = val;
             break;
         case 0x23:
-            switch (INDEX) {
-                case 0: /* System Configuration Register */
-                    dev->regs[INDEX] = val & 0xdf;
+            switch (dev->index) {
+                case 0x10: /* System Configuration Register */
+                    dev->regs[dev->index] = val & 0xdf;
                     et6000_shadow_control(0xa0000, 0x20000, val & 1, val & 1);
                     refresh_at_enable = !(val & 0x10);
                     break;
 
-                case 1: /* CACHE Configuration and Non-Cacheable Block Size */
-                    dev->regs[INDEX] = val & 0xf0;
+                case 0x11: /* CACHE Configuration and Non-Cacheable Block Size */
+                    dev->regs[dev->index] = val & 0xf0;
                     break;
 
-                case 2: /* Non-Cacheable Block Address Register */
-                    dev->regs[INDEX] = val & 0xfe;
+                case 0x12: /* Non-Cacheable Block Address Register */
+                    dev->regs[dev->index] = val & 0xfe;
                     break;
 
-                case 3: /* DRAM Bank and Type Configuration Register */
-                    dev->regs[INDEX] = val;
+                case 0x13: /* DRAM Bank and Type Configuration Register */
+                    dev->regs[dev->index] = val;
                     break;
 
-                case 4: /* DRAM Configuration Register */
-                    dev->regs[INDEX] = val;
+                case 0x14: /* DRAM Configuration Register */
+                    dev->regs[dev->index] = val;
                     et6000_shadow_control(0xc0000, 0x10000, (dev->regs[0x15] & 2) && (val & 0x20), (dev->regs[0x15] & 2) && (val & 0x20) && (dev->regs[0x15] & 1));
                     et6000_shadow_control(0xd0000, 0x10000, (dev->regs[0x15] & 8) && (val & 0x20), (dev->regs[0x15] & 8) && (val & 0x20) && (dev->regs[0x15] & 4));
                     break;
 
-                case 5: /* Shadow RAM Configuration Register */
-                    dev->regs[INDEX] = val;
+                case 0x15: /* Shadow RAM Configuration Register */
+                    dev->regs[dev->index] = val;
                     et6000_shadow_control(0xc0000, 0x10000, (val & 2) && (dev->regs[0x14] & 0x20), (val & 2) && (dev->regs[0x14] & 0x20) && (val & 1));
                     et6000_shadow_control(0xd0000, 0x10000, (val & 8) && (dev->regs[0x14] & 0x20), (val & 8) && (dev->regs[0x14] & 0x20) && (val & 4));
                     et6000_shadow_control(0xe0000, 0x10000, val & 0x20, (val & 0x20) && (val & 0x10));
@@ -121,7 +119,7 @@ et6000_read(uint16_t addr, void *priv)
 {
     const et6000_t *dev = (et6000_t *) priv;
 
-    return ((addr == 0x23) && (INDEX >= 0) && (INDEX <= 5)) ? dev->regs[INDEX] : 0xff;
+    return ((addr == 0x23) && (dev->index >= 0x10) && (dev->index <= 0x15)) ? dev->regs[dev->index] : 0xff;
 }
 
 static void
@@ -141,7 +139,7 @@ et6000_init(UNUSED(const device_t *info))
     device_add(&port_92_device);
 
     /* Defaults */
-    dev->regs[3] = 1;
+    dev->regs[0x13] = 1;
 
     /* Shadow Programming */
     et6000_shadow_control(0xf0000, 0x10000, 0, 1);
