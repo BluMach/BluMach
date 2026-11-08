@@ -2,7 +2,7 @@
   "order": 2031,
   "machine": {
     "id": "ta-bss-200",
-    "visible": true,
+    "visible": false,
     "manufacturer_id": "triumph-adler",
     "family_id": "triumph-adler-bss",
     "name": "Triumph-Adler BSS 200",

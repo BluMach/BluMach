@@ -244,7 +244,7 @@ class CatalogBuilderTests(unittest.TestCase):
                 "olivetti-m6-860", "olivetti-m6-880", "olivetti-m6-950", "olivetti-m60",
                 "olivetti-m60-2", "olivetti-m60-3", "olivetti-m64", "olivetti-m70",
                 "olivetti-m70-2", "olivetti-m70-3", "olivetti-m700-10", "olivetti-modulo-p100-l",
-                "ta-bss-200", "ta-bss-300",
+                "ta-bss-300",
                 "olivetti-modulo-p120-l", "olivetti-modulo-p133-l", "olivetti-modulo-pro-180",
                 "olivetti-netstrada-1000", "olivetti-netstrada-1400", "olivetti-netstrada-2600",
                 "olivetti-netstrada-3000", "olivetti-netstrada-3400",
