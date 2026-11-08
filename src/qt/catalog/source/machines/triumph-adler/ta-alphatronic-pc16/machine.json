@@ -1,0 +1,99 @@
+{
+  "order": 1891,
+  "machine": {
+    "id": "ta-alphatronic-pc16",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-alphatronic-pc",
+    "name": "Triumph-Adler Alphatronic PC16",
+    "summary_key": "product.ta-alphatronic-pc16.summary",
+    "history_key": "product.ta-alphatronic-pc16.history",
+    "status": "research",
+    "period": "1985",
+    "aliases": [
+      "TA Alphatronic PC16",
+      "Alphatronic PC-16"
+    ],
+    "tags": [
+      "8088",
+      "BTX"
+    ],
+    "facets": {
+      "form_factor": [
+        "desktop"
+      ],
+      "mobility": [
+        "stationary"
+      ],
+      "cpu_generation": [
+        "x86_8086"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 8088 · 5 MHz",
+      "memory": "64 KiB"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.architecture",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.ta-alphatronic-pc16.technical.configuration",
+            "url": "https://onlinesammlung.museumsstiftung.de/detail/collection/8f6c0274-5241-4985-9115-a50161bd1c49"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-alphatronic-pc16.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-alphatronic-pc16.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-pc16.technical.source_1",
+            "url": "https://onlinesammlung.museumsstiftung.de/detail/collection/8f6c0274-5241-4985-9115-a50161bd1c49"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-pc16.technical.source_2",
+            "url": "https://www.homecomputermuseum.de/sammlung/detailansicht?cHash=1db004a243d879cd1a336195ca2a0359&tx_compges_computer%5Baction%5D=show&tx_compges_computer%5Bcomputer%5D=148&tx_compges_computer%5Bcontroller%5D=Computer"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-pc16.technical.source_3",
+            "url": "https://www.computermuseum-mannheim.de/comp_ta.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-alphatronic-pc16.technical.source_4",
+            "url": "https://www.classic-computing.de/load/"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.ta-alphatronic-pc16.technical.source_5",
+            "url": "https://github.com/mamedev/mame/blob/master/src/mame/ta/alphatpc16.cpp"
+          }
+        ]
+      }
+    ]
+  }
+}

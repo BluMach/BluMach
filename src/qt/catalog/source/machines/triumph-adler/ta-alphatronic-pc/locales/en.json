@@ -1,0 +1,13 @@
+{
+  "product.ta-alphatronic-pc.summary": "The Alphatronic PC brought the range to the home desk with BASIC ready at power-on.",
+  "product.ta-alphatronic-pc.history": "Presented in Hanover in 1983, it was the entry model for home and small-office use. It was assembled in Japan, and HNF records a German price of DM 1,495. Science & Vie Micro dates French sales to November 1983.",
+  "product.ta-alphatronic-pc.technical.configuration": "Resident BASIC let users program without a disk. The manual also describes using CP/M from floppy. BASIC can select 40 or 80 columns.",
+  "product.ta-alphatronic-pc.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-alphatronic-pc.technical.limitations": "Verified ROMs for two boards, the UKC terminal and BiCom are preserved. MAME includes PAL, NTSC and BiCom. Boot remains to be validated in BluMach.",
+  "product.ta-alphatronic-pc.technical.source_1": "Alphatronic PC Handbuch · Triumph-Adler · 01/1984",
+  "product.ta-alphatronic-pc.technical.source_2": "TA erweitert Produktpalette · Computerwoche · 05/1983",
+  "product.ta-alphatronic-pc.technical.source_3": "Es begann mit einem KISS · HNF",
+  "product.ta-alphatronic-pc.technical.source_4": "Alphatronic PC · Science & Vie Micro n° 9 · 09/1984 · p. 65",
+  "product.ta-alphatronic-pc.technical.source_5": "Alphatronic PC, Type CK · FAU I0793",
+  "product.ta-alphatronic-pc.technical.source_6": "alphatro · MAME"
+}
