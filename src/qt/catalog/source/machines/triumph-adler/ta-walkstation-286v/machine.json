@@ -1,0 +1,80 @@
+{
+  "order": 1975,
+  "machine": {
+    "id": "ta-walkstation-286v",
+    "visible": true,
+    "manufacturer_id": "triumph-adler",
+    "family_id": "triumph-adler-walkstation",
+    "name": "Triumph-Adler Walkstation 286V",
+    "summary_key": "product.ta-walkstation-286v.summary",
+    "history_key": "product.ta-walkstation-286v.history",
+    "status": "research",
+    "period": "1991",
+    "aliases": [
+      "Walkstation 286 V",
+      "TA Walkstation 286V"
+    ],
+    "tags": [
+      "Walkstation"
+    ],
+    "facets": {
+      "form_factor": [
+        "laptop"
+      ],
+      "mobility": [
+        "portable"
+      ],
+      "display_technology": [
+        "lcd"
+      ]
+    },
+    "hardware": {
+      "cpu": "Intel 80286 · 16 MHz",
+      "memory": "2–6 MiB",
+      "floppy": "3.5″",
+      "video": "LCD · VGA"
+    },
+    "firmware": {
+      "known_sets": [],
+      "required": true
+    },
+    "technical": [
+      {
+        "title_key": "technical.section.configuration",
+        "evidence_key": "technical.evidence.documented",
+        "entries": [
+          {
+            "label_key": "technical.label.expansion_options",
+            "value_key": "product.ta-walkstation-286v.technical.configuration",
+            "url": "https://www.computerwoche.de/article/2835712/olivetti-und-ta-setzen-mit-laptops-auf-die-europaeische-karte.html"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.emulation",
+        "evidence_key": "technical.evidence.implementation",
+        "entries": [
+          {
+            "label_key": "technical.label.verified",
+            "value_key": "product.ta-walkstation-286v.technical.verified"
+          },
+          {
+            "label_key": "technical.label.limitations",
+            "value_key": "product.ta-walkstation-286v.technical.limitations"
+          }
+        ]
+      },
+      {
+        "title_key": "technical.section.research_material",
+        "evidence_key": "technical.evidence.traceable",
+        "entries": [
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-walkstation-286v.technical.source_1",
+            "url": "https://www.computerwoche.de/article/2835712/olivetti-und-ta-setzen-mit-laptops-auf-die-europaeische-karte.html"
+          }
+        ]
+      }
+    ]
+  }
+}

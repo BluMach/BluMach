@@ -137,6 +137,21 @@
       "mame_preliminary"
     ]
   },
+  "ta-walkstation-286c": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-walkstation-286v": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
+  "ta-walkstation-system-sx20": {
+    "documentation": "documented",
+    "firmware_custody": "not_found",
+    "test_destinations": []
+  },
   "ta-dario286s": {
     "documentation": "identified",
     "firmware_custody": "unreviewed",

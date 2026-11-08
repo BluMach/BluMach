@@ -3,8 +3,9 @@
   "product.ta-walkstation-386dx.history": "Il Centre for Computing History data l’Olivetti D33 al 1991 e ne documenta la vendita come Walkstation System 386/33. Classic Computing attribuisce sviluppo e produzione a Triumph-Adler a Norimberga.",
   "product.ta-walkstation-386dx.technical.configuration": "La ROM riuniva il codice di sistema e video. MAME documenta un’immagine da 128 KiB che include il BIOS VGA Cirrus Logic.",
   "product.ta-walkstation-386dx.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
-  "product.ta-walkstation-386dx.technical.limitations": "La ROM di sistema è conservata e verificata. Il profilo preliminare di MAME indica uno schermo nero e l’avvio resta da verificare.",
+  "product.ta-walkstation-386dx.technical.limitations": "La ROM di sistema è conservata e verificata. In MAME manca il dump del microcontrollore cthj02_03_76.bin e il profilo preliminare mostra uno schermo nero.",
   "product.ta-walkstation-386dx.technical.source_1": "MAME · walk386dx",
   "product.ta-walkstation-386dx.technical.source_2": "Centre for Computing History · Olivetti D33",
-  "product.ta-walkstation-386dx.technical.source_3": "Classic Computing 2023 · D33 / TA Walkstation 386DX"
+  "product.ta-walkstation-386dx.technical.source_3": "Classic Computing 2023 · D33 / TA Walkstation 386DX",
+  "product.ta-walkstation-386dx.technical.market_1991": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991"
 }

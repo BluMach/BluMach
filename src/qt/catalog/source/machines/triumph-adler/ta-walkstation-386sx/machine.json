@@ -11,8 +11,7 @@
     "status": "research",
     "period": "1991",
     "aliases": [
-      "Walkstation 386 SX",
-      "TA Walkstation SX20"
+      "Walkstation 386 SX"
     ],
     "tags": [
       "L21 / Walkstation"
@@ -32,7 +31,8 @@
       "cpu": "Intel 80386SX · 20 MHz",
       "memory": "1 MiB",
       "video": "LCD · 640 × 480",
-      "floppy": "3.5″"
+      "floppy": "3.5″",
+      "hard_disk": "60 MB"
     },
     "firmware": {
       "known_sets": [],
@@ -77,6 +77,11 @@
             "label_key": "technical.label.source_firmware",
             "value_key": "product.ta-walkstation-386sx.technical.source_2",
             "url": "https://github.com/mamedev/mame/blob/master/src/mame/pc/at.cpp"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-walkstation-386sx.technical.market_1991",
+            "url": "https://www.computerwoche.de/article/2835712/olivetti-und-ta-setzen-mit-laptops-auf-die-europaeische-karte.html"
           }
         ]
       }

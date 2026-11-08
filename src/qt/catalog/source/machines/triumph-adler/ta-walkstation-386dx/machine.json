@@ -77,6 +77,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.ta-walkstation-386dx.technical.source_3",
             "url": "https://www.classic-computing.org/cc2023-hauptseite/"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-walkstation-386dx.technical.market_1991",
+            "url": "https://www.computerwoche.de/article/2835712/olivetti-und-ta-setzen-mit-laptops-auf-die-europaeische-karte.html"
           }
         ]
       }

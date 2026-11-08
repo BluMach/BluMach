@@ -1,9 +1,10 @@
 {
   "product.ta-walkstation-386sx.summary": "The Walkstation 386SX combined a compact notebook with an expansion dock.",
   "product.ta-walkstation-386sx.history": "ISER holds a 1991 example and identifies it as equivalent to the Olivetti S20. The dock supported desktop peripherals.",
-  "product.ta-walkstation-386sx.technical.configuration": "The dock added keyboard and mouse ports and room for an additional drive. The museum documents this configuration separately from the notebook.",
+  "product.ta-walkstation-386sx.technical.configuration": "The dock expanded the compact notebook. ISER describes keyboard and mouse ports. Computerwoche distinguishes this A4 notebook from the System SX20 with detachable keyboard.",
   "product.ta-walkstation-386sx.technical.verified": "BluMach has no runnable profile for this model.",
   "product.ta-walkstation-386sx.technical.limitations": "The system ROM is preserved and hash-checked. MAME marks the profile as preliminary and two microcontroller firmware dumps are missing.",
   "product.ta-walkstation-386sx.technical.source_1": "ISER / FAU · Konvolut Schreiber · Walkstation 386SX",
-  "product.ta-walkstation-386sx.technical.source_2": "MAME · walk386sx"
+  "product.ta-walkstation-386sx.technical.source_2": "MAME · walk386sx",
+  "product.ta-walkstation-386sx.technical.market_1991": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991"
 }

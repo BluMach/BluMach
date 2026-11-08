@@ -1,0 +1,8 @@
+{
+  "product.ta-walkstation-286v.summary": "El 286V añadía una pantalla VGA y opciones de conexión a base al portátil 286 de gama media.",
+  "product.ta-walkstation-286v.history": "Triumph-Adler lo presentó en 1991. La crónica alemana lo llama Notebook A16 al identificar la versión Olivetti y usa V16 al describir el almacenamiento.",
+  "product.ta-walkstation-286v.technical.configuration": "La base facilitaba el uso de periféricos. El anuncio da 2 MiB de RAM ampliables a 6 MiB y una ranura para módem o fax-módem.",
+  "product.ta-walkstation-286v.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-walkstation-286v.technical.limitations": "Quedan por preservar el firmware específico y un disco de arranque para cotejar el equipo.",
+  "product.ta-walkstation-286v.technical.source_1": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991"
+}

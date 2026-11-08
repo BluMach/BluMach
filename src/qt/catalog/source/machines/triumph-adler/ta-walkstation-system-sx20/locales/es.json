@@ -1,0 +1,8 @@
+{
+  "product.ta-walkstation-system-sx20.summary": "El System SX20 era el portátil grande de 20 MHz con teclado extraíble.",
+  "product.ta-walkstation-system-sx20.history": "Olivetti y Triumph-Adler lo presentaron en 1991 como Laptop S20 y Walkstation System SX20. Compartía formato con el System 386/33.",
+  "product.ta-walkstation-system-sx20.technical.configuration": "El teclado se podía separar para trabajar con la pantalla a distancia. La crónica describe un teclado compatible con PS/2, una pantalla intercambiable y 16 KiB de caché.",
+  "product.ta-walkstation-system-sx20.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-walkstation-system-sx20.technical.limitations": "Quedan por preservar el firmware específico y un disco de arranque para cotejar el equipo.",
+  "product.ta-walkstation-system-sx20.technical.source_1": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991"
+}
