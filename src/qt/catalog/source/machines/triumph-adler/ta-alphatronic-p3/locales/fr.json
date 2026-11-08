@@ -1,0 +1,12 @@
+{
+  "product.ta-alphatronic-p3.summary": "Le P3 livrait CP/M et le tableur LOGICALC en standard sur l’Alphatronic à deux lecteurs.",
+  "product.ta-alphatronic-p3.history": "Triumph-Adler a introduit les P3 et P4 en 1982, après la première famille P1/P2. Le P3 était le modèle de bureau à deux lecteurs. Le P4 ajoutait un stockage fixe et le P30 reprenait la base du P3 pour exécuter aussi des programmes 16 bits.",
+  "product.ta-alphatronic-p3.technical.configuration": "Les disquettes de données contenaient 800 Kio. Chaque face comportait 80 pistes de cinq secteurs de 1 024 octets.",
+  "product.ta-alphatronic-p3.technical.verified": "BluMach ne dispose pas de profil exécutable pour ce modèle.",
+  "product.ta-alphatronic-p3.technical.limitations": "Le MOS, les ROM de caractères de deux révisions et la ROM de clavier sont conservés. Le démarrage reste à valider. MAME signale le P3 comme non fonctionnel.",
+  "product.ta-alphatronic-p3.technical.source_1": "Bedienungsanleitung P3/P4 · Triumph-Adler 08841d · pp. 2–4, 14–15, 63–64",
+  "product.ta-alphatronic-p3.technical.source_2": "Es begann mit einem KISS · HNF",
+  "product.ta-alphatronic-p3.technical.source_3": "alphatronic Teletex- und Btx-fähig · Computerwoche · 15.04.1983",
+  "product.ta-alphatronic-p3.technical.source_4": "rfka01 · Triumph-Adler alphatronic P3 · Bannister",
+  "product.ta-alphatronic-p3.technical.source_5": "alphatronic P3 · MAME"
+}

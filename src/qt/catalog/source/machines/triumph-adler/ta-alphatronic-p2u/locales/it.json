@@ -1,0 +1,14 @@
+{
+  "product.ta-alphatronic-p2u.summary": "Il P2U portava la gamma P2 a 64 KiB utilizzabili con la sua versione di CP/M.",
+  "product.ta-alphatronic-p2u.history": "Triumph-Adler offriva il P2U come ulteriore espansione del proprio sistema da ufficio. Nel maggio 1982 figurava a listino a 8.700 DM IVA esclusa, monitor incluso.",
+  "product.ta-alphatronic-p2u.technical.configuration": "Il software in uso determina la quantità di memoria disponibile. La versione da 64 KiB di CP/M può usare tutta la RAM. BASIC e CP/M da 48 KiB dispongono di 48 KiB.",
+  "product.ta-alphatronic-p2u.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
+  "product.ta-alphatronic-p2u.technical.limitations": "Restano da verificare il generatore di caratteri specifico, la tastiera e l’avvio completo. MAME include il P2U e lo indica come non funzionante.",
+  "product.ta-alphatronic-p2u.technical.source_1": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 53–54",
+  "product.ta-alphatronic-p2u.technical.source_2": "Systemhandbuch · Triumph-Adler SH/04823/d · §2.1.1",
+  "product.ta-alphatronic-p2u.technical.source_3": "Alphatronic Preisliste · 5/1982 · p. 1",
+  "product.ta-alphatronic-p2u.technical.source_4": "Helmut Wiertalla · MOS · 3 × 2 KiB",
+  "product.ta-alphatronic-p2u.technical.source_5": "alphatronic P2U · MAME",
+  "product.ta-alphatronic-p2u.technical.source_6": "Netmercer · CAAP-2500-2601 · VzEkC",
+  "product.ta-alphatronic-p2u.technical.firmware_identity": "Il set MOS da 6 KiB di Wiertalla coincide con i tre SHA-1 del P2U in MAME. Il dump CAAP-2500-2601, segnalato per un altro P2U, resta da acquisire."
+}

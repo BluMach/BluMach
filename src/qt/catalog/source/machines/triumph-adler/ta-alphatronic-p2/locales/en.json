@@ -1,0 +1,16 @@
+{
+  "product.ta-alphatronic-p2.summary": "The P2 could use a program disk and a data disk without swapping them in the same drive.",
+  "product.ta-alphatronic-p2.history": "Announced alongside the P1 at Systems 1979, the P2 went on sale in 1980 as the higher-spec office model in the line derived from the SKS KISS. It was advertised at DM 4,995 before VAT, with the monitor sold separately. The Homecomputermuseum attributes its production to SKS. HNF identifies Diehl Datensysteme as the P1 manufacturer and leaves the P2’s open.",
+  "product.ta-alphatronic-p2.technical.configuration": "The MOS monitor prepares the machine to load programs from floppy disk. The manual documents 6 KiB of ROM and 1 KiB of working RAM. The BASIC interpreter loads from floppy disk.",
+  "product.ta-alphatronic-p2.technical.verified": "The P2 has no runnable profile in BluMach.",
+  "product.ta-alphatronic-p2.technical.limitations": "The Spanish variant’s character generator and a boot test remain pending.",
+  "product.ta-alphatronic-p2.technical.source_1": "Alphatronic – Das neue modulare Microcomputer-System · Systems 1979 · pp. 2, 4, 6",
+  "product.ta-alphatronic-p2.technical.source_2": "Es begann mit einem KISS · Heinz Nixdorf MuseumsForum",
+  "product.ta-alphatronic-p2.technical.source_3": "Alphatronic P2 · Homecomputermuseum",
+  "product.ta-alphatronic-p2.technical.source_4": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 47, 53–57",
+  "product.ta-alphatronic-p2.technical.source_5": "Alphatronic P1 / P2 / P2U · MAME",
+  "product.ta-alphatronic-p2.technical.source_6": "Helmut Wiertalla · Alphatronic P2 · MOS",
+  "product.ta-alphatronic-p2.technical.firmware_identity": "The MOS published by its developer as P2 matches, by SHA-1, the three chips MAME assigns to the P2U. MAME marks the P2 as not working.",
+  "product.ta-alphatronic-p2.technical.owner_report": "rfka01 · Triumph-Adler alphatronic P3 (+ P1, P2 and P4) · Bannister",
+  "product.ta-alphatronic-p2.technical.preserved": "The library holds three SHA-1-checked P2 MOS sets, two German and one Spanish. It also holds two character ROMs and one keyboard ROM."
+}

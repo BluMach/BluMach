@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p40.summary": "El P40 combinaba la opción de almacenamiento fijo con la rama Alphatronic de 8 y 16 bits.",
+  "product.ta-alphatronic-p40.history": "Triumph-Adler mostró el P40 junto al P30 en Hannover en 1984. Dentro de esa rama de oficina, el P40 compartía con el P4 la opción de disco duro de 12,5 MB.",
+  "product.ta-alphatronic-p40.technical.configuration": "Un controlador gráfico opcional ampliaba la presentación en pantalla. El anuncio de 1984 indicaba 640 × 288 y ocho niveles de gris u ocho colores RGB. La prueba francesa de Science & Vie Micro describió una configuración sin modo gráfico.",
+  "product.ta-alphatronic-p40.technical.verified": "BluMach carece de un perfil ejecutable para este modelo.",
+  "product.ta-alphatronic-p40.technical.limitations": "Quedan por preservar el firmware específico y un disco de arranque para cotejar el equipo.",
+  "product.ta-alphatronic-p40.technical.source_1": "Mehr Leistung für die Alphatronic · Computerwoche · 06.04.1984",
+  "product.ta-alphatronic-p40.technical.source_2": "Druckschriftenverzeichnis · Triumph-Adler · 1993",
+  "product.ta-alphatronic-p40.technical.svm_france": "Triumph Adler P 30 et P 40 · Science & Vie Micro n° 9 · 09/1984 · p. 82"
+}

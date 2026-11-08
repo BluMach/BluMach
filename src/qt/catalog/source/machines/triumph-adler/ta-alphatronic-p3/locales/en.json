@@ -1,0 +1,12 @@
+{
+  "product.ta-alphatronic-p3.summary": "The P3 came with CP/M and the LOGICALC spreadsheet as standard on the twin-drive Alphatronic.",
+  "product.ta-alphatronic-p3.history": "Triumph-Adler introduced the P3 and P4 in 1982, after the original P1/P2 family. The P3 was the twin-drive office model. The P4 added fixed storage, and the P30 built on the P3 to run 16-bit programs as well.",
+  "product.ta-alphatronic-p3.technical.configuration": "Data disks held 800 KiB. Each side had 80 tracks with five 1,024-byte sectors.",
+  "product.ta-alphatronic-p3.technical.verified": "BluMach has no runnable profile for this model.",
+  "product.ta-alphatronic-p3.technical.limitations": "MOS, character ROMs for two revisions and the keyboard ROM are preserved. Boot remains to be validated. MAME marks the P3 as not working.",
+  "product.ta-alphatronic-p3.technical.source_1": "Bedienungsanleitung P3/P4 · Triumph-Adler 08841d · pp. 2–4, 14–15, 63–64",
+  "product.ta-alphatronic-p3.technical.source_2": "Es begann mit einem KISS · HNF",
+  "product.ta-alphatronic-p3.technical.source_3": "alphatronic Teletex- und Btx-fähig · Computerwoche · 15.04.1983",
+  "product.ta-alphatronic-p3.technical.source_4": "rfka01 · Triumph-Adler alphatronic P3 · Bannister",
+  "product.ta-alphatronic-p3.technical.source_5": "alphatronic P3 · MAME"
+}

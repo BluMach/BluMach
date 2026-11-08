@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p2s.summary": "O P2S duplicava a capacidade por disquete do P2 e mantinha a mesma memória de trabalho.",
+  "product.ta-alphatronic-p2s.history": "O P2S alargou a gama de escritório Alphatronic P2 com unidades de dupla face. Uma tabela de maio de 1982 anunciava-o por 7 950 DM antes de IVA, com monitor incluído.",
+  "product.ta-alphatronic-p2s.technical.configuration": "Cada disquete podia guardar o dobro dos dados em relação ao P2. O formato usava duas faces, com 40 pistas por face e 16 setores de 256 bytes por pista.",
+  "product.ta-alphatronic-p2s.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
+  "product.ta-alphatronic-p2s.technical.limitations": "Falta preservar o firmware específico e uma disquete de arranque para verificação.",
+  "product.ta-alphatronic-p2s.technical.source_1": "Bedienungsanleitung · Triumph-Adler BH/068301/d/26 · pp. 3, 16–17, 53–54",
+  "product.ta-alphatronic-p2s.technical.source_2": "Systemhandbuch · Triumph-Adler SH/04823/d · §2.1.1",
+  "product.ta-alphatronic-p2s.technical.source_3": "Alphatronic Preisliste · 5/1982 · p. 1"
+}

@@ -1,0 +1,10 @@
+{
+  "product.ta-alphatronic-p4.summary": "Il P4 aggiungeva un disco fisso all’unità a dischetti dell’Alphatronic da ufficio.",
+  "product.ta-alphatronic-p4.history": "Il P4 apparve nel 1982 insieme al P3. Era l’opzione da ufficio con memoria di massa fissa e manteneva CP/M fornito su dischetto. Nel 1984 Triumph-Adler mostrò il disco da 12,5 MB per P4 e P40.",
+  "product.ta-alphatronic-p4.technical.configuration": "Il disco fisso aumentava lo spazio per programmi e dati. Il manuale del 1984 indica 360 tracce per superficie, quattro superfici e 17 settori da 512 byte per traccia.",
+  "product.ta-alphatronic-p4.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
+  "product.ta-alphatronic-p4.technical.limitations": "Restano da conservare il firmware specifico e un dischetto di avvio per la verifica.",
+  "product.ta-alphatronic-p4.technical.source_1": "Bedienungsanleitung P3/P4 · Triumph-Adler 08841d · pp. 2–4, 14–15, 63–64",
+  "product.ta-alphatronic-p4.technical.source_2": "Es begann mit einem KISS · HNF",
+  "product.ta-alphatronic-p4.technical.source_3": "Mehr Leistung für die Alphatronic · Computerwoche · 06.04.1984"
+}
