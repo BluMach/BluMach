@@ -124,6 +124,29 @@
       ]
     },
     {
+      "id": "olivetti-echos-20-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti Echos · 20 / 20 Color",
+      "summary_key": "collection.variants.olivetti-echos-20-range.summary",
+      "source_url": "https://www.techmonitor.ai/technology/olivetti_launches_echos_20_notebook",
+      "variants": [
+        "olivetti-echos-20",
+        "olivetti-echos-20-color"
+      ]
+    },
+    {
+      "id": "olivetti-echos-42-44-range",
+      "family_id": "olivetti-m",
+      "name": "Olivetti Echos · 42 / 43 Color / 44 Color",
+      "summary_key": "collection.variants.olivetti-echos-42-44-range.summary",
+      "source_url": "https://classic.technology/olivetti-echos/",
+      "variants": [
+        "olivetti-echos-42",
+        "olivetti-echos-43-color",
+        "olivetti-echos-44-color"
+      ]
+    },
+    {
       "id": "olivetti-echos-p-1995-range",
       "family_id": "olivetti-m",
       "name": "Olivetti Echos P · 75 / 90",

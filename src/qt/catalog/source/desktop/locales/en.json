@@ -14,5 +14,7 @@
   "collection.variants.olivetti-m6-650-690-range.summary": "The guide lists seven Pentium configurations from 100 to 166 MHz in Tin cases. The DP variants shipped with two processors.",
   "collection.variants.ta20-printer-variants.summary": "Office configurations with single-element or dot-matrix printing.",
   "collection.variants.ta21-storage-variants.summary": "Data-entry configurations with magnetic cassette or diskette.",
-  "collection.variants.ta22-drive-variants.summary": "Office terminals with one diskette drive or two in the B variant."
+  "collection.variants.ta22-drive-variants.summary": "Office terminals with one diskette drive or two in the B variant.",
+  "collection.variants.olivetti-echos-20-range.summary": "In 1995, Olivetti offered the Echos 20 with a 33 MHz 486SX and a monochrome or colour display.",
+  "collection.variants.olivetti-echos-42-44-range.summary": "The 1994 brochure distinguishes the monochrome 42, the 43 Color for office work and the 44 Color for more demanding graphics."
 }

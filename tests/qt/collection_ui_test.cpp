@@ -732,6 +732,7 @@ private slots:
             { "olivetti-m4-75-133-range", 8 }, { "olivetti-m4-pxx-range", 7 },
             { "olivetti-pcs-51xx-range", 3 }, { "olivetti-pcs-61xx-range", 5 },
             { "olivetti-pcs-pxx-range", 8 }, { "olivetti-pcs-d4-100-range", 2 },
+            { "olivetti-echos-20-range", 2 }, { "olivetti-echos-42-44-range", 3 },
             { "olivetti-echos-p-1995-range", 3 }, { "olivetti-echos-p-us-1996-range", 4 },
             { "olivetti-m6-640-range", 2 }, { "olivetti-m6-650-690-range", 7 },
         };
@@ -753,7 +754,21 @@ private slots:
             }
             search->clear();
         }
-        QCOMPARE(references, 114);
+        QCOMPARE(references, 119);
+        auto *echos = catalogueItem(tree, QStringLiteral("olivetti-echos-20-range"));
+        QVERIFY(echos);
+        search->setText(echos->text(0));
+        QCOMPARE(tree->currentItem(), echos);
+        QCOMPARE(widget.findChildren<QToolButton *>("blumachFactoryVariant").size(), 2);
+        search->clear();
+
+        const auto *olivettiRange = catalogueItem(tree, QStringLiteral("olivetti-m"));
+        for (const auto &id : { "olivetti-echos-24", "olivetti-echos-24c", "olivetti-echos-26c",
+                                "olivetti-echos-46-color", "olivetti-echos-48-color-plus",
+                                "olivetti-echos-pro-133-s" }) {
+            const auto *model = catalogueItem(tree, QString::fromLatin1(id));
+            QVERIFY(model && model->parent() == olivettiRange);
+        }
         auto *m4Atlantis = catalogueItem(tree, QStringLiteral("olivetti-m4-pxx-i"));
         QVERIFY(m4Atlantis && m4Atlantis->parent() == catalogueItem(tree, QStringLiteral("olivetti-m")));
         tree->setCurrentItem(m4Atlantis);

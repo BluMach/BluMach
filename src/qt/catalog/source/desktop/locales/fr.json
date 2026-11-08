@@ -14,5 +14,7 @@
   "collection.variants.olivetti-m6-650-690-range.summary": "Le guide recense sept configurations Pentium de 100 à 166 MHz en boîtier Tin. Les versions DP étaient livrées avec deux processeurs.",
   "collection.variants.ta20-printer-variants.summary": "Configurations de bureau à impression à élément unique ou matricielle.",
   "collection.variants.ta21-storage-variants.summary": "Configurations de saisie sur cassette magnétique ou disquette.",
-  "collection.variants.ta22-drive-variants.summary": "Terminaux de bureau avec un lecteur de disquettes ou deux dans la variante B."
+  "collection.variants.ta22-drive-variants.summary": "Terminaux de bureau avec un lecteur de disquettes ou deux dans la variante B.",
+  "collection.variants.olivetti-echos-20-range.summary": "En 1995, Olivetti proposait l’Echos 20 avec un 486SX à 33 MHz et un écran monochrome ou couleur.",
+  "collection.variants.olivetti-echos-42-44-range.summary": "La brochure de 1994 distingue le 42 monochrome, le 43 Color destiné au travail de bureau et le 44 Color pour les applications graphiques plus exigeantes."
 }
