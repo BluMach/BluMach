@@ -396,6 +396,41 @@ private slots:
         QVERIFY(!pc1512->isHidden());
     }
 
+    void walkstationProcessorFilters()
+    {
+        testSettings.clear();
+        lang_id = 0;
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        QVERIFY(tree);
+        QComboBox *processor = nullptr;
+        for (auto *combo : widget.findChildren<QComboBox *>()) {
+            if (combo->findData(QStringLiteral("i8085")) >= 0)
+                processor = combo;
+        }
+        QVERIFY(processor);
+        const QHash<QString, QString> models = {
+            { "ta-walkstation-286c", "x86_286" },
+            { "ta-walkstation-286v", "x86_286" },
+            { "ta-walkstation-386dx", "x86_386" },
+            { "ta-walkstation-386sx", "x86_386sx" },
+            { "ta-walkstation-system-sx20", "x86_386sx" },
+        };
+        for (const auto &cpu : { "x86_286", "x86_386", "x86_386sx" }) {
+            processor->setCurrentIndex(processor->findData(QString::fromLatin1(cpu)));
+            for (auto it = models.cbegin(); it != models.cend(); ++it) {
+                const auto *item = catalogueItem(tree, it.key());
+                QVERIFY(item);
+                QCOMPARE(item->isHidden(), it.value() != QLatin1String(cpu));
+            }
+        }
+        BluMachCatalog catalog;
+        QVERIFY(catalog.load());
+        QCOMPARE(catalog.text(QStringLiteral("hardware.hard_disk")), QStringLiteral("Hard disk"));
+        QCOMPARE(catalog.text(QStringLiteral("hardware.storage")), QStringLiteral("Storage"));
+        QCOMPARE(catalog.text(QStringLiteral("hardware.cache")), QStringLiteral("Cache"));
+    }
+
     void preservationAndDestinationFilters()
     {
         testSettings.clear();

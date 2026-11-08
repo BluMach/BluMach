@@ -23,6 +23,9 @@
       ],
       "mobility": [
         "portable"
+      ],
+      "cpu_generation": [
+        "x86_386"
       ]
     },
     "hardware": {

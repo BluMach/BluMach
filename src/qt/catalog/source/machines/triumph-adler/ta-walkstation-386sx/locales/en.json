@@ -1,10 +1,11 @@
 {
   "product.ta-walkstation-386sx.summary": "The Walkstation 386SX combined a compact notebook with an expansion dock.",
-  "product.ta-walkstation-386sx.history": "ISER holds a 1991 example and identifies it as equivalent to the Olivetti S20. The dock supported desktop peripherals.",
-  "product.ta-walkstation-386sx.technical.configuration": "The dock expanded the compact notebook. ISER describes keyboard and mouse ports. Computerwoche distinguishes this A4 notebook from the System SX20 with detachable keyboard.",
+  "product.ta-walkstation-386sx.history": "The 386SX was the top compact notebook in the 1991 range, developed by Triumph-Adler for Olivetti and manufactured in Nuremberg. ISER identifies its example with the Olivetti Notebook S20.",
+  "product.ta-walkstation-386sx.technical.configuration": "The dock connected a keyboard and mouse. ISER documents a 20 MHz 386SX and 1 MiB expandable to 5 MiB. Computerwoche distinguishes this compact notebook from the System SX20 with its detachable keyboard.",
   "product.ta-walkstation-386sx.technical.verified": "BluMach has no runnable profile for this model.",
-  "product.ta-walkstation-386sx.technical.limitations": "The system ROM is preserved and hash-checked. MAME marks the profile as preliminary and two microcontroller firmware dumps are missing.",
+  "product.ta-walkstation-386sx.technical.limitations": "A ROM matches the hash in MAME’s preliminary entry. It still needs matching to an identified board, and two microcontroller firmwares are missing. MAME uses a generic 16 MHz AT profile.",
   "product.ta-walkstation-386sx.technical.source_1": "ISER / FAU · Konvolut Schreiber · Walkstation 386SX",
   "product.ta-walkstation-386sx.technical.source_2": "MAME · walk386sx",
-  "product.ta-walkstation-386sx.technical.market_1991": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991"
+  "product.ta-walkstation-386sx.technical.market_1991": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991",
+  "product.ta-walkstation-386sx.technical.oem_source": "Storia Olivetti · Lavorare dovunque: i computer portatili Olivetti"
 }

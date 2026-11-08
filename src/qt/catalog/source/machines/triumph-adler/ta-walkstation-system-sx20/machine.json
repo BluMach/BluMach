@@ -26,6 +26,9 @@
       ],
       "display_technology": [
         "lcd"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
       ]
     },
     "hardware": {
@@ -72,6 +75,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.ta-walkstation-system-sx20.technical.source_1",
             "url": "https://www.computerwoche.de/article/2835712/olivetti-und-ta-setzen-mit-laptops-auf-die-europaeische-karte.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-walkstation-system-sx20.technical.oem_source",
+            "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
           }
         ]
       }

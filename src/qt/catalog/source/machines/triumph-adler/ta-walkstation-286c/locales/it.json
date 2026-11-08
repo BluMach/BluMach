@@ -1,8 +1,9 @@
 {
   "product.ta-walkstation-286c.summary": "Il 286C era il portatile di ingresso della gamma Walkstation del 1991.",
-  "product.ta-walkstation-286c.history": "Olivetti e Triumph-Adler presentarono lo stesso modello commerciale come Notebook A12 e Walkstation 286C. L’arrivo in Germania era previsto per maggio 1991.",
+  "product.ta-walkstation-286c.history": "Triumph-Adler sviluppò per Olivetti questa gamma di portatili, prodotta a Norimberga. Il modello di ingresso fu presentato nel 1991 come Walkstation 286C e Notebook A12. L’arrivo in Germania era previsto per maggio.",
   "product.ta-walkstation-286c.technical.configuration": "Secondo l’annuncio tedesco lo schermo retroilluminato era compatibile EGA. La RAM era di 1 MiB, espandibile a 5 MiB.",
   "product.ta-walkstation-286c.technical.verified": "BluMach non dispone di un profilo eseguibile per questo modello.",
   "product.ta-walkstation-286c.technical.limitations": "Restano da conservare il firmware specifico e un dischetto di avvio per la verifica.",
-  "product.ta-walkstation-286c.technical.source_1": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991"
+  "product.ta-walkstation-286c.technical.source_1": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991",
+  "product.ta-walkstation-286c.technical.oem_source": "Storia Olivetti · Lavorare dovunque: i computer portatili Olivetti"
 }

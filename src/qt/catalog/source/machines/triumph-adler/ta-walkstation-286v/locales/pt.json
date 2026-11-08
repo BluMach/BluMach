@@ -1,8 +1,9 @@
 {
   "product.ta-walkstation-286v.summary": "O 286V acrescentava um ecrã VGA e opções de ligação a uma base ao portátil 286 de gama média.",
-  "product.ta-walkstation-286v.history": "A Triumph-Adler apresentou-o em 1991. A imprensa alemã chama Notebook A16 à versão Olivetti num trecho e usa V16 ao descrever o armazenamento.",
+  "product.ta-walkstation-286v.history": "A Triumph-Adler desenvolveu para a Olivetti esta gama, fabricada em Nuremberga. O Walkstation 286V era o 286 de gama média apresentado em 1991. A Computerwoche chama A16 à versão Olivetti e usa V16 ao referir-se ao disco.",
   "product.ta-walkstation-286v.technical.configuration": "A base facilitava a ligação de periféricos. O anúncio indica 2 MiB de RAM expansíveis até 6 MiB e uma ranhura para modem ou fax-modem.",
   "product.ta-walkstation-286v.technical.verified": "O BluMach não tem um perfil executável para este modelo.",
   "product.ta-walkstation-286v.technical.limitations": "Falta preservar o firmware específico e uma disquete de arranque para verificação.",
-  "product.ta-walkstation-286v.technical.source_1": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991"
+  "product.ta-walkstation-286v.technical.source_1": "Computerwoche · Neue Portables werden in Nürnberg hergestellt · 15 March 1991",
+  "product.ta-walkstation-286v.technical.oem_source": "Storia Olivetti · Lavorare dovunque: i computer portatili Olivetti"
 }

@@ -25,11 +25,14 @@
       ],
       "storage_interface": [
         "floppy"
+      ],
+      "cpu_generation": [
+        "x86_386sx"
       ]
     },
     "hardware": {
       "cpu": "Intel 80386SX · 20 MHz",
-      "memory": "1 MiB",
+      "memory": "1–5 MiB",
       "video": "LCD · 640 × 480",
       "floppy": "3.5″",
       "hard_disk": "60 MB"
@@ -82,6 +85,11 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.ta-walkstation-386sx.technical.market_1991",
             "url": "https://www.computerwoche.de/article/2835712/olivetti-und-ta-setzen-mit-laptops-auf-die-europaeische-karte.html"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.ta-walkstation-386sx.technical.oem_source",
+            "url": "https://www.storiaolivetti.it/articolo/96-lavorare-dovunque-i-computer-portatili-olivetti/"
           }
         ]
       }
