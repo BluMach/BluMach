@@ -17,6 +17,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <wchar.h>
 #define HAVE_STDARG_H
@@ -396,8 +397,103 @@ machine_at_advantage40xxd_init(const machine_t *model)
     return ret;
 }
 
-/* Symphony SL82C460 */
 /* Olivetti BA2142 / M4-4x2 / PCS42P preservation model. */
+typedef struct {
+    uint8_t index;
+    uint8_t unlock;
+    uint8_t regs[0x14];
+} ba2142_shadow_t;
+
+static void
+ba2142_shadow_region(uint32_t base, uint32_t size, uint8_t mode)
+{
+    static const uint32_t states[] = {
+        MEM_READ_EXTANY | MEM_WRITE_EXTANY,
+        MEM_READ_INTERNAL | MEM_WRITE_INTERNAL,
+        MEM_READ_INTERNAL | MEM_WRITE_DISABLED,
+        MEM_READ_EXTANY | MEM_WRITE_INTERNAL
+    };
+    mem_set_mem_state_both(base, size, states[mode]);
+}
+
+static void
+ba2142_shadow_update(uint8_t index, uint8_t value)
+{
+    /* PDKK programs CC for the E/F ROM windows and CD/CE for the
+       16 KiB option-ROM windows. Other register effects are unmodeled. */
+    if (index == 0xcc) {
+        ba2142_shadow_region(0xe0000, 0x10000, (value >> 4) & 3);
+        ba2142_shadow_region(0xf0000, 0x10000, value >> 6);
+    } else {
+        const uint32_t base = (index == 0xcd) ? 0xc0000 : 0xd0000;
+        for (unsigned slot = 0; slot < 4; slot++)
+            ba2142_shadow_region(base + slot * 0x4000, 0x4000,
+                                  (value >> (6 - slot * 2)) & 3);
+    }
+    flushmmucache_nopc();
+}
+
+static uint8_t
+ba2142_shadow_read(UNUSED(uint16_t port), void *priv)
+{
+    const ba2142_shadow_t *dev = priv;
+
+    if (dev->unlock == 2 && dev->index >= 0xc0 && dev->index <= 0xd3)
+        return dev->regs[dev->index - 0xc0];
+
+    return 0xff;
+}
+
+static void
+ba2142_shadow_write(uint16_t port, uint8_t value, void *priv)
+{
+    ba2142_shadow_t *dev = priv;
+
+    if (port == 0x8022) {
+        if (value == 0)
+            dev->unlock = 0;
+        else if (value == 0xa0)
+            dev->unlock = 1;
+        else if (dev->unlock == 1)
+            dev->unlock = (value == 0x05) ? 2 : 0;
+        else
+            dev->index = value;
+        return;
+    }
+
+    if (dev->unlock == 2 && dev->index >= 0xc0 && dev->index <= 0xd3) {
+        dev->regs[dev->index - 0xc0] = value;
+        if (dev->index >= 0xcc && dev->index <= 0xce)
+            ba2142_shadow_update(dev->index, value);
+    }
+}
+
+static void
+ba2142_shadow_reset(void *priv)
+{
+    memset(priv, 0, sizeof(ba2142_shadow_t));
+    for (uint8_t index = 0xcc; index <= 0xce; index++)
+        ba2142_shadow_update(index, 0);
+}
+
+static void *
+ba2142_shadow_init(UNUSED(const device_t *info))
+{
+    ba2142_shadow_t *dev = calloc(1, sizeof(ba2142_shadow_t));
+
+    io_sethandler(0x8022, 1, NULL, NULL, NULL, ba2142_shadow_write, NULL, NULL, dev);
+    io_sethandler(0x8024, 1, ba2142_shadow_read, NULL, NULL, ba2142_shadow_write, NULL, NULL, dev);
+    return dev;
+}
+
+static const device_t ba2142_shadow_device = {
+    .name          = "Olivetti BA2142 ROM shadow control",
+    .internal_name = "olivetti_ba2142_shadow",
+    .init          = ba2142_shadow_init,
+    .close         = free,
+    .reset         = ba2142_shadow_reset
+};
+
 int
 machine_at_olivetti_ba2142_init(const machine_t *model)
 {
@@ -409,7 +505,9 @@ machine_at_olivetti_ba2142_init(const machine_t *model)
         return ret;
 
     machine_at_common_init(model);
+    /* Keep the existing DRAM approximation while handling UMC ROM shadowing. */
     device_add(&opti493_device);
+    device_add(&ba2142_shadow_device);
     device_add(&port_6x_vlsi_refresh_device);
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
     device_add_params(&fdc37c6xx_device, (void *) (FDC37C651 | FDC37C6XX_IDE_PRI));
@@ -422,6 +520,7 @@ machine_at_olivetti_ba2142_init(const machine_t *model)
     return ret;
 }
 
+/* Symphony SL82C460 */
 int
 machine_at_dtk461_init(const machine_t *model)
 {
