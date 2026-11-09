@@ -6481,7 +6481,7 @@ const device_t gd5428_onboard_pcs46c_device = {
     .config        = NULL
 };
 
-/* Olivetti M4 integrated VGA, with 512 KiB on the M4-60/62/64. */
+/* Olivetti M4 integrated VGA, with 512 KiB on the M4-40/46/60/62/64. */
 const device_t gd5428_onboard_olivetti_m4_512_device = {
     .name          = "Cirrus Logic GD5428 (ISA) (On-Board) (Olivetti M4, 512 KiB)",
     .internal_name = "cl_gd5428_onboard_olivetti_m4_64",
