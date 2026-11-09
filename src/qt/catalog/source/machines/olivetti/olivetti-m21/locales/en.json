@@ -1,16 +1,21 @@
 {
   "product.olivetti-m21.summary": "The M24 architecture in a transportable with a 9-inch amber screen and a keyboard that closes over the front.",
   "product.olivetti-m21.history": "Announced in 1984 alongside the M24, the M21 let users transport a complete office computer, with an integrated monitor and a keyboard serving as its lid. In November, Practical Computing quoted a UK price of £1,545 plus VAT for 128 KB and one floppy drive; its review unit was still a prototype. The magazine places manufacture in Italy and distribution with British Olivetti. The shared technical manual confirms its relationship to the M24. Sources: Practical Computing, November 1984, p. 55, and Olivetti, Theory of Operation.",
-  "product.olivetti-m21.warning": "Historical sheet under research; no M21-specific validation or creation profile.",
+  "product.olivetti-m21.warning": "Experimental M21 profile with BIOS 1.44, a single floppy drive and amber OGC display.",
   "product.olivetti-m21.technical.configuration": "Its display and floppy drives travel inside the case. The 1984 review describes a 9-inch amber CRT and one or two 360 KB drives. Olivetti specifies an 8 MHz CPU; Museo Tecnologicamente lists 4 MHz, an unresolved discrepancy rather than proof of another revision.",
   "product.olivetti-m21.technical.video": "Video extends the PC’s graphics capabilities. The proprietary controller combines a 6845 and 32 KB RAM: compatible 320 × 200 and 640 × 200 modes plus monochrome 640 × 400. The optional graphics expansion is a separate board.",
   "product.olivetti-m21.technical.expansion": "The transportable case leaves less room for cards. Its Bus Converter has three 62-contact connectors and one additional 38-contact connector, versus seven and four in the M24. The guide identifies board IF249 for the M21.",
-  "product.olivetti-m21.technical.firmware": "Documentation groups M24 and M21 BIOS revisions together. Its table includes 1.43H PQBK and 1.43L PQBL. The local 1.43 files come from a collection labelled M24, with no donor-machine identification: they are not an independent M21 dump.",
-  "product.olivetti-m21.technical.verified": "The existing code names M21 as an M24 alias. That reference and the shared documentation have been checked, but no transportable-specific configuration or boot has been validated.",
-  "product.olivetti-m21.technical.limitations": "Family resemblance does not replace validation of the machine. The M21 board revision, installed BIOS, keyboard, integrated display, expansion and disks remain to be checked; there is no dedicated creation profile.",
+  "product.olivetti-m21.technical.firmware": "BluMach uses the 1.44 BIOS, preserved as two 8 KiB halves traced to a physical M21. The Olivetti service guide also lists 1.43 PQBK/PQBL for the family.",
+  "product.olivetti-m21.technical.verified": "The dedicated profile uses the common M21/M24 8086 platform and OGC, a single 360 KiB floppy drive, 128 KiB of RAM and the amber display profile.",
+  "product.olivetti-m21.technical.limitations": "The amber palette approximates the built-in CRT. The precise donor board revision, CRT signal, original keyboard behaviour, IF249 expansion, optional storage and other memory and drive configurations still need validation.",
   "product.olivetti-m21.technical.source_manual": "Olivetti, M24/M21 Theory of Operation, 11/1984, §§ 1-4, 1-7, 1-12, 2-42, 2-47.",
   "product.olivetti-m21.technical.source_service": "Olivetti, Personal Computer Pocket Service Guide, vol. I, pp. 1-1–1-2 (PDF 8–9).",
   "product.olivetti-m21.technical.source_press": "Practical Computing, 11/1984, “Olivetti M-21”, p. 55.",
-  "product.olivetti-m21.technical.source_bios": "DOS ROM BIOS collection, olivetti_m24, 1.43 HIGH/LOW.",
-  "product.olivetti-m21.technical.source_code": "BluMach 88f74ba3 / 86Box 6a43d7973, m_xt_olivetti.c, vid_cga_olivetti.c."
+  "product.olivetti-m21.technical.source_bios": "Olivetti M21 BIOS 1.44 memory dump and even/odd ROM identification, VCFed.",
+  "product.olivetti-m21.technical.source_code": "BluMach 88f74ba3 / 86Box 6a43d7973, m_xt_olivetti.c, vid_cga_olivetti.c.",
+  "product.olivetti-m21.creation.cpu": "Intel 8086 at 8 MHz",
+  "product.olivetti-m21.creation.memory": "128 KiB",
+  "product.olivetti-m21.creation.firmware": "BIOS 1.44 and OGC PQBQ character ROM",
+  "product.olivetti-m21.creation.floppy": "One 5.25-inch, 360 KiB drive",
+  "product.olivetti-m21.creation.note": "This initial profile uses the internal amber OGC display and boots from floppy."
 }

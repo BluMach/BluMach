@@ -49,6 +49,7 @@ extern const device_config_t cga_config[]; /* defined in vid_cga.c */
 
 #define CGA_RGB       0
 #define CGA_COMPOSITE 1
+#define CGA_AMBER     2
 
 #define COMPOSITE_OLD 0
 #define COMPOSITE_NEW 1
@@ -58,11 +59,12 @@ static video_timings_t timing_ogc = { .type = VIDEO_ISA, .write_b = 8, .write_w 
 static uint8_t mdaattr[256][2][2];
 
 #define M19_OGC_PIXEL_CLOCK 14318180.0
-#define M24_OGC_PIXEL_CLOCK 24000000.0
+#define GO380_PIXEL_CLOCK 24000000.0
 
 /*
  * The standard BIOS mode 40h values need different output timings on the
- * M19 and M24. Keep the guest registers and the existing path for custom modes.
+ * M19 and the GO380 profile. Keep the guest registers and the existing path
+ * for custom modes.
  */
 static bool
 ogc_standard_40h(const ogc_t *ogc)
@@ -72,7 +74,7 @@ ogc_standard_40h(const ogc_t *ogc)
     const uint8_t       *crtc         = ogc->cga.crtc;
 
     /* The M19 BIOS can set bit 7 of its 03DBh control register in mode 40h. */
-    const bool profile_device = ogc->is_m24 ? !(ogc->ctrl_3de & 0x80) : ogc->ctrl_addr == 0x3db;
+    const bool profile_device = ogc->go380_profile ? !(ogc->ctrl_3de & 0x80) : ogc->ctrl_addr == 0x3db;
 
     return profile_device && (ogc->ctrl_3de & 1) &&
            (ogc->cga.cgamode & (CGA_MODE_FLAG_HIGHRES | CGA_MODE_FLAG_GRAPHICS | CGA_MODE_FLAG_HIGHRES_GRAPHICS)) ==
@@ -91,8 +93,8 @@ ogc_recalctimings(ogc_t *ogc)
 
     if (ogc_standard_40h(ogc)) {
         /* M19 monochrome R0=2Fh and M24 translated R0=39h, both with R1=28h. */
-        const int    htotal         = ogc->is_m24 ? 58 : 48;
-        const double pixel_clock    = ogc->is_m24 ? M24_OGC_PIXEL_CLOCK : M19_OGC_PIXEL_CLOCK;
+        const int    htotal         = ogc->go380_profile ? 58 : 48;
+        const double pixel_clock    = ogc->go380_profile ? GO380_PIXEL_CLOCK : M19_OGC_PIXEL_CLOCK;
         const double character_time = 16.0 * (cpuclock / pixel_clock) * (double) (1ULL << 32);
 
         ogc->cga.dispontime  = (uint64_t) (40 * character_time);
@@ -131,8 +133,8 @@ ogc_out(uint16_t addr, uint8_t val, void *priv)
         case 0x3d5:
         case 0x3d8:
         case 0x3d9:
-            /* The CGA black-and-white bit is not connected on the M24. */
-            if (addr == 0x3d8 && ogc->is_m24)
+            /* The CGA black-and-white bit is unconnected on the M21/M24. */
+            if (addr == 0x3d8 && ogc->go380_profile)
                 val &= ~CGA_MODE_FLAG_BW;
             cga_out(addr, val, &ogc->cga);
             break;
@@ -266,7 +268,7 @@ ogc_poll(void *priv)
     int      blink     = 0;
     int      underline = 0;
     const bool standard_40h = ogc_standard_40h(ogc);
-    const bool m19_40h      = standard_40h && !ogc->is_m24;
+    const bool m19_40h      = standard_40h && !ogc->go380_profile;
     const int  vsync        = standard_40h ? 0x64 : ogc->cga.crtc[CGA_CRTC_VSYNC];
     int        vtotal       = ogc->cga.crtc[CGA_CRTC_VTOTAL];
     int        vadjust      = ogc->cga.crtc[CGA_CRTC_VTOTAL_ADJUST];
@@ -406,7 +408,7 @@ ogc_poll(void *priv)
                     if (ogc->ctrl_3de & 1) {
                         dat2    = ((ogc->cga.scanline & 1) * 0x4000) | (ogc->lineff * 0x2000);
                         cols[0] = 0;
-                        cols[1] = (ogc->is_m24 ? (ogc->cga.cgacol & 15) : 15) + 16;
+                        cols[1] = (ogc->go380_profile ? (ogc->cga.cgacol & 15) : 15) + 16;
                     } else {
                         dat2    = (ogc->cga.scanline & 1) * 0x2000;
                         cols[0] = 0;
@@ -446,7 +448,7 @@ ogc_poll(void *priv)
             video_process_8(x, ogc->cga.displine);
             double pixel_clock = 16. * (1. / (CGACONST / (cpuclock * (double) (1ULL << 32))));
             if (standard_40h)
-                pixel_clock = m19_40h ? M19_OGC_PIXEL_CLOCK : M24_OGC_PIXEL_CLOCK;
+                pixel_clock = m19_40h ? M19_OGC_PIXEL_CLOCK : GO380_PIXEL_CLOCK;
             video_lightpen_check_trigger_strobe(8, ogc->cga.displine * (ogc->cga.double_type ? 2 : 1), 0, ogc->cga.firstline + 8,
                                                 pixel_clock, ogc->cga.monitor_used);
 
@@ -661,7 +663,8 @@ ogc_init(const device_t *info)
 #if 0
     int display_type;
 #endif
-    ogc_t *ogc = (ogc_t *) calloc(1, sizeof(ogc_t));
+    const bool integrated_amber = info == &ogc_m21_device;
+    ogc_t     *ogc              = (ogc_t *) calloc(1, sizeof(ogc_t));
 
     video_inform(VIDEO_FLAG_TYPE_CGA, &timing_ogc);
 
@@ -673,7 +676,7 @@ ogc_init(const device_t *info)
 #endif
     ogc->cga.composite    = 0; // (display_type != CGA_RGB);
     ogc->cga.revision     = device_get_config_int("composite_type");
-    ogc->cga.snow_enabled = device_get_config_int("snow_enabled");
+    ogc->cga.snow_enabled = integrated_amber ? 1 : device_get_config_int("snow_enabled");
 
     ogc->cga.vram = calloc(1, 0x8000);
 
@@ -685,19 +688,15 @@ ogc_init(const device_t *info)
     io_sethandler(0x03d0, 16, ogc_in, NULL, NULL, ogc_out, NULL, NULL, ogc);
 
     overscan_x = overscan_y = 16;
-    ogc->cga.rgb_type       = device_get_config_int("rgb_type");
+    ogc->cga.rgb_type       = integrated_amber ? CGA_AMBER : device_get_config_int("rgb_type");
     cga_palette             = (ogc->cga.rgb_type << 1);
     cgapal_rebuild();
     ogc_mdaattr_rebuild();
 
-    /* color display */
-    if (device_get_config_int("rgb_type") == 0 || device_get_config_int("rgb_type") == 4)
-        ogc->mono_display = 0;
-    else
-        ogc->mono_display = 1;
-
-    ogc->ctrl_addr = 0x3de;
-    ogc->is_m24    = info == &ogc_m24_device && !strcmp(machine_get_internal_name(), "m24");
+    ogc->mono_display = ogc->cga.rgb_type != CGA_RGB && ogc->cga.rgb_type != 4;
+    ogc->ctrl_addr    = 0x3de;
+    ogc->go380_profile = integrated_amber ||
+                         (info == &ogc_m24_device && !strcmp(machine_get_internal_name(), "m24"));
 
     return ogc;
 }
@@ -735,6 +734,20 @@ const device_config_t ogc_m24_config[] = {
     },
     { .name = "", .description = "", .type = CONFIG_END }
   // clang-format on
+};
+
+const device_t ogc_m21_device = {
+    .name          = "Olivetti M21 (internal amber OGC)",
+    .internal_name = "ogc_m21",
+    .flags         = DEVICE_ISA,
+    .local         = 0,
+    .init          = ogc_init,
+    .close         = ogc_close,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = ogc_speed_changed,
+    .force_redraw  = NULL,
+    .config        = NULL
 };
 
 const device_t ogc_m24_device = {

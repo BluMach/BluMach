@@ -1891,7 +1891,7 @@ const scancode scancode_olivetti_m240[512] = {
 };
 
 static void
-m24_kbd_init(m24_kbd_t *kbd)
+m24_kbd_init(m24_kbd_t *kbd, const scancode *table)
 {
 
     /* Initialize the keyboard. */
@@ -1910,7 +1910,7 @@ m24_kbd_init(m24_kbd_t *kbd)
         mouse_set_poll(ms_poll, kbd);
     }
 
-    keyboard_set_table((kbd->id == 0x01) ? scancode_olivetti_m24_deluxe : scancode_olivetti_m240);
+    keyboard_set_table(table);
     keyboard_set_is_amstrad(0);
 }
 
@@ -2308,19 +2308,14 @@ m240_read(uint16_t port, UNUSED(void *priv))
     return ret;
 }
 
-/*
- * Uses M21/M24/M240 keyboard controller and M24 102/103-key Deluxe keyboard.
- */
-int
-machine_xt_m24_init(const machine_t *model)
+static int
+machine_xt_m21_m24_init(const machine_t *model, const char *bios_low, const char *bios_high, bool is_m21)
 {
     int        ret;
     m24_kbd_t *m24_kbd;
     nvr_t     *nvr;
 
-    ret = bios_load_interleaved("roms/machines/m24/olivetti_m24_bios_version_1.44_low_even.bin",
-                                "roms/machines/m24/olivetti_m24_bios_version_1.44_high_odd.bin",
-                                0x000fc000, 16384, 0);
+    ret = bios_load_interleaved(bios_low, bios_high, 0x000fc000, 16384, 0);
 
     if (bios_only || !ret)
         return ret;
@@ -2336,7 +2331,8 @@ machine_xt_m24_init(const machine_t *model)
     /* Address 66-67 = mainboard dip-switch settings */
     io_sethandler(0x0065, 3, m24_read, NULL, NULL, NULL, NULL, NULL, NULL);
 
-    standalone_gameport_type = &gameport_200_device;
+    if (!is_m21)
+        standalone_gameport_type = &gameport_200_device;
 
     nmi_init();
 
@@ -2350,21 +2346,39 @@ machine_xt_m24_init(const machine_t *model)
     video_reset(gfxcard[0]);
 
     if (gfxcard[0] == VID_INTERNAL)
-        device_add(&ogc_m24_device);
+        device_add(model->vid_device);
 
     pit_devs[0].set_out_func(pit_devs[0].data, 1, pit_refresh_timer_xt);
 
     io_sethandler(0x0062, 1, m24_read, NULL, NULL, NULL, NULL, NULL, NULL);
 
-    m24_kbd->id = 0x01;
-
-    m24_kbd_init(m24_kbd);
+    /* The M21 uses the 83-key layout, and the M24 uses the Deluxe layout. */
+    m24_kbd->id = is_m21 ? 0x02 : 0x01;
+    m24_kbd_init(m24_kbd, is_m21 ? scancode_xt : scancode_olivetti_m24_deluxe);
     device_add_ex(&m24_kbd_device, m24_kbd);
 
-    if (hdc_current[0] == HDC_INTERNAL)
+    if (!is_m21 && hdc_current[0] == HDC_INTERNAL)
         device_add(&st506_xt_wd1002a_wx1_nobios_device);
 
     return ret;
+}
+
+int
+machine_xt_m21_init(const machine_t *model)
+{
+    return machine_xt_m21_m24_init(model,
+                                 "roms/machines/m21/olivetti_m21_version_1.44_low_even.bin",
+                                 "roms/machines/m21/olivetti_m21_version_1.44_high_odd.bin",
+                                 true);
+}
+
+int
+machine_xt_m24_init(const machine_t *model)
+{
+    return machine_xt_m21_m24_init(model,
+                                 "roms/machines/m24/olivetti_m24_bios_version_1.44_low_even.bin",
+                                 "roms/machines/m24/olivetti_m24_bios_version_1.44_high_odd.bin",
+                                 false);
 }
 
 /*
@@ -2401,7 +2415,7 @@ machine_xt_m240_init(const machine_t *model)
      */
     m24_kbd->id = 0x10;
 
-    m24_kbd_init(m24_kbd);
+    m24_kbd_init(m24_kbd, scancode_olivetti_m240);
     device_add_ex(&m24_kbd_device, m24_kbd);
 
     if (fdc_current[0] == FDC_INTERNAL)

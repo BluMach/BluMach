@@ -326,16 +326,16 @@ private slots:
     {
         const char *products[] = { "olivetti-pcs286s", "olivetti-prodest-pc1",
                                    "olivetti-prodest-pc1hd", "olivetti-m28",
-                                   "amstrad-pc5286" };
+                                   "amstrad-pc5286", "olivetti-m21" };
         const char *native[] = { "olivetti_pcs286s", "olivetti_prodest_pc1",
-                                 "olivetti_prodest_pc1hd", "olivetti_m28", "pc5286" };
+                                 "olivetti_prodest_pc1hd", "olivetti_m28", "pc5286", "m21" };
         for (int locale = 0; locale < locales.size(); ++locale) {
             lang_id = locale;
             BluMachCollectionWidget widget;
             auto *tree = widget.findChild<QTreeWidget *>();
             QVERIFY(tree);
             QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
-            for (int i = 0; i < 5; ++i) {
+            for (int i = 0; i < 6; ++i) {
                 auto *item = catalogueItem(tree, QString::fromLatin1(products[i]));
                 QVERIFY(item);
                 tree->setCurrentItem(item);

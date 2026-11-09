@@ -1,16 +1,21 @@
 {
   "product.olivetti-m21.summary": "La arquitectura del M24 en un transportable con pantalla ámbar de 9 pulgadas y teclado que cierra el frontal.",
   "product.olivetti-m21.history": "Anunciado en 1984 junto al M24, el M21 permitía trasladar un equipo de oficina completo, con monitor integrado y teclado como tapa. Practical Computing publicó en noviembre un precio británico de 1.545 libras más IVA para 128 KB y una disquetera; la unidad que probó era todavía un prototipo. La revista sitúa su fabricación en Italia y su distribución en British Olivetti. El manual técnico común confirma su parentesco con el M24. Fuentes: Practical Computing, noviembre de 1984, p. 55, y Olivetti, Theory of Operation.",
-  "product.olivetti-m21.warning": "Ficha histórica en investigación; sin validación propia del M21 ni perfil de creación.",
+  "product.olivetti-m21.warning": "Perfil experimental del M21 con BIOS 1.44, una disquetera y pantalla OGC ámbar.",
   "product.olivetti-m21.technical.configuration": "Su pantalla y disqueteras viajan dentro de la caja. La prueba de 1984 describe un CRT ámbar de 9 pulgadas y una o dos unidades de 360 KB. Olivetti especifica CPU de 8 MHz; el Museo Tecnologicamente indica 4 MHz, discrepancia que queda abierta sin dar por probada otra revisión.",
   "product.olivetti-m21.technical.video": "El vídeo amplía las posibilidades gráficas del PC. El controlador propio combina 6845 y 32 KB de RAM: modos compatibles de 320 × 200 y 640 × 200, más 640 × 400 monocromo. La ampliación gráfica opcional es una placa distinta.",
   "product.olivetti-m21.technical.expansion": "La caja transportable deja menos espacio para tarjetas. Su Bus Converter incorpora tres conectores de 62 contactos y uno complementario de 38, frente a siete y cuatro en el M24. La guía identifica la placa IF249 para M21.",
-  "product.olivetti-m21.technical.firmware": "La documentación agrupa las BIOS del M24 y del M21. Su tabla incluye 1.43H PQBK y 1.43L PQBL. Los archivos locales 1.43 proceden de una colección rotulada M24, sin identificación del equipo donante: no equivalen a un volcado independiente de M21.",
-  "product.olivetti-m21.technical.verified": "El código existente menciona M21 como alias del M24. Se ha comprobado esa referencia y la documentación común, pero no una configuración ni un arranque específicos del transportable.",
-  "product.olivetti-m21.technical.limitations": "El parentesco no sustituye la validación del equipo. Quedan por comprobar la revisión de placa, BIOS instalada, teclado, pantalla integrada, expansión y discos del M21; no hay perfil de creación propio.",
+  "product.olivetti-m21.technical.firmware": "BluMach usa la BIOS 1.44, preservada en dos mitades de 8 KiB cuyo origen se remonta a un M21 físico. La guía de servicio de Olivetti también recoge la 1.43 PQBK/PQBL para la familia.",
+  "product.olivetti-m21.technical.verified": "El perfil propio usa la plataforma 8086 y el OGC comunes al M21 y al M24, con una disquetera de 360 KiB, 128 KiB de RAM y pantalla ámbar.",
+  "product.olivetti-m21.technical.limitations": "La paleta ámbar aproxima el CRT integrado. Quedan por validar la revisión exacta de la placa donante, la señal del CRT, el comportamiento del teclado original, la expansión IF249, el almacenamiento opcional y otras configuraciones de memoria y disqueteras.",
   "product.olivetti-m21.technical.source_manual": "Olivetti, M24/M21 Theory of Operation, 11/1984, §§ 1-4, 1-7, 1-12, 2-42, 2-47.",
   "product.olivetti-m21.technical.source_service": "Olivetti, Personal Computer Pocket Service Guide, vol. I, pp. 1-1–1-2 (PDF 8–9).",
   "product.olivetti-m21.technical.source_press": "Practical Computing, 11/1984, “Olivetti M-21”, p. 55.",
-  "product.olivetti-m21.technical.source_bios": "DOS ROM BIOS collection, olivetti_m24, 1.43 HIGH/LOW.",
-  "product.olivetti-m21.technical.source_code": "BluMach 88f74ba3 / 86Box 6a43d7973, m_xt_olivetti.c, vid_cga_olivetti.c."
+  "product.olivetti-m21.technical.source_bios": "Volcado de memoria de la BIOS 1.44 del Olivetti M21 e identificación de las ROM par e impar, VCFed.",
+  "product.olivetti-m21.technical.source_code": "BluMach 88f74ba3 / 86Box 6a43d7973, m_xt_olivetti.c, vid_cga_olivetti.c.",
+  "product.olivetti-m21.creation.cpu": "Intel 8086 a 8 MHz",
+  "product.olivetti-m21.creation.memory": "128 KiB",
+  "product.olivetti-m21.creation.firmware": "BIOS 1.44 y ROM de caracteres OGC PQBQ",
+  "product.olivetti-m21.creation.floppy": "Una disquetera de 5,25 pulgadas y 360 KiB",
+  "product.olivetti-m21.creation.note": "Este perfil inicial usa la pantalla OGC ámbar integrada y arranca desde disquete."
 }
