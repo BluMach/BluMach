@@ -113,6 +113,8 @@
   "status.experimental": "Expérimentale",
   "status.research": "En recherche",
   "status.not_bootable": "Non démarrable",
+  "hardware.board": "Carte mère",
+  "hardware.keyboard": "Clavier",
   "hardware.cpu": "Processeur",
   "hardware.memory": "Mémoire",
   "hardware.video": "Vidéo",

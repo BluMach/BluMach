@@ -113,6 +113,8 @@
   "status.experimental": "Experimental",
   "status.research": "En investigación",
   "status.not_bootable": "No arrancable",
+  "hardware.board": "Placa base",
+  "hardware.keyboard": "Teclado",
   "hardware.cpu": "Procesador",
   "hardware.memory": "Memoria",
   "hardware.video": "Vídeo",
