@@ -64,8 +64,33 @@ constexpr auto FormFactorRole   = Qt::UserRole + 6;
 constexpr auto CountRole        = Qt::UserRole + 7;
 constexpr auto BrandMarkRole    = Qt::UserRole + 8;
 constexpr auto BrandMarkBackgroundRole = Qt::UserRole + 9;
+constexpr auto DebugEntryRole   = Qt::UserRole + 10;
 constexpr auto HideResearchFilter = "hide_research";
 
+enum class DebugEntry { None, Research, Hidden };
+
+DebugEntry debugEntry(const BluMachProduct &product)
+{
+    if (!product.visible)
+        return DebugEntry::Hidden;
+    return product.hasEmulation ? DebugEntry::None : DebugEntry::Research;
+}
+
+QString debugEntryLabel(const BluMachCatalog &catalog, DebugEntry entry)
+{
+    if (entry == DebugEntry::None)
+        return {};
+    return catalog.text(entry == DebugEntry::Hidden ? QStringLiteral("collection.debug.hidden")
+                                                    : QStringLiteral("collection.debug.research"));
+}
+
+QColor debugEntryColor(DebugEntry entry, const QPalette &palette)
+{
+    const bool dark = palette.color(QPalette::Base).lightnessF() < 0.5;
+    if (entry == DebugEntry::Hidden)
+        return QColor(dark ? "#e5b5ff" : "#78389b");
+    return QColor(dark ? "#ffd18b" : "#875000");
+}
 
 QColor
 blendColor(const QColor &background, const QColor &foreground, const qreal amount)
@@ -231,7 +256,9 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
     {
         const int type = index.data(TypeRole).toInt();
-        return { option.rect.width(), type == 3 ? 50 : 30 };
+        if (type != 3)
+            return { option.rect.width(), 30 };
+        return { option.rect.width(), index.data(DebugEntryRole).toInt() == 0 ? 50 : 66 };
     }
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
@@ -339,6 +366,15 @@ public:
         painter->drawText(QRect(textLeft, row.top() + 24, textWidth, 17),
                           Qt::AlignLeft | Qt::AlignVCenter, displayMeta);
 
+        const auto debug = static_cast<DebugEntry>(index.data(DebugEntryRole).toInt());
+        if (debug != DebugEntry::None) {
+            painter->setPen(debugEntryColor(debug, opt.palette));
+            const auto label = index.data(Qt::AccessibleDescriptionRole).toString();
+            painter->drawText(QRect(textLeft, row.top() + 42, textWidth, 17),
+                              Qt::AlignLeft | Qt::AlignVCenter,
+                              painter->fontMetrics().elidedText(label, Qt::ElideRight, textWidth));
+        }
+
         QColor statusColor = opt.palette.color(QPalette::Mid);
         const auto status = index.data(StatusRole).toString();
         if (status == QStringLiteral("validated"))
@@ -347,6 +383,8 @@ public:
             statusColor = opt.palette.color(QPalette::Link);
         else if (status == QStringLiteral("not_bootable"))
             statusColor = opt.palette.color(QPalette::Shadow);
+        if (debug != DebugEntry::None)
+            statusColor = debugEntryColor(debug, opt.palette);
         painter->setPen(Qt::NoPen);
         painter->setBrush(statusColor);
         painter->drawEllipse(QPointF(row.right() - 11, row.center().y()), 3.5, 3.5);
@@ -980,6 +1018,10 @@ void BluMachCollectionWidget::rebuildTree()
                 productItem->setData(0, TypeRole, ProductItem);
                 productItem->setData(0, PeriodRole, m_catalog.periodText(product));
                 productItem->setData(0, StatusRole, product.status);
+                const auto debug = debugEntry(product);
+                const auto label = debugEntryLabel(m_catalog, debug);
+                productItem->setData(0, DebugEntryRole, static_cast<int>(debug));
+                productItem->setData(0, Qt::AccessibleDescriptionRole, label);
                 productItem->setData(0, FamilyRole, product.familyId);
                 const auto formFactors = product.facets.value(QStringLiteral("form_factor")).toArray();
                 productItem->setData(0, FormFactorRole,
@@ -988,8 +1030,10 @@ void BluMachCollectionWidget::rebuildTree()
                     productItem->setData(0, ArchitectureRole, platform->architecture);
                 else
                     productItem->setData(0, ArchitectureRole, m_catalog.text(QStringLiteral("collection.unpreserved")));
-                productItem->setToolTip(0, QStringLiteral("%1\n%2")
-                                               .arg(product.name, m_catalog.text(product.summaryKey)));
+                QStringList tooltip{ product.name, m_catalog.text(product.summaryKey) };
+                if (!label.isEmpty())
+                    tooltip.append(label);
+                productItem->setToolTip(0, tooltip.join('\n'));
                 ++familyCount;
             }
             for (const auto &child : m_catalog.families()) {
@@ -1196,7 +1240,12 @@ void BluMachCollectionWidget::updateDetails(QTreeWidgetItem *item)
     m_title->setText(product->name);
     m_subtitle->setText(m_catalog.periodText(*product));
     m_summary->setText(m_catalog.text(product->summaryKey));
-    m_statusBadge->setText(m_catalog.statusText(product->status));
+    const auto debug = debugEntry(*product);
+    const auto label = debugEntryLabel(m_catalog, debug);
+    m_statusBadge->setText(label.isEmpty() ? m_catalog.statusText(product->status) : label);
+    m_statusBadge->setProperty("debugEntry", static_cast<int>(debug));
+    m_statusBadge->style()->unpolish(m_statusBadge);
+    m_statusBadge->style()->polish(m_statusBadge);
     m_statusBadge->show();
     if (const auto *platform = m_catalog.platform(product->platformId)) {
         m_architectureBadge->setText(platform->architecture);
@@ -1483,7 +1532,8 @@ bool BluMachCollectionWidget::isSourceSection(const QJsonObject &section) const
 bool BluMachCollectionWidget::canCreateProduct(const BluMachProduct &product) const
 {
     const auto *platform = m_catalog.platform(product.platformId);
-    return product.status != QStringLiteral("research")
+    return product.hasEmulation
+        && product.status != QStringLiteral("research")
         && product.status != QStringLiteral("not_bootable")
         && platform != nullptr
         && platform->hasMachineProfile()
@@ -1676,7 +1726,12 @@ void BluMachCollectionWidget::updateAppearance()
         "QToolButton { color: %4; text-decoration: none; }")
         .arg(windowColor.name(), baseColor.name(), surfaceColor.name(), textColor.name(),
              mutedColor.name(), borderColor.name(), badgeColor.name(), badgeBorder.name(),
-             warningColor.name()));
+             warningColor.name()) + QStringLiteral(
+        "QLabel#blumachBadge[debugEntry=\"%1\"] { color: %2; border-color: %2; background: %5; }"
+        "QLabel#blumachBadge[debugEntry=\"%3\"] { color: %4; border-color: %4; background: %5; }")
+        .arg(QString::number(static_cast<int>(DebugEntry::Research)), debugEntryColor(DebugEntry::Research, pal).name(),
+             QString::number(static_cast<int>(DebugEntry::Hidden)), debugEntryColor(DebugEntry::Hidden, pal).name(),
+             baseColor.name()));
     setProperty("compact", m_compactLayout);
     style()->unpolish(this);
     style()->polish(this);

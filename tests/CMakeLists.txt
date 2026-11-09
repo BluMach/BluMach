@@ -168,8 +168,9 @@ if(QT)
     )
     set_target_properties(coremach-bridge PROPERTIES AUTOMOC ON)
     target_include_directories(coremach-bridge PRIVATE "${PROJECT_SOURCE_DIR}/src/qt")
+    get_property(catalog_json GLOBAL PROPERTY BLUMACH_CATALOG_JSON)
     target_compile_definitions(coremach-bridge PRIVATE
-        "BLUMACH_TEST_CATALOG_JSON=\"${PROJECT_BINARY_DIR}/src/qt/catalog/catalog.json\"")
+        "BLUMACH_TEST_CATALOG_JSON=\"${catalog_json}\"")
     target_link_libraries(coremach-bridge PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Test)
     if(BLUMACH_COREMACH_ENABLED)
         # Without BLUMACH_COREMACH_OPENAL the sound output is silent here.

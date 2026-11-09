@@ -1,5 +1,15 @@
 # BluMach catalogue filter facets
 
+## Desktop build editions
+
+Debug and UltraDebug embed the complete catalogue. Non-public products
+carry the hidden label. Public products without a `blumach_emulation` value
+carry the research label.
+
+Other desktop builds embed only public products with `blumach_emulation` and
+the catalogue resources they use. The web export continues to include public
+research sheets.
+
 ## Commercial groups, models and sales configurations
 
 The catalogue tree groups models by manufacturer-owned commercial ranges.

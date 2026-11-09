@@ -89,6 +89,8 @@ struct BluMachProduct {
     QString     historyKey;
     QString     warningKey;
     QString     status;
+    bool        visible = false;
+    bool        hasEmulation = false;
     QString     period;
     QString     periodKey;
     QStringList aliases;
@@ -109,9 +111,6 @@ class BluMachCatalog final {
 public:
     bool load(QString *errorMessage = nullptr);
     void reloadLocale();
-    // Hidden entries marked "development" are loaded only when the
-    // BLUMACH_CATALOG_DEVELOPMENT environment variable is 1.
-    static bool developmentEntriesEnabled();
     // Configuration file for a machine created from a product's creation
     // profile and the choices selected in its fields.
     static QString creationConfiguration(const BluMachPlatform &platform, const QJsonObject &creation,

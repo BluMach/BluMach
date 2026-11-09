@@ -5,6 +5,7 @@ from pathlib import Path
 import tempfile
 import sys
 import unittest
+from xml.etree import ElementTree
 
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -39,6 +40,56 @@ class CatalogBuilderTests(unittest.TestCase):
         self.assertIn(
             'alias="documents/toshiba-t5100-implementation.md"', qrc
         )
+
+    def test_release_embeds_only_public_emulated_machine_resources(self) -> None:
+        repository = Path(__file__).resolve().parents[2]
+        source = repository / "src/qt/catalog/source"
+        documents = repository / "doc/machines"
+        app_qrc = repository / "src/qt_resources.qrc"
+        with tempfile.TemporaryDirectory() as directory:
+            debug = Path(directory) / "debug"
+            release = Path(directory) / "release"
+            catalog_builder.build(source, debug, documents)
+            catalog_builder.build(source, release, documents, release=True, app_qrc=app_qrc)
+            debug_catalog = catalog_builder.read_json(debug / "catalog.json")
+            release_catalog = catalog_builder.read_json(release / "catalog.json")
+            expected = {
+                product["id"]: product for product in debug_catalog["products"]
+                if product.get("visible") is True and product.get("blumach_emulation")
+            }
+            excluded = [product for product in debug_catalog["products"] if product["id"] not in expected]
+            self.assertTrue(excluded)
+            self.assertEqual([product["id"] for product in release_catalog["products"]], list(expected))
+            self.assertEqual(
+                {platform["id"] for platform in release_catalog["platforms"]},
+                {product["platform_id"] for product in expected.values()},
+            )
+            excluded_summaries = {product["summary_key"] for product in excluded}
+            for locale in (release / "locales").glob("*.json"):
+                localized = catalog_builder.read_json(locale)
+                self.assertTrue(excluded_summaries.isdisjoint(localized))
+                self.assertNotIn("collection.debug.hidden", localized)
+            self.assertIn("collection.debug.hidden", catalog_builder.read_json(debug / "locales/en.json"))
+
+            groups = catalog_builder.read_json(release / catalog_builder.VARIANT_GROUPS_FILE)["groups"]
+            debug_groups = catalog_builder.read_json(debug / catalog_builder.VARIANT_GROUPS_FILE)["groups"]
+            self.assertEqual(groups, [
+                group for group in debug_groups if expected.keys() >= set(group["variants"])
+            ])
+            self.assertEqual(
+                {path.name for path in (release / "documents").glob("*.md")},
+                set(catalog_builder.implementation_documents(release_catalog)),
+            )
+            media = {
+                file.get("alias")
+                for group in ElementTree.parse(release / app_qrc.name).findall("qresource")
+                if group.get("prefix") == "/blumach/catalog"
+                for file in group.findall("file")
+            }
+            self.assertEqual(media, {
+                product["media"]["resource"].removeprefix(":/blumach/catalog/")
+                for product in expected.values() if "media" in product
+            })
 
     def test_variant_groups_reject_hidden_and_repeated_members(self) -> None:
         maker = {"id": "example", "visible": True}

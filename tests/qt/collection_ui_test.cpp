@@ -14,6 +14,7 @@
 #include <QLineEdit>
 #include <QScrollArea>
 #include <QScrollBar>
+#include <QScopedValueRollback>
 #include <QSignalSpy>
 #include <QStyleFactory>
 #include <QTabWidget>
@@ -270,15 +271,31 @@ private slots:
         }
     }
 
-    void developmentEntriesNeedExplicitRequest()
+    void debugEntriesAreVisibleAndDistinguished()
     {
-        qunsetenv("BLUMACH_CATALOG_DEVELOPMENT");
-        QVERIFY(!BluMachCatalog::developmentEntriesEnabled());
-        qputenv("BLUMACH_CATALOG_DEVELOPMENT", "yes");
-        QVERIFY(!BluMachCatalog::developmentEntriesEnabled());
-        qputenv("BLUMACH_CATALOG_DEVELOPMENT", "1");
-        QVERIFY(BluMachCatalog::developmentEntriesEnabled());
-        qunsetenv("BLUMACH_CATALOG_DEVELOPMENT");
+        QScopedValueRollback<int> language(lang_id, 1);
+        BluMachCollectionWidget widget;
+        auto *tree = widget.findChild<QTreeWidget *>();
+        QVERIFY(tree);
+        const auto select = [&](const QString &id) {
+            auto *item = catalogueItem(tree, id);
+            if (!item || item->isHidden())
+                return QString();
+            tree->setCurrentItem(item);
+            return item->data(0, Qt::AccessibleDescriptionRole).toString();
+        };
+        QSignalSpy creation(&widget, &BluMachCollectionWidget::createMachineRequested);
+        auto *badge = widget.findChild<QLabel *>(QStringLiteral("blumachBadge"));
+        QVERIFY(badge);
+        QCOMPARE(select(QStringLiteral("olivetti-netstrada-7400")), QStringLiteral("Investigación · solo debug"));
+        QCOMPARE(badge->text(), QStringLiteral("Investigación · solo debug"));
+        const auto researchColor = badge->palette().color(QPalette::WindowText);
+        widget.createSelectedMachine();
+        QCOMPARE(select(QStringLiteral("ta-alphatronic-p20")), QStringLiteral("Oculta · solo debug"));
+        QCOMPARE(badge->text(), QStringLiteral("Oculta · solo debug"));
+        QVERIFY(badge->palette().color(QPalette::WindowText) != researchColor);
+        widget.createSelectedMachine();
+        QCOMPARE(creation.count(), 0);
     }
 
     void toshibaCandidatesCreateFromTheirOwnSheets()

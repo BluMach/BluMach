@@ -46,11 +46,9 @@ configuration is left unchanged.
 The battery-backed RAM and clock of a CoreMach machine are kept in its machine
 folder as `state/ram.bin` and `state/rtc.bin`.
 
-The Olivetti M10 entry is a hidden development sheet while the machine is
-brought up. It appears in the collection only when BluMach starts with the
-environment variable `BLUMACH_CATALOG_DEVELOPMENT=1`. For automated checks,
-`BLUMACH_UNATTENDED=1` reports CoreMach startup errors on standard error
-instead of in a dialog.
+The Olivetti M10 has a public collection sheet. Creating one from that sheet
+requires a build with CoreMach. For automated checks, `BLUMACH_UNATTENDED=1`
+reports CoreMach startup errors on standard error instead of in a dialog.
 
 With a local copy of the M10 firmware, the opt-in check of the
 `coremach-bridge` test runs it to the firmware's main menu:
