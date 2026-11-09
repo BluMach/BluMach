@@ -657,6 +657,10 @@ m24_kbd_read(uint16_t port, void *priv)
     switch (port) {
         case 0x60:
             ret = m24_kbd->out;
+            /* POST can consume a response by polling before IRQ1 is delivered. */
+            if (m24_kbd->status & STAT_OFULL)
+                picintc(2);
+
             if (key_queue_start == key_queue_end) {
                 m24_kbd->status &= ~STAT_OFULL;
                 m24_kbd->wantirq = 0;

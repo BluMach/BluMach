@@ -27,6 +27,7 @@ typedef struct ogc_t {
     uint32_t base;
     int      lineff;
     int      mono_display;
+    bool     is_m24;
 } ogc_t;
 
 void    ogc_recalctimings(ogc_t *ogc);

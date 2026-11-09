@@ -1720,7 +1720,8 @@ pc_send_ca(uint16_t sc)
 void
 pc_send_cad(void)
 {
-    pc_send_ca(0x153);
+    /* The M24 Deluxe keyboard needs keypad Delete for the BIOS reset chord. */
+    pc_send_ca(machines[machine].init == machine_xt_m24_init ? 0x53 : 0x153);
 }
 
 /* Send the machine a Control-Alt-ESC sequence. */

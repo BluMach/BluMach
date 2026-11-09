@@ -26,6 +26,7 @@
 #include <stdarg.h>
 #include <wchar.h>
 #include <86box/io.h>
+#include <86box/device.h>
 #include <86box/video.h>
 #include <86box/86box.h>
 #include "cpu.h"
@@ -33,7 +34,7 @@
 #include <86box/mem.h>
 #include <86box/pit.h>
 #include <86box/rom.h>
-#include <86box/device.h>
+#include <86box/machine.h>
 #include <86box/vid_cga.h>
 extern const device_config_t cga_config[]; /* defined in vid_cga.c */
 #include <86box/vid_ogc.h>
@@ -56,12 +57,43 @@ static video_timings_t timing_ogc = { .type = VIDEO_ISA, .write_b = 8, .write_w 
 
 static uint8_t mdaattr[256][2][2];
 
+#define M24_OGC_PIXEL_CLOCK 24000000.0
+
+/*
+ * The GO380 scrambler translates the BIOS mode 40h CRTC values. Apply the
+ * documented translation of this timing profile, leaving other programmed
+ * modes on the existing OGC path. The guest still sees its original values.
+ */
+static bool
+ogc_m24_bios_40h(const ogc_t *ogc)
+{
+    static const uint8_t horizontal[] = { 0x38, 0x28, 0x2d };
+    static const uint8_t vertical[]   = { 0x7f, 0x06, 0x64, 0x70, 0x02, 0x01 };
+    const uint8_t       *crtc         = ogc->cga.crtc;
+
+    return ogc->is_m24 && (ogc->ctrl_3de & 0x81) == 1 &&
+           (ogc->cga.cgamode & (CGA_MODE_FLAG_HIGHRES | CGA_MODE_FLAG_GRAPHICS | CGA_MODE_FLAG_HIGHRES_GRAPHICS)) ==
+               (CGA_MODE_FLAG_GRAPHICS | CGA_MODE_FLAG_HIGHRES_GRAPHICS) &&
+           !memcmp(crtc, horizontal, sizeof(horizontal)) &&
+           (crtc[CGA_CRTC_HSYNC_WIDTH] == 0x06 || crtc[CGA_CRTC_HSYNC_WIDTH] == 0x0a) &&
+           !memcmp(crtc + CGA_CRTC_VTOTAL, vertical, sizeof(vertical));
+}
+
 void
 ogc_recalctimings(ogc_t *ogc)
 {
     double _dispontime;
     double _dispofftime;
     double disptime;
+
+    if (ogc_m24_bios_40h(ogc)) {
+        /* Translated R0=39h and R1=28h, with 16 dots per CRTC character. */
+        const double character_time = 16.0 * (cpuclock / M24_OGC_PIXEL_CLOCK) * (double) (1ULL << 32);
+
+        ogc->cga.dispontime  = (uint64_t) (40 * character_time);
+        ogc->cga.dispofftime = (uint64_t) ((58 - 40) * character_time);
+        return;
+    }
 
     if (ogc->cga.cgamode & CGA_MODE_FLAG_HIGHRES) {
         disptime    = ogc->cga.crtc[CGA_CRTC_HTOTAL] + 1;
@@ -81,7 +113,8 @@ ogc_recalctimings(ogc_t *ogc)
 void
 ogc_out(uint16_t addr, uint8_t val, void *priv)
 {
-    ogc_t *ogc = (ogc_t *) priv;
+    ogc_t     *ogc         = (ogc_t *) priv;
+    const bool was_bios_40h = ogc_m24_bios_40h(ogc);
 
 #if 0
     if (addr >= 0x3c0 && addr <= 0x3cf)
@@ -93,6 +126,9 @@ ogc_out(uint16_t addr, uint8_t val, void *priv)
         case 0x3d5:
         case 0x3d8:
         case 0x3d9:
+            /* The CGA black-and-white bit is not connected on the M24. */
+            if (addr == 0x3d8 && ogc->is_m24)
+                val &= ~CGA_MODE_FLAG_BW;
             cga_out(addr, val, &ogc->cga);
             break;
 
@@ -109,6 +145,12 @@ ogc_out(uint16_t addr, uint8_t val, void *priv)
         default:
             break;
     }
+
+    /* The shared CGA write handlers can recalculate their own timings. */
+    if (ogc_m24_bios_40h(ogc))
+        ogc_recalctimings(ogc);
+    else if (was_bios_40h)
+        cga_recalctimings(&ogc->cga);
 }
 
 uint8_t
@@ -218,6 +260,12 @@ ogc_poll(void *priv)
     int      scanline_old;
     int      blink     = 0;
     int      underline = 0;
+    const bool bios_40h = ogc_m24_bios_40h(ogc);
+    /* R4=6Bh, R5=00h and R7=64h after translation. The existing line
+       pairing implements the translated four scanlines per CRTC row. */
+    const int vtotal   = bios_40h ? 0x6b : ogc->cga.crtc[CGA_CRTC_VTOTAL];
+    const int vadjust  = bios_40h ? 0 : ogc->cga.crtc[CGA_CRTC_VTOTAL_ADJUST];
+    const int vsync    = bios_40h ? 0x64 : ogc->cga.crtc[CGA_CRTC_VSYNC];
 
     // Composite color appears dark blue
 
@@ -347,7 +395,7 @@ ogc_poll(void *priv)
                     if (ogc->ctrl_3de & 1) {
                         dat2    = ((ogc->cga.scanline & 1) * 0x4000) | (ogc->lineff * 0x2000);
                         cols[0] = 0;
-                        cols[1] = 15 + 16;
+                        cols[1] = (ogc->is_m24 ? (ogc->cga.cgacol & 15) : 15) + 16;
                     } else {
                         dat2    = (ogc->cga.scanline & 1) * 0x2000;
                         cols[0] = 0;
@@ -385,10 +433,12 @@ ogc_poll(void *priv)
                 x = (ogc->cga.crtc[CGA_CRTC_HDISP] << 4) + 16;
 
             video_process_8(x, ogc->cga.displine);
-            video_lightpen_check_trigger_strobe(8, ogc->cga.displine * (ogc->cga.double_type ? 2 : 1), 0, ogc->cga.firstline + 8, 16. * (1. / (CGACONST / (cpuclock * (double) (1ULL << 32)))), ogc->cga.monitor_used);
+            video_lightpen_check_trigger_strobe(8, ogc->cga.displine * (ogc->cga.double_type ? 2 : 1), 0, ogc->cga.firstline + 8,
+                                                bios_40h ? M24_OGC_PIXEL_CLOCK : 16. * (1. / (CGACONST / (cpuclock * (double) (1ULL << 32)))),
+                                                ogc->cga.monitor_used);
 
             ogc->cga.scanline = scanline_old;
-            if (ogc->cga.vc == ogc->cga.crtc[CGA_CRTC_VSYNC] && !ogc->cga.scanline)
+            if (ogc->cga.vc == vsync && !ogc->cga.scanline)
                 ogc->cga.cgastat |= 8;
             ogc->cga.displine++;
             if (ogc->cga.displine >= 720)
@@ -435,9 +485,9 @@ ogc_poll(void *priv)
                     if (ogc->cga.vc == ogc->cga.crtc[CGA_CRTC_VDISP])
                         ogc->cga.cgadispon = 0;
 
-                    if (oldvc == ogc->cga.crtc[CGA_CRTC_VTOTAL]) {
+                    if (oldvc == vtotal) {
                         ogc->cga.vc   = 0;
-                        ogc->cga.vadj = ogc->cga.crtc[CGA_CRTC_VTOTAL_ADJUST];
+                        ogc->cga.vadj = vadjust;
                         if (!ogc->cga.vadj) {
                             ogc->cga.cgadispon = 1;
                             ogc->cga.memaddr = ogc->cga.memaddr_backup = (ogc->cga.crtc[CGA_CRTC_START_ADDR_LOW] | (ogc->cga.crtc[CGA_CRTC_START_ADDR_HIGH] << 8)) & 0x3fff;
@@ -454,13 +504,13 @@ ogc_poll(void *priv)
                                 break;
                         }
                     }
-                    if (ogc->cga.vc == ogc->cga.crtc[CGA_CRTC_VSYNC]) {
+                    if (ogc->cga.vc == vsync) {
                         ogc->cga.cgadispon = 0;
                         ogc->cga.displine  = 0;
                         video_lightpen_vsync();
                         /* ogc specific */
                         ogc->cga.vsynctime = (ogc->cga.crtc[CGA_CRTC_HSYNC_WIDTH] >> 4) + 1;
-                        if (ogc->cga.crtc[CGA_CRTC_VSYNC]) {
+                        if (vsync) {
                             if (ogc->cga.cgamode & CGA_MODE_FLAG_HIGHRES)
                                 x = (ogc->cga.crtc[CGA_CRTC_HDISP] << 3) + 16;
                             else
@@ -589,7 +639,7 @@ ogc_mdaattr_rebuild(void)
  * - Optional EGC expansion board (which handles 640x400x16) not implemented
  */
 void *
-ogc_init(UNUSED(const device_t *info))
+ogc_init(const device_t *info)
 {
 #if 0
     int display_type;
@@ -630,6 +680,7 @@ ogc_init(UNUSED(const device_t *info))
         ogc->mono_display = 1;
 
     ogc->ctrl_addr = 0x3de;
+    ogc->is_m24    = info == &ogc_m24_device && !strcmp(machine_get_internal_name(), "m24");
 
     return ogc;
 }

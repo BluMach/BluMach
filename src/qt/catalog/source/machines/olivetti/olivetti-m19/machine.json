@@ -9,7 +9,7 @@
     "summary_key": "product.olivetti-m19.summary",
     "history_key": "product.olivetti-m19.history",
     "warning_key": "product.olivetti-m19.warning",
-    "status": "research",
+    "status": "partial",
     "period": "1986",
     "aliases": [
       "M19"
@@ -55,6 +55,15 @@
       "expansion": "EXB 1940 / EXB 1941"
     },
     "firmware": {
+      "required_files": [
+        "machines/m19/Olivetti M19 Resident Diagnostics Rev 3.71.BIN",
+        "machines/m19/MBM2764-30 8514 107 AB PCF3.BIN"
+      ],
+      "known_sets": [
+        "Resident Diagnostics 3.62",
+        "Resident Diagnostics 3.71",
+        "PCF3"
+      ],
       "required": true
     },
     "technical": [
@@ -77,6 +86,10 @@
             "value_key": "product.olivetti-m19.technical.cpu"
           },
           {
+            "label_key": "technical.label.chipset",
+            "value_key": "product.olivetti-m19.technical.chipset"
+          },
+          {
             "label_key": "technical.label.expansion_options",
             "value_key": "product.olivetti-m19.technical.expansion"
           },
@@ -97,6 +110,16 @@
           {
             "label_key": "technical.label.bios_identity",
             "value_key": "product.olivetti-m19.technical.firmware"
+          },
+          {
+            "label_key": "technical.label.firmware_evidence",
+            "value_key": "product.olivetti-m19.technical.source_362",
+            "url": "https://archive.org/details/olivetti-m19-bios"
+          },
+          {
+            "label_key": "technical.label.firmware_evidence",
+            "value_key": "product.olivetti-m19.technical.source_371",
+            "url": "https://github.com/86Box/roms/tree/62f6898f68ff6ba1027fca19ce38d797bf889e28/machines/m19"
           }
         ]
       },
@@ -152,9 +175,107 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-m19.technical.source_photo",
             "url": "https://commons.wikimedia.org/wiki/File:Olivetti_M19_front_view.jpg"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_sperimentare",
+            "url": "https://www.rsp-italy.it/Electronics/Magazines/Sperimentare/index.htm"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_video_fix",
+            "url": "https://github.com/86Box/86Box/commit/91cf90c63a07cec0abff3ce3b1cc19a8f6ed180a"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_timing_readout",
+            "url": "https://forum.vcfed.org/index.php?threads/paradise-pvc2-questions-on-olivetti-m19.1245902/post-1434412"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_timing_followup",
+            "url": "https://forum.vcfed.org/index.php?threads/paradise-pvc2-questions-on-olivetti-m19.1245902/post-1464878"
           }
         ]
       }
-    ]
+    ],
+    "platform_id": "olivetti-m19-platform",
+    "blumach_emulation": "inherited",
+    "creation": {
+      "status": "partial",
+      "directory_prefix": "olivetti-m19",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m19.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.memory",
+          "value_key": "creation.option.memory.640kb"
+        },
+        {
+          "label_key": "creation.label.floppy_drives",
+          "value_key": "product.olivetti-m19.creation.floppy"
+        },
+        {
+          "label_key": "creation.label.firmware",
+          "value_key": "product.olivetti-m19.creation.firmware"
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m19.creation.note"
+      ],
+      "configuration": [
+        {
+          "section": "General",
+          "values": {
+            "vid_renderer": "qt_software"
+          }
+        },
+        {
+          "section": "Machine",
+          "values": {
+            "cpu_family": "8088",
+            "cpu_speed": 4772728,
+            "cpu_multi": 1,
+            "cpu_use_dynarec": 0,
+            "mem_size": 640
+          }
+        },
+        {
+          "section": "Video",
+          "values": {
+            "gfxcard": "internal"
+          }
+        },
+        {
+          "section": "Input devices",
+          "values": {
+            "keyboard_type": "internal",
+            "mouse_type": "none"
+          }
+        },
+        {
+          "section": "Floppy and CD-ROM drives",
+          "values": {
+            "fdd_01_type": "525_2dd",
+            "fdd_02_type": "none"
+          }
+        },
+        {
+          "section": "Storage controllers",
+          "values": {
+            "hdc_1": "none"
+          }
+        }
+      ],
+      "generated_files": []
+    }
+  },
+  "platform_order": 203,
+  "platform": {
+    "id": "olivetti-m19-platform",
+    "emulator_machine_id": "m19",
+    "architecture": "8088"
   }
 }

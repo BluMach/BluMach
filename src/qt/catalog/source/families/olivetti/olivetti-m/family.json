@@ -112,7 +112,7 @@
               "value_key": "family.olivetti-m.format.desktop"
             },
             {
-              "value_key": "family.olivetti-m.status.reference"
+              "value_key": "family.olivetti-m.status.partial"
             }
           ]
         },
@@ -133,6 +133,26 @@
             },
             {
               "value_key": "family.olivetti-m.status.reference"
+            }
+          ]
+        },
+        {
+          "id": "m19",
+          "cells": [
+            {
+              "value": "1986"
+            },
+            {
+              "value": "M19"
+            },
+            {
+              "value": "8088"
+            },
+            {
+              "value_key": "family.olivetti-m.format.desktop"
+            },
+            {
+              "value_key": "family.olivetti-m.status.partial"
             }
           ]
         },
