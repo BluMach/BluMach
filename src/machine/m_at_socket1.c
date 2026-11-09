@@ -435,8 +435,15 @@ ba2142_shadow_update(uint8_t index, uint8_t value)
     /* PDKK programs CC for the E/F ROM windows and CD/CE for the
        16 KiB option-ROM windows. Other register effects are unmodeled. */
     if (index == 0xcc) {
+        uint8_t f_mode = value >> 6;
+
+        /* During IDE POST PDKK opens the F shadow for writes while it
+           continues executing from the shadowed system BIOS. */
+        if ((value & 0xf0) == 0xd0)
+            f_mode = 1;
+
         ba2142_shadow_region(0xe0000, 0x10000, (value >> 4) & 3);
-        ba2142_shadow_region(0xf0000, 0x10000, value >> 6);
+        ba2142_shadow_region(0xf0000, 0x10000, f_mode);
     } else {
         const uint32_t base = (index == 0xcd) ? 0xc0000 : 0xd0000;
         for (unsigned slot = 0; slot < 4; slot++)
@@ -539,6 +546,8 @@ machine_at_olivetti_ba2142_init(const machine_t *model)
     device_add(&ba2142_shadow_device);
     device_add(&port_6x_vlsi_refresh_device);
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
+    /* PDKK transfers sector data with 32-bit reads of the ATA data port. */
+    device_add_params(&ide_isa_device, (void *) IDE_DEVICE_32BIT_DATA);
     device_add_params(&fdc37c6xx_device, (void *) (FDC37C651 | FDC37C6XX_IDE_PRI));
 
     if (gfxcard[0] == VID_INTERNAL)
