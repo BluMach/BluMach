@@ -185,6 +185,16 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-m19.technical.source_video_fix",
             "url": "https://github.com/86Box/86Box/commit/91cf90c63a07cec0abff3ce3b1cc19a8f6ed180a"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_timing_readout",
+            "url": "https://forum.vcfed.org/index.php?threads/paradise-pvc2-questions-on-olivetti-m19.1245902/post-1434412"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m19.technical.source_timing_followup",
+            "url": "https://forum.vcfed.org/index.php?threads/paradise-pvc2-questions-on-olivetti-m19.1245902/post-1464878"
           }
         ]
       }
