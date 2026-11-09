@@ -57,21 +57,24 @@ static video_timings_t timing_ogc = { .type = VIDEO_ISA, .write_b = 8, .write_w 
 
 static uint8_t mdaattr[256][2][2];
 
+#define M19_OGC_PIXEL_CLOCK 14318180.0
 #define M24_OGC_PIXEL_CLOCK 24000000.0
 
 /*
- * The GO380 scrambler translates the BIOS mode 40h CRTC values. Apply the
- * documented translation of this timing profile, leaving other programmed
- * modes on the existing OGC path. The guest still sees its original values.
+ * The standard BIOS mode 40h values need different output timings on the
+ * M19 and M24. Keep the guest registers and the existing path for custom modes.
  */
 static bool
-ogc_m24_bios_40h(const ogc_t *ogc)
+ogc_standard_40h(const ogc_t *ogc)
 {
     static const uint8_t horizontal[] = { 0x38, 0x28, 0x2d };
     static const uint8_t vertical[]   = { 0x7f, 0x06, 0x64, 0x70, 0x02, 0x01 };
     const uint8_t       *crtc         = ogc->cga.crtc;
 
-    return ogc->is_m24 && (ogc->ctrl_3de & 0x81) == 1 &&
+    /* The M19 BIOS can set bit 7 of its 03DBh control register in mode 40h. */
+    const bool profile_device = ogc->is_m24 ? !(ogc->ctrl_3de & 0x80) : ogc->ctrl_addr == 0x3db;
+
+    return profile_device && (ogc->ctrl_3de & 1) &&
            (ogc->cga.cgamode & (CGA_MODE_FLAG_HIGHRES | CGA_MODE_FLAG_GRAPHICS | CGA_MODE_FLAG_HIGHRES_GRAPHICS)) ==
                (CGA_MODE_FLAG_GRAPHICS | CGA_MODE_FLAG_HIGHRES_GRAPHICS) &&
            !memcmp(crtc, horizontal, sizeof(horizontal)) &&
@@ -86,12 +89,14 @@ ogc_recalctimings(ogc_t *ogc)
     double _dispofftime;
     double disptime;
 
-    if (ogc_m24_bios_40h(ogc)) {
-        /* Translated R0=39h and R1=28h, with 16 dots per CRTC character. */
-        const double character_time = 16.0 * (cpuclock / M24_OGC_PIXEL_CLOCK) * (double) (1ULL << 32);
+    if (ogc_standard_40h(ogc)) {
+        /* M19 monochrome R0=2Fh and M24 translated R0=39h, both with R1=28h. */
+        const int    htotal         = ogc->is_m24 ? 58 : 48;
+        const double pixel_clock    = ogc->is_m24 ? M24_OGC_PIXEL_CLOCK : M19_OGC_PIXEL_CLOCK;
+        const double character_time = 16.0 * (cpuclock / pixel_clock) * (double) (1ULL << 32);
 
         ogc->cga.dispontime  = (uint64_t) (40 * character_time);
-        ogc->cga.dispofftime = (uint64_t) ((58 - 40) * character_time);
+        ogc->cga.dispofftime = (uint64_t) ((htotal - 40) * character_time);
         return;
     }
 
@@ -114,7 +119,7 @@ void
 ogc_out(uint16_t addr, uint8_t val, void *priv)
 {
     ogc_t     *ogc         = (ogc_t *) priv;
-    const bool was_bios_40h = ogc_m24_bios_40h(ogc);
+    const bool was_standard_40h = ogc_standard_40h(ogc);
 
 #if 0
     if (addr >= 0x3c0 && addr <= 0x3cf)
@@ -147,9 +152,9 @@ ogc_out(uint16_t addr, uint8_t val, void *priv)
     }
 
     /* The shared CGA write handlers can recalculate their own timings. */
-    if (ogc_m24_bios_40h(ogc))
+    if (ogc_standard_40h(ogc))
         ogc_recalctimings(ogc);
-    else if (was_bios_40h)
+    else if (was_standard_40h)
         cga_recalctimings(&ogc->cga);
 }
 
@@ -260,12 +265,18 @@ ogc_poll(void *priv)
     int      scanline_old;
     int      blink     = 0;
     int      underline = 0;
-    const bool bios_40h = ogc_m24_bios_40h(ogc);
-    /* R4=6Bh, R5=00h and R7=64h after translation. The existing line
-       pairing implements the translated four scanlines per CRTC row. */
-    const int vtotal   = bios_40h ? 0x6b : ogc->cga.crtc[CGA_CRTC_VTOTAL];
-    const int vadjust  = bios_40h ? 0 : ogc->cga.crtc[CGA_CRTC_VTOTAL_ADJUST];
-    const int vsync    = bios_40h ? 0x64 : ogc->cga.crtc[CGA_CRTC_VSYNC];
+    const bool standard_40h = ogc_standard_40h(ogc);
+    const bool m19_40h      = standard_40h && !ogc->is_m24;
+    const int  vsync        = standard_40h ? 0x64 : ogc->cga.crtc[CGA_CRTC_VSYNC];
+    int        vtotal       = ogc->cga.crtc[CGA_CRTC_VTOTAL];
+    int        vadjust      = ogc->cga.crtc[CGA_CRTC_VTOTAL_ADJUST];
+
+    if (standard_40h) {
+        /* Four physical scanlines per row, followed by the M19's seven blank
+           lines. The M24 GO380 translation uses R4=6Bh and no adjustment. */
+        vtotal  = m19_40h ? 0x64 : 0x6b;
+        vadjust = m19_40h ? 7 : 0;
+    }
 
     // Composite color appears dark blue
 
@@ -433,9 +444,11 @@ ogc_poll(void *priv)
                 x = (ogc->cga.crtc[CGA_CRTC_HDISP] << 4) + 16;
 
             video_process_8(x, ogc->cga.displine);
+            double pixel_clock = 16. * (1. / (CGACONST / (cpuclock * (double) (1ULL << 32))));
+            if (standard_40h)
+                pixel_clock = m19_40h ? M19_OGC_PIXEL_CLOCK : M24_OGC_PIXEL_CLOCK;
             video_lightpen_check_trigger_strobe(8, ogc->cga.displine * (ogc->cga.double_type ? 2 : 1), 0, ogc->cga.firstline + 8,
-                                                bios_40h ? M24_OGC_PIXEL_CLOCK : 16. * (1. / (CGACONST / (cpuclock * (double) (1ULL << 32)))),
-                                                ogc->cga.monitor_used);
+                                                pixel_clock, ogc->cga.monitor_used);
 
             ogc->cga.scanline = scanline_old;
             if (ogc->cga.vc == vsync && !ogc->cga.scanline)
@@ -449,8 +462,12 @@ ogc_poll(void *priv)
             if (ogc->cga.cgadispon)
                 ogc->cga.cgastat &= ~1;
             ogc->cga.linepos = 0;
-            /* ogc specific */
-            ogc->lineff ^= 1;
+            /* Keep the first active line in bank zero after the M19's odd
+               blanking adjustment, which counts physical lines. */
+            if (m19_40h && ogc->cga.vadj)
+                ogc->lineff = 0;
+            else
+                ogc->lineff ^= 1;
             if (ogc->lineff) {
                 ogc->cga.memaddr = ogc->cga.memaddr_backup;
             } else {

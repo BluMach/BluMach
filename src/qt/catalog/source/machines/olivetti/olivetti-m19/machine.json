@@ -132,6 +132,10 @@
             "value_key": "product.olivetti-m19.technical.verified"
           },
           {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m19.technical.timing"
+          },
+          {
             "label_key": "technical.label.limitations",
             "value_key": "product.olivetti-m19.technical.limitations"
           }
@@ -200,7 +204,7 @@
       }
     ],
     "platform_id": "olivetti-m19-platform",
-    "blumach_emulation": "inherited",
+    "blumach_emulation": "improved",
     "creation": {
       "status": "partial",
       "directory_prefix": "olivetti-m19",
