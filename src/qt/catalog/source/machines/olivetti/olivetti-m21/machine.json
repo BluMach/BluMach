@@ -9,7 +9,7 @@
     "summary_key": "product.olivetti-m21.summary",
     "history_key": "product.olivetti-m21.history",
     "warning_key": "product.olivetti-m21.warning",
-    "status": "research",
+    "status": "experimental",
     "period": "1984",
     "aliases": [],
     "tags": [
@@ -34,6 +34,9 @@
       ],
       "video": [
         "ogc"
+      ],
+      "display_color": [
+        "monochrome"
       ]
     },
     "media": {
@@ -52,13 +55,19 @@
       "floppy": "1–2 × 5.25″ · 360 KB",
       "interfaces": "RS-232C · Centronics",
       "expansion": "62-pin + 38-pin · 8 / 16-bit",
-      "display": "CRT · 9″ · 640 × 400"
+      "display": "CRT · 9″ · 640 × 400 · amber"
     },
     "firmware": {
       "known_sets": [
-        "1.43 · PQBK/PQBL · 2 × 8 KiB"
+        "1.43 · PQBK/PQBL · 2 × 8 KiB",
+        "1.44 · M21 · 2 × 8 KiB"
       ],
-      "required": true
+      "required": true,
+      "required_files": [
+        "machines/m21/olivetti_m21_version_1.44_low_even.bin",
+        "machines/m21/olivetti_m21_version_1.44_high_odd.bin",
+        "video/ogc/ogc graphics board go380 258 pqbq.bin"
+      ]
     },
     "technical": [
       {
@@ -87,7 +96,7 @@
       },
       {
         "title_key": "technical.section.firmware",
-        "evidence_key": "technical.evidence.documented",
+        "evidence_key": "technical.evidence.observed",
         "entries": [
           {
             "label_key": "technical.label.bios_revision",
@@ -131,7 +140,7 @@
           {
             "label_key": "technical.label.source_firmware",
             "value_key": "product.olivetti-m21.technical.source_bios",
-            "url": "https://archive.org/details/dos_rom_bios_collection"
+            "url": "https://forum.vcfed.org/index.php?threads/olivetti-m21-m24-with-bios-version-1-44.72815/"
           },
           {
             "label_key": "technical.label.implementation_lineage",
@@ -140,6 +149,84 @@
           }
         ]
       }
-    ]
+    ],
+    "platform_id": "olivetti-m21-platform",
+    "blumach_emulation": "implemented",
+    "creation": {
+      "status": "experimental",
+      "directory_prefix": "olivetti-m21",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m21.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.memory",
+          "value_key": "product.olivetti-m21.creation.memory"
+        },
+        {
+          "label_key": "creation.label.firmware",
+          "value_key": "product.olivetti-m21.creation.firmware"
+        },
+        {
+          "label_key": "creation.label.floppy_drives",
+          "value_key": "product.olivetti-m21.creation.floppy"
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m21.creation.note"
+      ],
+      "configuration": [
+        {
+          "section": "General",
+          "values": {
+            "vid_renderer": "qt_software"
+          }
+        },
+        {
+          "section": "Machine",
+          "values": {
+            "cpu_family": "8086",
+            "cpu_speed": 8000000,
+            "cpu_multi": 1,
+            "cpu_use_dynarec": 0,
+            "fpu_type": "none",
+            "mem_size": 128
+          }
+        },
+        {
+          "section": "Video",
+          "values": {
+            "gfxcard": "internal"
+          }
+        },
+        {
+          "section": "Input devices",
+          "values": {
+            "keyboard_type": "internal",
+            "mouse_type": "none"
+          }
+        },
+        {
+          "section": "Floppy and CD-ROM drives",
+          "values": {
+            "fdd_01_type": "525_2dd",
+            "fdd_02_type": "none"
+          }
+        },
+        {
+          "section": "Storage controllers",
+          "values": {
+            "fdc": "internal"
+          }
+        }
+      ]
+    }
+  },
+  "platform_order": 137,
+  "platform": {
+    "id": "olivetti-m21-platform",
+    "emulator_machine_id": "m21",
+    "architecture": "8086"
   }
 }

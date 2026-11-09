@@ -3441,6 +3441,54 @@ const machine_t machines[] = {
         .aliases                  = { "" }
     },
     {
+        .name              = "[8086] Olivetti M21 (experimental)",
+        .internal_name     = "m21",
+        .blumach_release_managed = 1,
+        .type              = MACHINE_TYPE_8086,
+        .chipset           = MACHINE_CHIPSET_PROPRIETARY,
+        .init              = machine_xt_m21_init,
+        .p1_handler        = NULL,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_8086,
+            .block       = CPU_BLOCK_NONE,
+            .min_bus     = 8000000,
+            .max_bus     = 8000000,
+            .min_voltage = 0,
+            .max_voltage = 0,
+            .min_multi   = 0,
+            .max_multi   = 0
+        },
+        .bus_flags = MACHINE_PC,
+        .flags     = MACHINE_VIDEO_FIXED | MACHINE_KEYBOARD | MACHINE_FDC,
+        .ram       = {
+            .min  = 128,
+            .max  = 640,
+            .step = 128
+        },
+        .nvrmask                  = 15,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = NULL,
+        .kbc_params               = 0x00000000,
+        .nvr_device               = NULL,
+        .nvr_params               = 0x00000000,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0xff,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = NULL,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = &ogc_m21_device,
+        .snd_device               = NULL,
+        .net_device               = NULL,
+        .aliases                  = { "Olivetti M21", "" }
+    },
+    {
         .name              = "[8086] Olivetti M24",
         .internal_name     = "m24",
         .type              = MACHINE_TYPE_8086,
@@ -3485,7 +3533,7 @@ const machine_t machines[] = {
         .vid_device               = &ogc_m24_device,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "Olivetti M21", "Olivetti M24SP", "AT&T PC 6300", "" }
+        .aliases                  = { "Olivetti M24SP", "AT&T PC 6300", "" }
     },
     /* Has Olivetti KBC firmware. */
     {

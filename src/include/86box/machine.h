@@ -1637,6 +1637,7 @@ extern int             machine_europc_init(const machine_t *);
 extern const device_t  m19_vid_device;
 #endif
 extern int             machine_xt_m19_init(const machine_t *);
+extern int             machine_xt_m21_init(const machine_t *);
 extern int             machine_xt_m24_init(const machine_t *);
 extern int             machine_xt_m240_init(const machine_t *);
 
