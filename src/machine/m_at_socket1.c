@@ -402,7 +402,20 @@ typedef struct {
     uint8_t index;
     uint8_t unlock;
     uint8_t regs[0x14];
+    rom_t   flash_alias;
 } ba2142_shadow_t;
+
+static void
+ba2142_flash_alias_update(ba2142_shadow_t *dev)
+{
+    /* When shadowing the E window, PDKK reads the VGA ROM from E000
+       and the compressed system module from E800 in the upper flash bank. */
+    if ((dev->regs[0xcf - 0xc0] & 0xc0) == 0xc0 &&
+        (dev->regs[0xcc - 0xc0] & 0x30) == 0x30)
+        mem_mapping_enable(&dev->flash_alias.mapping);
+    else
+        mem_mapping_disable(&dev->flash_alias.mapping);
+}
 
 static void
 ba2142_shadow_region(uint32_t base, uint32_t size, uint8_t mode)
@@ -465,13 +478,20 @@ ba2142_shadow_write(uint16_t port, uint8_t value, void *priv)
         dev->regs[dev->index - 0xc0] = value;
         if (dev->index >= 0xcc && dev->index <= 0xce)
             ba2142_shadow_update(dev->index, value);
+        if (dev->index == 0xcc || dev->index == 0xcf)
+            ba2142_flash_alias_update(dev);
     }
 }
 
 static void
 ba2142_shadow_reset(void *priv)
 {
-    memset(priv, 0, sizeof(ba2142_shadow_t));
+    ba2142_shadow_t *dev = priv;
+
+    dev->index = 0;
+    dev->unlock = 0;
+    memset(dev->regs, 0, sizeof(dev->regs));
+    ba2142_flash_alias_update(dev);
     for (uint8_t index = 0xcc; index <= 0xce; index++)
         ba2142_shadow_update(index, 0);
 }
@@ -480,6 +500,15 @@ static void *
 ba2142_shadow_init(UNUSED(const device_t *info))
 {
     ba2142_shadow_t *dev = calloc(1, sizeof(ba2142_shadow_t));
+
+    dev->flash_alias.rom  = rom + 0x10000;
+    dev->flash_alias.sz   = 0x10000;
+    dev->flash_alias.mask = 0xffff;
+    mem_mapping_add(&dev->flash_alias.mapping, 0xe0000, dev->flash_alias.sz,
+                    rom_read, rom_readw, rom_readl, NULL, NULL, NULL,
+                    dev->flash_alias.rom, MEM_MAPPING_EXTERNAL | MEM_MAPPING_ROM | MEM_MAPPING_ROMCS,
+                    &dev->flash_alias);
+    mem_mapping_disable(&dev->flash_alias.mapping);
 
     io_sethandler(0x8022, 1, NULL, NULL, NULL, ba2142_shadow_write, NULL, NULL, dev);
     io_sethandler(0x8024, 1, ba2142_shadow_read, NULL, NULL, ba2142_shadow_write, NULL, NULL, dev);
