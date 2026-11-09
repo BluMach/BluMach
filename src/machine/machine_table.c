@@ -4599,6 +4599,55 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "PCS 286/S", "PCS286/S", "PCS 286 TI", "" }
     },
+    /* Olivetti M290S, M203 board. Only the 1 MiB floppy profile is qualified. */
+    {
+        .name              = "[TI TACT82300] Olivetti M290S (M203)",
+        .internal_name     = "olivetti_m290s",
+        .blumach_release_managed = 1,
+        .type              = MACHINE_TYPE_286,
+        .chipset           = MACHINE_CHIPSET_PROPRIETARY,
+        .init              = machine_at_olivetti_m290s_init,
+        .p1_handler        = machine_generic_p1_handler,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_286,
+            .block       = CPU_BLOCK_NONE,
+            .min_bus     = 16000000,
+            .max_bus     = 16000000,
+            .min_voltage = 0,
+            .max_voltage = 0,
+            .min_multi   = 0,
+            .max_multi   = 0
+        },
+        .bus_flags = MACHINE_AT,
+        .flags     = MACHINE_VIDEO,
+        .ram       = {
+            .min  = 1024,
+            .max  = 1024,
+            .step = 1024
+        },
+        .nvrmask                  = 127,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = &kbc_at_device,
+        .kbc_params               = KBC_VEN_OLIVETTI | KBC_FLAG_OLIVETTI_8B_LINE,
+        .nvr_device               = &nvr_at_device,
+        .nvr_params               = NVR_AT_ZERO_DEFAULT,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0x000004f0,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = NULL,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = &paradise_pvga1a_pcs286_device,
+        .snd_device               = NULL,
+        .net_device               = NULL,
+        .aliases                  = { "M290S", "M290 S", "M203", "" }
+    },
     /* Has IBM AT KBC firmware. */
     /* To configure the BIOS, use PB_2330a_diag.IMA from MS-DOS 3.30 Packard Bell OEM, GSETUP might work too*/
     {

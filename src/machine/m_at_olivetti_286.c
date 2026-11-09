@@ -804,38 +804,16 @@ olivetti_pcs286s_post_write(UNUSED(uint16_t port), uint8_t val, UNUSED(void *pri
 #endif
 }
 
-/* TI-board PCS 286S.  The preserved 2.06 firmware and the physical board
-   identify a TACT82300-family three-chip set, the Olivetti OLIMCU16 ASIC,
-   PC87310 Super I/O and onboard Paradise VGA.  TACT/OLIMCU16 memory control
-   is deliberately not substituted with Headland: until that ASIC is modeled
-   this target is experimental, but it provides an honest firmware/peripheral
-   integration point for POST tracing and incremental implementation. */
-int
-machine_at_olivetti_pcs286s_ti_init(const machine_t *model)
+/* Reuse the PCS 286/S approximation for the TACT memory interface
+   and the common AT peripherals. M203-specific decode remains unverified. */
+static void
+olivetti_tact286_peripherals_init(const machine_t *model)
 {
-    int         ret;
-    const char *bios;
-    const char *fn[2];
-
-    device_context(model->device);
-    bios  = device_get_config_bios("bios");
-    fn[0] = device_get_bios_file(model->device, bios, 0);
-    fn[1] = device_get_bios_file(model->device, bios, 1);
-    ret   = bios_load_interleaved(fn[0], fn[1], 0x000e0000, 131072, 0);
-    device_context_restore();
-
-    if (bios_only || !ret)
-        return ret;
-
-    machine_at_common_ide_init(model);
-
     /* Murdock's preservation branch established the board-level devices
        below.  PC87310 owns FDC, two UARTs and LPT and is configured through
        port 03F3h, which is also visible in the 2.06 reset path. */
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
     device_add(&pc87310_device);
-    io_sethandler(0x0378, 1, NULL, NULL, NULL,
-                  olivetti_pcs286s_post_write, NULL, NULL, NULL);
 
     memset(&olivetti_pcs286s_olimcu, 0, sizeof(olivetti_pcs286s_olimcu));
     /* Until the BIOS programs register 08h, use the emulator defaults. */
@@ -890,6 +868,53 @@ machine_at_olivetti_pcs286s_ti_init(const machine_t *model)
 
     if (gfxcard[0] == VID_INTERNAL)
         device_add(&paradise_pvga1a_pcs286_device);
+}
 
+/* TI-board PCS 286S.  The preserved 2.06 firmware and the physical board
+   identify a TACT82300-family three-chip set, the Olivetti OLIMCU16 ASIC,
+   PC87310 Super I/O and onboard Paradise VGA.  TACT/OLIMCU16 memory control
+   is deliberately not substituted with Headland: until that ASIC is modeled
+   this target is experimental, but it provides an honest firmware/peripheral
+   integration point for POST tracing and incremental implementation. */
+int
+machine_at_olivetti_pcs286s_ti_init(const machine_t *model)
+{
+    int         ret;
+    const char *bios;
+    const char *fn[2];
+
+    device_context(model->device);
+    bios  = device_get_config_bios("bios");
+    fn[0] = device_get_bios_file(model->device, bios, 0);
+    fn[1] = device_get_bios_file(model->device, bios, 1);
+    ret   = bios_load_interleaved(fn[0], fn[1], 0x000e0000, 131072, 0);
+    device_context_restore();
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_ide_init(model);
+    olivetti_tact286_peripherals_init(model);
+    io_sethandler(0x0378, 1, NULL, NULL, NULL,
+                  olivetti_pcs286s_post_write, NULL, NULL, NULL);
+
+    return ret;
+}
+
+/* BluMach modifications: rtzor, Project BluMach, 2026. */
+int
+machine_at_olivetti_m290s_init(const machine_t *model)
+{
+    const int ret = bios_load_interleaved("roms/machines/olivetti_m290s/m203_129_low.bin",
+                                         "roms/machines/olivetti_m290s/m203_129_high.bin",
+                                         0x000e0000, 131072, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    /* The provisional M203 profile exposes only the verified floppy path.
+       An empty ATA controller responds at 1F7h and triggers Extended Setup. */
+    machine_at_common_init(model);
+    olivetti_tact286_peripherals_init(model);
     return ret;
 }

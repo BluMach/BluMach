@@ -121,6 +121,7 @@ typedef struct atkbc_t {
     /* PCS 386SX: Olivetti configuration byte read with 80h, written with 84h. */
     uint8_t olivetti_pcs386sx_cfg;
     uint8_t olivetti_m4_clock_query;
+    uint8_t olivetti_8b_line;
     /* Olivetti 8742 extended protocol (A8h-prefixed 80h-84h): hardware
        registers and a word-organised NVRAM behind the controller. */
     uint8_t olivetti_ext;
@@ -2257,7 +2258,10 @@ write_cmd_olivetti(void *priv, uint8_t val)
                 /* Olivetti M4 POST reads 8Dh/80h bit 7 for the 25/33 MHz POST label. */
                 dev->olivetti_m4_clock_query = 0;
                 kbc_delay_to_ob(dev, cpu_busspeed > 25000000 ? 0x8c : 0x0c, 0, 0x00);
-            } else if (machines[machine].init == machine_at_olivetti_pcs286_init)
+            } else if (dev->flags & KBC_FLAG_OLIVETTI_8B_LINE)
+                /* M203 1.29 reads the 8Ah/8Bh board line on bit 5. */
+                kbc_delay_to_ob(dev, 0x8c | dev->olivetti_8b_line, 0, 0x00);
+            else if (machines[machine].init == machine_at_olivetti_pcs286_init)
                 /* PCS 286 / Dario 286 BIOS 1.42 (F000:42F0): with bit 5 low,
                    POST rewrites CMOS 13h = 84h, 1Bh = 00h and 37h-3Fh = 00h on
                    every boot, discarding the password and the Setup frequency
@@ -2313,7 +2317,10 @@ write_cmd_olivetti(void *priv, uint8_t val)
             break;
 
         case 0x8a: /* M300-30/30P: close the board configuration register */
-            if (machines[machine].init == machine_at_olivetti_m30030_init) {
+            if (dev->flags & KBC_FLAG_OLIVETTI_8B_LINE) {
+                dev->olivetti_8b_line = 0x00;
+                ret = 0;
+            } else if (machines[machine].init == machine_at_olivetti_m30030_init) {
                 machine_at_olivetti_m30030_cfg_window(0);
                 ret = 0;
             } else if (machines[machine].init == machine_at_olivetti_m290sp_init) {
@@ -2323,7 +2330,10 @@ write_cmd_olivetti(void *priv, uint8_t val)
             break;
 
         case 0x8b: /* PCS 286S: select manufacturing-jumper status */
-            if (machines[machine].init == machine_at_olivetti_pcs286s_ti_init)
+            if (dev->flags & KBC_FLAG_OLIVETTI_8B_LINE) {
+                dev->olivetti_8b_line = 0x20;
+                ret = 0;
+            } else if (machines[machine].init == machine_at_olivetti_pcs286s_ti_init)
                 ret = 0;
             /* M300-30/30P: open the board configuration register on port 70h */
             else if (machines[machine].init == machine_at_olivetti_m30030_init) {
@@ -2336,7 +2346,8 @@ write_cmd_olivetti(void *priv, uint8_t val)
             break;
 
         case 0xcf: /* Phoenix POST separator/no-op */
-            if ((machines[machine].init == machine_at_olivetti_pcs286_init) ||
+            if ((dev->flags & KBC_FLAG_OLIVETTI_8B_LINE) ||
+                (machines[machine].init == machine_at_olivetti_pcs286_init) ||
                 (machines[machine].init == machine_at_olivetti_pcs286s_ti_init) ||
                 (machines[machine].init == machine_at_olivetti_pcs386sx_init) ||
                 (machines[machine].init == machine_at_olivetti_m250_init) ||
@@ -3229,6 +3240,7 @@ kbc_at_reset(void *priv)
     atkbc_t *dev = (atkbc_t *) priv;
 
     dev->olivetti_m4_clock_query = 0;
+    dev->olivetti_8b_line        = 0;
 
     dev->status         = STAT_UNLOCKED;
     dev->delay_selftest = 0;
