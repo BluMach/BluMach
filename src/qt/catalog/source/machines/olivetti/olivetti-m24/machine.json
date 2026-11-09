@@ -167,7 +167,7 @@
       }
     ],
     "platform_id": "olivetti-m24-platform",
-    "blumach_emulation": "inherited",
+    "blumach_emulation": "improved",
     "creation": {
       "status": "partial",
       "directory_prefix": "olivetti-m24",
