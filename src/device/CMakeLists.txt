@@ -67,7 +67,7 @@ add_library(dev OBJECT
     smbus_sis5595.c
     tulip_jumper.c
     toshiba_aform.c
-    unittester.c
+    "$<${BLUMACH_UNIT_TESTER_CONFIG}:unittester.c>"
     zenith_scratchpad.c
     lightpen_pxl380.c
 )

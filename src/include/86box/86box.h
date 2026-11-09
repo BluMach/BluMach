@@ -199,7 +199,9 @@ extern int      gfxcard[GFXCARD_MAX];       /* (C) graphics/video card */
 extern int      bugger_enabled;             /* (C) enable ISAbugger */
 extern int      novell_keycard_enabled;     /* (C) enable Novell NetWare 2.x key card emulation. */
 extern int      postcard_enabled;           /* (C) enable POST card */
+#ifdef BLUMACH_UNIT_TESTER
 extern int      unittester_enabled;         /* (C) enable unit tester device */
+#endif
 extern int      gameport_type[];            /* (C) enable gameports */
 extern int      isamem_type[];              /* (C) enable ISA mem cards */
 extern int      isarom_type[];              /* (C) enable ISA ROM cards */

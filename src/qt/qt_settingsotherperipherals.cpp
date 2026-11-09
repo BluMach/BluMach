@@ -24,7 +24,9 @@ extern "C" {
 #include <86box/isamem.h>
 #include <86box/isarom.h>
 #include <86box/isartc.h>
-#include <86box/unittester.h>
+#ifdef BLUMACH_UNIT_TESTER
+#    include <86box/unittester.h>
+#endif
 #include <86box/novell_cardkey.h>
 }
 
@@ -49,6 +51,10 @@ SettingsOtherPeripherals::SettingsOtherPeripherals(QWidget *parent)
     , ui(new Ui::SettingsOtherPeripherals)
 {
     ui->setupUi(this);
+#ifndef BLUMACH_UNIT_TESTER
+    ui->checkBoxUnitTester->hide();
+    ui->pushButtonConfigureUT->hide();
+#endif
 
     for (uint8_t i = 0; i < ISAMEM_MAX; ++i) {
         scIsaMemCard[i] = new SettingsCompleter(findChild<QComboBox *>(QString("comboBoxIsaMemCard%1").arg(i + 1)), nullptr);
@@ -63,7 +69,6 @@ SettingsOtherPeripherals::SettingsOtherPeripherals(QWidget *parent)
     scRTC           = new SettingsCompleter(ui->comboBoxRTC, nullptr);
     isartc_cfg_changed         = 0;
 
-    unittester_cfg_changed     = 0;
     novell_keycard_cfg_changed = 0;
 
     onCurrentMachineChanged(machine);
@@ -93,13 +98,15 @@ SettingsOtherPeripherals::onCurrentMachineChanged(int machineId)
     ui->pushButtonConfigureRTC->setEnabled(machineHasIsaOrSidecar);
     ui->comboBoxRTC->setEnabled(machineHasIsaOrSidecar);
     ui->checkBoxISABugger->setEnabled(machineHasIsa);
-    ui->pushButtonConfigureUT->setEnabled(unittester_enabled > 0);
     ui->checkBoxKeyCard->setEnabled(machineHasIsa);
     ui->pushButtonConfigureKeyCard->setEnabled(novell_keycard_enabled > 0);
 
     ui->checkBoxISABugger->setChecked((machineHasIsa && (bugger_enabled > 0)) ? true : false);
     ui->checkBoxPOSTCard->setChecked(postcard_enabled > 0 ? true : false);
-    ui->checkBoxUnitTester->setChecked(unittester_enabled > 0 ? true : false);
+#ifdef BLUMACH_UNIT_TESTER
+    ui->checkBoxUnitTester->setChecked(unittester_enabled > 0);
+    ui->pushButtonConfigureUT->setEnabled(unittester_enabled > 0);
+#endif
     ui->checkBoxKeyCard->setChecked((machineHasIsa && (novell_keycard_enabled > 0)) ? true : false);
 
     scRTC->removeRows();
@@ -234,8 +241,10 @@ SettingsOtherPeripherals::changed()
     has_changed |= isartc_cfg_changed;
     has_changed |= (bugger_enabled         != (ui->checkBoxISABugger->isChecked() ? 1 : 0));
     has_changed |= (postcard_enabled       != (ui->checkBoxPOSTCard->isChecked() ? 1 : 0));
+#ifdef BLUMACH_UNIT_TESTER
     has_changed |= (unittester_enabled     != (ui->checkBoxUnitTester->isChecked() ? 1 : 0));
     has_changed |= unittester_cfg_changed;
+#endif
     has_changed |= (novell_keycard_enabled != (ui->checkBoxKeyCard->isChecked() ? 1 : 0));
     has_changed |= novell_keycard_cfg_changed;
 
@@ -271,7 +280,9 @@ SettingsOtherPeripherals::save(int soft)
     isartc_type            = ui->comboBoxRTC->currentData().toInt();
     bugger_enabled         = ui->checkBoxISABugger->isChecked() ? 1 : 0;
     postcard_enabled       = ui->checkBoxPOSTCard->isChecked() ? 1 : 0;
+#ifdef BLUMACH_UNIT_TESTER
     unittester_enabled     = ui->checkBoxUnitTester->isChecked() ? 1 : 0;
+#endif
     novell_keycard_enabled = ui->checkBoxKeyCard->isChecked() ? 1 : 0;
 
     /* ISA memory boards. */
@@ -422,6 +433,7 @@ SettingsOtherPeripherals::on_pushButtonConfigureIsaRomCard4_clicked()
     isarom_cfg_changed[3] |= DeviceConfig::ConfigureDevice(isarom_get_device(ui->comboBoxIsaRomCard4->currentData().toInt()), 4);
 }
 
+#ifdef BLUMACH_UNIT_TESTER
 void
 SettingsOtherPeripherals::on_checkBoxUnitTester_stateChanged(int arg1)
 {
@@ -433,6 +445,7 @@ SettingsOtherPeripherals::on_pushButtonConfigureUT_clicked()
 {
     unittester_cfg_changed |= DeviceConfig::ConfigureDevice(&unittester_device);
 }
+#endif
 
 void
 SettingsOtherPeripherals::on_checkBoxKeyCard_stateChanged(int arg1)

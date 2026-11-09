@@ -139,6 +139,9 @@ option(LIBASAN      "Enable compilation with the addresss sanitizer"            
 option(QT           "Use the Qt-based user interface"                            ON)
 option(SDL2         "Use SDL2 instead of SDL3"                                   OFF)
 
+set(BLUMACH_UNIT_TESTER_CONFIG "$<CONFIG:Debug,UltraDebug>")
+add_compile_definitions("$<${BLUMACH_UNIT_TESTER_CONFIG}:BLUMACH_UNIT_TESTER>")
+
 if((ARCH STREQUAL "arm64"))
     set(NEW_DYNAREC ON)
 else()
