@@ -604,12 +604,12 @@ machine_at_pcs46c_init(const machine_t *model)
     return ret;
 }
 
-/* Olivetti M4-64/65/66 Modulo, BA2077 (T.1.5 / BA2070). */
-int
-machine_at_olivetti_ba2077_init(const machine_t *model)
+/* Olivetti M4-4x and M4-6x: ET6000, PC87310 and GD5428. */
+static int
+machine_at_olivetti_m4_init(const machine_t *model, const char *rom_path)
 {
     /* The upper half of the 128 KiB EPROM contains the system BIOS. */
-    int ret = bios_load_linear(OLIVETTI_M4_65_ROM_PATH, 0x000f0000, 0x10000, 0x10000);
+    int ret = bios_load_linear(rom_path, 0x000f0000, 0x10000, 0x10000);
 
     if (bios_only || !ret)
         return ret;
@@ -625,6 +625,18 @@ machine_at_olivetti_ba2077_init(const machine_t *model)
     /* The Olivetti BIOS derives its drive flags from the legacy IDENTIFY ECC count. */
     ide_board_set_legacy_identify_ecc(0, 4);
     return ret;
+}
+
+int
+machine_at_olivetti_ba2077_init(const machine_t *model)
+{
+    return machine_at_olivetti_m4_init(model, OLIVETTI_M4_65_ROM_PATH);
+}
+
+int
+machine_at_olivetti_m4_trota_init(const machine_t *model)
+{
+    return machine_at_olivetti_m4_init(model, OLIVETTI_M4_TROTA_ROM_PATH);
 }
 
 int

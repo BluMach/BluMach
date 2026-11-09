@@ -5,11 +5,12 @@
     "visible": true,
     "manufacturer_id": "olivetti",
     "family_id": "olivetti-m",
+    "platform_id": "olivetti-m4-60-platform",
     "name": "Olivetti M4-60",
     "summary_key": "product.olivetti-m4-60.summary",
     "history_key": "product.olivetti-m4-60.history",
     "warning_key": "product.olivetti-m4-60.warning",
-    "status": "research",
+    "status": "partial",
     "aliases": [],
     "tags": [],
     "facets": {
@@ -27,10 +28,289 @@
       "cpu": "Intel i486SX · 25 MHz",
       "memory": "4–36 MB",
       "video": "Cirrus Logic CL-GD5428 · 512 KB–1 MB",
-      "expansion": "4 × ISA 16-bit"
+      "expansion": "4 × ISA 16-bit",
+      "board": "T.1 · BA2034",
+      "hard_disk": "IDE · 85/170/240 MB"
     },
     "firmware": {
-      "required": true
+      "required": true,
+      "required_files": [
+        "machines/olivetti_m4_trota/EPROM.ROM"
+      ],
+      "known_sets": [
+        "Olivetti 2.06 · EPROM.ROM · 128 KiB · OVC 1.09"
+      ]
+    },
+    "blumach_emulation": "implemented",
+    "creation": {
+      "status": "experimental",
+      "directory_prefix": "olivetti-m4-60",
+      "facts": [
+        {
+          "label_key": "creation.label.cpu",
+          "value_key": "product.olivetti-m4-60.creation.cpu"
+        },
+        {
+          "label_key": "creation.label.commercial_model",
+          "value_key": "product.olivetti-m4-60.creation.offer"
+        }
+      ],
+      "fields": [
+        {
+          "id": "memory",
+          "label_key": "creation.label.memory",
+          "default": "4096",
+          "choices": [
+            {
+              "id": "4096",
+              "label_key": "product.olivetti-m4-60.creation.memory.4096",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 4096
+                }
+              ]
+            },
+            {
+              "id": "8192",
+              "label_key": "product.olivetti-m4-60.creation.memory.8192",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 8192
+                }
+              ]
+            },
+            {
+              "id": "12288",
+              "label_key": "product.olivetti-m4-60.creation.memory.12288",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 12288
+                }
+              ]
+            },
+            {
+              "id": "20480",
+              "label_key": "product.olivetti-m4-60.creation.memory.20480",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 20480
+                }
+              ]
+            },
+            {
+              "id": "36864",
+              "label_key": "product.olivetti-m4-60.creation.memory.36864",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 36864
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "floppy",
+          "label_key": "creation.label.floppy_drives",
+          "default": "single",
+          "choices": [
+            {
+              "id": "single",
+              "label_key": "product.olivetti-m4-60.creation.floppy.single",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "none"
+                }
+              ]
+            },
+            {
+              "id": "with-525",
+              "label_key": "product.olivetti-m4-60.creation.floppy.with_525",
+              "status": "documented",
+              "set": [
+                {
+                  "section": "Floppy and CD-ROM drives",
+                  "key": "fdd_02_type",
+                  "value": "525_2hd"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-m4-60.creation.storage.none",
+              "status": "partial",
+              "set": []
+            },
+            {
+              "id": "ide-85",
+              "label_key": "product.olivetti-m4-60.creation.storage.85",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m4-60-ide-85.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "63, 16, 165, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_speed",
+                  "value": "1997_5400rpm"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m4-60-ide-85.img",
+                  "size": 85155840
+                }
+              ]
+            },
+            {
+              "id": "ide-170",
+              "label_key": "product.olivetti-m4-60.creation.storage.170",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m4-60-ide-170.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "63, 16, 329, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_speed",
+                  "value": "1997_5400rpm"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m4-60-ide-170.img",
+                  "size": 169795584
+                }
+              ]
+            },
+            {
+              "id": "ide-240",
+              "label_key": "product.olivetti-m4-60.creation.storage.240",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m4-60-ide-240.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "63, 16, 465, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_speed",
+                  "value": "1997_5400rpm"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m4-60-ide-240.img",
+                  "size": 239984640
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note_keys": [
+        "product.olivetti-m4-60.creation.note",
+        "product.olivetti-m4-60.creation.storage.note"
+      ],
+      "configuration": [
+        {
+          "section": "General",
+          "values": {
+            "vid_renderer": "qt_software",
+            "time_sync": "disabled"
+          }
+        },
+        {
+          "section": "Machine",
+          "values": {
+            "cpu_family": "i486sx",
+            "cpu_speed": 25000000,
+            "cpu_multi": 1,
+            "cpu_use_dynarec": 0,
+            "mem_size": 4096
+          }
+        },
+        {
+          "section": "Video",
+          "values": {
+            "gfxcard": "internal"
+          }
+        },
+        {
+          "section": "Input devices",
+          "values": {
+            "keyboard_type": "keyboard_at",
+            "mouse_type": "none"
+          }
+        },
+        {
+          "section": "Floppy and CD-ROM drives",
+          "values": {
+            "fdd_01_type": "35_2hd",
+            "fdd_02_type": "none"
+          }
+        }
+      ],
+      "generated_files": []
     },
     "technical": [
       {
@@ -80,9 +360,25 @@
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-m4-60.mc-micro",
             "url": "https://www.digitanto.it/mc-online/Pages/Indice%20Analitico%20MC%20x%20sito.htm"
+          },
+          {
+            "label_key": "technical.label.source_firmware",
+            "value_key": "product.olivetti-m4-60.source-bios",
+            "url": "https://www.driverguide.com/driver/detail.php?driverid=1136"
+          },
+          {
+            "label_key": "technical.label.source_notes",
+            "value_key": "product.olivetti-m4-60.source-brochure",
+            "url": "https://olivrea.de/prospekte-personal-computer/"
           }
         ]
       }
     ]
+  },
+  "platform_order": 2303,
+  "platform": {
+    "id": "olivetti-m4-60-platform",
+    "emulator_machine_id": "olivetti_m4_60",
+    "architecture": "i486SX"
   }
 }

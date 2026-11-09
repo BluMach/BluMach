@@ -120,7 +120,7 @@ typedef struct atkbc_t {
     uint8_t olivetti_pcs386sx_enable_reply;
     /* PCS 386SX: Olivetti configuration byte read with 80h, written with 84h. */
     uint8_t olivetti_pcs386sx_cfg;
-    uint8_t olivetti_ba2077_clock_query;
+    uint8_t olivetti_m4_clock_query;
     /* Olivetti 8742 extended protocol (A8h-prefixed 80h-84h): hardware
        registers and a word-organised NVRAM behind the controller. */
     uint8_t olivetti_ext;
@@ -2235,8 +2235,9 @@ write_cmd_olivetti(void *priv, uint8_t val)
             break;
 
         case 0x8d:
-            if (machines[machine].init == machine_at_olivetti_ba2077_init)
-                dev->olivetti_ba2077_clock_query = 1;
+            if (machines[machine].init == machine_at_olivetti_ba2077_init ||
+                machines[machine].init == machine_at_olivetti_m4_trota_init)
+                dev->olivetti_m4_clock_query = 1;
             break;
 
         case 0x80: /* Olivetti-specific command */
@@ -2252,9 +2253,9 @@ write_cmd_olivetti(void *priv, uint8_t val)
                The M250 E uses the same path but reports its mandatory ISA
                bus adapter on bit 7. Other Olivetti machines retain their
                machine-specific status reply. */
-            if (dev->olivetti_ba2077_clock_query) {
-                /* BA2077 R2.03 reads 8Dh/80h bit 7 for the 25/33 MHz POST label. */
-                dev->olivetti_ba2077_clock_query = 0;
+            if (dev->olivetti_m4_clock_query) {
+                /* Olivetti M4 POST reads 8Dh/80h bit 7 for the 25/33 MHz POST label. */
+                dev->olivetti_m4_clock_query = 0;
                 kbc_delay_to_ob(dev, cpu_busspeed > 25000000 ? 0x8c : 0x0c, 0, 0x00);
             } else if (machines[machine].init == machine_at_olivetti_pcs286_init)
                 /* PCS 286 / Dario 286 BIOS 1.42 (F000:42F0): with bit 5 low,
@@ -3227,7 +3228,7 @@ kbc_at_reset(void *priv)
 {
     atkbc_t *dev = (atkbc_t *) priv;
 
-    dev->olivetti_ba2077_clock_query = 0;
+    dev->olivetti_m4_clock_query = 0;
 
     dev->status         = STAT_UNLOCKED;
     dev->delay_selftest = 0;

@@ -5177,6 +5177,8 @@ gd54xx_init(const device_t *info)
             if (local & 0x200) {
                 if (machines[machine].init == machine_at_olivetti_ba2077_init)
                     romfn = OLIVETTI_M4_65_ROM_PATH;
+                else if (machines[machine].init == machine_at_olivetti_m4_trota_init)
+                    romfn = OLIVETTI_M4_TROTA_ROM_PATH;
                 else if (machines[machine].init == machine_at_acera1g_init)
                     romfn = BIOS_GD5428_ONBOARD_ACER_PATH;
                 else if (machines[machine].init == machine_at_pcs46c_init)
@@ -5280,7 +5282,7 @@ gd54xx_init(const device_t *info)
         gd54xx->vram_size = vram << 10;
     } else {
         if (id <= CIRRUS_ID_CLGD5428) {
-            if (info == &gd5428_onboard_olivetti_m4_64_device)
+            if (info == &gd5428_onboard_olivetti_m4_512_device)
                 vram = 512;
             else if ((id == CIRRUS_ID_CLGD5428) && (local & 0x200) && (local & 0x1000))
                 vram = 1024;
@@ -6479,9 +6481,9 @@ const device_t gd5428_onboard_pcs46c_device = {
     .config        = NULL
 };
 
-/* BA2077 integrated VGA, with 512 KiB on the M4-64 and 1 MiB on the M4-65/66. */
-const device_t gd5428_onboard_olivetti_m4_64_device = {
-    .name          = "Cirrus Logic GD5428 (ISA) (On-Board) (Olivetti M4-64)",
+/* Olivetti M4 integrated VGA, with 512 KiB on the M4-60/62/64. */
+const device_t gd5428_onboard_olivetti_m4_512_device = {
+    .name          = "Cirrus Logic GD5428 (ISA) (On-Board) (Olivetti M4, 512 KiB)",
     .internal_name = "cl_gd5428_onboard_olivetti_m4_64",
     .flags         = DEVICE_ISA16,
     .local         = CIRRUS_ID_CLGD5428 | 0x200,
@@ -6490,7 +6492,7 @@ const device_t gd5428_onboard_olivetti_m4_64_device = {
     .reset         = gd54xx_reset,
     .speed_changed = gd54xx_speed_changed,
     .force_redraw  = gd54xx_force_redraw,
-    .machine       = "Olivetti M4-64 Modulo",
+    .machine       = "Olivetti M4",
     .config        = NULL
 };
 
