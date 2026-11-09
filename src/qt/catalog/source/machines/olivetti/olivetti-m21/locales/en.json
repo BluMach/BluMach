@@ -6,7 +6,7 @@
   "product.olivetti-m21.technical.video": "Video extends the PC’s graphics capabilities. The proprietary controller combines a 6845 and 32 KB RAM: compatible 320 × 200 and 640 × 200 modes plus monochrome 640 × 400. The optional graphics expansion is a separate board.",
   "product.olivetti-m21.technical.expansion": "The transportable case leaves less room for cards. Its Bus Converter has three 62-contact connectors and one additional 38-contact connector, versus seven and four in the M24. The guide identifies board IF249 for the M21.",
   "product.olivetti-m21.technical.firmware": "BluMach uses the 1.44 BIOS, preserved as two 8 KiB halves traced to a physical M21. The Olivetti service guide also lists 1.43 PQBK/PQBL for the family.",
-  "product.olivetti-m21.technical.verified": "The dedicated profile uses the common M21/M24 8086 platform and OGC, a single 360 KiB floppy drive, 128 KiB of RAM and the amber display profile.",
+  "product.olivetti-m21.technical.verified": "With BIOS 1.44 and 128 KiB, the profile booted from a 360 KiB floppy. Floppy reads and writes, F1, Ctrl+Alt+Delete and hard reset passed. The amber 640 × 400 OGC test matched every pixel.",
   "product.olivetti-m21.technical.limitations": "The amber palette approximates the built-in CRT. The precise donor board revision, CRT signal, original keyboard behaviour, IF249 expansion, optional storage and other memory and drive configurations still need validation.",
   "product.olivetti-m21.technical.source_manual": "Olivetti, M24/M21 Theory of Operation, 11/1984, §§ 1-4, 1-7, 1-12, 2-42, 2-47.",
   "product.olivetti-m21.technical.source_service": "Olivetti, Personal Computer Pocket Service Guide, vol. I, pp. 1-1–1-2 (PDF 8–9).",

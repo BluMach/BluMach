@@ -6,7 +6,7 @@
   "product.olivetti-m21.technical.video": "O vídeo amplia as capacidades gráficas do PC. O controlador próprio combina 6845 e 32 KB de RAM: modos compatíveis de 320 × 200 e 640 × 200, mais 640 × 400 monocromático. A expansão gráfica opcional é uma placa distinta.",
   "product.olivetti-m21.technical.expansion": "A caixa transportável deixa menos espaço para placas. O Bus Converter tem três conectores de 62 contactos e um complementar de 38, face a sete e quatro no M24. O guia identifica a placa IF249 para o M21.",
   "product.olivetti-m21.technical.firmware": "O BluMach usa a BIOS 1.44, preservada em duas metades de 8 KiB cuja origem foi rastreada até um M21 físico. O guia de assistência da Olivetti também enumera a BIOS 1.43 PQBK/PQBL para esta família.",
-  "product.olivetti-m21.technical.verified": "O perfil dedicado usa a plataforma 8086 e o controlador OGC comuns ao M21 e ao M24, com uma unidade de 360 KiB, 128 KiB de RAM e ecrã âmbar.",
+  "product.olivetti-m21.technical.verified": "Com a BIOS 1.44 e 128 KiB, o perfil arrancou de uma disquete de 360 KiB. A leitura e a escrita, F1, Ctrl+Alt+Del e o reinício a frio passaram nos testes. O padrão OGC de 640 × 400 em âmbar coincidiu píxel a píxel.",
   "product.olivetti-m21.technical.limitations": "A paleta âmbar aproxima o CRT integrado. Falta validar a revisão exata da placa de origem, o sinal do CRT, o comportamento do teclado original, a expansão IF249, o armazenamento opcional e outras configurações de memória e unidades.",
   "product.olivetti-m21.technical.source_manual": "Olivetti, M24/M21 Theory of Operation, 11/1984, §§ 1-4, 1-7, 1-12, 2-42, 2-47.",
   "product.olivetti-m21.technical.source_service": "Olivetti, Personal Computer Pocket Service Guide, vol. I, pp. 1-1–1-2 (PDF 8–9).",
