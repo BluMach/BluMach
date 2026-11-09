@@ -40,6 +40,7 @@
 #include <86box/rom.h>
 #include <86box/sio.h>
 #include <86box/hdc.h>
+#include <86box/hdc_ide.h>
 #include <86box/port_6x.h>
 #include <86box/port_92.h>
 #include <86box/video.h>
@@ -621,6 +622,8 @@ machine_at_olivetti_ba2077_init(const machine_t *model)
 
     /* The PC87310 owns both UARTs, LPT, the FDC and the primary IDE channel. */
     device_add_params(&pc87310_device, (void *) PCX73XX_IDE_PRI);
+    /* The Olivetti BIOS derives its drive flags from the legacy IDENTIFY ECC count. */
+    ide_board_set_legacy_identify_ecc(0, 4);
     return ret;
 }
 
