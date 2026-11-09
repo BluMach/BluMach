@@ -113,6 +113,8 @@
   "status.experimental": "Experimental",
   "status.research": "In research",
   "status.not_bootable": "Not bootable",
+  "hardware.board": "Motherboard",
+  "hardware.keyboard": "Keyboard",
   "hardware.cpu": "Processor",
   "hardware.memory": "Memory",
   "hardware.video": "Video",

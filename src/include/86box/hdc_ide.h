@@ -22,6 +22,7 @@
 
 #define IDE_BUS_MAX         4
 #define IDE_CHAN_MAX        2
+#define IDE_DEVICE_32BIT_DATA 0x02
 
 #define HDC_PRIMARY_BASE    0x01f0
 #define HDC_PRIMARY_SIDE    0x03f6

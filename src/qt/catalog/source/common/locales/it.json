@@ -113,6 +113,8 @@
   "status.experimental": "Sperimentale",
   "status.research": "In ricerca",
   "status.not_bootable": "Non avviabile",
+  "hardware.board": "Scheda madre",
+  "hardware.keyboard": "Tastiera",
   "hardware.cpu": "Processore",
   "hardware.memory": "Memoria",
   "hardware.video": "Video",
