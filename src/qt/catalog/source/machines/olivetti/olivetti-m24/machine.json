@@ -18,7 +18,8 @@
     ],
     "facets": {
       "storage_interface": [
-        "floppy"
+        "floppy",
+        "st506"
       ],
       "form_factor": [
         "desktop"
@@ -107,6 +108,14 @@
           {
             "label_key": "technical.label.verified",
             "value_key": "product.olivetti-m24.technical.verified"
+          },
+          {
+            "label_key": "technical.label.video",
+            "value_key": "product.olivetti-m24.technical.video_verified"
+          },
+          {
+            "label_key": "technical.label.storage",
+            "value_key": "product.olivetti-m24.technical.disk_verified"
           },
           {
             "label_key": "technical.label.limitations",
