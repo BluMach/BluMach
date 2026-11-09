@@ -10,6 +10,7 @@ from pathlib import Path
 import sys
 from typing import Any
 from urllib.parse import urlsplit
+from xml.etree import ElementTree
 
 import catalog_audit
 
@@ -122,6 +123,7 @@ def load_bundles(
 
 def assemble(
     source_dir: Path, *, desktop: bool = False,
+    bundle_keys: dict[tuple[str, str], set[str]] | None = None,
 ) -> tuple[dict[str, Any], dict[str, dict[str, str]]]:
     common_path = source_dir / "common" / "catalog.json"
     common = read_json(common_path)
@@ -146,6 +148,11 @@ def assemble(
     manufacturer_bundles = load_bundles(source_dir, "manufacturers", locale_names)
     family_bundles = load_bundles(source_dir, "families", locale_names)
     machine_bundles = load_bundles(source_dir, "machines", locale_names)
+    if bundle_keys is not None:
+        for kind, bundles in (
+            ("manufacturers", manufacturer_bundles), ("families", family_bundles), ("products", machine_bundles)
+        ):
+            bundle_keys.update({(kind, entity_id): set(localized["en"]) for _, entity_id, _, localized in bundles})
     research = None
     research_dir = source_dir / "desktop" / "research"
     if desktop and research_dir.exists():
@@ -352,12 +359,107 @@ def render_qrc(locales: list[str], documents: list[str] | None = None) -> str:
     )
 
 
-def build(source_dir: Path, output_dir: Path, documents_dir: Path) -> None:
-    catalog, translations = assemble(source_dir, desktop=True)
+def restrict_release(
+    catalog: dict[str, Any], translations: dict[str, dict[str, str]],
+    variant_groups: dict[str, Any], bundle_keys: dict[tuple[str, str], set[str]],
+) -> None:
+    products = [
+        product for product in catalog["products"]
+        if product.get("visible") is True and product.get("blumach_emulation")
+    ]
+    product_ids = {product["id"] for product in products}
+    platform_ids = {product["platform_id"] for product in products}
+    manufacturer_ids = {product["manufacturer_id"] for product in products}
+    family_ids = {product["family_id"] for product in products}
+    parent_ids = {family["id"]: family.get("parent_family_id") for family in catalog["families"]}
+    for family_id in list(family_ids):
+        parent_id = parent_ids[family_id]
+        while parent_id and parent_id not in family_ids:
+            family_ids.add(parent_id)
+            parent_id = parent_ids[parent_id]
+
+    excluded_keys = set()
+    for kind, keep_ids in (
+        ("products", product_ids), ("manufacturers", manufacturer_ids),
+        ("families", family_ids), ("platforms", platform_ids),
+    ):
+        for entity in catalog[kind]:
+            if entity["id"] not in keep_ids:
+                excluded_keys.update(bundle_keys.get((kind, entity["id"]), ()))
+        catalog[kind] = [entity for entity in catalog[kind] if entity["id"] in keep_ids]
+
+    for product in products:
+        if "relationships" not in product:
+            continue
+        relationships = {
+            kind: [related for related in ids if related in product_ids]
+            for kind, ids in product["relationships"].items()
+        }
+        product["relationships"] = {kind: ids for kind, ids in relationships.items() if ids}
+        if not product["relationships"]:
+            del product["relationships"]
+
+    retained_groups = []
+    retained_group_keys = set()
+    for group in variant_groups["groups"]:
+        keys = {group[field] for field in ("summary_key", "upgrades_key", "firmware_key") if field in group}
+        # A group's title and notes describe the full range. When only some
+        # members are released, show those members as standalone sheets.
+        if product_ids.issuperset(group["variants"]):
+            retained_groups.append(group)
+            retained_group_keys.update(keys)
+        else:
+            excluded_keys.update(keys)
+    variant_groups["groups"] = retained_groups
+
+    retained_keys = catalog_audit.validate_catalog(catalog, []) | retained_group_keys
+    excluded_keys.difference_update(retained_keys)
+    for localized in translations.values():
+        for key in excluded_keys:
+            localized.pop(key, None)
+
+
+def write_release_app_qrc(source: Path, output: Path, catalog: dict[str, Any]) -> None:
+    media = {
+        product["media"]["resource"] for product in catalog["products"] if "media" in product
+    }
+    tree = ElementTree.parse(source)
+    for group in tree.findall("qresource"):
+        prefix = group.get("prefix", "")
+        for resource in group.findall("file"):
+            alias = resource.get("alias", resource.text)
+            if (prefix == "/blumach/catalog" and alias.startswith("images/")
+                    and f":{prefix}/{alias}" not in media):
+                group.remove(resource)
+                continue
+            resource.set("alias", alias)
+            resource.text = (source.parent / resource.text).resolve().as_posix()
+    write_text_if_changed(output, ElementTree.tostring(tree.getroot(), encoding="unicode") + "\n")
+
+
+def build(
+    source_dir: Path, output_dir: Path, documents_dir: Path, *,
+    release: bool = False, app_qrc: Path | None = None,
+) -> None:
+    bundle_keys: dict[tuple[str, str], set[str]] = {}
+    catalog, translations = assemble(source_dir, desktop=True, bundle_keys=bundle_keys if release else None)
     errors = validate(catalog, translations, documents_dir)
     if errors:
         raise ValueError("catalogue validation failed:\n  - " + "\n  - ".join(errors))
     variant_groups = load_variant_groups(source_dir, catalog, translations, desktop=True)
+    if release:
+        restrict_release(catalog, translations, variant_groups, bundle_keys)
+        errors = validate(catalog, translations, documents_dir)
+        if errors:
+            raise ValueError("release catalogue validation failed:\n  - " + "\n  - ".join(errors))
+        if app_qrc is not None:
+            write_release_app_qrc(app_qrc, output_dir / app_qrc.name, catalog)
+    else:
+        debug_locales = source_dir / "desktop" / "debug-locales"
+        if debug_locales.is_dir():
+            merge_translations(
+                translations, load_locale_directory(debug_locales, set(translations)), debug_locales
+            )
     write_json(output_dir / "catalog.json", catalog)
     write_json(output_dir / VARIANT_GROUPS_FILE, variant_groups)
     for locale, localized in sorted(translations.items()):
@@ -387,6 +489,8 @@ def main() -> int:
     build_parser = subparsers.add_parser("build", help="write generated runtime resources")
     build_parser.add_argument("--source", type=Path, default=default_source)
     build_parser.add_argument("--output", type=Path, required=True)
+    build_parser.add_argument("--release", action="store_true", help="package only public machines with emulation")
+    build_parser.add_argument("--app-qrc", type=Path, help="Qt app resource list whose catalogue photos are filtered")
 
     args = parser.parse_args()
     try:
@@ -401,7 +505,8 @@ def main() -> int:
                 f"{len(translations)} locales"
             )
         elif args.command == "build":
-            build(args.source.resolve(), args.output.resolve(), documents_dir)
+            build(args.source.resolve(), args.output.resolve(), documents_dir,
+                  release=args.release, app_qrc=args.app_qrc.resolve() if args.app_qrc else None)
             print(f"Generated BluMach catalogue resources in {args.output.resolve()}")
     except (KeyError, OSError, TypeError, ValueError) as exc:
         print(f"catalog_builder: {exc}", file=sys.stderr)

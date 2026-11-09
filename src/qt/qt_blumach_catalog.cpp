@@ -45,22 +45,7 @@ stringArray(const QJsonValue &value)
         result.append(item.toString());
     return result;
 }
-
-bool
-isVisible(const QJsonObject &object)
-{
-    if (object.value(QStringLiteral("visible")).toBool(false))
-        return true;
-    return object.value(QStringLiteral("development")).toBool(false)
-        && BluMachCatalog::developmentEntriesEnabled();
-}
 } // namespace
-
-bool
-BluMachCatalog::developmentEntriesEnabled()
-{
-    return qEnvironmentVariable("BLUMACH_CATALOG_DEVELOPMENT") == QStringLiteral("1");
-}
 
 QString
 BluMachCatalog::creationConfiguration(const BluMachPlatform &platform, const QJsonObject &creation,
@@ -156,8 +141,6 @@ BluMachCatalog::load(QString *errorMessage)
     const auto root = document.object();
     for (const auto &value : root.value(QStringLiteral("manufacturers")).toArray()) {
         const auto object = value.toObject();
-        if (!isVisible(object))
-            continue;
         m_manufacturers.append({ object.value(QStringLiteral("id")).toString(),
                                  object.value(QStringLiteral("name")).toString(),
                                  object.value(QStringLiteral("description_key")).toString(),
@@ -177,8 +160,6 @@ BluMachCatalog::load(QString *errorMessage)
     }
     for (const auto &value : root.value(QStringLiteral("families")).toArray()) {
         const auto object = value.toObject();
-        if (!isVisible(object))
-            continue;
         m_families.append({ object.value(QStringLiteral("id")).toString(),
                             object.value(QStringLiteral("manufacturer_id")).toString(),
                             object.value(QStringLiteral("parent_family_id")).toString(),
@@ -216,8 +197,6 @@ BluMachCatalog::load(QString *errorMessage)
     }
     for (const auto &value : root.value(QStringLiteral("products")).toArray()) {
         const auto object = value.toObject();
-        if (!isVisible(object))
-            continue;
         BluMachProduct product;
         product.id                 = object.value(QStringLiteral("id")).toString();
         product.manufacturerId     = object.value(QStringLiteral("manufacturer_id")).toString();
@@ -228,6 +207,8 @@ BluMachCatalog::load(QString *errorMessage)
         product.historyKey         = object.value(QStringLiteral("history_key")).toString();
         product.warningKey         = object.value(QStringLiteral("warning_key")).toString();
         product.status             = object.value(QStringLiteral("status")).toString();
+        product.visible            = object.value(QStringLiteral("visible")).toBool(false);
+        product.hasEmulation       = !object.value(QStringLiteral("blumach_emulation")).toString().isEmpty();
         product.period             = object.value(QStringLiteral("period")).toString();
         product.periodKey          = object.value(QStringLiteral("period_key")).toString();
         product.aliases            = stringArray(object.value(QStringLiteral("aliases")));

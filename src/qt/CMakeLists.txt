@@ -51,7 +51,7 @@ find_package(Python3 COMPONENTS Interpreter REQUIRED)
 
 set(BLUMACH_CATALOG_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/catalog/source")
 set(BLUMACH_CATALOG_BUILD_DIR "${CMAKE_CURRENT_BINARY_DIR}/catalog")
-set(BLUMACH_CATALOG_QRC "${BLUMACH_CATALOG_BUILD_DIR}/blumach_catalog.qrc")
+set(BLUMACH_APP_QRC "${CMAKE_SOURCE_DIR}/src/qt_resources.qrc")
 file(GLOB_RECURSE BLUMACH_CATALOG_SOURCE_FILES CONFIGURE_DEPENDS
     "${BLUMACH_CATALOG_SOURCE_DIR}/*.json")
 file(GLOB BLUMACH_IMPLEMENTATION_DOCUMENTS CONFIGURE_DEPENDS
@@ -60,23 +60,64 @@ file(GLOB BLUMACH_IMPLEMENTATION_DOCUMENTS CONFIGURE_DEPENDS
 # Materialize the generated QRC during configuration so AUTORCC can discover
 # its inputs. Changes to existing shards and changes to the glob both trigger a
 # CMake reconfiguration, while no-op builds leave the generated resource alone.
-file(MAKE_DIRECTORY "${BLUMACH_CATALOG_BUILD_DIR}")
-execute_process(
-    COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_SOURCE_DIR}/tools/catalog_builder.py"
-            build --source "${BLUMACH_CATALOG_SOURCE_DIR}"
-            --output "${BLUMACH_CATALOG_BUILD_DIR}"
-    RESULT_VARIABLE BLUMACH_CATALOG_RESULT
-    OUTPUT_VARIABLE BLUMACH_CATALOG_OUTPUT
-    ERROR_VARIABLE BLUMACH_CATALOG_ERROR
-)
-if(NOT BLUMACH_CATALOG_RESULT EQUAL 0)
-    message(FATAL_ERROR "Unable to generate the BluMach catalogue:\n${BLUMACH_CATALOG_ERROR}")
+function(blumach_build_catalog edition)
+    execute_process(
+        COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_SOURCE_DIR}/tools/catalog_builder.py"
+                build --source "${BLUMACH_CATALOG_SOURCE_DIR}"
+                --output "${BLUMACH_CATALOG_BUILD_DIR}/${edition}" ${ARGN}
+        COMMAND_ERROR_IS_FATAL ANY
+    )
+endfunction()
+
+get_property(blumach_multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
+if(blumach_multi_config)
+    blumach_build_catalog(debug)
+    blumach_build_catalog(release --release --app-qrc "${BLUMACH_APP_QRC}")
+    set(blumach_debug_config "$<CONFIG:Debug,UltraDebug>")
+    set(blumach_catalog_edition "$<IF:${blumach_debug_config},debug,release>")
+    set(BLUMACH_APP_QRC_BUILD "$<IF:${blumach_debug_config},${BLUMACH_APP_QRC},${BLUMACH_CATALOG_BUILD_DIR}/release/qt_resources.qrc>")
+else()
+    string(TOLOWER "${CMAKE_BUILD_TYPE}" blumach_build_type)
+    if(blumach_build_type MATCHES "^(debug|ultradebug)$")
+        set(blumach_catalog_edition debug)
+        blumach_build_catalog(debug)
+        set(BLUMACH_APP_QRC_BUILD "${BLUMACH_APP_QRC}")
+    else()
+        set(blumach_catalog_edition release)
+        blumach_build_catalog(release --release --app-qrc "${BLUMACH_APP_QRC}")
+        set(BLUMACH_APP_QRC_BUILD "${BLUMACH_CATALOG_BUILD_DIR}/release/qt_resources.qrc")
+    endif()
+endif()
+set(BLUMACH_CATALOG_QRC "${BLUMACH_CATALOG_BUILD_DIR}/${blumach_catalog_edition}/blumach_catalog.qrc")
+set_property(GLOBAL PROPERTY BLUMACH_CATALOG_JSON
+    "${BLUMACH_CATALOG_BUILD_DIR}/${blumach_catalog_edition}/catalog.json")
+set(BLUMACH_CATALOG_RESOURCES "${BLUMACH_APP_QRC_BUILD}" "${BLUMACH_CATALOG_QRC}")
+if(blumach_multi_config)
+    # AUTORCC collects QRCs from every configuration of a target. Generate
+    # these two explicitly so each configuration links only its own edition.
+    function(blumach_compile_catalog_resource name qrc)
+        set(output "${BLUMACH_CATALOG_BUILD_DIR}/$<CONFIG>/qrc_${name}.cpp")
+        add_custom_command(
+            OUTPUT "${output}"
+            COMMAND "${CMAKE_COMMAND}" -E make_directory "${BLUMACH_CATALOG_BUILD_DIR}/$<CONFIG>"
+            COMMAND "$<TARGET_FILE:Qt6::rcc>" --name "${name}" --output "${output}"
+                    --depfile "${output}.d" "${qrc}"
+            DEPENDS "${qrc}"
+            DEPFILE "${output}.d"
+            VERBATIM
+        )
+        set(BLUMACH_CATALOG_RESOURCES ${BLUMACH_CATALOG_RESOURCES} "${output}" PARENT_SCOPE)
+    endfunction()
+    set(BLUMACH_CATALOG_RESOURCES)
+    blumach_compile_catalog_resource(qt_resources "${BLUMACH_APP_QRC_BUILD}")
+    blumach_compile_catalog_resource(blumach_catalog "${BLUMACH_CATALOG_QRC}")
 endif()
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
     "${CMAKE_SOURCE_DIR}/tools/catalog_builder.py"
     "${CMAKE_SOURCE_DIR}/tools/catalog_audit.py"
     ${BLUMACH_CATALOG_SOURCE_FILES}
     ${BLUMACH_IMPLEMENTATION_DOCUMENTS}
+    "${BLUMACH_APP_QRC}"
 )
 
 if(APPLE AND MOLTENVK)
@@ -319,8 +360,7 @@ add_library(ui STATIC
     qt_vmmanager_mainwindow.hpp
     qt_vmmanager_mainwindow.ui
 
-    ../qt_resources.qrc
-    ${BLUMACH_CATALOG_QRC}
+    ${BLUMACH_CATALOG_RESOURCES}
     ./qdarkstyle/dark/darkstyle.qrc
     ./catalog/blumach_marks.qrc
 
