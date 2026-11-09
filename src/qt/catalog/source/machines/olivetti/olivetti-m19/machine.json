@@ -119,7 +119,7 @@
           {
             "label_key": "technical.label.firmware_evidence",
             "value_key": "product.olivetti-m19.technical.source_371",
-            "url": "https://github.com/86Box/roms/pull/377"
+            "url": "https://github.com/86Box/roms/tree/62f6898f68ff6ba1027fca19ce38d797bf889e28/machines/m19"
           }
         ]
       },
