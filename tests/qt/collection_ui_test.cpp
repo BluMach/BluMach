@@ -88,7 +88,7 @@ private slots:
                 QCOMPARE(table->columnCount(), 5);
                 const auto rows = family->comparisonTable.value("rows").toArray();
                 QCOMPARE(table->rowCount(), rows.size());
-                QCOMPARE(table->rowCount(), QString::fromLatin1(id) == "olivetti-m" ? 24 : 9);
+                QCOMPARE(table->rowCount(), QString::fromLatin1(id) == "olivetti-m" ? 25 : 9);
                 for (int row = 0; row < rows.size(); ++row) {
                     const auto cells = rows[row].toObject().value("cells").toArray();
                     for (int column = 0; column < 5; ++column) {
