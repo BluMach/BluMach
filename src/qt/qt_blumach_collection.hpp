@@ -12,8 +12,10 @@
 #include "qt_blumach_catalog.hpp"
 #include "qt_blumach_skin.hpp"
 
-#include <QWidget>
 #include <QSet>
+#include <QThreadPool>
+#include <QTimer>
+#include <QWidget>
 
 class QComboBox;
 class QFrame;
@@ -37,6 +39,7 @@ class BluMachCollectionWidget final : public QWidget {
 
 public:
     explicit BluMachCollectionWidget(QWidget *parent = nullptr);
+    ~BluMachCollectionWidget() override;
     void reloadLanguage();
     void reloadSkin();
 
@@ -65,6 +68,8 @@ private:
     QSet<QString> expandedTreeIds() const;
     void loadUiState();
     void saveUiState();
+    void writeUiState();
+    void finishSavingUiState();
     void updateDetails(QTreeWidgetItem *item);
     void applyFilter();
     bool matchesFacetFilters(const BluMachProduct &product) const;
@@ -116,6 +121,10 @@ private:
     QString         m_selectedProductId;
     QSet<QString>   m_expandedBeforeFilter;
     QSet<QString>   m_savedExpandedIds;
+    QTimer          m_uiStateSaveTimer;
+    QThreadPool     m_uiStateWriter;
+    QString         m_uiStateSelectedId;
+    int             m_uiStateTreeWidth = 0;
     bool            m_hasSavedTreeState = false;
     bool            m_restoringUiState = false;
     bool            m_rebuildingTree = false;

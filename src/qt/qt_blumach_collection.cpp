@@ -638,6 +638,11 @@ BluMachCollectionWidget::BluMachCollectionWidget(QWidget *parent)
     }
     m_skin.loadConfigured();
     loadUiState();
+    m_uiStateSaveTimer.setSingleShot(true);
+    m_uiStateSaveTimer.setInterval(200);
+    m_uiStateWriter.setMaxThreadCount(1);
+    connect(&m_uiStateSaveTimer, &QTimer::timeout, this, &BluMachCollectionWidget::writeUiState);
+    connect(qApp, &QCoreApplication::aboutToQuit, this, &BluMachCollectionWidget::finishSavingUiState);
     connect(m_tree, &QTreeWidget::currentItemChanged, this,
             [this](QTreeWidgetItem *current) { updateDetails(current); });
     connect(m_search, &QLineEdit::textChanged, this, [this] { applyFilter(); });
@@ -681,6 +686,11 @@ BluMachCollectionWidget::BluMachCollectionWidget(QWidget *parent)
     // selectionContextChanged. Repeat the initial context once the event loop
     // starts so the primary action always reflects the visible first product.
     QTimer::singleShot(0, this, [this] { updateDetails(m_tree->currentItem()); });
+}
+
+BluMachCollectionWidget::~BluMachCollectionWidget()
+{
+    finishSavingUiState();
 }
 
 void BluMachCollectionWidget::createSelectedMachine()
@@ -955,17 +965,38 @@ void BluMachCollectionWidget::saveUiState()
 {
     if (m_restoringUiState || m_rebuildingTree)
         return;
-    const VMManagerConfig config(VMManagerConfig::ConfigType::General);
-    config.setStringValue(QStringLiteral("blumach_catalog_selected_product"), m_selectedProductId);
-    m_savedExpandedIds = expandedTreeIds();
+    m_uiStateSelectedId = m_selectedProductId;
+    m_savedExpandedIds = m_filterRevealActive ? m_expandedBeforeFilter : expandedTreeIds();
     m_hasSavedTreeState = true;
-    QStringList expanded(m_savedExpandedIds.cbegin(), m_savedExpandedIds.cend());
-    expanded.sort();
-    config.setStringValue(QStringLiteral("blumach_catalog_expanded_nodes"),
-                          expanded.isEmpty() ? QStringLiteral("-") : expanded.join('|'));
-    if (!m_splitter->sizes().isEmpty())
-        config.setStringValue(QStringLiteral("blumach_catalog_tree_width"), QString::number(m_splitter->sizes().first()));
-    config.sync();
+    m_uiStateTreeWidth = m_splitter->sizes().value(0);
+    m_uiStateSaveTimer.start();
+}
+
+void BluMachCollectionWidget::writeUiState()
+{
+    // Only the most recent snapshot needs to follow a write that is already running.
+    m_uiStateWriter.clear();
+    m_uiStateWriter.start([selectedId = m_uiStateSelectedId, expandedIds = m_savedExpandedIds,
+                           treeWidth = m_uiStateTreeWidth] {
+        QStringList expanded(expandedIds.cbegin(), expandedIds.cend());
+        expanded.sort();
+        const VMManagerConfig config(VMManagerConfig::ConfigType::General);
+        config.setStringValue(QStringLiteral("blumach_catalog_selected_product"), selectedId);
+        config.setStringValue(QStringLiteral("blumach_catalog_expanded_nodes"),
+                              expanded.isEmpty() ? QStringLiteral("-") : expanded.join('|'));
+        if (treeWidth > 0)
+            config.setStringValue(QStringLiteral("blumach_catalog_tree_width"), QString::number(treeWidth));
+        config.sync();
+    });
+}
+
+void BluMachCollectionWidget::finishSavingUiState()
+{
+    if (m_uiStateSaveTimer.isActive()) {
+        m_uiStateSaveTimer.stop();
+        writeUiState();
+    }
+    m_uiStateWriter.waitForDone();
 }
 
 void BluMachCollectionWidget::rebuildTree()
