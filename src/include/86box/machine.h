@@ -872,9 +872,11 @@ extern int             machine_at_d824_init(const machine_t *);
 /* VLSI 82C486 */
 extern int             machine_at_pcs44c_init(const machine_t *);
 #define OLIVETTI_M4_65_ROM_PATH "roms/machines/olivetti_m4_65/R2_03_A4BF.BIN"
+#define OLIVETTI_M4_TROTA_ROM_PATH "roms/machines/olivetti_m4_trota/EPROM.ROM"
 
 extern int             machine_at_pcs46c_init(const machine_t *);
 extern int             machine_at_olivetti_ba2077_init(const machine_t *);
+extern int             machine_at_olivetti_m4_trota_init(const machine_t *);
 extern int             machine_at_sensation1_init(const machine_t *);
 extern int             machine_at_tuliptc38_init(const machine_t *);
 

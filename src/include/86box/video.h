@@ -423,7 +423,7 @@ extern const device_t gd5428_mca_device;
 extern const device_t gd5426_mca_device;
 extern const device_t gd5428_onboard_device;
 extern const device_t gd5428_onboard_pcs46c_device;
-extern const device_t gd5428_onboard_olivetti_m4_64_device;
+extern const device_t gd5428_onboard_olivetti_m4_512_device;
 extern const device_t gd5428_onboard_olivetti_m4_65_device;
 extern const device_t gd5428_onboard_vlb_device;
 extern const device_t gd5429_isa_device;
