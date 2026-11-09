@@ -127,6 +127,7 @@ typedef struct ide_board_t {
     uint8_t    devctl;
     uint8_t    side_ports;
     uint16_t   base[2];
+    uint16_t   legacy_identify_ecc;
     int        bit32;
     int        cur_dev;
     int        irq;
@@ -711,6 +712,7 @@ ide_hd_identify(const ide_t *ide)
     ide->buffer[20] = 3;
     /* Buffer size */
     ide->buffer[21] = hdd[ide->hdd_num].cache.num_segments * hdd[ide->hdd_num].cache.segment_size;
+    ide->buffer[22] = ide_boards[ide->board]->legacy_identify_ecc;
     /* Capabilities */
     ide->buffer[50] = 0x4000;
     ide->buffer[59] = ide->blocksize ? (ide->blocksize | 0x100) : 0;
@@ -3114,6 +3116,13 @@ ide_board_set_force_ata3(int board, int force_ata3)
 
     if ((ide_boards[board] != NULL) && ide_boards[board]->inited)
         ide_boards[board]->force_ata3 = force_ata3;
+}
+
+void
+ide_board_set_legacy_identify_ecc(int board, uint16_t ecc_bytes)
+{
+    if (ide_boards[board] != NULL)
+        ide_boards[board]->legacy_identify_ecc = ecc_bytes;
 }
 
 static void

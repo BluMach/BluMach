@@ -40,6 +40,7 @@
 #include <86box/rom.h>
 #include <86box/sio.h>
 #include <86box/hdc.h>
+#include <86box/hdc_ide.h>
 #include <86box/port_6x.h>
 #include <86box/port_92.h>
 #include <86box/video.h>
@@ -600,6 +601,29 @@ machine_at_pcs46c_init(const machine_t *model)
 
     device_add_params(&pc87310_device, (void *) PCX73XX_IDE_PRI);
     device_add(&gameport_201_device);
+    return ret;
+}
+
+/* Olivetti M4-64/65/66 Modulo, BA2077 (T.1.5 / BA2070). */
+int
+machine_at_olivetti_ba2077_init(const machine_t *model)
+{
+    /* The upper half of the 128 KiB EPROM contains the system BIOS. */
+    int ret = bios_load_linear(OLIVETTI_M4_65_ROM_PATH, 0x000f0000, 0x10000, 0x10000);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_init(model);
+    device_add(&et6000_device);
+
+    if (gfxcard[0] == VID_INTERNAL)
+        device_add(machine_get_vid_device(machine));
+
+    /* The PC87310 owns both UARTs, LPT, the FDC and the primary IDE channel. */
+    device_add_params(&pc87310_device, (void *) PCX73XX_IDE_PRI);
+    /* The Olivetti BIOS derives its drive flags from the legacy IDENTIFY ECC count. */
+    ide_board_set_legacy_identify_ecc(0, 4);
     return ret;
 }
 
