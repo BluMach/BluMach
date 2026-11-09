@@ -44,8 +44,10 @@ private slots:
     void on_comboBoxIsaRomCard4_currentIndexChanged(int index);
     void on_pushButtonConfigureIsaRomCard4_clicked();
 
+#ifdef BLUMACH_UNIT_TESTER
     void on_checkBoxUnitTester_stateChanged(int arg1);
     void on_pushButtonConfigureUT_clicked();
+#endif
 
     void on_checkBoxKeyCard_stateChanged(int arg1);
     void on_pushButtonConfigureKeyCard_clicked();
@@ -57,7 +59,9 @@ private:
     int                           isamem_cfg_changed[4]      = { 0, 0, 0, 0 };
     int                           isarom_cfg_changed[4]      = { 0, 0, 0, 0 };
     int                           isartc_cfg_changed         = 0;
+#ifdef BLUMACH_UNIT_TESTER
     int                           unittester_cfg_changed     = 0;
+#endif
     int                           novell_keycard_cfg_changed = 0;
 
     SettingsCompleter            *scRTC;

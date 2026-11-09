@@ -66,7 +66,9 @@
 #include <86box/machine.h>
 #include <86box/bugger.h>
 #include <86box/postcard.h>
-#include <86box/unittester.h>
+#ifdef BLUMACH_UNIT_TESTER
+#    include <86box/unittester.h>
+#endif
 #include <86box/novell_cardkey.h>
 #include <86box/isamem.h>
 #include <86box/isarom.h>
@@ -172,7 +174,9 @@ int      video_vk_device                        = 0;              /* (C) video *
 int      bugger_enabled                         = 0;              /* (C) enable ISAbugger */
 int      novell_keycard_enabled                 = 0;              /* (C) enable Novell NetWare 2.x key card emulation. */
 int      postcard_enabled                       = 0;              /* (C) enable POST card */
+#ifdef BLUMACH_UNIT_TESTER
 int      unittester_enabled                     = 0;              /* (C) enable unit tester device */
+#endif
 int      gameport_type[GAMEPORT_MAX]            = { 0, 0 };       /* (C) enable gameports */
 int      isamem_type[ISAMEM_MAX]                = { 0, 0, 0, 0 }; /* (C) enable ISA mem cards */
 int      isarom_type[ISAROM_MAX]                = { 0, 0, 0, 0 }; /* (C) enable ISA ROM cards */
@@ -1951,8 +1955,10 @@ pc_reset_hard_init(void)
         device_add(&bugger_device);
     if (postcard_enabled)
         device_add(&postcard_device);
+#ifdef BLUMACH_UNIT_TESTER
     if (unittester_enabled)
         device_add(&unittester_device);
+#endif
 
     if (novell_keycard_enabled)
         device_add(&novell_keycard_device);
