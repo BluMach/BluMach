@@ -211,6 +211,120 @@
           }
         }
       ],
+      "fields": [
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-m290s.creation.storage.none",
+              "status": "partial",
+              "set": []
+            },
+            {
+              "id": "ide-20",
+              "label_key": "product.olivetti-m290s.creation.storage.ide_20",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "ide_isa"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m290s-ide-20.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 4, 615, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m290s-ide-20.img",
+                  "size": 21411840
+                }
+              ]
+            },
+            {
+              "id": "ide-40",
+              "label_key": "product.olivetti-m290s.creation.storage.ide_40",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "ide_isa"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m290s-ide-40.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 5, 981, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m290s-ide-40.img",
+                  "size": 42693120
+                }
+              ]
+            },
+            {
+              "id": "ide-100",
+              "label_key": "product.olivetti-m290s.creation.storage.ide_100",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "ide_isa"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m290s-ide-100.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 16, 755, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m290s-ide-100.img",
+                  "size": 105144320
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "generated_files": []
     }
   },
