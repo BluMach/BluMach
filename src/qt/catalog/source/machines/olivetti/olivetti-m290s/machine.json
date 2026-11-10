@@ -9,7 +9,7 @@
     "summary_key": "product.olivetti-m290s.summary",
     "history_key": "product.olivetti-m290s.history",
     "warning_key": "product.olivetti-m290s.warning",
-    "status": "research",
+    "status": "partial",
     "period": "1989–1990",
     "aliases": [
       "M290 S",
@@ -58,6 +58,10 @@
       "required": true,
       "known_sets": [
         "M203 1.29 · LOW + HIGH · 2 × 64 KiB"
+      ],
+      "required_files": [
+        "machines/olivetti_m290s/m203_129_low.bin",
+        "machines/olivetti_m290s/m203_129_high.bin"
       ]
     },
     "technical": [
@@ -158,6 +162,176 @@
           }
         ]
       }
-    ]
+    ],
+    "platform_id": "olivetti-m290s-platform",
+    "blumach_emulation": "implemented",
+    "creation": {
+      "status": "experimental",
+      "directory_prefix": "olivetti-m290s",
+      "note_keys": [
+        "product.olivetti-m290s.warning"
+      ],
+      "configuration": [
+        {
+          "section": "General",
+          "values": {
+            "vid_renderer": "qt_software"
+          }
+        },
+        {
+          "section": "Machine",
+          "values": {
+            "cpu_family": "286",
+            "cpu_speed": 16000000,
+            "cpu_multi": 1,
+            "fpu_type": "none",
+            "cpu_use_dynarec": 0,
+            "mem_size": 1024,
+            "time_sync": "disabled"
+          }
+        },
+        {
+          "section": "Video",
+          "values": {
+            "gfxcard": "internal"
+          }
+        },
+        {
+          "section": "Input devices",
+          "values": {
+            "keyboard_type": "keyboard_at",
+            "mouse_type": "none"
+          }
+        },
+        {
+          "section": "Floppy and CD-ROM drives",
+          "values": {
+            "fdd_01_type": "35_2hd",
+            "fdd_02_type": "none"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "id": "storage",
+          "label_key": "creation.label.hard_disk",
+          "default": "none",
+          "choices": [
+            {
+              "id": "none",
+              "label_key": "product.olivetti-m290s.creation.storage.none",
+              "status": "partial",
+              "set": []
+            },
+            {
+              "id": "ide-20",
+              "label_key": "product.olivetti-m290s.creation.storage.ide_20",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "ide_isa"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m290s-ide-20.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 4, 615, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m290s-ide-20.img",
+                  "size": 21411840
+                }
+              ]
+            },
+            {
+              "id": "ide-40",
+              "label_key": "product.olivetti-m290s.creation.storage.ide_40",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "ide_isa"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m290s-ide-40.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 5, 981, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m290s-ide-40.img",
+                  "size": 42693120
+                }
+              ]
+            },
+            {
+              "id": "ide-100",
+              "label_key": "product.olivetti-m290s.creation.storage.ide_100",
+              "status": "experimental",
+              "set": [
+                {
+                  "section": "Storage controllers",
+                  "key": "hdc_1",
+                  "value": "ide_isa"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_fn",
+                  "value": "olivetti-m290s-ide-100.img"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_parameters",
+                  "value": "17, 16, 755, 0, ide"
+                },
+                {
+                  "section": "Hard disks",
+                  "key": "hdd_01_ide_channel",
+                  "value": "0:0"
+                }
+              ],
+              "generated_files": [
+                {
+                  "path": "olivetti-m290s-ide-100.img",
+                  "size": 105144320
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "generated_files": []
+    }
+  },
+  "platform_order": 138,
+  "platform": {
+    "id": "olivetti-m290s-platform",
+    "emulator_machine_id": "olivetti_m290s",
+    "architecture": "80286"
   }
 }

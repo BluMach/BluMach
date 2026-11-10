@@ -156,6 +156,7 @@ typedef struct scancode {
 #define KBC_FLAG_IS_GREEN  0x20000000
 #define KBC_FLAG_IS_TYPE2  0x10000000
 #define KBC_FLAG_DELAY_SELFTEST 0x08000000
+#define KBC_FLAG_OLIVETTI_8B_LINE 0x04000000
 
 #ifdef __cplusplus
 extern "C" {
