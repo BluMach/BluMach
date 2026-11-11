@@ -1,3 +1,4 @@
+/* BluMach modifications: rtzor, Project BluMach, 2026. */
 /*
  * 86Box    A hypervisor and IBM PC system emulator that specializes in
  *          running old operating systems and software designed for IBM
@@ -95,6 +96,27 @@ enum MM58174_ADDR {
     MM58174_RESET,    /* RESET register, write only */
     MM58174_IRQ       /* Interrupt register, read / write */
 };
+
+/* Host save metadata follows the 16 chip registers, outside the I/O window.
+ * Legacy BluMach saves contain exactly 16 bytes and ignored the STOP latch.
+ * Version 1 saves append this footer so a saved STOP is never migrated to RUN.
+ */
+#define MM58174_NVR_REGS 16
+static const uint8_t mm58174_nvr_footer[16] = {
+    'B', 'M', 'M', '5', '8', '1', '7', '4', 1, 0, 0, 0, 0, 0, 0, 0
+};
+
+enum MM58174_NVR_FORMAT {
+    MM58174_NVR_FRESH,
+    MM58174_NVR_LEGACY,
+    MM58174_NVR_CURRENT,
+    MM58174_NVR_UNKNOWN
+};
+
+typedef struct mm58174_t {
+    nvr_t nvr;
+    uint8_t format_warned;
+} mm58174_t;
 
 enum MM58274_ADDR {
     /* Registers */
@@ -232,26 +254,89 @@ mm58x74_recalc(void)
 static void
 mm58174_tick(nvr_t *nvr)
 {
+    /* National MOS Databook (1980), 5-355/5-357: STOP holds the oscillator
+     * divider and seconds counters in reset; START releases a fresh phase.
+     */
+    if (!(nvr->regs[MM58174_RESET] & 0x01))
+        return;
+
     mm58x74_recalc();
     mm58174_time_set(nvr->regs, &intclk);
+}
+
+static enum MM58174_NVR_FORMAT
+mm58174_nvr_load_format(nvr_t *nvr)
+{
+    uint8_t footer[sizeof(mm58174_nvr_footer)];
+    enum MM58174_NVR_FORMAT format = MM58174_NVR_UNKNOWN;
+    FILE *fp;
+    long length;
+
+    fp = nvr_fopen(nvr->fn, "rb");
+    if (fp == NULL)
+        return nvr->is_new ? MM58174_NVR_FRESH : format;
+
+    if (fseek(fp, 0, SEEK_END) == 0) {
+        length = ftell(fp);
+        if (length == MM58174_NVR_REGS)
+            format = MM58174_NVR_LEGACY;
+        else if (length == (long) (MM58174_NVR_REGS + sizeof(footer)) &&
+                 fseek(fp, MM58174_NVR_REGS, SEEK_SET) == 0 &&
+                 fread(footer, 1, sizeof(footer), fp) == sizeof(footer) &&
+                 memcmp(footer, mm58174_nvr_footer, sizeof(footer)) == 0)
+            format = MM58174_NVR_CURRENT;
+    }
+    fclose(fp);
+    return format;
 }
 
 static void
 mm58174_start(nvr_t *nvr)
 {
-    struct tm tm;
+    struct tm tm = { 0 };
+    mm58174_t *rtc = (mm58174_t *) nvr;
+    const enum MM58174_NVR_FORMAT format = mm58174_nvr_load_format(nvr);
 
-    /* Initialize the internal and chip times. */
+    /* The old 16-byte format always ran, even with bit 0 clear. Preserve its
+     * date/time while migrating that formerly ignored bit. Fresh clocks run.
+     */
+    if (format == MM58174_NVR_FRESH || format == MM58174_NVR_LEGACY) {
+        nvr->regs[MM58174_RESET] |= 0x01;
+        nvr_dosave = 1;
+    }
+
+    if (format != MM58174_NVR_UNKNOWN) {
+        memcpy(nvr->regs + MM58174_NVR_REGS, mm58174_nvr_footer, sizeof(mm58174_nvr_footer));
+        nvr->size = MM58174_NVR_REGS + sizeof(mm58174_nvr_footer);
+    } else {
+        /* Do not reinterpret or overwrite an unknown/truncated extended save.
+         * The recognized chip-register prefix is usable, but read-only on disk.
+         */
+        nvr->size = 0;
+        if (!rtc->format_warned) {
+            pclog("MM58174: unrecognized or truncated NVR file '%s'; persistence disabled, original file preserved\n", nvr->fn);
+            rtc->format_warned = 1;
+        }
+    }
+
+    /* Host synchronization supplies the initial time, not an override of later
+     * guest STOP/START commands. Normalize a loaded STOP before exporting time.
+     */
     if (time_sync & TIME_SYNC_ENABLED) {
-        /* Use the internal clock's time. */
         nvr_time_get(&tm);
         mm58174_time_set(nvr->regs, &tm);
-    } else {
-        /* Set the internal clock from the chip time. */
-        mm58174_time_get(nvr->regs, &tm);
-        nvr_time_set(&tm);
     }
-    mm58174_time_get(nvr->regs, &intclk);
+    nvr->regs[MM58174_TENTHS] = 0;
+    if (!(nvr->regs[MM58174_RESET] & 0x01)) {
+        nvr->regs[MM58174_SECOND1] = 0;
+        nvr->regs[MM58174_SECOND10] = 0;
+    }
+    mm58174_time_get(nvr->regs, &tm);
+    if (!(time_sync & TIME_SYNC_ENABLED))
+        nvr_time_set(&tm);
+    intclk = tm;
+    nvr->onesec_cnt = 0;
+    timer_set_delay_u64(&nvr->onesec_time, 10000ULL * TIMER_USEC);
 }
 
 /* Write to one of the chip registers. */
@@ -263,18 +348,23 @@ mm58174_write(uint16_t addr, uint8_t val, void *priv)
     addr &= 0x0f;
     val &= 0x0f;
 
-    /* Update non-read-only changed values if not synchronizing time to host */
-    if ((addr != MM58174_TENTHS) && (addr != MM58174_SECOND1) && (addr != MM58174_SECOND10))
-        if ((nvr->regs[addr] != val) && !(time_sync & TIME_SYNC_ENABLED))
-            nvr_dosave = 1;
+    /* These counters are outputs of the divider, not writable RAM. */
+    if (addr == MM58174_TENTHS || addr == MM58174_SECOND1 || addr == MM58174_SECOND10)
+        return;
 
-    if ((addr == MM58174_RESET) && (val & 0x01)) {
-        /* When timer starts, MM58174 sets seconds and tenths of second to 0 */
-        nvr->regs[MM58174_TENTHS] = 0;
-        if (!(time_sync & TIME_SYNC_ENABLED)) {
-            /* Only set seconds to 0 if not synchronizing time to host clock */
-            nvr->regs[MM58174_SECOND1]  = 0;
+    if (nvr->regs[addr] != val && !(time_sync & TIME_SYNC_ENABLED))
+        nvr_dosave = 1;
+
+    if (addr == MM58174_RESET) {
+        const int was_running = nvr->regs[addr] & 0x01;
+        const int running = val & 0x01;
+
+        if (!running || !was_running) {
+            nvr->regs[MM58174_TENTHS] = 0;
+            nvr->regs[MM58174_SECOND1] = 0;
             nvr->regs[MM58174_SECOND10] = 0;
+            nvr->onesec_cnt = 0;
+            timer_set_delay_u64(&nvr->onesec_time, 10000ULL * TIMER_USEC);
         }
     }
 
@@ -293,6 +383,10 @@ mm58174_read(uint16_t addr, void *priv)
 
     addr &= 0x0f;
 
+    /* The generic NVR timer advances every 10 ms; expose its 100 ms digit. */
+    if (addr == MM58174_TENTHS)
+        return (nvr->regs[MM58174_RESET] & 0x01) ? nvr->onesec_cnt / 10 : 0;
+
     /* Set IRQ control bit to 0 upon read */
     if (addr == 0x0f)
         nvr->regs[addr] &= 0x07;
@@ -305,6 +399,11 @@ mm58174_read(uint16_t addr, void *priv)
 static void
 mm58174_reset(nvr_t *nvr)
 {
+    /* nvr_load calls reset before fread. Always accept the original prefix,
+     * even when reloading an instance whose last save included our footer.
+     */
+    nvr->size = MM58174_NVR_REGS;
+
     /* Clear the NVRAM. */
     memset(nvr->regs, 0xff, nvr->size);
 
@@ -2337,7 +2436,7 @@ machine_xt_m21_m24_init(const machine_t *model, const char *bios_low, const char
     nmi_init();
 
     /* Allocate an NVR for this machine. */
-    nvr = (nvr_t *) calloc(1, sizeof(nvr_t));
+    nvr = (nvr_t *) calloc(1, sizeof(mm58174_t));
     if (nvr == NULL)
         return 0;
 

@@ -1,3 +1,4 @@
+/* BluMach modifications: rtzor, Project BluMach, 2026. */
 /*
  * 86Box    A hypervisor and IBM PC system emulator that specializes in
  *          running old operating systems and software designed for IBM
@@ -43,7 +44,6 @@ extern const device_config_t cga_config[]; /* defined in vid_cga.c */
 
 /*
  * Current bugs:
- * - Olivetti diagnostics fail with errors: 6845 crtc write / read error out 0000 in 00ff
  * - Dark blue (almost black) picture in composite mode
  */
 
@@ -128,6 +128,10 @@ ogc_out(uint16_t addr, uint8_t val, void *priv)
         addr = addr + 16;
 #endif
 
+    /* M21/M24 OGC decodes A0, with A1/A2 ignored for the 6845 pair. */
+    if (ogc->go380_profile && addr >= 0x3d0 && addr <= 0x3d7)
+        addr = 0x3d4 | (addr & 1);
+
     switch (addr) {
         case 0x3d4:
         case 0x3d5:
@@ -171,6 +175,10 @@ ogc_in(uint16_t addr, void *priv)
 #endif
 
     uint8_t ret = 0xff;
+
+    /* M21/M24 OGC decodes A0, with A1/A2 ignored for the 6845 pair. */
+    if (ogc->go380_profile && addr >= 0x3d0 && addr <= 0x3d7)
+        addr = 0x3d4 | (addr & 1);
 
     switch (addr) {
         case 0x3d4:
