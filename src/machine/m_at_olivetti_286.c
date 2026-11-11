@@ -197,6 +197,7 @@ static int           olivetti_pcs286_remap_capable; /* mapping added and 1 MiB f
    it does not establish a complete LIM/EMS driver interface. */
 #define OLIMCU_PAGE_SIZE 0x4000
 #define OLIMCU_WINDOWS   4
+#define M203_EXT_SEGMENTS 3
 
 typedef struct olivetti_pcs286s_olimcu_t olivetti_pcs286s_olimcu_t;
 
@@ -207,6 +208,7 @@ typedef struct olivetti_pcs286s_olimcu_window_t {
     uint32_t                   source;
     uint8_t                    page;
     uint8_t                    control;
+    uint8_t                    linear;
 } olivetti_pcs286s_olimcu_window_t;
 
 typedef struct olivetti_pcs286s_olimcu_t {
@@ -223,8 +225,9 @@ typedef struct olivetti_pcs286s_olimcu_t {
     uint32_t                            bank_base[OLIMCU_WINDOWS];
     uint32_t                            bank_size[OLIMCU_WINDOWS];
     mem_mapping_t                       regs_mapping;
-    olivetti_pcs286s_olimcu_window_t    extended;
+    olivetti_pcs286s_olimcu_window_t    extended[M203_EXT_SEGMENTS];
     olivetti_pcs286s_olimcu_window_t    window[OLIMCU_WINDOWS];
+    uint8_t                             open_bus_exec[OLIMCU_PAGE_SIZE];
 } olivetti_pcs286s_olimcu_t;
 
 static olivetti_pcs286s_olimcu_t olivetti_pcs286s_olimcu;
@@ -233,21 +236,53 @@ static olivetti_pcs286s_olimcu_t olivetti_pcs286s_olimcu;
    allocation (F000:6340/5DD5). The 384 KiB hole is reclaimed above that
    boundary; blocks committed to shadow must no longer alias extended RAM. */
 static void
+olivetti_m203_extended_segment(olivetti_pcs286s_olimcu_t *dev, unsigned slot,
+                               uint32_t logical, uint32_t physical, uint32_t size)
+{
+    olivetti_pcs286s_olimcu_window_t *segment = &dev->extended[slot];
+
+    if (!size)
+        return;
+    segment->logical = logical;
+    segment->source = physical;
+    mem_mapping_set_exec(&segment->mapping, ram + physical);
+    mem_mapping_set_addr(&segment->mapping, logical, size);
+}
+
+static void
 olivetti_m203_extended_update(olivetti_pcs286s_olimcu_t *dev)
 {
-    uint32_t top = (mem_size << 10) + 0x60000;
+    uint32_t installed = mem_size << 10;
+    uint32_t top = installed + 0x60000;
     uint32_t limit = (uint32_t) dev->regs[0x0f] << 19;
     unsigned shadow = !!(dev->regs[0x0e] & 0x20) + !!(dev->regs[0x0e] & 0x10);
 
     if (!dev->m203)
         return;
+    for (unsigned slot = 0; slot < M203_EXT_SEGMENTS; slot++)
+        mem_mapping_disable(&dev->extended[slot].mapping);
     if (dev->regs[0x0f] && limit + 0x60000 < top)
         top = limit + 0x60000;
     top -= shadow * 0x10000;
-    if (top > 0x100000)
-        mem_mapping_set_addr(&dev->extended.mapping, 0x100000, top - 0x100000);
-    else
-        mem_mapping_disable(&dev->extended.mapping);
+
+    /* Instruction fetch needs a direct backing pointer. Each mapping must be
+       linear: the reclaimed A0000h hole is not contiguous with high DRAM, and
+       an E0000h-only shadow reservation also splits off the F0000h block. */
+    uint32_t normal_top = top < installed ? top : installed;
+    if (normal_top > 0x100000)
+        olivetti_m203_extended_segment(dev, 0, 0x100000, 0x100000,
+                                       normal_top - 0x100000);
+    if (top > installed) {
+        uint32_t reclaimed = top - installed;
+        uint32_t first = (dev->regs[0x0e] & 0x20) ? 0x40000 :
+                         ((dev->regs[0x0e] & 0x10) ? 0x50000 : 0x60000);
+        if (first > reclaimed)
+            first = reclaimed;
+        olivetti_m203_extended_segment(dev, 1, installed, 0xa0000, first);
+        if (reclaimed > first)
+            olivetti_m203_extended_segment(dev, 2, installed + first, 0xf0000,
+                                           reclaimed - first);
+    }
     flushmmucache();
 }
 
@@ -280,14 +315,8 @@ olivetti_pcs286s_olimcu_phys(const olivetti_pcs286s_olimcu_window_t *window, uin
     uint32_t                         bank = dev->bank & 3;
     uint32_t                         size = dev->bank_size[bank];
 
-    if (dev->m203 && window == &dev->extended) {
-        if (addr >= (mem_size << 10)) {
-            addr = addr - (mem_size << 10) + 0xa0000;
-            if ((dev->regs[0x0e] & 0x30) == 0x20 && addr >= 0xe0000)
-                addr += 0x10000;
-        }
-        return addr;
-    }
+    if (dev->m203 && window->linear)
+        return window->source + addr - window->logical;
     if (dev->m203 && dev->regs[0x0c]) {
         uint32_t physical = window->source + addr - window->logical;
         if (physical >= (mem_size << 10) + 0x60000)
@@ -315,7 +344,7 @@ olivetti_pcs286s_olimcu_mem_read8(uint32_t addr, void *priv)
     if (phys == UINT32_MAX)
         return 0xff;
 
-    if (window != &window->dev->extended && (addr - window->logical) < 12)
+    if (!window->linear && (addr - window->logical) < 12)
         OLIMCU_MEM_LOG("[OLIMCU-MEM] R bank=%u slot=%u logical=%05X phys=%06X value=%02X\n",
                        window->dev->bank & 3, (unsigned) (window - window->dev->window),
                        addr, phys, ram[phys]);
@@ -349,7 +378,7 @@ olivetti_pcs286s_olimcu_mem_write8(uint32_t addr, uint8_t val, void *priv)
     if (phys == UINT32_MAX)
         return;
 
-    if (window != &window->dev->extended && (addr - window->logical) < 12)
+    if (!window->linear && (addr - window->logical) < 12)
         OLIMCU_MEM_LOG("[OLIMCU-MEM] W bank=%u slot=%u logical=%05X phys=%06X value=%02X\n",
                        window->dev->bank & 3, (unsigned) (window - window->dev->window),
                        addr, phys, val);
@@ -411,6 +440,13 @@ olivetti_pcs286s_olimcu_update(olivetti_pcs286s_olimcu_window_t *window)
                bank, (unsigned) (window - dev->window), window->logical, window->page,
                window->control, window->source, dev->bank_base[bank],
                dev->bank_size[bank]);
+    if (dev->m203) {
+        uint32_t physical = olivetti_pcs286s_olimcu_phys(window, window->logical);
+        /* NULL would leave an earlier low-RAM executable mapping visible.
+           Empty banks need the same FFh bytes for instruction fetch and data. */
+        mem_mapping_set_exec(&window->mapping, physical == UINT32_MAX ?
+                              dev->open_bus_exec : ram + physical);
+    }
     mem_mapping_enable(&window->mapping);
     flushmmucache();
 }
@@ -684,7 +720,7 @@ olivetti_pcs286s_olimcu_write(uint16_t port, uint8_t val, void *priv)
     if ((slot == 0) && !(port & 1) && (val == 0xa5)) {
         if (dev->selected && (base == dev->base)) {
             dev->window[slot].page = val;
-            if (!dev->m203)
+            if (!dev->m203 || dev->regs[0x0c])
                 olivetti_pcs286s_olimcu_update(&dev->window[slot]);
         } else {
             dev->probe_base = base;
@@ -929,6 +965,8 @@ olivetti_tact286_peripherals_init(const machine_t *model, uint32_t onboard_bank_
 
     memset(&olivetti_pcs286s_olimcu, 0, sizeof(olivetti_pcs286s_olimcu));
     olivetti_pcs286s_olimcu.m203 = !!m203;
+    memset(olivetti_pcs286s_olimcu.open_bus_exec, 0xff,
+           sizeof(olivetti_pcs286s_olimcu.open_bus_exec));
     /* Until the BIOS programs register 08h, use the emulator defaults. */
     cpu_waitstates = 0;
     cpu_set_isa_speed(12000000);
@@ -979,16 +1017,19 @@ olivetti_tact286_peripherals_init(const machine_t *model, uint32_t onboard_bank_
        registers through a separate mapping and excludes shadowed blocks. */
     mem_remap_top(384);
     if (olivetti_pcs286s_olimcu.m203) {
-        olivetti_pcs286s_olimcu_window_t *ext = &olivetti_pcs286s_olimcu.extended;
-        ext->dev = &olivetti_pcs286s_olimcu;
-        ext->logical = 0x100000;
         mem_mapping_disable(&ram_high_mapping);
         mem_mapping_disable(&ram_remapped_mapping);
-        mem_mapping_add(&ext->mapping, 0x100000, (mem_size << 10) - 0xa0000,
-                        olivetti_pcs286s_olimcu_mem_read8, olivetti_pcs286s_olimcu_mem_read16,
-                        olivetti_pcs286s_olimcu_mem_read32, olivetti_pcs286s_olimcu_mem_write8,
-                        olivetti_pcs286s_olimcu_mem_write16, olivetti_pcs286s_olimcu_mem_write32,
-                        NULL, MEM_MAPPING_INTERNAL, ext);
+        for (unsigned slot = 0; slot < M203_EXT_SEGMENTS; slot++) {
+            olivetti_pcs286s_olimcu_window_t *ext = &olivetti_pcs286s_olimcu.extended[slot];
+            ext->dev = &olivetti_pcs286s_olimcu;
+            ext->linear = 1;
+            mem_mapping_add(&ext->mapping, 0, 0,
+                            olivetti_pcs286s_olimcu_mem_read8, olivetti_pcs286s_olimcu_mem_read16,
+                            olivetti_pcs286s_olimcu_mem_read32, olivetti_pcs286s_olimcu_mem_write8,
+                            olivetti_pcs286s_olimcu_mem_write16, olivetti_pcs286s_olimcu_mem_write32,
+                            NULL, MEM_MAPPING_INTERNAL, ext);
+        }
+        olivetti_m203_extended_update(&olivetti_pcs286s_olimcu);
     }
 
     if (gfxcard[0] == VID_INTERNAL)

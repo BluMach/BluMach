@@ -204,3 +204,30 @@ string(SUBSTRING "${mem_map_text}" ${mem_map_start} ${mem_map_length} mem_map_im
 file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/mem_mapping_recalc.inc" "${mem_map_impl}")
 blumach_add_host_contract(mem-mapping-range mem_mapping_range_test.c)
 target_include_directories(mem-mapping-range PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
+
+# Keep the M203 contract on complete production functions, with fail-closed
+# boundaries like the existing memory-map contract above.
+function(blumach_extract_m203_contract output source start_marker end_marker)
+    set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${source}")
+    file(READ "${source}" contract_text)
+    string(REPLACE "\r\n" "\n" contract_text "${contract_text}")
+    string(FIND "${contract_text}" "${start_marker}" contract_start)
+    string(FIND "${contract_text}" "${end_marker}" contract_end)
+    if(contract_start LESS 0 OR contract_end LESS contract_start)
+        message(FATAL_ERROR "Cannot isolate production functions for ${output}")
+    endif()
+    math(EXPR contract_length "${contract_end} - ${contract_start}")
+    string(SUBSTRING "${contract_text}" ${contract_start} ${contract_length} contract_impl)
+    file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/${output}" "${contract_impl}")
+endfunction()
+set(m203_source "${PROJECT_SOURCE_DIR}/src/machine/m_at_olivetti_286.c")
+blumach_extract_m203_contract(m203_memory_core.inc "${m203_source}"
+    "#define OLIMCU_PAGE_SIZE" "\n/* Extended Setup F7")
+blumach_extract_m203_contract(m203_memory_registers.inc "${m203_source}"
+    "static uint8_t\nolivetti_pcs286s_olimcu_reg_read(" "\nstatic uint8_t\nolivetti_remap_read8(")
+blumach_extract_m203_contract(m203_mapping_api.inc "${mem_map_source}"
+    "void\nmem_mapping_set(" "\nvoid\nmem_a20_init(")
+blumach_extract_m203_contract(m203_getpccache.inc "${mem_map_source}"
+    "uint8_t *\ngetpccache(" "\nuint8_t\nread_mem_b(")
+blumach_add_host_contract(m203-memory m203_memory_test.c)
+target_include_directories(m203-memory PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
