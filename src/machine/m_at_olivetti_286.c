@@ -192,8 +192,9 @@ static int           olivetti_pcs286_remap_capable; /* mapping added and 1 MiB f
    corresponding 16 KiB logical window.  Addresses beyond populated RAM
    wrap at the installed-memory boundary, reproducing the alias test used
    by the firmware.  This is intentionally limited to the BIOS-observed
-   protocol; shadow and the final DOS EMS/XMS allocation policy remain
-   separate work. */
+   protocol for PCS 286/S. The M203 path additionally implements the 1.29
+   firmware's global page frame, shadow copy and extended-memory boundary;
+   it does not establish a complete LIM/EMS driver interface. */
 #define OLIMCU_PAGE_SIZE 0x4000
 #define OLIMCU_WINDOWS   4
 
@@ -218,13 +219,59 @@ typedef struct olivetti_pcs286s_olimcu_t {
     uint8_t                             regs_unlocked;
     uint8_t                             regs[256];
     uint8_t                             bank;
+    uint8_t                             m203;
     uint32_t                            bank_base[OLIMCU_WINDOWS];
     uint32_t                            bank_size[OLIMCU_WINDOWS];
     mem_mapping_t                       regs_mapping;
+    olivetti_pcs286s_olimcu_window_t    extended;
     olivetti_pcs286s_olimcu_window_t    window[OLIMCU_WINDOWS];
 } olivetti_pcs286s_olimcu_t;
 
 static olivetti_pcs286s_olimcu_t olivetti_pcs286s_olimcu;
+
+/* BIOS 1.29 programs 0Fh in 512 KiB units after bank sizing and EMS
+   allocation (F000:6340/5DD5). The 384 KiB hole is reclaimed above that
+   boundary; blocks committed to shadow must no longer alias extended RAM. */
+static void
+olivetti_m203_extended_update(olivetti_pcs286s_olimcu_t *dev)
+{
+    uint32_t top = (mem_size << 10) + 0x60000;
+    uint32_t limit = (uint32_t) dev->regs[0x0f] << 19;
+    unsigned shadow = !!(dev->regs[0x0e] & 0x20) + !!(dev->regs[0x0e] & 0x10);
+
+    if (!dev->m203)
+        return;
+    if (dev->regs[0x0f] && limit + 0x60000 < top)
+        top = limit + 0x60000;
+    top -= shadow * 0x10000;
+    if (top > 0x100000)
+        mem_mapping_set_addr(&dev->extended.mapping, 0x100000, top - 0x100000);
+    else
+        mem_mapping_disable(&dev->extended.mapping);
+    flushmmucache();
+}
+
+/* M203 BIOS 1.29 F000:034A tests both 64 KiB blocks with 0Eh=06h.
+   F000:0303 then selects E0000 only (24h), or E0000/F0000 (36h).
+   The upper bits protect the corresponding shadow block from writes.
+   These semantics are firmware-observed; other TACT boards are unchanged. */
+static void
+olivetti_m203_shadow_update(olivetti_pcs286s_olimcu_t *dev)
+{
+    if (!dev->m203)
+        return;
+
+    for (unsigned block = 0; block < 2; block++) {
+        uint8_t bit = 4 >> block;
+        int enabled = dev->regs[0x0e] & bit;
+        int protected = dev->regs[0x0e] & (bit << 3);
+        mem_set_mem_state_both(0xe0000 + block * 0x10000, 0x10000,
+                              (enabled ? MEM_READ_INTERNAL : MEM_READ_ROMCS) |
+                              (enabled && !protected ? MEM_WRITE_INTERNAL : MEM_WRITE_ROMCS));
+    }
+    olivetti_m203_extended_update(dev);
+    flushmmucache();
+}
 
 static uint32_t
 olivetti_pcs286s_olimcu_phys(const olivetti_pcs286s_olimcu_window_t *window, uint32_t addr)
@@ -233,8 +280,27 @@ olivetti_pcs286s_olimcu_phys(const olivetti_pcs286s_olimcu_window_t *window, uin
     uint32_t                         bank = dev->bank & 3;
     uint32_t                         size = dev->bank_size[bank];
 
+    if (dev->m203 && window == &dev->extended) {
+        if (addr >= (mem_size << 10)) {
+            addr = addr - (mem_size << 10) + 0xa0000;
+            if ((dev->regs[0x0e] & 0x30) == 0x20 && addr >= 0xe0000)
+                addr += 0x10000;
+        }
+        return addr;
+    }
+    if (dev->m203 && dev->regs[0x0c]) {
+        uint32_t physical = window->source + addr - window->logical;
+        if (physical >= (mem_size << 10) + 0x60000)
+            return UINT32_MAX;
+        if (physical >= (mem_size << 10))
+            physical = physical - (mem_size << 10) + 0xa0000;
+        return physical < (mem_size << 10) ? physical : UINT32_MAX;
+    }
+
     if (!size)
-        return 0;
+        /* An absent bank must not uncover ordinary low RAM: the firmware
+           would mistake its own RAM-PRESENT pattern for populated DRAM. */
+        return dev->m203 ? UINT32_MAX : 0;
 
     return dev->bank_base[bank] +
            ((window->source + (addr - window->logical)) % size);
@@ -246,11 +312,15 @@ olivetti_pcs286s_olimcu_mem_read8(uint32_t addr, void *priv)
     const olivetti_pcs286s_olimcu_window_t *window = (olivetti_pcs286s_olimcu_window_t *) priv;
     uint32_t                                phys   = olivetti_pcs286s_olimcu_phys(window, addr);
 
-    if ((addr - window->logical) < 12)
+    if (phys == UINT32_MAX)
+        return 0xff;
+
+    if (window != &window->dev->extended && (addr - window->logical) < 12)
         OLIMCU_MEM_LOG("[OLIMCU-MEM] R bank=%u slot=%u logical=%05X phys=%06X value=%02X\n",
                        window->dev->bank & 3, (unsigned) (window - window->dev->window),
                        addr, phys, ram[phys]);
-    addreadlookup(mem_logical_addr, phys);
+    if (!window->dev->m203)
+        addreadlookup(mem_logical_addr, phys);
     return ram[phys];
 }
 
@@ -276,11 +346,15 @@ olivetti_pcs286s_olimcu_mem_write8(uint32_t addr, uint8_t val, void *priv)
     const olivetti_pcs286s_olimcu_window_t *window = (olivetti_pcs286s_olimcu_window_t *) priv;
     uint32_t                                phys   = olivetti_pcs286s_olimcu_phys(window, addr);
 
-    if ((addr - window->logical) < 12)
+    if (phys == UINT32_MAX)
+        return;
+
+    if (window != &window->dev->extended && (addr - window->logical) < 12)
         OLIMCU_MEM_LOG("[OLIMCU-MEM] W bank=%u slot=%u logical=%05X phys=%06X value=%02X\n",
                        window->dev->bank & 3, (unsigned) (window - window->dev->window),
                        addr, phys, val);
-    addwritelookup(mem_logical_addr, phys);
+    if (!window->dev->m203)
+        addwritelookup(mem_logical_addr, phys);
     mem_write_ramb_page(phys, val, &pages[phys >> 12]);
 }
 
@@ -305,7 +379,14 @@ olivetti_pcs286s_olimcu_update(olivetti_pcs286s_olimcu_window_t *window)
     uint32_t                  page = window->page & 0x7f;
     uint32_t                  bank = dev->bank & 3;
 
-    if (!(window->page & 0x80) || !dev->bank_size[bank]) {
+    if (dev->m203) {
+        window->logical = ((uint32_t) dev->regs[0x0c] << 14) +
+                          (unsigned) (window - dev->window) * OLIMCU_PAGE_SIZE;
+        mem_mapping_set_addr(&window->mapping, window->logical, OLIMCU_PAGE_SIZE);
+    }
+
+    if (!(window->page & 0x80) || (!dev->m203 && !dev->bank_size[bank]) ||
+        (dev->m203 && !(dev->regs[0x0a] & 0x10))) {
         OLIMCU_LOG("[OLIMCU-MAP] disable bank=%u slot=%u page=%02X ctl=%02X bank_size=%X\n",
                    bank, (unsigned) (window - dev->window), window->page, window->control,
                    dev->bank_size[bank]);
@@ -317,7 +398,9 @@ olivetti_pcs286s_olimcu_update(olivetti_pcs286s_olimcu_window_t *window)
     /* BIOS 2.06 uses these extended encodings while looking for aliases at
        2 MiB and 4 MiB.  Values below 2 MiB use the ordinary seven-bit
        16-KiB page number in the mapping register. */
-    if ((page == 0x00) && (window->control == 0x21))
+    if (dev->m203 && dev->regs[0x0c])
+        window->source = (((uint32_t) window->control & 0x0f) << 21) | (page * OLIMCU_PAGE_SIZE);
+    else if ((page == 0x00) && (window->control == 0x21))
         window->source = 0x00200000;
     else if ((page == 0x00) && (window->control == 0x34))
         window->source = 0x00400000;
@@ -406,12 +489,17 @@ olivetti_pcs286s_olimcu_reg_read(uint32_t addr, void *priv)
        this is essential because the POST subsequently checksums the whole
        system BIOS, including FFFEAh/FFFECh/FFFEEh. */
     if (!dev->regs_unlocked)
-        return bios_read(addr, NULL);
+        return dev->m203 && (dev->regs[0x0e] & 2) ? ram[addr] : bios_read(addr, NULL);
 
     switch (addr) {
         case 0x000fffea:
             if (dev->reg_index == 0x1b) {
-                uint8_t val = dev->bank_size[dev->bank & 3] ? 0x04 : 0x00;
+                /* Outside the bank probe, 10h is a geometry register, not
+                   a persistent bank selector. Keep the onboard DRAM status
+                   visible to the M203 Setup/peripheral capability checks. */
+                unsigned bank = dev->m203 && (!(dev->regs[0x0a] & 0x10) || dev->regs[0x0c]) ?
+                                0 : dev->bank & 3;
+                uint8_t val = dev->bank_size[bank] ? 0x04 : 0x00;
                 OLIMCU_LOG("[OLIMCU-REG] R data index=%02X bank=%u -> %02X\n",
                            dev->reg_index, dev->bank & 3, val);
                 return val;
@@ -426,7 +514,7 @@ olivetti_pcs286s_olimcu_reg_read(uint32_t addr, void *priv)
             OLIMCU_LOG("[OLIMCU-REG] R lock -> %02X\n", dev->regs[0xff]);
             return dev->regs[0xff];
         default:
-            return bios_read(addr, NULL);
+            return dev->m203 && (dev->regs[0x0e] & 2) ? ram[addr] : bios_read(addr, NULL);
     }
 }
 
@@ -450,6 +538,16 @@ static void
 olivetti_pcs286s_olimcu_reg_write(uint32_t addr, uint8_t val, void *priv)
 {
     olivetti_pcs286s_olimcu_t *dev = (olivetti_pcs286s_olimcu_t *) priv;
+
+    /* Locked bytes remain ordinary shadow RAM, including during the ROM
+       write/read test. Only an unlock transaction or an already unlocked
+       register access takes priority over DRAM. */
+    int configuration_write =
+        (dev->regs_unlocked && (addr == 0xfffea || addr == 0xfffec || addr == 0xfffee)) ||
+        (addr == 0xfffee && (val == 0xaa || (val == 0x55 && dev->unlock_state == 1)));
+    if (dev->m203 && (dev->regs[0x0e] & 2) && !(dev->regs[0x0e] & 0x10) &&
+        !configuration_write)
+        mem_write_ramb_page(addr, val, &pages[addr >> 12]);
 
     if (addr == 0x000fffee) {
         OLIMCU_LOG("[OLIMCU-REG] W lock=%02X\n", val);
@@ -482,6 +580,17 @@ olivetti_pcs286s_olimcu_reg_write(uint32_t addr, uint8_t val, void *priv)
 #endif
             if (dev->reg_index == 0x08)
                 olivetti_pcs286s_apply_timing(val);
+            if (dev->reg_index == 0x0e)
+                olivetti_m203_shadow_update(dev);
+            if (dev->reg_index == 0x0f)
+                olivetti_m203_extended_update(dev);
+            if (dev->m203 && (dev->reg_index == 0x0a) && (val & 0x10)) {
+                dev->base = 0x0208 | ((val & 0x0f) << 4);
+                dev->selected = 1;
+                dev->probe_seen = 0;
+            }
+            if (dev->m203 && ((dev->reg_index == 0x0a) || (dev->reg_index == 0x0c)))
+                olivetti_pcs286s_olimcu_update_all(dev);
             if (dev->reg_index == 0x10) {
                 dev->bank = val & 3;
                 olivetti_pcs286s_olimcu_update_all(dev);
@@ -575,7 +684,8 @@ olivetti_pcs286s_olimcu_write(uint16_t port, uint8_t val, void *priv)
     if ((slot == 0) && !(port & 1) && (val == 0xa5)) {
         if (dev->selected && (base == dev->base)) {
             dev->window[slot].page = val;
-            olivetti_pcs286s_olimcu_update(&dev->window[slot]);
+            if (!dev->m203)
+                olivetti_pcs286s_olimcu_update(&dev->window[slot]);
         } else {
             dev->probe_base = base;
             dev->probe_seen = 1;
@@ -806,10 +916,10 @@ olivetti_pcs286s_post_write(UNUSED(uint16_t port), uint8_t val, UNUSED(void *pri
 #endif
 }
 
-/* Reuse the PCS 286/S approximation for the TACT memory interface
-   and the common AT peripherals. M203-specific decode remains unverified. */
+/* Share the AT peripherals, retaining separate firmware-observed memory
+   behavior for the M203 and the experimental PCS 286/S implementation. */
 static void
-olivetti_tact286_peripherals_init(const machine_t *model, uint32_t onboard_bank_bytes)
+olivetti_tact286_peripherals_init(const machine_t *model, uint32_t onboard_bank_bytes, int m203)
 {
     /* Murdock's preservation branch established the board-level devices
        below.  PC87310 owns FDC, two UARTs and LPT and is configured through
@@ -818,6 +928,7 @@ olivetti_tact286_peripherals_init(const machine_t *model, uint32_t onboard_bank_
     device_add(&pc87310_device);
 
     memset(&olivetti_pcs286s_olimcu, 0, sizeof(olivetti_pcs286s_olimcu));
+    olivetti_pcs286s_olimcu.m203 = !!m203;
     /* Until the BIOS programs register 08h, use the emulator defaults. */
     cpu_waitstates = 0;
     cpu_set_isa_speed(12000000);
@@ -861,12 +972,24 @@ olivetti_tact286_peripherals_init(const machine_t *model, uint32_t onboard_bank_
                     olivetti_pcs286s_olimcu_reg_write,
                     olivetti_pcs286s_olimcu_reg_write16,
                     olivetti_pcs286s_olimcu_reg_write32,
-                    NULL, MEM_MAPPING_EXTERNAL, &olivetti_pcs286s_olimcu);
+                    NULL, olivetti_pcs286s_olimcu.m203 ? 0 : MEM_MAPPING_EXTERNAL,
+                    &olivetti_pcs286s_olimcu);
 
-    /* Temporary top-memory exposure remains until OLIMCU16 shadow and the
-       final EMS/XMS split are understood.  Low-memory bank aliasing is now
-       owned by the mapper above instead of the old 0208h echo latch. */
+    /* PCS 286/S retains its previous exposure. M203 applies the allocation
+       registers through a separate mapping and excludes shadowed blocks. */
     mem_remap_top(384);
+    if (olivetti_pcs286s_olimcu.m203) {
+        olivetti_pcs286s_olimcu_window_t *ext = &olivetti_pcs286s_olimcu.extended;
+        ext->dev = &olivetti_pcs286s_olimcu;
+        ext->logical = 0x100000;
+        mem_mapping_disable(&ram_high_mapping);
+        mem_mapping_disable(&ram_remapped_mapping);
+        mem_mapping_add(&ext->mapping, 0x100000, (mem_size << 10) - 0xa0000,
+                        olivetti_pcs286s_olimcu_mem_read8, olivetti_pcs286s_olimcu_mem_read16,
+                        olivetti_pcs286s_olimcu_mem_read32, olivetti_pcs286s_olimcu_mem_write8,
+                        olivetti_pcs286s_olimcu_mem_write16, olivetti_pcs286s_olimcu_mem_write32,
+                        NULL, MEM_MAPPING_INTERNAL, ext);
+    }
 
     if (gfxcard[0] == VID_INTERNAL)
         device_add(&paradise_pvga1a_pcs286_device);
@@ -896,7 +1019,7 @@ machine_at_olivetti_pcs286s_ti_init(const machine_t *model)
         return ret;
 
     machine_at_common_ide_init(model);
-    olivetti_tact286_peripherals_init(model, 0);
+    olivetti_tact286_peripherals_init(model, 0, 0);
     io_sethandler(0x0378, 1, NULL, NULL, NULL,
                   olivetti_pcs286s_post_write, NULL, NULL, NULL);
 
@@ -918,6 +1041,6 @@ machine_at_olivetti_m290s_init(const machine_t *model)
        controller responds at 1F7h and triggers Extended Setup. */
     machine_at_common_init(model);
     /* Model the soldered MiB as its own bank, followed by the SIMM pairs. */
-    olivetti_tact286_peripherals_init(model, 0x100000);
+    olivetti_tact286_peripherals_init(model, 0x100000, 1);
     return ret;
 }
