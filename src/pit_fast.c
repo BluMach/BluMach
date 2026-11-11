@@ -1,3 +1,4 @@
+/* BluMach modifications: rtzor, Project BluMach, 2026. */
 /*
  * 86Box    A hypervisor and IBM PC system emulator that specializes in
  *          running old operating systems and software designed for IBM
@@ -18,6 +19,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
 #include <wchar.h>
@@ -109,20 +111,92 @@ pitf_ctr_set_out_func(void *data, int counter_id, void (*func)(int new_out, int 
     ctr->out_func = func;
 }
 
-void
-pitf_ctr_set_using_timer(void *data, int counter_id, int using_timer)
-{
-    if (tsc > 0)
-        timer_process();
 
-    pitf_t *pit      = (pitf_t *) data;
-    ctrf_t *ctr      = &pit->counters[counter_id];
-    ctr->using_timer = using_timer;
+/* Mode 4 uses newcount for its load and one-clock output-recovery phases. */
+#define PITF_M4_LOAD_NEXT 2
+#define PITF_M4_STROBE_LOW 3
+
+/* A sparse phase timer keeps CLK continuous while GATE disables counting.
+ * Timer rebases move this anchor together with the active counter events. */
+#define PITF_M4_PHASE_SPAN 65536u
+
+typedef struct pitf_mode4_phase_channel_t {
+    pc_timer_t anchor;
+    uint64_t period;
+    int initialized;
+} pitf_mode4_phase_channel_t;
+
+typedef struct pitf_mode4_phase_t {
+    pitf_mode4_phase_channel_t channel[NUM_COUNTERS];
+} pitf_mode4_phase_t;
+
+static void
+pitf_mode4_phase_over(void *priv)
+{
+    pitf_mode4_phase_channel_t *phase = (pitf_mode4_phase_channel_t *)priv;
+    timer_advance_u64(&phase->anchor, phase->period * PITF_M4_PHASE_SPAN);
+}
+
+static pitf_mode4_phase_channel_t *
+pitf_mode4_phase_get(ctrf_t *ctr)
+{
+    pitf_t *pit = (pitf_t *)ctr->priv;
+    if (pit == NULL || ctr->pit_const == 0)
+        return NULL;
+    pitf_mode4_phase_t *state = (pitf_mode4_phase_t *)pit->dev_priv;
+    if (state == NULL) {
+        state = (pitf_mode4_phase_t *)calloc(1, sizeof(*state));
+        if (state == NULL)
+            fatal("Unable to allocate FAST PIT mode4 phase state\n");
+        pit->dev_priv = state;
+    }
+    const ptrdiff_t index = ctr - pit->counters;
+    if (index < 0 || index >= NUM_COUNTERS)
+        return NULL;
+    pitf_mode4_phase_channel_t *phase = &state->channel[index];
+    if (!phase->initialized) {
+        const uint64_t period = ctr->pit_const ? ctr->pit_const : 1u;
+        const uint64_t now_phase = (uint64_t)(((uint128_t)tsc << 32u) % period);
+        phase->period = period;
+        timer_add(&phase->anchor, pitf_mode4_phase_over, phase, 0);
+        timer_set_delay_u64(&phase->anchor, period - now_phase +
+                            (PITF_M4_PHASE_SPAN - 1u) * period);
+        phase->initialized = 1;
+    }
+    return phase;
+}
+
+static uint64_t
+pitf_mode4_next_clock(ctrf_t *ctr)
+{
+    const uint64_t period = ctr->pit_const ? ctr->pit_const : 1u;
+    pitf_mode4_phase_channel_t *phase = pitf_mode4_phase_get(ctr);
+    if (phase == NULL) {
+        const uint64_t offset = (uint64_t)(((uint128_t)tsc << 32u) % period);
+        return period - offset;
+    }
+    const uint64_t remainder = (uint64_t)(timer_get_remaining_u64(&phase->anchor) % period);
+    return remainder ? remainder : period;
 }
 
 static int
 pitf_read_timer(ctrf_t *ctr)
 {
+    if (ctr->m == 4) {
+        /* A CR write is not yet a CE load, and a low strobe lasts one CLK. */
+        if (ctr->newcount == PITF_M4_LOAD_NEXT || ctr->newcount == PITF_M4_STROBE_LOW ||
+            !ctr->using_timer || !timer_is_enabled(&ctr->timer))
+            return ctr->count;
+        if (ctr->pit_const == 0)
+            return 0x10000;
+        const uint128_t remaining = timer_get_remaining_u64(&ctr->timer);
+        int read = (int)((remaining + ctr->pit_const - 1u) / ctr->pit_const);
+        /* Scheduler callbacks compare integer TSC and may service a fractional
+         * edge less than one TSC unit early. Never expose N+1 after loading N. */
+        if (read > ctr->count)
+            read = ctr->count;
+        return read > 0x10000 ? 0x10000 : read;
+    }
     if (ctr->using_timer && !(ctr->m == 3 && !ctr->gate) && timer_is_enabled(&ctr->timer)) {
         if (ctr->pit_const == 0)
             return 0x10000;
@@ -155,13 +229,50 @@ pitf_dump_and_disable_timer(ctrf_t *ctr)
     }
 }
 
+void
+pitf_ctr_set_using_timer(void *data, int counter_id, int using_timer)
+{
+    if (tsc > 0)
+        timer_process();
+
+    pitf_t *pit = (pitf_t *)data;
+    ctrf_t *ctr = &pit->counters[counter_id];
+    using_timer = !!using_timer;
+    if (ctr->m != 4 || ctr->using_timer == using_timer) {
+        ctr->using_timer = using_timer;
+        return;
+    }
+
+    /* Stop the old source before an external CLK can advance the same CE.
+     * Pending loads and OUT recovery remain pending until the new source ticks. */
+    if (ctr->using_timer)
+        pitf_dump_and_disable_timer(ctr);
+    ctr->using_timer = using_timer;
+    ctr->running = 0;
+    if (!using_timer || ctr->disabled)
+        return;
+
+    const int pending = ctr->newcount == PITF_M4_LOAD_NEXT ||
+                        ctr->newcount == PITF_M4_STROBE_LOW;
+    if (pending || ctr->gate) {
+        uint64_t delay = pitf_mode4_next_clock(ctr);
+        if (!pending) {
+            const uint64_t count = ctr->count ? (uint64_t)ctr->count : 0x10000u;
+            delay += (count - 1u) * ctr->pit_const;
+        }
+        timer_set_delay_u64(&ctr->timer, delay);
+        ctr->running = 1;
+    }
+}
+
 static void
 pitf_ctr_load(ctrf_t *ctr, void *priv)
 {
     pitf_t *pit = (pitf_t *)priv;
     int l = ctr->l ? ctr->l : 0x10000;
 
-    ctr->newcount = 0;
+    if (ctr->m != 4)
+        ctr->newcount = 0;
     ctr->disabled = 0;
 
     switch (ctr->m) {
@@ -198,17 +309,13 @@ pitf_ctr_load(ctrf_t *ctr, void *priv)
             }
             ctr->enabled = ctr->gate;
             break;
-        case 4: /*Software triggered stobe*/
-            if (!ctr->thit && !ctr->initial)
-                ctr->newcount = 1;
-            else {
-                ctr->count = l;
-                if (ctr->using_timer)
-                    timer_set_delay_u64(&ctr->timer, (uint64_t) (l * ctr->pit_const));
-                pitf_ctr_set_out(ctr, 0, pit);
-                ctr->thit = 0;
-            }
+        case 4: /* Software-triggered strobe: every complete write retriggers. */
+            pitf_dump_and_disable_timer(ctr);
+            ctr->newcount = PITF_M4_LOAD_NEXT;
+            ctr->thit = 0;
             ctr->enabled = ctr->gate;
+            if (ctr->using_timer)
+                timer_set_delay_u64(&ctr->timer, pitf_mode4_next_clock(ctr));
             break;
         case 5: /*Hardware triggered stobe*/
             ctr->enabled = 1;
@@ -222,7 +329,9 @@ pitf_ctr_load(ctrf_t *ctr, void *priv)
         ctr->load_func(ctr->m, l);
 
     ctr->initial = 0;
-    ctr->running = ctr->enabled && ctr->using_timer && !ctr->disabled;
+    ctr->running = ctr->using_timer && !ctr->disabled &&
+                   (ctr->enabled || (ctr->m == 4 &&
+                    (ctr->newcount == PITF_M4_LOAD_NEXT || ctr->newcount == PITF_M4_STROBE_LOW)));
     if (ctr->using_timer && !ctr->running)
         pitf_dump_and_disable_timer(ctr);
 }
@@ -238,9 +347,23 @@ pitf_set_gate_no_timer(ctrf_t *ctr, int gate, void *priv)
         return;
     }
 
+    if (ctr->m == 4) {
+        const int pending = ctr->newcount == PITF_M4_LOAD_NEXT || ctr->newcount == PITF_M4_STROBE_LOW;
+        if (!pending && ctr->using_timer && timer_is_enabled(&ctr->timer))
+            pitf_dump_and_disable_timer(ctr);
+        ctr->gate = gate;
+        ctr->enabled = gate;
+        if (!pending && ctr->using_timer && gate) {
+            const uint64_t count = ctr->count ? (uint64_t)ctr->count : 0x10000u;
+            timer_set_delay_u64(&ctr->timer, pitf_mode4_next_clock(ctr) +
+                                (count - 1u) * ctr->pit_const);
+        }
+        ctr->running = ctr->using_timer && !ctr->disabled && (gate || pending);
+        return;
+    }
+
     switch (ctr->m) {
         case 0: /*Interrupt on terminal count*/
-        case 4: /*Software triggered stobe*/
             if (ctr->using_timer && !ctr->running)
                 timer_set_delay_u64(&ctr->timer, (uint64_t) (l * ctr->pit_const));
             ctr->enabled = gate;
@@ -283,7 +406,9 @@ pitf_set_gate_no_timer(ctrf_t *ctr, int gate, void *priv)
             break;
     }
     ctr->gate    = gate;
-    ctr->running = ctr->enabled && ctr->using_timer && !ctr->disabled;
+    ctr->running = ctr->using_timer && !ctr->disabled &&
+                   (ctr->enabled || (ctr->m == 4 &&
+                    (ctr->newcount == PITF_M4_LOAD_NEXT || ctr->newcount == PITF_M4_STROBE_LOW)));
     if (ctr->using_timer && !ctr->running)
         pitf_dump_and_disable_timer(ctr);
 }
@@ -357,21 +482,31 @@ pitf_over(ctrf_t *ctr, void *priv)
                 pclog("pit_over: square wave mode c=%x  %lli  %f\n", pit.c[t], tsc, ctr->pit_const);
 #endif
             break;
-        case 4: /*Software triggered strove*/
-            if (!ctr->thit) {
-                pitf_ctr_set_out(ctr, 0, pit);
-                pitf_ctr_set_out(ctr, 1, pit);
-            }
-            if (ctr->newcount) {
+        case 4: /* Software-triggered strobe. */
+            if (ctr->newcount == PITF_M4_LOAD_NEXT) {
                 ctr->newcount = 0;
-                ctr->count += l;
-                if (ctr->using_timer)
-                    timer_advance_u64(&ctr->timer, (uint64_t) (l * ctr->pit_const));
-            } else {
+                ctr->count = l;
+                ctr->thit = 0;
+                pitf_ctr_set_out(ctr, 1, pit);
+                if (ctr->using_timer && ctr->gate)
+                    timer_advance_u64(&ctr->timer, (uint64_t)l * ctr->pit_const);
+            } else if (ctr->newcount == PITF_M4_STROBE_LOW) {
+                ctr->newcount = 0;
+                ctr->count = 0xffff;
                 ctr->thit = 1;
-                ctr->count += 0xffff;
+                pitf_ctr_set_out(ctr, 1, pit);
+                if (ctr->using_timer && ctr->gate)
+                    timer_advance_u64(&ctr->timer, (uint64_t)0xffff * ctr->pit_const);
+            } else if (!ctr->thit) {
+                ctr->count = 0;
+                ctr->newcount = PITF_M4_STROBE_LOW;
+                pitf_ctr_set_out(ctr, 0, pit);
                 if (ctr->using_timer)
-                    timer_advance_u64(&ctr->timer, (uint64_t) (0xffff * ctr->pit_const));
+                    timer_advance_u64(&ctr->timer, ctr->pit_const);
+            } else {
+                ctr->count = 0x10000;
+                if (ctr->using_timer && ctr->gate)
+                    timer_advance_u64(&ctr->timer, (uint64_t)0x10000 * ctr->pit_const);
             }
             break;
         case 5: /*Hardware triggered strove*/
@@ -388,7 +523,9 @@ pitf_over(ctrf_t *ctr, void *priv)
         default:
             break;
     }
-    ctr->running = ctr->enabled && ctr->using_timer && !ctr->disabled;
+    ctr->running = ctr->using_timer && !ctr->disabled &&
+                   (ctr->enabled || (ctr->m == 4 &&
+                    (ctr->newcount == PITF_M4_LOAD_NEXT || ctr->newcount == PITF_M4_STROBE_LOW)));
     if (ctr->using_timer && !ctr->running)
         pitf_dump_and_disable_timer(ctr);
 }
@@ -459,6 +596,10 @@ pitf_write(uint16_t addr, uint8_t val, void *priv)
                     pit_fast_log("PIT %i: Initiated latched read, %i bytes latched\n",
                             t, ctr->latched);
                 } else {
+                    if (ctr->m == 4 || ((val >> 1u) & 7u) == 4u) {
+                        pitf_dump_and_disable_timer(ctr);
+                        ctr->newcount = 0;
+                    }
                     ctr->ctrl = val;
                     ctr->rm = ctr->wm = (ctr->ctrl >> 4) & 3;
                     ctr->m            = (val >> 1) & 7;
@@ -628,7 +769,7 @@ static void
 pitf_timer_over(void *priv)
 {
     ctrf_t *ctr = (ctrf_t *) priv;
-    pit_t *pit = (pit_t *)ctr->priv;
+    pitf_t *pit = (pitf_t *)ctr->priv;
     pitf_over(ctr, pit);
 }
 
@@ -637,6 +778,21 @@ pitf_ctr_clock(void *data, int counter_id)
 {
     pitf_t *pit = (pitf_t *) data;
     ctrf_t *ctr = &pit->counters[counter_id];
+
+    if (ctr->m == 4) {
+        if (ctr->using_timer || ctr->disabled)
+            return;
+        if (ctr->newcount == PITF_M4_LOAD_NEXT || ctr->newcount == PITF_M4_STROBE_LOW) {
+            pitf_over(ctr, pit);
+            return;
+        }
+        if (!ctr->gate)
+            return;
+        ctr->count = (ctr->count - 1) & 0xffff;
+        if (!ctr->count)
+            pitf_over(ctr, pit);
+        return;
+    }
 
     if (ctr->thit || !ctr->enabled)
         return;
@@ -680,12 +836,30 @@ pitf_reset(pitf_t *dev)
 void
 pitf_set_pit_const(void *data, uint64_t pit_const)
 {
-    pitf_t *pit = (pitf_t *) data;
-    ctrf_t *ctr;
-
+    pitf_t *pit = (pitf_t *)data;
+    pitf_mode4_phase_t *state = (pitf_mode4_phase_t *)pit->dev_priv;
     for (uint8_t i = 0; i < NUM_COUNTERS; i++) {
-        ctr = &pit->counters[i];
+        ctrf_t *ctr = &pit->counters[i];
+        const uint64_t old_period = ctr->pit_const;
+        if (old_period && pit_const && old_period != pit_const) {
+            /* Keep both the count and fractional progress through this clock.
+             * timer_set_new_tsc already rebases these enabled timer deadlines. */
+            if (ctr->m == 4 && timer_is_enabled(&ctr->timer)) {
+                const uint128_t remaining = timer_get_remaining_u64(&ctr->timer);
+                const uint64_t scaled = (uint64_t)((remaining * pit_const) / old_period);
+                timer_set_delay_u64(&ctr->timer, scaled ? scaled : 1u);
+            }
+            if (state != NULL && state->channel[i].initialized) {
+                pitf_mode4_phase_channel_t *phase = &state->channel[i];
+                const uint128_t remaining = timer_get_remaining_u64(&phase->anchor);
+                const uint64_t scaled = (uint64_t)((remaining * pit_const) / old_period);
+                phase->period = pit_const;
+                timer_set_delay_u64(&phase->anchor, scaled ? scaled : 1u);
+            }
+        }
         ctr->pit_const = pit_const;
+        if (pit_const && ctr->priv != NULL && !(pit->flags & (PIT_PS2 | PIT_CUSTOM_CLOCK)))
+            (void)pitf_mode4_phase_get(ctr);
     }
 }
 
@@ -706,8 +880,18 @@ pitf_close(void *priv)
     if (dev == pit_devs[1].data)
         pit_devs[1].data = NULL;
 
-    if (dev != NULL)
+    if (dev != NULL) {
+        for (unsigned i = 0; i < NUM_COUNTERS; ++i)
+            timer_disable(&dev->counters[i].timer);
+        pitf_mode4_phase_t *state = (pitf_mode4_phase_t *)dev->dev_priv;
+        if (state != NULL) {
+            for (unsigned i = 0; i < NUM_COUNTERS; ++i)
+                if (state->channel[i].initialized)
+                    timer_disable(&state->channel[i].anchor);
+            free(state);
+        }
         free(dev);
+    }
 }
 
 void
@@ -727,12 +911,14 @@ pitf_init(const device_t *info)
 
     dev->flags = info->local;
 
-    if (!(dev->flags & PIT_PS2) && !(dev->flags & PIT_CUSTOM_CLOCK)) {
-        for (int i = 0; i < NUM_COUNTERS; i++) {
-            ctrf_t *ctr = &dev->counters[i];
-            ctr->priv = dev;
-            timer_add(&ctr->timer, pitf_timer_over, (void *) ctr, 0);
-        }
+    for (unsigned i = 0; i < NUM_COUNTERS; ++i) {
+        ctrf_t *ctr = &dev->counters[i];
+        ctr->priv = dev;
+        /* Also register a disabled callback for externally clocked devices so
+         * a later source change cannot enable an uninitialized timer. */
+        timer_add(&ctr->timer, pitf_timer_over, ctr, 0);
+        if (!(dev->flags & (PIT_PS2 | PIT_CUSTOM_CLOCK)))
+            (void)pitf_mode4_phase_get(ctr);
     }
 
     if (!(dev->flags & PIT_EXT_IO)) {
