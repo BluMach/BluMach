@@ -2328,12 +2328,10 @@ mem_mapping_recalc(uint64_t base, uint64_t size, uint32_t base_ignore)
             uint64_t i_s   = 0x00000000ULL;
             uint64_t i_e   = b_i & mask;
             uint64_t i_c   = 0x00000000ULL;
-            uint64_t start = (map->base < base) ? map->base : base;
+            /* Do not replace mappings outside the requested interval. */
+            uint64_t start = (map->base > base) ? map->base : base;
             uint64_t end   = (((uint64_t) map->base + (uint64_t) map->size) < (base + size)) ?
                              ((uint64_t) map->base + (uint64_t) map->size) : (base + size);
-            if (start < map->base)
-                start = map->base;
-
             if (i_e == 0x00000000ULL) {
                 for (c = start; c < end; c += MEM_GRANULARITY_SIZE) {
                     /* CPU */
