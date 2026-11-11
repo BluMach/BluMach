@@ -53,6 +53,7 @@ static const uint32_t olivetti_pcs286_ram[] = { 1024, 2048, 4096, 0 };
 static const uint32_t olivetti_m250e_ram[] = { 1024, 2048, 4096, 0 };
 static const uint32_t olivetti_m211v_ram[] = { 1024, 5120, 0 };
 static const uint32_t olivetti_m280_ram[] = { 1024, 2048, 3072, 0 };
+static const uint32_t olivetti_m290s_ram[] = { 1024, 3072, 5120, 0 };
 static const uint32_t olivetti_m290sp_ram[] = { 1024, 3072, 5120, 9216, 17408, 0 };
 static const uint32_t olivetti_m380_ram[] = { 1024, 2048, 4096, 8192, 16384, 32768, 49152, 0 };
 extern const device_t t5200_device;
@@ -4599,7 +4600,7 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "PCS 286/S", "PCS286/S", "PCS 286 TI", "" }
     },
-    /* Olivetti M290S, M203 board. Only the 1 MiB floppy profile is qualified. */
+    /* Olivetti M290S, M203 board: 1 MiB onboard and up to two SIMM pairs. */
     {
         .name              = "[TI TACT82300] Olivetti M290S (M203)",
         .internal_name     = "olivetti_m290s",
@@ -4625,8 +4626,9 @@ const machine_t machines[] = {
         .flags     = MACHINE_VIDEO,
         .ram       = {
             .min  = 1024,
-            .max  = 1024,
-            .step = 1024
+            .max  = 5120,
+            .step = 1024,
+            .valid = olivetti_m290s_ram
         },
         .nvrmask                  = 127,
         .jumpered_ecp_dma         = 0,

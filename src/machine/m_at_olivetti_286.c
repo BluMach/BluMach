@@ -511,7 +511,7 @@ olivetti_pcs286s_olimcu_reg_write32(uint32_t addr, uint32_t val, void *priv)
 }
 
 static void
-olivetti_pcs286s_olimcu_banks_init(olivetti_pcs286s_olimcu_t *dev)
+olivetti_pcs286s_olimcu_banks_init(olivetti_pcs286s_olimcu_t *dev, uint32_t onboard_bank_bytes)
 {
     uint32_t remaining = mem_size << 10;
     uint32_t base      = 0;
@@ -525,7 +525,9 @@ olivetti_pcs286s_olimcu_banks_init(olivetti_pcs286s_olimcu_t *dev)
     for (unsigned bank = 0; bank < OLIMCU_WINDOWS; bank++) {
         uint32_t size = 0;
 
-        if (remaining >= 0x200000)
+        if (bank == 0 && onboard_bank_bytes)
+            size = onboard_bank_bytes;
+        else if (remaining >= 0x200000)
             size = 0x200000;
         else if (remaining >= 0x100000)
             size = 0x100000;
@@ -807,7 +809,7 @@ olivetti_pcs286s_post_write(UNUSED(uint16_t port), uint8_t val, UNUSED(void *pri
 /* Reuse the PCS 286/S approximation for the TACT memory interface
    and the common AT peripherals. M203-specific decode remains unverified. */
 static void
-olivetti_tact286_peripherals_init(const machine_t *model)
+olivetti_tact286_peripherals_init(const machine_t *model, uint32_t onboard_bank_bytes)
 {
     /* Murdock's preservation branch established the board-level devices
        below.  PC87310 owns FDC, two UARTs and LPT and is configured through
@@ -819,7 +821,7 @@ olivetti_tact286_peripherals_init(const machine_t *model)
     /* Until the BIOS programs register 08h, use the emulator defaults. */
     cpu_waitstates = 0;
     cpu_set_isa_speed(12000000);
-    olivetti_pcs286s_olimcu_banks_init(&olivetti_pcs286s_olimcu);
+    olivetti_pcs286s_olimcu_banks_init(&olivetti_pcs286s_olimcu, onboard_bank_bytes);
     static const uint16_t olimcu_bases[] = {
         0x0208, 0x0218, 0x0258, 0x0268, 0x02a8, 0x02b8, 0x02e8
     };
@@ -894,7 +896,7 @@ machine_at_olivetti_pcs286s_ti_init(const machine_t *model)
         return ret;
 
     machine_at_common_ide_init(model);
-    olivetti_tact286_peripherals_init(model);
+    olivetti_tact286_peripherals_init(model, 0);
     io_sethandler(0x0378, 1, NULL, NULL, NULL,
                   olivetti_pcs286s_post_write, NULL, NULL, NULL);
 
@@ -912,9 +914,10 @@ machine_at_olivetti_m290s_init(const machine_t *model)
     if (bios_only || !ret)
         return ret;
 
-    /* The provisional M203 profile exposes only the verified floppy path.
-       An empty ATA controller responds at 1F7h and triggers Extended Setup. */
+    /* Creation attaches compatible IDE only with a disk. An empty ATA
+       controller responds at 1F7h and triggers Extended Setup. */
     machine_at_common_init(model);
-    olivetti_tact286_peripherals_init(model);
+    /* Model the soldered MiB as its own bank, followed by the SIMM pairs. */
+    olivetti_tact286_peripherals_init(model, 0x100000);
     return ret;
 }
