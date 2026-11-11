@@ -145,12 +145,12 @@
           {
             "label_key": "technical.label.source_firmware",
             "value_key": "product.olivetti-m24sp.technical.source_bios",
-            "url": "https://archive.org/details/dos_rom_bios_collection"
+            "url": "https://theretroweb.com/motherboards/s/olivetti-m24sp-ba801-ba177"
           },
           {
             "label_key": "technical.label.source_notes",
             "value_key": "product.olivetti-m24sp.technical.source_code",
-            "url": "https://github.com/BluMach/BluMach/blob/88f74ba30693e14b0003c656fa3ac578c3d85eed/src/machine/m_xt_olivetti.c"
+            "url": "https://github.com/BluMach/BluMach/blob/d9b7770520c8547c86232ccdaecd26f9bf7fddd0/src/machine/m_xt_olivetti.c"
           }
         ]
       }
