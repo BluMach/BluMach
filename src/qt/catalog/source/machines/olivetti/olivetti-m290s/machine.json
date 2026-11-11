@@ -47,7 +47,7 @@
     },
     "hardware": {
       "cpu": "80286 · 16 MHz / 12 MHz (?)",
-      "memory": "1–5 MB · 17 MB (?)",
+      "memory": "1–5 MB · 4 × SIMM-30",
       "chipset": "TI TACT82301 / TACT82302 / TACT82303",
       "video": "Paradise PVGA1A · VGA",
       "floppy": "3.5″ · 1.44 MB / 5.25″ · 1.2 MB",
@@ -212,6 +212,49 @@
         }
       ],
       "fields": [
+        {
+          "id": "memory",
+          "label_key": "creation.label.memory",
+          "default": "1024",
+          "choices": [
+            {
+              "id": "1024",
+              "label_key": "product.olivetti-m290s.creation.memory.1024",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 1024
+                }
+              ]
+            },
+            {
+              "id": "3072",
+              "label_key": "product.olivetti-m290s.creation.memory.3072",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 3072
+                }
+              ]
+            },
+            {
+              "id": "5120",
+              "label_key": "product.olivetti-m290s.creation.memory.5120",
+              "status": "partial",
+              "set": [
+                {
+                  "section": "Machine",
+                  "key": "mem_size",
+                  "value": 5120
+                }
+              ]
+            }
+          ]
+        },
         {
           "id": "storage",
           "label_key": "creation.label.hard_disk",
