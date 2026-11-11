@@ -90,6 +90,8 @@ static void fixture(unsigned kib)
     memset(&olivetti_pcs286s_olimcu, 0, sizeof(olivetti_pcs286s_olimcu));
     base_mapping = last_mapping = NULL;
     mem_size = kib;
+    cpu_mem_prefetch_cycles = 2;
+    cpu_rom_prefetch_cycles = 4;
     for (unsigned i = 0; i < kib * 1024; ++i)
         ram[i] = (uint8_t)((i >> 12) ^ (i >> 16) ^ i);
     for (unsigned i = 0; i < sizeof(test_rom); ++i)
@@ -159,7 +161,16 @@ static void write_byte(uint32_t addr, uint8_t value)
 static uint8_t fetch_byte(uint32_t addr)
 {
     CHECK(_mem_exec[addr >> 12] != NULL);
-    return *(uint8_t *)((uintptr_t)getpccache(addr) + addr);
+    uintptr_t cache = (uintptr_t)getpccache(addr);
+    mem_mapping_t *map = read_mapping[addr >> 12];
+    CHECK(cpu_prefetch_cycles == ((map && (map->flags & MEM_MAPPING_ROM_WS)) ?
+                                 cpu_rom_prefetch_cycles : cpu_mem_prefetch_cycles));
+    /* Match fastreadb() in 386_common.h: getpccache rebases the low 32 bits
+       and retains the host pointer's upper bits. Plain pointer addition is
+       incorrect if that rebase wraps, as with macOS's static test storage. */
+    uintptr_t pointer = ((cache + addr) & (uintptr_t)UINT32_MAX) |
+                        (cache & ~(uintptr_t)UINT32_MAX);
+    return *(uint8_t *)pointer;
 }
 static void check_ram_alias(uint32_t logical, uint32_t physical)
 {
