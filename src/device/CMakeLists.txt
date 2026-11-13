@@ -66,6 +66,7 @@ add_library(dev OBJECT
     smbus_piix4.c
     smbus_sis5595.c
     tulip_jumper.c
+    conventional_3inoneder.c
     toshiba_aform.c
     "$<${BLUMACH_UNIT_TESTER_CONFIG}:unittester.c>"
     zenith_scratchpad.c
