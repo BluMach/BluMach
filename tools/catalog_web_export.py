@@ -5,8 +5,10 @@ The archive holds what the application's Collection shows about each machine
 (history, technical sheet, status, sources, images with their credits) in
 every catalogue language. It leaves out what only the application needs to
 create a machine: creation templates, emulator machine identifiers and
-CoreMach system identifiers. Entries the application hides (without
-"visible": true, including development-only ones) are left out entirely,
+CoreMach system identifiers. The archive holds the same machines as the
+Release application catalogue: public ("visible": true) machines with a
+BluMach emulation, with the manufacturers and families they need. Research
+sheets, hidden entries and development-only entries are left out entirely,
 together with their texts. Every exported entry keeps its "visible": true so
 the website can refuse anything else.
 """
@@ -105,10 +107,16 @@ def export(
     *,
     include_variant_groups: bool = False,
 ) -> dict[str, bytes]:
-    catalog, translations = catalog_builder.assemble(source_dir)
+    bundle_keys: dict[tuple[str, str], set[str]] = {}
+    catalog, translations = catalog_builder.assemble(source_dir, bundle_keys=bundle_keys)
     errors = catalog_builder.validate(catalog, translations)
     if errors:
         raise ValueError("catalogue does not validate:\n" + "\n".join(errors))
+    all_ids = {kind: {entity["id"] for entity in catalog[kind]}
+               for kind in ("manufacturers", "families", "products")}
+    # Publish the same machines as the Release application catalogue.
+    variant_groups = catalog_builder.load_variant_groups(source_dir, catalog, translations)
+    catalog_builder.restrict_release(catalog, translations, variant_groups, bundle_keys)
 
     tag = f"v{version}"
     platforms = {platform["id"]: platform for platform in catalog["platforms"]}
@@ -118,8 +126,8 @@ def export(
                 if visible(f) and f.get("manufacturer_id") in manufacturer_ids]
     family_ids = {f["id"] for f in families}
     hidden = {
-        "manufacturer": {m["id"] for m in catalog["manufacturers"]} - manufacturer_ids,
-        "family": {f["id"] for f in catalog["families"]} - family_ids,
+        "manufacturer": all_ids["manufacturers"] - manufacturer_ids,
+        "family": all_ids["families"] - family_ids,
     }
     images: set[str] = set()
     products = [
@@ -128,7 +136,7 @@ def export(
         if visible(product) and product.get("family_id") in family_ids
     ]
 
-    hidden["product"] = {p["id"] for p in catalog["products"]} - {p["id"] for p in products}
+    hidden["product"] = all_ids["products"] - {p["id"] for p in products}
     for product in products:
         relationships = product.get("relationships")
         if isinstance(relationships, dict):
@@ -142,7 +150,6 @@ def export(
                 del product["relationships"]
 
     files: dict[str, bytes] = {}
-    variant_groups = catalog_builder.load_variant_groups(source_dir, catalog, translations)
     if include_variant_groups and variant_groups["groups"]:
         files[catalog_builder.VARIANT_GROUPS_FILE] = encode(variant_groups)
     image_paths = image_files(resource_file)

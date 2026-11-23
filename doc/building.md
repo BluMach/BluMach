@@ -76,8 +76,9 @@ The provenance of a downloaded package can be checked with
 
 `BluMach-<version>-catalog-web.zip` feeds the machine pages of the website.
 It holds `manifest.json` (version, tag and commit), `catalog.json` with the
-visible manufacturers, families and machines, the five locale packs and the
-images the machines use. Creation templates and emulator identifiers stay out:
+same machines as the Release application catalogue (visible machines with a
+BluMach emulation, plus their manufacturers and families), the five locale
+packs and the images the machines use. Research sheets stay out. Creation templates and emulator identifiers stay out:
 they only matter to the application. To produce it for a checkout:
 
 ```text

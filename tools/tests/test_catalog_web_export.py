@@ -103,8 +103,10 @@ class CatalogWebExportTests(unittest.TestCase):
         self.assertEqual("blumach-variant-groups-v1", presentation["schema"])
         products = {p["id"]: p for p in self.catalog["products"]}
         variants = [variant for group in presentation["groups"] for variant in group["variants"]]
-        self.assertEqual(14, len(presentation["groups"]))
-        self.assertEqual(65, len(variants))
+        # Only groups whose every member is released, as in the Release application.
+        self.assertEqual(["olivetti-m4-4x-microtower", "olivetti-m4-6x-m305"],
+                         sorted(group["id"] for group in presentation["groups"]))
+        self.assertEqual(7, len(variants))
         self.assertEqual(len(variants), len(set(variants)))
         self.assertNotIn("olivetti-m6-880", variants)
         for group in presentation["groups"]:
@@ -112,17 +114,41 @@ class CatalogWebExportTests(unittest.TestCase):
                 self.assertEqual(group["family_id"], products[variant]["family_id"])
         self.assertNotIn("groups", self.catalog)
 
+    def test_web_export_matches_the_release_application_catalogue(self) -> None:
+        builder = catalog_web_export.catalog_builder
+        source = ROOT / "src/qt/catalog/source"
+        bundle_keys: dict = {}
+        catalog, translations = builder.assemble(source, desktop=True, bundle_keys=bundle_keys)
+        groups = builder.load_variant_groups(source, catalog, translations, desktop=True)
+        builder.restrict_release(catalog, translations, groups, bundle_keys)
+        for kind in ("manufacturers", "families", "products"):
+            self.assertEqual({e["id"] for e in catalog[kind]},
+                             {e["id"] for e in self.catalog[kind]}, kind)
+
+    def test_research_sheets_stay_out(self) -> None:
+        catalog, _ = catalog_web_export.catalog_builder.assemble(ROOT / "src/qt/catalog/source")
+        research = {p["id"] for p in catalog["products"]
+                    if p.get("visible") is True and not p.get("blumach_emulation")}
+        self.assertTrue(research)
+        exported = {p["id"] for p in self.catalog["products"]}
+        self.assertFalse(research & exported)
+        for locale in self.manifest["locales"]:
+            keys = json.loads(self.files[f"locales/{locale}.json"])
+            for product_id in research:
+                self.assertFalse([k for k in keys if k.startswith(f"product.{product_id}.")], product_id)
+
     def test_legacy_press_keeps_citation_text_in_the_web_export(self) -> None:
+        # No released machine cites this archive yet: check the product transformation itself.
         source, _ = catalog_web_export.catalog_builder.assemble(ROOT / "src/qt/catalog/source")
         original = next(p for p in source["products"] if p["id"] == "schneider-386-professional-340")
-        product = next(p for p in self.catalog["products"] if p["id"] == original["id"])
+        product = catalog_web_export.public_product(original, {}, "v1.2.3-test", set())
         entries = {e["value_key"]: e for s in product["technical"] for e in s["entries"]}
         legacy = [e for s in original["technical"] for e in s["entries"]
                   if e.get("url", "").startswith(catalog_web_export.LEGACY_SCHNEIDER_PRESS)]
         self.assertTrue(legacy)
         for entry in legacy:
+            self.assertIn(entry["value_key"], entries)
             self.assertNotIn("url", entries[entry["value_key"]])
-            self.assertIn(entry["value_key"], json.loads(self.files["locales/es.json"]))
 
     def test_archive_bytes_are_reproducible(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
